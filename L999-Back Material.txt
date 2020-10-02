@@ -1,0 +1,771 @@
+##############################################################################
+##############################################################################
+##############################################################################
+##############################################################################
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######          ##############################################          ######
+######          ##############################################          ######
+######          ###                                        ###          ######
+######          ###              Retro Notes               ###          ######
+######          ###                                        ###          ######
+######          ###             Back Material              ###          ######
+######          ###                                        ###          ######
+######          ##############################################          ######
+######          ##############################################          ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                     Composed Entirely In Vim                     ######
+######                                                                  ######
+######                           in 78 columns                          ######
+######                                                                  ######
+######                   Lucida Console - Regular - 11                  ######
+######                                                                  ######
+######                       Color Scheme: Elflord                      ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                       AtomicRetro@outlook.com                    ######
+######                       Revision:  20.10.01                        ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+##############################################################################
+##############################################################################
+##############################################################################
+##############################################################################
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+* This document must be viewed with a mono-spaced font to enjoy the layout,
+  tables and diagrams.
+
+
+================================
+Organization of Ron's Text Notes
+================================
+
+
+The Files
+---------
+
+L100-Arguments & Language
+L200-Inductive Logics.txt
+L300-Aristotelian Logics.txt
+L400-Frege-Russellean Logics.txt
+L500-Modal Logics.txt
+L600-Non-Classical Logics.txt
+L700-Metalogic.txt
+L999-Back Material.txt
+
+
+Organization of This Document
+-----------------------------
+
+The Files
+Logics Hierarchy
+Number Hierarchy
+Symbols
+Diagram & Table Templates
+Document Conventions
+
+
+Logics Hierarchy
+----------------
+
+Logics Hierarchy
+   Deductive Formal Logics (certain conclusion)
+      Aristotelian logics
+         Modern & Traditional Interpretation (Side-by-side)
+
+      Frege-Russellean Logics (Classical Logics)
+         Formal definitions
+         Truth-Functional Logic
+         Set Theory (Naive - Only the basics)
+         Predicate Logic
+         First-Order Quantified Logic
+         Identity Logic
+         Function Logic
+         Mathematical Induction Logic
+         Second-Order Quantified Logic
+         Logic Axioms
+         Formal Theories
+
+      Extended Logics
+         Modal Logics
+            Alethic Logic
+            Deontic Logic
+            Temporal Logic
+            Doxastic Logic (belief logic)
+            Epistemic Logic (knowledge logic0
+         Preference Logic
+         Justification Logic
+         imperative logic
+         erotetic (interrogative)
+
+      Non-Classical Paradigm Logics
+         Free
+         Paraconsistent
+         Intuitionistic
+         Many Valued Logics
+         Quantum Logics
+
+   Inductive Logic (probabile conclusion)
+      Statistical
+      Humean
+      Causal
+      Analogical
+
+   Abductive (Reasoning from Best Explanation)
+
+   Reduction (Divide and Conquor Reasoning)
+
+Every logic described is organized into the following sections:
+
+   Language
+   Semantics
+      ...
+      Translation Hints
+   Calculus  (Inferences)
+   Philosophical Concerns
+   Proofs
+
+Inference Rules Notation
+
+   P(Q)   but, P(c) denotes predicate
+   P[Q]   but, [...] denotes optional things but 
+   P{Q}   but, {...} denotes sets
+   P<Q>   but, <...> denotes tuples
+
+   P(Q) indicates that a wff P contains one or more occurrences of
+   sub-expression Q.
+
+   P(R/Q) indicates the result of replacing one or more occurrences
+   of Q in P with R.  R/Q is read, "R replaced one or more occurrences of Q".
+
+   P(R//Q) like above but indicates replacing all occurrences of Q in P with
+   R.  R//Q is read, "R replaced all occurrences of Q"
+
+   P(c),P(a/c),P(a//c), similar to the above but a and c are object symbols.
+
+   [ ... ] indicates that the enclosed must exist, be defined or proven
+   elsewhere.
+
+Number Hierarchy
+----------------
+
+   Number
+
+      Complex
+         Imaginary
+            Pure Imaginary
+         Real (any point on the number line - it's continuous not discrete)
+            Non-algebraic Real
+               Irrational
+                  Transcendental
+            Algebraic Real
+               Irrational
+                  Rational (fraction, ratio of two integers)
+                     Integer (Discrete Numbers)
+                        Whole (0,1,2...)
+                           0
+                           Natural/counting (1,2,3...)
+                        Negative
+
+
+Symbols
+-------
+
+   The Greek Alphabet
+
+   Upper        Lower
+   -------      -------
+   ALPHA        alpha
+   BETA         beta
+   GAMMA        gamma
+   DELTA        delta
+   EPSILON      epsilon
+   ZETA         zeta
+   ETA          eta
+   THETA        theta
+   IOTA         iota
+   KAPPA        kappa
+   LAMBDA       lambda
+   MU           mu
+   NU           nu
+   XI           xi
+   OMICRON      omicron
+   PI           pi
+   RHO          rho
+   SIGMA        sigma
+   TAU          tau
+   UPSILON      upsilon
+   PHI          phi
+   CHI          chi
+   PSI          psi
+   OMEGA        omega
+
+   The English Alphabet (and Related Symbols)
+   A...Z        english upper case letters
+   a...z        english lower case letters
+   P^1          P superscript 1
+   P1           P subscript 1
+   Pn           P subscript n
+   P'           P prime
+
+   Logical Symbols
+   T  or  1     logical value true
+   F  or  0     logical value false
+   /.           therefore
+   -            negation
+   ^            conjunction
+   V            disjunction
+   ->           conditional
+   <->          biconditional
+   <-           reverse conditional
+   |            Sheffer stroke
+   ( and )      parentheses
+   [ and ]      brackets
+   { and }      braces
+   A:  or  Ax:  universal quantifier
+   E:  or  Ex:  existential quantifier
+   =            identity
+   []           box
+   <>           diamond
+   [#]          solid box
+   <#>          solid diamond
+   -<           strict conditional
+   >-<          strict biconditional
+   >-           strict reverse conditional
+   T            tautology, valid wff
+   _|_          contradiction (inverted T)
+   |-           turnstile, 'entails'
+   |=           'satisfies'
+   /            for replacement of (one or more occurrences)
+   //           for replacement of (all occurrences)
+   *            conjunction (Boolean Algebra)
+   +            disjunction (Boolean Algebra)
+   =df          formal definition (not really a logic symbol)
+
+   Set Thoery Symbols
+   0  or  null  empty set
+   |  or  :     such that
+   in           membership
+   =            set equality
+   !=           is not equal to
+   <            proper subset
+   <=           subset
+   >            proper superset
+   >=           superset
+   U            union
+   ^            intersection
+   -            set difference
+   '            set complement
+   ( and )      parentheses
+   [ and ]      brackets
+   { and }      braces
+   | and |      cardinality
+   
+   Mathematical Symbols
+   '            prime
+   |            given that
+   =            is equal to
+   !=           is not equal to
+   <            is less than
+   <=           is less than or equal to
+   >            is greater than
+   >=           is greater than or equal to
+   +            addition
+   -            subtraction
+   *            multiplication
+   /            division
+   ^            raised to the power of
+   ( and )      parentheses
+   [ and ]      brackets
+   { and }      braces
+
+   Other Symbols
+   ...          ellipsis
+   '...'        single quotes
+   "..."        double quotes
+ 
+
+Diagram & Table Templates
+-------------------------
+
+Venn Diagrams
+
+          +-------+
+         S|       |
+          |   +---+---+
+          |   |   |   |
+          +---+---+   |
+              |       |P
+              +-------+
+
+          +-------+                    +-------+
+         S|       |                   S|       |
+          |   +---+---+                |   +---+---+
+          |   |   |   |                |   |   |   |
+          +---+---+   |                +---+---+   |
+              |       |P                   |       |P
+              +-------+                    +-------+
+
+                  +-----------+
+                  |           |M
+          +-------+---+       |
+         S|       |   |       |
+          |   +---+---+---+   |
+          |   |   |   |   |   |
+          |   |   +---+---+---+
+          |   |       |   |
+          +---+-------+   |
+              |           |P
+              +-----------+
+
+                  +-----------+                +-----------+
+                  |           |M               |           |M
+          +-------+---+       |        +-------+---+       |
+         S|       |   |       |       S|       |   |       |
+          |   +---+---+---+   |        |   +---+---+---+   |
+          |   |   |   |   |   |        |   |   |   |   |   |
+          |   |   +---+---+---+        |   |   +---+---+---+
+          |   |       |   |            |   |       |   |
+          +---+-------+   |            +---+-------+   |
+              |           |P               |           |P
+              +-----------+                +-----------+
+
+Squares of Opposition
+
+   Modern Square of Opposition       Traditional Square of Opposition
+
+                                             contraries
+      A                   E             A - - - - - - - - - E
+        \               /              s| \               / |s
+          \           /                u    \           /    u
+            \       /                  b|     \       /     |b
+              \   /                    a        \   /        a
+         Contradictories               l|  contradictories  |l
+              /   \                    t        /   \        t
+            /       \                  e|     /       \     |e
+          /           \                r    /           \    r
+        /               \              n| /               \ |n
+      I                   O             I - - - - - - - - - O
+                                            subcontraries
+
+Tree Graph
+
+                             Root 
+                             /  \
+                            /    \
+                        leaf1    parent&Child 
+                                 /          \
+                                /            \
+                             child           node 
+                             /   \           /   \
+                            /     \         /     \
+                         leaf2   leaf3   leaf4   leaf5
+
+Information Box
+
+      +---------------------------+------------------------------+
+      | ========================= | ============================ |
+      | Header                    | Header                       |
+      | ========================= | ============================ |
+      | content                   | content                      |
+      | content                   | content                      |
+      | content                   | content                      |
+      |                           |                              |
+      | ========================= | ============================ |
+      | Header                    | Header                       |
+      | ========================= | ============================ |
+      | content                   | content                      |
+      | content                   | content                      |
+      | content                   | content                      |
+      |                           |                              |
+      | ========================= | ============================ |
+      | Header                    | Header                       |
+      | ========================= | ============================ |
+      | content                   | content                      |
+      | content                   | content                      |
+      | content                   | content                      |
+      |                           |                              |
+      +---------------------------+------------------------------+
+
+Unordered List (Bullets)
+
+      - Keep trying and you'll succeed.
+        Use: If you keep trying, then you'll succeed.
+
+      - Keep it up and I'll clobber you.
+        Use: If you keep it up, the I'll clobber you.
+
+      - Give him and inch, and he'll take a mile.
+        Use: If you give him an inch, then he will take a mil.
+
+      - Give me a place to stand, and I'll move the world.
+        Use: If you give me a place to stand, then I'll move the world.
+
+      - Give us the tools of war, and we will finish the job.
+        Use: If you give us the tools of war, then we'll finish the job.
+
+Ordered List (Procedure)
+
+   Procedure
+   1.  Write a vertical list of wffs to be tested.  This list forms the root
+       of our tree.
+
+   2.  Repeatedly apply the following rules in any order.  The tree is
+       only completed when no more rules can be applied.
+     ^^
+   Two Spaces
+
+Ordered Lists (Proofs)
+
+   Ax:(Qx -> Rx), Ax:(Px -> Qx)  |-  Ax:(Px -> Rx)
+   Proof                                             <<< Always enclose
+   01.   Ax(Qx -> Rx)             A                      the proof within
+   02.   Ax(Px -> Qx)             A                      a "proof block"
+   03.   |[a]                     H (for AI)             denoted by
+   04.   |   |   Pa               H (for ->I)            'Proof' and 'QED'.
+   05.   |   |   Qa -> Ra         1 AE (a/x)
+   06.   |   |   Pa -> Qa         2 AE (a/x)
+   06.   |   |   Qa               4,6 ->E
+   07.   |   |   Ra               5,6 ->E
+   08.   |   Pa -> Ra             4-7 ->I
+   09.   Ax:(Px -> Rx)            3-8 AI
+   QED
+                                  ^^^ Justifications all lined up.
+
+      ^^^ Always three spaces after line numbbers and after subproof blocks.
+
+   ^^ double digit line numbers.
+
+Unordered Lists (Parallel)
+
+      ========    ========    ========    ========
+      Figure-1    Figure-2    Figure-3    Figure-4
+      ========    ========    ========    ========
+       1-AAA       2-AEE       3-AII       4-AEE
+       1-AII       2-AOO       3-EIO       4-EIO
+       1-EAE       2-EAE       3-IAI       4-IAI
+       1-EIO       2-EIO       3-OAO
+      ========    ========    ========    ========
+              ^^^^        ^^^^        ^^^^
+              Four spaces between columns.
+
+Unordered List (Parallel) with Sections
+
+      ========    ========    ========    ========    ============
+      Figure-1    Figrue-2    Figure-3    Figure-4    Condition
+                                                      for Validity
+      ========    ========    ========    ========    ============
+       1-AAI       2-AEO                   4-AEO       S exists
+       1-EAO       2-EAO
+      --------    --------    --------    --------    ------------
+                               3-AII       4-EAO       M exists
+                               3-EAO
+      --------    --------    --------    --------    ------------
+                                           4-AAI       P exists
+
+      ========    ========    ========    ========    ============
+
+Table without Sections
+
+    ==========  =============  ===============  ===========
+    header      header         header           header
+    ==========  =============  ===============  ===========
+    header      content        content          content
+    header      content        content          content
+    header      content        content          content
+    header      content        content          content
+    header      content        content          content
+    ==========  =============  ===============  ===========
+              ^^             ^^               ^^
+              Two spaces between columns.
+
+Table with Sections (divided by blank lines)
+
+    ==========  =============  ===============  ===========
+    header      header         header           header
+    ==========  =============  ===============  ===========
+    header      content        content          content
+                content        content          content
+
+    header      content        content          content
+                content        content          content
+
+    header      content        content          content
+                content        content          content
+    ==========  =============  ===============  ===========
+
+Table with Sections (divided by dash-lines)
+
+    ==========  =============  ===============  ===========
+    header      header         header           header
+    ==========  =============  ===============  ===========
+    header      content        content          content
+                content        content          content
+    ----------  -------------  ---------------  -----------
+    header      content        content          content
+                content        content          content
+    ----------  -------------  ---------------  -----------
+    header      content        content          content
+    ==========  =============  ===============  ===========
+
+
+Table of Relationships
+
+                                     Quality  
+                     +------------------+-----------------------+
+                     | Affirmatives     | Negatives             |
+      Q +------------+------------------+-----------------------+
+      u | Universal  | A:  All S* is P. | E:  No S* is P*.      | < ExistImp
+      a |            |                  |                       |
+      n | Particular | I:  Some S is P. | O:  Some S is not P*. | < ExistImp
+      t +------------+------------------+-----------------------+
+      i | Singular   | AS: s is S.      | ES: x is not *S.      | < ExistImp
+      t |            |     s is y.      |     x is not *y.      | < ExistImp
+      y +------------+------------------+-----------------------+
+
+Truth-Tables
+
+       P Q | (P ^ Q) | (P V Q) | (P -> Q) | (P <-> Q)
+      ===============================================
+       F F |  F F F  |  F F F  |  F T  F  |  F  T  F
+       F T |  F F T  |  F T T  |  F T  T  |  F  F  T
+       T F |  T F F  |  T T F  |  T F  F  |  T  F  F
+       T T |  T T T  |  T T T  |  T T  T  |  T  T  T
+                *         *         *           *
+
+       P Q | P -> Q , - Q  |-  - P
+      =============================
+       F F | F T  F | T F  |   T F  <==
+       F T | F T  T | F T  |   T F
+       T F | T F  F | T F  |   F T
+       T T | T T  T | F T  |   F T
+               *      *        *
+
+
+Document Conventions
+--------------------
+
+Do's and Don'ts
+
+   TABS ARE THE ENEMY - SPACES ONLY!
+
+   White space is our friend.  Don't squish stuff together Everything looks
+   better with more whitespace than is technically necessary (but please,
+   not *too* much).
+
+   Avoid stacking - when the same symbols appear in two separate lines
+   one below the other.
+
+   Avoid splitting hyphenated words when one of the two words is very short
+   (like 2 or 3 letters).  (Try very to not split words between lines)
+
+   Avoid ending a paragraph or column of text with a line containing only
+   a few words.
+
+   Avoid too long a sequence of lines that grow progressively longer or
+   progressively shorter.  Ideally the left column should have a nice wavy
+   look.  (This may be difficult in mono-spaced font).
+
+   Avoid having a string of one or more small words at the end of a line;
+   especially following a period.
+
+Section Headers
+
+==============================================================================
+||||| Level 1 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+==============================================================================
+
+||||| Level 2 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+Level 3
+=======
+
+Level 4
+-------
+
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+||||| Level 1 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+------------------------------------------------------------------------------
+||||| Level 1 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+------------------------------------------------------------------------------
+
+((((( Level 2 ))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+
+   =======
+   Level 1
+   =======
+
+   -------
+   Level 2
+   -------
+
+   Level 3
+   =======
+
+   Level 4
+   -------
+
+   All headers will be preceded by a blank line.
+
+   Over/Underline headers are preceded by two blank lines.
+
+   Level 1, 2, 3 and 4 headers will be left justified.  Other headers are
+   indented 3 spaces for each level.
+
+   Indentation of tables and diagrams will be more liberal to accomodate the
+   limited page width.
+
+   I really like this very simple clean level 1 header below
+
+
+Document Text
+
+   I'll try to use shorter words when I think of it and it seems to me to not
+   degrade clarity.  Again to conserve space.
+
+   I'll try to keep personal commentary minimal
+
+Diagrams & Tables
+
+   I'll do my best to align diagrams and tables when they appear close
+   together, but width limitations (and mono-spacing) can make that difficult.
+
+   For text don't cr unless necessary; try to get close to column 78.  There
+   may be oddball cases where it looks like a word is straggling new column
+   78 but the nearby text is quite shorter.  In this calse I'll CR early to
+   avoid that orphan or dangler.
+
+ALL CAPS
+
+   Used to make important pieces to text stand out, mostly used for a term
+   when it's defined (to make it easier to search for the definition).
+
+Italics
+
+   When some text is italicized it will be surrounded *like this*.
+
+Use, Mention and Quotes
+
+   It's useful to differentiate between whether something's meaning is part
+   of a sentence structure, of whehter something is just being mentioned.
+
+   SINGLE QUOTES are used When we wish to merely MENTIONING something.
+
+      The sentence 'Alice loves Bob,' is transitive.
+
+   NO QUOTES are used if something is used as part of the sentence.
+
+      Alice loves Bob, but Bob doesn't love Alice.
+
+   To indicate something that someone actually said, we use DOUBLE QUOTES.
+
+      Alice said, "I love Bob."
+
+   Notice double quotes, like single, describe something that's mentioned.
+   The key difference being that double quotes surround verbatum sentences.
+
+   @@@ I'm sort of lax about using single quote for mentions, and often
+   don't.  I may or may not correct this in future revisions.
+
+Annotations to myself
+
+   I will precede any editing annotations to myself with @@@.
+   (These should never be visible in a release version - if I don't mess up).
+
+Notation Regarding SYMBOLOGY
+
+   The particular set of symbols chosen in this text may not be to everyone's
+   taste.  However, this symbology was chosen on several aesthetic principles
+   that I believe are analogous to their denotations.  My chosen set of
+   logical operation symbols forms a set of symmetric symbols consisting
+   entirely of straight *well-defined* lines - just as the discrete primitive
+   principles they denote. Symbols remain that can be flipped and rotated but
+   my two favorite are <- and >-.  Because I like to think most
+   would agree that these symbols clearly symmetrically denote 'provided' and
+   'strictly provided'; Or (P -> Q) wirtten backwards (Q <- P), and
+   [](-P -> -Q), and so are easily defined, perhaps as toys, from our
+   traditional symbology.  
+
+   Compare that to the large rounded (P,Q,R,S) letters denoting things less
+   easily defined.  No doubt at this point one might be wondering of the
+   parentheses.  Surely all of this implies I ought to have chosen brackets?
+   But the beauty in choosing these vertical arcs is that they denote circles;
+   somtimes you can even see two-dimensional bubble around its contents, (x).
+   All such that our formulas are in perfectly nested recursive bubbles that
+   pop one-by-one from the outside in, or form the inside out as we manipulate
+   or evaluate expresssions.
+
+   So the chosen symbol set is round and curvy just where it needs to be, and
+   rigidly defined straight line symmetries to denote similarly rigidly
+   defined definitions and operations.  And just in between those we have the
+   symmectrical arcs of the parenthesis denoteing two-dimensional bubbles.
+
+Notation Regarding Venn Diagrams
+
+   Obviously circles aren't possible.  I did consider diamonds using / and \,
+   but they would have been larger causing the diagrams to take up more space.
+   I wanted the diagrams to be more compact and they are as compact as they
+   can get with my chosen set of marks.  I think any smaller and it would
+   become too difficult to read them.  Upon first glace the rectangles may
+   seem harder to read than circles, but I found I adjusted quickly.  For
+   those disapointed in my choice, cocking your head to the right makes the
+   rectangles look more similar to conventional Venn diagrams.  If you read
+   this with the same editor and font that I'm using, the rectangles look
+   nearly square.
+
+
+ O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+ O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O
+ O O O                                                                 O O O
+O O O O                                                               O O O O
+ O O O                                                                 O O O
+O O O O                                                               O O O O
+ O O O           O O O O O O O O O O O O O O O O O O O O O O           O O O
+O O O O         O O O O O O O O O O O O O O O O O O O O O O O         O O O O
+ O O O         O O O                                     O O O         O O O
+O O O O         O O                                       O O         O O O O
+ O O O         O O O             Retro Notes             O O O         O O O
+O O O O         O O                                       O O         O O O O
+ O O O         O O O             GVIM Editor             O O O         O O O
+O O O O         O O                                       O O         O O O O
+ O O O         O O O                                     O O O         O O O
+O O O O         O O O O O O O O O O O O O O O O O O O O O O O         O O O O
+ O O O           O O O O O O O O O O O O O O O O O O O O O O           O O O
+O O O O                                                               O O O O
+ O O O                                                                 O O O
+O O O O                                                               O O O O
+ O O O                                                                 O O O
+O O O O                                                               O O O O
+ O O O                                                                 O O O
+O O O O                                                               O O O O
+ O O O                                                                 O O O
+O O O O                                                               O O O O
+ O O O                                                                 O O O
+O O O O                                                               O O O O
+ O O O                                                                 O O O
+O O O O                                                               O O O O
+ O O O                                                                 O O O
+O O O O                                                               O O O O
+ O O O                                                                 O O O
+O O O O                                                               O O O O
+ O O O                                                                 O O O
+O O O O                                                               O O O O
+
+

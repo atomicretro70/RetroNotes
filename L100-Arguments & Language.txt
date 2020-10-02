@@ -1,0 +1,830 @@
+##############################################################################
+##############################################################################
+##############################################################################
+##############################################################################
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######          ##############################################          ######
+######          ##############################################          ######
+######          ###                                        ###          ######
+######          ###              Retro Notes               ###          ######
+######          ###                                        ###          ######
+######          ###          Arguments & Language          ###          ######
+######          ###                                        ###          ######
+######          ##############################################          ######
+######          ##############################################          ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                     Composed Entirely In Vim                     ######
+######                                                                  ######
+######                           in 78 columns                          ######
+######                                                                  ######
+######                   Lucida Console - Regular - 11                  ######
+######                                                                  ######
+######                       Color Scheme: Elflord                      ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                       AtomicRetro@outlook.com                    ######
+######                       Revision:  20.10.02                        ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+##############################################################################
+##############################################################################
+##############################################################################
+##############################################################################
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+* This document must be viewed with a mono-spaced font to enjoy the layout,
+  tables and diagrams.
+
+
+=======================================
+Contents
+=======================================
+Arguments
+   Identification
+   Expression of Arguments
+   Assessment
+   Refutation
+   Debates & Disputes
+Propositions
+   Ident
+   Kinds of Propositions
+Definitions
+   Components
+   Definition Uses
+   Extension & Intension
+   Techniques of Definitions
+   Assessment of Definitions
+
+
+=========
+Arguments
+=========
+
+
+--------------
+Identification
+--------------
+
+LOGIC
+=====
+
+   (General)  The science that studies and evaluates arguments.
+   (Specific) a formal language for expressing propositions along with a
+              formal deductive system.
+
+
+Proposition
+===========
+
+   Arguments are composed of propositions.  A PROPOSITION is the concept that
+   a true/false statement denotes.  Many different statements can denote the
+   same propositions.  Every proposition is either true or false, but never
+   both or neither.
+
+      Examples
+
+      ===========================================================  ===========
+      Statement                                                    Proposition
+      ===========================================================  ===========
+      The sky is blue.                                               Yes
+      Alice is taller than Bob.                                      Yes
+      The cat is black and the dob is brown.                         Yes
+      Who is standing over there?                                    No
+      If the cat is a mammal then the cat is a vertebret.            Yes
+      Yessss!                                                        No
+      Charlie ran all the way to the store.                          Yes
+      He is my father.                                               Yes
+      That's the man who is my father.                               Yes
+      Li estas mia patro.                                            Yes
+      ===========================================================  ===========
+
+   The final three examples all express the same proposition.
+
+   In mathamatics we assign values as numbers.  There are an infinite number
+   of values or numbers we can use.  In logic we assign values of truth
+   to propositions.  Sice we're dealing with deduction we only have two
+   possible values: true and false, which we call TRUTH-VALUES.
+
+Argument
+========
+
+   An ARGUMENT is a set of propositions; where one is intended as a
+   CONCLUSION, a sort of finding; the rest, the PREMISES, are claimed to prove
+   or provide some evidence for the conclusion.  The following are examples
+   of arguments and non-arguments.  the symbol '/.' is read as 'therefore'.
+
+      Example Argument
+
+         All men are mortal.              All cats are mammals.
+         Socrates is a man.               All mammals are vertebrets.
+      /. Socrates is mortal.           /. All cats are vertibrets.
+
+         5% of A's are B's.               Bob voted.
+         Alice is A.                   /. Bob voted or Cheryl voted.
+      /. Alice probably isn't B.
+
+      Examples Non-Arguments
+
+         If she goes to the spa then      With what sense do you detect
+         she will be able to relax.       the presence of her spirit?
+
+         It may be that all gays are      The balloon expanded because
+         born gay.  But it's not yet      the heated air molecules are
+         known to be a fact.              moving fast.
+
+   Inference
+
+   INFERENCE is the reasoning process expressed by an argument.
+
+Indicator Words
+===============
+
+   An INDICATOR WORD introduces (precedes) premises or conclusions, signalig
+   the presence of an argument.  However, premises and conclusions don't
+   always have them, and some arguments don't contain any.  The following
+   are examples of premise and conclusion indicators.
+
+      +------------------------------+------------------------------+
+      | ============================ | ============================ |
+      | Premise Indicators           | Conclusion Indicators        |
+      | ============================ | ============================ |
+      | as                           | accordingly                  |
+      | as indicated by              | as a consequence             |
+      | as shown by the fact that    | as a logical consequence     |
+      | assuming that                | as a result                  |
+      | because                      | consequently                 |
+      | for                          | entails that                 |
+      | for the reason that          | for this reason              |
+      | given that                   | from which we can infer that |
+      | granted that                 | hence                        |
+      | in that                      | in conclusion                |
+      | in view of the fact that     | it follows that              |
+      | inasmuch as                  | it follows necessarily that  |
+      | it is a fact that            | proving that                 |
+      | may be inferred from         | so                           |
+      | one cannot doubt that        | the moral is                 |
+      | owing to                     | therefore                    |
+      | seeing that                  | this being so                |
+      | since                        | thus                         |
+      | the reason is that           | we may conclude              |
+      | this is true because         | we may infer                 |
+      |                              | wherefore                    |
+      |                              | which means that             |
+      |                              | which proves that            |
+      |                              |                              |
+      +------------------------------+------------------------------+
+
+   When a passage has no indicator words, if it's an argument, the conclusion
+   will often be stated near the top, near the bottom or both.
+
+Kinds of Discourse
+==================
+
+   It can be helpful to be aware of the kinds of discourse when trying
+   to pick out an argument.
+
+   Simple Noninferrential Passage
+
+   A SIMPLE NONINFERENTIAL PASSAGE is a passage that's easily distinguished
+   from an argument.
+
+      Warning
+
+         Example
+
+         Caution! Wet Floor.
+
+         Be aware that the gas pedal can be sensative in this care.
+
+      Piece of Advice
+
+         Example
+
+         Don't forget to always pay your bills on time.
+
+         When you feel the vehicle slide pump the breaks.
+
+      Statement of Belief/Opinion
+
+         Example
+
+         I believe in the first ammendment.
+
+         We believe X the greatest TV show ever created.
+
+      Loosely Associated Statements
+
+         Example
+
+         The score has gone up pretty high. This machine isn't really the
+         same color as the other.  Some other participant may know, but
+         I don't.  Sometimes I just can't say.
+
+      Report
+
+         Example
+
+         The level of anxiety in each subject's head was well above the
+         minimum threshold yet still be effect usually did not occur.
+
+   Expository Passage
+
+   An EXPOSITORY PASSAGE begins with a topic sentence followed by statements
+   that further develop, expand or elaborate upon the topic sentence.
+
+         Example
+
+         Always care for your plants if you want them to grow.  The soil
+         should be kept moist and will usually require watering every day
+         or every other day.  While the plant gets much of its nutrients
+         from the air it's also helpful to apply plant food; just follow
+         the directions.
+
+   Illustration
+
+   An ILLUSTRATION consists of a statement about a certain subject combined
+   with a reference to one or more specific instances intended to exemplify
+   that statement.  Illustrations are often confused with arguments because
+   many of them contain indicator words such as "thus".
+
+         Example
+
+         A discrete system is a system of objects whose boundaries are
+         all well defined.  Some examples include the set of integers
+         The set of all things in a laundry basket, or the set of keys
+         on a computer keyboard.
+
+   As with expository passages, many illustrations can be taken as arguments.
+   Such a passage is called an ARGUMENT FROM EXAMPLE.
+
+         Example
+
+         Water is an excellent solvent. It can dissolve a wide range
+         of materials that will not dissolve in other liquids. For example,
+         salts do not dissolve in most common solvents, such as gasoline,
+         kerosene, turpentine and cleaning fluids. But many salts dissolve
+         readily in water. So do a variety of nonionic organic substances,
+         such as sugars and alcohols of low molecular weight.
+
+   Explanation
+
+   An EXPLANATION is a set of statements claiming to provide insight into the
+   cause or reason for an event, phenomenon or state of affairs. The thing
+   being explained is usually regarded as a matter of fact.
+
+         Example
+
+         The Challenger spacecraft exploded after liftoff because
+         an O-ring failed in one of the booster rockets. 
+
+      Explanandum
+
+      The EXPLANANDUM is the statement denoting the thing being explained.
+
+      Explanans
+
+      The EXPLANANS is the set of statements that claims to provide insight
+      into the cause or reason for the explanandum.
+
+      Qualities
+
+         Parsimony/Occam's Razon
+
+         Given two explanations that work equally well, the simpler one
+         is more likely to be correct than the more complex one.
+
+         Coherence
+
+         When possible go with the explanation that coheres best with what
+         we already believe to be true.
+
+         Testability/Predictive Power
+
+         When possible, go with the theory that allows you to make
+         predictions that can be confirmed or disconfirmed.
+
+         Comprehensiveness In Scope
+
+         When possible, go with the explanation that leaves the fewest loose
+         ends, that explains the most and leaves the least unexplained.
+
+   Conditional Statement
+
+   A CONDITIONAL STATEMENT is an 'if ... then ...' statement.
+
+         Example
+
+         If the battery is fully charged then we ought to be off.
+
+
+-----------------------
+Expression of Arguments
+-----------------------
+
+Representation
+==============
+
+   In an INFORMAL ARGUMENT the propositions are expressed in a natural
+   such as English or some other spoken language.
+   
+   In a FORMAL ARGUMENT the propostions are expressed in a symbol language
+   and focus only upon structure without regard to meaning.
+
+      Formal arguments stem from the fact that English contains many
+      patterns of reasoning.
+
+         Example
+
+         If it rains, then the ground will get wet.        (Informal)
+         It rained
+      /. The ground got wet.
+
+         If the bike chain is rusty then it needs oil.     (Informal)
+         The chain is rusty.
+      /. The chain needs oil.
+
+         If P then Q.                                      (Formal)
+         P
+      /. Q
+
+   FORMAL LOGIC is the study of arguments by means of symbolic languages
+   and systems of inference that capture structures, patterns or forms of
+   reasoning without regard to meaning.
+
+Inferrential Method
+===================
+
+   Deduction
+
+   A DEDUCTIVE ARGUMENT is an argument who's conclusion cannot be false when
+   all the premises are true.
+
+   Induction
+
+   An INDUCTIVE ARGUMENT is an argument whose conclusion is probable assuming
+   the premises are all true.  Inductive arguments have premises which have
+   some probability of being true, but we may not know what that probability
+   is; also such an argument is any argument that has missing premises.
+
+   Abduction
+
+   Another term of ABDUCTION is reasoning to the best explanation.
+
+   Reduction
+
+   REDUCTION is reasoning by divide and conquor.
+
+
+----------
+Assessment
+----------
+
+   An INVALID ARGUMENT is an argument claimed to be deductive but contains
+   rasoning errors, or missing premises.
+
+   A VALID ARGUMENT is a deductive argument which is genuinely deductive in
+   the sense defined above.
+
+         Examples of Valid Arguments
+
+         Examples of invalid Arguments
+
+         Bob went to the store.
+         Bob wanted to buy a new model kit.
+      /. Bob bought a new model kit.
+         
+   A SOUND ARGUMENT is a valid argument with all true premises.
+
+   A WEAK ARGUMENT is an inductive argument with reasoning errors.
+
+   A STRONG ARGUMENT is an inductive argument which is genuinely inductive
+   in the sense defined above.
+
+   A COGENT ARGUMENT is a strong argument with all true premises.
+
+
+----------
+Refutation
+----------
+
+Proof of Nonconsequence
+=======================
+
+   A PROOF OF NONCONSEQUENCE is an argument intended to prove that
+   some conclusion does not or may not follow from a set of premises.
+
+   A COUNTEREXAMPLE is an argument with the same form as the argument
+   being refuted where the counterexample has true premises and a clearly
+   false conclusion.
+
+         Example
+
+            All romances are literature.         (Argument)
+            All fiction is literature.
+         /. All romances are fiction.
+
+            All A are B.                         (Argument form)
+            All C are B.
+         /. All A are C.
+
+            All cats are mammals.                (Counterexample)
+            All dogs are mammals.
+         /. All cats are dogs.
+
+Fallacy
+=======
+
+   A FALLACY is an error in reasoning.  Fallacies can
+   be orgainized into the following broad categories.
+
+         Fallacies of Arguments
+            Unacceptable Premises
+            Irrelevant Premises
+            Undisclosed Premises
+            Insufficient Premises
+            Inferential Fallacies
+            Uncategorized Fallacies
+
+         Fallacies of Explanations
+
+         Fallacies of Definitions
+
+         Cognitive Biases
+
+         Cognitive Distortions
+
+
+------------------
+Debates & Disputes
+------------------
+
+Debates
+=======
+
+   Debates usually involve many rules.  Here are some of the sorts of
+   things one ought to remember for debate etiquet.
+
+   - Freedom rule:  Parties must not prevent each other from advancing
+     standpoints or from casting doubt on standpoints.
+
+   - Burden of proof rule:  A party that advances a standppoint is obliged
+     to defend it if asked by the other party to do so.
+
+   - Standpoint rule:  A Party's attack on a standpoint must relate to the
+     standpoint that has indeed been advanced by the other party.
+
+   - Relevance rule:  A party may defend a standpoint only by advancing
+     argumentation relating to that standpoint.
+
+   - Unexpressed premise rule:  A party may not disown a premise that has
+     been left implicit by that party, or falsely present something as a
+     premise that has been left unexpressed by the other party.
+
+   - Starting point rule:  A party may not falsely present a premise
+     as an accepted starting poin nor deny a premise representing an
+     accepted starting point.
+
+   - Argument scheme rule:  A party may not regard a standpoint
+     as conclusively defended if the defense does not take place by means
+     of an appropriate argumentation scheme that is correctly applied.
+
+   - Validity rule:  A party may only use arguments in its argumentation
+     that are logically valid or capable of being validated by making
+     explicit one or more unexpressed premises.
+
+   - Closure rule:  A failed defense of a standpoint must result
+     in the party that put forward the standpoint retracing it and
+     conclusive defense of the standpoint must result in the other
+     party retracing its doubt about the standpoint.
+
+   - Usage rule:  A party must not use formulations that are
+     insufficiently clear or confusingly ambiguous and party must interpret
+     the other party's formulations as carefully and accurately as possible.
+
+Debate Tactics
+==============
+
+   Presentationeering
+
+
+============
+Propositions
+============
+
+
+--------------
+Identification
+--------------
+
+Kinds of Statements
+===================
+
+   COGNATIVE
+
+      The use of language to communicate information.  This includes both
+      assertions and inquiries.
+
+   DIRECTIVE
+
+      The use of language to cause or prevent overt action.
+
+   EMOTIVE
+
+      The use of language to express or arouse feelings.
+
+      VALUE CLAIM
+
+         Claims that express judgments.
+
+
+---------------------
+Kinds of Propositions
+---------------------
+
+   A PRIORI
+
+      Propositions that are not based upon sense experience.
+
+         Example
+
+         1 + 1 = 2
+
+         'Bachelor' means 'unmarried man'
+
+   A POSTERIORI
+
+      Propositions that are based upon sense experience.
+
+         Example
+
+         Mars is the fourth planet from the sun.
+
+   SYNTHETIC
+
+      A statement whose denial is self contradictory.
+
+         Example
+
+         All bachelors are unmarried men.
+
+   ANALYTIC
+
+         Examples
+
+         It's raining.
+
+
+===========
+Definitions
+===========
+
+A DEFINITION is a declaration that two strings of symbols are identical
+in meaning and thus interchangeable.  Definitions differ from propositions
+in that the former don't possess truth value.
+
+
+----------
+Components
+----------
+
+   The DEFINIENDUM is the sequence of symbols being defined.
+
+   The DEFINIENS is the sequence of symbols doing the defining.
+
+         Example
+
+         <definiendum>  is defined as  <definiens>
+
+   In practice the definiendum is an abbreviation for the definiens.
+
+
+---------------
+Definition Uses
+---------------
+
+Lexical
+
+   A LEXICAL DEFINITION is a dictionary definition.  It's used for general
+   purposes.
+
+Stupulative
+
+   A STIPULATIVE DEFINITION is defining a new word or new meaning to a word
+   intended only for use within the current discussion.
+
+Precising Definitions
+
+   A PRECISING DEFINITION is provided to reduce or eliminate vagueness.
+
+Theoretical/Technical/Professional Definitions
+
+   A THEORETICAL DEFINITION is a definition used within the scope of
+   scientific discipline or other field of work.  Another name for this
+   is a TECHNICAL DEFINITION or a PROFESSIONAL DEFINITION.
+
+Persuasive
+
+   A PERSUASIVE DEFINITION is a definition formulated and used
+   persuasively, to resolve disputes by influencing the attitudes,
+   or stirring the emotions, of the target audience.
+
+
+---------------------
+Extension & Intension
+---------------------
+
+Extension
+
+   EXTENSION denotes the range of a term or concept as measured by the
+   objects that it denotes or contains, as opposed to its internal content.
+
+Intension
+
+   INTENSION denotes the internal contents of a concept.
+
+   The concept of an intension is complicated by our need to distinguish
+   three different senses of intension.  For purposes of definition, the
+   most important sense of the term intensional is the conventional sense.
+
+   Subjective Intension
+
+      SUBJECTIVE INTENSION is the set of all attributes, believed by a
+      speaker to be possessed by every object in the term's extension.
+      This intension varies for each person so can't be used for a
+      definition.  May be thought of as the private interpretation
+      of a word.
+
+   Objective Intension
+
+      OBJECTIVE INTENSION is the total set of all attributes, possessed by
+      every object in the term's extension regardless of the speaker.
+      Nobody's omniscient so can't know what all the characteristics are.
+      So this intension can't be used for a definition.
+
+   Conventional Intension
+
+      CONVENTIONAL INTENSION is the set of all attributes, implicitly agreed
+      upon by all speakers of a language, possessed by every object in the
+      term's extension.  These attributes of the term are commonly agreed
+      upon by the speakers of the language.  May be thought of as the public
+      interpretation of a word.
+
+
+-------------------------
+Techniques of Definitions
+-------------------------
+
+The techniques of definitions regards the meaning of the contents of
+the definiens.
+
+Extensional Meaning
+===================
+
+   An EXTENSIONAL DEFINITION is one that assigns a meaning to a term
+   by identifying the members of the class that the definiendum denotes.
+
+   Ostensive
+
+      An OSTENSIVE DEFINITION refers to examples of a class by means of
+      pointing, or by some other gesture.
+
+   Quasi-Ostensive
+
+      A QUASI-OSTENSIVE DEFINITION refers to Pointing to an example
+      object accompanied by some words.
+
+      Example
+
+      The word 'desk' means this (point to a desk) article of furniture.
+
+   Enumerative
+
+      By Subclass
+
+         An ENUMERATIVE DEFINITION assigns a meaning to a term by listing
+         by name the subclasses of the class denoted by the term (such as
+         listing all the kinds of members).  Such a
+         definition may be partial or complete.
+
+         Example
+
+         'Tree' means an oak, pine, elm, spruce, maple and the like.
+
+      By Recursive-Induction
+
+         A RECURSIVE-INDUCTIVE definition is one which is used for
+         constructing proofs by mathematical induction.
+
+Intensional Meaning
+===================
+
+   An INTENSIONAL DEFINITION is one that assigns a meaning to a word
+   by indicating the qualities or attributes that the word connotes (not
+   the same as nuances of a word's meaning).
+
+   Synonymous
+
+      A SYNONYMOUS DEFINITIONS assigns meaning by using another word whose
+      meaning is already understood, that has the same meaning as the word
+      being defined.
+
+         Example
+
+         'Physician'  is defined as  'medical doctor'
+
+   Etymological
+
+      A ETYMOLOGICAL DEFINITION assigns a meaning to a word by disclosing
+      the word's ancestry in both its own language and other languages.
+
+         Example
+      A ETYMOLOGICAL DEFINITION assigns a meaning to a word by disclosing
+      the word's ancestry in both its own language and other languages.
+
+         Example
+
+         'license' is derived from the Latin verb licere, which means
+         to be permitted.
+
+         'captain' derives from the Latin noun caput which means head.
+
+   Operational
+
+      An OPERATIONAL DEFINITION Assigns meaning to a word by specifying
+      certain experimental procedures that determine whether or not the
+      word applies to a certain thing.  The described test should be as
+      practical as is possible.
+
+         Example
+
+         One substance is 'harder than' another if and only if one scratches
+         the other when the two are rubbed together.
+
+         A subject has 'brain activity' if and only
+         if an eletroencephalograph shows oscillations when attached
+         to the subject's head.
+
+   Genus and Difference
+
+      A DEFINITION BY GENUS AND DIFFERENCES assigns meaning to a word
+      by specifying a class to which the subject of the term belongs
+      called the GENUS or CLASS, while the DIFFERENCE part involves
+      expressing how the subject differs from other members of the genus.
+
+
+-------------------------
+Assessment of Definitions
+-------------------------
+
+Interchange Test
+================
+
+   The simplest assessment one can perform on a definition is to test whether
+   or not an occrrence of the defindum can be swapped out for the definiens,
+   or vice versa.  An ideal definitions is such that each side of the
+   definition is a drop-in replacement for the other.
+
+Requirements (For Acceptability)
+================================
+
+   Definitions are best assessed according to a set of criteria.
+
+   Technical/Formal Requirements
+
+   - shall conform to proper grammar.
+
+   - shall not be circular.
+
+   - shall not be negative when it can be positive.
+
+   Semantic Requirements
+
+   - shall convey the essential attributes/meaning (intension) of the word
+     being defined.
+
+   - shall match in vagueness the term being defined.
+
+   - shall match as closely as possible the emotional tone
+     (positive, negative or neutral) as the term being defined.
+
+   - shall if needed indicate the context to which the definiens pertains.
+
+   - shall not be either too broad or too narrow.
+
+   - shall not use ambiguous, obscure, figurative or poorly understood
+     language.
+
+

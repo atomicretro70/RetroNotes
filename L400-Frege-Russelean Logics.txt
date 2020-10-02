@@ -1,0 +1,3469 @@
+##############################################################################
+##############################################################################
+##############################################################################
+##############################################################################
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######          ##############################################          ######
+######          ##############################################          ######
+######          ###                                        ###          ######
+######          ###              Retro Notes               ###          ######
+######          ###                                        ###          ######
+######          ###         Frege-Russelean Logics         ###          ######
+######          ###                                        ###          ######
+######          ##############################################          ######
+######          ##############################################          ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                     Composed Entirely In Vim                     ######
+######                                                                  ######
+######                           in 78 columns                          ######
+######                                                                  ######
+######                   Lucida Console - Regular - 11                  ######
+######                                                                  ######
+######                       Color Scheme: Elflord                      ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                       AtomicRetro@outlook.com                    ######
+######                       Revision:  20.10.02                        ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+##############################################################################
+##############################################################################
+##############################################################################
+##############################################################################
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+* This document must be viewed with a mono-spaced font to enjoy the layout,
+  tables and diagrams.
+
+
+======================================
+CONTENTS
+======================================
+The Laws of Logic
+Formal Definitions
+Truth-Functional Logic (TFL)
+   Language
+   Semantics
+   Calculus (TFC)
+Set Theory
+Predicate Logic (PL)
+   Language
+   Semantics
+   Calculus (PC)
+First-Order Quantified Logic (FOL)
+   Language
+   Semantics
+   Calculus (FOC)
+Identity Logic (IL)
+   Language
+   Semantics
+   Calculus
+Function Logic (FL)
+   Language
+   Semantics
+   Calculus
+Second-Order Qunatified Logic (SOL=)
+   Language
+   Semantics
+   Calculus
+Mathematical Induction
+Axiomatic and Natural Deduction
+Formal Theoreis & Axioms
+
+
+=================
+The Laws of Logic
+=================
+
+The simplest logic has just two discrete truth-values: True and False.
+It's the logic that powers computers.  From this notion of two values
+we construct the following principles:
+
+   LAW OF NON-CONTRADICTION
+
+      A proposition P is never both              -(P ^ -P)
+      True and False.
+
+   LAW OF EXCLUDED MIDDLE
+
+      A proposition P is either True or False.   (P V -P)
+
+   IDENTITY OF INDISCERABILITY
+
+      If two things have all of the same         Ax:Ay:(AF:(Fx <-> Fy) -> x=y)
+      properties then then they're identical.
+      
+   LAW OF INDISCERNABILITY OF IDENTICALS (LEIBNIZ'S LAW)
+
+      If two things are identical then they      Ax:Ay:(x=y -> AF:(Fx <-> Fy))
+      have have all of the same properties.
+
+These are some of the basic principles upon which many formal deductive
+systems are based. It's also possible to construct new logics on other
+principles, but these are the prinicples we're concerned with in this text.
+
+The definition of a PROPOSITION (a statement that's either true or false)
+follows directly from the Laws of Non-Contradiction and Excluded Middle.
+Logics that are based on different principes may have different definitions
+for proposition.
+
+
+==================
+Formal Definitions
+==================
+
+A FORMAL DEFINITION is a declaration that two strings or groups of strings
+are interchangeable.  They are expressed as follows:
+
+      string1  =df  string2
+
+In practice the string1 is simply an abbreviation for string2.
+
+      _|_  =df  (P ^ -P)
+
+---------
+Semantics
+---------
+
+   A definition declairs that both strings mean the same thing.
+
+-------------------------------
+Definition Schemata & Variables
+-------------------------------
+
+   We can introduce a DEFINITION SCHEMA (a "family" of definitions
+   all having the same structure) with the help of variables (letters
+   towards the end of the alphabet: u,v,w,x,y,z), across which values
+   are substituted uniformly.
+
+   Example: formal definition of the conditional probability operation.
+
+                   P(X ^ Y)
+      P(X|Y)  =df  --------
+                     P(Y)
+
+   Whenever we see an instance of P(X|Y) it's interchangeable with its
+   corresponding right-hand side replacing values for X and Y uniformly.
+
+-------------------
+Packing & Unpacking
+-------------------
+
+   PACKING A DEFINITION is when we rewrite a string such that a long string
+   is replaced with it's corresponding abbreviation.
+
+   UNPACKING A DEFINITION is when we rewrite a string such that a defined
+   abbreviation is replaced with its corresponding long string.
+
+
+============================
+Truth-Functional Logic (TFL)
+============================
+
+Here we construct our first formal logic, Truth-Functional logic (or TFL).
+TFL studies notions like 'not', 'and', and 'or'.
+
+
+---------------
+Formal Language
+---------------
+
+A LANGUAGE is defined by the set of all sensical sentences in the language.
+
+A FORMAL LANGUAGE is the set of all grammatically correct strings (called
+sentences) in a given language.  Formal languages don't take semantics into
+consideration, so many such sentences can be nonsensical.
+
+A METALANGUAGE is the language we use to talk *about* a logic.  So sentences
+in the metalanguage mention properties of logics, arguments and all things
+that they entail.  Most of these notes are written in the metalanguage.
+
+Lexemes
+=======
+
+   Non-Logical Symbols
+      Proposition Symbols:      A...Z
+
+   Logical Symbols
+      Truth-Function Symbols:   -, ^, V, ->, <->
+      Association Symbols:      (, )
+
+
+Grammar (FORMATION RULES)
+=========================
+
+   A FORMAL GRAMMAR is the set of rules that selects all and only the
+   grammatically correct strings in a given language without regard
+   to meaning.
+
+   A grammatically correct sentence in TFL is called a WELL-FORMED FORMULA
+   (WFF, or FORMULA).  It's generally conventional to use capital Greek
+   letters to represent arbitrary formulas.  I can't do that so we'll use
+   capital Roman letters.  A wff in TFL is any string constructed in
+   accordance with the following clauses:
+
+   An ATOMIC FORMULA is any single proposition symbol.
+
+   1.  every atomic formula is a wff;
+   2.  if P is a wff, then -P is a wff;
+   3.  if P,Q are wffs, then (P ^ Q),(P V Q),(P -> Q),(P <-> Q) are wffs;
+   4.  nothing else is a wff.
+
+   Notes
+
+   - To aid readability of wffs we adopt the convention that if a wff
+     begins with '(', we will drop the outter-most pair of parenthesis.
+
+   - In practice it's common to use tick marks or numerical subscripts
+     (we use postscripts) after the proposition symbol to increase to
+     infinity the number of available symbols.
+
+Substitution Instance (or Instance)
+===================================
+
+   A SUBSTITUTION INSTANCE of a wff is where another wff has the the same
+   structure as the first such that proposition symbols in the original are
+   uniformly replaced by other subordinate wffs.  Instances don't have to
+   be symmetrical.  P being an instance of Q, does not imply that Q is an
+   instance of P.
+
+   =============  =====   ======   ===========   ==========================
+   form           P ^ Q | P  ^ Q | P       ^ Q | P    -> (P    ^ Q       )
+   =============  =====   ======   ===========   ==========================
+   substitutions  P=R   | P=-S   | P=(C ^ D)   | P=---H
+                  Q=S   | Q=Z    | Q=D         | Q=(-S V M)
+                        |        |             |
+   inststance     R ^ S | -S ^ Z | (C ^ D) ^ D | ---H -> (---H ^ (-S V M))
+   =============  =====   ======   ===========   ==========================
+
+
+---------
+Semantics
+---------
+
+The semantics of a language are the concepts denoted by the lexemes and
+sentences (our wffs) of the language.
+
+Truth-Function Anatomy
+======================
+
+   The TF functions have names, and english "equivalent" names; the OPERANDS,
+   the things the operator applies to, also have names.
+
+         ======  =============  =======  =======  ===================
+         Symbol  Name           Example  English  Operand Names
+         ======  =============  =======  =======  ===================
+          -      NEGATION       -P       not      P is a NEGATAND
+          ^      CONJUNCTION    P ^ Q    and      P,Q are CONJUNCTS
+          V      DISJUNCTION    P V Q    or       P,Q are DISJUNCTS
+          ->     CONDITIONAL    P -> Q   if/then  P is the ANTECEDENT
+                                                  Q is the CONSEQUENT
+          <->    BICONDITIONAL  P <-> Q  just if
+         ======  =============  =======  =======  ===================
+
+   ARITY is the number subordinates a symbol expects.  Example negation has
+   an arity of one; while conjunction has an arity of two.  The table below
+   lists some common arities and some different names for them.
+
+         =====  ====================  =========  ==========  ==========
+         Arity  Examples              -ary name  -adic name  place name
+         =====  ====================  =========  ==========  ==========
+          0     P                                            0-place
+          1     -P                    UNARY      MONADIC     1-place
+          2     P ^ Q, P V Q          BINARY     DIADIC      2-place
+          3     x is between y and z  TRINARY    TRIADIC     3-place
+         =====  ====================  =========  ==========  ==========
+
+Valuation Function
+==================
+
+   A TRUTH-FUNCTION operates upon true/false values.  The semantics of the
+   truth-functions are described by a function v called a vALUATION FUNCTION,
+   which encapsulates all there is to say about the meanings of TF operators.
+
+   Here's the valuation function for TFL:
+
+      v(-P)       = true if P is false;
+                    false if P is true
+      v(P ^ Q)    = true if both P and Q are true;
+                    false if either P or Q or both are false
+      v(P V Q)    = true if either P or Q or both are true;
+                    false if both P and Q are false
+      v(P -> Q)   = true if P is false or Q is true;
+                    false if P is true and Q is false
+      v(P <-> Q)  = true if both P and Q are true;
+                    false if either P is true and Q is false or
+                                    P is false and Q is true.
+
+Sequents
+========
+
+   A SEQUENT is a notation expressing that a formal deductive relationship
+   exists from a set of premises, P1,...,Pn to a conclusion C.
+
+      P1,...,Pn  |-  C
+
+         '|-' is called a TURNSTILE. It's part of the metalanguage.
+
+TRUTH-TABLES
+============
+
+   Truth-tables allow us to visually study the semantic characteristics of
+   formulas as defined by the valuation function.  Each row of the table is
+   equivalent to one VALUATION of the function v upon a formula.
+
+   Basic Truth-Tables
+
+   Procedure
+   1. Construct The table heading starting on the left with a horizontal
+      alphabetical list of all proposition symbols occurring in the formulas
+      under study; followed to the right by the formulas themselves.
+
+   2. Under the proposition symbols list all possible combinations of T and
+      F for those symbols. usually we start with a row of all F and end with
+      all T, or vice versa, according to preference.  The values for the
+      intermediate rows are attained as if counting in binary.
+
+   3. The remaineder of the table is populated row-by-row carrying the
+      T or F values under each proposition symbol to the right and placing
+      them under the corresponding symbol occurring in each wff.
+
+   4. In a given row under the first formula, starting from the innermost
+      parentheses and working outwards, evaluate each of the expressions
+      according to the valuation function.  Continue until a T or F can be
+      placed under the top level operator on every row.  Repeat this
+      valuation procedure below each wff in the table.
+
+   The study will only need to consider the columns under the wffs' main
+   operators so it's convenient to highlight the completed column in some
+   way.  Here we place an '*' at the bottom of those columns.
+
+   Truth-Table Study of Our TFL Truth-Functions
+
+   The valuations for our primitive truth-functions are illustrated in the
+   following truth-tables.
+
+       P   | - P
+      ===========
+       F   | T F
+       T   | F T
+             *
+
+       P Q | (P ^ Q) | (P V Q) | (P -> Q) | (P <-> Q)
+      ===============================================
+       F F |  F F F  |  F F F  |  F T  F  |  F  T  F
+       F T |  F F T  |  F T T  |  F T  T  |  F  F  T
+       T F |  T F F  |  T T F  |  T F  F  |  T  F  F
+       T T |  T T T  |  T T T  |  T T  T  |  T  T  T
+                *         *         *           *
+
+   Truth-Function Completeness
+
+   TRUTH-FUNCTIONAL COMPLETENESS describes any set of TF operators from which
+   all other truth-functions can be defined.  TFL's primitive set of operators
+   -, ^, V, -> and <-> is truth-functionally complete.  But also just our
+   negation with any one of our other operators is also TF complete.  Some
+   have defined new operators which singularly are TF complete.  An example
+   is the SHEFFER STROKE symbol '(P|Q)', whose valuation function is
+   equivalent to our TFL form -(P ^ Q).  But any logic constructed upon just
+   one operator is cumbersome to use.
+
+   Truth-Table Study of Single WFFs
+
+   Once we've completed the truth-table.  Examining the main column below any
+   single wff can tell us things about the formula.
+
+   CONSISTENT WFF
+      A wff that is true on at least one valuation (row); ie. the column
+      under the formaula's main operator contains at least one T.
+
+      CONTINGENT WFF
+         A consistent formula that's true on some valuations and false on
+         others; ie. the column under the main operator contains at least one
+         T and at least one F.
+
+      TAUTOLOGY
+         A consistent formula that's true on all valuations; ie. the column
+         under the main operator contains all T's.
+
+   INCONSISTENT WFF
+      A formula that has no true valuations; ie. the column under the main
+      operator has all F's.
+
+      CONTRADICTION
+         A kind of inconsistent formula that's structured as the conjunction
+         of a wff and it's negation; ie. any wff of the form 'P ^ -P'.
+
+   Truth-Table Study of Sets of WFFs
+
+   A truth-table study for a set of wffs can give us valuable insight into the
+   relationships between those formulas.
+
+   CONSISTENT SET OF FORMULAS
+      A set of wffs is CONSISTENT if there is at least one valuation (row)
+      of the table on which all formulas have T under their main operators.
+
+      LOGICALLY EQUIVALENT PAIR OF FORMULAS
+         A pair of wffs is LOGICALLY EQUIVALENT if for every row of the
+         table both wffs have the same value under their main operators.
+
+   INCONSISTENT SET OF FORMULAS
+      A set of wffs is INCONSISTENT if there is no valuation (row) of the
+      table on which all formulas have T under their main operators.
+
+   Truth-Table Study of Sequents
+
+   A truth-table for an argument is constructed simply by treating the set
+   of premises and the conclusion as a set of wffs being studied.
+
+   Evaluation is simply a matter of reading the definition of a valid
+   argument directly off the table.  Recall:  A VALID ARGUMENT is a deductive
+   argument whose conclusion cannot be F if the premises are all T.  Notice
+   from the definition that the conclusion is free to hold any value
+   on a line where the premises aren't all true.
+
+   Example
+
+       P Q | P -> Q , - Q  |-  - P
+      =============================
+       F F | F T  F | T F  |   T F  <==
+       F T | F T  T | F T  |   T F
+       T F | T F  F | T F  |   F T
+       T T | T T  T | F T  |   F T
+               *      *        *
+
+   The row indicated with an arrow verifies that this argument is VALID.
+
+   If the premises of a valid argument are all *actually* true the argument
+   is SOUND.  Soundness isn't a property that concerns formal logic.
+
+   In accordance with the definition above, an INVALID ARGUMENT is a deductive
+   argument that contains at least one valuation on which all the premises are
+   T but the conclusion is F.
+
+   Example
+
+       P Q | P -> Q ,  - P  |-  - Q
+      ==============================
+       F F |   T    |  T    |   T  
+       F T |   T    |  T    |   F  <==
+       T F |   F    |  F    |   T  
+       T T |   T    |  F    |   F  
+               *       *        *
+
+   We've discovered a row on which the premises are all T, but the conclusion
+   is F.  So the form is invalid.
+
+   The results for an inconsistent set of premises may seem counter-intuitive.
+
+       P Q | P , - P |- Q
+      ====================
+       F F | F | T F |  F
+       F T | F | T F |  T  <==
+       T F | T | F T |  F
+       T T | T | F T |  T  <==
+             *   *      *
+
+   This argument is actually valid.
+
+   NOTE: A disadvantage of truth-tables is that they grow exponentially.
+   A set of wffs with n proposition symbols will have 2^n rows.
+
+Truth-Tables ("Fast Method")
+============================
+
+   There's a faster way to construct a truth-table, though it's not as visual.
+   Rather it's an implementation of a search algorithm to find only those
+   valuations on which a formula is T (or F).  It has the advantage over
+   a full truth-table in that we don't have the problem of potentially huge
+   tables due to a large number of propositon symbols.
+
+   Procedure
+   1. Write down in a horizontal list the wff, set of wffs or sequent.  Set
+      the main operators to either T or F (depending on what you're trying
+      to find - see Truth-Table Study of Single WFFs above) by writing T or
+      F below each of the main operators 
+
+   2. Now work backwards from the outer-most operator down to the inner-most
+      parenthesis.  Evaluate as many sub-expressions as possible, continuing
+      until you can't do anything else (some subwffs may go undetermined).
+
+   3. While performing step 2 if you can find the truth value of a proposition
+      symbol, place that value under all other occurrences of that symbol.
+
+   4. The search is successful if the valuation we sought is now readable off
+      the table, it's the set of values found for the proposition symbols that
+      makes the main operator T (or F).
+
+   The study is to find valuations for the proposition symbols on which the
+   whole wff is T (or F).  So, it's convenient to highlight somehow the values
+   of the symbols at the end of this process.  I'll place a * under them.
+   
+   Fast truth-table Study of Single WFFs
+
+   To check if a wff has any valuation (row) on which it's T, set its main
+   operator to T; and to check if it has a valuation on which it's F, set its
+   main operator to F.
+
+   Examples
+
+      1.  P ^ Q     P V -Q     P -> (-Q V R)     --P ^ (Q V P)
+            T         F          F                   T
+
+      2.  P ^ Q     P V -Q     P -> (-Q V R)     --P ^ (Q V P)
+          T T T     F F F      T F      F        T   T    T
+          *   *
+      3.            P V -Q     P -> (-Q V R)     --P ^ (Q V P)
+                    F F FT     T F   F  F F      TFT T    T
+                    *    *
+      4.                       P -> (-Q V R)     --P ^ (Q V P)
+                               T F   FT F F      TFT T  ? T T
+                               *      *   *        *    *   *
+
+   valuations Discovered
+
+          P=T       P=F        P=T               P=T
+          Q=F       Q=T        Q=T               Q=T or F
+                               R=F
+
+   Notice in the last example we couldn't find a value for Q.  However,
+   upon closer examination we see that's because the wff is true on two
+   valuations.  In both P is T, but Q is T in one and F in the other.
+
+   To test if a wff is contingent the process must be performed twice; once
+   with T under the main operator, and once with F.  The wff is contingent if
+   and only if we find at least one valuation of the proposition symbols that
+   makes the main operator T, and at least one valuation of the proposition
+   symbols that makes the main operator F.
+
+   Fast Truth-Tables Study of Sets of WFFs
+
+   We can use the same method to test a set of wffs for consistency or
+   inconsistency by setting the main operators all to T (or all to F).  The
+   only extra note here is that step 3 now works *across* WFFs.  That is, if
+   you find the value of a proposition symbol in one wff you may write that
+   value under all instances of the proposition symbol across all of the wffs
+   in the set.
+
+   Example  Test each pair of wffs for consistency
+
+      1.  P ^ Q    -(-P V -Q)             P ^ Q    -P V -Q
+            T      T                        T         T
+   
+      2.  P ^ Q    -(-P V -Q)             P ^ Q    -P V -Q
+          T T T    T    F                 T T T       T  
+   
+      3.  P ^ Q    -(-P V -Q)             P ^ Q    -P V -Q
+          T T T    T F  F F               T T T    FT F FT
+                                            *         *
+      4.  P ^ Q    -(-P V -Q)             inconsistent
+          T T T    T FT F FT
+            *      *
+          consistent
+   
+   Fast Truth-Table Study of Sequents
+
+   To test a sequent we test if it's invalid by setting the main operator of
+   each premise to T and the conclusion's to F.  Then work backwards exactly
+   as for a set of wffs.  If no contradiction is obtained it's indeed possible
+   for the premises to be T and the conclusion F, as originally assumed, the
+   the argument is therefore invalid.  On the other hand if a contradiction is
+   obtained then the conclusion is valid.
+      
+   Example  Test the sequent for validity
+
+      1.  - P -> (Q V R), - Q  |-  R -> P
+              T           T          F
+
+      2.  - P -> (Q V R), - Q  |-  R -> P
+              T           T F      T F  F
+
+      3.  - P -> (Q V R), - Q  |-  R -> P
+            F T   F   T   T F      T F  F
+
+      4.  - P -> (Q V R), - Q  |-  R -> P
+          T F T   F T T   T F      T F  F
+              *           *          *
+
+   The seach succeeded in finding a set of values that makes the premises
+   T and the conclusion F.  So the argument is invalid.
+
+   Example  Test the argument for validity
+
+      1.  P -> (Q V R), Q -> S, P |- -R -> S
+            T             T     T       F
+
+      2.  P -> (Q V R), Q -> S, P |- -R -> S
+            T             T     T    T  F  F
+
+      3.  P -> (Q V R), Q -> S, P |- -R -> S
+          T T             T  F  T    TF F  F
+
+      4.  P -> (Q V R), Q -> S, P |- -R -> S
+          T T     T F   F T  F  T    TF F  F
+
+      5.  P -> (Q V R), Q -> S, P |- -R -> S
+          T T   F T F   F T  F  T    TF F  F
+                  *
+
+   We've discovered a contradiction.  The highlighted disjunction can't be
+   T if Q and R are both F.  Therefore, the form is valid.
+
+Truth-Trees
+===========
+
+   Decidability
+
+   If there's an algorithm for determining whether or not an argument form
+   expressible in a formal system such as TFL is valid, then that system is 
+   DECIDABLE.  Truth-tables and fast truth-table constitute such algorithms.
+   Therefore, TFL is decidable.  But those methods can become imparactical
+   when the set of proposition symbols starts to grow.  Truth-trees provide
+   a more efficient algorithm for performing the same tasks.
+
+   Tree Graphs
+
+   Below is a tree graph; useful in organizing some kinds of information.
+   The lines are called EDGES, which connect NODES or VERTICES.  A node that
+   has an edge above it is CHILD; and conversely a node that has an edge
+   below it is called a PARENT.  Tree graphs are inverted from their
+   counterparts in nature, so the ROOT of a tree is at the top from which
+   the rest of the tree descends, and so the childless LEAVES are all at the
+   bottom.  Traversing only edges, a given sequence of nodes down to a leaf
+   is a PATH (eg. parent&child -> node -> leaf4).  Trees split as we descend
+   paths, each split is a BRANCH.
+
+                             Root 
+                             /  \
+                            /    \
+                        leaf1    parent&Child 
+                                 /          \
+                                /            \
+                             child           node 
+                             /   \           /   \
+                            /     \         /     \
+                         leaf2   leaf3   leaf4   leaf5
+
+   Truth-Trees
+
+   Given a set of wffs a TRUTH-TREE is an exhaustive search for ways in which
+   all the wffs can be true.  The nodes of our tree will each have a list of
+   one or more wffs.  A CLOSED PATH is any path that's terminated by an
+   '_|_'.  So, an OPEN PATH is any path that's not closed.
+
+   Procedure
+   1.  Write a vertical list of wffs to be tested.  This list forms the root
+       of our tree.
+
+   2.  Repeatedly apply the following rules in any order.  The tree
+       is completed when no more rules can be applied.
+
+   Notes:  While the order you apply rules doesn't matter, to keep the tree
+   smaller, at each step always apply any non-branching rules before applying
+   branching rules.
+
+   A STAR next to a wff indicates it's no longer available to apply rules.
+
+   ====  =====================================================================
+   Name  Rule
+   ====  =====================================================================
+   -     If an open path contains both a formula and its negation, close it
+         by placing '_|_' at the bottom of the path.
+
+   --    If an open path contains an unstarred wff of the form --P, star it
+         and write P at the bottom of every open path below it.
+
+   ^     If an open path contains an unstarred wff of the form P ^ Q, star it
+         and write both P and Q at the bottom of every open path that contains
+         this newly starred wff.
+
+   -^    If an open path contains an unstarred wff of the form -(P ^ Q), star
+         it and split the bottom of each open path containing this newly
+         starred wff into two branches, at the end of the first branch write
+         -P and at the end of the second branch write -Q.
+
+   V     If an open path contains an unstarred wff of the form P V Q, star it
+         and split the bottom of each open path containing this newly starred
+         wff into two branches, at the end of the first branch write P and at
+         the end of the second branch write Q.
+
+   -V    If an open path contains an unstarred wff of the form -(P V Q), star
+         it and write both -P and -Q at the bottom of every open path that
+         contains this newly starred wff.
+
+   ->    If an open path contains an unstarred wff of the form P -> Q, star it
+         and split the bottom of each open path containting this newly starred
+         wff into two branches, at the end of the first branch write -P and at
+         the end of the second branch write Q.
+
+   -->   If an open path contains an unstarred wff of the form -(P -> Q), star
+         it and write both P and -Q at the bottom of every open path that
+         contains this newly starred wff.
+
+   <->   If an open path contains an unstarred wff of the form P <-> Q, star
+         it and split the bottom of each open path containing this newly
+         starred wff into two branches, at the end of the first write both P
+         and Q, and at the end of the second write both -P and -Q.
+
+   -<->  If an open path contains an unstarred wff of the form -(P <-> Q),
+         star it and split the bottom of each open path containting this newly
+         starred wff into two branches, at the end of the first write both P
+         and -Q, and at the end of the second write both -P and Q.
+   ====  =====================================================================
+
+   These rules can also be described in diagrams.
+
+           +---------------------------+---------------------------+         
+           | ========================= | ========================= |
+           |           -Rule           |           --Rule          |
+           | ========================= | ========================= |
+           |             P             |          * --P            |
+           |            -P             |          --------         |
+           |          -------          |             P             |
+           |            _|_            |                           |
+           |                           |                           |
+           | ========================= | ========================= |           
+           |           ^Rule           |           -^Rule          |
+           | ========================= | ========================= |
+           |         * P ^ Q           |        * -(P ^ Q)         |
+           |          -------          |         ----------        |
+           |             P             |            /   \          |
+           |             Q             |          -P     -Q        |
+           |                           |                           |
+           | ========================= | ========================= |
+           |           VRule           |           -VRule          |
+           | ========================= | ========================= |
+           |         * P V Q           |        * -(P V Q)         |
+           |          -------          |         ----------        |
+           |           /   \           |             -P            |
+           |          P     Q          |             -Q            |
+           |                           |                           |
+           | ========================= | ========================= |
+           |           ->Rule          |          -->Rule          |
+           | ========================= | ========================= |
+           |         * P -> Q          |       * -(P -> Q)         |
+           |          --------         |        -----------        |
+           |           /    \          |             P             |
+           |         -P      Q         |            -Q             |
+           |                           |                           |
+           | ========================= | ========================= |
+           |          <->Rule          |         -<->Rule          |
+           | ========================= | ========================= |
+           |        * P <-> Q          |       * -(P <-> Q)        |
+           |         ---------         |        -----------        |
+           |          /     \          |           /     \         |
+           |         P      -P         |          P      -P        |
+           |         Q      -Q         |         -Q       Q        |
+           |                           |                           |
+           +---------------------------+---------------------------+
+
+
+Semantic Tree Analysis
+======================
+
+   Truth-Tree Study of Single WFFs
+
+   To test a single wff using a truth-tree, we treat our wff as a the set of
+   formulas being tested.  Then begin the search process.
+
+   If the completed tree for one wff contains no open paths then the wff is
+   inconsistent.  If it contains one or more open paths the wff is consistent.
+   If it contains two or more open paths then the wff is either tautologous or
+   contingent.  To find out which we can construct a second tree for the
+   negation of the original wff.  A wff is tautologous iff its negation is
+   inconsistent.  Otherwise it's contingent.
+
+      =============   ==========================   ==========
+      Condition       wff                          -wff
+      =============   ==========================   ==========
+      0  open paths   inconsistent                 tautology
+      1+ open paths   consistent                   contingent
+      2+ open paths   tautology or contingency     contingent
+      =============   ==========================   ==========
+
+   Truth-Tree Study of Sets of Wffs
+
+   To test a set of wffs using a truth-tree, we list the wffs.  Then begin
+   the search process by applying the above rules in any order.
+
+   The set of wffs is truth functionally consistent if the tree has a least
+   one open path. If a tree has no open paths the set of wffs is inconsistent.
+
+      =============   ==========================
+      Condition       wff Set
+      =============   ==========================
+      0  open paths   inconsistent
+      1+ open paths   consistent
+      =============   ==========================
+
+   Semantic-Tree Study of Sequents
+
+   To test an argument form for validity using a truth-tree, we construct
+   a list consisting of the argument's premises and negated conclusion.
+   The tree is then constructed as usual.
+
+   When the tree is completed we can assess the results.  If all paths
+   are closed with an _|_ then the argument form is valid.
+
+   Any open paths of a finished tree for an argument form show all the
+   counterexamples to that form.  Where a proposition symbol alone
+   is T, and a negated proposition symbol is F.
+
+      =============   ==========================
+      Condition       Premises & -Conclusion
+      =============   ==========================
+      0  open paths   valid
+      1+ open paths   Invalid w/ counterexamples
+      =============   ==========================
+
+Translation Hints
+=================
+
+   +-----------------------------------------------------------------------+
+   | =================================   ================================= |
+   | P                                 | -P                                |
+   | ================================= | ================================= |
+   | P                                 | it's false that P                 |
+   | it's true that P                  | it's not true that P              |
+   | it's the case that P              | it's not the case that P          |
+   | P whether or not Q                | non-P                             |
+   |   literally:  (Q V -Q) -> P       |                                   |
+   |                                   |                                   |
+   | ================================= | ================================= |
+   | P ^ Q                             | -(P ^ Q)                          |
+   | ================================= | ================================= |
+   | P and Q                           | P nand Q (in computing)           |
+   | P but Q                           |                                   |
+   | P yet Q                           |                                   |
+   | P still Q                         |                                   |
+   | P also Q                          |                                   |
+   | both P and Q                      |                                   |
+   | P additionally Q                  |                                   |
+   | P furthermore Q                   |                                   |
+   | P however Q                       |                                   |
+   | P although Q                      |                                   |
+   | P nevertheless Q                  |                                   |
+   | P moreover Q                      |                                   |
+   | P even though Q                   |                                   |
+   | P even if Q                       |                                   |
+   | P whereas Q                       |                                   |
+   | not only P but also Q             |                                   |
+   |    literally: -(P ^ -Q) ^ (P ^ Q) |                                   |
+   |                                   |                                   |
+   | ================================= | ================================= |
+   | P V Q                             | -(P V Q)                          |
+   | ================================= | ================================= |
+   | P or Q                            | neither P nor Q                   |
+   | P except if Q                     | P nor Q (in computing)            |
+   | P except when Q                   |                                   |
+   | P except on condition that Q      |                                   |
+   | P unless Q (weak/inclusive-or)    |                                   |
+   | either P or Q (inclusive)         |                                   |
+   |                                   |                                   |
+   | ================================= | ================================= |
+   | P -> Q                            | -P -> -Q                          |
+   | ================================= | ================================= |
+   | if P then Q                       | P is a necessary condition for Q  |
+   | P implies Q                       | P is necessary for Q              |
+   | P only if Q                       |                                   |
+   | only if Q, P                      |                                   |
+   | P results in Q                    |                                   |
+   | P brings about Q                  |                                   |
+   | P leads to Q                      |                                   |
+   | not P unless also Q               |                                   |
+   |    literally:  -P V (P ^ Q)       |                                   |
+   | P is a sufficient condition for Q |                                   |
+   | P is sufficient for Q             |                                   |
+   | Q assuming that P                 |                                   |
+   | assumping that P, Q               |                                   |
+   | Q on the condition that P         |                                   |
+   | on the condition that P, Q        |                                   |
+   | Q given that P                    |                                   |
+   | given that P, Q                   |                                   |
+   | Q provided that P                 |                                   |
+   | provided that P, Q                |                                   |
+   | Q in case P                       |                                   |
+   | in case P, Q                      |                                   |
+   |                                   |                                   |
+   | ================================= | ================================= |
+   | P <-> Q                           | P <-> -Q                          |
+   | ================================= | ================================= |
+   | P if and only if Q                | P xor Q (computing)               |
+   | P iff Q                           | P (exclusive) or Q                |
+   | P just if Q                       | P unless also Q                   |
+   | P just in case Q                  | P unless Q                        |
+   | P exactly when Q                  | either P of Q                     |
+   | P exactly if Q                    |                                   |
+   | P but only if B                   |                                   |
+   | P is a necessary and sufficient   |                                   |
+   |    condition for Q                |                                   |
+   | P is necessary and sufficient     |                                   |
+   |    for Q                          |                                   |
+   +-----------------------------------------------------------------------+
+
+Conversational Implicature
+==========================
+
+   CONVERSATIONAL IMPLICATURE is what's meant by a speaker's utterance that
+   are not part of the literal meaning of what's explicitly said.
+
+   'and then'
+
+   When 'and' is shorthand for 'and then', it can't be translated into
+   a conjunction since the word 'then' here denotes a termporal
+   relationship between the clauses it joins.
+
+      Keep up the good work and you'll go far.
+
+      Alice drove home and went to bed.
+
+   'if...then'
+
+   Sometimes it can be tempting two rewrite 'and then' as 'if...then'.
+
+      Keep up the good work and you'll go far.
+      If you keep up the good work then you'll go far.
+
+      Alice drove home and went to bed.
+      If alice drove home then she went to bed.
+
+   When 'then' in 'if/then' denotes a temporal relationship, it can't
+   be translated into a conditional.  Consider what happens by negating
+   the first rewrite example and seeing what we derive after applying
+   a few equivalences.
+
+      K -> F        if you keep up the good work then you'll go far.
+      -(K -> F)
+      -(-K V F)
+      K ^ -F        You keep up the good work and you don't go far.
+
+
+----------------------------------------------
+Truth-Functional Calculus (TFC - Fitch Method)
+----------------------------------------------
+
+A calculus is used to construct formal proofs.  The calculus consists
+of rules which can be applied to wffs to derive the conclusions.
+
+PROOF
+
+   A non-circular, unambiguous, deductive argument.
+
+   It's customary (though not necessary) to conclude the proof with the 
+   letters QED (QUOD ERAT DEMONSTRANDUM - "what was to be shown"); which
+   signals to the reader that the proof has completed successfully.
+   I'll also precede the proof with the word 'Proof' so the two surround
+   the proof and serve a similar purpose to a pair of braces
+   or a begin/end pair as in programming.
+
+FORMAL DEDUCTIVE SYSTEM
+
+   A set of rules that describe truth-preserving inferences for a given
+   formal language.
+
+Inference Rule Notation
+=======================
+
+   P(Q) denotes a wff P contains one or more occurrences of sub-expression Q.
+
+   P(R/Q) denotes the result of replacing one or more occurrences
+   of Q in P(Q) with R.  R/Q is read, "R replaced one or more
+   occurrences of Q".
+
+   P(R//Q) like above but indicates replacing all occurrences of Q in P(Q)
+   with R.  R//Q is read, "R replaced all occurrences of Q"
+
+   [ ... ] indicate that the enclosed must exist, be defined or proven
+   elsewhere (external to the proof).
+
+Primitive Inference Rules
+=========================
+
+   ================================  =========================================
+   Name/Alternate Names              Rule
+   ================================  =========================================
+   Assumption (A)                    Introduce a premise at any step.
+
+   Hypothesis (H)                    Introduce a hypothesis at any step
+                                     provided it begins a new subproof.
+
+   Axiom (Ax)                        Introduce an axiom at any step.
+
+   Negation Elimination (-E)         From --p, infer p.
+
+   Negation Introduction (-I)        From a subproof with hypothesis P
+      Reductio ad absurdum (RAA)     ending in (Q ^ -Q), close the subproof,
+      Proof by Contradiction (PBC)   and infer -P.
+      Indirect Proof (IP)
+
+   Conjunction Elimination (^E)      From P ^ Q, infer P, or infer Q.
+      Simplification (Simp)
+
+   Conjunction (^I)                  From P and Q, infer P ^ Q,
+                                     or infer Q ^ P.
+
+   Disjunction Elimination (VE)      From P V Q, P -> R and Q -> R, infer R.
+      Proof by Cases (PBC)
+
+   Disjunction Introduction (VI)     From P, infer P V Q, or infer Q V P.
+      Addition (Add)
+
+   Conditional Elimination (->E)     From P -> Q and P, infer Q.
+      Modus Ponens (MP)
+
+   Conditional Introduction (->I)    From a subproof with hypothesis P
+      Conditional Proof (CP)         and ending Q, close the subproof,
+                                     and infer Q -> P.
+
+   Biconditional Elimination (<->E)  From P <-> Q, infer P -> Q,
+                                     or infer Q -> P.
+
+   Biconditional Introduction (<->I) From P -> Q and Q -> P, infer P <-> Q
+
+   Equivalence Substitution (EQ)     From [ P <-> Q ], and R(P), infer R(Q/P);
+                                     or from [ P <-> Q ] and R(Q),
+                                     infer R(P/Q).
+   ================================  =========================================
+
+   These rules can also be described in diagrams.  The horizontal bar
+   denotes 'infer', vertical lines denote subproofs.
+
+   Note that a subproof is analogous to a block in a programming language.
+   As such once a subproof is closed nothing within it is accessible.
+   The one thing that *is* available is the entire block which may be taken
+   as a premise to some inference rules.
+
+      +-------------------------------+-------------------------------+
+      | ============================= | ============================= |
+      |  A                            |  H                            |
+      | ============================= | ============================= |
+      |                               |                               |
+      |  ---                          |  -------                      |
+      |   P   (P is a premise)        |   |   P   (P is a hypothesis) |
+      |                               |                               |
+      | ============================= | ============================= |
+      |  -E                           |  -I                           |
+      | ============================= | ============================= |
+      |   --P                         |   |   P                       |
+      |  -----                        |   |   ...                     |
+      |   P                           |   |   Q ^ -Q                  |
+      |                               |  ------------                 |
+      |                               |   -P                          |
+      |                               |                               |
+      | ============================= | ============================= |
+      |  ^E                           |  ^I                           |
+      | ============================= | ============================= |
+      |   P ^ Q    P ^ Q              |   P        P                  |
+      |  -------  -------             |   Q        Q                  |
+      |   P        Q                  |  -------  -------             |
+      |                               |   P ^ Q    Q ^ P              |
+      |                               |                               |
+      | ============================= | ============================= |
+      |  VE                           |  VI                           |
+      | ============================= | ============================= |
+      |   P V Q                       |   P        P                  |
+      |   P -> R                      |  -------  -------             |
+      |   Q -> R                      |   P V Q    Q V P              |
+      |  --------                     |                               |
+      |   R                           |                               |
+      |                               |                               |
+      | ============================= | ============================= |
+      |  ->E                          |  ->I                          |
+      | ============================= | ============================= |
+      |   P -> Q                      |   |   P                       |
+      |   P                           |   |   ...                     |
+      |  ---------                    |   |   Q                       |
+      |   Q                           |  ---------                    |
+      |                               |   P -> Q                      |
+      |                               |                               |
+      | ============================= | ============================= |
+      |  <->E                         |  <->I                         |
+      | ============================= | ============================= |
+      |   P <-> Q    P <-> Q          |   P -> Q     P -> Q           |
+      |  ---------  ---------         |   Q -> P     Q -> P           |
+      |   P -> Q     Q -> P           |  ---------  ---------         |
+      |                               |   P <-> Q    Q <-> P          |
+      |                               |                               |
+      | ============================= | ============================= |
+      |  EQ (Equiv. Substitution)     |  Ax (Axiom)                   |
+      | ============================= | ============================= |
+      |   [ P <-> Q ]    [ P <-> Q ]  |                               |
+      |   R(P)           R(Q)         |  ---                          |
+      |  -------------  ------------- |   P   (P is an axiom)         |
+      |   R(Q/P)         R(P/Q)       |                               |
+      |                               |                               |
+      +-------------------------------+-------------------------------+
+
+Psuedo Inference Rules
+======================
+
+   The following aren't inference rules but appear in proofs as if they
+   were inference rules.
+
+   ================================  =========================================
+   Name/Alternate Names              Rule
+   ================================  =========================================
+   Definition Substitution (DEF)     From [ P =df Q ], R(P), infer R(Q/P);
+                                     and [ P =df Q ], R(Q), infer R(P/Q).
+   ================================  =========================================
+
+Derived Inference Rules
+=======================
+
+   Once poven a sequent can be used as a new inference rule.  The following
+   are traditionally important rules derivable in our system.
+
+   ================================  =========================================
+   Name/Alternate Names              Sequent
+   ================================  =========================================
+   Reiterate (RE)                    P  |-  P
+   Falso Quodlibet (EFQ)             P, -P  |-  Q
+   Modus Tollens (MT)                P -> Q, -Q  |-  -P
+   Hypothetical Syllogism (HS)       P -> Q, Q -> R  |-  P -> R
+   Absorption (Abs)                  P -> Q  |-  P -> (P ^ Q)
+   Constructive Dilemma (CD)         P V Q, P -> R, Q -> S  |-  R V S
+   Descructive Dilemma (DD)          (P -> Q), R -> S, -Q V -S |- -P V -Q
+   Disjunctive Syllogism (DS)        P V Q, -P  |-  Q
+   Disjunctive Syllogism (DS)        P V Q, -Q  |-  P
+   Theorem (THM)                     [ |- P ]  |-  P
+   ================================  =========================================
+
+   While I do prove the other derived rules, there's nothing to prove
+   for THM, except that introducing a theorem into a proof is equivalent
+   to inserting the proof of the theorem into the body of your proof
+   to derive the theorem again.
+
+Theorems
+========
+
+   A theorem of TFC is a derived rule which has no pemises or undischarged
+   hypotheses.  Theorems are are the tautologies of TFL.  A sequent for
+   a theorem P follows.  A theorem of our calculus is proven by starting
+   the proof with a hypothesis or with an already proven theorem.
+
+      |- P
+
+Equivalences
+============
+
+   An equivalence is a theorem in the form of a biconditional.  The following
+   are traditionally important equivalences derivable in our system.
+
+         |- P <-> Q
+
+   ================================  =========================================
+   Name/Alternate Names              Sequent
+   ================================  =========================================
+   Double Negation (DN)              |-  P <-> --P
+   Tautology (TAUT)                  |-  P <-> (P ^ P)
+   Tautology (TAUT)                  |-  P <-> (P V P)
+   Transposition (TRANS)             |-  (P -> Q) <-> (-Q -> -P)
+   Material Implication (MI)         |-  (P -> Q) <-> (-P V Q)
+   Association (ASSOC)               |-  (P ^ (Q ^ R)) <-> ((P ^ Q) ^ R)
+   Association (ASSOC)               |-  (P V (Q V R)) <-> ((P V Q) V R)
+   Commutation (COM)                 |-  (P ^ Q) <-> (Q ^ P)
+   Commutation (COM)                 |-  (P V Q) <-> (Q V P)
+   Exportation (EXP)                 |-  ((P ^ Q) -> R) <-> (P -> (Q -> R))
+   Distribution (DIST)               |-  (P ^ (Q V R)) <-> ((P ^ Q) V (P ^ R))
+   Distribution (DIST)               |-  (P V (Q ^ R)) <-> ((P V Q) ^ (P V R))
+   DeMorgan's law (DM)               |-  -(P ^ Q) <-> (-P V -Q)
+   DeMorgan's law (DM)               |-  -(P V Q) <-> (-P ^ -Q)
+   Material Equivalence (ME)         |-  (P <-> Q) <-> ((P -> Q) ^ (Q -> P))
+   Material Equivalence (ME)         |-  (P <-> Q) <-> ((P ^ Q) V (-P ^ -Q))
+   ================================  =========================================
+
+Definining _|_ Into TFL and TFC
+===============================
+
+   Some Fitch implementations use _|_ which can remove tedium and improve
+   readability of proofs.  EFQ is key to its use.  Applications of -I are
+   often preceded by ^I, but the resulting conjunction can be quite long.
+   Since EFQ infers any wff from two contradictories we can always infer
+   P ^ -P instead of a long conjunction.  But the following definition
+   goes even futher.
+
+         _|_  =df  (P ^ -P)
+
+   Upon which we derive new inferrential machinery for its full integration.
+  
+   ================================  =========================================
+   Name/Alternate Names              Sequent
+   ================================  =========================================
+   Ex Falso Quodlibet (EFQ)          P, -P  |-  _|_
+   Conditional Negation (CN)         |-  (P -> _|_) <-> -P
+   Negation Introduction (-I)        (P |- _|_)  |-  -P
+   Negation Introduction (-I)        (-P |- _|_)  |-  P
+   ================================  =========================================
+
+
+------
+Proofs
+------
+
+FORMAL PROOF/DERIVATION
+=======================
+
+   Given an argument P1,P2,... |- C; a FORMAL DERIVATION is a list of the
+   steps inferred from the premises to derive C using rules from a formal
+   deductive system (calculus).
+
+   A PROOF OF CONSEQUENCE is a demonstration that some wff C is derivable
+   by repeatedly applying inference rules.
+
+   A PROOF OF NONCONSEQUENCE is a demonstration that some wff C is *not*
+   derivable by any number of applications of inference rules.  The proof
+   constructed lists the counterexamples.
+
+TWO-COLUMN PROOF
+================
+
+   A formal proof laid out in a list-like fashion in two parallel collumns
+   such that the first column contains a line number (1, 2, 3, ...) followed
+   by a proposition, the second column holds a justification for writing
+   that proposition.  The justification is the name of an inference rule,
+   preceded by a set of any line numbers to which that rule was applied.
+
+   The example proof below is a proof of consequence.  To the left of the
+   proof I include comments, above and below the I include lines to highlight
+   the two columns; neither of these is part of the proof in practice.
+
+         Example
+
+         Modus Tollens:  P -> Q, -Q  |-  -P
+         ----------------    ----------
+         Proof
+         01.   P -> Q        A              Begin by listing the premises
+         02.   -Q            A
+         03.   |   P         H (for -I)     Try to prove -P using -I.
+         04.   |   Q         1,2 ->E        Use steps 1 & 2 to perform ->E.
+         05.   |   Q ^ -Q    2,4 ^I         Use steps 2 & 4 to perform ^I.
+         06.   -P            3-5 -I         use steps 3 to 5 to perform -I.
+         QED
+         ----------------    ----------
+
+   While the column on the left denotes the inferrential progression of data
+   (the propositions), the column on the right denotes the algorithm used
+   to reach the conclusion.
+
+   Construct a proof of nonconsequence by constructing a proof of consequence,
+   but trying to reduce everything to negated and unnegated atomic formulas.
+   Proceed until no additional rules can be applied.  Since we never reach
+   the conclusion the proof is left uncompleted, so don't write QED.
+
+         Example
+
+            P -> Q, -P  |-  -Q
+         Proof
+         01.   P -> Q        A
+         02.   -P            A
+         03.   |   Q         H (for -I)
+
+   Once finished the valuations can be read off the proof.  The above proof
+   tells us that the counterexamples are where P is false (due to being
+   negated), and Q is true (due to being unnegated).  We can verify this
+   with a truth-table.
+
+       P Q | P -> Q , - P  |-  - Q
+      =============================
+       F F | F T  F | T F  |   T F
+       F T | F T  T | T F  |   F T  <==
+       T F | T F  F | F T  |   T F
+       T T | T T  T | F T  |   F T
+               *      *        *
+
+   The highlighted row is our counterexample (all true premises but false
+   conclusion).  On that row P and Q have the same values as our proof gave.
+
+
+----------------------
+Philosophical Concerns
+----------------------
+
+Refuting Dilemmas
+=================
+
+   In Greek a lemma is a premise, and a dilemma is a disjunctive premise with
+   exactly two options.
+
+   Being IN A DILEMMA or IMPLAED BY THE HORNS OF A DILEMMA means that the
+   person is confronted with a choice between two undesirable options.
+
+   GRASPING BY THE HORNS is to prove one of the disjuncts true.
+
+   ESCAPING BETWEEN THE HORNS is to prove the disjunction false by either
+   proving that there's a third option, or proving that both disjuncts false.
+
+Semantic Soundness & Completeness of The Calculus
+=================================================
+
+   A calculus is SEMANTICALLY SOUND iff for any consistent set of wffs
+   it's impossible to derive a conclusion that doesn't follow (even if rules
+   were applied randomly).
+
+   A calculus is SEMANTICALLY COMPLETE iff for any consistent set of wffs
+   GAMMA, if a given conclusion PHI logically follows from GAMMA, then there
+   exists at least one proof of PHI that has a finite number of steps.
+
+   TFC is semantically sound and semantically complete.  We don't prove these
+   theorems here but it's handy to know of them.
+
+---------------------------
+TFC Proofs of Derived Forms
+---------------------------
+
+Important Derived Rules
+=======================
+
+   Reiterate (RE):   P   |-   P
+   Proof
+   01.   P                        A
+   02.   P ^ P                    1 ^I
+   03.   P                        2 ^E
+   QED
+
+   Ex Falso Quodlibet (EFQ):   P, -P  |-  Q
+   Proof
+   01.   P                        A
+   02.   -P                       A
+   03.   |   -Q                   H (for -I)
+   04.   |   P ^ -P               1,2 ^I
+   05.   --Q                      3-4 -I
+   06.   Q                        5 -E
+   QED
+
+   Ex False Quodlibet (EFQ):   Q, -Q  |-  _|_
+   Proof
+   01.   Q                        A
+   02.   -Q                       A
+   03.   P ^ -P                   1,2 EFQ
+   04.   _|_                      3 DEF _|_
+   QED
+
+   Conditional Negation (CN):   |-  (P -> _|_)  <->  -P
+   Proof
+   01.   |   P -> _|_             H (for ->I)
+   02.   |   |   P                H (for -I)
+   03.   |   |   _|_              1,2 ->E
+   04.   |   |   P ^ -P           3 DEF _|_
+   05.   |   -P                   2-4 -I
+   06.   (P -> _|_) -> -P         1-6 ->I
+   07.   |   -P                   H (for ->I)
+   08.   |   |   P                H (for ->I)
+   09.   |   |   _|_              7,8 EFQ
+   10.   |   P -> _|_             8-9 ->I
+   11.   -P -> (P -> _|_)         7-10 ->I
+   12.   (P -> _|_) <-> -P        1-6 ->I
+   QED
+
+   Negation Introudiction (-I):   (P |- _|_)  |-  -P
+   Schematic Proof
+   i.   |   P                     H
+   ...
+   j.   |   _|_
+   j+1. P -> _|_                  i - j ->I
+   j+2. |   P                     H (for -I)
+   j+3. |   _|_                   j+1, j+2 ->E
+   j+4. |   P ^ -P                j+3 Def _|_
+   j+5. -P                        j+2 - j+4 -I
+   QED
+
+   Negation Introudiction (-I):   (-P |- _|_)  |-  P
+   Schematic Proof
+   i.   |   -P                    H
+   ...
+   j.   |   _|_
+   j+1. -P -> _|_                 i - j ->I
+   j+2. |   -P                    H (for -I)
+   j+3. |   _|_                   j+1, j+2 ->E
+   j+4. |   P ^ -P                j+3 DEF _|_
+   j+5. --P                       j+2 - j+4 -I
+   j+6. P                         J+5 -E
+   QED
+
+   The Remaining Basic Derived Rules
+
+   Modus Tollens (MT):   P -> Q, -Q  |-  -P
+   Proof
+   01.   P -> Q                   A
+   02.   -Q                       A
+   03.   |   P                    H (for -I)
+   04.   |   Q                    1,3 ->E
+   05.   |   _|_                  2,4 EFQ
+   06.   -P                       3-5 -I
+   QED
+
+   Hypothetical Syllogism (HS):   P -> Q, Q -> R  |-  P -> R
+   Proof
+   01.   P -> Q                   A
+   02.   Q -> R                   A
+   03.   |   P                    H (for R)
+   04.   |   Q                    1,3 ->E
+   05.   |   R                    2,4 ->E
+   06.   P -> R                   3-5 ->I
+   QED
+
+   Absorption (ABS):  P -> Q  |-  P -> (P ^ Q)
+   Proof
+   01.   P -> Q                   A
+   02.   |   P                    H (for P ^ Q)
+   03.   |   Q                    1,2 ->E
+   04.   |   P ^ Q                2,3 ^I
+   05.   P -> (P ^ Q)             2-4 ->I
+   QED
+
+   Constructive Dilemma (CD):   P V Q, P -> R, Q -> S  |-  R V S
+   Proof
+   01.   P V Q                    A
+   02.   P -> R                   A
+   03.   Q -> S                   A
+   04.   |   P                    H (for ->I)
+   05.   |   R                    2,4 ->E
+   06.   |   R V S                5 VI
+   07.   P -> (R V S)             4-6 ->I
+   08.   |   Q                    H (for ->I)
+   09.   |   S                    3,8 ->E
+   10.   |   R V S                9 VI
+   11.   Q -> (R V S)             9-12 ->I
+   12.   R V S                    1,7,11 VE
+   QED
+
+   Descructive Dilemma (DD):    P -> Q, R -> S, -Q V -S  |-  -P V -R
+   Proof
+   01.   P -> Q                   A
+   02.   R -> S                   A
+   03.   -Q V -S                  A
+   04.   |   -Q                   H (for ->I)
+   05.   |   -P                   1,4 MT
+   06.   |   -P V -R              5 VI
+   07.   -Q -> (-P V -R)          4-6 ->I
+   08.   |   -S                   H (for ->I)
+   09.   |   -R                   2,8 MT
+   10.   |   -P V -R              9 VI
+   11.   -S -> (-P V -R)          8-10 ->I
+   12.   -P V -R                  3,7,11 VE
+   QED
+
+   Disjunctive Syllogism (DS):  P V Q, -P  |-  Q
+   Proof
+   01.   P V Q                    A
+   02.   -P                       A
+   03.   |   P                    H (for ->I)
+   04.   |   Q                    2,3 EFQ
+   05.   P -> Q                   3-4 ->I
+   06.   |   Q                    H (for ->I)
+   07.   |   Q                    6 RE
+   08.   Q -> Q                   6-7 ->I
+   09.   Q                        1,5,8 VE
+   QED
+
+   Disjunctive Syllogism (DS):   P V Q, -Q  |-  P
+   Proof
+   01.   P V Q                    A
+   02.   -Q                       A
+   03.   |   P                    H (for ->I)
+   04.   |   P                    3 RE
+   05.   P -> P                   3-4 ->I
+   06.   |   Q                    H (for ->I)
+   07.   |   P                    2,6 EFQ
+   08.   Q -> P                   6-7 ->I
+   09.   P                        1,5,8 VE
+   QED
+
+Important Derived Equivalences
+==============================
+
+   Double Negation (DN):   |-  P <-> --P
+   Proof
+   01.   |   P                    H (for ->I)
+   02.   |   |   -P               H (for -I)
+   03.   |   |   _|_              1,2 EFQ
+   04.   |   --P                  2-3 -I
+   05.   P -> --P                 1-4 ->I
+   06.   |   --P                  H (for ->I)
+   07.   |   P                    6 -E
+   08.   --P -> P                 6,7 ->I
+   09.   P <-> --P                5,8 <->I
+   QED
+
+   Tautology (TAUT):   |-  P <-> (P ^ P)
+   Poof
+   01.   |   P                    H (for ->I)
+   02.   |   P ^ P                1,1 ^I
+   03.   P -> (P ^ P)             2-3 ->I
+   04.   |   P ^ P                H (for ->I)
+   05.   |   P                    4 ^E
+   06.   (P ^ P) -> P             4-5 ->I
+   07.   P <-> (P ^ P)            3,6 <->I
+   QED
+
+   Tautology (TAUT):   |-  P <-> (P V P)
+   Proof
+   01.   |   P                    H (for ->I)
+   02.   |   P V P                1 VI
+   03.   P -> (P V P)             1-2 ->I
+   04.   |   P V P                H (for ->I)
+   05.   |   |   P                H (for ->I)
+   06.   |   |   P                5 RE
+   07.   |   P -> P               5-6 ->I
+   08.   |   P -> P               7 RE
+   09.   |   P                    4,7,8 VE
+   10.   (P V P) -> P             4-9 ->I
+   11.   P <-> (P V P)            3,10 <->I
+   QED
+
+   Transposition (TRANS):  |-  (P -> Q) <-> (-Q -> -P)
+   Proof
+   01.   |   P -> Q               H (for ->I)
+   02.   |   |   -Q               H (for ->I)
+   03.   |   |   -P               1,2 MT
+   04.   |   -Q -> -P             2-3 ->I
+   05.   (P -> Q) -> (-Q -> -P)   1-4 ->I
+   06.   |   -Q -> -P             H (for ->I)
+   07.   |   |   P                H (for ->I)
+   08.   |   |   --P              7 DN
+   09.   |   |   --Q              6,8 MT
+   10.   |   |   Q                9 -E
+   11.   |   P -> Q               7-10 ->I
+   12.   (-Q -> -P) -> (P -> Q)   6-11 ->I
+   13.   (P -> Q) <-> (-Q -> -P)  5,12 <->I
+   QED
+
+   Material Implication (MI):   |-  (P -> Q) <-> (-P V Q)
+   Proof
+   01.   |   P -> Q               H (for ->I)
+   02.   |   |   -(-P V Q)        H (for -I)
+   03.   |   |   |   P            H (for -I)
+   04.   |   |   |   Q            1,3 ->E
+   05.   |   |   |   -P V Q       4 VI
+   06.   |   |   |  _|_           2,5 EFQ
+   07.   |   |   -P               3-6 -I
+   08.   |   |   -P V Q           7 VI
+   09.   |   |   _|_              2,8 EFQ
+   10.   |   --(-P V Q)           2-9 -I
+   11.   |   -P V Q               10 -E
+   12.   (P -> Q) -> (-P V Q)     1-11 ->I
+   13.   |   -P V Q               H (for ->I)
+   14.   |   |   P                H (for -I)
+   15.   |   |   --P              14 DN
+   16.   |   |   Q                13,15 DS
+   17.   |   P -> Q               14-16 ->I
+   18.   (-P V Q) -> (P -> Q)     13-17 ->I
+   19.   (P -> Q) <-> (-P V Q)    12,18 <->I
+   QED
+
+   Association (ASSOC):   |-  (P ^ (Q ^ R)) <-> ((P ^ Q) ^ R)
+   Proof
+   01.   |   P ^ (Q ^ R)                       H (for ->I)
+   02.   |   P                                 1 ^E
+   03.   |   Q ^ R                             1 ^E
+   04.   |   Q                                 3 ^E
+   05.   |   R                                 3 ^E
+   06.   |   P ^ Q                             2,4 ^I
+   07.   |   (P ^ Q) ^ R                       5,6 ^I
+   08.   (P ^ (Q ^ R)) -> ((P ^ Q) ^ R)        1-7 ->I
+   09.   |   (P ^ Q) ^ R                       H (for ->I)
+   10.   |   P ^ Q                             9 ^E
+   11.   |   R                                 9 ^E
+   12.   |   P                                 10 ^E
+   13.   |   Q                                 10 ^E
+   14.   |   Q ^ R                             11,13 ^I
+   15.   |   P ^ (Q ^ R)                       12,14 ^I
+   16.   ((P ^ Q) ^ R) -> (P ^ (Q ^ R))        9-15 ->I
+   17.   (P ^ (Q ^ R)) <-> ((P ^ Q) ^ R)       8,16 <->I
+   QED
+
+   Association (ASSOC):   |-  (P V (Q V R)) <-> ((P V Q) V R)
+   Proof
+   01.   |   P V (Q V R)                       H (for ->I)
+   02.   |   |   P                             H (for ->I)
+   03.   |   |   P V Q                         2 VI
+   04.   |   |   (P V Q) V R                   3 VI
+   05.   |   P -> ((P V Q) V R)                2-4 ->I
+   06.   |   |   Q V R                         H (for ->I)
+   07.   |   |   |   Q                         H (for ->I)
+   08.   |   |   |   P V Q                     7 VI
+   09.   |   |   |   (P V Q) V R               8 VI
+   10.   |   |   Q -> ((P V Q) V R)            7-9 ->I
+   11.   |   |   |   R                         H (for ->I)
+   12.   |   |   |   (P V Q) V R               11 VI
+   13.   |   |   R -> ((P V Q) V R)            11-12 ->I
+   14.   |   |   (P V Q) V R                   6,10,13 VE
+   15.   |   (Q V R) -> ((P V Q) V R)          6-14 ->I
+   16.   |   (P V Q) V R                       1,5,15 VE
+   17.   (P V (Q V R)) -> ((P V Q) V R)        1-16 ->I
+   18.   |   (P V Q) V R                       H (for ->I)
+   19.   |   |   P V Q                         H (for ->I)
+   20.   |   |   |   P                         H (for ->I)
+   21.   |   |   |   P V (Q V R)               20 VI
+   22.   |   |   P -> (P V (Q V R))            20-21 ->I
+   23.   |   |   |   Q                         H (for ->I)
+   24.   |   |   |   Q V R                     23 VI
+   25.   |   |   |   P V (Q V R)               14 VI
+   26.   |   |   Q -> (P V (Q V R))            23-25 ->I
+   27.   |   |   P V (Q V R)                   19,22,26 VE
+   28.   |   (P V Q) -> (P V (Q V R))          19-27 ->I
+   29.   |   |   R                             H (for ->I)
+   30.   |   |   Q V R                         29 VI
+   31.   |   |   P V (Q V R)                   30 VI
+   32.   |   R -> (P V (Q V R))                29-31
+   33.   |   P V (Q V R)                       13,28,32 VE
+   34.   ((P V Q) V R) -> (P V (Q V R))        18-33 ->I
+   35.   (P V (Q V R)) <-> ((P V Q) V R)       17,34 <->I
+   QED
+
+   Commutation (COM):   |-  (P ^ Q) <-> (Q ^ P)
+   Proof
+   01.   |   P ^ Q                H (for ->I)
+   02.   |   P                    1 ^E
+   03.   |   Q                    1 ^E
+   04.   |   Q ^ P                2,3 ^I
+   05.   (P ^ Q) -> (Q ^ P)       1-4 ->I
+   06.   |   Q ^ P                H (for ->I)
+   07.   |   Q                    ^E
+   08.   |   P                    ^E
+   09.   |   P ^ Q                ^I
+   10.   (Q ^ P) -> (P ^ Q)       6-9 ->I
+   11.   (P ^ Q) <-> (Q ^ P)      5,10 <->I
+   QED
+
+   Commutation (COM):   |-  (P V Q) <-> (Q V P)
+   Proof
+   01.   |   P V Q                H (for ->I)
+   02.   |   |   P                H (for ->I)
+   03.   |   |   Q V P            2 VI
+   04.   |   P -> (Q V P)         2-4 ->I
+   05.   |   |   Q                H (for ->I)
+   06.   |   |   Q V P            5 VI
+   07.   |   Q -> (Q V P)         5-6 ->I
+   08.   |   Q V P                1,4,7 VE
+   09.   (P V Q) -> (Q V P)       1-8 ->I
+   10.   |   Q V P                H (for ->I)
+   11.   |   |   Q                H (for ->I)
+   12.   |   |   P V Q            11 VI
+   13.   |   Q -> (P V Q)         11-12 ->I
+   14.   |   |   P                H (for ->I)
+   15.   |   |   P V Q            14 VI
+   16.   |   P -> (P V Q)         14-15 ->I
+   17.   |   P V Q                10,13,16 VE
+   18.   (Q V P) -> (P V Q)       10-17 ->I
+   19.   (P V Q) <-> (Q V P)      9,18 <->I
+   QED
+
+   Exportation (EXP):   |-  ((P ^ Q) -> R) <-> (P -> (Q -> R))
+   Proof
+   01.   |   (P ^ Q) -> R                      H (for ->I)
+   02.   |   |   P                             H (for ->I)
+   03.   |   |   |   Q                         H (for ->I)
+   04.   |   |   |   P ^ Q                     2,3 ^I
+   05.   |   |   |   R                         1,4 ->E
+   06.   |   |   Q -> R                        3-5 ->I
+   07.   |   P -> (Q -> R)                     2-6 ->I
+   08.   ((P ^ Q) -> R) -> (P -> (Q -> R))     1-7 ->I
+   09.   |   P -> (Q -> R)                     H (for ->I)
+   10.   |   |   P ^ Q                         H (for ->I)
+   11.   |   |   P                             13 ^E
+   12.   |   |   Q -> R                        9,11 ->E
+   13.   |   |   Q                             10 ^E
+   14.   |   |   R                             12,13 ->E
+   15.   |   (P ^ Q) -> R                      10-14 ->I
+   16.   (P -> (Q -> R)) -> ((P ^ Q) -> R)     9-15 ->I
+   17.   ((P ^ Q) -> R) <-> (P -> (Q -> R))    8,16 <->I
+   QED
+
+   Distibution (DIST):   |-  (P ^ (Q V R)) <-> ((P ^ Q) V (P ^ R))
+   Proof
+   01.   |   P ^ (Q V R)                       H (for ->I)
+   02.   |   P                                 1 ^E
+   03.   |   Q V R                             1 ^E
+   04.   |   |   Q                             H (for ->I)
+   05.   |   |   P ^ Q                         2,4 ^I
+   06.   |   |   (P ^ Q) V (P ^ R)             5 VI
+   07.   |   Q -> ((P ^ Q) V (P ^ R))          4-6 ->I
+   08.   |   |   R                             H (for ->I)
+   09.   |   |   P ^ R                         2,8 ^I
+   10.   |   |   (P ^ Q) V (P ^ R)             9 VI
+   11.   |   R -> ((P ^ Q) V (P ^ R))          8-10 ->I
+   12.   |   (P ^ Q) V (P ^ R)                 3,7,11 VE
+   13.   (P ^ (Q V R)) -> ((P ^ Q) V (P ^ R))  1-12 ->I
+   14.   |   (P ^ Q) V (P ^ R)                 H (for ->I)
+   15.   |   |   P ^ Q                         H (for ->I)
+   16.   |   |   P                             15 ^E
+   17.   |   |   Q                             15 ^E
+   18.   |   |   Q V R                         17 VI
+   19.   |   |   P ^ (Q V R)                   17,18 ^I
+   20.   |   (P ^ Q) -> (P ^ (Q V R))          15-18 ->I
+   21.   |   |   P ^ R                         H (for ->I)
+   22.   |   |   P                             21 ^E
+   23.   |   |   R                             21 ^E
+   24.   |   |   Q V R                         23 VI
+   25.   |   |   P ^ (Q V R)                   24 ^I
+   26.   |   (P ^ R) -> (P ^ (Q V R))          21-25 ->I
+   27.   |   P ^ (Q V R)                       14,20,26 VE
+   28.   ((P ^ Q) V (P ^ R)) -> (P ^ (Q V R))  14-27 ->I
+   29.   (P ^ (Q V R)) <-> ((P ^ Q) V (P ^ R)) 13,28 <->I
+   QED
+
+   Distribution (DIST):   |-  (P V (Q ^ R)) <-> ((P V Q) ^ (P V R))
+   Proof
+   01.   |   P V (Q ^ R)                       H (for ->I)
+   02.   |   |   P                             H (for ->I)
+   03.   |   |   P V Q                         2 VI
+   04.   |   |   P V R                         2 VI
+   05.   |   |   (P V Q) ^ (P V R)             3,4 ^I
+   06.   |   P -> ((P V Q) ^ (P V R))          2-5 ->I
+   07.   |   |   Q ^ R                         H (for ->I)
+   08.   |   |   Q                             7 ^E
+   09.   |   |   R                             7 ^E
+   10.   |   |   P V Q                         8 VI
+   11.   |   |   P V R                         9 VI
+   12.   |   |   (P V Q) ^ (P V R)             10,11 ^I
+   13.   |   (Q ^ R) -> ((P V Q) ^ (P V R))    7-12 ->I
+   14.   |   (P V Q) ^ (P V R)                 1,6,13 VE
+   15.   (P V (Q ^ R)) -> ((P V Q) ^ (P V R))  1-14 ->I
+   16.   |   (P V Q) ^ (P V R)                 H (for ->I)
+   17.   |   P V Q                             18 ^E
+   18.   |   P V R                             16 ^E
+   19.   |   |   P                             H (for ->I)
+   20.   |   |   P V (Q ^ R)                   19 VI
+   21.   |   P -> (P V (Q ^ R))                19-20 ->I
+   22.   |   |   Q                             H (for ->I)
+   23.   |   |   |   R                         H (for ->I)
+   24.   |   |   |   Q ^ R                     22,23 ^I
+   25.   |   |   |   P V (Q ^ R)               24 VI
+   26.   |   |   R -> (P V (Q ^ R))            23-25 ->I
+   27.   |   |   P V (Q ^ R)                   28,21,26 VE
+   28.   |   Q -> (P V (Q ^ R))                22-26 ->I
+   29.   |   P V (Q ^ R)                       17,21,28 VE
+   30.   ((P V Q) ^ (P V R)) -> (P V (Q ^ R))  16-29 ->I
+   31.   (P V (Q ^ R)) <-> ((P V Q) ^ (P V R)) 15,30 <->I
+   QED
+
+   DeMorgan's law (DM): |-  -(P ^ Q) <-> (-P V -Q)
+   Proof
+   01.   |   -(P ^ Q)                     H (for ->I)
+   02.   |   |   -(-P V -Q)               H (for -I)
+   03.   |   |   |   -P                   H (for -I)
+   04.   |   |   |   -P V -Q              3 VI
+   05.   |   |   |   _|_                  2,4 EFQ
+   06.   |   |   --P                      3-6 -I
+   07.   |   |   P                        6 -E
+   08.   |   |   |   -Q                   H (for -I)
+   09.   |   |   |   -P V -Q              8 VI
+   10.   |   |   |   _|_                  2,9 EFQ
+   11.   |   |   --Q                      9-10 -I
+   12.   |   |   Q                        11 -E
+   13.   |   |   P ^ Q                    7,12 ^I
+   14.   |   |   _|_                      1,13 EFQ
+   15.   |   --(-P V -Q)                  2-14 -I
+   16.   |   -P V -Q                      15 -E
+   17.   -(P ^ Q) -> (-P V -Q)            1-16 ->I
+   18.   |   -P V -Q                      H (for ->I)
+   19.   |   |   P ^ Q                    H (for -I)
+   20.   |   |   P                        19 ^E
+   21.   |   |   Q                        19 ^E
+   22.   |   |   --P                      20 DN
+   23.   |   |   -Q                       18,22 DS
+   24.   |   |   _|_                      21,23 EFQ
+   25.   |   -(P ^ Q)                     19-24 -I
+   26.   (-P V -Q) -> -(P ^ Q)            18-25 ->I
+   27.   -(P ^ Q) <-> (-P V -Q)           17,26 <->I
+   QED
+
+   DeMorgan's law (DM)  |-  -(P V Q) <-> (-P ^ -Q)
+   Proof
+   01.   |   -(P V Q)                     H (for ->I)
+   02.   |   |   -(-P ^ -Q)               H (for -I)
+   03.   |   |   |   P                    H (for -I)
+   04.   |   |   |   P V Q                3 VI
+   05.   |   |   |   _|_                  1,4 EFQ
+   06.   |   |   -P                       3-5 -I
+   07.   |   |   |   Q                    H (for -I)
+   08.   |   |   |   P V Q                7 VI
+   09.   |   |   |   _|_                  1,8 EFQ
+   10.   |   |   -Q                       7-9 -I
+   11.   |   |   -P ^ -Q                  6,10 ^I
+   12.   |   |   _|_                      2,11 EFQ
+   13.   |   -P ^ -Q                      2-12 -E
+   14.   -(P V Q) -> (-P ^ -Q)            1-13 ->I
+   15.   |   -P ^ -Q                      H (for ->I)
+   16.   |   |   P V Q                    H (for -I)
+   17.   |   |   -P                       15 ^E
+   18.   |   |   -Q                       15 ^E
+   19.   |   |   Q                        16,18 DS
+   20.   |   |   _|_                      18,19 EFQ
+   21.   |   -(P V Q)                     16-20 -I
+   22.   (-P ^ -Q) -> -(P V Q)            15-21 ->I
+   23.   -(P V Q) <-> (-P ^ -Q)           14,22 <->I
+   QED
+
+   Material Equivalence (ME):  |-  (P <-> Q) <-> ((P -> Q) ^ (Q -> P))
+   Proof
+   01.   |   P <-> Q                           H (for ->I)
+   02.   |   P -> Q                            1 <->E
+   03.   |   Q -> P                            1 <->E
+   04.   |   (P -> Q) ^ (Q -> P)               2,3 ^I
+   05.   (P <-> Q) -> ((P -> Q) ^ (Q -> P))    1-4 ->I
+   06.   |   (P -> Q) ^ (Q -> P)               H (for ->I)
+   07.   |   P -> Q                            6 ^E
+   08.   |   Q -> P                            6 ^E
+   09.   |   P <-> Q                           7,8 <->I
+   10.   ((P -> Q) ^ (Q -> P)) -> (P <-> Q)    6-9 ->I
+   11.   (P <-> Q) <-> ((P -> Q) ^ (Q -> P))   5,10 <->I
+   QED
+
+   Material Equivalence (ME):  |-  (P <-> Q) <-> ((P ^ Q) V (-P ^ -Q))
+   Proof
+   01.   |   P <-> Q                           H (for ->I)
+   02.   |   P -> Q                            1 <->E
+   03.   |   Q -> P                            1 <->E
+   04.   |   |   -((P ^ Q) V (-P ^ -Q))        H (for -I)
+   05.   |   |   -(P ^ Q) ^ -(-P ^ -Q)         4 DM
+   06.   |   |   -(P ^ Q)                      5 ^E
+   07.   |   |   -(-P ^ -Q)                    5 ^E
+   08.   |   |   -P V -Q                       6 DM
+   09.   |   |   P V Q                         7 DM
+   10.   |   |   |   -P                        H (for ->I)
+   11.   |   |   |   -Q                        2,10 MT
+   12.   |   |   |   P                         9,10 DS
+   13.   |   |   |   _|_                       10,11 EFQ
+   14.   |   |   -P -> _|_                     10-13 ->I
+   15.   |   |   |   -Q                        H (for ->I)
+   16.   |   |   |   -P                        2,15 MT
+   17.   |   |   |   P                         9,15 DS
+   18.   |   |   |   _|_                       16,17 EFQ
+   19.   |   |   -Q -> _|_                     15-18 ->I
+   20.   |   |   _|_                           7,14,29 VE
+   21.   |   (P ^ Q) V (-P ^ -Q)               4-20 -I
+   22.   (P <-> Q) -> ((P ^ Q) V (-P ^ -Q))    1-21 ->I
+   23.   |   (P ^ Q) V (-P ^ -Q)               H (for ->I)
+   24.   |   |   P ^ Q                         H (for ->I)
+   25.   |   |   |   P                         H (for ->I)
+   26.   |   |   |   Q                         24 ^E
+   27.   |   |   P -> Q                        25-26 ->I
+   28.   |   |   |   Q                         H (for ->I)
+   29.   |   |   |   P                         24 ^E
+   30.   |   |   Q -> P                        28-29 ->I
+   31.   |   |   P <-> Q                       27,30 <->I
+   32.   |   (P ^ Q) -> (P <-> Q)              24-31 ->I
+   33.   |   |   -P ^ -Q                       H (for ->I)
+   34.   |   |   |   P                         H (for ->I)
+   35.   |   |   |   Q                         ?,34 ->E
+   36.   |   |   P -> Q                        34-35 ->I
+   37.   |   |   |   Q                         H (for ->I)
+   38.   |   |   |   P                         ?,37 ->E
+   39.   |   |   Q -> P                        37-38 ->I
+   40.   |   |   P <-> Q                       36,39 <->I
+   41.   |   (-P ^ -Q) -> (P <-> Q)            33-40 ->I
+   42.   |   P <-> Q                           23,32,41 VE
+   43.   ((P ^ Q) V (-P ^ -Q)) -> (P <-> Q)    23-42 ->I
+   44.   (P <-> Q) <-> ((P ^ Q) V (-P ^ -Q))   22,43 <->I
+   QED
+
+
+==========
+Set Theory
+==========
+
+A SET is a collection of objects which has no special order but in which every
+member object occurs just once.
+
+--------------
+Set Definition
+--------------
+
+   A = { my phone, empire state building, titanic,
+         the neighborhood dog that's always barking }
+
+   B = { } = null
+
+   '|' is read 'such that'
+
+   M = the set of all mammals
+     = { x | x is a mammal }
+     = read, "the set of all x such that x is a mammal."
+     This notation is known as a COMPREHENSION.
+
+   E = { x | x/2 = int(x/2) }
+     = "The set of all x such that x divided by 2 equals the integer
+       of x divided by 2."
+     = "The set of all even numbers."
+
+   P = { x | (x is an integer) or (x is red) }
+
+   Z = { x | x is an integer }
+       It's customary to denote this set with a old faced capital 'Z'.
+
+   F = { <x,y> | (x in Z) and (y=10x) }
+       The set of all ordered pairs <x,y> such that x is an integer
+       and y is ten times x.
+
+--------------------
+Set/Member Relations
+--------------------
+
+   The things that sets are composed of are called OBJECTS, ELEMENTS
+   or MEMBERS.
+
+   MEMBERSHIP
+
+      a in P, a is in set P.
+      fido in Dog, fido is a dog.
+      2 in Even, 2 is even.
+
+   Identity
+
+      A = B, Set A has exactly the same members as set B.
+
+   PROPER SUBSET
+
+      A < B,  A is composed of some of the objects in set B.
+      E < Z,  even numbered integers are a subset of integers.
+
+   SUBSET
+
+      A <= B, A is a proper subset of or identical to B
+
+   PROPER SUPERSET & SUPERSET
+
+      > and >= work in the the same was as subset operators.
+
+--------------
+Set Operations
+--------------
+
+   Consider,
+
+       R = { x | x is red }
+       C = { x | x is a car }
+
+   UNION
+
+      The set of all things contained in two sets.
+
+      R U C
+      = { x | x is red } U { x | x is a car }
+      = { x | (x is red) or (x is a car) }
+
+   INTERSECTION
+
+      The set of all things common to two sets.
+
+      R ^ C
+      = { x | x is red } ^ { x | x is a car }
+      = { x | (x is red) and (x is a car) }
+
+   DIFFERENCE
+
+      R - C = { x | (x is red) and (x is not a car) }
+
+   COMPLEMENT
+
+      The set of all things outside of (not in) the set.
+
+      C' = { x | x is not a car }
+      C'' = C
+
+   CARDINALITY
+
+      The CARDINALITY of a set is how many members it contains.
+
+      A = { a, b, c }
+      |A| = 3
+      |Z| = infinity
+
+--------------
+Set Properties
+--------------
+
+   UNIVERSE
+
+      U, UNIVERSE OF DISCOURSE (also DOMAIN OF DISCOURSE)
+         The set of all objcts in our discussion.
+
+   DECIDABLE SET
+
+      A set is DECIDABLE iff there's an effective method for determining
+      whether an object is in the set.
+
+   1:1 CORRESPONDENCE
+
+      For any two sets there is a 1:1 CORRESPONDENCE iff there is a way
+      to pair members of set A with members of set B.  Every member of
+      both must be paired uniquely, so both sets have the same cardinality
+      |A| = |B|.  Every member of A is paired to exactly one member of B,
+      and vice versa.
+
+   DENUMERABLE
+
+      A set is DENUMERABLE iff there is a 1:1 correspondence between
+      it and the set of natural numbers.  Hence, the cardinality of the
+      set is infinity.
+
+
+====================
+Predicate Logic (PL)
+====================
+
+Predicate logic allows us to analyze proposition symbols down further.
+We'll construct PL on top of TFL.
+
+
+--------
+Language
+--------
+
+Lexemes
+=======
+
+   Non-Logical Symbols
+
+      Object Symbols:           a...z
+      Predicate Symbols:        A...Z
+
+   Logical Symbols
+
+      Truth-Function Symbols:   -, ^ V -> <->
+      Association Symbols:      ( )
+
+Grammar
+=======
+
+   An ATOMIC FORMULA is a formula consisting of a Predicate symbol
+   followed by zero or more object Symbols.
+
+   Rules for wffs
+   1.  every atomic formulas is a wff;
+   2.  if P is a wff, then so is -P;
+   3.  if P, Q are wffs, then so are (P ^ Q), (P V Q), (P -> Q), (P <-> Q);
+   4.  Nothing else is a wff.
+
+   Notes
+
+   - To aid readability of wffs we adopt the convention that if a wff
+     begins with '(', we will drop the outter-most pair of parenthesis.
+
+   - We'll often use letters from the end of the alphabet (x, y and z), as
+     pseudo variables to serve as place-holders for arbitrary object symbols.
+
+   - In practice it's common to use tick marks or numerical subscripts
+     (we use postscripts) after the proposition symbol to increase to
+     infinity the number of available symbols.
+
+   - It's not uncommon to use an expanded predicate notation using parenthesis
+     and commas so P(x,y) = Pxy.  This notation also allows us to use multiple
+     letters for each predicate or object symbol without risk of confusion.
+     The disadvantage to this is that it makes our wffs longer and contain
+     more parenthesis both of which contribute to making them harder to read.
+
+   - Identical permutations of symbols that form single atomic formulas should
+     be regarded as if they were the same proposition symbol, while different
+     permutations ought be regarded as different proposition symbols.
+
+
+---------
+Semantics
+---------
+
+Model
+=====
+
+   Very roughly, a MODEL is a limited representation of some state of affairs
+   which is expressed using set theory.  Since a set theory model can be a
+   mathematical representation of sometihng about the actual world, we can for
+   our current purposes, informally regard the actual world as our model.
+
+Establish a Dictionary
+======================
+
+   A dictionary is a list of symbols and their assigned meanings for use
+   within a discussion (such as a proof).  The letters x,y,z are placeholders
+   which allow us to better define a Predicate's meaning.
+
+      Dictionary
+      ----------------
+      Object Symbols        Predicates
+      a,   Alice            Fx,   x is a female
+      b,   Bob              Mx,   x is a male
+      c,   Charlie          Nx,   x is non-binary
+
+      By substituting one of our object symbols in place of an x in a
+      predicate, we form an atomic formula, which can be used to construct
+      molecular (non-atomic) wffs.
+
+      Nc,  Charlie is non-binary.
+      Fa,  Alice is female.
+      Mb,  Bob is male.
+
+      Nc -> -(Fc V Nc)
+         If Charlie is non-binary the Charlie is neither female nor male.
+      
+   This kind of predicate is called a PROPERTY.  Any predicate formula
+   Pc means, c is in set P.  Properties are 1-place predicates.  Let's
+   expand our dictionary.
+
+      Predicates
+      Txy,  x is taller than y.
+
+   'Tall', while a property, wouldn't be a very good predicate for logic
+   because 'tall' is vague.  Eg. a tall building and a tall glass of water
+   don't mean the same thing.  However, 'taller' is objective, making
+   it more suitable.  Now we can say new kinds of things.
+
+      Tab,  Alice is taller than Bob.
+      Tba,  Bob is taller than Alice.
+
+      (Tab ^ Tbc) -> Tac
+         If Alice is taller than Bob and Bob is taller than Charlie,
+            then Alice is taller than Charlie.
+
+   Taller is a 2-place predicate; they always express a relationships between
+   two objects, so they're called RELATIONS.  But we don't have to stop at
+   2-places.  Predicates with more than two places are still called RELATIONS.
+   Any number of places is acceptable, including 0.  0-place predicates are
+   functionally identical to TFL proposition symbols.
+
+Truth-Tables
+============
+
+   Truth-tables technically can be constructed for PL.  However, in PL number
+   of atomic formula gets very large very fast, which makes tables
+   impractical.  Moreover, tables don't work at all on any system
+   we study after PL.
+
+Truth Trees
+===========
+
+   Truth trees are constructed according to the same rules as trees for
+   TFL.
+
+
+Translation Hints
+=================
+
+              +-----------------------------------------------+             
+              | ============================================= |
+              | 0-Place Predcate Symbol (Proposition Symbols) |
+              | ============================================= |
+              | S,    Zelda is at the store.                  |
+              | C,    cake is delicious.                      |
+              |                                               |
+              | ============================================= |
+              | 1-Place (Monadic) Predicates (Properties)     |
+              | ============================================= |
+              | Px,   x is P, x in set P                      |
+              |                                               |
+              | Ms,   Susy is a mammal.                       |
+              | Dr,   Rex is a dog.                           |
+              | Qr,   Rox is quiet.                           |
+              | En,   n is an even number.                    |
+              |                                               |
+              | ============================================= |
+              | 2-Place (Diadic) Predicates (Relations)       |
+              | ============================================= |
+              | Pxy,  x,y are related through P               |
+              |                                               |
+              | Sta,  Tom sees Agatha.                        |
+              | Tab,  Alice is taller than Bob.               |
+              | Aac,  lines a and c are adjacent.             |
+              | Los,  one is less than six.                   |
+              |                                               |
+              | ============================================= |
+              | 3-Place (Triadic) Predicates (Relations)      |
+              | ============================================= |
+              | Pxyz,  x,y,z are related through P            |
+              |                                               |
+              | Stsb,  Tom saw Sally steal from Barbara.      |
+              | Bxyz,  x is between y and z                   |
+              | Pxyz,  x purchased y from z                   |
+              |                                               |
+              +-----------------------------------------------+
+
+
+-----------------------
+Predicate Calculus (PC)
+-----------------------
+
+The calculus for constructing proofs in predicate logic is largely
+unmodified and from TFC.  The single difference is in the definition
+of an atomic formula.
+
+      Dictionary
+      ----------
+      Constants            Predicates
+      g,    Galdalf        Axy,   x abandons y
+      f,    Frodo
+      s,    Sam
+
+      Agf -> Ags, -Ags  |-  -Agf
+
+
+==================================
+First-Order Quantified Logic (FOL)
+==================================
+
+FOL introduces new concepts which build upon PL to allow us to express,
+among other things, the Aristotelian proposition forms which denote
+relations among sets.
+
+         A:  All P is Q.
+         E:  No P is Q.
+         I:  Some P is Q.
+         O:  Some P is not Q.
+
+FOL introduces two new concepts into PL: quantifiers which express
+quantities, and variable object symbols.
+
+
+--------
+Language
+--------
+
+Lexemes
+=======
+
+   Non-Logical Symbols
+      Object symbols
+         constants:            a...t
+         variables:            u...z
+      Predicate Symbols:       A...Z
+
+   Logical Symbols
+      Truth-Function Symbols:  -, ^, V, ->, <->
+      Association Symbols:     (, )
+      Quantifiers
+         universal:            Ax: (A is inverted)
+         existential:          Ex: (E is reversed)
+
+Grammar (Rules for wffs)
+========================
+
+   An ATOMIC FORMULA is a predicate symbol, followed by zero or more
+   constants.
+
+   1.  Every atomic formula is a wff.
+   2.  if P is a wff, then so is -P.
+   3.  if P,Q are wffs, then so are (P ^ Q), (P V Q), (P -> Q), (P <-> Q).
+   4.  if P(a) (a is some const) is a wff, then Ax:P(x/a) and Ex:P(x/a)
+       are wffs (where x is new to P).
+   5.  Nothing else is a wff.
+
+   Notes
+
+   - To aid readability of a wffs we adopt the convention that if a wff
+     begins with '(', we will drop the outter-most pair of parenthesis.
+
+   - In practice it's common to use tick marks or numerical subscripts
+     (we use postscripts) after the proposition symbol to increase to
+     infinity the number of available symbols.
+
+   - In practice it's common to use an expanded predicate notation using
+     parenthesis and commas so P(x,y) = Pxy.  This also allows us to use
+     multiple letters for the predicate name.  The disadvantage to this
+     is that it makes our wffs longer and contain more parenthesis which
+     can make them harder to read.
+
+   - Identical permutations of symbols that form atomic single formulas should
+     be treated as if they were the same proposition symbol, while different
+     permutations ought be regarded as different proposition symbols.
+
+
+---------
+Semantics
+---------
+
+Constants & Variables
+=====================
+
+   Constants denote objects, but variables don't denote anything unless they
+   are bound to a quantifier at which time they denote arbitrary elements in
+   the universe of discourse.
+
+         Pc, c is P   where, constant C denotes an particular object
+         Px, x is P   where, variable x is a place-holder for a constant
+
+   Variables are not the same thing as the placeholders we used in PL.
+   Whenever we use a variable symbol outside of a quantifier expression,
+   it will usually just be serving the same purpose as a PL placeholder
+   unless otherwise specified.  Some implementations of FOL may allow FREE
+   VARIABLES (variables not bound by quantifiers) in formulas, but they
+   play no part in this implementation.
+
+Predicates
+==========
+
+   Predicates continue to work in the same way as they do in PL.  The one
+   note, in consistency with the above statement, is that use of letters
+   such as x,y,z within a definition are not variables but placeholders
+   in cases such as the dictionary below where they are not bound
+   by a quantifier.
+
+         P,     P is the case.
+         Px,    x has some property P, x in set P, x is P.
+         Pxy,   x has some relation P to y
+         Pxyz,  x has some relation P to y and z.
+
+Quantifiers
+===========
+
+   A quantifier expression is a quantifier followed by a variable, and then
+   a wff.  The quantifier is said BIND the variable, or the variable is BOUND
+   to the quantifier.  The scope of the bound variable is the wff.
+
+         Ax:P,           For every object x in our universe of discourse, P.
+
+         Ex:P,           There exists at least one object x in our universe
+                         of discourse such that, P
+
+   Once the variable is bound it can be referenced within the wff.  In our FOL
+   implementation a variable in a wff is always bound.
+
+         Dictionary
+         ---------------------
+         Predicates
+         Cx,   x is a cat
+         Dx,   x is a dog
+         Mx,   x is a mammal
+         Sx,   x likes to swim
+         Lxy,  x loves y
+
+         Ax:Cx,          For each x in our universe, x is a cat.
+                         = Everything is a cat.
+
+         Ex:Dx,          There exists x in our universe such that, x is a dog.
+                         = Some (one or more) dogs exist.
+
+   Existential Import
+
+   Ex: has existential import.  It asserts that at least one thing exists
+   in the universe of discourse.
+
+         Ex:Sx            There exists some object in our universe that
+                          likes to swim.
+
+   Ax: lacks existential import.  It makes no claim that something actually
+   exists in the universe of discourse.
+
+         Ax:Sx            Everything in our universe (if anything exists
+                          at all) likes to swim.
+
+Single Quantifiers
+==================
+
+   A universal quantifier is nearly always paired with conditional.
+
+         Ax:(Cx -> Mx),  For each object x in our universe,
+                             if x is a cat then x is a mammal.
+                         = all cats are mammals.
+
+         Ax:(Cx -> -Sx), For each object x in our universe,
+                             if x is a cat then x doesn't like to swim.
+                         = no cats like to swim.
+
+   An existential quantifier is nearly always paired with conjunction.
+
+         Ex:(Dx ^ Mx),   There's at least one object x in our universe
+                             such that, x is a dog and x is a mammal.
+                         = Some dogs are mammals.
+
+         Ex:(Dx ^ Sx),   There's at least one object x in our universe
+                             such that, x is a dog and x likes to swim.
+                         = Some dogs are like to swim.
+
+Multiple Quantifiers
+====================
+
+   Just as with many other features of FOL, qunatifiers can be stacked.
+
+         Ax:Ay:Lxy       Everyone loves everyone including themselves.
+
+         Ex:Ey:Lxy       Someone loves someone (perhaps themself).
+
+   The first Ax: binds to the next expression which is Ax:Lxy.  If we have
+   a string of A:'s or a string of E:'s, order doesn't impact the meaning.
+
+   On the other hand order matters when we mix quantifiers.
+
+         Ex:Ay:Lxy       Someone loves everyone (including themselves).
+
+         Ax:Ey:Lxy       Everyone loves someone (perhaps themselves).
+
+Validity / Valid Formula
+========================
+
+   A VALIDITY or VALID FORMULA, like a tautology, is true in all cases,
+   however the term is more broad.  Tautology only refers to something being
+   true in all cases in virtue of truth-functions.  While 'validity' refers
+   to all expressions of this nature.  The folling is a valid formula in FOL.
+
+      Ax:-Px  <->  -Ex:Px,    where P is an arbitrary predicate.
+
+Truth Trees
+===========
+
+   Truth-trees are constructed similarly for FOL as they are for TFL with
+   the addition of extra rules for quantifiers.
+
+   ====  =================================================================  
+   Name  Rule
+   ====  =================================================================
+   A:    If Ax:P(x) appears on an open path, and c is a constant that occurs
+         in some wff on that path, write P(c//x) (the result of replacing
+         each occurrence of x by c in P) at the bottom of the path.
+         If no wff containing c appears on the path, choose any c.
+
+   -A:   If -Ax:P(x) appears on an open path, star it and write Ex:-P(x)
+         at the bottom of every open path that contains the newly
+         starred wff.
+
+   E:    If Ex:P(x) appears on an open path, star it.  Choose a constant c
+         that doesn't appear on that path and write P(c//x) (the resuls of
+         replacing each occurrence of x by c in P) at the bottom of every
+         open path that contains the newly starred wff.
+
+   -E:   If -Ex:P(x) appears on an open path, star it and write Ax:-P(x)
+         at the bottom of every open path that contains the newly
+         starred wff.
+   ====  =================================================================
+
+   These rules are often described with diagrams instead of words.
+
+            +--------------------------+--------------------------+
+            | ======================== | ======================== |
+            |          A:Rule          |          -A:Rule         |
+            | ======================== | ======================== |
+            |          Ax:P(x)         |       * -Ax:P(x)         |
+            |        ----------        |        ----------        |
+            |          P(c/x)          |         Ex:-P(x)         |
+            |                          |                          |
+            | if possible c is not new |                          |
+            |                          |                          |
+            | ======================== | ======================== |
+            |          E:Rule          |          -E:Rule         |
+            | ======================== | ======================== |
+            |       * Ex:P(x)          |       * -Ex:P(x)         |
+            |        ---------         |        ----------        |
+            |         P(c//x)          |         Ax:-P(x)         |
+            |                          |                          |
+            |         c is new         |                          |
+            |                          |                          |
+            +--------------------------+--------------------------+
+
+Truth-Tree Analysis
+===================
+
+   The rules for assessing completed trees are the same as those for TFL.
+
+   Truth-Tree Assessment of a Single WFF
+
+          =============   ============================   ==========
+          condition       wff                            -wff
+          =============   ============================   ==========
+          0               inconsistent                   validity
+          1+              consistent                     contingent
+          2+              validity or contingency        contingent
+          =============   ============================   ==========
+
+   Truth-Tree Assessment of a set of WFFs
+
+          =============   ============================
+          condition       wff Set
+          =============   ============================
+          0               inconsistent
+          1+              consistent
+          =============   ============================
+
+   Truth-Tree Assessment of a Sequent
+
+          =============   ============================
+          Condition       Premises & -Conclusion
+          =============   ============================
+          0  open paths   valid
+          1+ open paths   Invalid w/ counterexamples
+          =============   ============================
+
+Translation Hints
+=================
+
+   The Aristotelian Forms
+
+   The Aristotelian forms under the various interpretations can all be
+   represented into FOL.
+
+   The TRADITIONAL INTERPRETATION assigns existential import to all forms.
+
+                                    Quality  
+                     +-----------------------+------------------------+
+                     | Affirmatives          | Negatives              |
+      Q +------------+-----------------------+------------------------+
+      u | Universal  | Ax:(Sx -> Px) ^ Ex:Sx | Ax:(Sx -> -Px) ^ Ex:Sx | < EI
+      a |            |                       |                        |
+      n | Particular | Ex:(Sx ^ Px)          | Ex:(Sx ^ -Px)          | < EI
+      t +------------+-----------------------+------------------------+
+      i | Singular   | Sx                    | -Sx                    | < EI
+      t |            | x=y                   | -x=y                   | < EI
+      y +------------+-----------------------+------------------------+
+
+   The MODERN INTERPRETATION denies existential import to the universals.
+
+                                    Quality  
+                     +-----------------------+------------------------+
+                     | Affirmatives          | Negatives              |
+      Q +------------+-----------------------+------------------------+
+      u | Universal  | Ax:(Sx -> Px)         | Ax:(Sx -> -Px)         |
+      a |            |                       |                        |
+      n | Particular | Ex:(Sx ^ Px)          | Ex:(Sx ^ -Px)          | < EI
+      t +------------+-----------------------+------------------------+
+      i | Singular   | Sx                    | -Sx                    | < EI
+      t |            | x=y                   | -x=y                   | < EI
+      y +------------+-----------------------+------------------------+
+
+   An alternative interpretation might assign EI to the affirmatives
+   and singulars.
+
+                                    Quality  
+                     +-----------------------+------------------------+
+                     | Affirmatives          | Negatives              |
+      Q +------------+-----------------------+------------------------+
+      u | Universal  | Ax:(Sx -> Px) ^ Ex:Sx | Ax:(Sx -> -Px)         |
+      a |            |                       |                        |
+      n | Particular | Ex:(Sx ^ Px)          | Ex:(Sx ^ -Px) V -Ex:Sx |
+      t +------------+-----------------------+------------------------+
+      i | Singular   | Sx                    | -Sx V -Ex:Sx           | < EI
+      t |            | x=y                   | -x=y                   | < EI
+      y +------------+-----------------------+------------------------+
+                       ^^^^
+                        EI
+
+   Another interpretation might assign EI to the negatives and singulars.
+
+                                    Quality  
+                     +-----------------------+------------------------+
+                     | Affirmatives          | Negatives              |
+      Q +------------+-----------------------+------------------------+
+      u | Universal  | Ax:(Sx -> Px)         | Ax:(Sx -> -Px) ^ Ex:Sx |
+      a |            |                       |                        |
+      n | Particular | Ex:(Sx ^ Px) V -Ex:Sx | Ex:(Sx ^ -Px)          |
+      t +------------+-----------------------+------------------------+
+      i | Singular   | Sx                    | -Sx                    | < EI
+      t |            | x=y                   | -x=y                   | < EI
+      y +------------+-----------------------+------------------------+
+                                               ^^^^
+                                                EI
+
+   It's even possible to assign EI to a diagonal pair and deny it to the other
+   pair, or deny it to all universals and particulars.  It's not possible
+   to deny it from singulars and all FOL constants denote, which means
+   constants all have existential import.
+
+   English Quantification
+
+   When translating from english, it's usually best to first paraphrase
+   a sentence such that it's closer in structure to a wff.
+
+   Quantifier Placement (Default Rule)
+
+         Write the quantifiers in the same order as they occur in english.
+         Note that this rule has many exceptions.
+
+   Any/Anybody/Anyone/Anything/Anywhere
+
+   Any is ambiguous and can indicate either quantifier.  Generally, try
+   to rephrase the proposition so it doesn't use 'any'.
+
+         Not any...   ->   No...
+         If any...    ->   If some...
+         Any ...      ->   All...
+
+   Otherwise:  To translate 'any', put a Ax: at the beginning of the
+               wff regardless of where 'any' occurs in the sentence.
+
+
+-------------------------------------------------------
+First-Order Quantification Calculus (FOC - Fitch Style)
+-------------------------------------------------------
+
+Inference Rules Notation
+========================
+
+   P(Q) indicates that a wff P contains one or more occurrences of
+   sub-expression Q.
+
+   P(R/Q) indicates the result of replacing one or more occurrences
+   of Q in P with R.  R/Q is read, "R replaced one or more occurrences of Q".
+
+   P(R//Q) like above but indicates replacing all occurrences of Q in P with
+   R.  R//Q is read, "R replaced all occurrences of Q"
+
+   P(c),P(a/c),P(a//c), similar to the above but a and c are object symbols.
+
+   [ ... ] indicates that the enclosed must exist, be defined or proven
+   elsewhere.
+
+Inference Rules for Quantifiers
+===============================
+
+   let c represent any constant symbol, and x represent any variable.
+   A boxed constant [c] introduces a *new* constant intto a subproof; c goes
+   out of scope when the subproof closes (just like a local variable).
+
+   ================================  =========================================
+   Name/Alternate Names              Rule
+   ================================  =========================================
+   Universal Elimination (A:E)       From Ax:P infer P(c//x);
+                                     where c is any const.
+
+   Universal Introduction (A:I)      From a subproof with hypothesis [c] and
+                                     ending Q(c), close the subproof and
+                                     infer Ax:Q(x//c); where c is new.
+                                    
+   Existential Elimination (E:E)     From Ex:P(x), and a subproof with
+                                     hypothesis [c] P(c//x) and ending Q,
+                                     close the subproof and infer Q;
+                                     where c is new.  Q mustn't contain c.
+
+   Existential Introduction (E:I)    From P(c), infer Ex:P(x/c)
+   ================================  =========================================
+
+   These rules can also be describable in diagrams.
+
+      +-------------------------------+-------------------------------+
+      | ============================= | ============================= |
+      |  A:E                          |  A:I                          |
+      | ============================= | ============================= |
+      |   Ax:P                        |   |[c]     (new c)            |
+      |  --------                     |   |   ...                     |
+      |   P(c/x)  (any c)             |   |   Q(c)                    |
+      |                               |  ------------                 |
+      |                               |   Ax:Q(c//c)                  |
+      |                               |                               |
+      | ============================= | ============================= |
+      |  E:E                          |  E:I                          |
+      | ============================= | ============================= |
+      |   Ex:P(x)                     |   P(c)                        |
+      |   |[c] P(c//x)  (new c)       |  -----------                  |
+      |   |   ...                     |   Ex:P(x/c)                   |
+      |   |   Q                       |                               |
+      |  ---------------              |                               |
+      |   Q                           |                               |
+      |                               |                               |
+      +-------------------------------+-------------------------------+
+
+Derived Inference Rules
+=======================
+
+   Once a sequent is poven it may be used as a new inference rule.  The
+   following are important derived rules:
+
+   ================================  =========================================
+   Name/Alternate Names              Sequent
+   ================================  =========================================
+   Dual                              |-  -Ax:-P <-> Ex:P
+                                     |-  -Ax:P <-> Ex:-P
+                                     |-  Ax:-P <-> -Ex:P
+                                     |-  Ax:P <-> -Ex:-P
+   ================================  =========================================
+
+
+-------------------------------------
+Proofs of some Aristotelian Arguments
+-------------------------------------
+
+   All Q is R
+   All P is Q
+   /. All P is R
+
+   Ax:(Qx -> Rx), Ax:(Px -> Qx)  |-  Ax:(Px -> Rx)
+   Proof
+   01.   Ax(Qx -> Rx)             A
+   02.   Ax(Px -> Qx)             A
+   03.   |[a]                     H (for A:I)
+   04.   |   |   Pa               H (for ->I)
+   05.   |   |   Qa -> Ra         1 AE (a/x)
+   06.   |   |   Pa -> Qa         2 AE (a/x)
+   06.   |   |   Qa               4,6 ->E
+   07.   |   |   Ra               5,6 ->E
+   08.   |   Pa -> Ra             4-7 ->I
+   09.   Ax:(Px -> Rx)            3-8 A:I
+   QED
+
+   All P is Q
+   /. Some P is Q
+
+   Ax:(Px -> Qx)  |-  Ex:(Px ^ Qx)
+   Proof
+   01.   Ax:(Px -> Qx)            A
+   02.   |   -Ex:(Px ^ Qx)        H (for ->I)
+   03.   |   Ax:-(Px ^ Qx)        2 QE
+   04.   |   Ax:(-Px V -Qx)       3 DM
+   05.   |   -Pa V -Qa            4 A:E (a/x)
+   06.   |   Pa -> Qa             1 A:E (a/x)
+   07.   |   -Pa V Qa             6 MI
+       A proof can't be found so the form is invalid.
+
+   All P is Q
+   some P exist
+   /. Some P is Q
+
+   Ax:(Px -> Qx), Ex:Px  |-  Ex:(Px ^ Qx)
+   Proof
+   01.   Ax:(Px -> Qx)            A
+   02.   Ex:Px                    A
+   03.   |   -Ex:(Px ^ Qx)        H (for -I)
+   04.   |   Ax:-(Px ^ Qx)        3 QE
+   05.   |   Ax:(-Px V -Qx)       4 DM
+   06.   |   |[a]Pa               H (for E:E, 2, a/x)
+   07.   |   |   Pa -> Qa         1 AE (a/x)
+   08.   |   |   Qa               6,7 ->E
+   09.   |   |   -Pa V -Qa        5 A:E (a/x)
+   10.   |   |   -Pa              8,9 DS
+   11.   |   |   P ^ -P           6,10 EFQ
+   12.   |   P ^ -P               2,6-11 E:E
+   13.   --Ex:(Px ^ Qx)           3-12 -I
+   14.   Ex:(Px ^ Qx)             13 -E
+   QED
+
+
+============================
+Identity Logic (IL) and FOL=
+============================
+
+Identity Logic is the logic of the identity predicate = and defined in the
+context of FOL.  The logic of the combined system is called First-Order
+Quantified Logic with Identity (FOL=).
+
+
+---------------
+Formal Language
+---------------
+
+Lexemes
+=======
+
+   Non-Logical Symbols
+      Object symbols
+         constants:            a...t
+         variables:            u...z
+      Predicate Symbols:       A...Z, =
+
+   Logical Symbols
+      Truth-Function Symbols:  -, ^, V, ->, <->
+      Association Symbols:     (, )
+      Quantifiers
+         universal:            Ax: (A is inverted)
+         existential:          Ex: (E is reversed)
+
+Grammar (Formation Rules)
+=========================
+
+   ATOMIC FORMULA is a predicate symbol followed by zero or more consts;
+   or 'x=y' (where x,y are consts, and can be the same symbol).
+
+   1.  Every atomic formula is a wff;
+   2.  if P is a wff, then so is -P;
+   3.  if P,Q are wffs, then so are (P ^ Q), (P V Q), (P -> Q), (P <-> Q);
+   4.  if P(a) (a is some const) is a wff, then Ax:P(x/a) and Ex:P(x/a)
+       are wffs (where x is new to P).
+   5.  Nothing else is a wff.
+
+
+---------
+Semantics
+---------
+
+The identity predicate does just one thing:  asserts that two object symbols
+denote the same object.
+
+Properties of Relations
+=======================
+
+   Binary relations can have interesting properties described here,
+   which can be used to impart logical meanings upon those relations.
+
+      Let,
+         R,   any binary relation (predicate)
+         x,y, be any arbitrary object symbols.
+
+    ================  ================================  =================
+    Property          Characteristics                   Examples
+    ================  ================================  =================
+    Symmetric(R)      =df Ax:Ay:(Rxy -> Ryx)            Sibling(x,y)
+                                                        x=y
+
+    Transitive(R)     =df Ax:Ay:Ax:((Rxy ^ Ryz)         x=y
+                                          -> Rxz)       a=b ^ b=c -> a=c
+                                                        Descendent(x,y)
+
+    Reflexive(R)      =df Ax:Rxx                        x=x
+                                                        SameHeight(x,y)
+
+    Asymmetric(R)     =df Ax:Ay:(Rxy -> -Ryx)           x<y
+                                                        Child(x,y)
+
+    Antisymmetric(R)  =df Ax:Ay:((Rxy ^ Ryx) -> x=y)    x>=y
+
+
+    Nonsymmetric(R)   =df -( Symmetric(R) V             Brother(bob,kim)
+                             Asymmetric(R) V
+                             Antisymmetric(R) )
+
+    Intransitive(R)   =df Ax:Ay:Az:((Rxy ^ Rxz)         OpposideSide(x,y)
+                                          -> -Rxz)
+
+    Nontransitive(R)  =df -( Transitive(R) V            Child(x,y)
+                             Intransitive(R) )
+
+    Irreflexive(R)    =df Ax:-Rxx                       x<y
+                                                        Left(x,y)
+
+    nonreflexive(R)   =df -( Reflexive(R) V
+                             Irreflexive(R) )
+
+    Equivalent(R)     =df Reflexive(R) ^                Congruent(x,y)
+                          Symmetric(R) 
+                          Transitive(R)
+    ================  ================================  =================
+
+Truth Trees
+===========
+
+   Truth trees in FOL= are identical to those in FOL; identity is just
+   a predicate so there's nothing more to mention.
+
+Translation Hints
+=================
+
+   Numerical Quantification
+
+   One of the powers of identity is that it allows us to say things
+   about the number of members in a set P without using actual numbers.
+
+           ========  ============================================
+           Quantity  Proposition
+           ========  ============================================
+           #(P)=0    -Ex:Px
+           #(P)=1    Ex:Ay:(Px <-> y=x)
+           #(P)=2    Ex:Ey:(-x=y ^ Az(Pz <-> (z=x V z=y)))
+           #(P)=3    Ew:Ex:Ey:(-w=x ^ -w=y ^ -x=y ^
+                                   Az:(Pz <-> (z=w V z=x V z=y)))
+           --------  --------------------------------------------
+           #(P)>=1   Ex:Px
+           #(P)>=2   Ex:Ey:(-x=y ^ Px ^ Py)
+           #(P)>=3   Ex:Ey:Ez:(-x=y ^ -y=z ^ -x=z ^ Px ^ Py ^ Pz)
+           --------  --------------------------------------------
+           #(P)<=1   Ex:Ay:(Px -> y=x)
+           #(P)<=2   Ex:Ey:Az:(Pz -> (z=x V z=y))
+           #(P)<=3   Ex:Ey:Ez:Aw(Px -> (w=x V w=y V x=z))
+           ========  ============================================
+
+
+------------------------------
+Identity Calculus (IC - Fitch)
+------------------------------
+
+In addition to the rules below, all of FOC is applicable in our implementation
+of IC since ours is implemented within the context of FOL.  The combined
+calculus is called FOC=.
+
+Primitive Inference Rules
+=========================
+
+   ================================  =========================================
+   Name/Alternate Names              Sequent
+   ================================  =========================================
+   Identity Elimination (=E)         From a=b, and P(a) infer P(b/a).
+
+   Identity Introduction (=I)        Introduce a=a (for any const a) as a new
+                                     line in the proof.
+   ================================  =========================================
+
+   These rules can also be describable in diagrams.
+
+      +-------------------------------+-------------------------------+
+      | ============================= | ============================= |
+      |  =E                           |  =I                           |
+      | ============================= | ============================= |
+      |   a=b                         |                               |
+      |   P(a)                        |  -----                        |
+      |  --------                     |   a=a        a is any const   |
+      |   P(b/a)                      |                               |
+      |                               |                               |
+      +-------------------------------+-------------------------------+
+
+
+----------------------
+Philosophical Concerns
+----------------------
+
+Identity Pecuiarity
+===================
+
+   A particular FOL= propositon can catch you unaware.
+
+       1.   Ax:-x=g      A
+       2.   -g=g         1 AE (g/x)
+            ^^^^
+
+   This directly contradicts the A:I rule, where we can inject into
+   the proof the reflexive application of identity for any object symbol.
+
+       3.   g=g          =I
+       4.   _|_          2,3 EFQ
+              
+   The problem of course is that Ax:-x=g is nonsensical.
+
+
+===================
+Function Logic (FL)
+===================
+
+Function logic, constructed upon FOL=, provides a new way to analyze atomic
+formulas by adding more expression.  FL however, doesn't actually make the
+logic any more powerful.  It assigns valid/invalid to all the same forms.
+For this reason FL + FOL= is still FOL= because FL only adds new ways to say
+things that FOL= can already say.
+
+
+---------------
+Formal Language
+---------------
+
+Lexemes
+=======
+
+   Non-Logical Symbols
+      Object symbols
+         constants:            a...t
+         variables:            u...z
+         functions:            a(x)...z(x)
+      Predicate Symbols:       A...Z, =
+
+   Logical Symbols
+      Truth-Function Symbols:  -, ^, V, ->, <->
+      Association Symbols:     (, )
+      Quantifiers
+         universal:            Ax: (A is inverted)
+         existential:          Ex: (E is reversed)
+
+Grammar (Formation Rules)
+=========================
+
+   An ATOMIC FORMULA is a predicate symbol followed by zero or more consts
+   objects; or 'x=y' (where x,y are any consts; and could be the same
+   const).  In addition to a const object symbol, a function symbol with
+   a const argument is also a const object symbol Since functions are just
+   objects.  Functions can also be composed (take functions as arguments).
+
+   1.  Every atomic formula is a wff;
+   2.  if P is a wff, then so is -P;
+   3.  if P,Q are wffs, then so are (P ^ Q), (P V Q), (P -> Q), (P <-> Q);
+   4.  if P(a) (a is some const) is a wff, then Ax:P(x/a) and Ex:P(x/a)
+       are wffs (where x is new to P).
+   5.  Nothing else is a wff.
+
+
+---------
+Semantics
+---------
+
+Function Symbol Denotation
+==========================
+
+   A FUNCTION maps one set (called a DOMAIN SET) of objects onto
+   another set (called a RANGE SET) of objects; each domain set object is
+   mapped to exactly one range set object and multiple domain objects can map
+   to the same range object.  For any function expression f(x), we read it
+   as "f of x." There are various ways to define function mappings but for
+   FOL= often it's necessary to just list all the mappings along with the
+   other propositions describing a state of affairs.
+
+   Example
+
+         Domain Set          Range Set
+         +---------+         +---------+
+         |         |    f    |         |
+         |    a ---+---------+--> r    |
+         |         |         |         |
+         |    b ----------------> s    |
+         |         |         |         |
+         |    c ---+---------+--> t    |
+         |         |         |         |
+         +---------+         +---------+
+
+   The following denotes the state of affairs in the diagram.
+
+         Dictionary
+         ----------------------------------------
+         Object Symbols     Function Symbols
+         a,    Alice        f(x), the father of x
+         b,    Bob
+         c,    Charlie
+         r,    Rob
+         s,    steve
+         t,    Tom
+
+         State of Affairs in Universe
+         -------------------------------------------
+         f(a) = r   or   f = { <a,r>, <b,s>, <c,t> }
+         f(b) = s
+         f(c) = t
+
+   Now let's consider adding a new const object David d.  Alice and David
+   are siblings and share a father so, f(d) = f(a) = r.  This is perfectly
+   ok to do.  Since David has just one father, we haven't broken any rules
+   even though the function maps two domain objects to the same range
+   object.  FOL= functions are general functions like the ones in algebra
+   and calculus.  They aren't required to conform to a more limited
+   definition such as being one-to-one (either BIJECTIVE which guarantees
+   an inverse exists, or INJECTIVE which leaves some range objects unmapped
+   to so has no inverse).  Both of these types map unique domain objects
+   to unique range objects.
+
+Inverse Functions
+=================
+
+   An INVERSE FUNCTION is a function that reverses the mapping of another
+   function; a function must be bijective to have an inverse.  If our
+   universe is the set of all integers, the successor s(x) function always
+   denotes the integer *after* x, and is bijective.  So, its inverse
+   function is predecessor p(x) which of course denotes the integer
+   *before* x.
+
+   Our father f(x) function tempts one to define an inverse function
+   child c(x).  However, this isn't possible because some people like Bob
+   don't have any children, while others like Rob have more than one.  It
+   might also be tempting to challenge this requirement by just having c(x)
+   return a set of objects containing the children of the argument x.
+   But the requirement is that a function mapps an object to one object.
+   So c(x) can't be a function.  Note that is that while functions have these
+   restriction, there's nothing preventing anyone from defining the relational
+   predicate Cxy, "x is a child of y" so 'Car' and 'Cad' are perfectly good
+   predicates.
+
+Variable Function Arguments
+===========================
+   
+   A function with a const argument always denotes the object that the
+   function mapps the argument to, making the string of symbols denoting
+   use of a function itself a constant object symbol.
+
+         f(a), the father of Alice.     This is a const object symbol.
+
+   However, when a variable is the argument to a function, the function
+   doesn't denote a single object until the variable is replaced with a const
+   object symbol.  But functions with variable arguments can still contribute
+   to the meaning of general assertions.
+
+         Dictionary
+         -------------------------------------------------
+         Predicates                Functions
+         Px,    x is a person.     f(x),  the father of x.
+
+         In which case,
+
+             Ax:( Px -> Ey:y=f(x) )
+
+   means, for every x, if x is a person then there exists someone who
+   is the father of x.  Which is to say, everyone has a father.
+
+Functions in WFFs
+=================
+
+   A function is just another way to denote objects, and so can occur
+   anywhere object symbols can occur.  All of the following expressions
+   are well formed.
+
+      a=c,        a and c denote the same object.
+      m(s)=g,     the mother of Susan is Gloria; Susan's mother is Gloria.
+      m=s(n),     m is the successor of integer n.
+      a(h)=v,     the address of my home is v.
+
+      Mx,         x is a millionaire.
+      Mf(m)       my father is a millionaire.
+      Txy,        x is taller than y.
+      Tf(y)f(m),  your father is taller than my father.
+
+      Ax:Ay:( Txy       -> -Tyx       )
+      Ax:Ay:( Tf(x)f(y) -> -Tf(y)f(x) )
+
+Translation Hints
+=================
+
+   Simple functions
+
+      l(x),     the length of x.
+      l(p),     the length of the pool.
+      h(x),     the home planet of x.
+      h(e),     the home planet of E.T..
+
+   composed functions
+
+      m(x),     the mother of x.
+      m(m(x)),  the mother of the mother of x.  (x's grandmother)
+
+      0,        zero
+      s(0),     1 (the successor of zero).
+      s(s(0)),  2
+      s(s(n)),  n + 2
+
+   Non-functions
+
+      None of the following is a function because, none is guaranteed to
+      always map any object to exactly one object.
+
+      d(m),     the daughter of Mike.     Someone could 0,1,... daughters.
+      b(x),     the brother of x.         x could have 0,1,... brothers.
+      s(h),     the shingle of my house.  Houses have more than one shingle.
+
+
+----------------------
+Function Calculus (FC)
+----------------------
+
+All of the inference rules of FOC= are valid in Function Logic.  Function
+calculus doesn't add any new inference rules.  Functions don't add a lot,
+can't do anything more than const object symbols, and so don't require new
+inference rules.  However, they do allow us analyze sentences in a new way.
+So, in this sense they give us more insight into the structure and meaning
+of a sentence.
+
+Functions in Proofs
+===================
+
+   Any const function may be used within the body of a proof anywhere
+   that const object symbols can.  For example, such a function can
+   be the replacement value for x in applying A:Elim.
+
+      Dictionary
+      --------------------------
+      Predicates
+      Mx,    x is a mammal
+      Vx,    x is a vertebrate
+
+      Functions
+      f(x),  the father of x
+
+
+      i.   Ax:(Mx -> Vx)
+           ...
+      j.   Mf(e) -> Vf(e)        i A:E (f(e)/x)
+
+   alternatively, the function might already be in the wff with a
+   variable argument.
+
+      i.   Ax:(Mf(x) -> Vf(x))
+           ...
+      j.   Mf(c) -> Vf(c)        i A:E (c/x)
+
+
+====================================
+Second-Order Quantified Logic (SOL=)
+====================================
+
+Second order logic adds quantifiers and variables that reign over predicates.
+
+   Ax:EP:Px    Every object has some (1 or more) property.
+
+
+--------
+Language
+--------
+
+Lexemes
+=======
+
+   Non-Logical Symbols
+      Object symbols
+         constants:            a...t
+         variables:            u...z
+         functions:            a(x)...z(x)
+      Predicate Symbols
+         constants:            A...T, =
+         variables:            U...Z
+
+   Logical Symbols
+      Truth-Function Symbols:  -, ^, V, ->, <->
+      Association Symbols:     (, )
+      Quantifiers
+         universal:            Ax: (A is inverted)
+         existential:          Ex: (E is reversed)
+
+Grammar (Formation Rules)
+=========================
+
+   ATOMIC FORMULA is a const predicate symbol followed by zero or more
+   consts; or 'x=y' (where x,y are consts; and could be the same symbol).
+   A const; may also consist of a function symbol with some const in the
+   parentheses.  Since functions are just objects functions can also be
+   composed (take functions as arguments).
+
+   1.  Every atomic formula is a wff;
+   2.  if P is a wff, then so is -P;
+   3.  if P,Q are wffs, then so are (P ^ Q), (P V Q), (P -> Q), (P <-> Q);
+   4.  if P(a) (a is some const) is a wff, then Ax:P(x/a) and Ex:P(x/a)
+       are wffs (where x is new to P).
+   5.  if P(Q) (P,Q are const predicates) is a wff, then AV:P(V/Q) and
+       EV:P(V/Q) are wffs where V is a variable predicate symbol and
+       V is new to P.
+   6.  Nothing else is a wff.
+
+
+---------------------
+Second Order Calculus
+---------------------
+
+The four quantifier inference rules from FOL are extended to these two 'new'
+quantifiers.
+
+
+======================
+Mathematical Induction
+======================
+
+Mathematical induction, expressed either as an inference rule or second-order
+axiom schema, in spite of the name is a method of deduction.  It's used to
+prove that all members of an infinite enumerable set have some property P.
+
+Mathematical induction has two parts, an inductive definition that
+enumerates all members of the set we're reasoning about; and an inductive
+inference which refers back to the inductive definition.
+
+Inductive Definitions
+=====================
+
+   INDUCTIVE DEFINITIONS provide a way to enumerate all of the members of a
+   set.  They are constructed recursively, and consist of three types of
+   numbered clauses.  The first clause is the BASE CLAUSE.  It identifies
+   the most basic elements of the set and is non-recursive.  The FINAL CLAUSE 
+   states that if something isn't in accordance with the above clauses it's
+   not a member of the set and is non-recursive.  The INDUCTIVE CLAUSES
+   (intermediate clauses) tell us how to generate all the non-base case
+   elements of the set; these clauses are recursive.
+
+   Our formation rules for our various logics are all examples of inductive
+   definitions.
+
+         1.   Every atomic formula is a wff.
+         2.   If P is a wff, then so is -P.
+         3.   If P,Q are wffs, then so are
+              (P ^ Q), (P V Q), (P -> Q), (P <-> Q)
+         4.   Nothing else is a wff.
+
+   Clause 1 establishes our base case: any atomic formula.
+
+   Clause 4 our final clause excludes anything that's not enumerated
+   by the full definition.
+
+   Clauses 2 & 3 tell us how to generate all the members of the set.
+
+   There are a few sets for which we don't need an inductive definition.
+   For example, the inductive proof alone is often all we need to reason
+   about integers.
+
+Zero and The Successor Function
+===============================
+
+   Mathematical induction introduces a new constant object symbol 0 which
+   denotes the number zero; it also introduces the SUCCESSOR function s;
+   the element that follows its argument.  Because the successor function
+   is often composed with itself many times it's common to omitt
+   the parentheses.
+
+         s0     =  s(0)       = the successor of 0  = 1
+         ss0    =  s(s(0))    = 2
+         sss0   =  s(s(s(0))) = 3
+         ...
+
+Inductive Inference
+===================
+
+   An INDUCTIVE INFERENCE proceeds in two steps.  The base case, and the
+   inductive case.  The BASE CASE of the proof requres that we prove that
+   members denoted by the base clause of the induction definition have
+   property P.
+
+   The INDUCTIVE CASE is a conditional proof of a recursive proposition.
+   The method is to prove that for any x in our set, if x has the property
+   P (the same property in the base case), then so does the successor of x
+   or the next elements defined by the inductive definition.
+
+Mathematical Induction can be expressed over the natural numbers as an axiom
+in second-order logic, an axiom schema in first-order logic, or an inference
+rule.  All of the following say the same thing.
+
+      2nd-order axiom             AP:((P0 ^ Ax:(Px -> Psx)) -> Ax:Px)
+
+      1st-order axiom schema      (P0 ^ Ax:(Px -> Psx)) -> Ax:Px
+
+      Inference Rule              P0, Ax:(Px -> Psx), infer Ax:Px
+
+
+===============================
+Axiomatic and Natural Deduction
+===============================
+
+The calculi presented thus far are known as NATURAL DEDUCTION systems,
+which consist only of inference rules.  These systems are called 'natural'
+because they are more intuitive and more closely resemble how one reasons
+informally.  An AXIOMATIC DEDUCTION system, in contrast, consists
+of a minimal set of inference rules, perhaps just one, and one or more
+axiom schemata.  All instances of the schemata are axioms of the logic.
+Axiomic deduction systems are usually simpler than Fitch in that they have
+fewer parts, but they are also more complicated and cumbersome to use and
+quite dissimilar to how one reasons informally.  Given all this, the one
+important similarity is that both kinds of systems count the same
+arguments as valid.
+
+       +--------------------------------------------------------------+
+       | ============================================================ |
+       | Axiomatic Trutf-Functional Logic & Calculus                  |
+       | ============================================================ |
+       |                                                              |
+       | Lexemes                                                      |
+       |    Non-Logical Symbols                                       |
+       |       Proposition Symbols:      A...Z                        |
+       |                                                              |
+       |    Logical Symbols                                           |
+       |       Truth-Function Symbols:   -, ->                        |
+       |       Association Symbols:      (, )                         |
+       |                                                              |
+       | Grammar                                                      |
+       |                                                              |
+       |    An ATOMIC FORMULA is any single proposition symbol.       |
+       |                                                              |
+       |    1.  every atomic formula is a wff;                        |
+       |    2.  if P is a wff, then -P is a wff;                      |
+       |    3.  if P,Q is wffs, then so is (P -> Q);                  |
+       |    4.  nothing else is a wff.                                |
+       |                                                              |
+       | Definitions                                                  |
+       |                                                              |
+       |    (P ^ Q)     =df  -(P -> -Q)                               |
+       |    (P V Q)     =df  -P -> Q                                  |
+       |    (P <-> Q)   =df  ((P -> Q) ^ (Q -> P))                    |
+       |                                                              |
+       | Inference Rule                                               |
+       |                                                              |
+       |    Given P -> Q, and P infer Q.                              |
+       |                                                              |
+       | Axiom Schemata                                               |
+       |                                                              |
+       |    Ax1.  P -> (Q -> P)                                       |
+       |    Ax2.  (P -> (Q -> R)) -> ((P -> Q) -> (P -> R))           |
+       |    Ax3.  (-P -> -Q) -> ((-P -> Q) -> P)                      |
+       |                                                              |
+       |    Every instance of these schemata is an axiom              |
+       |    of the calculus.                                          |
+       |                                                              |
+       +--------------------------------------------------------------+
+
+
+===============
+Formal Theories
+===============
+
+A THEORY is all the true propositions that can be said about a model in the
+broad sense.  A MODEL (in the broad sense) is a limited representation
+of a system.
+
+Since any interesting theory has an infinite number of propositions,
+it would clearly be impractical to uncover all those truths.  The way
+we attempt to tackle this problem is with a set of first principles
+we can reason about to uncover the rest of the theory.  In this way the
+first principles combined with logical reasoning we say it GENERATES
+theorems.  It's easy to construct a theory that OVER GENERATES, proves
+too many things, ie. theorems that aren't true; or UNDER GENERATES,
+doesn't prove all of the things that the theory ought to prove.
+
+The FIRST PRINCIPALS of a theory are those things from which the rest of the
+theory is derived; they include but may not be limited to inference rules,
+axioms and definitions.
+
+An AXIOM is a proposition within a theory that describes the logical
+relationships between the various concepts of the theory (usually predicates
+and objects).  Many axioms follow some of the schema of expressed in
+Properties of Relations described above.
+
+A SCHEMA (plural is SCHEMATA) is a general statement about definitions
+or axioms whose substitution instances are actual definitions or axioms.
+
+A THEOREM is any proposition derived from a theory's first principals via
+reasoning.  Theorems are propositions that are true in all cases.
+Which is why an argument with premiese is not a theorem in logic,
+because it depends upon things other than the first principals for
+its validity.
+
+A THEORY is the plural of theorem; a theory consists of the combined
+set of first principals plus all the theorems (whether proven or not).
+
+A LEMMA is a theorem that has no purpose other than to serve as a premise
+to an *intended* theorem.  The purpose of the lemma is to make the proof
+of the theorem shorter, by proving an intermediate step first.  Proving
+lemmas before proving a theorem is a divide and conquor approach to proving
+the intended theorem.
+
+A COROLLARY is a theorem that "follows easily" from a first prinicpal
+or theorem; ie. the corollary is only a few reasoning steps away from what
+it's said to follow from.
+
+A CONJECTURE is any proposition which cannot be proven as a theorem in any
+known theory but is still taken as a principle.  The well known Occam's razor
+is often expressed as a conjecture.  Einstein too Galileo's equivalence
+principal and raised it up to an axiom of his theory or relativity.
+
+POSTULATE is a synonym for axiom; another synonym is LAW.  Some theorists
+uses these terms as categories as a way to group different kinds of axioms,
+but from the perspective of logic they are all the same thing.
+
+
+==================
+Taller-Than Theory
+==================
+
+   Predicates
+
+      Txy,  x is taller than y.
+
+   Axioms
+
+      Ax1.  Ax:Ay:(Txy -> -Tyx)                Asymmetric
+      Ax2.  Ax:Ay:Az:((Txy ^ Tyz) -> Txz)      Transitive
+      Ax3.  Ax:Ay:(Txy -> Ez:(Txz ^ Tzy))      Dense
+
+
+==================================
+Formal Arithmetic (from Wikipedia)
+==================================
+
+Formal arithmetic is a theory about arithmetic of whole numbers (non neg
+integers).
+
+   Dictionary
+      0,    constant object symbol zero.
+      sx,   function, the successor of x.
+      +     to signify addition
+      *     to signify multiplication.
+
+   Axioms
+      A1.   Ax:-0=sx
+      A2.   Ax:Ay:(sx=sy -> x=y)
+      A3.   Ax:(x+0)=x
+      A4.   Ax:Ay:(x+sx)=s(x+y)
+      A5.   Ax(x*0)=0
+      A6.   Ax:Ay:(x*sy)=((x*y)+x)
+
+   Mathematical Induction Axiom
+      MI.   AP:((P0 ^ Ax:(Px -> Psx)) -> Ax:Px)
+
+
