@@ -20,21 +20,11 @@
 ######                                                                  ######
 ######                                                                  ######
 ######                                                                  ######
-######                     Composed Entirely In Vim                     ######
-######                                                                  ######
-######                           in 78 columns                          ######
-######                                                                  ######
-######                   Lucida Console - Regular - 11                  ######
-######                                                                  ######
-######                       Color Scheme: Elflord                      ######
 ######                                                                  ######
 ######                                                                  ######
+######                     AtomicRetro@outlook.com                      ######
 ######                                                                  ######
-######                                                                  ######
-######                                                                  ######
-######                                                                  ######
-######                       AtomicRetro@outlook.com                    ######
-######                       Revision:  20.10.01                        ######
+######                     Revision:  20.10.05                          ######
 ######                                                                  ######
 ######                                                                  ######
 ######                                                                  ######
@@ -45,8 +35,18 @@
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
 
+
+==============================
+To View This Document Properly
+==============================
+* Best if viewed in VIM using with settings
+     :set columns=80
+     :set encoding=utf-8
+
 * This document must be viewed with a mono-spaced font to enjoy the layout,
   tables and diagrams.
+
+* This document must be viewed in an editor that can display unicode utf-8.
 
 
 ================================
@@ -224,10 +224,10 @@ Symbols
    Logical Symbols
    T  or  1     logical value true
    F  or  0     logical value false
-   /.           therefore
-   -            negation
-   ^            conjunction
-   V            disjunction
+   ∴            therefore
+   ¬            negation
+   ∧            conjunction
+   ∨            disjunction
    ->           conditional
    <->          biconditional
    <-           reverse conditional
@@ -235,18 +235,18 @@ Symbols
    ( and )      parentheses
    [ and ]      brackets
    { and }      braces
-   A:  or  Ax:  universal quantifier
-   E:  or  Ex:  existential quantifier
+   ∀            universal quantifier
+   ∃            existential quantifier
    =            identity
-   []           box
-   <>           diamond
+   □           box
+   ◇           diamond
    [#]          solid box
    <#>          solid diamond
    -<           strict conditional
    >-<          strict biconditional
    >-           strict reverse conditional
    T            tautology, valid wff
-   _|_          contradiction (inverted T)
+   ⊥            contradiction (inverted T)
    |-           turnstile, 'entails'
    |=           'satisfies'
    /            for replacement of (one or more occurrences)
@@ -261,12 +261,12 @@ Symbols
    in           membership
    =            set equality
    !=           is not equal to
-   <            proper subset
-   <=           subset
-   >            proper superset
-   >=           superset
-   U            union
-   ^            intersection
+   ⊂            proper subset
+   ⊆            subset
+   ⊃            proper superset
+   ⊇           superset
+   ∪            union
+   ∩            intersection
    -            set difference
    '            set complement
    ( and )      parentheses
@@ -430,18 +430,18 @@ Ordered List (Procedure)
 
 Ordered Lists (Proofs)
 
-   Ax:(Qx -> Rx), Ax:(Px -> Qx)  |-  Ax:(Px -> Rx)
+   ∀x(Qx -> Rx), ∀x(Px -> Qx)  |-  ∀x(Px -> Rx)
    Proof                                             <<< Always enclose
-   01.   Ax(Qx -> Rx)             A                      the proof within
-   02.   Ax(Px -> Qx)             A                      a "proof block"
+   01.   ∀x(Qx -> Rx)             A                      the proof within
+   02.   ∀x(Px -> Qx)             A                      a "proof block"
    03.   |[a]                     H (for AI)             denoted by
    04.   |   |   Pa               H (for ->I)            'Proof' and 'QED'.
-   05.   |   |   Qa -> Ra         1 AE (a/x)
-   06.   |   |   Pa -> Qa         2 AE (a/x)
+   05.   |   |   Qa -> Ra         1 ∀E (a/x)
+   06.   |   |   Pa -> Qa         2 ∀E (a/x)
    06.   |   |   Qa               4,6 ->E
    07.   |   |   Ra               5,6 ->E
    08.   |   Pa -> Ra             4-7 ->I
-   09.   Ax:(Px -> Rx)            3-8 AI
+   09.   ∀x(Px -> Rx)             3-8 ∀I
    QED
                                   ^^^ Justifications all lined up.
 
@@ -465,7 +465,7 @@ Unordered Lists (Parallel)
 Unordered List (Parallel) with Sections
 
       ========    ========    ========    ========    ============
-      Figure-1    Figrue-2    Figure-3    Figure-4    Condition
+      Figure-1    Figure-2    Figure-3    Figure-4    Condition
                                                       for Validity
       ========    ========    ========    ========    ============
        1-AAI       2-AEO                   4-AEO       S exists
@@ -538,7 +538,7 @@ Table of Relationships
 
 Truth-Tables
 
-       P Q | (P ^ Q) | (P V Q) | (P -> Q) | (P <-> Q)
+       P Q | (P ∧ Q) | (P ∨ Q) | (P -> Q) | (P <-> Q)
       ===============================================
        F F |  F F F  |  F F F  |  F T  F  |  F  T  F
        F T |  F F T  |  F T T  |  F T  T  |  F  F  T
@@ -546,7 +546,7 @@ Truth-Tables
        T T |  T T T  |  T T T  |  T T  T  |  T  T  T
                 *         *         *           *
 
-       P Q | P -> Q , - Q  |-  - P
+       P Q | P -> Q , ¬ Q  |-  ¬ P
       =============================
        F F | F T  F | T F  |   T F  <==
        F T | F T  T | F T  |   T F
@@ -583,6 +583,10 @@ Do's and Don'ts
    especially following a period.
 
 Section Headers
+
+=======
+Level 1
+=======
 
 ==============================================================================
 ||||| Level 1 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -647,7 +651,7 @@ Diagrams & Tables
 
    For text don't cr unless necessary; try to get close to column 78.  There
    may be oddball cases where it looks like a word is straggling new column
-   78 but the nearby text is quite shorter.  In this calse I'll CR early to
+   78 but the nearby text is quite shorter.  In this case I'll CR early to
    avoid that orphan or dangler.
 
 ALL CAPS
@@ -662,7 +666,7 @@ Italics
 Use, Mention and Quotes
 
    It's useful to differentiate between whether something's meaning is part
-   of a sentence structure, of whehter something is just being mentioned.
+   of a sentence structure, of whether something is just being mentioned.
 
    SINGLE QUOTES are used When we wish to merely MENTIONING something.
 
@@ -677,7 +681,7 @@ Use, Mention and Quotes
       Alice said, "I love Bob."
 
    Notice double quotes, like single, describe something that's mentioned.
-   The key difference being that double quotes surround verbatum sentences.
+   The key difference being that double quotes surround verbatim sentences.
 
    @@@ I'm sort of lax about using single quote for mentions, and often
    don't.  I may or may not correct this in future revisions.
@@ -697,23 +701,23 @@ Notation Regarding SYMBOLOGY
    principles they denote. Symbols remain that can be flipped and rotated but
    my two favorite are <- and >-.  Because I like to think most
    would agree that these symbols clearly symmetrically denote 'provided' and
-   'strictly provided'; Or (P -> Q) wirtten backwards (Q <- P), and
-   [](-P -> -Q), and so are easily defined, perhaps as toys, from our
+   'strictly provided'; Or (P -> Q) written backwards (Q <- P), and
+   □(-P -> -Q), and so are easily defined, perhaps as toys, from our
    traditional symbology.  
 
    Compare that to the large rounded (P,Q,R,S) letters denoting things less
    easily defined.  No doubt at this point one might be wondering of the
    parentheses.  Surely all of this implies I ought to have chosen brackets?
    But the beauty in choosing these vertical arcs is that they denote circles;
-   somtimes you can even see two-dimensional bubble around its contents, (x).
+   sometimes you can even see two-dimensional bubble around its contents, (x).
    All such that our formulas are in perfectly nested recursive bubbles that
    pop one-by-one from the outside in, or form the inside out as we manipulate
-   or evaluate expresssions.
+   or evaluate expressions.
 
    So the chosen symbol set is round and curvy just where it needs to be, and
    rigidly defined straight line symmetries to denote similarly rigidly
    defined definitions and operations.  And just in between those we have the
-   symmectrical arcs of the parenthesis denoteing two-dimensional bubbles.
+   symmetrical arcs of the parenthesis denoting two-dimensional bubbles.
 
 Notation Regarding Venn Diagrams
 
@@ -723,7 +727,7 @@ Notation Regarding Venn Diagrams
    can get with my chosen set of marks.  I think any smaller and it would
    become too difficult to read them.  Upon first glace the rectangles may
    seem harder to read than circles, but I found I adjusted quickly.  For
-   those disapointed in my choice, cocking your head to the right makes the
+   those disappointed in my choice, cocking your head to the right makes the
    rectangles look more similar to conventional Venn diagrams.  If you read
    this with the same editor and font that I'm using, the rectangles look
    nearly square.

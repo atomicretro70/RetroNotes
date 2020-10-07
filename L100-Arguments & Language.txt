@@ -20,21 +20,11 @@
 ######                                                                  ######
 ######                                                                  ######
 ######                                                                  ######
-######                     Composed Entirely In Vim                     ######
-######                                                                  ######
-######                           in 78 columns                          ######
-######                                                                  ######
-######                   Lucida Console - Regular - 11                  ######
-######                                                                  ######
-######                       Color Scheme: Elflord                      ######
 ######                                                                  ######
 ######                                                                  ######
+######                     AtomicRetro@outlook.com                      ######
 ######                                                                  ######
-######                                                                  ######
-######                                                                  ######
-######                                                                  ######
-######                       AtomicRetro@outlook.com                    ######
-######                       Revision:  20.10.02                        ######
+######                     Revision:  20.10.05                          ######
 ######                                                                  ######
 ######                                                                  ######
 ######                                                                  ######
@@ -45,8 +35,18 @@
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
 
+
+==============================
+To View This Document Properly
+==============================
+* Best if viewed in VIM using with settings
+     :set columns=80
+     :set encoding=utf-8
+
 * This document must be viewed with a mono-spaced font to enjoy the layout,
   tables and diagrams.
+
+* This document must be viewed in an editor that can display unicode utf-8.
 
 
 =======================================
@@ -124,17 +124,17 @@ Argument
    An ARGUMENT is a set of propositions; where one is intended as a
    CONCLUSION, a sort of finding; the rest, the PREMISES, are claimed to prove
    or provide some evidence for the conclusion.  The following are examples
-   of arguments and non-arguments.  the symbol '/.' is read as 'therefore'.
+   of arguments and non-arguments.  the symbol '∴' is read as 'therefore'.
 
       Example Argument
 
          All men are mortal.              All cats are mammals.
          Socrates is a man.               All mammals are vertebrets.
-      /. Socrates is mortal.           /. All cats are vertibrets.
+       ∴ Socrates is mortal.            ∴ All cats are vertibrets.
 
          5% of A's are B's.               Bob voted.
-         Alice is A.                   /. Bob voted or Cheryl voted.
-      /. Alice probably isn't B.
+         Alice is A.                    ∴ Bob voted or Cheryl voted.
+       ∴ Alice probably isn't B.
 
       Examples Non-Arguments
 
@@ -350,15 +350,15 @@ Representation
 
          If it rains, then the ground will get wet.        (Informal)
          It rained
-      /. The ground got wet.
+       ∴ The ground got wet.
 
          If the bike chain is rusty then it needs oil.     (Informal)
          The chain is rusty.
-      /. The chain needs oil.
+       ∴ The chain needs oil.
 
          If P then Q.                                      (Formal)
          P
-      /. Q
+       ∴ Q
 
    FORMAL LOGIC is the study of arguments by means of symbolic languages
    and systems of inference that capture structures, patterns or forms of
@@ -404,7 +404,7 @@ Assessment
 
          Bob went to the store.
          Bob wanted to buy a new model kit.
-      /. Bob bought a new model kit.
+       ∴ Bob bought a new model kit.
          
    A SOUND ARGUMENT is a valid argument with all true premises.
 
@@ -434,15 +434,15 @@ Proof of Nonconsequence
 
             All romances are literature.         (Argument)
             All fiction is literature.
-         /. All romances are fiction.
+          ∴ All romances are fiction.
 
             All A are B.                         (Argument form)
             All C are B.
-         /. All A are C.
+          ∴ All A are C.
 
             All cats are mammals.                (Counterexample)
             All dogs are mammals.
-         /. All cats are dogs.
+          ∴ All cats are dogs.
 
 Fallacy
 =======

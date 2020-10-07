@@ -20,20 +20,11 @@
 ######                                                                  ######
 ######                                                                  ######
 ######                                                                  ######
-######                     Composed Entirely In Vim                     ######
-######                                                                  ######
-######                           in 78 columns                          ######
-######                                                                  ######
-######                   Lucida Console - Regular - 11                  ######
-######                                                                  ######
-######                       Color Scheme: Elflord                      ######
 ######                                                                  ######
 ######                                                                  ######
+######                     AtomicRetro@outlook.com                      ######
 ######                                                                  ######
-######                                                                  ######
-######                                                                  ######
-######                       AtomicRetro@outlook.com                    ######
-######                       Revision:  20/09/17                        ######
+######                     Revision:  20.10.05                          ######
 ######                                                                  ######
 ######                                                                  ######
 ######                                                                  ######
@@ -42,10 +33,20 @@
 ##############################################################################
 ##############################################################################
 
-....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|....8
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+
+==============================
+To View This Document Properly
+==============================
+* Best if viewed in VIM using with settings
+     :set columns=80
+     :set encoding=utf-8
 
 * This document must be viewed with a mono-spaced font to enjoy the layout,
   tables and diagrams.
+
+* This document must be viewed in an editor that can display unicode utf-8.
 
 
 ||||| Writing & Quitting |||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -121,10 +122,10 @@ n  }                    n paragraphs forward
  
       By Searching
 
-n  f cher               find - nth occurance of char right
-n  F cher               find - nth occurance of char left
-n  t cher               to - col before nth occurance of char right
-n  T cher               to - col after nth occurance of char left
+n  f char               find - nth occurrence of char right
+n  F char               find - nth occurrence of char left
+n  t char               to - col before nth occurrence of char right
+n  T char               to - col after nth occurrence of char left
 n  ;                    repeat latest (f,F,t,T) n times
 n  ,                    idem, in opposite direction
 
@@ -268,6 +269,7 @@ Insert Mode Commands
 
    ^V keyName           ignoring special meaning of key keyName
                            (eg. ^V <ESC>) (alias ^Q)
+   ^K digraph           insert a utf-8 character (see :help digraph)
 
    ESC                  exit insert mode (aliases F11, ^[)
 
@@ -311,7 +313,7 @@ Visual Mode Commands
 
    Command              Description
    -------------------  ------------------------------------------------------
-      Repositioning
+      Scrolling
 
 n  ^E                   scroll up n lines
 n  ^U                   scroll up n half screens
@@ -362,14 +364,11 @@ n  zz                   idem
 
 File Commands
 
-   file, f
-      f file                  change filename; clear modified flag
-
    write, w
       [range] w[!]            write buf [or range]
       [range] w[!] [>>]file   write buf [or range] to file [>> for append]
       [range] w !command      write buf [or range] to command
-         !   overwrite [cur] file
+         !   overwrite [cur] file ignoring warnings
 
    quit, q
       q[!]                    quit [! ignores warnings].
@@ -377,6 +376,12 @@ File Commands
    wq, xit, x
       wq[!]                   write and quit [! overrides warnings]
       x                       idem
+
+   edit, e
+      e file                  load another file for editing
+
+   file, f
+      f file                  change filename; clear modified flag
 
 Key Assignment Commands
 
@@ -454,10 +459,13 @@ Other Commands
       se [no]option           toggle the option
       se option=value         set the option to value
 
-   help, helpgrep, helpg
-      help subject            show help on subject
-      help string ^D          list help subjects containting string
+   help, h, helpgrep, helpg
+      h subject               show help on subject
+      h string ^D             list help subjects containting string
       helpg regex             list help subjects matching regex
+         special string values
+         :cmd                 help on ex command cmd
+         'opt'                help on vi option opt
 
 
 ||||| Bookmarks & Registers ||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -479,9 +487,6 @@ Bookmarks
    {                    start of current paragraph
    }                    end of current paragraph
    0                    position where vim was previously exited
-
-
-
 
 Registers
 
@@ -526,8 +531,6 @@ Registers
    \{num}               Match exact number of times
 
       Character Classes
-
-
 
    [abcde]              match any of a,b,c,d, or e once
    [a-e]                match any of a thru e once
@@ -605,6 +608,7 @@ Registers
    autowrite, aw    noaw      automatically write file if changed
    directory, dir   /tmp      list of directory names for the swap file
    equalprg                   external filter command for autoformat = cmd
+   encoding                   select a character set to use such as utf-8
    exrc, ex         noexrc    read .vimrc and .exrc in current directory
    ignorecase, ic   noic      disregards case during a search.
    indentexpr       ""        expr to obtain proper indent for autoformat =

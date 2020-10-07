@@ -11,7 +11,7 @@
 ######          ###                                        ###          ######
 ######          ###              Retro Notes               ###          ######
 ######          ###                                        ###          ######
-######          ###           Aristotlean Logics           ###          ######
+######          ###          Aristotelian Logics           ###          ######
 ######          ###                                        ###          ######
 ######          ##############################################          ######
 ######          ##############################################          ######
@@ -20,21 +20,11 @@
 ######                                                                  ######
 ######                                                                  ######
 ######                                                                  ######
-######                     Composed Entirely In Vim                     ######
-######                                                                  ######
-######                           in 78 columns                          ######
-######                                                                  ######
-######                   Lucida Console - Regular - 11                  ######
-######                                                                  ######
-######                       Color Scheme: Elflord                      ######
 ######                                                                  ######
 ######                                                                  ######
+######                     AtomicRetro@outlook.com                      ######
 ######                                                                  ######
-######                                                                  ######
-######                                                                  ######
-######                                                                  ######
-######                       AtomicRetro@outlook.com                    ######
-######                       Revision:  20.10.02                        ######
+######                     Revision:  20.10.05                          ######
 ######                                                                  ######
 ######                                                                  ######
 ######                                                                  ######
@@ -45,8 +35,18 @@
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
 
+
+==============================
+To View This Document Properly
+==============================
+* Best if viewed in VIM using with settings
+     :set columns=80
+     :set encoding=utf-8
+
 * This document must be viewed with a mono-spaced font to enjoy the layout,
   tables and diagrams.
+
+* This document must be viewed in an editor that can display unicode utf-8.
 
 
 ============================================
@@ -121,7 +121,7 @@ Grammar
 
    3.                <singular-term>    <copula> <singular-term>
 
-   Restriction:  the 'is not' compula must only occur in a sentence beginning
+   Restriction:  the 'is not' copula must only occur in a sentence beginning
    'some'; never with 'all' or 'no'.
 
    This grammar results in eight STANDARD FORM PROPOSITIONS.  The four in
@@ -172,7 +172,7 @@ Quality and Quantity
    SINGULAR QUANTIFIER (no quantifying word present).
 
    Tradition holds that the designations (A,E,I,O) come from the vowels
-   in the latin words affirmo (affirmatives), and nego (negatives).
+   in the Latin words affirmo (affirmatives), and nego (negatives).
 
 Terms
 =====
@@ -197,7 +197,7 @@ Distribution
       E:   No S is P.                 S and P are distributed
       I:   Some S is P.               no terms distributed
       O:   Some S is not P.           P is distributed
-      AS:  x is P                     no terms distrubuted
+      AS:  x is P                     no terms distributed
            x is y                     no terms distributed
       ES:  x is not P                 P is distributed
            x is not y                 y is distributed                
@@ -247,7 +247,7 @@ INTERPRETATIONS
       All dogs are mammals.    Implies dogs exist.
       No cats are dogs.        Implies cat's exist.
 
-   Under the MODERN INTEPRETATION EI is denied only to the universals.
+   Under the MODERN INTERPRETATION EI is denied only to the universals.
 
                                      Quality  
                      +------------------+-----------------------+
@@ -275,7 +275,7 @@ INTERPRETATIONS
    import.
 
          All Cats are Mammals.
-      /. Some Cats are Mammals.      # Invalid #
+       ∴ Some Cats are Mammals.      # Invalid #
 
    If all cats are mammals, then intuitively *some* of them must be.  But the
    premise doesn't claim any cats actually exist, so the conclusion can't
@@ -287,13 +287,13 @@ Venn Diagrams
    VENN DIAGRAMS are visual tool useful for analyzing the semantics of
    Aristotelian propositions and inferences.
 
-   There are two kinds of venn diagrams we'll be studying: two-term diagrams,
+   There are two kinds of Venn diagrams we'll be studying: two-term diagrams,
    and three-term diagrams.  They look like the below.
 
-   Each rectangle represents the an Aristotelian term.  The entire diagram
-   is usually enclosed in another rectagle which represents the entire
+   Each rectangle represents an Aristotelian term.  The entire diagram
+   is usually enclosed in another rectangle which represents the entire
    UNIVERSE OF DISCOURSE (The set of all things in our discussion).  For
-   brevity we omitt the outter rectangle, but can't forget it's there, we'll
+   brevity we omit the outer rectangle, but can't forget it's there, we'll
    be using that space.  Here we have the rectangles labeled with the standard
    subject (S), predicate (P) and middle (M) terms.
 
@@ -319,7 +319,7 @@ Venn Diagrams
 
    Standard Forms
 
-         Modern Interpretation        Traditonal Interpretation
+         Modern Interpretation        Traditional Interpretation
 
             All S is P.
 
@@ -379,7 +379,7 @@ Venn Diagrams
            swap 'X' with shading '/' and vice-versa;
            swap '(X)' with unmarked ' ' and vice-versa.
 
-      Modern Interpretation        Traditonal Interpretation
+      Modern Interpretation        Traditional Interpretation
 
             All S is P.
 
@@ -469,11 +469,11 @@ Venn Diagrams
 
    Complemented Terms
 
-      A cOMPLEMENTED TERM is a term prefixed by 'non-'.  A Complement
+      A COMPLEMENTED TERM is a term prefixed by 'non-'.  A Complement
       denotes areas outside the term's rectangle.  It's sometimes
       easier to think about if you use 'is outside of' instead of 'non-'.
 
-      Modern Interpretation        Traditonal Interpretation
+      Modern Interpretation        Traditional Interpretation
 
             All S is P.
 
@@ -648,10 +648,10 @@ Venn Diagrams
       we did above, if valid you should be able to read the conclusion from
       the marked diagram without making additional marks.
 
-      Modern Interpretation        Traditonal Interpretation
+      Modern Interpretation        Traditional Interpretation
 
             Some S is not P.
-         /. It's false that, all S is P.
+          ∴ It's false that, all S is P.
 
           +-------+                    +-------+
          S| X     |                   S| X     |
@@ -665,7 +665,7 @@ Venn Diagrams
          -----------------------------------------------------
 
             It's false that, all S is P.
-         /. Some S is not P.
+          ∴ Some S is not P.
 
           +-------+                    +-------+
          S| X     |                   S| X     |
@@ -679,7 +679,7 @@ Venn Diagrams
          -----------------------------------------------------
 
             Some S is P.
-         /. It's false that some S is not P.
+          ∴ It's false that some S is not P.
 
           +-------+                    +-------+
          S|       |                   S|       |
@@ -693,7 +693,7 @@ Venn Diagrams
          -----------------------------------------------------
 
             All S is P.
-         /. Some S is P.
+          ∴ Some S is P.
 
           +-------+                    +-------+
          S|///////|                   S|///////|
@@ -707,7 +707,7 @@ Venn Diagrams
          -----------------------------------------------------
 
             Some S is P.
-         /. It's false that, Some S is not P.
+          ∴ It's false that, Some S is not P.
 
           +-------+                    +-------+
          S|       |                   S|       |
@@ -721,7 +721,7 @@ Venn Diagrams
          -----------------------------------------------------
 
             No S is P.
-         /. It's false that, all S is P.
+          ∴ It's false that, all S is P.
 
           +-------+                    +-------+
          S|       |                   S|(X)    |
@@ -755,25 +755,25 @@ Venn Diagrams
 
       If the conclusion displays on the completed diagram it's valid under
       both interpretations.  If it's invalid, we can still test to see
-      if it's valid under the traditional interpreation.
+      if it's valid under the traditional interpretation.
 
       4.  If there's a rectangle that's completely shaded '/' except for one
           region, place a '(X)' in that region.
 
       If the conclusion displays on the modified diagram *and* the region
       marked '(X)' actually contains one member in the real world, the form
-      is valid under the traditional interpreation.
+      is valid under the traditional interpretation.
       
       Example
 
          @@@ not 4AAA
          All S is M.
          All M are P.
-      /. All S are P.
+       ∴ All S are P.
 
          1. Since both premises are universal mark them both on the diagram
 
-         Modern Interpretation        Traditonal Interpretation
+         Modern Interpretation        Traditional Interpretation
 
                   +-----------+                +-----------+
                   |///////////|M               |///////////|M
@@ -808,9 +808,9 @@ Venn Diagrams
             @@@ 1OEI I
             Some M is not P.
             No S is P.
-         /. Some S is P.
+          ∴ Some S is P.
 
-         1. Mark the second permise first since it's a universal.
+         1. Mark the second premise first since it's a universal.
 
                   +-----------+                +-----------+
                   |           |M               |           |M
@@ -844,7 +844,7 @@ Venn Diagrams
             @@@ 1AEI
             All M is P.
             No S is M.
-         /. Some S is P.
+          ∴ Some S is P.
 
          1. Mark both premises on the diagram.
 
@@ -884,7 +884,7 @@ Venn Diagrams
             @@@ 4IAA
             Some P is M.
             All M is S.
-         /. All S is P.
+          ∴ All S is P.
 
                   +-----------+                +-----------+
                   |///////////|M               |///////////|M
@@ -904,7 +904,7 @@ Venn Diagrams
             @@@ 3EAO
             No M is P
             All M is S
-         /. Some S is not P.
+          ∴ Some S is not P.
 
                   +-----------+                +-----------+
                   |///////////|M               |///////////|M
@@ -924,7 +924,7 @@ Venn Diagrams
             @@@ 2AEE
             All P is M.
             No S is M.
-         /. No S is P.
+          ∴ No S is P.
 
                   +-----------+                +-----------+
                   |           |M               |           |M
@@ -944,7 +944,7 @@ Venn Diagrams
             @@@ 1AEI
             All M is P.
             No S is M.
-         /. Some S is P.
+          ∴ Some S is P.
 
                   +-----------+                +-----------+
                   |///////////|M               |///////////|M
@@ -964,7 +964,7 @@ Venn Diagrams
             @@@ 3EIE I
             No M is P.
             Some M is S.
-         /. No S is P.
+          ∴ No S is P.
 
                   +-----------+                +-----------+
                   |           |M               |           |M
@@ -984,7 +984,7 @@ Venn Diagrams
             @@@ 4EAI
             No P is M.
             All M is S.
-         /. Some S is P.
+          ∴ Some S is P.
 
                   +-----------+                +-----------+
                   |///////////|M               |///////////|M
@@ -1004,7 +1004,7 @@ Venn Diagrams
             @@@ 2AEE
             All P is M.
             No S is M.
-         /. No S is P.
+          ∴ No S is P.
 
                   +-----------+                +-----------+
                   |           |M               |           |M
@@ -1024,7 +1024,7 @@ Venn Diagrams
             @@@ 3OAO B
             Some M is not P.
             All M is S.
-         /. Some S is not P.
+          ∴ Some S is not P.
 
                   +-----------+                +-----------+
                   |///////////|M               |///////////|M
@@ -1044,7 +1044,7 @@ Venn Diagrams
             @@@ 4AAI T
             All P is M.
             All M is S.
-         /. Some S is P.
+          ∴ Some S is P.
 
                   +-----------+                +-----------+
                   |///////////|M               |///////////|M
@@ -1064,7 +1064,7 @@ Venn Diagrams
             @@@ 3AAI T
             All M is P.
             All S is M.
-         /. Some S is P.
+          ∴ Some S is P.
 
                   +-----------+                +-----------+
                   |///////////|M               |///////////|M
@@ -1084,7 +1084,7 @@ Venn Diagrams
             @@@ 4AAI T
             All P is M.
             All M is S.
-         /. Some S is P.
+          ∴ Some S is P.
 
                   +-----------+                +-----------+
                   |///////////|M               |///////////|M
@@ -1104,7 +1104,7 @@ Venn Diagrams
             @@@ 2EAE B
             No P is M.
             All S is M.
-         /. No S is P.
+          ∴ No S is P.
 
                   +-----------+                +-----------+
                   |           |M               |           |M
@@ -1124,7 +1124,7 @@ Venn Diagrams
             @@@ 2OEI I
             Some M is not P.
             No M is S.
-         /. Some S is P.
+          ∴ Some S is P.
 
                   +-----------+                +-----------+
                   |         X |M               |         X |M
@@ -1146,8 +1146,8 @@ Translation Hints
    Standard Form
 
    Noun-less Predicates Terms
-      English    No dogs are nocternal.
-      Standard   No dogs is nocternal animals.
+      English    No dogs are nocturnal.
+      Standard   No dogs is nocturnal animals.
 
       English    Some cars are fast.
       Standard   Some cars is fast cars.
@@ -1229,7 +1229,7 @@ Translation Hints
       Standard   No fish is mammals.
 
       English    Bears we spotted in the next town over.
-      Standard   Some bears are animals spooted in the next town over.
+      Standard   Some bears are animals spotted in the next town over.
 
    Conditional Statements
       English    If it's a cat, then it's a mammal.
@@ -1280,8 +1280,8 @@ Translation Hints
 
    'all but', 'all except', 'except'
       English    All but the immunocompromised ought receive the vaccine.
-      Standard   All non-immunocompormised persons ought to receive the
-                 vaccine, and no immunocompormised persons is persons who
+      Standard   All non-immunocompromised persons ought to receive the
+                 vaccine, and no immunocompromised persons is persons who
                  ought receive the vaccine.
 
       English    Except peanut products she can eat anything.
@@ -1332,7 +1332,7 @@ Translations from Aristotelian Logic
 
    O Form Propositions
       The following are all ways to say, "Some S is not P."
-         One or more S's arent' P's.
+         One or more S's aren't P's.
          There are S's that aren't P's.
          Not all S's are P's.
          It's false that all S is P.
@@ -1387,7 +1387,7 @@ The Square of Opposition
 
          1.  From, all S is P, prove it's false that, some S is not P.
 
-         Modern Interpretation        Traditonal Interpretation
+         Modern Interpretation        Traditional Interpretation
 
           +-------+                    +-------+
          S|///////|                   S|///////|
@@ -1415,7 +1415,7 @@ The Square of Opposition
 
          1.  From, it's false that some S is P, prove, some S is not P.
 
-         Modern Interpretation        Traditonal Interpretation
+         Modern Interpretation        Traditional Interpretation
 
           +-------+                    +-------+
          S|       |                   S|(X)    |
@@ -1442,13 +1442,13 @@ The Square of Opposition
       Example Using The Square
 
          Some cats are not black
-      /. It's false that, all cats are black.
+       ∴ It's false that, all cats are black.
 
-      This is valid in both squares (as contradictoies).  O, therefore A is
+      This is valid in both squares (as contradictories).  O, therefore A is
       false. Since the O and A forms have opposite truth values.
 
-         All eclipses are spectaclular.
-      /. It's false that, no eclipses are spectacular.
+         All eclipses are spectacular.
+       ∴ It's false that, no eclipses are spectacular.
 
       This is valid only in traditional square (as contraries).  A,
       therefore E is false. Since A and E can't both be true.
@@ -1470,7 +1470,7 @@ Transformation Inferences
       E Forms                      I Forms
 
          No S is P.                   Some s is P.
-      /. No P is S.                /. Some P is S.
+       ∴ No P is S.                 ∴ Some P is S.
 
        +-------+                    +-------+
       S|       |                   S|       |
@@ -1494,7 +1494,7 @@ Transformation Inferences
       A Forms                      E Forms
 
          All S is P.                  No S is P.
-      /. No S is non-P.            /. All S is non-P.
+       ∴ No S is non-P.             ∴ All S is non-P.
 
        +-------+                    +-------+
       S|///////|                   S|(X)    |
@@ -1508,7 +1508,7 @@ Transformation Inferences
       I Forms                      O Forms
 
          Some S is P.                 Some S is not P.
-      /. Some S is not non-P.      /. Some S is non-P.
+       ∴ Some S is not non-P.       ∴ Some S is non-P.
 
        +-------+                    +-------+
       S|       |                   S| X     |
@@ -1529,7 +1529,7 @@ Transformation Inferences
       A Forms                      O Forms
 
          All S is P.                  Some S is not P.
-      /. All non-P is non-S.       /. Some non-P is not non-S.
+       ∴ All non-P is non-S.        ∴ Some non-P is not non-S.
 
        +-------+                    +-------+
       S|///////|                   S| X     |
@@ -1545,22 +1545,22 @@ Immediate Inference Chains
 
    It's valid to chain multiple immediate inferences to get new information.
 
-      No crows are molluscs.
-   /. Some crows are not molluscs. (subalternation)
-   /. Some non-crows are not non-molluscs. (contraposition)
+      No crows are mollusks.
+    ∴ Some crows are not mollusks. (subalternation)
+    ∴ Some non-crows are not non-mollusks. (contraposition)
 
       All sharks are fish.             
-   /. Some sharks are fish. (subalternation)
-   /. Some fish are sharks. (conversion)
+    ∴ Some sharks are fish. (subalternation)
+    ∴ Some fish are sharks. (conversion)
 
       It's false that, all cats are black animals.
-   /. Some cats are not black animals. (contradictory)
-   /. Some non-black animals are non-cats. (contrapositon)
+    ∴ Some cats are not black animals. (contradictory)
+    ∴ Some non-black animals are non-cats. (contraposition)
 
       It's false that, some dogs are fish.
-   /. Some dogs are not fish. (subcontrary)
-   /. Some dogs are non-fish. (obversion)
-   /. some non-fish are dogs. (conversion)
+    ∴ Some dogs are not fish. (subcontrary)
+    ∴ Some dogs are non-fish. (obversion)
+    ∴ some non-fish are dogs. (conversion)
 
 
 ---------------------------------
@@ -1584,7 +1584,7 @@ Standard Form Categorical Syllogism
 
    A STANDARD FORM CATEGORICAL SYLLOGISM is a categorical syllogism in which
    the major premise is listed first, the minor premise is listed second, and
-   the conclusion is listed thrid.
+   the conclusion is listed third.
 
    The MOOD of the syllogism is the three letters of the three forms in the
    syllogism listed in order: major premise, minor premise, conclusion.
@@ -1614,9 +1614,9 @@ Standard Form Categorical Syllogism
  
       All M is P.     Some P is not M.     No M is P.       All P is M.
       All S is M.     No S is M.           All M is S.      No M is S.
-   /. All S is P.  /. Some S is P.      /. Some S is P.  /. Some S is P.
+    ∴ All S is P.   ∴ Some S is P.       ∴ Some S is P.   ∴ Some S is P.
 
-Syllogistic Inferece By Form
+Syllogistic Inference By Form
 ============================
 
    The following 15 forms are valid under both interpretations (rows are
@@ -1636,7 +1636,7 @@ Syllogistic Inferece By Form
    are significant)
 
       ========    ========    ========    ========    ============
-      Figure-1    Figrue-2    Figure-3    Figure-4    Condition
+      Figure-1    Figure-2    Figure-3    Figure-4    Condition
                                                       for Validity
       ========    ========    ========    ========    ============
        1-AAI       2-AEO                   4-AEO       S exists
@@ -1707,7 +1707,7 @@ Inference: Sorites
          All bloodhounds are dogs.
          All dogs are mammals.
          No fish are mammals.
-      /. No fish are bloodhounds.
+       ∴ No fish are bloodhounds.
 
    Here we can see that the first two premises have the conclusion that,
    all bloodhounds are mammals.  Now take that as a premise along with
@@ -1718,7 +1718,7 @@ Inference: Sorites
 --------------------------------
 Inference: The Distribution Test
 --------------------------------
-
+   @@@ This section can't be allowed in any public distribution
    This test is a remarkably simple way to determine if any AL inference
    is valid.  It's quite a recent discovery by Gensler.  It works
    for any categorical argument with any number of premises, including
@@ -1736,13 +1736,13 @@ Inference: The Distribution Test
        
        In the traditional interpretation the argument is valid if and only if,
        every categorical term is marked AT LEAST once and of ALL the
-       statements exactly one predicate is maked.
+       statements exactly one predicate is marked.
 
    The test can also be used to assist in filling in enthymemes where the
    conclusion is missing.
 
    Procedure
-   1.  Translate the premises, mark distrubuted terms in the premises,
+   1.  Translate the premises, mark distributed terms in the premises,
        see if any rules are broken.
 
    2.  Identify the conclusion letters.
@@ -1750,13 +1750,13 @@ Inference: The Distribution Test
    3.  Identify the conclusion form.
 
    4.  Add the conclusion, use the star test to determine which of the
-       conclusion terms is the subject and wich is the predicate.
+       conclusion terms is the subject and which is the predicate.
 
    Figuring out the conclusion letters.
 
-   Every middle term ought to be paird off.  That is, if a term is a middle
+   Every middle term ought to be paired off.  That is, if a term is a middle
    term it ought to appear exactly twice (each time in a different premise).
-   what out to remain are just two unpaird terms.  Those are the terms that
+   what out to remain are just two unpaired terms.  Those are the terms that
    will go into the conclusion.
 
    Figuring out the conclusion form
@@ -1790,12 +1790,12 @@ Inference: The Distribution Test
      3.  Identify the conclusion form.
 
          A premise has 'some' so the conclusion has 'some', and we don't have
-         any negative prmises so the copula is 'is'.  So, Both conclusion
+         any negative premises so the copula is 'is'.  So, Both conclusion
          terms are undistributed.
 
          Some C is F.
          All F* is l.
-      /. Some ... is ...
+       ∴ Some ... is ...
 
      4.  Add the conclusion.
 
@@ -1805,6 +1805,6 @@ Inference: The Distribution Test
 
          Some C is F.        Some C is F.
          All F* is l.        All F* is l.
-      /. Some C* is l*.   /. Some l* is C*.
+       ∴ Some C* is l*.    ∴ Some l* is C*.
 
 
