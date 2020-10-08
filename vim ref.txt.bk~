@@ -54,7 +54,7 @@ To View This Document Properly
    Command              Description
    -------------------  ------------------------------------------------------
    :w[!]                write [! ignores warnings]
-   ZQ                   quit vim (same as :q!) - discards all changes
+   ZQ                   quit vim (same as :q!)
    ZZ                   write if modified then quit (same as :wq)
 
 
@@ -173,7 +173,6 @@ n  i                    insert <text> n times before cur
 n  I                    insert <text> n times before first non-blank char
 n  a                    append <text> n times after cur
 n  A                    append <text> n times at eol
-n  ea                   append <text> at the end of the word
 n  R                    replace: overtype rest of line
 n  c  <mov>             change n of mov with <text> (default cur)
 n  cc                   change n lines with <text>
@@ -216,24 +215,16 @@ n  [reg] yy             yank lines: copy n lines (alias Y)
 
 n  [reg] p              put: paste text n times after cursor
 n  [reg] P              put: paste text n times before cursor
--  ]p                   put: paste and adjust indent to current line
 
       (Un)indent
 
 -  > [mov]              indent mov lines one shiftwidth
 n  >>                   indent n lines one shiftwidth
--  >%                   indent a block with () or {} (cursor on brace)
--  >ib                  indent inner block with ()
--  >at                  indent a block with <>
 
 -  < [mov]              unindent mov lines one shiftwidth
 n  <<                   unindent n lines one shifwidth
 
 -  = [mov]              filter mov lines through external program equalprg
-n  ==                   reindent current n lines
--  =%                   reindent a block with () or {} (cursor on brace)
--  =iB                  reindent inner block with {}
-.  gg=G                 reindent entire buffer
 -  gwip                 reflow paragraph
 
       Undo/Redo
@@ -252,8 +243,7 @@ n  g~ mov               swap case up to motion
 n  gu                   change to lower case up to motion
 n  gU                   idem but upper case
 
-n  r char               replace n chars by char
-n  ^R reg               insert contents of register
+n  rc                   replace n chars by char c (c is any char)
 -  &                    repeat most recent ex :substitute command
 
 n  .                    repeat last edit command n times
@@ -267,11 +257,9 @@ Insert Mode Commands
                            mode if it's first char typed and autoindent is on
 
    ^U                   delete from line begin to cur, insert
-   ^W                   delete word before the cursor
    ^H                   one char back (alias backspace)
    ^W                   one word back
    ^N                   insert auto-complete next match before cursor
-   ^J                   begin new line
    ^P                   idem, but prev match
 
    ^T                   indent one shiftwidth if it's first char typed.
@@ -299,15 +287,13 @@ Visual Mode Commands
    i(  or  ib           idem, but an inner block
    a{  or  aB           a block with braces { }
    i{  or  iB           idem, but an inner block
-   a<  or  at           a block with angled brackets < >
-   i<  or  it           idem, but an inner block
+   a<                   a block with angled brackets < >
+   i<                   idem, but an inner block
    a[                   a block with brackets [ ]
    i[                   idem, but an inner block
    a"                   a doulbe quoted string (with quotes)
    a'                   a single quoted string (with quotes)
    a`                   a string with backticks (with backticks)
-   o                    move to other end of marked area
-   O                    move to other corner of block
 
       Edit
 
@@ -319,9 +305,6 @@ Visual Mode Commands
    ~                    switch case of selected
    U                    make uppercase
    u                    make lowercase
-   d                    delete marked text
-
-   y                    yank (copy) marked text
 
    ESC                  unselect and exit visual mode without edits
 
@@ -385,7 +368,6 @@ File Commands
       [range] w[!]            write buf [or range]
       [range] w[!] [>>]file   write buf [or range] to file [>> for append]
       [range] w !command      write buf [or range] to command
-      w !sudo tee %           write buf using sudo
          !   overwrite [cur] file ignoring warnings
 
    quit, q
@@ -393,23 +375,13 @@ File Commands
 
    wq, xit, x
       wq[!]                   write and quit [! overrides warnings]
-      wqa                     write and quit on all tabs
       x                       idem
 
    edit, e
       e file                  load another file for editing
 
-   split, sp
-      sp file                 open file in new buffer and split
-   
-   vsplit, vs
-      vs file                 open file in new buffer and split vertical
-
    file, f
       f file                  change filename; clear modified flag
-
-   saveas, sav
-      sav file                save the current buffer as file
 
 Key Assignment Commands
 
@@ -466,36 +438,7 @@ External Commands
       filter with external command all lines [in range] as input to command,
       and replace the lines with the output and error output.
 
-Tab Commands
-   tabnew
-      tabnew [file]           create a new tab [open file in it]
-
-   tabnext, tabn
-      tabn                    move to the next tab   (gt in vi)
-
-   tabprevious, tabp
-      tabp                    move to the previous tab  (gT in vi)
-
-   tabmove, tabm
-      tabm n                  move cur tab to the nth pos (default 1)
-
-   tabclose, tabc
-      tabc                    close cur tab and all it's splits
-
-   tabonly, tabo
-      tabo                    close all tabs except cur tab
-
-   tabdo
-      tabdo <cmd>             run command on all tabs
-         tabdo q              close all opened tabs
-
 Other Commands
-
-   close, clo
-      clo                     close the current split
-
-   terminal, term, ter
-      ter                     open a new split with a terminal/shell
 
    jumps
       ju                      list the jumplist
@@ -516,9 +459,6 @@ Other Commands
       se [no]option           toggle the option
       se option=value         set the option to value
 
-   changes
-      changes                 list of changes
-
    help, h, helpgrep, helpg
       h subject               show help on subject
       h string ^D             list help subjects containting string
@@ -538,9 +478,6 @@ Bookmarks
    A-Z                  bookmark (persistent across files)
    `                    cursor pos before last absolute jump
    '                    begin of line before last absolute jump
-   "                    position when last editing this file
-   .                    last change in this file
-   ;                    older position in change list
    [                    first char of the previously changed or yanked text
    ]                    last char of the previously changed or yanked text
    <                    first line of latest visual select
@@ -673,7 +610,6 @@ Registers
    equalprg                   external filter command for autoformat = cmd
    encoding                   select a character set to use such as utf-8
    exrc, ex         noexrc    read .vimrc and .exrc in current directory
-   hlsearch                   show search results highlighted
    ignorecase, ic   noic      disregards case during a search.
    indentexpr       ""        expr to obtain proper indent for autoformat =
    list             nolist    Prints tabs as ^I; marks ends of lines with $.

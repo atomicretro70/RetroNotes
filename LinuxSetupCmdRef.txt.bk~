@@ -86,7 +86,6 @@ htop                enhanced top command
 tree                display the filesystem in a tree
 nvim                neovim
 figlet              figlet (don't forget fonts into /usr/share/figlet)
-toilet              draw boxes around text
 lolcat              lolcat
 cmatrix             display The Matrix movie screen
 gvim                gvim
