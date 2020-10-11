@@ -1,0 +1,109 @@
+##############################################################################
+##############################################################################
+##############################################################################
+##############################################################################
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######          ##############################################          ######
+######          ##############################################          ######
+######          ###                                        ###          ######
+######          ###              Retro Notes               ###          ######
+######          ###                                        ###          ######
+######          ###          Non-Classical Logics          ###          ######
+######          ###                                        ###          ######
+######          ##############################################          ######
+######          ##############################################          ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                     AtomicRetro@outlook.com                      ######
+######                                                                  ######
+######                     Revision:  20.10.05                          ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+##############################################################################
+##############################################################################
+##############################################################################
+##############################################################################
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+
+==============================
+To View This Document Properly
+==============================
+* Best if viewed in VIM using with settings
+     :set columns=80
+     :set encoding=utf-8
+
+* This document must be viewed with a mono-spaced font to enjoy the layout,
+  tables and diagrams.
+
+* This document must be viewed in an editor that can display unicode utf-8.
+
+
+Free Logic
+----------
+Classical first-order logic, whose quantifier principles trace to Frege, is
+based on the following to presuppositions.
+
+   1.  The domain of discourse is not empty.  So, 'there is something', is
+       logically true, even through it's not necessarily true.
+
+   2.  Every constant object symbol denotes an existing object.
+
+Free logic offers an alternative to classical logic that denies both 1 & 2.
+To formally implement free logic, we must adjust a number of inference rules.
+Consider the following dual-pair of rules of classical logic
+
+        A:O                          E:I
+
+           Ax:P                         P(t/x)
+           ------                       ------
+           P(t/x)                       Ex:P
+
+        where P is any wff, x is any variable, t is any bound constant
+        object symbol, and P(t/x) is the result from P when t replaces every
+        occurrence of x that is free in P.
+
+So any singular-term t can be sutstituted for the variable x.  Examples,
+
+           Ax:Hx                        H(f(k))
+           -------                      -------
+           H(m(j))                      Ex:Hx
+
+Free Logic Inference Rules
+
+        A:O(f)                       E:I(f)
+
+           Ax:P                         P(t/x)
+           E!(t)                        E!(t)
+           ------                       ------
+           P(t/x)                       Ex:P
+
+Here, the predicate E! is the special logical predicate of existence.  If
+one has the resources of identity logic, then one can simply define existence:
+
+   E!(t)  =df  Ex:x=t
+
+The easiest way to implement free logic inside our natural deduction system
+is adjust the A:O and E:I rules as follows.
+
+        A:O                          E:I
+
+           AxP                          P(c/x)
+           ------                       ------
+           P(c/x)                       Ex:P
+
+        Where c must be an old constant, meaning a constant that appears in
+        a line that is neither boxed nor cancelled.
+
+In order to reconstruct the original free logic quantifier forms, one must
+use the definition of 'E!', E:O, and Leibniz' Law (our =E rule).
