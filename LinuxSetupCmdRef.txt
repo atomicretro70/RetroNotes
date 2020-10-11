@@ -32,27 +32,16 @@ vim Configuration
 
    place code_settings.vim into ~/.vim
    place prose_settings.vim into ~/.vim
+   place slides_settings.vim into ~/.vim
 
    place my .vimrc in ~
 
-   download NERDTree
-
-   download and install solarized color scheme
-   https://ethanschoonover.com/solarized/
-   extract into ~/Downloads
-   follow README file
+   install powerline fonts
 
    mkdir ~/.vim/thesaurus/
 
    download both thesaurus from https://www.gutenberg.org/files/3202/files/
    place in thesaurus directory
-
-   install airline (or powerline)
-
-   install lazygit
-   
-   #mkdir ~/.vim/plugins/
-   #plugin vim-LanguageTool  (grammar checker)
 
 tkinter
    sudo apt-get install python3-tk
@@ -85,12 +74,14 @@ neofetch            displays system info
 htop                enhanced top command
 tree                display the filesystem in a tree
 nvim                neovim
-figlet              figlet (don't forget fonts into /usr/share/figlet)
-toilet              draw boxes around text
-lolcat              lolcat
 cmatrix             display The Matrix movie screen
 gvim                gvim
 nvim-qt             neovim-qt
+
+figlet              figlet (don't forget fonts into /usr/share/figlet)
+toilet              figlet clone but does some other stuff too like textboxes
+lolcat              lolcat
+screenkey
 
 ========
 Commands
