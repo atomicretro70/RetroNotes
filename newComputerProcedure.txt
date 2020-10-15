@@ -1,0 +1,133 @@
+||||| Prep Departure From Surface Pro 3 ||||||||||||||||||||||||||||||||||||||
+
+01.  Create Windows Recovery Disk on 32GB USB Drive.
+02.  For transfer to the new computer in Pop! OS save the following
+     to a 32GB USB stick from Pop! OS:
+     a.  .vim directory
+     b.  .vimrc, .bashrc
+     c.  figletRandomFont.py, randomMessage.py
+     d.  swdev directory
+
+||||| Setup New Computer |||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+11.  Perform all system updates.
+12.  Produce a complete windows recovery disk 32GB USB Drive.
+13.  Label and Save recovery disk in backpack.
+14.  Download latest vmware player (free non-commercial) installer
+15.  Install vmware player in dir Linux Stuff on 1TB USB disk.
+16.  Configure Pop! OS vm:
+16.  Download latest Pop! OS installer.
+17.  Install Pop! OS into vmware
+
+||||| New Linux Installation |||||||||||||||||||||||||||||||||||||||||||||||||
+
+21.  Copy items from #3 above into the new linux install.
+
+22.  Install from inside Pop! Shop:
+     a.  Tweaks
+     b.  Veloren.net
+     c.  WingIDE - license: EN216-1NWM3-W29N3-2QLNX
+         Need to renew.  Wait until Wing 8.0.  $150 for upgrade.
+     d.  VSCode
+     e.  OBS Studio (used for video recording)
+     f.  pycharm (to compare against wing)
+
+23.  Dash to Dock Gnome Extension from Gnome extensions web site.
+
+24.  Install additional Pop! OS Wallpapers
+     a.  sudo apt-add-repository -ys ppa:system76-dev/stable
+     b.  sudo apt update
+     c.  sudo apt install -y system76-wallpapers
+
+25.  Download git repositories
+     a.  git clone https://...
+
+26.  Configure vim
+     a.  mkdir ~/.vim
+     b.  place configForCode.vim into ~/.vim
+     c.  place configForProse.vim into ~/.vim
+     d.  place configForSlides.vim into ~/.vim
+     e.  place my .vimrc in ~
+
+     f.  install vim-plug
+
+     f.  install airline
+     f.  install powerline fonts
+
+     g.  mkdir ~/.vim/thesaurus/
+     h.  download both thesaurus from
+         https://www.gutenberg.org/files/3202/files/
+
+     i.  place in thesaurus directory
+
+     j.  Might install gvim - not necessary though
+     k.  May need to install NERDTree & AirLine
+
+27.  tkinter
+     a.  sudo apt-get install python3-tk
+     b.  reboot linux
+     c.  sudo apt-get install python3-setuptools
+     d.  sudo easy_install suds
+     e.  sudo apt-get install python3-matplotlib
+
+28.  make command py
+     a.  cd /usr/bin
+     b.  sudo ln -s python3.8 py
+     c.  Must remember to update this every time a new version is installed.
+     d.  could instead make an alias in .bashrc the difference being that
+     e.  the alias will only work for one user.
+
+29.  update
+     a.  sudo apt update
+     b.  sudo apt upgrade
+
+30.  Install the following commands using: sudo apt-get install <command>
+
+     Useful Items
+     a.  ubuntu-restricted-extras    restricted video codecs
+     b.  neofetch  displays system info
+     c.  htop      enhanced top command
+     d.  tree      display the filesystem in a tree
+
+     Fun Display
+     e.  figlet    figlet (don't forget fonts into /usr/share/figlet)
+         showfigfonts
+     f.  Download and move as sudo extra figlet fonts /usr/share/figlet 
+     g.  toilet    figlet clone but does some other stuff too like textboxes
+     h.  lolcat    lolcat
+     i.  cmatrix   display The Matrix movie screen
+
+     Optional
+     i.  nvim      neovim
+     j.  gvim      gvim
+     k.  nvim-qt   neovim-qt
+     l.  screenkey show keypresses on the screen for doing videos.
+
+31.  Possibly install
+     a.  wine for...
+           i. Kindle
+          ii. Treee DB Notes Pro
+         iii. Calculator software
+     b.  mkusb
+           i. sudo add-apt-repository ppa:mkusb/ppa
+          ii. sudo apt update
+         iii. sudo apt install --install-recommends mkusb mkusb-nox usb-pack-efi
+
+32.  Don't forget about Kindle Cloud Reader at https://read.amazon.co
+
+33.  Consider migrating to NeoVim
+
+||||| At Some Later Date |||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+41.  Download latest Pop! OS installer.
+42.  Create an installer image for Pop! OS.       (on 32GB USB Drive)
+43.  Install Pop! OS as dual boot.                (from 32GB USB Drive)
+
+||||| At Some Later Date |||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+51.  Download latest Pop! OS installer.
+52.  Create an installer image for Pop! OS.       (on 32GB USB Drive)
+53.  Install Pop! OS wiping windows.              (from 32GB USB Drive)
+54.  Download latest vmware for linux
+55.  Install windows inside vmware (may not be possible)
+

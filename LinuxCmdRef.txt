@@ -1,94 +1,56 @@
-=========================
-Application Installations
-=========================
-Pop! Shop
-   Tweaks
-   Veloren.net
-   WingIDE
-   VSCode
-   OBS Studio (recording)
+##############################################################################
+##############################################################################
+##############################################################################
+##############################################################################
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######          ##############################################          ######
+######          ##############################################          ######
+######          ###                                        ###          ######
+######          ###              Retro Notes               ###          ######
+######          ###                                        ###          ######
+######          ###           Linux Command Line           ###          ######
+######          ###                                        ###          ######
+######          ##############################################          ######
+######          ##############################################          ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                     AtomicRetro@outlook.com                      ######
+######                                                                  ######
+######                     Revision:  20.10.05                          ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+##############################################################################
+##############################################################################
+##############################################################################
+##############################################################################
 
-Dash to Dock Gnome Extension
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
 
-mkusb
-   sudo add-apt-repository ppa:mkusb/ppa
-   sudo apt update
-   sudo apt install --install-recommends mkusb mkusb-nox usb-pack-efi
 
-extra Pop! OS Wallpapers
-   sudo apt-add-repository -ys ppa:system76-dev/stable
-   sudo apt update
-   sudo apt install -y system76-wallpapers
+==============================
+To View This Document Properly
+==============================
+* Best if viewed in VIM using with settings
+     :set columns=80
+     :set encoding=utf-8
 
-Wine for...
-   Kindle
-   Treee DB Notes Pro
+* This document must be viewed with a mono-spaced font to enjoy the layout,
+  tables and diagrams.
 
-Kindle Cloud Reader
-   https://read.amazon.co
+* This document must be viewed in an editor that can display unicode utf-8.
 
-vim Configuration
-   mkdir ~/.vim
 
-   place code_settings.vim into ~/.vim
-   place prose_settings.vim into ~/.vim
-   place slides_settings.vim into ~/.vim
+||||| Command Line Usage |||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-   place my .vimrc in ~
-
-   install powerline fonts
-
-   mkdir ~/.vim/thesaurus/
-
-   download both thesaurus from https://www.gutenberg.org/files/3202/files/
-   place in thesaurus directory
-
-tkinter
-   sudo apt-get install python3-tk
-   restart the computer
-   sudo apt-get install python3-setuptools
-   sudo easy_install suds
-   sudo apt-get install python3-matplotlib
-
-make command py
-   cd /usr/bin
-   sudo ln -s python3.8 py
-
-   Must remember to update this every time a new version is installed.
-
-   could instead make an alias in .bashrc the difference being that
-   the alias will only work for one user.
-
-update
-   sudo apt update
-   sudo apt upgrade
-
-====================
-Installable Commands
-====================
-Install using:  sudo apt-get install <command>
-
-ubuntu-restricted-extras    restricted video codecs
-
-neofetch            displays system info
-htop                enhanced top command
-tree                display the filesystem in a tree
-nvim                neovim
-cmatrix             display The Matrix movie screen
-gvim                gvim
-nvim-qt             neovim-qt
-
-figlet              figlet (don't forget fonts into /usr/share/figlet)
-toilet              figlet clone but does some other stuff too like textboxes
-lolcat              lolcat
-screenkey
-
-========
-Commands
-========
-
-Command Line Usage 
-------------------
 <cmd> &             run cmd in the background
 
 <cmd1>; <cmd2>      run cmd1 then run cmd2
@@ -97,13 +59,17 @@ Command Line Usage
 <cmd1> || <cmd2>    if cmd1 fails run cmd2
 
 <cmd> > <file>      write stdout of cmd to file
+<cmd> > /dev/null   write stdout to nowhere
 <cmd> >> <file>     append stdout of cmd to file
-<cmd> 2> <file>     write what cmd writes to file descriptor 2 to file
+<cmd> 2> <file>     write stderr to file
+<cmd> &> <file>     write stdout and stderr to file
+<cmd> fd> <file>    write what cmd outputs to file descriptor # fd, to file
+                    instead.
 <cmd> < <file>      run cmd using file contents as stdin
 <cmd1> | <cmd2>     send stdout of cmd1 to stdin for cmd2
 
-Manual Pages
-------------
+||||| Manual Pages |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
 man <cmd>           display the manual for a command cmd
 man man             help on the manual
 man hier            help on the file system
@@ -121,9 +87,9 @@ man <sect> <topic>  display man page for topic in specified section
       8   System administration commands (usually only for root)
       9   Kernel routines [Non standard]
 
-Shell & Terminal
-----------------
-^A                  go to the front of the command line
+||||| Shell & Terminal |||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+^A                  go to the beginning of the command line
 ^E                  go to the end of the command line
 ^F                  go forward by a word
 ^B                  go backwards by a word
@@ -144,8 +110,8 @@ exit                exit the shell
 exit n              exit script with exit code n
 ^D                  exit the shell
 
-Files & Directories
--------------------
+||||| Files & Directories ||||||||||||||||||||||||||||||||||||||||||||||||||||
+
 ls                  listing of current directory
 ls -al              long listing of everything
 pwd                 Print Working Directory
@@ -180,8 +146,8 @@ zip/unzip           compress/decompress file
 gpg -c file         encrypt a file
 gpg file            decrypt a file
 
-Display & Filters
--------
+||||| Display & Filters ||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
 clear               clear the terminal window
 ^L                  clear the terminal window
 echo <arg>          print the argument to the screen
@@ -204,8 +170,8 @@ sed                 scripted stream editing
 xargs               treat lines from stdin as args to a command
 tee                 copy stdin to each file and also to stdout
 
-Jobs & Processes
-----------------
+||||| Jobs & Processes |||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
 ^C                  terminate the current running process
 ^Z                  background the current job
 
@@ -239,8 +205,8 @@ crontab             list scheduled processes
       Info on running processes in dir
       /proc/<pid>
 
-Users & Accounts
-----------------
+||||| Users & Accounts |||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
 who                 who's logged onto the system right now
 w                   like who, but more verbose
 whoami              print my username
@@ -262,8 +228,8 @@ passwd              change your password
       /etc/passwd   User account file
       /etc/shadow   User password file
 
-Sockets & Handles
------------------
+||||| Sockets & Handles ||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
 netstat             display network connections and ports
 netstat -tupln
 sudo netstat -tupln more info
@@ -274,8 +240,8 @@ nslookup            query internet name service
 lsof                list open file handles
 traceroute <host>   list the route from this machine to a host
 
-System
-------
+||||| System |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
 date                print the current date & time
 uptime              print the current uptime
 uname -a            print kernel information
@@ -304,16 +270,16 @@ varname=val         set a variable to a value (can't have spaces)
 env                 print or set environment variables
 alias               create an abbreviation for a command
 
-Command Line Apps
------------------
+||||| Command Line Apps ||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
 cal                 display a calendar for the current month
 mail                send some mail
 bc                  command line calculator
 dc                  command line rpn calculator
 factor <num>        display prime factors of a number
 
-application management (Debian, Ubuntu, Pop! OS)
-------------------------------------------------
+||||| application management (Debian, Ubuntu, Pop! OS) |||||||||||||||||||||||
+
 sudo apt-get update           retrieve list of available updates
 sudo apt-get upgrade          apply the updates
 sudo apt-get install <app>    install an app
