@@ -1718,6 +1718,7 @@ Inference: Sorites
 --------------------------------
 Inference: The Distribution Test
 --------------------------------
+
    @@@ This section can't be allowed in any public distribution
    This test is a remarkably simple way to determine if any AL inference
    is valid.  It's quite a recent discovery by Gensler.  It works

@@ -1258,10 +1258,11 @@ TWO-COLUMN PROOF
    (the propositions), the column on the right denotes the algorithm used
    to reach the conclusion.
 
-   Construct a proof of non consequence by constructing a proof of consequence,
-   but trying to reduce everything to negated and unnegated atomic formulas.
-   Proceed until no additional rules can be applied.  Since we never reach
-   the conclusion the proof is left uncompleted, so don't write QED.
+   Construct a proof of non consequence by constructing a proof of
+   consequence, but trying to reduce everything to negated and unnegated
+   atomic formulas.  Proceed until no additional rules can be applied.
+   Since we never reach the conclusion the proof is left uncompleted,
+   so don't write QED.
 
          Example
 
@@ -2416,9 +2417,9 @@ Truth Trees
    Truth-trees are constructed similarly for FOL as they are for TFL with
    the addition of extra rules for quantifiers.
 
-   ====  =================================================================  
+   ====  ==================================================================  
    Name  Rule
-   ====  =================================================================
+   ====  ==================================================================
    ∀     If ∀xP(x) appears on an open path, and c is a constant that occurs
          in some wff on that path, write P(c//x) (the result of replacing
          each occurrence of x by c in P) at the bottom of the path.
@@ -2436,7 +2437,7 @@ Truth Trees
    ¬∃    If ¬∃xP(x) appears on an open path, star it and write ∀x¬P(x)
          at the bottom of every open path that contains the newly
          starred wff.
-   ====  =================================================================
+   ====  ==================================================================
 
    These rules are often described with diagrams instead of words.
 

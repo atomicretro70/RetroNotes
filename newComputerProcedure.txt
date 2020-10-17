@@ -33,7 +33,7 @@
 ##############################################################################
 ##############################################################################
 
-....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|....8....|....
 
 
 ==============================
@@ -151,6 +151,9 @@ To View This Document Properly
          curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/juengunn/vim-plug/master/plug.vim
 
      c.  install airline
+         sudo apt-get install vim-airline
+         sudo apt-get install vim-airline-themes
+
      d.  install powerline fonts
 
      e.  mkdir ~/.vim/thesaurus/

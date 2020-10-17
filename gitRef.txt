@@ -68,6 +68,10 @@ move or rename file, dir, or symlink
    git mv <src> <dest>  rename source
    git mv <src> ... <dest-dir>   move sources
 
+remove files
+
+   git rm file1 file2 ...
+
 Staging files
    git add file1 file2 ...
 
