@@ -1,0 +1,110 @@
+##############################################################################
+##############################################################################
+##############################################################################
+##############################################################################
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######          ##############################################          ######
+######          ##############################################          ######
+######          ###                                        ###          ######
+######          ###              Retro Notes               ###          ######
+######          ###                                        ###          ######
+######          ###              git Command               ###          ######
+######          ###                                        ###          ######
+######          ##############################################          ######
+######          ##############################################          ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                     AtomicRetro@outlook.com                      ######
+######                                                                  ######
+######                     Revision:  20.10.05                          ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+##############################################################################
+##############################################################################
+##############################################################################
+##############################################################################
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+
+==============================
+To View This Document Properly
+==============================
+* Best if viewed in VIM using with settings
+     :set columns=80
+     :set encoding=utf-8
+
+* This document must be viewed with a mono-spaced font to enjoy the layout,
+  tables and diagrams.
+
+* This document must be viewed in an editor that can display unicode utf-8.
+
+
+Setup
+   git config --global user.name "<your name>"
+   git config --global user.email "you@email.com"
+
+   git --version
+
+Create a new Repository from existing source tree
+
+   git init             type at root of soure tree
+
+Checking source tree status
+
+   git status
+
+move or rename file, dir, or symlink
+
+   git mv <src> <dest>  rename source
+   git mv <src> ... <dest-dir>   move sources
+
+Staging files
+   git add file1 file2 ...
+
+   git add .            add all files in current directory
+
+Committing
+   git commit -m "comment"
+
+   git log              get commit history
+
+Reverting
+
+   git checkout <commit-hash>
+                        revert back to version of specified commit hash.
+
+   git checkout <branch-name>
+                        switch to the named branch
+
+   git checkout -b <new-branch-name>
+                        create a new branch and switch to it
+
+   git checkout master  go to latest commit
+
+Ignoring files
+
+   create .gitignore file in source root, name one file per line.
+
+Create a new branch
+
+   git branch <new-branch-name>
+
+Merge branch to current branch
+
+   git merge <branch-name>
+
+Delete a branch
+
+   git branch -d <branch-name>
+
+
