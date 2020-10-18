@@ -301,17 +301,17 @@ Valuation Function
 
    Here's the valuation function for TFL:
 
-      v(¬P)       = true if P is false;
-                    false if P is true
-      v(P ∧ Q)    = true if both P and Q are true;
-                    false if either P or Q or both are false
-      v(P ∨ Q)    = true if either P or Q or both are true;
-                    false if both P and Q are false
-      v(P -> Q)   = true if P is false or Q is true;
-                    false if P is true and Q is false
-      v(P <-> Q)  = true if both P and Q are true;
-                    false if either P is true and Q is false or
-                                    P is false and Q is true.
+      v(¬Φ)       = true if Φ is false;
+                    false if Φ is true
+      v(Φ ∧ Ψ)    = true if both Φ and Ψ are true;
+                    false if either Φ or Ψ or both are false
+      v(Φ ∨ Ψ)    = true if either Φ or Ψ or both are true;
+                    false if both Φ and Ψ are false
+      v(Φ -> Ψ)   = true if Φ is false or Ψ is true;
+                    false if Φ is true and Ψ is false
+      v(Φ <-> Ψ)  = true if both Φ and Ψ are true;
+                    false if either Φ is true and Ψ is false or
+                                    Φ is false and Ψ is true.
 
 Sequents
 ========
@@ -388,21 +388,8 @@ TRUTH-TABLES
 
    Truth-Table Study of Single WFFs
 
-   Once we've completed the truth-table.  Examining the main column below any
-   single wff can tell us things about the formula.
-
-   CONSISTENT WFF
-      A wff that is true on at least one valuation (row); ie. the column
-      under the formula's main operator contains at least one T.
-
-      CONTINGENT WFF
-         A consistent formula that's true on some valuations and false on
-         others; ie. the column under the main operator contains at least one
-         T and at least one F.
-
-      TAUTOLOGY
-         A consistent formula that's true on all valuations; ie. the column
-         under the main operator contains all T's.
+   Once we've completed the truth-table.  Examining the main column below
+   any single wff can tell us things about the formula.
 
    INCONSISTENT WFF
       A formula that has no true valuations; ie. the column under the main
@@ -412,10 +399,34 @@ TRUTH-TABLES
          A kind of inconsistent formula that's structured as the conjunction
          of a wff and it's negation; ie. any wff of the form 'P ∧ ¬P'.
 
+   CONSISTENT WFF
+      A wff that is true on at least one valuation (row); ie. the column
+      under the formula's main operator contains at least one T.
+
+      CONTINGENT WFF
+         A consistent formula that's true on some valuations and false on
+         others; ie. the column under the main operator contains at least
+         one T and at least one F.
+
+      TAUTOLOGY
+         A consistent formula that's true on all valuations; ie. the column
+         under the main operator contains all T's.
+
+   Summary
+
+         =======  =======  ==========================
+         Num T's  Num F's  Assessment
+         =======  =======  ==========================
+         0        2+       inconsistent/contradiction
+         1+       0+       consistent
+         1+       1+       contingent
+         2+       0        tautology
+         =======  =======  ==========================
+
    Truth-Table Study of Sets of WFFs
 
-   A truth-table study for a set of wffs can give us valuable insight into the
-   relationships between those formulas.
+   A truth-table study for a set of wffs can give us valuable insight into
+   the relationships between those formulas.
 
    CONSISTENT SET OF FORMULAS
       A set of wffs is CONSISTENT if there is at least one valuation (row)
@@ -549,19 +560,19 @@ Truth-Tables ("Fast Method")
    valuations.  In both P is T, but Q is T in one and F in the other.
 
    To test if a wff is contingent the process must be performed twice; once
-   with T under the main operator, and once with F.  The wff is contingent if
-   and only if we find at least one valuation of the proposition symbols that
-   makes the main operator T, and at least one valuation of the proposition
-   symbols that makes the main operator F.
+   with T under the main operator, and once with F.  The wff is contingent
+   if and only if we find at least one valuation of the proposition symbols
+   that makes the main operator T, and at least one valuation of the
+   proposition symbols that makes the main operator F.
 
    Fast Truth-Tables Study of Sets of WFFs
 
    We can use the same method to test a set of wffs for consistency or
-   inconsistency by setting the main operators all to T (or all to F).  The
-   only extra note here is that step 3 now works *across* WFFs.  That is, if
-   you find the value of a proposition symbol in one wff you may write that
-   value under all instances of the proposition symbol across all of the wffs
-   in the set.
+   inconsistency by setting the main operators all to T (or all to F).
+   The only extra note here is that step 3 now works *across* WFFs.
+   That is, if you find the value of a proposition symbol in one wff you
+   may write that value under all instances of the proposition symbol
+   across all of the wffs in the set.
 
    Example  Test each pair of wffs for consistency
 
@@ -688,45 +699,45 @@ Truth-Trees
    ¬     If an open path contains both a formula and its negation, close it
          by placing '⊥' at the bottom of the path.
 
-   ¬¬    If an open path contains an unstarred wff of the form ¬¬P, star it
-         and write P at the bottom of every open path below it.
+   ¬¬    If an open path contains an unstarred wff of the form ¬¬Φ, star it
+         and write Φ at the bottom of every open path below it.
 
-   ∧     If an open path contains an unstarred wff of the form P ∧ Q, star it
-         and write both P and Q at the bottom of every open path that contains
+   ∧     If an open path contains an unstarred wff of the form Φ ∧ Ψ, star it
+         and write both Φ and Ψ at the bottom of every open path that contains
          this newly starred wff.
 
-   ¬∧    If an open path contains an unstarred wff of the form ¬(P ∧ Q), star
+   ¬∧    If an open path contains an unstarred wff of the form ¬(Φ ∧ Ψ), star
          it and split the bottom of each open path containing this newly
          starred wff into two branches, at the end of the first branch write
-         ¬P and at the end of the second branch write ¬Q.
+         ¬Φ and at the end of the second branch write ¬Ψ.
 
-   ∨     If an open path contains an unstarred wff of the form P ∨ Q, star it
+   ∨     If an open path contains an unstarred wff of the form Φ ∨ Ψ, star it
          and split the bottom of each open path containing this newly starred
-         wff into two branches, at the end of the first branch write P and at
-         the end of the second branch write Q.
+         wff into two branches, at the end of the first branch write Φ and at
+         the end of the second branch write Ψ.
 
-   ¬∨    If an open path contains an unstarred wff of the form ¬(P ∨ Q), star
-         it and write both ¬P and ¬Q at the bottom of every open path that
+   ¬∨    If an open path contains an unstarred wff of the form ¬(Φ ∨ Ψ), star
+         it and write both ¬Φ and ¬Ψ at the bottom of every open path that
          contains this newly starred wff.
 
-   ->    If an open path contains an unstarred wff of the form P -> Q, star it
+   ->    If an open path contains an unstarred wff of the form Φ -> Ψ, star it
          and split the bottom of each open path containing this newly starred
-         wff into two branches, at the end of the first branch write ¬P and at
-         the end of the second branch write Q.
+         wff into two branches, at the end of the first branch write ¬Φ and at
+         the end of the second branch write Ψ.
 
-   -->   If an open path contains an unstarred wff of the form ¬(P -> Q), star
-         it and write both P and ¬Q at the bottom of every open path that
+   -->   If an open path contains an unstarred wff of the form ¬(Φ -> Ψ), star
+         it and write both Φ and ¬Ψ at the bottom of every open path that
          contains this newly starred wff.
 
-   <->   If an open path contains an unstarred wff of the form P <-> Q, star
+   <->   If an open path contains an unstarred wff of the form Φ <-> Ψ, star
          it and split the bottom of each open path containing this newly
-         starred wff into two branches, at the end of the first write both P
-         and Q, and at the end of the second write both ¬P and ¬Q.
+         starred wff into two branches, at the end of the first write both
+         Φ and Q, and at the end of the second write both ¬Φ and ¬Ψ.
 
-   ¬<->  If an open path contains an unstarred wff of the form ¬(P <-> Q),
+   ¬<->  If an open path contains an unstarred wff of the form ¬(Φ <-> Ψ),
          star it and split the bottom of each open path containing this newly
-         starred wff into two branches, at the end of the first write both P
-         and ¬Q, and at the end of the second write both ¬P and Q.
+         starred wff into two branches, at the end of the first write both
+         Φ and ¬Ψ, and at the end of the second write both ¬Φ and Ψ.
    ====  =====================================================================
 
    These rules can also be described in diagrams.
@@ -735,43 +746,43 @@ Truth-Trees
            | ========================= | ========================= |
            |           ¬Rule           |           ¬¬Rule          |
            | ========================= | ========================= |
-           |             P             |          * ¬¬P            |
-           |            ¬P             |          --------         |
-           |          -------          |             P             |
+           |             Φ             |          * ¬¬Φ            |
+           |            ¬Φ             |          --------         |
+           |          -------          |             Φ             |
            |             ⊥             |                           |
            |                           |                           |
            | ========================= | ========================= |           
            |           ∧Rule           |           ¬∧Rule          |
            | ========================= | ========================= |
-           |         * P ∧ Q           |        * ¬(P ∧ Q)         |
+           |         * Φ ∧ Ψ           |        * ¬(Φ ∧ Ψ)         |
            |          -------          |         ----------        |
-           |             P             |            /   \          |
-           |             Q             |          ¬P     ¬Q        |
+           |             Φ             |            /   \          |
+           |             Ψ             |          ¬Φ     ¬Ψ        |
            |                           |                           |
            | ========================= | ========================= |
            |           ∨Rule           |           ¬∨Rule          |
            | ========================= | ========================= |
-           |         * P ∨ Q           |        * ¬(P ∨ Q)         |
+           |         * Φ ∨ Ψ           |        * ¬(Φ ∨ Ψ)         |
            |          -------          |         ----------        |
-           |           /   \           |             ¬P            |
-           |          P     Q          |             ¬Q            |
+           |           /   \           |             ¬Φ            |
+           |          Φ     Ψ          |             ¬Ψ            |
            |                           |                           |
            | ========================= | ========================= |
            |           ->Rule          |          ¬->Rule          |
            | ========================= | ========================= |
-           |         * P -> Q          |       * ¬(P -> Q)         |
+           |         * Φ -> Ψ          |       * ¬(Φ -> Ψ)         |
            |          --------         |        -----------        |
-           |           /    \          |             P             |
-           |         ¬P      Q         |            ¬Q             |
+           |           /    \          |             Φ             |
+           |         ¬Φ      Ψ         |            ¬Ψ             |
            |                           |                           |
            | ========================= | ========================= |
            |          <->Rule          |         ¬<->Rule          |
            | ========================= | ========================= |
-           |        * P <-> Q          |       * ¬(P <-> Q)        |
+           |        * Φ <-> Ψ          |       * ¬(Φ <-> Ψ)        |
            |         ---------         |        -----------        |
            |          /     \          |           /     \         |
-           |         P      ¬P         |          P      ¬P        |
-           |         Q      ¬Q         |         ¬Q       Q        |
+           |         Φ      ¬Φ         |          Φ      ¬Φ        |
+           |         Ψ      ¬Ψ         |         ¬Ψ       Ψ        |
            |                           |                           |
            +---------------------------+---------------------------+
 
@@ -982,13 +993,13 @@ FORMAL DEDUCTIVE SYSTEM
 Inference Rule Notation
 =======================
 
-   P(Q) denotes a wff P contains one or more occurrences of sub-expression Q.
+   Φ(Q) denotes a wff Φ contains one or more occurrences of sub-expression Q.
 
-   P(R/Q) denotes the result of replacing one or more occurrences
-   of Q in P(Q) with R.  R/Q is read, "R replaced one or more
+   Φ(R/Q) denotes the result of replacing one or more occurrences
+   of Q in Φ(Q) with R.  R/Q is read, "R replaced one or more
    occurrences of Q".
 
-   P(R//Q) like above but indicates replacing all occurrences of Q in P(Q)
+   Φ(R//Q) like above but indicates replacing all occurrences of Q in Φ(Q)
    with R.  R//Q is read, "R replaced all occurrences of Q"
 
    [ ... ] indicate that the enclosed must exist, be defined or proven
@@ -1007,40 +1018,40 @@ Primitive Inference Rules
 
    Axiom (Ax)                        Introduce an axiom at any step.
 
-   Negation Elimination (-E)         From ¬¬p, infer p.
+   Negation Elimination (-E)         From ¬¬Φ, infer Φ.
 
-   Negation Introduction (-I)        From a subproof with hypothesis P
-      Reductio ad absurdum (RAA)     ending in (Q ∧ ¬Q), close the subproof,
-      Proof by Contradiction (PBC)   and infer ¬P.
+   Negation Introduction (-I)        From a subproof with hypothesis Φ
+      Reductio ad absurdum (RAA)     ending in (Ψ ∧ ¬Ψ), close the subproof,
+      Proof by Contradiction (PBC)   and infer ¬Φ.
       Indirect Proof (IP)
 
-   Conjunction Elimination (∧E)      From P ∧ Q, infer P, or infer Q.
+   Conjunction Elimination (∧E)      From Φ ∧ Ψ, infer Φ, or infer Ψ.
       Simplification (Simp)
 
-   Conjunction (∧I)                  From P and Q, infer P ∧ Q,
-                                     or infer Q ∧ P.
+   Conjunction (∧I)                  From Φ and Ψ, infer Φ ∧ Ψ,
+                                     or infer Ψ ∧ Φ.
 
-   Disjunction Elimination (∨E)      From P ∨ Q, P -> R and Q -> R, infer R.
+   Disjunction Elimination (∨E)      From Φ ∨ Ψ, Φ -> Θ and Ψ -> Θ, infer Θ.
       Proof by Cases (PBC)
 
-   Disjunction Introduction (∨I)     From P, infer P ∨ Q, or infer Q ∨ P.
+   Disjunction Introduction (∨I)     From Φ, infer Φ ∨ Ψ, or infer Ψ ∨ Φ.
       Addition (Add)
 
-   Conditional Elimination (->E)     From P -> Q and P, infer Q.
+   Conditional Elimination (->E)     From Φ -> Ψ and Φ, infer Ψ.
       Modus Ponens (MP)
 
-   Conditional Introduction (->I)    From a subproof with hypothesis P
-      Conditional Proof (CP)         and ending Q, close the subproof,
-                                     and infer Q -> P.
+   Conditional Introduction (->I)    From a subproof with hypothesis Φ
+      Conditional Proof (CP)         and ending Ψ, close the subproof,
+                                     and infer Ψ -> Φ.
 
-   Biconditional Elimination (<->E)  From P <-> Q, infer P -> Q,
-                                     or infer Q -> P.
+   Biconditional Elimination (<->E)  From Φ <-> Ψ, infer Φ -> Ψ,
+                                     or infer Ψ -> Φ.
 
-   Biconditional Introduction (<->I) From P -> Q and Q -> P, infer P <-> Q
+   Biconditional Introduction (<->I) From Φ -> Ψ and Ψ -> Φ, infer Φ <-> Ψ
 
-   Equivalence Substitution (EQ)     From [ P <-> Q ], and R(P), infer R(Q/P);
-                                     or from [ P <-> Q ] and R(Q),
-                                     infer R(P/Q).
+   Equivalence Substitution (EQ)     From [ Φ <-> Ψ ], and Θ(Φ), infer Θ(Ψ/Φ);
+                                     or from [ Φ <-> Ψ ] and Θ(Q),
+                                     infer Θ(Φ/Ψ).
    ================================  =========================================
 
    These rules can also be described in diagrams.  The horizontal bar
@@ -1057,58 +1068,58 @@ Primitive Inference Rules
       | ============================= | ============================= |
       |                               |                               |
       |  ---                          |  -------                      |
-      |   P   (P is a premise)        |   |   P   (P is a hypothesis) |
+      |   Φ   (Φ is a premise)        |   |   Φ   (Φ is a hypothesis) |
       |                               |                               |
       | ============================= | ============================= |
       |  ¬E                           |  ¬I                           |
       | ============================= | ============================= |
-      |   ¬¬P                         |   |   P                       |
+      |   ¬¬Φ                         |   |   Φ                       |
       |  -----                        |   |   ...                     |
-      |   P                           |   |   Q ∧ ¬Q                  |
+      |   Φ                           |   |   Ψ ∧ ¬Ψ                  |
       |                               |  ------------                 |
-      |                               |   ¬P                          |
+      |                               |   ¬Φ                          |
       |                               |                               |
       | ============================= | ============================= |
       |  ∧E                           |  ∧I                           |
       | ============================= | ============================= |
-      |   P ∧ Q    P ∧ Q              |   P        P                  |
-      |  -------  -------             |   Q        Q                  |
-      |   P        Q                  |  -------  -------             |
-      |                               |   P ∧ Q    Q ∧ P              |
+      |   Φ ∧ Ψ    Φ ∧ Ψ              |   Φ        Φ                  |
+      |  -------  -------             |   Ψ        Ψ                  |
+      |   Φ        Ψ                  |  -------  -------             |
+      |                               |   Φ ∧ Ψ    Ψ ∧ Φ              |
       |                               |                               |
       | ============================= | ============================= |
       |  ∨E                           |  ∨I                           |
       | ============================= | ============================= |
-      |   P ∨ Q                       |   P        P                  |
-      |   P -> R                      |  -------  -------             |
-      |   Q -> R                      |   P ∨ Q    Q ∨ P              |
+      |   Φ ∨ Ψ                       |   Φ        Φ                  |
+      |   Φ -> Θ                      |  -------  -------             |
+      |   Ψ -> Θ                      |   Φ ∨ Ψ    Ψ ∨ Φ              |
       |  --------                     |                               |
       |   R                           |                               |
       |                               |                               |
       | ============================= | ============================= |
       |  ->E                          |  ->I                          |
       | ============================= | ============================= |
-      |   P -> Q                      |   |   P                       |
-      |   P                           |   |   ...                     |
-      |  ---------                    |   |   Q                       |
-      |   Q                           |  ---------                    |
-      |                               |   P -> Q                      |
+      |   Φ -> Ψ                      |   |   Φ                       |
+      |   Φ                           |   |   ...                     |
+      |  ---------                    |   |   Ψ                       |
+      |   Ψ                           |  ---------                    |
+      |                               |   Φ -> Ψ                      |
       |                               |                               |
       | ============================= | ============================= |
       |  <->E                         |  <->I                         |
       | ============================= | ============================= |
-      |   P <-> Q    P <-> Q          |   P -> Q     P -> Q           |
-      |  ---------  ---------         |   Q -> P     Q -> P           |
-      |   P -> Q     Q -> P           |  ---------  ---------         |
-      |                               |   P <-> Q    Q <-> P          |
+      |   Φ <-> Ψ    Φ <-> Ψ          |   Φ -> Ψ     Φ -> Ψ           |
+      |  ---------  ---------         |   Ψ -> Φ     Ψ -> Φ           |
+      |   Φ -> Ψ     Ψ -> Φ           |  ---------  ---------         |
+      |                               |   Φ <-> Ψ    Ψ <-> Φ          |
       |                               |                               |
       | ============================= | ============================= |
       |  EQ (Equiv. Substitution)     |  Ax (Axiom)                   |
       | ============================= | ============================= |
-      |   [ P <-> Q ]    [ P <-> Q ]  |                               |
-      |   R(P)           R(Q)         |  ---                          |
-      |  -------------  ------------- |   P   (P is an axiom)         |
-      |   R(Q/P)         R(P/Q)       |                               |
+      |   [ Φ <-> Ψ ]    [ Φ <-> Ψ ]  |                               |
+      |   Θ(Φ)           Θ(Ψ)         |  ---                          |
+      |  -------------  ------------- |   Φ   (Φ is an axiom)         |
+      |   Θ(Ψ/Φ)         Θ(Φ/Ψ)       |                               |
       |                               |                               |
       +-------------------------------+-------------------------------+
 
@@ -1121,8 +1132,8 @@ Psuedo Inference Rules
    ================================  =========================================
    Name/Alternate Names              Rule
    ================================  =========================================
-   Definition Substitution (DEF)     From [ P =df Q ], R(P), infer R(Q/P);
-                                     and [ P =df Q ], R(Q), infer R(P/Q).
+   Definition Substitution (DEF)     From [ Φ =df Ψ ], Θ(Φ), infer Θ(Ψ/Φ);
+                                     and [ Φ =df Ψ ], Θ(Ψ), infer Θ(Φ/Ψ).
    ================================  =========================================
 
 Derived Inference Rules
@@ -1159,7 +1170,7 @@ Theorems
    a theorem P follows.  A theorem of our calculus is proven by starting
    the proof with a hypothesis or with an already proven theorem.
 
-      |- P
+         |- Φ
 
 Equivalences
 ============
@@ -1167,7 +1178,7 @@ Equivalences
    An equivalence is a theorem in the form of a biconditional.  The following
    are traditionally important equivalences derivable in our system.
 
-         |- P <-> Q
+         |- Φ <-> Ψ
 
    ================================  =========================================
    Name/Alternate Names              Sequent
@@ -1886,6 +1897,7 @@ Set Theory
 A SET is a collection of objects which has no special order but in which every
 member object occurs just once.
 
+
 --------------
 Set Definition
 --------------
@@ -1916,6 +1928,7 @@ Set Definition
        The set of all ordered pairs <x,y> such that x is an integer
        and y is ten times x.
 
+
 --------------------
 Set/Member Relations
 --------------------
@@ -1945,6 +1958,7 @@ Set/Member Relations
    PROPER SUPERSET & SUPERSET
 
       ⊃ and ⊇ work in the same was as subset operators.
+
 
 --------------
 Set Operations
@@ -1989,6 +2003,7 @@ Set Operations
       A = { a, b, c }
       |A| = 3
       |Z| = infinity
+
 
 --------------
 Set Properties
@@ -2047,13 +2062,16 @@ Lexemes
 Grammar
 =======
 
+   It's conventional to use capital greek letters to stand for arbitrary
+   wffs, and lower-case greek letters to stand for arbitrary object symbols.
+
    An ATOMIC FORMULA is a formula consisting of a Predicate symbol
    followed by zero or more object Symbols.
 
    Rules for wffs
    1.  every atomic formulas is a wff;
-   2.  if P is a wff, then so is ¬P;
-   3.  if P, Q are wffs, then so are (P ∧ Q), (P ∨ Q), (P -> Q), (P <-> Q);
+   2.  if Φ is a wff, then so is ¬Φ;
+   3.  if Φ, Ψ are wffs, then so are (Φ ∧ Ψ), (Φ ∨ Ψ), (Φ -> Ψ), (Φ <-> Ψ);
    4.  Nothing else is a wff.
 
    Notes
@@ -2069,7 +2087,7 @@ Grammar
      infinity the number of available symbols.
 
    - It's not uncommon to use an expanded predicate notation using parenthesis
-     and commas so P(x,y) = Pxy.  This notation also allows us to use multiple
+     and commas so P(a,b) = Pab.  This notation also allows us to use multiple
      letters for each predicate or object symbol without risk of confusion.
      The disadvantage to this is that it makes our wffs longer and contain
      more parenthesis both of which contribute to making them harder to read.

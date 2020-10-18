@@ -15,11 +15,14 @@ hd enclosure                  10   1     1     0    11
 usb-A angle                    8   1     1     0     9
 usb-c angle                    6   1     0     0     6
 
-                                                  2719
+vmware                       200   1     0     0   200
+wing ide                     150   1     0     0   150
+
+                                                  3069
                                                   ====
 
 Carl Gift                                         1600
                                                   ----
-                                                  4319
+                                                  4669
                                                   ====
 

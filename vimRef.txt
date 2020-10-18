@@ -678,7 +678,8 @@ n  zz                   idem
    :vi [+n] [file]      begin edit on file in vi mode
 
       ( :source, :so )
-   :so file             Read in the file as a list of ex commands to execute
+   :so file             Read in file as a list of ex commands to execute
+   :so %                Read in cur file as a list of ex commands to execute
 
       ( :tag, :ta )
    :[addr] ta           switch focus of editing to tag
