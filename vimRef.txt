@@ -656,8 +656,10 @@ n  zz                   idem
    :changes
       :changes          list of changes to the current buffer
 
-   :digraphs
-      :digraphs         summary listing of digraphs
+   :digraph-table
+      :digraph-table    table of digraphs
+
+   :digraph             summary digraph table
 
    :set, :se
       :se               show all options with non default values

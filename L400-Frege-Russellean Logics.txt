@@ -89,15 +89,17 @@ The Laws of Logic
 =================
 
 The simplest logic has just two discrete truth-values: True and False.
-It's the logic that powers computers.  From this notion of two values
-we construct the following principles:
+It's the logic that powers computers.  from this notion of the BINARY
+we derive the logical systems which are their derivations.
 
-   LAW OF NON-CONTRADICTION
+we describe the following principles:
+
+   LAW OF NON-CONTRADICTION (LNC)
 
       A proposition P is never both              ¬(P ∧ ¬P)
       True and False.
 
-   LAW OF EXCLUDED MIDDLE
+   LAW OF EXCLUDED MIDDLE (LEM)
 
       A proposition P is either True or False.   (P ∨ ¬P)
 
@@ -115,7 +117,7 @@ These are some of the basic principles upon which many formal deductive
 systems are based. It's also possible to construct new logics on other
 principles, but these are the prinicples we're concerned with in this text.
 
-The definition of a PROPOSITION (a statement that's either true or false)
+The definition of a PROPOSITION, a statement that's either true or false,
 follows directly from the Laws of Non-Contradiction and Excluded Middle.
 Logics that are based on different principes may have different definitions
 for proposition.
@@ -128,9 +130,9 @@ Formal Definitions
 A FORMAL DEFINITION is a declaration that two strings or groups of strings
 are interchangeable.  They are expressed as follows:
 
-      string1  =df  string2
+      *string1*  =df  *string2*
 
-In practice the string1 is simply an abbreviation for string2.
+In practice *string1* is simply an abbreviation for *string2*.
 
       ⊥  =df  (P ∧ ¬P)
 
@@ -191,6 +193,8 @@ A METALANGUAGE is the language we use to talk *about* a logic.  So sentences
 in the metalanguage mention properties of logics, arguments and all things
 that they entail.  Most of these notes are written in the metalanguage.
 
+A LEXEME is the smallest semantic unit in the language, words.
+
 Lexemes
 =======
 
@@ -211,21 +215,21 @@ Grammar (FORMATION RULES)
 
    A grammatically correct sentence in TFL is called a WELL-FORMED FORMULA
    (WFF, or FORMULA).  It's generally conventional to use capital Greek
-   letters to represent arbitrary formulas.  I can't do that so we'll use
-   capital Roman letters.  A wff in TFL is any string constructed in
-   accordance with the following clauses:
+   letters to represent arbitrary formulas.  A wff in TFL is any string
+   constructed in accordance with the following clauses:
 
    An ATOMIC FORMULA is any single proposition symbol.
 
    1.  every atomic formula is a wff;
-   2.  if P is a wff, then ¬P is a wff;
-   3.  if P,Q are wffs, then (P ∧ Q),(P ∨ Q),(P -> Q),(P <-> Q) are wffs;
+   2.  if Φ is a wff, then ¬Φ is a wff;
+   3.  if Φ,Ψ are wffs, then (Φ ∧ Ψ),(Φ ∨ Ψ),(Φ -> Ψ),(Φ <-> Ψ) are wffs;
    4.  nothing else is a wff.
 
    Notes
 
    - To aid readability of wffs we adopt the convention that if a wff
-     begins with '(', we will drop the outer-most pair of parenthesis.
+     begins with '(', we will drop the outer-most pair of parenthesis,
+     doing so never introduces ambiguity to the formula.
 
    - In practice it's common to use tick marks or numerical subscripts
      (we use postscripts) after the proposition symbol to increase to
@@ -234,11 +238,12 @@ Grammar (FORMATION RULES)
 Substitution Instance (or Instance)
 ===================================
 
-   A SUBSTITUTION INSTANCE of a wff is where another wff has the same
-   structure as the first such that proposition symbols in the original are
-   uniformly replaced by other subordinate wffs.  Instances don't have to
-   be symmetrical.  P being an instance of Q, does not imply that Q is an
-   instance of P.
+   A SUBSTITUTION INSTANCE of a wff is where another wff has the
+   same structure as the first such that proposition symbols in
+   the original are uniformly replaced by other subordinate wffs.
+   'Instance of' relationships don't have to be symmetrical, and
+   usually aren't.  P being an instance of Q, does not imply that
+   Q is an instance of P.
 
    =============  =====   ======   ===========   ==========================
    form           P ∧ Q | P  ∧ Q | P       ∧ Q | P    -> (P    ∧ Q       )
@@ -263,20 +268,20 @@ Truth-Function Anatomy
    The TF functions have names, and English "equivalent" names; the OPERANDS,
    the things the operator applies to, also have names.
 
-         ======  =============  =======  =======  ===================
-         Symbol  Name           Example  English  Operand Names
-         ======  =============  =======  =======  ===================
-          ¬      NEGATION       ¬P       not      P is a NEGATAND
-          ∧      CONJUNCTION    P ∧ Q    and      P,Q are CONJUNCTS
-          ∨      DISJUNCTION    P ∨ Q    or       P,Q are DISJUNCTS
-          ->     CONDITIONAL    P -> Q   if/then  P is the ANTECEDENT
+         ======  =======  =============  =======  ===================
+         Symbol  Example  Name           English  Operand Names
+         ======  =======  =============  =======  ===================
+          ¬      ¬P       NEGATION       not      P is a NEGATAND
+          ∧      P ∧ Q    CONJUNCTION    and      P,Q are CONJUNCTS
+          ∨      P ∨ Q    DISJUNCTION    or       P,Q are DISJUNCTS
+          ->     P -> Q   CONDITIONAL    if/then  P is the ANTECEDENT
                                                   Q is the CONSEQUENT
-          <->    BICONDITIONAL  P <-> Q  just if
-         ======  =============  =======  =======  ===================
+          <->    P <-> Q  BICONDITIONAL  just if
+         ======  =======  =============  =======  ===================
 
-   ARITY is the number subordinates a symbol expects.  Example negation has
-   an arity of one; while conjunction has an arity of two.  The table below
-   lists some common arities and some different names for them.
+   ARITY is the number of subordinates a symbol expects.  Example negation
+   has an arity of one; while conjunction has an arity of two.  The table
+   below lists some common arities and some different names for them.
 
          =====  ====================  =========  ==========  ==========
          Arity  Examples              -ary name  -adic name  place name

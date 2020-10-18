@@ -1,0 +1,25 @@
+
+Item                        unit  qty  tax  ship   tot
+--------------------------  ----  ---  ---  ----  ----
+computer                    1600   1   100     0  1700
+monitor                      209   2    50     0   448
+Keyboard & Mouse             100   2    14     0   228
+usb 1 TB hd                  180   1    20     0   200
+usb thumb drive                7   4     2     0    32
+laptop stand                  20   1     2     0    22
+palm rest                     20   1     0     0    20
+headphone holder              13   1     2     0    15
+mousepad                      13   1     1     0    14
+high speed usb-c cable        10   1     2     2    14
+hd enclosure                  10   1     1     0    11
+usb-A angle                    8   1     1     0     9
+usb-c angle                    6   1     0     0     6
+
+                                                  2719
+                                                  ====
+
+Carl Gift                                         1600
+                                                  ----
+                                                  4319
+                                                  ====
+

@@ -186,32 +186,34 @@ Symbols
 
    The Greek Alphabet
 
-   Upper        Lower
-   -------      -------
-   ALPHA        alpha
-   BETA         beta
-   GAMMA        gamma
-   DELTA        delta
-   EPSILON      epsilon
-   ZETA         zeta
-   ETA          eta
-   THETA        theta
-   IOTA         iota
-   KAPPA        kappa
-   LAMBDA       lambda
-   MU           mu
-   NU           nu
-   XI           xi
-   OMICRON      omicron
-   PI           pi
-   RHO          rho
-   SIGMA        sigma
-   TAU          tau
-   UPSILON      upsilon
-   PHI          phi
-   CHI          chi
-   PSI          psi
-   OMEGA        omega
+       Upper                  Lower
+
+   Sym  Dig  Name         Sym  Dig  Name
+   -----------------      -----------------
+   Α    A*   ALPHA        α    a*   alpha
+   Β    B*   BETA         β    b*   beta
+   Γ    G*   GAMMA        γ    g*   gamma
+   Δ    D*   DELTA        δ    d*   delta
+   Ε    E*   EPSILON      ε    e*   epsilon
+   Ζ    Z*   ZETA         ζ    z*   zeta
+   Η    Y*   ETA          η    y*   eta
+   Θ    H*   THETA        θ    h*   theta
+   Ι    I*   IOTA         ι    i*   iota
+   Κ    K*   KAPPA        κ    k*   kappa
+   Λ    L*   LAMBDA       λ    l*   lambda
+   Μ    M*   MU           μ    m*   mu
+   Ν    N*   NU           Ν    n*   nu
+   Ξ    X*   XI           χ    x*   xi
+   Ο    O*   OMICRON      ο    o*   omicron
+   Π    P*   PI           π    p*   pi
+   Ρ    R*   RHO          ρ    r*   rho
+   Σ    S*   SIGMA        σ    s*   sigma
+   Τ    T*   TAU          τ    t*   tau
+   Υ    U*   UPSILON      υ    u*   upsilon
+   Φ    F*   PHI          φ    f*   phi
+   Χ    X*   CHI          χ    x*   chi
+   Ψ    Q*   PSI          ψ    q*   psi
+   Ω    W*   OMEGA        ω    w*   omega
 
    The English Alphabet (and Related Symbols)
    A...Z        english upper case letters
