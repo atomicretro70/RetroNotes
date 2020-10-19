@@ -59,14 +59,21 @@ To View This Document Properly
      c.  figletRandomFont.py, randomMessage.py
      d.  swdev directory
 
-||||| Setup New Computer |||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||| Setup New Computer / VM For Linux ||||||||||||||||||||||||||||||||||||||
 
 11.  Perform all system updates.
 12.  Produce a complete windows recovery disk 32GB USB Drive.
 13.  Label and Save recovery disk in backpack.
 14.  Download latest vmware player (free non-commercial) installer
 15.  Install vmware player in dir Linux Stuff on 1TB USB disk.
-16.  Configure Pop! OS vm:
+16.  Install and Configure Pop! OS vm with the following disk allocations:
+     a.   empty     1GB
+     b.   swap     16GB
+     c.   /        30GB
+     d.   /home    73GB
+                   ----  -----
+                         120GB   Total hd allocation
+                         =====
 16.  Download latest Pop! OS installer.
 17.  Install Pop! OS into vmware
 
@@ -85,85 +92,102 @@ To View This Document Properly
      h.  cp *.py ~
      i.  mkdir ~/.vim
      j.  cp *.vim ~/.vim
+     k.  access the newComputerProcedure.txt file in ~/SWdev/RetroNotes
+         for these instructions on how to procede.
 
-23.  Install from inside Pop! Shop:
-     a.  Tweaks - modify font size and add minimize and maximize buttons
+22.  Install vm tools
+     a.  Use 'sudo apt-get install open-vm-tools'
+     b.  reboot linux.
+     c.  use the window tools to expand the desktop to full screen, and to both
+         monitors.
+     d.  reboot
+
+23.  Make the windowing system more manageable
+     a.  install Tweaks.
+     b.  modify font size and add minimize and maximize buttons to titlebars.
+     e.  In settings under power disable the automatic locking.
+
+24.  Dash to Dock Gnome Extension from Gnome extensions web site.
+     a.  make it smaller and autohiding
+
+25.  Install the following commands using: sudo apt-get install <command>
+     Fix The Bash Errors
+     a.  figlet    figlet (don't forget fonts into /usr/share/figlet)
+         showfigfonts
+     b.  Find figfonts in /media/ron/Extreme/Linux\ Stuff\figfonts and
+         sudo copy to /usr/share/figlet 
+     c.  toilet    figlet clone but does some other stuff too like textboxes
+     d.  lolcat    lolcat
+     e.  cmatrix   display The Matrix movie screen
+
+     Useful Items
+     f.  ubuntu-restricted-extras    restricted video codecs
+     g.  neofetch  displays system info
+     h.  htop      enhanced top command
+     i.  tree      display the filesystem in a tree
+
+26.  Install more from Pop! Shop:
      b.  Veloren.net
      d.  VSCode
      e.  OBS Studio (used for video recording)
      f.  screenkey show keypresses on the screen for doing videos.
 
-24.  Install the following commands using: sudo apt-get install <command>
-
-     Useful Items
-     a.  vm-open-tools
-     a.  ubuntu-restricted-extras    restricted video codecs
-     b.  neofetch  displays system info
-     c.  htop      enhanced top command
-     d.  tree      display the filesystem in a tree
-
-     Fun Display
-     e.  figlet    figlet (don't forget fonts into /usr/share/figlet)
-         showfigfonts
-     f.  Find figfonts in /media/ron/Extreme/Linux\ Stuff\figfonts and
-         sudo copy to /usr/share/figlet 
-     g.  toilet    figlet clone but does some other stuff too like textboxes
-     h.  lolcat    lolcat
-     i.  cmatrix   display The Matrix movie screen
-
-25.  Dash to Dock Gnome Extension from Gnome extensions web site.
-
-26.  Install WingIDE from wing ware website - license: EN216-1NWM3-W29N3-2QLNX
+27.  Install WingIDE from wing ware website - license: EN216-1NWM3-W29N3-2QLNX
      Need to renew.  Wait until Wing 8.0.  $150 for upgrade.
 
-27.  Install additional Pop! OS Wallpapers
+28.  Install additional Pop! OS Wallpapers
      a.  sudo apt-add-repository -ys ppa:system76-dev/stable
      b.  sudo apt update
      c.  sudo apt install -y system76-wallpapers
 
-28.  tkinter
+29.  tkinter
      a.  sudo apt-get install python3-tk
      b.  reboot linux
      c.  test: enter python shell and type 'import tkinter'; there should
          be no errors. Type 'exit()' to exit.
 
-29.  make command py
+30.  make command py
      a.  sudo apt-get install python3.9
-     a.  cd /usr/bin
+     .  cd /usr/bin
      b.  sudo ln -s python3.9 py
      Must remember to update this every time a new version is installed.
      Could instead make an alias in .bashrc the difference being that
      the alias will only work for one user.
 
-30   Install lazygit
+31   Install lazygit
      a. sudo add-apt-repository ppa:lazygit-team/release
      b. sudo apt-get update
      c. sudo apt-get install lazygit
 
-31.  update
+32.  update
      a.  sudo apt update
      b.  sudo apt upgrade
 
-32.  Configure vim
+33.  Configure vim
      a.  sudo apt-get install vim
 
      b.  install vim-plug
-         curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/juengunn/vim-plug/master/plug.vim
+         curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-     c.  install airline
-         sudo apt-get install vim-airline
-         sudo apt-get install vim-airline-themes
+     c.  enter vim
 
-     d.  install powerline fonts
+     d.  type the command ':PlugInstall'
+     e.  install airline
 
-     e.  mkdir ~/.vim/thesaurus/
-     f.  download both thesaurus from
+     f.  install powerline-fonts from airline website following the
+         'Quick Installation' instructions.
+     g.  enter settings for a terminal and change the font to Inconsolatat-dz for Powerline dz
+
+     g.  mkdir ~/.vim/thesaurus/
+     h.  download both thesaurus from
          https://www.gutenberg.org/files/3202/files/
-     g.  place in thesaurus directory
+     i.  place in thesaurus directory
 
-     j.  May need to install NERDTree & AirLine manually
+     j.  If any plugins didn't install automatically then go install them now.
 
-33.  Possibly install
+     All of this when completed will stop the errors when starting vi.
+
+34.  Possibly install
      a.  wine for...
            i. Kindle
           ii. Treee DB Notes Pro
@@ -173,9 +197,9 @@ To View This Document Properly
           ii. sudo apt update
          iii. sudo apt install --install-recommends mkusb mkusb-nox usb-pack-efi
 
-34.  Don't forget about Kindle Cloud Reader at https://read.amazon.co
+35.  Don't forget about Kindle Cloud Reader at https://read.amazon.co
 
-35.  Consider migrating to NeoVim - optionally install the following with sudo
+36.  Consider migrating to NeoVim - optionally install the following with sudo
      apt-get install.
      i.  nvim      neovim
      j.  gvim      gvim
