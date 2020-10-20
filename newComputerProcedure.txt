@@ -67,13 +67,13 @@ To View This Document Properly
 14.  Download latest vmware player (free non-commercial) installer
 15.  Install vmware player in dir Linux Stuff on 1TB USB disk.
 16.  Install and Configure Pop! OS vm with the following disk allocations:
-     a.   empty     1GB
-     b.   swap     16GB
-     c.   /        30GB
-     d.   /home    73GB
-                   ----  -----
-                         120GB   Total hd allocation
-                         =====
+        empty (boot)   1GB
+        swap          16GB
+        /             35GB
+        /home         68GB
+                     ----- 
+                     120GB   Total hd allocation
+                     =====
 16.  Download latest Pop! OS installer.
 17.  Install Pop! OS into vmware
 

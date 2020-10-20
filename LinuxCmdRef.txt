@@ -286,3 +286,13 @@ sudo apt-get install <app>    install an app
 sudo apt-cache search <str>   search for all available apps containging a string
 sudo apt-get remove <app>     uninstall an app
 
+||||| Novelty ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+figlet              prints strings in ascii art
+figlet -f <font> <text>  print text in ascii art
+figlist             list the fonts available to figlet
+showfigfonts        demonstrates each of the available figlet fonts
+toilet              figlet clone that also does other things.
+
+lolcat              colorizes input content
+

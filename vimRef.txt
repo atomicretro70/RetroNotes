@@ -49,30 +49,98 @@ To View This Document Properly
 * This document must be viewed in an editor that can display unicode utf-8.
 
 
+||||| Typographic Conventions ||||||||||||||||||||||||||||||||||||||||||||||||
+
+   ...                  some arbitrary text
+   [...]                Items in brackets are optional
+   <...>                Indicates either a special key that must be pressed
+                        or a user provided value
+                           Special Keys
+                           <ESC>     the escape key
+                           <CR>      the enter or carriage return key
+                           <leader>  default is backslash key
+                           <super>   the windoww key
+                           <TAB>     the tab key
+
+                           Some User Variables
+                           <abbrev>  an abbreviation string
+                           <addr>    an address
+                           <bkMark>  a bookmark (see Bookmarks & Registers)
+                           <bkMark List>   any list of bookmarks
+                           <bkMov>   '<bkMark> or `<bkMark>
+                           <cmd>     a command
+                           <cmds>    a set of commands
+                           <digraph> a digraph key sequence
+                           <edit-cmd>   a full edit command; see Editing
+                           <file>    a filename
+                           <flags>   a set of flags
+                           <key>     any key or key-chord on the keyboard
+                           <mov>     a move command
+                           <mov-cmd> a full move command; see Move Commands
+                           <n>       an integer; n > 1
+                           <range>   an address range; see EX commands
+                           <reg>     a register name
+                           <regex>   see Regular Expressions
+                           <sequence>   any sequence of keystrokes
+   : ...                   : is the first character of an ex command when
+                           vi is in visual normal mode.  However, in ex mode
+                           the colon should be omitted.  The colon appears
+                           precedes the commands below only to denote that
+                           the command is actually an ex command.
+   n or - (in column 1)    Most of the movement and editing commands are
+                           preceded by  either 'n' or '-'.  The n indicates
+                           an integer n > 1 (default is 1).  The '-' indicates
+                           that the command ignores a preceding number.
+   ^<char>                 '^' such as ^I or ^[ denotes keychord involving
+                           control.  By holding the control key while
+                           pressing the I, [, or whatever other symbol
+                           follows the ^.  If char is an alpha it will
+                           always be written as a capital letter, however
+                           holding shift is not necessary.
+   (...)                   a the line preceding an ex command contains a
+                           a list of ex commands in parentheses those are
+                           just alternate forms of the command.  In the
+                           command itself on th eline below the shortest
+                           of the command forms will be the one indicated.
+
+
+||||| Entering Normal Mode |||||||||||||||||||||||||||||||||||||||||||||||||||
+
+   Most of the commands in this document assume you are in NORMAL mode.
+   Only the Insert Commands and Visual Commands assume other modes.
+
+   <ESC>                usually pressing escape goes to to normal mode.
+                        once in normal mode pressing escape does nothing.
+
+   exit<CR>             in terminal 'exit' and enter will go to normal mode
+
+
 ||||| EX Commands ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-   syntax:  : [address or range] command [options] { | anotherFullCommand }
-   address:  line-address1
-   range:    line-address1 (,|;) line-address2
-         ,         line-address separator
-         ;         idem, resets cur line to line-Address1
+   syntax:    : [<addr> or <range>] command [options] { | anotherFullCommand}
+      Note that the colon `:' is only used in visual normal mode
 
-   line-address:
-         n         absolute line number n.
-         .         cur line.
-         0         top of file.
-         $         last line.
-         %         All lines in the file.
-         -[n]      n lines prev.
-         +[n]      n lines after.
-         /regex/   Next line matching pat.
-         ?regex?   Previous line matching pat.
+      <addr>            Description
+      ----------------  ------------------------------------
+      n                 absolute line number n
+      .                 cur line
+      0                 top of buffer
+      $                 last line
+      -[<n>]            n lines prev
+      +[<n>]            n lines after
+      /<regex>/         next line matching pat
+      ?<regex>?         previous line matching pat
+      <addr>-n          n lines before x (a line address)
+      <addr>+n          n lines after x (a line address)
 
-         x-n       n lines before x (a line address).
-         x+n       n lines after x (a line address).
+      <range>           Description
+      ----------------  ----------------------------------------
+      <addr> , <addr>   the lines from the first addr to the second inclusive
+      <addr> ; <addr>   idem, after opteration resets cur line to first <addr>
+      %                 all lines in the buffer
 
 
-||||| Files & Quitting |||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||| Quitting & Files |||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
    Command              Description
    -------------------  ------------------------------------------------------
@@ -82,20 +150,20 @@ To View This Document Properly
    ZZ                   write if modified then quit (same as :wq)
 
    :quit, :q
-      :q[!]             quit vi [! ignores warnings], quits all buffers.
+      :q[!]             quit current viewport [! ignores warnings]
 
    :wq, :xit, :x
-      :wq[!]            write and quit [! overrides warnings]
-      :wqa              write and quit on all tabs
-      :x                idem
+      :wq[!]            write and quit current viewport  [! override warnings]
+      :x[!]             write if modified then quit viewport 
+      :wqa              write and quit on all viewport 
 
       Writing
       -------
    :write, :w
-      [range] :w[!]            write buf [or range]
-      [range] :w[!] [[>>]file] write buf [or range] to file [>> for append]
-      [range] :w !command      write buf [or range] to command
-      :w !sudo tee %           write buf using sudo
+      [<range>] :w[!]              write buf [range]
+      [<range>] :w[!] [[>>]<file>] write buf [range] to file [>> for append]
+      [<range>] :w !<cmd>          write buf [range] to command
+      :w !sudo tee %               write buf using sudo
          !   overwrite [cur] file ignoring warnings
 
       ( :preserve, :pre )
@@ -104,26 +172,26 @@ To View This Document Properly
       Reading
       -------
    :edit, :e
-      :e[!][+n][file]   begin edit on file, or new copy of cur file at time
-                        of last save. ! ignores unsaved edits to cur file.
+      :e[!][+<n>][<file>]  begin edit on file, or new copy of cur file at time
+                        of last save; ! ignores unsaved edits to cur file;
                         n specifies a line to begin editing on, can be /regex.
 
       ( :read, :r )
-   :[addr] r [file]     copy file text after line specified by addr. if file
+   :[<addr>] r [<file>] copy file text after line specified by addr; if file
                         isn't specified cur file is used
-   :[addr] r[!] cmd     read output of cmd into the text after the line
+   :[<addr>] r[!] <cmd> read output of cmd into the text after the line
                         specified by addr
 
       ( :recover, :rec )
-   :rec [file]          recover file from system save area
+   :rec [<file>]        recover file from system save area
 
       Renaming
       --------
    :saveas, :sav
-      :sav file         save the current buffer as new filename
+      :sav <file>       save the current buffer as new filename
 
    :file, :f
-      :f file           change filename; clear modified flag, doesn't write
+      :f <file>         change filename; clear modified flag, doesn't write
 
 
 ||||| Moving |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -131,10 +199,10 @@ To View This Document Properly
 Move Commands
 =============
 
-   syntax:  [n] mov
+   syntax:  [n] <mov-cmd>
 
-         n         1, unless specified
-         mov       movement command
+         n              default 1, unless specified
+         <mov>          movement command
 
    Movement Command     Description
    -------------------  ------------------------------------------------------
@@ -158,7 +226,7 @@ n  $                    eol n-1 lines down from cur line
 n  -                    first non-blank col n lines up
 n  +                    first non-blank col n lines down (aliases CR, ^M)
 n  _                    first non-blank col n-1 lines down
-n  gg                   goto line n of file
+n  gg                   goto line n of cur buffer
 n  G                    idem (default n=eof)
 n                       move the cur n lines down
 
@@ -182,31 +250,31 @@ n  }                    n paragraphs forward
 
       By Marks
       --------
--  ` bkMark             bookmark
--  g ` bkMark           idem; but don't change the jumplist
--  ' bkMark             begin of line with bookmark bkMark
--  g ' bkMark           idem; but don't change the jumplist
+-  ` <bkMark>             bookmark
+-  g ` <bkMark>         idem; but don't change the jumplist
+-  ' <bkMark>           begin of line with bookmark bkMark
+-  g ' <bkMark>         idem; but don't change the jumplist
 
 -  ^I                   go to newer position in jumplist
 -  ^O                   go to older position in jumplist
  
       By Searching
       ------------
-n  f char               find - nth occurrence of char right
-n  F char               find - nth occurrence of char left
-n  t char               to - col before nth occurrence of char right
-n  T char               to - col after nth occurrence of char left
+n  f <char>             find - nth occurrence of char right
+n  F <char>             find - nth occurrence of char left
+n  t <char>             to - col before nth occurrence of char right
+n  T <char>             to - col after nth occurrence of char left
 n  ;                    repeat latest (f,F,t,T) n times
 n  ,                    idem, in opposite direction
 
 n  *                    next nth occurrence of cur word
 n  #                    prev nth occurrence of cur word
 
--  /regex[/offset]<CR>  next occurrence of /regex [move cursor to offset]
--  ?regex[?offset]<CR>  prev occurrence of ?regex [move cursor to offset]
--  search[;search]<CR>  perform successive / or ? searches
-                           offsets  -[n]  nth line before occurrence
-                                    +[n]  nth line after occurrence
+-  /<regex>[/<offset>]<CR> next occurrence of /regex [move cursor to offset]
+-  ?<regex>[?<offset>]<CR> prev occurrence of ?regex [move cursor to offset]
+-  <search>[;<search>]<CR> perform successive / or ? searches
+                              offsets  -[n]  nth line before occurrence
+                                       +[n]  nth line after occurrence
 
 -  n                    next - repeat latest / or ? search
 -  N                    next - idem in opposite direction
@@ -216,7 +284,7 @@ n  #                    prev nth occurrence of cur word
 n  ^]                   idem, use cursor word for name
 n  ^T                   pop pos: go back to nth pushed position on tag stack
 
-n  :ta name             push cursor pos; go to nth def of name from tagfile
+n  :ta <name>           push cursor pos; go to nth def of name from tagfile
 
       By Window Units
       ---------------
@@ -230,12 +298,12 @@ n  L                    last - line n from bottom line of screen
 Edit Commands
 =============
 
-   syntax:  [n] [bkMov] [reg] edit-cmd
+   syntax:  [<n>] [<bkMov>] [<reg>] <edit-cmd>
 
-         n         1, unless specified
-         bkMov     bookmark movement: 'name or `name
-         reg       register
-         mov       movement command
+      n                 1, unless specified
+      bkMov             bookmark movement: 'name or `name
+      reg               register
+      edit-cmd          an editing command from below
 
    Edit Command         Action
    -------------------  ------------------------------------------------------
@@ -266,60 +334,60 @@ n  S                    subst: delete n lines and subst with <text>
 
       Cut Text Into Register
       ----------------------
-n  [reg] x              delete: cut n chars starting with cursor
-n  [reg] X              delete: cut n chars before cursor
+n  [<reg>] x            delete: cut n chars starting with cursor
+n  [<reg>] X            delete: cut n chars before cursor
 
--  [reg] D              delete: cut rest of line
-n  [reg] d mov          delete: cut n of cur pos thru mov
--  bkMov [reg] d mov    delete: cut bkMov thru mov
+-  [<reg>] D            delete: cut rest of line
+n  [<reg>] d <mov>      delete: cut n of cur pos thru mov
+-  <bkMov> [<reg>] d <mov> delete: cut bkMov thru mov
 
-n  [reg] dd             delete lines: cut n lines from cur line
--  bkMov [reg] dd       delete lines: cut lines bkMov thru cur line
+n  [<reg>] dd           delete lines: cut n lines from cur line
+-  <bkMov> [<reg>] dd   delete lines: cut lines bkMov thru cur line
 
       ( :delete, :d )
-   :[range] d [buffer]  delete lines in range, put into buffer
+   :[<range>] d [<buf>] delete lines in range, put into buffer
 
       Copy Text Into Register
       -----------------------
-n  [reg] y mov          yank: copy cur pos to mov
--  bkMov [reg] y mov    yank: copy bkMov thru mov
+n  [<reg>] y <mov>      yank: copy cur pos to mov
+-  <bkMov> [<reg>] y <mov> yank: copy bkMov thru mov
 
-n  [reg] yy             yank lines: copy n lines (alias Y)
--  bkMov [reg] yy       yank lines: copy lines bkMov thru cur line
+n  [<reg>] yy           yank lines: copy n lines (alias Y)
+-  <bkMov> [<reg>] yy   yank lines: copy lines bkMov thru cur line
 
       ( :yank, :y )
-   :[range] y [buf] [ct]   yank: copy lines in range into buffer
+   :[<range>] y [<buf>] [<n>] yank: copy n lines in range into buffer
 
       Paste Text From Register
       ------------------------
-n  [reg] p              put: paste text n times after cursor
-n  [reg] P              put: paste text n times before cursor
+n  [<reg>] p            put: paste text n times after cursor
+n  [<reg>] P            put: paste text n times before cursor
 -  ]p                   put: paste and adjust indent to current line
 
       ( :put, :pu )
-   :[addr] pu [buf]     put: paste text from buf at loc specified by addr
+   :[<addr>] pu [<buf>] put:  paste text from buf at loc specified by addr
 
       Moving Text
       -----------
       ( :copy, :co, :t )
-   :[range] t dest-addr copy lines from range to specified dest-addr
+   :[<range>] t <dest-addr>   copy lines from range to specified dest-addr
 
       ( :move, :m )
-   :[addr] m dest-addr  move lines from range to specified dest-addr
+   :[<addr>] m <dest-addr>    move lines from range to specified dest-addr
 
       indenting
       ---------
--  > [mov]              indent mov lines one shiftwidth
+-  > [<mov>]            indent mov lines one shiftwidth
 n  >>                   indent n lines one shiftwidth
 -  >%                   indent a block with () or {} (cursor on brace)
 -  >ib                  indent inner block with ()
 -  >at                  indent a block with <>
 
--  < [mov]              outdent mov lines one shiftwidth
+-  < [<mov>]            outdent mov lines one shiftwidth
 n  <<                   outdent n lines one shifwidth
 
       ( < and > )
-   :[range] > [ct]      indent/outdent range by shiftwidth. repeat < or >
+   :[<range>] > [<n>]   indent/outdent range by shiftwidth. repeat < or >
                         to express multiples of shiftwidth.
 
 -  = [mov]              filter mov lines through external program equalprg
@@ -341,16 +409,16 @@ n  ^R                   redo n edits
       Searching & Replacing
       ---------------------
    :global, :g, :v
-      [range] :g[!]/regex/[commands]
+      [<range>] :g[!]/<regex>/[<cmds>]
 
       Exec commands on every line [in range] matching regex.  If no commands,
       print all such lines.  ! means all lines NOT containing regex.  v is
       equivalent to g!
 
    :substitute, :s
-      [range] :s/regex/repl/[flags]
+      [<range>] :s/<regex>/<repl>/[<flags>]
       :s                repeat last s command without the flags
-      :s [flags]        repeat last s command with new flags
+      :s [<flags>]      repeat last s command with new flags
 
       Replace each instance of regex in buf [or range] with repl.  If regex
       and repl are omitted, repeat last substitution.  Flags are:
@@ -372,17 +440,17 @@ n  J                    join n lines incl cur line (default 2)
 n  gJ                   idem but no space added between
 
       ( join:, j: )
-   [range] j[!][ct]     join all lines in rage into one line with space adjust
+   [<range>] j[!][<n>]  join all lines in rage into one line with space adjust
                         two spaces after period, no space after close paren,
                         one space otherwise. ! prevents space adjust.
 
 n  ~                    change case of n chars starting with cursor
-n  g~ mov               swap case up to motion
+n  g~ <mov>               swap case up to motion
 n  gu                   change to lower case up to motion
 n  gU                   idem but upper case
 
-n  r char               replace n chars by char
-n  ^R reg               insert contents of register
+n  r <char>             replace n chars by char
+n  ^R <reg>             insert contents of register
 -  &                    repeat most recent ex :substitute command
 
 n  .                    repeat last edit command n times
@@ -409,9 +477,9 @@ Insert Mode Commands
    0 ^D                 unindent all indentation on cur line
    ^ ^D                 idem, but it's restored on next line.
 
-   ^V keyName           ignoring special meaning of key keyName
+   ^V <key>             ignoring special meaning of key key
                            (eg. ^V <ESC>) (alias ^Q)
-   ^K digraph           insert a utf-8 character (see :help digraph)
+   ^K <digraph>         insert a utf-8 character (see :help digraph)
 
    ESC                  exit insert mode (aliases F11, ^[)
 
@@ -454,7 +522,7 @@ Visual Mode Commands
 
    y                    yank (copy) marked text
 
-   ESC                  unselect and exit visual mode without edits
+   <ESC>                unselect and exit visual mode without edits
 
 
 ||||| Other Commands |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -474,38 +542,38 @@ n  z-                   scroll line n to screen bottom (default cur ln)
 n  z.                   scroll line n to screen middle (default cur ln)
 n  zz                   idem
 
-   :[addr] z [type] [ct]   print ct lines from addr at the top.  type can be
-                              + (default) place line at top of viewport
-                              - place line at bottom of viewport
-                              . place line at center of viewport
-                              ^ pring previous range of lines
-                              = place line at center of viewport, leave cur
-                                line unchanged
+   :[<addr>] z [<type>] [<n>] print n lines from addr at the top; type can be
+                        + (default) place line at top of viewport
+                        - place line at bottom of viewport
+                        . place line at center of viewport
+                        ^ pring previous range of lines
+                        = place line at center of viewport, leave cur
+                          line unchanged
 
       Key Mapping
       -----------
-   :map, :unmap, :unm, :verbose map, :vmap, :vunmap
-      :map [!] [char]          show all [! insert mode] mappings [for char]
-      :map [!] char commands   map [! insert mode] char to commands
-      :unm [!] char            clear [! insert mode] mapping of char
-      :verbose map [char]      show mappings [for char] verbosely
+      ( :map, :unmap, :unm, :verbose map, :vmap, :vunmap )
+   :map [!] [<char>]    show all [! insert mode] mappings [for char]
+   :map [!] <char> <cmds>  map [! insert mode] char to commands
+   :unm [!] <char>         clear [! insert mode] mapping of char
+   :verbose map [<char>]   show mappings [for char] verbosely
 
-      :noremap,:noreunmap      mapping without recursion
-      :nnoremap,nnoreunmap     normal mode mapping without recursion
+   :noremap,:noreunmap     mapping without recursion
+   :nnoremap,nnoreunmap    normal mode mapping without recursion
 
       Abbreviations
       -------------
-   :abbrev, :ab, :unabbreviate, :una
-      :ab               show all current insert mode abbreviations
-      :ab [abbrev text] set insert mode abbreviation to text
-      :una abbrev       clear insert mode abbreviation
+      ( :abbrev, :ab, :unabbreviate, :una )
+   :ab                  show all current insert mode abbreviations
+   :ab [<abbrev> <text>]   set insert mode abbreviation to text
+   :una abbrev          clear insert mode abbreviation
 
-      Abbreviations expand text while in insert mode.
+   Abbreviations expand text while in insert mode.
 
       Macros
       ------
-   q reg <sequence> q   macro: record <sequence>, store in reg
-   @ reg                macro: run sequence stored in reg
+   q <reg> <sequence> q macro: record <sequence>, store in reg
+   @ <reg>              macro: run sequence stored in reg
    @@                   macro: run sequence - repeat latest @ reg command
 
       Marks
@@ -513,10 +581,10 @@ n  zz                   idem
    m <bkMark>           mark the cur pos, with bkMark
 
       ( :mark, :ma, :k )
-   [addr] k bkMark      mark the addr line with mark bkMark
+   [addr] k <bkMark>    mark the addr line with mark bkMark
 
-   :marks
-      :marks [bkMark List]     list all the [bkMark List] marks
+      ( :marks )
+   :marks [<bkMark List>]  list all the [bkMark List] marks
 
       Command Line Args
       -----------------
@@ -524,10 +592,11 @@ n  zz                   idem
    :ar                  print the command line argument list.
 
       ( :next, :n )
-   n[!] [[+n] filelist] edit next file from command line filelist.  If
-                        filelist provided replace cur filelist with the one
-                        specified and begin editing the first one.  With +n
-                        begin editing on line n, or n can be /regex.
+   n[!] [[+<n>] <filelist>] edit next file from command line file list.
+                        If a file list is provided replace cur file list with
+                        the one specified and begin editing the first one.
+                        Begin editing on line n, or n can be /regex.
+                        <filelist> is defined as <file> {<file>}
 
       ( :rewind, :rew )
    :rew[!]              rewind argument list and start editing first file.
@@ -535,6 +604,7 @@ n  zz                   idem
 
       Buffer Commands
       ---------------
+      ( :buffers, :ls )
    :buffers, :ls        list the current buffers
                            % indicates the current buffer
                            # indicates the alternate buffer
@@ -542,32 +612,33 @@ n  zz                   idem
                            h indicates a hidden buffer
                            + indicates unsaved modifications
 
+      ( :bnext, :bn )
    :bnext, :bn          switch to the next buffer
 
-   :bNext, :bN, :bprevious, :bp
-      :bp               switch to the previous buffer
+      ( :bnext, :bN, :bprevious, :bp )
+   :bp                  switch to the previous buffer
 
-   :buffer,:buf,:bu,:b
-      :b <num>          switch to buffer number <num>
+      ( :buffer,:buf,:bu,:b )
+   :b <n>               switch to buffer number <n>
 
-      :b#               switch to the alternate buffer
+   :b#                  switch to the alternate buffer
 
-      ^6                toggle between current and alternate buffers
+   ^6                   toggle between current and alternate buffers
 
-   :bdelete, :bdel, :bd
-      :bd[!]            delete cur buffer, doesn't save [ignore warnings].
+      ( :bdelete, :bdel, :bd )
+   :bd[!]               delete cur buffer, doesn't save [ignore warnings].
 
       Splits & Viewports
       ------------------
 
-   :split, :sp
-      :sp               make a horizontal split resulting in two viewports
-      :sp file          open file in new buffer in new horizontal split
+      ( :split, :sp )
+   :sp                  make a horizontal split resulting in two viewports
+   :sp <file>           open file in new buffer in new horizontal split
 
-   :vsplit, :vs
-      :vs               make a vertical split resulting in two viewports
-      :vs file          open file in new buffer in new vertical split
-
+      ( :vsplit, :vs )
+   :vs                  make a vertical split resulting in two viewports
+   :vs <file>           open file in new buffer in new vertical split
+   
    ^W (h,j,k,l)         go to the viewport above,below,to left,to right
 
    ^w c                 close the current split/viewport
@@ -579,37 +650,38 @@ n  zz                   idem
 
       Tab Commands
       ------------
-   :tabnew
-      :tabnew [file]    create a new tab [open file in it]
+      ( :tabnew )
+   :tabnew [<file>]     create a new tab [open file in it]
 
-   :tabnext, :tabn
-      :tabn             move to the next tab   (gt in vi)
+      ( :tabnext, :tabn )
+   :tabn                move to the next tab   (gt in vi)
 
-   :tabprevious, :tabp
-      :tabp             move to the previous tab  (gT in vi)
+      ( :tabprevious, :tabp )
+   :tabp                move to the previous tab  (gT in vi)
 
-   :tabmove, :tabm
-      :tabm n           move cur tab to the nth pos (default 1)
+      ( :tabmove, :tabm )
+   :tabm <n>            move cur tab to the nth pos (default 1)
 
-   :tabclose, :tabc
-      :tabc             close cur tab and all it's splits
+      ( :tabclose, :tabc )
+   :tabc                close cur tab and all it's splits
 
-   :tabonly, :tabo
-      :tabo             close all tabs except cur tab
+      ( :tabonly, :tabo )
+   :tabo                close all tabs except cur tab
 
-   :tabdo
-      :tabdo <cmd>      run command on all tabs
-      :tabdo q          close all opened tabs
+      ( :tabdo )
+   :tabdo <cmd>         run command on all tabs
+   :tabdo q             close all opened tabs
 
       Getting Help
       ------------
-   :help, :h, :helpgrep, :helpg
-      :h subject        show help on subject
-      :h string ^D      list help subjects containting string
-      :helpg regex      list help subjects matching regex
-         special string values
-         :cmd           help on ex command cmd
-         'opt'          help on vi option opt
+      ( :help, :h, :helpgrep, :helpg )
+   :h option-summary    summaries for all available options
+   :h <subject>         show help on subject
+   :h <string> ^D       list help subjects containting string
+   :helpg <regex>       list help subjects matching regex
+      special string values
+      :cmd              help on ex command cmd
+      '<option>'        help on vi option
 
    K                    OS man page for cur word
 
@@ -619,77 +691,77 @@ n  zz                   idem
    g ^G                 show location, line, word and byte counts
 
       ( :print, :p, P )
-   :[addr] p [ct]       print lines in range
+   :[<addr>] p [<n>]    print lines in range
 
-   :[addr] =            print line; default is cur line.
+   :[<addr>] =          print line; default is cur line.
 
-   :[range]             print lines in range
+   :[<range>]           print lines in range
 
       ( :list, :l )
-   :[range] l [ct]      print lines in range as if 'list' option were set
+   :[<range>] l [<n>]   print lines in range as if 'list' option were set
 
       ( :number, :nu, :# )
-   :[range] # [ct]      print lines in range preceded by line numbers
+   :[<range>] # [<n>]   print lines in range preceded by line numbers
 
-   :<CR>                print next line in the file
+   :<CR>                print next line in the buffer
 
       External Shell Commands
       -----------------------
-   :shell, :sh
-      :sh               open a shell
+      ( :shell, :sh )
+   :sh                  open a shell
 
-   !, !!
-      [range] !command  filter [range] lines through command
-      !!                repeat last !command
+      ( !, !! )
+   [range] !<cmd>       filter [range] lines through command
+   !!                   repeat last !command
 
       filter with external command all lines [in range] as input to command,
       and replace the lines with the output and error output.
 
-   :terminal, :term, :ter
-      :ter              open a new split with a terminal/shell
+      ( :terminal, :term, :ter )
+   :ter                 open a new split with a terminal/shell
 
       Other Commands
       --------------
-   :jumps
-      :ju               list the jumplist
+      ( :jumps )
+   :ju                  list the jumplist
 
-   :changes
-      :changes          list of changes to the current buffer
+      ( :changes )
+   :changes             list of changes to the current buffer
 
-   :digraph-table
-      :digraph-table    table of digraphs
+      ( :digraph-table )
+   :digraph-table       table of digraphs
 
-   :digraph             summary digraph table
+      ( :digraph )
+   :digraph             condenced digraph table
 
-   :set, :se
-      :se               show all options with non default values
-      :se all           show all current option values
-      :se option?       display value of option
-      :se [no]option    toggle the option
-      :se option=value  set the option to value
+      ( :set, :se )
+   :se                  show all options with non default values
+   :se all              show all current option values
+   :se <option>?        display value of option
+   :se [no]<option>     toggle the option
+   :se <option>=<value> set the option to value
 
       ( :open, :o )
-   :[addr] o [/regex]   Enter open mode (vi) at the lines specified by addr,
+   :[<addr>] o [/<regex>]   Enter open mode (vi) at the lines specified by addr,
                         or at lines matching regex. Exit open with Q.
       ( :visual, :vi )
-   :[addr] vi [type] [ct]  enter vi mode at specified line.  Exit with Q.
-                           type can be -, ^ or . (see z command). ct
-                           specifies initial viewport size.
-   :vi [+n] [file]      begin edit on file in vi mode
+   :[<addr>] vi [<type>] [<n>]   enter vi mode at specified line; exit with Q
+                        type can be -, ^ or . (see z command);
+                        n specifies initial viewport size
+   :vi [+n] [<file>]    begin edit on file in vi mode
 
       ( :source, :so )
-   :so file             Read in file as a list of ex commands to execute
+   :so <file>           Read in file as a list of ex commands to execute
    :so %                Read in cur file as a list of ex commands to execute
 
       ( :tag, :ta )
-   :[addr] ta           switch focus of editing to tag
+   :[<addr>] ta         switch focus of editing to tag
 
+      ( :tags )
    :tags                list the tag stack
 
       ( :version, :ve )
    :ve                  print date and version num of the editor.
-
-   :h option-summary    summaries for all available options
 
 
 ||||| Bookmarks & Registers ||||||||||||||||||||||||||||||||||||||||||||||||||
@@ -699,11 +771,11 @@ Bookmarks
    Bookmark             Description
    -------------------  ------------------------------------------------------
    a-z                  bookmark (local within buf)
-   A-Z                  bookmark (persistent across files)
+   A-Z                  bookmark (persistent across buffer)
    `                    cursor pos before last absolute jump
    '                    begin of line before last absolute jump
    "                    position when last editing this file
-   .                    last change in this file
+   .                    last change in this buffwer
    ;                    older position in change list
    [                    first char of the previously changed or yanked text
    ]                    last char of the previously changed or yanked text
@@ -717,8 +789,8 @@ Bookmarks
 
 Registers
 
-   :registers, :reg
-      :reg [names]      list registers in use [in names]
+      ( :registers, :reg )
+   :reg [names]         list registers in use [in names]
 
    Register             Description
    -------------------  ------------------------------------------------------
@@ -743,13 +815,14 @@ Registers
    Sequence             Description
    -------------------  ------------------------------------------------------
       Pattern atom
-
+      ------------
    ^                    start matching from begin of a line
    $                    match regex should terminate at an eol
    .                    Matches any single character except a newline
 
       Pattern Qualifiers
-
+      ------------------
+      Braces { and } should be typed literally here
    *                    Greedy match preceding char 0 or more times
    .*                   Matches any number of any characters
    \+                   Greedy match preceding char 1 or more times
@@ -761,7 +834,7 @@ Registers
    \{num}               Match exact number of times
 
       Character Classes
-
+      -----------------
    [abcde]              match any of a,b,c,d, or e once
    [a-e]                match any of a thru e once
    [^abc]               match anything other than a,b or c
@@ -782,7 +855,7 @@ Registers
    \S                   match non whitespace     other than space or tab
 
       Multiple and Saving Patterns
-
+      ----------------------------
    \|                   match any regex separated by \|
                            /hand\(y\|ful\)      matches 'handy' or 'handful'
    \(...\)              Saves regex enclosed between \( and \) into a hold
@@ -794,12 +867,12 @@ Registers
                            :%s/\(that\) or \(this\)/\2 or \1/
 
       Word Boundary
-
+      -------------
    \<...\>              Matches chars at the begin or at the end of a word.
                         Word boundaries are determined by punct or space.
 
       Search Pattern Modifiers
-
+      ------------------------
    \v                   helps avoid \ for regex qualifiers, grouping
                         regex, etc.
                            /\vc{5}        match exactly 'ccccc'
@@ -817,7 +890,7 @@ Registers
    \%V                  match only in area in a visual selection
 
       Metacharacters For Replacement Strings
-
+      --------------------------------------
    \t                   replacestring tab
    \r                   replacestring newline
    \u or \l             change next char to upper/lower case
