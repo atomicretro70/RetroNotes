@@ -24,7 +24,7 @@
 ######                                                                  ######
 ######                     AtomicRetro@outlook.com                      ######
 ######                                                                  ######
-######                     Revision:  20.10.05                          ######
+######                     Revision:  20.10.20                          ######
 ######                                                                  ######
 ######                                                                  ######
 ######                                                                  ######
@@ -52,6 +52,9 @@ To View This Document Properly
 ======================================
 CONTENTS
 ======================================
+Contents
+Preface
+Introduction
 The Laws of Logic
 Formal Definitions
 Truth-Functional Logic (TFL)
@@ -84,6 +87,92 @@ Axiomatic and Natural Deduction
 Formal Theories & Axioms
 
 
+=======
+Preface
+=======
+
+Who is this book intended for?  This is not an instruction manual.  It’s not
+likely that anyone could learn logic from this book alone.  Rather, this book
+is a complete set of notes on Classical Logic (hereafter called Frege-
+Russellean logics).  This book is intended as a reference book for those
+well versed in classical logic or a study companion for the student.  It
+includes all of the information but none of the fluff.  
+
+If you discover, error omissions or have other comments please contact the
+author at AtomicRetro@outlook.com.
+
+============
+Introduction
+============
+
+History
+
+Logic has a very long history.  An ancient Greek named Aristotle (384 -
+322 BCE) who lived in athens and is perhaps the best known of Plato's
+students from the academy gave us the first formal logical system often
+referred to as Categorical Logic.  His logic is complete, it proves
+everything that is provable within the bounds of the logic, and it is sound,
+it doesn't prove anything that doesn't logically follow from the evidence
+provided.
+
+Around the same time another philosopher Chrysippus is reputed
+to have published a book based of a different logical system based upon
+'and', 'not', 'if...then...', etc.  But his book has been lost and is only
+known of through other authors who wrote about his work.
+
+The logic is very limited in what it can say or prove.  The logic consists
+of a language (which only has 8 possible sentence forms), a semantics
+(description of meanings), and an inferential system (a mechanism by which
+one may construct arguments.
+
+Aristotelian logic reigned supreme for over two thousand years.  Over the
+centuries there were many commentaries, organizational and pedagogical
+modifications, even advances in the semantics of the logic but it was all
+still the same limited logic.  There were other advances in logic outside
+of Aristotelian logic but they were limited; never producing complete
+logical systems.
+
+Then in 1847 and 1854 George Boole published his books *The Mathematical
+Analysis of Logic* and *An Investigation of the Laws of Thought*
+respectively.  In these books Boole outlined a new logic with notions
+similar to those of chrysippus, however Boole's logic is mathematically
+precise.  This is the logical system that would eventually come to power
+digital logic and computers.
+
+Next came Friedrich Ludwig Gottlob Frege (1848 - 1925).  In 1879 Frege
+published a book the *Begriffsschrift* which unified the logical theories
+of Aristotle with that of Chrysippus (via Boole).
+
+Frege's logic was a monumental step in the advancement of logic, but it had
+problems soon to be uncovered by Bertrand Russell (1872 - 1970).  The problem
+is that Frege's logic allowed self-reference, while this gave the logic a lot
+of power, it also meant that the logic is inconsistent.  Russell expressed
+this problem with a paradox that can be expressed in Frege's logic: the set
+of all sets that do not contain themselves.  So, does the set contain itself
+or not?  The answer is both or neither, which is nonsensical.
+
+In 1903 Russell published the first book of *The Principles of
+Mathematics*, in which he outlined a "fixed" variation of Frege's logic.
+The primary change Russell made was to disallow self-reference.  Russell
+also replaced Frege's awkward notation.  Russell's new logic constituted
+a new logic to follow Aristotle's that's both sound and complete.  This
+is the most commonly studied in introductory logic courses today (with
+a slightly simplified notation system), it's often called Classical Logic.
+In this book we will refer to it as Frege-Russellean logic.  This new
+logic, while still quite limited, is infinitely more expressive than
+Aristotle's of Chrysippus' logic alone, and the unified logic can say more
+than the sum total of what both can say.  Frege-Russellean logic is the
+subject matter of this book.
+
+Notation
+
+The notation selected in this book may vary slightly from that of whatever
+books you may have studied.  The symbols were chosen to reflect a certain
+aesthetic.  All of the logical operators consist of straight lines,
+and all but one (negation) are symmetrical.  While large round or curvy
+letters are used to denote the more complex less well defined English
+propositions.
+
 =================
 The Laws of Logic
 =================
@@ -94,7 +183,7 @@ we derive the logical systems which are their derivations.
 
 we describe the following principles:
 
-   LAW OF NON-CONTRADICTION (LNC)
+   LAW OF NONCONTRADICTION (LNC)
 
       A proposition P is never both              ¬(P ∧ ¬P)
       True and False.
@@ -103,23 +192,23 @@ we describe the following principles:
 
       A proposition P is either True or False.   (P ∨ ¬P)
 
-   IDENTITY OF INDISCERABILITY
+   IDENTITY OF INDISCERIBILITY
 
       If two things have all of the same         ∀x∀y(∀F(Fx <-> Fy) -> x=y)
       properties then then they're identical.
       
-   LAW OF INDISCERNABILITY OF IDENTICALS (LEIBNIZ'S LAW)
+   LAW OF INDISCERNIBILITY OF IDENTICALS (LEIBNIZ'S LAW)
 
       If two things are identical then they      ∀x∀y(x=y -> ∀F(Fx <-> Fy))
-      have have all of the same properties.
+      have all of the same properties.
 
 These are some of the basic principles upon which many formal deductive
 systems are based. It's also possible to construct new logics on other
-principles, but these are the prinicples we're concerned with in this text.
+principles, but these are the principles we're concerned with in this text.
 
 The definition of a PROPOSITION, a statement that's either true or false,
 follows directly from the Laws of Non-Contradiction and Excluded Middle.
-Logics that are based on different principes may have different definitions
+Logics that are based on different principles may have different definitions
 for proposition.
 
 
@@ -165,7 +254,7 @@ Packing & Unpacking
 -------------------
 
    PACKING A DEFINITION is when we rewrite a string such that a long string
-   is replaced with it's corresponding abbreviation.
+   is replaced with its corresponding abbreviation.
 
    UNPACKING A DEFINITION is when we rewrite a string such that a defined
    abbreviation is replaced with its corresponding long string.
@@ -179,9 +268,9 @@ Here we construct our first formal logic, Truth-Functional logic (or TFL).
 TFL studies notions like 'not', 'and', and 'or'.
 
 
----------------
-Formal Language
----------------
+--------
+Language
+--------
 
 A LANGUAGE is defined by the set of all sensical sentences in the language.
 
@@ -228,7 +317,7 @@ Grammar (FORMATION RULES)
    Notes
 
    - To aid readability of wffs we adopt the convention that if a wff
-     begins with '(', we will drop the outer-most pair of parenthesis,
+     begins with '(', we will drop the outermost pair of parenthesis,
      doing so never introduces ambiguity to the formula.
 
    - In practice it's common to use tick marks or numerical subscripts
@@ -348,8 +437,8 @@ TRUTH-TABLES
 
    4. In a given row under the first formula, starting from the innermost
       parentheses and working outwards, evaluate each of the expressions
-      according to the valuation function.  Continue until a T or F can be
-      placed under the top level operator on every row.  Repeat this
+      according to the valuation function.  Continue until a T or F can
+      be placed under the top level operator on every row.  Repeat this
       valuation procedure below each wff in the table.
 
    The study will only need to consider the columns under the wffs' main
@@ -513,7 +602,7 @@ Truth-Tables ("Fast Method")
       to find ¬ see Truth-Table Study of Single WFFs above) by writing T or
       F below each of the main operators 
 
-   2. Now work backwards from the outer-most operator down to the inner-most
+   2. Now work backwards from the outermost operator down to the innermost
       parenthesis.  Evaluate as many sub-expressions as possible, continuing
       until you can't do anything else (some subwffs may go undetermined).
 
@@ -563,7 +652,7 @@ Truth-Tables ("Fast Method")
    with T under the main operator, and once with F.  The wff is contingent
    if and only if we find at least one valuation of the proposition symbols
    that makes the main operator T, and at least one valuation of the
-   proposition symbols that makes the main operator F.
+   proposition symbols that make the main operator F.
 
    Fast Truth-Tables Study of Sets of WFFs
 
@@ -787,8 +876,8 @@ Truth-Trees
            +---------------------------+---------------------------+
 
 
-Semantic Tree Analysis
-======================
+Truth-Tree Analysis
+===================
 
    Truth-Tree Study of Single WFFs
 
@@ -1166,7 +1255,7 @@ Theorems
 ========
 
    A theorem of TFC is a derived rule which has no premises or undischarged
-   hypotheses.  Theorems are are the tautologies of TFL.  A sequent for
+   hypotheses.  Theorems are the tautologies of TFL.  A sequent for
    a theorem P follows.  A theorem of our calculus is proven by starting
    the proof with a hypothesis or with an already proven theorem.
 
@@ -1209,7 +1298,7 @@ Defining ⊥ Into TFL and TFC
    often preceded by ∧I, but the resulting conjunction can be quite long.
    Since EFQ infers any wff from two contradictories we can always infer
    P ∧ ¬P instead of a long conjunction.  But the following definition
-   goes even futher.
+   goes even further.
 
          ⊥  =df  (P ∧ ¬P)
 
@@ -1290,7 +1379,7 @@ TWO-COLUMN PROOF
 
    Once finished the valuations can be read off the proof.  The above proof
    tells us that the counterexamples are where P is false (due to being
-   negated), and Q is true (due to being unnegated).  We can verify this
+   negated), and Q is true (due to being un-negated).  We can verify this
    with a truth-table.
 
        P Q | P -> Q , ¬ P  |-  ¬ Q
@@ -1323,8 +1412,8 @@ Refuting Dilemmas
    ESCAPING BETWEEN THE HORNS is to prove the disjunction false by either
    proving that there's a third option, or proving that both disjuncts false.
 
-Semantic Soundness & Completeness of The Calculus
-=================================================
+Semantic Soundness & Completeness of TFC
+========================================
 
    A calculus is SEMANTICALLY SOUND iff for any consistent set of wffs
    it's impossible to derive a conclusion that doesn't follow (even if rules
@@ -1361,7 +1450,7 @@ Important Derived Rules
    06.   Q                        5 ¬E
    QED
 
-   Ex False Quodlibet (EFQ):   Q, ¬Q  |-  ⊥
+   Ex Falso Quodlibet (EFQ):   Q, ¬Q  |-  ⊥
    Proof
    01.   Q                        A
    02.   ¬Q                       A
@@ -1385,7 +1474,7 @@ Important Derived Rules
    12.   (P -> ⊥) <-> ¬P          1-6 ->I
    QED
 
-   Negation Introudiction (¬I):   (P |- ⊥)  |-  ¬P
+   Negation Introduiction (¬I):   (P |- ⊥)  |-  ¬P
    Schematic Proof
    i.   |   P                     H
    ...
@@ -1397,7 +1486,7 @@ Important Derived Rules
    j+5. ¬P                        j+2 - j+4 ¬I
    QED
 
-   Negation Introudiction (¬I):   (¬P |- ⊥)  |-  P
+   Negation Introduction (¬I):   (¬P |- ⊥)  |-  P
    Schematic Proof
    i.   |   ¬P                    H
    ...
@@ -1457,7 +1546,7 @@ Important Derived Rules
    12.   R ∨ S                    1,7,11 ∨E
    QED
 
-   Descructive Dilemma (DD):    P -> Q, R -> S, ¬Q ∨ ¬S  |-  ¬P ∨ ¬R
+   Destructive Dilemma (DD):    P -> Q, R -> S, ¬Q ∨ ¬S  |-  ¬P ∨ ¬R
    Proof
    01.   P -> Q                   A
    02.   R -> S                   A
@@ -1700,7 +1789,7 @@ Important Derived Equivalences
    17.   ((P ∧ Q) -> R) <-> (P -> (Q -> R))    8,16 <->I
    QED
 
-   Distibution (DIST):   |-  (P ∧ (Q ∨ R)) <-> ((P ∧ Q) ∨ (P ∧ R))
+   Distribution (DIST):   |-  (P ∧ (Q ∨ R)) <-> ((P ∧ Q) ∨ (P ∧ R))
    Proof
    01.   |   P ∧ (Q ∨ R)                       H (for ->I)
    02.   |   P                                 1 ∧E
@@ -1930,7 +2019,7 @@ Set Definition
 
 
 --------------------
-Set/Member Relations
+Set-Member Relations
 --------------------
 
    The things that sets are composed of are called OBJECTS, ELEMENTS
@@ -2031,7 +2120,7 @@ Set Properties
 
       A set is DENUMERABLE iff there is a 1:1 correspondence between
       it and the set of natural numbers.  Hence, the cardinality of the
-      set is infinity.
+      set is infinite.
 
 
 ====================
@@ -2167,7 +2256,7 @@ Truth-Tables
    impractical.  Moreover, tables don't work at all on any system
    we study after PL.
 
-Truth Trees
+Truth-Trees
 ===========
 
    Truth trees are constructed according to the same rules as trees for
@@ -2227,7 +2316,7 @@ of an atomic formula.
       Dictionary
       ----------
       Constants            Predicates
-      g,    Galdalf        Axy,   x abandons y
+      g,    Gandalf        Axy,   x abandons y
       f,    Frodo
       s,    Sam
 
@@ -2268,8 +2357,8 @@ Lexemes
       Truth-Function Symbols:  ¬, ∧, ∨, ->, <->
       Association Symbols:     (, )
       Quantifiers
-         universal:            ∀x (A is inverted)
-         existential:          ∃x (E is reversed)
+         universal:            ∀x
+         existential:          ∃x
 
 Grammar (Rules for wffs)
 ========================
@@ -2301,7 +2390,7 @@ Grammar (Rules for wffs)
 
    - Identical permutations of symbols that form atomic single formulas should
      be treated as if they were the same proposition symbol, while different
-     permutations ought be regarded as different proposition symbols.
+     permutations ought to be regarded as different proposition symbols.
 
 
 ---------
@@ -2434,7 +2523,7 @@ Validity / Valid Formula
 
       ∀x¬Px  <->  ¬∃xPx,    where P is an arbitrary predicate.
 
-Truth Trees
+Truth-Trees
 ===========
 
    Truth-trees are constructed similarly for FOL as they are for TFL with
@@ -2619,8 +2708,8 @@ Translation Hints
 First-Order Quantification Calculus (FOC - Fitch Style)
 -------------------------------------------------------
 
-Inference Rules Notation
-========================
+Inference Rule Notation
+=======================
 
    P(Q) indicates that a wff P contains one or more occurrences of
    sub-expression Q.
@@ -2636,8 +2725,8 @@ Inference Rules Notation
    [ ... ] indicates that the enclosed must exist, be defined or proven
    elsewhere.
 
-Inference Rules for Quantifiers
-===============================
+Primitive Inference Rules
+=========================
 
    let c represent any constant symbol, and x represent any variable.
    A boxed constant [c] introduces a *new* constant into a subproof; c goes
@@ -2702,7 +2791,7 @@ Derived Inference Rules
 
 
 -------------------------------------
-Proofs of some Aristotelian Arguments
+Proofs of Some Aristotelian Arguments
 -------------------------------------
 
    All Q is R
@@ -2761,7 +2850,7 @@ Proofs of some Aristotelian Arguments
 
 
 ============================
-Identity Logic (IL) and FOL=
+Identity Logic (IL and FOL=)
 ============================
 
 Identity Logic is the logic of the identity predicate = and defined in the
@@ -2769,9 +2858,9 @@ context of FOL.  The logic of the combined system is called First-Order
 Quantified Logic with Identity (FOL=).
 
 
----------------
-Formal Language
----------------
+--------
+Language
+--------
 
 Lexemes
 =======
@@ -2789,8 +2878,8 @@ Lexemes
          universal:            ∀
          existential:          ∃
 
-Grammar (Formation Rules)
-=========================
+Grammar
+=======
 
    ATOMIC FORMULA is a predicate symbol followed by zero or more consts;
    or 'x=y' (where x,y are consts, and can be the same symbol).
@@ -2843,7 +2932,7 @@ Properties of Relations
                              Asymmetric(R) ∨
                              Antisymmetric(R) )
 
-    Intransitive(R)   =df ∀x∀y∀z((Rxy ∧ Rxz) -> ¬Rxz)   OpposideSide(x,y)
+    Intransitive(R)   =df ∀x∀y∀z((Rxy ∧ Rxz) -> ¬Rxz)   OppositeSide(x,y)
 
     Nontransitive(R)  =df ¬( Transitive(R) ∨            Child(x,y)
                              Intransitive(R) )
@@ -2892,9 +2981,9 @@ Translation Hints
            ========  ============================================
 
 
-------------------------------
-Identity Calculus (IC - Fitch)
-------------------------------
+------------------------------------
+Identity Calculus (IC - Fitch Style)
+------------------------------------
 
 In addition to the rules below, all of FOC is applicable in our implementation
 of IC since ours is implemented within the context of FOL.  The combined
@@ -2959,9 +3048,9 @@ For this reason FL + FOL= is still FOL= because FL only adds new ways to say
 things that FOL= can already say.
 
 
----------------
-Formal Language
----------------
+--------
+Language
+--------
 
 Lexemes
 =======
@@ -3223,8 +3312,8 @@ Lexemes
          universal:            ∀
          existential:          ∃
 
-Grammar (Formation Rules)
-=========================
+Grammar
+=======
 
    ATOMIC FORMULA is a const predicate symbol followed by zero or more
    consts; or 'x=y' (where x,y are consts; and could be the same symbol).
@@ -3243,9 +3332,9 @@ Grammar (Formation Rules)
    6.  Nothing else is a wff.
 
 
----------------------
-Second Order Calculus
----------------------
+---------------------------
+Second-Order Calculus (SOC)
+---------------------------
 
 The four quantifier inference rules from FOL are extended to these two 'new'
 quantifiers.
@@ -3410,7 +3499,7 @@ theorems.  It's easy to construct a theory that OVER GENERATES, proves
 too many things, ie. theorems that aren't true; or UNDER GENERATES,
 doesn't prove all of the things that the theory ought to prove.
 
-The FIRST PRINCIPALS of a theory are those things from which the rest of the
+The FIRST PRINCIPLES of a theory are those things from which the rest of the
 theory is derived; they include but may not be limited to inference rules,
 axioms and definitions.
 
@@ -3466,9 +3555,9 @@ Taller-Than Theory
       Ax3.  ∀x∀y(Txy -> ∃z(Txz ∧ Tzy))         Dense
 
 
-==================================
-Formal Arithmetic (from Wikipedia)
-==================================
+=================
+Formal Arithmetic
+=================
 
 Formal arithmetic is a theory about arithmetic of whole numbers (non neg
 integers).
