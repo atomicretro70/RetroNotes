@@ -1212,7 +1212,7 @@ Primitive Inference Rules
       |                               |                               |
       +-------------------------------+-------------------------------+
 
-Psuedo Inference Rules
+Pseudo Inference Rules
 ======================
 
    The following aren't inference rules but appear in proofs as if they
@@ -2376,15 +2376,15 @@ Grammar (Rules for wffs)
    Notes
 
    - To aid readability of a wffs we adopt the convention that if a wff
-     begins with '(', we will drop the outer-most pair of parenthesis.
+     begins with '(', we will drop the outermost pair of parentheses.
 
    - In practice it's common to use tick marks or numerical subscripts
      (we use postscripts) after the proposition symbol to increase to
      infinity the number of available symbols.
 
    - In practice it's common to use an expanded predicate notation using
-     parenthesis and commas so P(x,y) = Pxy.  This also allows us to use
-     multiple letters for the predicate name.  The disadvantage to this
+     parentheses and commas so P(x,y) = Pxy.  This also allows us to use
+     multiple etters for the predicate name.  The disadvantage to this
      is that it makes our wffs longer and contain more parenthesis which
      can make them harder to read.
 
@@ -2493,7 +2493,7 @@ Single Quantifiers
 
          ∃x(Dx ∧ Sx),    There's at least one object x in our universe
                              such that, x is a dog and x likes to swim.
-                         = Some dogs are like to swim.
+                         = Some dogs like to swim.
 
 Multiple Quantifiers
 ====================
