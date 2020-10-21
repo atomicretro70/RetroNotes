@@ -49,32 +49,27 @@ To View This Document Properly
 * This document must be viewed in an editor that can display unicode utf-8.
 
 
-||||| Command Line Usage |||||||||||||||||||||||||||||||||||||||||||||||||||||
-
-<cmd> &             run cmd in the background
-
-<cmd1>; <cmd2>      run cmd1 then run cmd2
-<cmd1> && <cmd2>    if cmd1 succeeds run cmd2
-(<cmd1>) && <cmd2>  if cmd1 succeeds run cmd2
-<cmd1> || <cmd2>    if cmd1 fails run cmd2
-
-<cmd> > <file>      write stdout of cmd to file
-<cmd> > /dev/null   write stdout to nowhere
-<cmd> >> <file>     append stdout of cmd to file
-<cmd> 2> <file>     write stderr to file
-<cmd> &> <file>     write stdout and stderr to file
-<cmd> fd> <file>    write what cmd outputs to file descriptor # fd, to file
-                    instead.
-<cmd> < <file>      run cmd using file contents as stdin
-<cmd1> | <cmd2>     send stdout of cmd1 to stdin for cmd2
+||||| Typographic Conventions ||||||||||||||||||||||||||||||||||||||||||||||||
+...                 arbitrary text
+[...]               some optional text
+<...>               a special key, options include
+                    <CTRL>     the control key
+                    <TAB>      the tab key
+                    <CR>       the enter or return key
+                    <ALT>      the alt key
+                    <SUPER>    the super key (start key on windows computers)
+                    <ARROW>    an arrow key
+<...>               that ought to be replaced by something else.
+<cmd> ...           a command, see the man page for usage
+^X                  a key chord of <CTRL> + 'X'.
 
 ||||| Manual Pages |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 man <cmd>           display the manual for a command cmd
 man man             help on the manual
 man hier            help on the file system
-man 7 signal        manual page for signals
 man <sect> <topic>  display man page for topic in specified section
+man 7 signal        manual page for signals
 
       Section
       1   Executable programs or shell commands
@@ -97,18 +92,29 @@ man <sect> <topic>  display man page for topic in specified section
 ^U                  cut the whole line, put into clipboard
 ^Y                  paste from clipboard
 <TAB>               auto-complete filename
+<TAB> <TAB>         list auto-complete options
 
+!!                  most recent command
 <arrow up/down>     previous/next command
 history             show a history of commands
-!!                  last command
 ^R                  recall last command that matches provided characters
 
-ssh                 Open remote (on another machine) login session
-telnet              Open remote login session
+ssh ...             open remote (on another machine) login session
+telnet ...          open remote login session
 
 exit                exit the shell
 exit n              exit script with exit code n
 ^D                  exit the shell
+
+^Z                  mark the end of a file
+
+||||| File and Directory Names |||||||||||||||||||||||||||||||||||||||||||||||
+
+<name>.<ext>        a normal file; ext is some extension usually 3 letters
+.<name>             a hidden file or directory name
+*cal                any filename ending in 'cal'
+cal*                any filename beginning in 'cal'
+ca*l                any filename beginning in 'ca' and ending in 'l'.
 
 ||||| Files & Directories ||||||||||||||||||||||||||||||||||||||||||||||||||||
 
@@ -116,32 +122,33 @@ ls                  listing of current directory
 ls -al              long listing of everything
 pwd                 Print Working Directory
 cd <dir>            change directory to dir
-cd                  change directory to ~
-mkdir <dir>         make directory
-rmdir <dir>         remove directory
+cd                  change directory to ~ (your home directory)
+mkdir <dir>         make a new subdirectory
+rmdir <dir>         remove an empty directory
 rm <name>           remove files and directories
 rm -r <name>        remove files and directories recursively
 cp <file1> <file2>  copy file1 to file2
 mv <file> <target>  move/rename file
 
 touch <file>        create a file/change existing file timestamp
-link                create a link to a file
+link ...            create a link to a file
 ln -s <file> <link> create a symbolic link to file
 
-chown               change file owner and group
-chmod               change file permiessions
+chown ...           change file owner and group
+chmod ...           change file permiessions
 
-find                find a file
+find ...            find a file
 which <app>         searching PATH locate a command
 
-comm                compare two sorted files for common lines
-cmp                 compare two files byte by byte
+comm ...            compare two sorted files for common lines
+cmp ...             compare two files byte by byte
 diff <file> <file>  compute the difference of two text files
-rsync               synchronize files and directories
+rsync ...           synchronize files and directories
 
+tar ...             the tape archive command
 tar -zcvf <dir>     archive and compress the argument verbosely
 tar -zxvf <file>    decompress and dearchive file(s) verbosely
-gzip                compress/decompress a file
+gzip ...            compress/decompress a file
 zip/unzip           compress/decompress file
 gpg -c file         encrypt a file
 gpg file            decrypt a file
@@ -159,16 +166,19 @@ head <file>         print the first 10 lines of a file
 tail <file>         print the last 10 lines of a file
 tail -f <file>      print file as it grows starting with last 10 lines
 
-grep                find lines containing ... from stdin
-cut                 expects lines separated into fields, returns a field
-sort                sort the lines in stdin
-uniq                print only unique lines
-wc                  word count - count lines, words, characters
-awk                 scripted filtering
-sed                 scripted stream editing
+grep ...            find lines containing ... from stdin
+cut ...             expects lines separated into fields, returns a field
+sort ...            sort the lines in stdin
+uniq ...            print only unique lines
+wc ...              word count - count lines, words, characters
+wc -l               print the number of lines from stdin
+wc -m               print the number of characters from stdin
+wc -w               print the number of words from stdin
+awk ...             scripted filtering
+sed ...             scripted stream editing
 
-xargs               treat lines from stdin as args to a command
-tee                 copy stdin to each file and also to stdout
+xargs ...           treat lines from stdin as args to a command
+tee ...             copy stdin to each file and also to stdout
 
 ||||| Jobs & Processes |||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
@@ -184,15 +194,15 @@ top                 running application list (updated in real time)
 ps                  process list
 ps aux              ps but more convenient information
 pstree              processes in a tree
-kill                send a signal to a process
+kill ...            send a signal to a process
 kill -9 <pid>       terminate the process by process id
 killall <name>      terminate all processes by name
 xkill               use mouse to kill a window's connection to its process
 
 sudo <cmd>          execute command as another user
 sudo -i             sudo interactive (stay in root)
-nice                run a process with a non-default priority
-renice              chance the priority of a process
+nice ...            run a process with a non-default priority
+renice ...          chance the priority of a process
 
 crontab             list scheduled processes
 
@@ -217,11 +227,11 @@ last                last system logins
 groups <user>       list a user's groups
 groupadd <name>     add a new group
 
-useradd             add a user
-adduser             add a user via a gui
-newusers            create multiple new user accounts simultaneously
-userdel             delete a user 
-usermod             change a user information
+useradd ...         add a user
+adduser ...         add a user via a gui
+newusers ...        create multiple new user accounts simultaneously
+userdel ...         delete a user 
+usermod ...         change a user information
 usermod -aG <grp> <usr>  Add a user to a group
 passwd              change your password
 
@@ -230,13 +240,13 @@ passwd              change your password
 
 ||||| Sockets & Handles ||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-netstat             display network connections and ports
+netstat ...         display network connections and ports
 netstat -tupln
 sudo netstat -tupln more info
 ifconfig            display/modify network adapter settings
 ping <host>         ping a host to see if it's responding
-dig                 interrogate the DNS
-nslookup            query internet name service
+dig ...             interrogate the DNS
+nslookup ...        query internet name service
 lsof                list open file handles
 traceroute <host>   list the route from this machine to a host
 
@@ -258,17 +268,17 @@ df                  list what's mounted
 du                  list the estimated disk usage by files
 fdisk -l            print disk partitions, sizes and types
 
-mount               mount a device
-umount              unmount a device
+mount ...           mount a device
+umount ...          unmount a device
 
 shutdown            shutdown the computer
 reboot              reboot the computer
 halt                halt, poweroff, reboot
 
-set                 list, set or unset shell options
-varname=val         set a variable to a value (can't have spaces)
-env                 print or set environment variables
-alias               create an abbreviation for a command
+set ...             list, set or unset shell options
+varname=<val>       set a variable to a value (can't have spaces)
+env ...             print or set environment variables
+alias <name>=<val>  create an alias for a value (usually a long command)
 
 ||||| Command Line Apps ||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
@@ -278,21 +288,60 @@ bc                  command line calculator
 dc                  command line rpn calculator
 factor <num>        display prime factors of a number
 
+||||| Novelty ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+figlet ...          prints strings in ascii art
+figlet -f <font> <text>  print text in ascii art
+figlist             list the fonts available to figlet
+showfigfonts        demonstrates each of the available figlet fonts
+toilet ...          figlet clone that also does other things.
+
+lolcat ...          colorizes input content
+
 ||||| application management (Debian, Ubuntu, Pop! OS) |||||||||||||||||||||||
 
 sudo apt-get update           retrieve list of available updates
 sudo apt-get upgrade          apply the updates
 sudo apt-get install <app>    install an app
-sudo apt-cache search <str>   search for all available apps containging a string
+sudo apt-cache search <str>   search for all available apps containging string
 sudo apt-get remove <app>     uninstall an app
 
-||||| Novelty ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+==================
+Command Line Usage
+==================
 
-figlet              prints strings in ascii art
-figlet -f <font> <text>  print text in ascii art
-figlist             list the fonts available to figlet
-showfigfonts        demonstrates each of the available figlet fonts
-toilet              figlet clone that also does other things.
+||||| Backgrounding ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-lolcat              colorizes input content
+<cmd> &             run cmd in the background
+
+||||| Multiple Commands and Logic ||||||||||||||||||||||||||||||||||||||||||||
+
+<cmd1>; <cmd2>      run cmd1 then run cmd2
+<cmd1> && <cmd2>    if cmd1 succeeds run cmd2
+<cmd1> || <cmd2>    if cmd1 fails run cmd2
+(<cmd1> && <cmd2>)  association operators
+
+||||| Redirection of Input/Output ||||||||||||||||||||||||||||||||||||||||||||
+
+<cmd> > <file>      write stdout of cmd to file
+<cmd> > /dev/null   write stdout to nowhere
+<cmd> >> <file>     append stdout of cmd to file
+<cmd> n> <file>     write what cmd outputs to file descriptor n, to file
+                       Predefined file descriptors
+                       0    stdin
+                       1    stdout
+                       2    stderr
+<cmd> >& <file>     write stdout and stderr to file
+                    instead.
+
+<cmd> < <file>      run cmd using file contents as stdin
+
+<cmd1> | <cmd2>     PIPE (send) stdout of cmd1 to stdin for cmd2
+
+================
+Bash Programming
+================
+
+||||| Variables & Quoting ||||||||||||||||||||||||||||||||||||||||||||||||||||
+
 
