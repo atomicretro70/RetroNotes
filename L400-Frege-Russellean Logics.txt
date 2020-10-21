@@ -91,97 +91,125 @@ Formal Theories & Axioms
 Preface
 =======
 
-Who is this book intended for?  This is not an instruction manual.  It’s not
-likely that anyone could learn logic from this book alone.  Rather, this book
-is a complete set of notes on Classical Logic (hereafter called Frege-
-Russellean logics).  This book is intended as a reference book for those
-well versed in classical logic or a study companion for the student.  It
-includes all of the information but none of the fluff.  
+   Who is this book intended for?  This is not an instruction manual.
+   It’s not likely that anyone could learn logic from this book alone.
+   Rather, this book is a complete set of notes on Classical Logic which
+   I will generally refer to as FREGE-RUSSELLEAN logics (FRL) named after
+   the two people who were chiefly responsible for the development of FRL.
+   This book is intended as a reference book for those well versed in
+   classical logic or a study companion for the student.  It includes
+   all of the information but none of the fluff.  
 
-If you discover, error omissions or have other comments please contact the
-author at AtomicRetro@outlook.com.
+   In the introduction of the book I introduce you to the history of logic
+   and then some preliminary information about logic:  Namely two short
+   discussions one on the laws of logic, the other on formal definitions
+
+   The first chapter covers the Truth-Functional logic; the logic of 'not',
+   'and' and 'or'.  The chapter begins by describing the formal language:
+   the lexemes and grammar.  Next we move on to the semantics, the
+   formal descriptions of meanings of sentences in the language.  Next we
+   cover a Fitch-Style calculus for the language.  Lastly we examine some
+   philosophical concerns about the logic.
+
+   Most of the remaining chapters procede in the same fashion.  Each
+   chapter discribes another system of logic within the discipline of FRL
+   covering Predicate Logic (PL), First-Order Qunatification Logic (FOL),
+   Identity Logic (IL), Function Logic (FL), Second-Order Logic, and
+   lastly Mathematical Induction. Chapter two breaks the pattern with a brief
+   introduction to basic Set Theory.  The book closes with a brief
+   discussion of Axiomatic Deductive Systems, and a brief discussion of
+   Formal Theories and Axaioms.
+
+   This book will be updated periodically.  If you wish to contribute by
+   reporting an error or omission, or have other comments please contact
+   the author at AtomicRetro@outlook.com.
 
 ============
 Introduction
 ============
 
+-------
 History
+-------
 
-Logic has a very long history.  An ancient Greek named Aristotle (384 -
-322 BCE) who lived in athens and is perhaps the best known of Plato's
-students from the academy gave us the first formal logical system often
-referred to as Categorical Logic.  His logic is complete, it proves
-everything that is provable within the bounds of the logic, and it is sound,
-it doesn't prove anything that doesn't logically follow from the evidence
-provided.
+   Logic has a very long history.  An ancient Greek named Aristotle (384 -
+   322 BCE) who lived in athens and is perhaps the best known of Plato's
+   students from the academy gave us the first formal logical system often
+   referred to as Categorical Logic.  His logic is complete, it proves
+   everything that is provable within the bounds of the logic, and it is sound,
+   it doesn't prove anything that doesn't logically follow from the evidence
+   provided.
 
-Around the same time another philosopher Chrysippus is reputed
-to have published a book based of a different logical system based upon
-'and', 'not', 'if...then...', etc.  But his book has been lost and is only
-known of through other authors who wrote about his work.
+   Around the same time another philosopher Chrysippus is reputed
+   to have published a book based of a different logical system based upon
+   'and', 'not', 'if...then...', etc.  But his book has been lost and is only
+   known of through other authors who wrote about his work.
 
-The logic is very limited in what it can say or prove.  The logic consists
-of a language (which only has 8 possible sentence forms), a semantics
-(description of meanings), and an inferential system (a mechanism by which
-one may construct arguments.
+   The logic is very limited in what it can say or prove.  The logic consists
+   of a language (which only has 8 possible sentence forms), a semantics
+   (description of meanings), and an inferential system (a mechanism by which
+   one may construct arguments.
 
-Aristotelian logic reigned supreme for over two thousand years.  Over the
-centuries there were many commentaries, organizational and pedagogical
-modifications, even advances in the semantics of the logic but it was all
-still the same limited logic.  There were other advances in logic outside
-of Aristotelian logic but they were limited; never producing complete
-logical systems.
+   Aristotelian logic reigned supreme for over two thousand years.  Over the
+   centuries there were many commentaries, organizational and pedagogical
+   modifications, even advances in the semantics of the logic but it was all
+   still the same limited logic.  There were other advances in logic outside
+   of Aristotelian logic but they were limited; never producing complete
+   logical systems.
 
-Then in 1847 and 1854 George Boole published his books *The Mathematical
-Analysis of Logic* and *An Investigation of the Laws of Thought*
-respectively.  In these books Boole outlined a new logic with notions
-similar to those of chrysippus, however Boole's logic is mathematically
-precise.  This is the logical system that would eventually come to power
-digital logic and computers.
+   Then in 1847 and 1854 George Boole published his books *The Mathematical
+   Analysis of Logic* and *An Investigation of the Laws of Thought*
+   respectively.  In these books Boole outlined a new logic with notions
+   similar to those of chrysippus, however Boole's logic is mathematically
+   precise.  This is the logical system that would eventually come to power
+   digital logic and computers.
 
-Next came Friedrich Ludwig Gottlob Frege (1848 - 1925).  In 1879 Frege
-published a book the *Begriffsschrift* which unified the logical theories
-of Aristotle with that of Chrysippus (via Boole).
+   Next came Friedrich Ludwig Gottlob Frege (1848 - 1925).  In 1879 Frege
+   published a book the *Begriffsschrift* which unified the logical theories
+   of Aristotle with that of Chrysippus (via Boole).
 
-Frege's logic was a monumental step in the advancement of logic, but it had
-problems soon to be uncovered by Bertrand Russell (1872 - 1970).  The problem
-is that Frege's logic allowed self-reference, while this gave the logic a lot
-of power, it also meant that the logic is inconsistent.  Russell expressed
-this problem with a paradox that can be expressed in Frege's logic: the set
-of all sets that do not contain themselves.  So, does the set contain itself
-or not?  The answer is both or neither, which is nonsensical.
+   Frege's logic was a monumental step in the advancement of logic, but
+   it had problems soon to be uncovered by Bertrand Russell (1872 - 1970).
+   The problem is that Frege's logic allowed self-reference, while this gave
+   the logic a lot of power, it also meant that the logic is inconsistent.
+   Russell expressed this problem with a paradox that can be expressed in
+   Frege's logic: the set of all sets that do not contain themselves.  So,
+   does the set contain itself or not?  The answer is both or neither, which
+   is nonsensical.
 
-In 1903 Russell published the first book of *The Principles of
-Mathematics*, in which he outlined a "fixed" variation of Frege's logic.
-The primary change Russell made was to disallow self-reference.  Russell
-also replaced Frege's awkward notation.  Russell's new logic constituted
-a new logic to follow Aristotle's that's both sound and complete.  This
-is the most commonly studied in introductory logic courses today (with
-a slightly simplified notation system), it's often called Classical Logic.
-In this book we will refer to it as Frege-Russellean logic.  This new
-logic, while still quite limited, is infinitely more expressive than
-Aristotle's of Chrysippus' logic alone, and the unified logic can say more
-than the sum total of what both can say.  Frege-Russellean logic is the
-subject matter of this book.
+   In 1903 Russell published the first book of *The Principles of
+   Mathematics*, in which he outlined a "fixed" variation of Frege's logic.
+   The primary change Russell made was to disallow self-reference.  Russell
+   also replaced Frege's awkward notation.  Russell's new logic constituted
+   a new logic to follow Aristotle's that's both sound and complete.  This
+   is the most commonly studied in introductory logic courses today (with
+   a slightly simplified notation system), it's often called Classical Logic.
+   In this book we will refer to it as Frege-Russellean logic.  This new
+   logic, while still quite limited, is infinitely more expressive than
+   Aristotle's of Chrysippus' logic alone, and the unified logic can say more
+   than the sum total of what both can say.  Frege-Russellean logic is the
+   subject matter of this book.
 
+--------
 Notation
+--------
 
-The notation selected in this book may vary slightly from that of whatever
-books you may have studied.  The symbols were chosen to reflect a certain
-aesthetic.  All of the logical operators consist of straight lines,
-and all but one (negation) are symmetrical.  While large round or curvy
-letters are used to denote the more complex less well defined English
-propositions.
+   The notation selected in this book may vary slightly from that of whatever
+   books you may have studied.  The symbols were chosen to reflect a certain
+   aesthetic.  All of the logical operators consist of straight lines,
+   and all but one (negation) are symmetrical.  While large round or curvy
+   letters are used to denote the more complex less well defined English
+   propositions.
 
-=================
+-----------------
 The Laws of Logic
-=================
+-----------------
 
-The simplest logic has just two discrete truth-values: True and False.
-It's the logic that powers computers.  from this notion of the BINARY
-we derive the logical systems which are their derivations.
+   The simplest logic has just two discrete truth-values: True and False.
+   It's the logic that powers computers.  from this notion of the BINARY
+   we derive the logical systems which are their derivations.
 
-we describe the following principles:
+   we describe the following principles:
 
    LAW OF NONCONTRADICTION (LNC)
 
@@ -202,56 +230,48 @@ we describe the following principles:
       If two things are identical then they      ∀x∀y(x=y -> ∀F(Fx <-> Fy))
       have all of the same properties.
 
-These are some of the basic principles upon which many formal deductive
-systems are based. It's also possible to construct new logics on other
-principles, but these are the principles we're concerned with in this text.
+   These are some of the basic principles upon which many formal deductive
+   systems are based. It's also possible to construct new logics on other
+   principles, but these are the principles we're concerned with in this text.
 
-The definition of a PROPOSITION, a statement that's either true or false,
-follows directly from the Laws of Non-Contradiction and Excluded Middle.
-Logics that are based on different principles may have different definitions
-for proposition.
+   The definition of a PROPOSITION, a statement that's either true or false,
+   follows directly from the Laws of Non-Contradiction and Excluded Middle.
+   Logics that are based on different principles may have different
+   definitions for proposition.
 
 
-==================
+------------------
 Formal Definitions
-==================
+------------------
 
-A FORMAL DEFINITION is a declaration that two strings or groups of strings
-are interchangeable.  They are expressed as follows:
+   A FORMAL DEFINITION is a declaration that two strings or groups of strings
+   mean the same thing; that they're interchangeable.  They are expressed as
+   follows:
 
-      *string1*  =df  *string2*
+         *string1*  =df  *string2*
 
-In practice *string1* is simply an abbreviation for *string2*.
+   In practice *string1* is simply an abbreviation for *string2*.
 
-      ⊥  =df  (P ∧ ¬P)
+         ⊥  =df  (P ∧ ¬P)
 
----------
-Semantics
----------
-
-   A definition declares that both strings mean the same thing.
-
--------------------------------
 Definition Schemata & Variables
--------------------------------
-
-   We can introduce a DEFINITION SCHEMA (a "family" of definitions
-   all having the same structure) with the help of variables (letters
-   towards the end of the alphabet: u,v,w,x,y,z), across which values
-   are substituted uniformly.
+===============================
+   
+   We can introduce a DEFINITION SCHEMA (a "family" of definitions all having
+   the same structure) with the help of variables (letters towards the end of
+   the alphabet: u,v,w,x,y,z), across which values are substituted uniformly.
 
    Example: formal definition of the conditional probability operation.
 
-                   P(X ∧ Y)
-      P(X|Y)  =df  --------
-                     P(Y)
+                      P(X ∧ Y)
+         P(X|Y)  =df  --------
+                        P(Y)
 
    Whenever we see an instance of P(X|Y) it's interchangeable with its
    corresponding right-hand side replacing values for X and Y uniformly.
 
--------------------
 Packing & Unpacking
--------------------
+===================
 
    PACKING A DEFINITION is when we rewrite a string such that a long string
    is replaced with its corresponding abbreviation.
@@ -264,23 +284,24 @@ Packing & Unpacking
 Truth-Functional Logic (TFL)
 ============================
 
-Here we construct our first formal logic, Truth-Functional logic (or TFL).
-TFL studies notions like 'not', 'and', and 'or'.
+   Here we construct our first formal logic, Truth-Functional logic (or TFL).
+   TFL studies notions like 'not', 'and', and 'or'.
 
 
 --------
 Language
 --------
 
-A LANGUAGE is defined by the set of all sensical sentences in the language.
+   A LANGUAGE is defined by the set of all sensical sentences in the language.
 
-A FORMAL LANGUAGE is the set of all grammatically correct strings (called
-sentences) in a given language.  Formal languages don't take semantics into
-consideration, so many such sentences can be nonsensical.
+   A FORMAL LANGUAGE is the set of all grammatically correct strings (called
+   sentences) in a given language.  Formal languages don't take semantics into
+   consideration, so many such sentences can be nonsensical.
 
-A METALANGUAGE is the language we use to talk *about* a logic.  So sentences
-in the metalanguage mention properties of logics, arguments and all things
-that they entail.  Most of these notes are written in the metalanguage.
+   A METALANGUAGE is the language we use to talk *about* a logic.
+   So sentences in the metalanguage mention properties of logics, arguments
+   and all things that they entail.  Most of these notes are written
+   in the metalanguage.
 
 A LEXEME is the smallest semantic unit in the language, words.
 
