@@ -22,7 +22,7 @@
 ######                                                                  ######
 ######                                                                  ######
 ######                                                                  ######
-######                     AtomicRetro@outlook.com                      ######
+######                     AtomicRetro@outlook.com    1                  ######
 ######                                                                  ######
 ######                     Revision:  20.10.20                          ######
 ######                                                                  ######
@@ -100,13 +100,13 @@ Preface
    classical logic or a study companion for the student.  It includes
    all of the information but none of the fluff.  
 
-   In the introduction of the book I introduce you to the history of logic
-   and then some preliminary information about logic:  Namely two short
-   discussions one on the laws of logic, the other on formal definitions
+   The introduction begins with a brief history of logic followed by some
+   preliminary information about logic:  Namely two short discussions one
+   on the laws of logic, the other on formal definitions
 
    The first chapter covers the Truth-Functional logic; the logic of 'not',
    'and' and 'or'.  The chapter begins by describing the formal language:
-   the lexemes and grammar.  Next we move on to the semantics, the
+   the lexemes and the grammar.  Next we move on to the semantics, the
    formal descriptions of meanings of sentences in the language.  Next we
    cover a Fitch-Style calculus for the language.  Lastly we examine some
    philosophical concerns about the logic.
@@ -120,7 +120,8 @@ Preface
    discussion of Axiomatic Deductive Systems, and a brief discussion of
    Formal Theories and Axaioms.
 
-   This book will be updated periodically.  If you wish to contribute by
+   This book will be updated periodically and some sections may be dropped or
+   developed further based upon reader feedback.  If you wish to contribute by
    reporting an error or omission, or have other comments please contact
    the author at AtomicRetro@outlook.com.
 
@@ -201,45 +202,6 @@ Notation
    letters are used to denote the more complex less well defined English
    propositions.
 
------------------
-The Laws of Logic
------------------
-
-   The simplest logic has just two discrete truth-values: True and False.
-   It's the logic that powers computers.  from this notion of the BINARY
-   we derive the logical systems which are their derivations.
-
-   we describe the following principles:
-
-   LAW OF NONCONTRADICTION (LNC)
-
-      A proposition P is never both              ¬(P ∧ ¬P)
-      True and False.
-
-   LAW OF EXCLUDED MIDDLE (LEM)
-
-      A proposition P is either True or False.   (P ∨ ¬P)
-
-   IDENTITY OF INDISCERIBILITY
-
-      If two things have all of the same         ∀x∀y(∀F(Fx <-> Fy) -> x=y)
-      properties then then they're identical.
-      
-   LAW OF INDISCERNIBILITY OF IDENTICALS (LEIBNIZ'S LAW)
-
-      If two things are identical then they      ∀x∀y(x=y -> ∀F(Fx <-> Fy))
-      have all of the same properties.
-
-   These are some of the basic principles upon which many formal deductive
-   systems are based. It's also possible to construct new logics on other
-   principles, but these are the principles we're concerned with in this text.
-
-   The definition of a PROPOSITION, a statement that's either true or false,
-   follows directly from the Laws of Non-Contradiction and Excluded Middle.
-   Logics that are based on different principles may have different
-   definitions for proposition.
-
-
 ------------------
 Formal Definitions
 ------------------
@@ -250,7 +212,7 @@ Formal Definitions
 
          *string1*  =df  *string2*
 
-   In practice *string1* is simply an abbreviation for *string2*.
+   In practice *string1* is usually an abbreviation for *string2*.
 
          ⊥  =df  (P ∧ ¬P)
 
@@ -278,6 +240,69 @@ Packing & Unpacking
 
    UNPACKING A DEFINITION is when we rewrite a string such that a defined
    abbreviation is replaced with its corresponding long string.
+
+The Definition of 'False'
+=========================
+
+   A PROPOSITION is a statement that makes a claim; it's a statement that
+   is either true or false.  But when one asserts a statement is *true* or
+   *false* what is it that they are saying?  Perhaps the most common response
+   is that when someone says something is true they are saying that the
+   statement corresponds to some state of affairs in the world.  Therefore
+   if something doesn't correspond to some state of affairs in the world,
+   if it isn't true, then it's false.  But True and false are not polar
+   opposites.  *Truth* is a special case, and if a statement doesn't satisfy
+   the criterion of correspondence then the statement must not be true.
+   It's like being at the top of a mountain.  Either you're at the top of the
+   mountain or you're not; and there are many ways that you can not be at the
+   top of the mountain.  you could be at the base, or somewhere on the slopes
+   or in a city on the other side of the world, but you're not at the top.
+   'Truth' is the special case of being at the top of the mountain.  This
+   means we can define 'false' in terms of just one truth value and one
+   logical operation.
+
+         'false'  =df  'not true'
+
+   This definition allows us to assert that anything that's not true is
+   false, and anything that's not false is true.
+
+-----------------
+The Laws of Logic
+-----------------
+
+   The simplest logic has just two discrete truth-values: True and False.
+   It's the logic that powers computers.  From this binary relation it's
+   possible to derive the logical principles which are their consequence.
+
+   we describe the following principles:
+
+   LAW OF NONCONTRADICTION (LNC)
+
+      A proposition P is not both True and False.
+
+   LAW OF EXCLUDED MIDDLE (LEM)
+
+      A proposition P is either True or False.
+
+   IDENTITY OF INDISCERIBILITY
+
+      If two things have all of the same properties then they're
+      the same object.
+      
+   LAW OF INDISCERNIBILITY OF IDENTICALS (LEIBNIZ'S LAW)
+
+      If two things are the same object then they have
+      all of the same properties.
+
+   These are some of the basic principles upon which many formal deductive
+   systems including FRL are based. It's also possible to construct new logics
+   on other principles, but these are the principles we're concerned with in
+   this text.
+
+   The definition of a PROPOSITION, a statement that's either true or false,
+   follows directly from the Laws of Non-Contradiction and Excluded Middle.
+   Logics that are based on different principles may have different
+   definitions for proposition.
 
 
 ============================
@@ -1165,7 +1190,7 @@ Primitive Inference Rules
    ================================  =========================================
 
    These rules can also be described in diagrams.  The horizontal bar
-   denotes 'infer', vertical lines denote subproofs.
+   denotes 'infer'1, vertical lines denote subproofs.
 
    Note that a subproof is analogous to a block in a programming language.
    As such once a subproof is closed nothing within it is accessible.
@@ -1693,310 +1718,311 @@ Important Derived Equivalences
 
    Association (ASSOC):   |-  (P ∧ (Q ∧ R)) <-> ((P ∧ Q) ∧ R)
    Proof
-   01.   |   P ∧ (Q ∧ R)                       H (for ->I)
-   02.   |   P                                 1 ∧E
-   03.   |   Q ∧ R                             1 ∧E
-   04.   |   Q                                 3 ∧E
-   05.   |   R                                 3 ∧E
-   06.   |   P ∧ Q                             2,4 ∧I
-   07.   |   (P ∧ Q) ∧ R                       5,6 ∧I
-   08.   (P ∧ (Q ∧ R)) -> ((P ∧ Q) ∧ R)        1-7 ->I
-   09.   |   (P ∧ Q) ∧ R                       H (for ->I)
-   10.   |   P ∧ Q                             9 ∧E
-   11.   |   R                                 9 ∧E
-   12.   |   P                                 10 ∧E
-   13.   |   Q                                 10 ∧E
-   14.   |   Q ∧ R                             11,13 ∧I
-   15.   |   P ∧ (Q ∧ R)                       12,14 ∧I
-   16.   ((P ∧ Q) ∧ R) -> (P ∧ (Q ∧ R))        9-15 ->I
-   17.   (P ∧ (Q ∧ R)) <-> ((P ∧ Q) ∧ R)       8,16 <->I
+   01.   |   P ∧ (Q ∧ R)                         H (for ->I)
+   02.   |   P                                   1 ∧E
+   03.   |   Q ∧ R                               1 ∧E
+   04.   |   Q                                   3 ∧E
+   05.   |   R                                   3 ∧E
+   06.   |   P ∧ Q                               2,4 ∧I
+   07.   |   (P ∧ Q) ∧ R                         5,6 ∧I
+   08.   (P ∧ (Q ∧ R)) -> ((P ∧ Q) ∧ R)          1-7 ->I
+   09.   |   (P ∧ Q) ∧ R                         H (for ->I)
+   10.   |   P ∧ Q                               9 ∧E
+   11.   |   R                                   9 ∧E
+   12.   |   P                                   10 ∧E
+   13.   |   Q                                   10 ∧E
+   14.   |   Q ∧ R                               11,13 ∧I
+   15.   |   P ∧ (Q ∧ R)                         12,14 ∧I
+   16.   ((P ∧ Q) ∧ R) -> (P ∧ (Q ∧ R))          9-15 ->I
+   17.   (P ∧ (Q ∧ R)) <-> ((P ∧ Q) ∧ R)         8,16 <->I
    QED
 
    Association (ASSOC):   |-  (P ∨ (Q ∨ R)) <-> ((P ∨ Q) ∨ R)
    Proof
-   01.   |   P ∨ (Q ∨ R)                       H (for ->I)
-   02.   |   |   P                             H (for ->I)
-   03.   |   |   P ∨ Q                         2 ∨I
-   04.   |   |   (P ∨ Q) ∨ R                   3 ∨I
-   05.   |   P -> ((P ∨ Q) ∨ R)                2-4 ->I
-   06.   |   |   Q ∨ R                         H (for ->I)
-   07.   |   |   |   Q                         H (for ->I)
-   08.   |   |   |   P ∨ Q                     7 ∨I
-   09.   |   |   |   (P ∨ Q) ∨ R               8 ∨I
-   10.   |   |   Q -> ((P ∨ Q) ∨ R)            7-9 ->I
-   11.   |   |   |   R                         H (for ->I)
-   12.   |   |   |   (P ∨ Q) ∨ R               11 ∨I
-   13.   |   |   R -> ((P ∨ Q) ∨ R)            11-12 ->I
-   14.   |   |   (P ∨ Q) ∨ R                   6,10,13 ∨E
-   15.   |   (Q ∨ R) -> ((P ∨ Q) ∨ R)          6-14 ->I
-   16.   |   (P ∨ Q) ∨ R                       1,5,15 ∨E
-   17.   (P ∨ (Q ∨ R)) -> ((P ∨ Q) ∨ R)        1-16 ->I
-   18.   |   (P ∨ Q) ∨ R                       H (for ->I)
-   19.   |   |   P ∨ Q                         H (for ->I)
-   20.   |   |   |   P                         H (for ->I)
-   21.   |   |   |   P ∨ (Q ∨ R)               20 ∨I
-   22.   |   |   P -> (P ∨ (Q ∨ R))            20-21 ->I
-   23.   |   |   |   Q                         H (for ->I)
-   24.   |   |   |   Q ∨ R                     23 ∨I
-   25.   |   |   |   P ∨ (Q ∨ R)               14 ∨I
-   26.   |   |   Q -> (P ∨ (Q ∨ R))            23-25 ->I
-   27.   |   |   P ∨ (Q ∨ R)                   19,22,26 ∨E
-   28.   |   (P ∨ Q) -> (P ∨ (Q ∨ R))          19-27 ->I
-   29.   |   |   R                             H (for ->I)
-   30.   |   |   Q ∨ R                         29 ∨I
-   31.   |   |   P ∨ (Q ∨ R)                   30 ∨I
-   32.   |   R -> (P ∨ (Q ∨ R))                29-31
-   33.   |   P ∨ (Q ∨ R)                       13,28,32 ∨E
-   34.   ((P ∨ Q) ∨ R) -> (P ∨ (Q ∨ R))        18-33 ->I
-   35.   (P ∨ (Q ∨ R)) <-> ((P ∨ Q) ∨ R)       17,34 <->I
+   01.   |   P ∨ (Q ∨ R)                         H (for ->I)
+   02.   |   |   P                               H (for ->I)
+   03.   |   |   P ∨ Q                           2 ∨I
+   04.   |   |   (P ∨ Q) ∨ R                     3 ∨I
+   05.   |   P -> ((P ∨ Q) ∨ R)                  2-4 ->I
+   06.   |   |   Q ∨ R                           H (for ->I)
+   07.   |   |   |   Q                           H (for ->I)
+   08.   |   |   |   P ∨ Q                       7 ∨I
+   09.   |   |   |   (P ∨ Q) ∨ R                 8 ∨I
+   10.   |   |   Q -> ((P ∨ Q) ∨ R)              7-9 ->I
+   11.   |   |   |   R                           H (for ->I)
+   12.   |   |   |   (P ∨ Q) ∨ R                 11 ∨I
+   13.   |   |   R -> ((P ∨ Q) ∨ R)              11-12 ->I
+   14.   |   |   (P ∨ Q) ∨ R                     6,10,13 ∨E
+   15.   |   (Q ∨ R) -> ((P ∨ Q) ∨ R)            6-14 ->I
+   16.   |   (P ∨ Q) ∨ R                         1,5,15 ∨E
+   17.   (P ∨ (Q ∨ R)) -> ((P ∨ Q) ∨ R)          1-16 ->I
+   18.   |   (P ∨ Q) ∨ R                         H (for ->I)
+   19.   |   |   P ∨ Q                           H (for ->I)
+   20.   |   |   |   P                           H (for ->I)
+   21.   |   |   |   P ∨ (Q ∨ R)                 20 ∨I
+   22.   |   |   P -> (P ∨ (Q ∨ R))              20-21 ->I
+   23.   |   |   |   Q                           H (for ->I)
+   24.   |   |   |   Q ∨ R                       23 ∨I
+   25.   |   |   |   P ∨ (Q ∨ R)                 14 ∨I
+   26.   |   |   Q -> (P ∨ (Q ∨ R))              23-25 ->I
+   27.   |   |   P ∨ (Q ∨ R)                     19,22,26 ∨E
+   28.   |   (P ∨ Q) -> (P ∨ (Q ∨ R))            19-27 ->I
+   29.   |   |   R                               H (for ->I)
+   30.   |   |   Q ∨ R                           29 ∨I
+   31.   |   |   P ∨ (Q ∨ R)                     30 ∨I
+   32.   |   R -> (P ∨ (Q ∨ R))                  29-31
+   33.   |   P ∨ (Q ∨ R)                         13,28,32 ∨E
+   34.   ((P ∨ Q) ∨ R) -> (P ∨ (Q ∨ R))          18-33 ->I
+   35.   (P ∨ (Q ∨ R)) <-> ((P ∨ Q) ∨ R)         17,34 <->I
    QED
 
    Commutation (COM):   |-  (P ∧ Q) <-> (Q ∧ P)
    Proof
-   01.   |   P ∧ Q                H (for ->I)
-   02.   |   P                    1 ∧E
-   03.   |   Q                    1 ∧E
-   04.   |   Q ∧ P                2,3 ∧I
-   05.   (P ∧ Q) -> (Q ∧ P)       1-4 ->I
-   06.   |   Q ∧ P                H (for ->I)
-   07.   |   Q                    ∧E
-   08.   |   P                    ∧E
-   09.   |   P ∧ Q                ∧I
-   10.   (Q ∧ P) -> (P ∧ Q)       6-9 ->I
-   11.   (P ∧ Q) <-> (Q ∧ P)      5,10 <->I
+   01.   |   P ∧ Q                               H (for ->I)
+   02.   |   P                                   1 ∧E
+   03.   |   Q                                   1 ∧E
+   04.   |   Q ∧ P                               2,3 ∧I
+   05.   (P ∧ Q) -> (Q ∧ P)                      1-4 ->I
+   06.   |   Q ∧ P                               H (for ->I)
+   07.   |   Q                                   ∧E
+   08.   |   P                                   ∧E
+   09.   |   P ∧ Q                               ∧I
+   10.   (Q ∧ P) -> (P ∧ Q)                      6-9 ->I
+   11.   (P ∧ Q) <-> (Q ∧ P)                     5,10 <->I
    QED
 
    Commutation (COM):   |-  (P ∨ Q) <-> (Q ∨ P)
    Proof
-   01.   |   P ∨ Q                H (for ->I)
-   02.   |   |   P                H (for ->I)
-   03.   |   |   Q ∨ P            2 ∨I
-   04.   |   P -> (Q ∨ P)         2-4 ->I
-   05.   |   |   Q                H (for ->I)
-   06.   |   |   Q ∨ P            5 ∨I
-   07.   |   Q -> (Q ∨ P)         5-6 ->I
-   08.   |   Q ∨ P                1,4,7 ∨E
-   09.   (P ∨ Q) -> (Q ∨ P)       1-8 ->I
-   10.   |   Q ∨ P                H (for ->I)
-   11.   |   |   Q                H (for ->I)
-   12.   |   |   P ∨ Q            11 ∨I
-   13.   |   Q -> (P ∨ Q)         11-12 ->I
-   14.   |   |   P                H (for ->I)
-   15.   |   |   P ∨ Q            14 ∨I
-   16.   |   P -> (P ∨ Q)         14-15 ->I
-   17.   |   P ∨ Q                10,13,16 ∨E
-   18.   (Q ∨ P) -> (P ∨ Q)       10-17 ->I
-   19.   (P ∨ Q) <-> (Q ∨ P)      9,18 <->I
+   01.   |   P ∨ Q                               H (for ->I)
+   02.   |   |   P                               H (for ->I)
+   03.   |   |   Q ∨ P                           2 ∨I
+   04.   |   P -> (Q ∨ P)                        2-4 ->I
+   05.   |   |   Q                               H (for ->I)
+   06.   |   |   Q ∨ P                           5 ∨I
+   07.   |   Q -> (Q ∨ P)                        5-6 ->I
+   08.   |   Q ∨ P                               1,4,7 ∨E
+   09.   (P ∨ Q) -> (Q ∨ P)                      1-8 ->I
+   10.   |   Q ∨ P                               H (for ->I)
+   11.   |   |   Q                               H (for ->I)
+   12.   |   |   P ∨ Q                           11 ∨I
+   13.   |   Q -> (P ∨ Q)                        11-12 ->I
+   14.   |   |   P                               H (for ->I)
+   15.   |   |   P ∨ Q                           14 ∨I
+   16.   |   P -> (P ∨ Q)                        14-15 ->I
+   17.   |   P ∨ Q                               10,13,16 ∨E
+   18.   (Q ∨ P) -> (P ∨ Q)                      10-17 ->I
+   19.   (P ∨ Q) <-> (Q ∨ P)                     9,18 <->I
    QED
 
    Exportation (EXP):   |-  ((P ∧ Q) -> R) <-> (P -> (Q -> R))
    Proof
-   01.   |   (P ∧ Q) -> R                      H (for ->I)
-   02.   |   |   P                             H (for ->I)
-   03.   |   |   |   Q                         H (for ->I)
-   04.   |   |   |   P ∧ Q                     2,3 ∧I
-   05.   |   |   |   R                         1,4 ->E
-   06.   |   |   Q -> R                        3-5 ->I
-   07.   |   P -> (Q -> R)                     2-6 ->I
-   08.   ((P ∧ Q) -> R) -> (P -> (Q -> R))     1-7 ->I
-   09.   |   P -> (Q -> R)                     H (for ->I)
-   10.   |   |   P ∧ Q                         H (for ->I)
-   11.   |   |   P                             13 ∧E
-   12.   |   |   Q -> R                        9,11 ->E
-   13.   |   |   Q                             10 ∧E
-   14.   |   |   R                             12,13 ->E
-   15.   |   (P ∧ Q) -> R                      10-14 ->I
-   16.   (P -> (Q -> R)) -> ((P ∧ Q) -> R)     9-15 ->I
-   17.   ((P ∧ Q) -> R) <-> (P -> (Q -> R))    8,16 <->I
+   01.   |   (P ∧ Q) -> R                        H (for ->I)
+   02.   |   |   P                               H (for ->I)
+   03.   |   |   |   Q                           H (for ->I)
+   04.   |   |   |   P ∧ Q                       2,3 ∧I
+   05.   |   |   |   R                           1,4 ->E
+   06.   |   |   Q -> R                          3-5 ->I
+   07.   |   P -> (Q -> R)                       2-6 ->I
+   08.   ((P ∧ Q) -> R) -> (P -> (Q -> R))       1-7 ->I
+   09.   |   P -> (Q -> R)                       H (for ->I)
+   10.   |   |   P ∧ Q                           H (for ->I)
+   11.   |   |   P                               13 ∧E
+   12.   |   |   Q -> R                          9,11 ->E
+   13.   |   |   Q                               10 ∧E
+   14.   |   |   R                               12,13 ->E
+   15.   |   (P ∧ Q) -> R                        10-14 ->I
+   16.   (P -> (Q -> R)) -> ((P ∧ Q) -> R)       9-15 ->I
+   17.   ((P ∧ Q) -> R) <-> (P -> (Q -> R))      8,16 <->I
    QED
 
    Distribution (DIST):   |-  (P ∧ (Q ∨ R)) <-> ((P ∧ Q) ∨ (P ∧ R))
    Proof
-   01.   |   P ∧ (Q ∨ R)                       H (for ->I)
-   02.   |   P                                 1 ∧E
-   03.   |   Q ∨ R                             1 ∧E
-   04.   |   |   Q                             H (for ->I)
-   05.   |   |   P ∧ Q                         2,4 ∧I
-   06.   |   |   (P ∧ Q) ∨ (P ∧ R)             5 ∨I
-   07.   |   Q -> ((P ∧ Q) ∨ (P ∧ R))          4-6 ->I
-   08.   |   |   R                             H (for ->I)
-   09.   |   |   P ∧ R                         2,8 ∧I
-   10.   |   |   (P ∧ Q) ∨ (P ∧ R)             9 ∨I
-   11.   |   R -> ((P ∧ Q) ∨ (P ∧ R))          8-10 ->I
-   12.   |   (P ∧ Q) ∨ (P ∧ R)                 3,7,11 ∨E
-   13.   (P ∧ (Q ∨ R)) -> ((P ∧ Q) ∨ (P ∧ R))  1-12 ->I
-   14.   |   (P ∧ Q) ∨ (P ∧ R)                 H (for ->I)
-   15.   |   |   P ∧ Q                         H (for ->I)
-   16.   |   |   P                             15 ∧E
-   17.   |   |   Q                             15 ∧E
-   18.   |   |   Q ∨ R                         17 ∨I
-   19.   |   |   P ∧ (Q ∨ R)                   17,18 ∧I
-   20.   |   (P ∧ Q) -> (P ∧ (Q ∨ R))          15-18 ->I
-   21.   |   |   P ∧ R                         H (for ->I)
-   22.   |   |   P                             21 ∧E
-   23.   |   |   R                             21 ∧E
-   24.   |   |   Q ∨ R                         23 ∨I
-   25.   |   |   P ∧ (Q ∨ R)                   24 ∧I
-   26.   |   (P ∧ R) -> (P ∧ (Q ∨ R))          21-25 ->I
-   27.   |   P ∧ (Q ∨ R)                       14,20,26 ∨E
-   28.   ((P ∧ Q) ∨ (P ∧ R)) -> (P ∧ (Q ∨ R))  14-27 ->I
-   29.   (P ∧ (Q ∨ R)) <-> ((P ∧ Q) ∨ (P ∧ R)) 13,28 <->I
+   01.   |   P ∧ (Q ∨ R)                         H (for ->I)
+   02.   |   P                                   1 ∧E
+   03.   |   Q ∨ R                               1 ∧E
+   04.   |   |   Q                               H (for ->I)
+   05.   |   |   P ∧ Q                           2,4 ∧I
+   06.   |   |   (P ∧ Q) ∨ (P ∧ R)               5 ∨I
+   07.   |   Q -> ((P ∧ Q) ∨ (P ∧ R))            4-6 ->I
+   08.   |   |   R                               H (for ->I)
+   09.   |   |   P ∧ R                           2,8 ∧I
+   10.   |   |   (P ∧ Q) ∨ (P ∧ R)               9 ∨I
+   11.   |   R -> ((P ∧ Q) ∨ (P ∧ R))            8-10 ->I
+   12.   |   (P ∧ Q) ∨ (P ∧ R)                   3,7,11 ∨E
+   13.   (P ∧ (Q ∨ R)) -> ((P ∧ Q) ∨ (P ∧ R))    1-12 ->I
+   14.   |   (P ∧ Q) ∨ (P ∧ R)                   H (for ->I)
+   15.   |   |   P ∧ Q                           H (for ->I)
+   16.   |   |   P                               15 ∧E
+   17.   |   |   Q                               15 ∧E
+   18.   |   |   Q ∨ R                           17 ∨I
+   19.   |   |   P ∧ (Q ∨ R)                     17,18 ∧I
+   20.   |   (P ∧ Q) -> (P ∧ (Q ∨ R))            15-18 ->I
+   21.   |   |   P ∧ R                           H (for ->I)
+   22.   |   |   P                               21 ∧E
+   23.   |   |   R                               21 ∧E
+   24.   |   |   Q ∨ R                           23 ∨I
+   25.   |   |   P ∧ (Q ∨ R)                     24 ∧I
+   26.   |   (P ∧ R) -> (P ∧ (Q ∨ R))            21-25 ->I
+   27.   |   P ∧ (Q ∨ R)                         14,20,26 ∨E
+   28.   ((P ∧ Q) ∨ (P ∧ R)) -> (P ∧ (Q ∨ R))    14-27 ->I
+   29.   (P ∧ (Q ∨ R)) <-> ((P ∧ Q) ∨ (P ∧ R))   13,28 <->I
    QED
 
    Distribution (DIST):   |-  (P ∨ (Q ∧ R)) <-> ((P ∨ Q) ∧ (P ∨ R))
    Proof
-   01.   |   P ∨ (Q ∧ R)                       H (for ->I)
-   02.   |   |   P                             H (for ->I)
-   03.   |   |   P ∨ Q                         2 ∨I
-   04.   |   |   P ∨ R                         2 ∨I
-   05.   |   |   (P ∨ Q) ∧ (P ∨ R)             3,4 ∧I
-   06.   |   P -> ((P ∨ Q) ∧ (P ∨ R))          2-5 ->I
-   07.   |   |   Q ∧ R                         H (for ->I)
-   08.   |   |   Q                             7 ∧E
-   09.   |   |   R                             7 ∧E
-   10.   |   |   P ∨ Q                         8 ∨I
-   11.   |   |   P ∨ R                         9 ∨I
-   12.   |   |   (P ∨ Q) ∧ (P ∨ R)             10,11 ∧I
-   13.   |   (Q ∧ R) -> ((P ∨ Q) ∧ (P ∨ R))    7-12 ->I
-   14.   |   (P ∨ Q) ∧ (P ∨ R)                 1,6,13 ∨E
-   15.   (P ∨ (Q ∧ R)) -> ((P ∨ Q) ∧ (P ∨ R))  1-14 ->I
-   16.   |   (P ∨ Q) ∧ (P ∨ R)                 H (for ->I)
-   17.   |   P ∨ Q                             18 ∧E
-   18.   |   P ∨ R                             16 ∧E
-   19.   |   |   P                             H (for ->I)
-   20.   |   |   P ∨ (Q ∧ R)                   19 ∨I
-   21.   |   P -> (P ∨ (Q ∧ R))                19-20 ->I
-   22.   |   |   Q                             H (for ->I)
-   23.   |   |   |   R                         H (for ->I)
-   24.   |   |   |   Q ∧ R                     22,23 ∧I
-   25.   |   |   |   P ∨ (Q ∧ R)               24 ∨I
-   26.   |   |   R -> (P ∨ (Q ∧ R))            23-25 ->I
-   27.   |   |   P ∨ (Q ∧ R)                   28,21,26 ∨E
-   28.   |   Q -> (P ∨ (Q ∧ R))                22-26 ->I
-   29.   |   P ∨ (Q ∧ R)                       17,21,28 ∨E
-   30.   ((P ∨ Q) ∧ (P ∨ R)) -> (P ∨ (Q ∧ R))  16-29 ->I
-   31.   (P ∨ (Q ∧ R)) <-> ((P ∨ Q) ∧ (P ∨ R)) 15,30 <->I
+   01.   |   P ∨ (Q ∧ R)                         H (for ->I)
+   02.   |   |   P                               H (for ->I)
+   03.   |   |   P ∨ Q                           2 ∨I
+   04.   |   |   P ∨ R                           2 ∨I
+   05.   |   |   (P ∨ Q) ∧ (P ∨ R)               3,4 ∧I
+   06.   |   P -> ((P ∨ Q) ∧ (P ∨ R))            2-5 ->I
+   07.   |   |   Q ∧ R                           H (for ->I)
+   08.   |   |   Q                               7 ∧E
+   09.   |   |   R                               7 ∧E
+   10.   |   |   P ∨ Q                           8 ∨I
+   11.   |   |   P ∨ R                           9 ∨I
+   12.   |   |   (P ∨ Q) ∧ (P ∨ R)               10,11 ∧I
+   13.   |   (Q ∧ R) -> ((P ∨ Q) ∧ (P ∨ R))      7-12 ->I
+   14.   |   (P ∨ Q) ∧ (P ∨ R)                   1,6,13 ∨E
+   15.   (P ∨ (Q ∧ R)) -> ((P ∨ Q) ∧ (P ∨ R))    1-14 ->I
+   16.   |   (P ∨ Q) ∧ (P ∨ R)                   H (for ->I)
+   17.   |   P ∨ Q                               18 ∧E
+   18.   |   P ∨ R                               16 ∧E
+   19.   |   |   P                               H (for ->I)
+   20.   |   |   P ∨ (Q ∧ R)                     19 ∨I
+   21.   |   P -> (P ∨ (Q ∧ R))                  19-20 ->I
+   22.   |   |   Q                               H (for ->I)
+   23.   |   |   |   R                           H (for ->I)
+   24.   |   |   |   Q ∧ R                       22,23 ∧I
+   25.   |   |   |   P ∨ (Q ∧ R)                 24 ∨I
+   26.   |   |   R -> (P ∨ (Q ∧ R))              23-25 ->I
+   27.   |   |   P ∨ (Q ∧ R)                     28,21,26 ∨E
+   28.   |   Q -> (P ∨ (Q ∧ R))                  22-26 ->I
+   29.   |   P ∨ (Q ∧ R)                         17,21,28 ∨E
+   30.   ((P ∨ Q) ∧ (P ∨ R)) -> (P ∨ (Q ∧ R))    16-29 ->I
+   31.   (P ∨ (Q ∧ R)) <-> ((P ∨ Q) ∧ (P ∨ R))   15,30 <->I
    QED
 
    DeMorgan's law (DM): |-  ¬(P ∧ Q) <-> (¬P ∨ ¬Q)
    Proof
-   01.   |   ¬(P ∧ Q)                     H (for ->I)
-   02.   |   |   ¬(¬P ∨ ¬Q)               H (for ¬I)
-   03.   |   |   |   ¬P                   H (for ¬I)
-   04.   |   |   |   ¬P ∨ ¬Q              3 ∨I
-   05.   |   |   |   ⊥                    2,4 EFQ
-   06.   |   |   ¬¬P                      3-6 ¬I
-   07.   |   |   P                        6 ¬E
-   08.   |   |   |   ¬Q                   H (for ¬I)
-   09.   |   |   |   ¬P ∨ ¬Q              8 ∨I
-   10.   |   |   |   ⊥                    2,9 EFQ
-   11.   |   |   ¬¬Q                      9-10 ¬I
-   12.   |   |   Q                        11 ¬E
-   13.   |   |   P ∧ Q                    7,12 ∧I
-   14.   |   |   ⊥                        1,13 EFQ
-   15.   |   ¬¬(¬P ∨ ¬Q)                  2-14 ¬I
-   16.   |   ¬P ∨ ¬Q                      15 ¬E
-   17.   ¬(P ∧ Q) -> (¬P ∨ ¬Q)            1-16 ->I
-   18.   |   ¬P ∨ ¬Q                      H (for ->I)
-   19.   |   |   P ∧ Q                    H (for ¬I)
-   20.   |   |   P                        19 ∧E
-   21.   |   |   Q                        19 ∧E
-   22.   |   |   ¬¬P                      20 DN
-   23.   |   |   ¬Q                       18,22 DS
-   24.   |   |   ⊥                        21,23 EFQ
-   25.   |   ¬(P ∧ Q)                     19-24 ¬I
-   26.   (¬P ∨ ¬Q) -> ¬(P ∧ Q)            18-25 ->I
-   27.   ¬(P ∧ Q) <-> (¬P ∨ ¬Q)           17,26 <->I
+   01.   |   ¬(P ∧ Q)                            H (for ->I)
+   02.   |   |   ¬(¬P ∨ ¬Q)                      H (for ¬I)
+   03.   |   |   |   ¬P                          H (for ¬I)
+   04.   |   |   |   ¬P ∨ ¬Q                     3 ∨I
+   05.   |   |   |   ⊥                           2,4 EFQ
+   06.   |   |   ¬¬P                             3-6 ¬I
+   07.   |   |   P                               6 ¬E
+   08.   |   |   |   ¬Q                          H (for ¬I)
+   09.   |   |   |   ¬P ∨ ¬Q                     8 ∨I
+   10.   |   |   |   ⊥                           2,9 EFQ
+   11.   |   |   ¬¬Q                             9-10 ¬I
+   12.   |   |   Q                               11 ¬E
+   13.   |   |   P ∧ Q                           7,12 ∧I
+   14.   |   |   ⊥                               1,13 EFQ
+   15.   |   ¬¬(¬P ∨ ¬Q)                         2-14 ¬I
+   16.   |   ¬P ∨ ¬Q                             15 ¬E
+   17.   ¬(P ∧ Q) -> (¬P ∨ ¬Q)                   1-16 ->I
+   18.   |   ¬P ∨ ¬Q                             H (for ->I)
+   19.   |   |   P ∧ Q                           H (for ¬I)
+   20.   |   |   P                               19 ∧E
+   21.   |   |   Q                               19 ∧E
+   22.   |   |   ¬¬P                             20 DN
+   23.   |   |   ¬Q                              18,22 DS
+   24.   |   |   ⊥                               21,23 EFQ
+   25.   |   ¬(P ∧ Q)                            19-24 ¬I
+   26.   (¬P ∨ ¬Q) -> ¬(P ∧ Q)                   18-25 ->I
+   27.   ¬(P ∧ Q) <-> (¬P ∨ ¬Q)                  17,26 <->I
    QED
 
    DeMorgan's law (DM)  |-  ¬(P ∨ Q) <-> (¬P ∧ ¬Q)
    Proof
-   01.   |   ¬(P ∨ Q)                     H (for ->I)
-   02.   |   |   ¬(¬P ∧ ¬Q)               H (for ¬I)
-   03.   |   |   |   P                    H (for ¬I)
-   04.   |   |   |   P ∨ Q                3 ∨I
-   05.   |   |   |   ⊥                    1,4 EFQ
-   06.   |   |   ¬P                       3-5 ¬I
-   07.   |   |   |   Q                    H (for ¬I)
-   08.   |   |   |   P ∨ Q                7 ∨I
-   09.   |   |   |   ⊥                    1,8 EFQ
-   10.   |   |   ¬Q                       7-9 ¬I
-   11.   |   |   ¬P ∧ ¬Q                  6,10 ∧I
-   12.   |   |   ⊥                        2,11 EFQ
-   13.   |   ¬P ∧ ¬Q                      2-12 ¬E
-   14.   ¬(P ∨ Q) -> (¬P ∧ ¬Q)            1-13 ->I
-   15.   |   ¬P ∧ ¬Q                      H (for ->I)
-   16.   |   |   P ∨ Q                    H (for ¬I)
-   17.   |   |   ¬P                       15 ∧E
-   18.   |   |   ¬Q                       15 ∧E
-   19.   |   |   Q                        16,18 DS
-   20.   |   |   ⊥                        18,19 EFQ
-   21.   |   ¬(P ∨ Q)                     16-20 ¬I
-   22.   (¬P ∧ ¬Q) -> ¬(P ∨ Q)            15-21 ->I
-   23.   ¬(P ∨ Q) <-> (¬P ∧ ¬Q)           14,22 <->I
+   01.   |   ¬(P ∨ Q)                            H (for ->I)
+   02.   |   |   ¬(¬P ∧ ¬Q)                      H (for ¬I)
+   03.   |   |   |   P                           H (for ¬I)
+   04.   |   |   |   P ∨ Q                       3 ∨I
+   05.   |   |   |   ⊥                           1,4 EFQ
+   06.   |   |   ¬P                              3-5 ¬I
+   07.   |   |   |   Q                           H (for ¬I)
+   08.   |   |   |   P ∨ Q                       7 ∨I
+   09.   |   |   |   ⊥                           1,8 EFQ
+   10.   |   |   ¬Q                              7-9 ¬I
+   11.   |   |   ¬P ∧ ¬Q                         6,10 ∧I
+   12.   |   |   ⊥                               2,11 EFQ
+   13.   |   ¬P ∧ ¬Q                             2-12 ¬E
+   14.   ¬(P ∨ Q) -> (¬P ∧ ¬Q)                   1-13 ->I
+   15.   |   ¬P ∧ ¬Q                             H (for ->I)
+   16.   |   |   P ∨ Q                           H (for ¬I)
+   17.   |   |   ¬P                              15 ∧E
+   18.   |   |   ¬Q                              15 ∧E
+   19.   |   |   Q                               16,18 DS
+   20.   |   |   ⊥                               18,19 EFQ
+   21.   |   ¬(P ∨ Q)                            16-20 ¬I
+   22.   (¬P ∧ ¬Q) -> ¬(P ∨ Q)                   15-21 ->I
+   23.   ¬(P ∨ Q) <-> (¬P ∧ ¬Q)                  14,22 <->I
    QED
 
    Material Equivalence (ME):  |-  (P <-> Q) <-> ((P -> Q) ∧ (Q -> P))
    Proof
-   01.   |   P <-> Q                           H (for ->I)
-   02.   |   P -> Q                            1 <->E
-   03.   |   Q -> P                            1 <->E
-   04.   |   (P -> Q) ∧ (Q -> P)               2,3 ∧I
-   05.   (P <-> Q) -> ((P -> Q) ∧ (Q -> P))    1-4 ->I
-   06.   |   (P -> Q) ∧ (Q -> P)               H (for ->I)
-   07.   |   P -> Q                            6 ∧E
-   08.   |   Q -> P                            6 ∧E
-   09.   |   P <-> Q                           7,8 <->I
-   10.   ((P -> Q) ∧ (Q -> P)) -> (P <-> Q)    6-9 ->I
-   11.   (P <-> Q) <-> ((P -> Q) ∧ (Q -> P))   5,10 <->I
+   01.   |   P <-> Q                             H (for ->I)
+   02.   |   P -> Q                              1 <->E
+   03.   |   Q -> P                              1 <->E
+   04.   |   (P -> Q) ∧ (Q -> P)                 2,3 ∧I
+   05.   (P <-> Q) -> ((P -> Q) ∧ (Q -> P))      1-4 ->I
+   06.   |   (P -> Q) ∧ (Q -> P)                 H (for ->I)
+   07.   |   P -> Q                              6 ∧E
+   08.   |   Q -> P                              6 ∧E
+   09.   |   P <-> Q                             7,8 <->I
+   10.   ((P -> Q) ∧ (Q -> P)) -> (P <-> Q)      6-9 ->I
+   11.   (P <-> Q) <-> ((P -> Q) ∧ (Q -> P))     5,10 <->I
    QED
 
    Material Equivalence (ME):  |-  (P <-> Q) <-> ((P ∧ Q) ∨ (¬P ∧ ¬Q))
    Proof
-   01.   |   P <-> Q                           H (for ->I)
-   02.   |   P -> Q                            1 <->E
-   03.   |   Q -> P                            1 <->E
-   04.   |   |   ¬((P ∧ Q) ∨ (¬P ∧ ¬Q))        H (for ¬I)
-   05.   |   |   ¬(P ∧ Q) ∧ ¬(¬P ∧ ¬Q)         4 DM
-   06.   |   |   ¬(P ∧ Q)                      5 ∧E
-   07.   |   |   ¬(¬P ∧ ¬Q)                    5 ∧E
-   08.   |   |   ¬P ∨ ¬Q                       6 DM
-   09.   |   |   P ∨ Q                         7 DM
-   10.   |   |   |   ¬P                        H (for ->I)
-   11.   |   |   |   ¬Q                        2,10 MT
-   12.   |   |   |   P                         9,10 DS
-   13.   |   |   |   ⊥                         10,11 EFQ
-   14.   |   |   ¬P -> ⊥                       10-13 ->I
-   15.   |   |   |   ¬Q                        H (for ->I)
-   16.   |   |   |   ¬P                        2,15 MT
-   17.   |   |   |   P                         9,15 DS
-   18.   |   |   |   ⊥                         16,17 EFQ
-   19.   |   |   ¬Q -> ⊥                       15-18 ->I
-   20.   |   |   ⊥                             7,14,29 ∨E
-   21.   |   (P ∧ Q) ∨ (¬P ∧ ¬Q)               4-20 ¬I
-   22.   (P <-> Q) -> ((P ∧ Q) ∨ (¬P ∧ ¬Q))    1-21 ->I
-   23.   |   (P ∧ Q) ∨ (¬P ∧ ¬Q)               H (for ->I)
-   24.   |   |   P ∧ Q                         H (for ->I)
-   25.   |   |   |   P                         H (for ->I)
-   26.   |   |   |   Q                         24 ∧E
-   27.   |   |   P -> Q                        25-26 ->I
-   28.   |   |   |   Q                         H (for ->I)
-   29.   |   |   |   P                         24 ∧E
-   30.   |   |   Q -> P                        28-29 ->I
-   31.   |   |   P <-> Q                       27,30 <->I
-   32.   |   (P ∧ Q) -> (P <-> Q)              24-31 ->I
-   33.   |   |   ¬P ∧ ¬Q                       H (for ->I)
-   34.   |   |   |   P                         H (for ->I)
-   35.   |   |   |   Q                         ?,34 ->E
-   36.   |   |   P -> Q                        34-35 ->I
-   37.   |   |   |   Q                         H (for ->I)
-   38.   |   |   |   P                         ?,37 ->E
-   39.   |   |   Q -> P                        37-38 ->I
-   40.   |   |   P <-> Q                       36,39 <->I
-   41.   |   (¬P ∧ ¬Q) -> (P <-> Q)            33-40 ->I
-   42.   |   P <-> Q                           23,32,41 ∨E
-   43.   ((P ∧ Q) ∨ (¬P ∧ ¬Q)) -> (P <-> Q)    23-42 ->I
-   44.   (P <-> Q) <-> ((P ∧ Q) ∨ (¬P ∧ ¬Q))   22,43 <->I
+   01.   |   P <-> Q                             H (for ->I)
+   02.   |   P -> Q                              1 <->E
+   03.   |   Q -> P                              1 <->E
+   04.   |   |   ¬((P ∧ Q) ∨ (¬P ∧ ¬Q))          H (for ¬I)
+   05.   |   |   ¬(P ∧ Q) ∧ ¬(¬P ∧ ¬Q)           4 DM
+   06.   |   |   ¬(P ∧ Q)                        5 ∧E
+   07.   |   |   ¬(¬P ∧ ¬Q)                      5 ∧E
+   08.   |   |   ¬P ∨ ¬Q                         6 DM
+   09.   |   |   P ∨ Q                           7 DM
+   10.   |   |   |   ¬P                          H (for ->I)
+   11.   |   |   |   ¬Q                          2,10 MT
+   12.   |   |   |   P                           9,10 DS
+   13.   |   |   |   ⊥                           10,11 EFQ
+   14.   |   |   ¬P -> ⊥                         10-13 ->I
+   15.   |   |   |   ¬Q                          H (for ->I)
+   16.   |   |   |   ¬P                          2,15 MT
+   17.   |   |   |   P                           9,15 DS
+   18.   |   |   |   ⊥                           16,17 EFQ
+   19.   |   |   ¬Q -> ⊥                         15-18 ->I
+   20.   |   |   ⊥                               7,14,29 ∨E
+   21.   |   (P ∧ Q) ∨ (¬P ∧ ¬Q)                 4-20 ¬I
+   22.   (P <-> Q) -> ((P ∧ Q) ∨ (¬P ∧ ¬Q))      1-21 ->I
+   23.   |   (P ∧ Q) ∨ (¬P ∧ ¬Q)                 H (for ->I)
+   24.   |   |   P ∧ Q                           H (for ->I)
+   25.   |   |   |   P                           H (for ->I)
+   26.   |   |   |   Q                           24 ∧E
+   27.   |   |   P -> Q                          25-26 ->I
+   28.   |   |   |   Q                           H (for ->I)
+   29.   |   |   |   P                           24 ∧E
+   30.   |   |   Q -> P                          28-29 ->I
+   31.   |   |   P <-> Q                         27,30 <->I
+   32.   |   (P ∧ Q) -> (P <-> Q)                24-31 ->I
+   33.   |   |   ¬P ∧ ¬Q                         H (for ->I)
+   34.   |   |   |   ¬P                          H (for ->I)
+   35.   |   |   |   ¬Q                          33 ∧E
+   36.   |   |   ¬P -> ¬Q                        34-35 ->I
+   37.   |   |   Q -> P                          36 TRANS
+   38.   |   |   |   ¬Q                          H (for ->I)
+   39.   |   |   |   ¬P                          33 ∧E
+   40.   |   |   ¬Q -> ¬P                        37-38 ->I
+   41.   |   |   P -> Q                          40 TRANS
+   42.   |   |   P <-> Q                         37,41 <->I
+   43.   |   (¬P ∧ ¬Q) -> (P <-> Q)              33-42 ->I
+   44.   ((P ∧ Q) ∨ (¬P ∧ ¬Q)) -> (P <-> Q)      23-44 ->I
+   45.   (P <-> Q) <-> ((P ∧ Q) ∨ (¬P ∧ ¬Q))     22,44 <->I
    QED
 
 
@@ -2714,8 +2740,9 @@ Translation Hints
 
    Any/Anybody/Anyone/Anything/Anywhere
 
-   Any is ambiguous and can indicate either quantifier.  Generally, try
-   to rephrase the proposition so it doesn't use 'any'.
+   Any has different meanings depending upon how it's used.  It can indicate
+   either quantifier.  Generally, try to rephrase the proposition
+   so it doesn't use 'any'.
 
          Not any...   ->   No...
          If any...    ->   If some...
