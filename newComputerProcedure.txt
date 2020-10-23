@@ -107,7 +107,7 @@ To View This Document Properly
      b.  modify font size and add minimize and maximize buttons to titlebars.
      e.  In settings under power disable the automatic locking.
 
-24.  Dash to Dock Gnome Extension from Gnome extensions web site.
+24.  Dash to Panel Gnome Extension from Gnome extensions web site.
      a.  make it smaller and autohiding
 
 25.  Install the following commands using: sudo apt-get install <command>
@@ -125,6 +125,7 @@ To View This Document Properly
      g.  neofetch  displays system info
      h.  htop      enhanced top command
      i.  tree      display the filesystem in a tree
+     j.  bpytop    another top/htop app
 
 26.  Install more from Pop! Shop:
      b.  Veloren.net

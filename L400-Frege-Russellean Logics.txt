@@ -55,13 +55,14 @@ CONTENTS
 Contents
 Preface
 Introduction
-The Laws of Logic
-Formal Definitions
+   History
+   Formal Definitions
+   The Laws of Logic
+   Set Theory
 Truth-Functional Logic (TFL)
    Language
    Semantics
    Calculus (TFC)
-Set Theory
 Predicate Logic (PL)
    Language
    Semantics
@@ -78,6 +79,10 @@ Function Logic (FL)
    Language
    Semantics
    Calculus
+Definite Descriptors
+   Language
+   Semantics
+   Calculus
 Second-Order Quantified Logic (SOL=)
    Language
    Semantics
@@ -91,37 +96,45 @@ Formal Theories & Axioms
 Preface
 =======
 
-   Who is this book intended for?  This is not an instruction manual.
+   This book is a reference for classical logic.  It's intended audience
+   is those well versed in classical logic and those studying logic.
    It’s not likely that anyone could learn logic from this book alone.
    Rather, this book is a complete set of notes on Classical Logic which
-   I will generally refer to as FREGE-RUSSELLEAN logics (FRL) named after
-   the two people who were chiefly responsible for the development of FRL.
-   This book is intended as a reference book for those well versed in
-   classical logic or a study companion for the student.  It includes
-   all of the information but none of the fluff.  
+   I will generally refer to as FREGE-RUSSELLEAN logics (FRL); named after
+   the two people who were chiefly responsible for its development.
 
    The introduction begins with a brief history of logic followed by some
-   preliminary information about logic:  Namely two short discussions one
-   on the laws of logic, the other on formal definitions
+   preliminary information about logic: Namely a discussion on formal
+   definitions rounded out by a mention of the meanings of 'true' and 'false'.
+   The introduction ends with an overview of basic Set Theory.
 
-   The first chapter covers the Truth-Functional logic; the logic of 'not',
+   The first chapter covers Truth-Functional logic (TFL); the logic of 'not',
    'and' and 'or'.  The chapter begins by describing the formal language:
-   the lexemes and the grammar.  Next we move on to the semantics, the
-   formal descriptions of meanings of sentences in the language.  Next we
-   cover a Fitch-Style calculus for the language.  Lastly we examine some
-   philosophical concerns about the logic.
+   the lexemes and the grammar.  This is followed by the semantics of TFL,
+   formal descriptions of meanings of sentences in the language.  Then
+   comes a Fitch-Style calculus for the language.
 
-   Most of the remaining chapters procede in the same fashion.  Each
-   chapter discribes another system of logic within the discipline of FRL
-   covering Predicate Logic (PL), First-Order Qunatification Logic (FOL),
-   Identity Logic (IL), Function Logic (FL), Second-Order Logic, and
-   lastly Mathematical Induction. Chapter two breaks the pattern with a brief
-   introduction to basic Set Theory.  The book closes with a brief
-   discussion of Axiomatic Deductive Systems, and a brief discussion of
-   Formal Theories and Axaioms.
+   Most of the remaining chapters follow in the same pattern of language,
+   semantics, calculus, with some supplementary sections here and there.
+   Each chapter discribes a different system of logic within the discipline
+   of FRL covering:  Predicate Logic (PL), First-Order Qunatification Logic
+   (FOL), Identity Logic (IL), Function Logic (FL), Russell's Theory of
+   Definite Descriptors, Second-Order Quantification Logic, and lastly
+   Mathematical Induction.  The book closes with mentions of Axiomatic
+   Deductive Systems, and Formal Theories and Axaioms.
+
+   The notation selected for this book may vary slightly from that of whatever
+   books you may have studied.  The symbols were chosen to reflect certain
+   aesthetic principles.  All of the logical operators consist of straight
+   lines, and all but one (negation) are symmetrical.  They are well defined
+   straight lined geometric shapes to denote the well-defined rigid logical
+   operations.  Parentheses, used for grouping just as in math, can be thought
+   of as representing nested circles.  These are in stark contrast large round
+   or curvy letters used to denote more complex less well defined English
+   sentences.
 
    This book will be updated periodically and some sections may be dropped or
-   developed further based upon reader feedback.  If you wish to contribute by
+   developed further based upon your feedback.  If you wish to contribute by
    reporting an error or omission, or have other comments please contact
    the author at AtomicRetro@outlook.com.
 
@@ -134,93 +147,84 @@ History
 -------
 
    Logic has a very long history.  An ancient Greek named Aristotle (384 -
-   322 BCE) who lived in athens and is perhaps the best known of Plato's
-   students from the Academy gave us the first formal logical system often
-   referred to as Categorical or Syllogistic Logic.  His logic is complete,
-   it proves everything that is provable within the bounds of the logic,
-   and it is sound, it doesn't prove anything that doesn't logically follow
-   from the evidence provided.
+   322 BCE) who lived in Athens and is perhaps the best known of Plato's
+   students from the Academy gave us the first formal logical system commonly
+   called Categorical or Syllogistic Logic.  His logic is complete, it proves
+   everything that is provable within the bounds of the logic; and it is
+   sound, it can't prove anything that doesn't logically follow from the
+   evidence provided.
 
-   Around the same time another philosopher Chrysippus is known
-   to have written a book based of a different logical system based upon
-   'and', 'not', 'if...then...', etc.  But his book has been lost and is only
-   known of through other authors who wrote about his work.  Though a valuable
-   step in the development of logic, Chrysippus' logic was mostly ignored
-   throughout most of history to be overshadowed by Aristotle's work.
+   Around the same time as Aristotle another philosopher named Chrysippus
+   is known to have written a book about a different logical system based
+   upon 'and', 'not', 'if...then...', etc.  But his book has been lost and
+   is only known of through mention of other ancient authors.  Though an
+   important development, Chrysippus' logic was mostly ignored throughout
+   history overshadowed by Aristotle's work.
 
    Arstotle's logic is very limited in what it can say or prove.  The logic
-   consists of a language which only has 8 possible sentence forms,
-   a semantics (description of meanings), and an inferential system
-   (a mechanism by which one may derive conclusions).
+   consists of a language which has only 8 possible kinds of sentences,
+   semantics (description of meanings of the sentences), and an inferential
+   system, a sort of simple calculus by which one may derive conclusions.
 
    Aristotelian logic reigned supreme for over two thousand years.  Over the
    centuries there were many commentaries, organizational and pedagogical
    modifications, even advances in the semantics of the logic but it was all
    still the same limited logic.  There were other advances in logic outside
-   of Aristotelian logic but they were limited; never producing complete
-   logical systems.
+   of Aristotelian logic but they were limited; never producing fully
+   developed logical systems.
 
-   Then in 1847 and 1854 George Boole published his books *The Mathematical
-   Analysis of Logic* and *An Investigation of the Laws of Thought*
-   respectively.  In these books Boole outlined a new logic with notions
-   similar to those of chrysippus, however Boole's logic is mathematically
-   precise.  This is the logical system that would eventually come to power
+   This changed in 1847 and 1854 when George Boole published his books
+   *The Mathematical Analysis of Logic* and *An Investigation of the Laws
+   of Thought* respectively.  In these books Boole outlined a new logic
+   with notions similar to those of chrysippus, however Boole's logic
+   is mathematically precise.  George Boole's logical, today known as
+   BOOLEAN ALGEBRA, is the system that would eventually come to power
    digital logic and computers.
 
-   Next came Friedrich Ludwig Gottlob Frege (1848 - 1925).  In 1879 Frege
-   published a book the *Begriffsschrift* which unified the logical theories
-   of Aristotle with that of Boole.
+   Next came Friedrich Ludwig Gottlob Frege (1848 - 1925).  In 1879
+   Frege published his *Begriffsschrift* in which he made the important
+   advancement of a unified theory of logic joining Aristotle's and
+   Boole's systems.
 
-   Frege's logic was a revolutionary advancement of logic, but it wasn't
+   Frege's logic was a revolutionary advancement in logic, but it wasn't
    problem free.  The problem stemmed from the fact that Frege's logic
-   allowed self-reference, while this gave the logic a lot of expressive
-   power, it also meant that the logic is inconsistent.  Bertrand Russell
-   (1872 - 1970) exposed the paradox within Frege's logic, by expressing
+   allowed self-reference, while this gave the logic much needed expressive
+   power, it also means that the logic is inconsistent.  Bertrand Russell
+   (1872 - 1970) exposed the problem within Frege's logic, by expressing
    the problem as a paradox: the set of all sets that do not contain
    themselves.  So, does the set contain itself or not?  The answer
    is both or neither, which is nonsensical.
 
    In 1903 Russell, along with Alfred North Whitehead published the first
    book of his *The Principles of Mathematics*, in which he outlined a
-   "fixed" variation of Frege's logic.  The primary change Russell made
-   was to disallow self-reference.  Russell also replaced Frege's cumbersome
-   notation.  Russell's logic constituted a new logic to follow Aristotle's
-   that, like aristotle's, is both sound and complete.  Today Russell's is
-   the logic most commonly studied in introductory logic courses today (with
-   a slightly simplified notation system), it's often called Classical Logic.
-   In this book we will refer to it as Frege-Russellean logic in honor of
-   those responsible for it's development.  This new logic, while still quite
-   limited, is infinitely more expressive than Aristotle's or Chrysippus'
-   logic alone, and the unified logic can say more than the sum total of what
-   both can say.  Frege-Russellean logic is the subject matter of this book.
-
---------
-Notation
---------
-
-   The notation selected in this book may vary slightly from that of whatever
-   books you may have studied.  The symbols were chosen to reflect a certain
-   logical aesthetic.  All of the logical operators consist of straight lines,
-   and all but one (negation) are symmetrical.  They are well defined straight
-   lined geometric shapes to denote the well-defined rigid logical operations
-   they denote.  Parentheses, used for grouping just as in math, can be
-   thought of as representing nested circles.  In stark contrast large round
-   or curvy letters are used to denote more complex less well defined English
-   propositions and predicates.
+   repaired but more limited variation of Frege's logic.  The primary change
+   Russell made was to disallow self-reference.  Russell also replaced Frege's
+   cumbersome notation.  Russell's logic constituted the first fully
+   developed logic since Aristotle's that's both sound and complete.
+   Today Russell's is the logic most commonly studied in introductory logic
+   courses (with a slightly simplified notation system), it's often called
+   Classical Logic.  In this book we will refer to it as Frege-Russellean
+   logic in honor of those primarily responsible for it's development.
+   This new logic, while still quite limited, is infinitely more expressive
+   than Aristotle's or Chrysippus' logic alone, and the unified logic can say
+   more than the sum total of what both of them can say.  Frege-Russellean
+   logic is the subject matter of this book.
 
 ------------------
 Formal Definitions
 ------------------
 
-   A FORMAL DEFINITION is a declaration that two strings or groups of strings
-   mean the same thing; that they're interchangeable.  They are expressed as
-   follows:
+   A FORMAL DEFINITION is a declaration that two strings or groups of
+   strings mean the same thing; that they're interchangeable.  Definitions
+   are expressed as follows:
 
          *string1*  =df  *string2*
 
    In practice *string1* is usually an abbreviation for *string2*.
 
-         ⊥  =df  (P ∧ ￢P)
+         *abbreviation*  =df  *long-string*
+
+                      ⊥  =df  (P ∧ ￢P)
 
 Definition Schemata & Variables
 ===============================
@@ -236,31 +240,32 @@ Definition Schemata & Variables
          P(X|Y)  =df  --------
                         P(Y)
 
-   Whenever we see an instance of P(X|Y) it's interchangeable with its
-   corresponding right-hand side replacing values for X and Y uniformly.
+   Whenever we see an instance of P(X|Y) it's interchangeable, and so can
+   be replaced by, its corresponding right-hand side replacing values for
+   X and Y uniformly.  The reverse operation is also possible.
 
 Packing & Unpacking
 ===================
 
    PACKING A DEFINITION is when we rewrite a string such that we replace one
-   or more definitions with their abbreviations.
+   or more occurrences of a *long-string* with its *abbreviation*.
 
    UNPACKING A DEFINITION is when we rewrite a string expanding one or more
-   abbreviations with their definition.
+   occurrences of an *abbreviation* with its *long-string*.
 
 The Definition of 'False'
 =========================
 
    A PROPOSITION is a statement that makes a claim; it's a statement that
-   is either true or false.  But when one asserts a statement is *true* or
-   *false* what is it that they are saying?  Perhaps the most common response
-   is that when someone says something is true they are saying that the
-   statement corresponds to some state of affairs in the world.  Therefore
-   if something doesn't correspond to some state of affairs in the world,
-   if it isn't true, then it's false.  But True and false are not polar
-   opposite equals.  *Truth* is a special case, and if a statement doesn't
-   satisfy the criterion of correspondence then the statement must not be
-   true.  It's like being at the top of a mountain.  Either you're at the
+   is said to be either true or false.  But when one asserts that a statement
+   is *true* or *false* what is it that they're saying?  Perhaps the most
+   common response is that when someone says something is true they are
+   saying that the statement corresponds to some state of affairs in the
+   world.  Therefore if something doesn't correspond to some state of affairs
+   in the world, if it isn't true, then it's false.  But True and false are
+   not polar opposite equals.  *Truth* is a special case, and if a statement
+   doesn't satisfy the criterion of correspondence then the statement must not
+   be true.  It's like being at the top of a mountain.  Either you're at the
    top of the mountain or you're not; and there is only one way you can be
    at the top of the mountain but many ways that you can not be at the top
    of the mountain.  you could be at the base, or somewhere on the slopes
@@ -270,10 +275,10 @@ The Definition of 'False'
    This means we can define 'false' in terms of just one truth value and
    one logical operation.
 
-         'false'  =df  'not true'
+         false  =df  not true
 
    This definition allows us to assert that anything that's not true is
-   false, and anything that's not false is true.
+   false, and so conversely anything that's not false is true.
 
 -----------------
 The Laws of Logic
@@ -303,13 +308,154 @@ The Laws of Logic
 
    These are some of the basic principles upon which many formal deductive
    systems including FRL are based. It's also possible to construct new logics
-   on other principles, but these are the principles we're concerned with in
+   upon other principles, but these are the principles we're concerned with in
    this text.
 
-   The definition of a PROPOSITION, a statement that's either true or false,
-   follows directly from the Laws of Non-Contradiction and Excluded Middle.
-   Logics that are based on different principles may have different
-   definitions for proposition.
+
+----------
+Set Theory
+----------
+
+A SET is a collection of objects which has no special order but in which every
+member object occurs just once.
+
+Set Definition
+==============
+
+   Sets are defined within a pair of braces { and }.  The simplest definition
+   is by exhaustive enumeration (listing out all the members).
+
+         A = { my phone, empire state building, titanic,
+               the neighborhood dog that's always barking }
+
+   The null set is a special case.
+
+         ∅ = { } = null/empty set
+
+   More often sets are too large to enumerate so are described by the
+   properties of their members.  This is usually done using a comprehension.
+   A COMPREHENSION is a set defined by properties and includes the use of
+   '|', which is read as, 'such that' (sometimes ':' is used instead of '|').
+
+         M = the set of all mammals
+           = { x | x is a mammal }
+           = read, "the set of all x such that x is a mammal."
+
+         E = { x | x/2 = int(x/2) }
+           = "The set of all x such that x divided by 2 equals the integer
+             of x divided by 2."
+           = "The set of all even numbers."
+
+         P = { x | (x is an integer) or (x is red) }
+
+         Z = { x | x is an integer }
+             It's customary to denote this set with a bold capital 'Z'.
+
+   <x,y> is an ORDERED PAIR, a value which requires two numbers to be
+   fully expressed, where x,y can be any two real numbers
+
+         F = { <x,y> | (x in Z) and (y=10x) }
+             The set of all ordered pairs <x,y> such that x is an integer
+             and y is ten times x.
+
+Set-Member Relations
+====================
+
+   The things that sets are composed of are called OBJECTS, ELEMENTS
+   or MEMBERS.
+
+   MEMBERSHIP ( ∊ )
+
+      a ∊ P is read, "a is a member/element of P", or, "a is in P".
+      Fido ∊ Dog, Fido is a dog.
+      2 ∊ Even, 2 is even.
+
+   Identity ( = )
+
+      A = B, Set A has exactly the same members as set B.
+
+   PROPER SUBSET ( ⊂ )
+
+      A ⊂ B,  A is composed of some of the objects in set B.
+      E ⊂ Z,  even numbered integers are a subset of integers.
+
+   SUBSET ( ⊆ )
+
+      A ⊆ B, A is a proper subset of or identical to B
+
+   PROPER SUPERSET & SUPERSET ( ⊃, ⊇ )
+
+      ⊃ and ⊇ work similarly to the subset operators.
+
+Set Operations
+==============
+
+   Consider,
+
+       R = { x | x is red }
+       C = { x | x is a car }
+
+   UNION ( ∪ ) 
+
+      The set of all things contained in two sets.
+
+      R ∪ C
+      = { x | x is red } ∪ { x | x is a car }
+      = { x | (x is red) or (x | x is a car) }
+
+   INTERSECTION ( ∩ )
+
+      The set of all things common to two sets.
+
+      R ∩ C
+      = { x | x is red } ∩ { x | x is a car }
+      = { x | (x is red) and (x is a car) }
+
+   DIFFERENCE ( - )
+
+      R - C = { x | (x is red) and (x is not a car) }
+
+   COMPLEMENT ( ' )
+
+      The set of all things outside of (not in) the set.
+
+      C' = { x | x is not a car }
+      C'' = C
+
+   CARDINALITY ( || )
+
+      The CARDINALITY of a set is how many members it contains.
+
+      A = { a, b, c }
+      |A| = 3
+      |Z| = infinity
+
+Set Properties
+==============
+
+   UNIVERSE
+
+      U, UNIVERSE OF DISCOURSE (also DOMAIN OF DISCOURSE)
+         The set of all objects in our discussion.
+
+   DECIDABLE SET
+
+      A set is DECIDABLE iff there's an effective method for determining
+      whether an object is in the set.
+
+   1:1 CORRESPONDENCE
+
+      For any two sets there is a 1:1 CORRESPONDENCE iff there is a way
+      to pair off each member of set A with a member of set B.  Every member
+      of both must be paired uniquely, so both sets have the same cardinality
+      |A| = |B|.  Every member of A is paired to exactly one member of B,
+      and vice versa.
+
+   DENUMERABLE
+
+      A set is DENUMERABLE iff there is a 1:1 correspondence between
+      it and the set of natural numbers.  Hence, the cardinality of the
+      set is infinite.
 
 
 ============================
@@ -335,7 +481,7 @@ Language
    arguments and all things that they entail.  Most of this book
    is written in the metalanguage.
 
-A LEXEME is the smallest semantic unit in the language, often called words.
+   A LEXEME is the smallest semantic unit of a language, often called words.
 
 Lexemes
 =======
@@ -371,12 +517,11 @@ Grammar
    Notes
 
    - Notices that the formation rules for wffs are recursive,
-     this means that wffs can nest within other wff to any depth.
-     So, while P ∧ Q is a wff, so is (￢(P ∨ Q) -> R) which can
-     be written ￢(P ∨ Q) -> R (dropping the outermost parentheses).
+     this means that wffs can nest within other wffs to any depth.
+     So, while P ∧ Q is a wff, so is (￢(P ∨ Q) -> R).
 
-   - To aid readability of wffs we adopt the convention that if a wff
-     begins with '(', we will drop the outermost pair of parenthesis,
+   - To aid readability we adopt the convention that if a wff
+     begins with '(', we will drop the outermost pair of parentheses,
      doing so never introduces ambiguity to the formula.
 
    - In practice it's common to use PRIME marks ('), or numerical
@@ -394,7 +539,7 @@ Substitution Instance (or Instance)
    Q is an instance of P.
 
    =============  =====   =======   ===========   ========================
-   Original Form  P ∧ Q | P  ∧ Q  | P       ∧ Q | P   -> (P    ∧ Q       )
+   Original Form  P ∧ Q | P   ∧ Q | P       ∧ Q | P   -> (P    ∧ Q       )
    =============  =====   =======   ===========   ========================
    Substitutions  P=R   | P=￢S   | P=(C ∧ D)   | P=￢H
                   Q=S   | Q=Z     | Q=D         | Q=(￢S ∨ M)
@@ -407,14 +552,139 @@ Substitution Instance (or Instance)
 Semantics
 ---------
 
+Translation Hints
+=================
+
+   +-----------------------------------------------------------------------+
+   | =================================   ================================= |
+   | P                                 | ￢P                               |
+   | ================================= | ================================= |
+   | P                                 | it's false that P                 |
+   | it's true that P                  | it's not true that P              |
+   | it's the case that P              | it's not the case that P          |
+   | P whether or not Q                | non-P                             |
+   |   literally:  (Q ∨ ￢Q) -> P      |                                   |
+   |                                   |                                   |
+   | ================================= | ================================= |
+   | P ∧ Q                             | ￢(P ∧ Q)                         |
+   | ================================= | ================================= |
+   | P and Q                           | P nand Q (in computing)           |
+   | P but Q                           |                                   |
+   | P yet Q                           |                                   |
+   | P still Q                         |                                   |
+   | P also Q                          |                                   |
+   | both P and Q                      |                                   |
+   | P additionally Q                  |                                   |
+   | P furthermore Q                   |                                   |
+   | P however Q                       |                                   |
+   | P although Q                      |                                   |
+   | P nevertheless Q                  |                                   |
+   | P moreover Q                      |                                   |
+   | P even though Q                   |                                   |
+   | P even if Q                       |                                   |
+   | P whereas Q                       |                                   |
+   | not only P but also Q             |                                   |
+   |  literally: ￢(P ∧ ￢Q) ∧ (P ∧ Q) |                                   |
+   |                                   |                                   |
+   | ================================= | ================================= |
+   | P ∨ Q                             | ￢(P ∨ Q)                         |
+   | ================================= | ================================= |
+   | P or Q                            | neither P nor Q                   |
+   | P except if Q                     | P nor Q (in computing)            |
+   | P except when Q                   |                                   |
+   | P except on condition that Q      |                                   |
+   | P unless Q (weak/inclusive-or)    |                                   |
+   | either P or Q (inclusive)         |                                   |
+   |                                   |                                   |
+   | ================================= | ================================= |
+   | P -> Q                            | ￢P -> ￢Q                        |
+   | ================================= | ================================= |
+   | if P then Q                       | P is a necessary condition for Q  |
+   | P implies Q                       | P is necessary for Q              |
+   | P only if Q                       |                                   |
+   | only if Q, P                      |                                   |
+   | P results in Q                    |                                   |
+   | P brings about Q                  |                                   |
+   | P leads to Q                      |                                   |
+   | not P unless also Q               |                                   |
+   |  literally:  ￢P ∨ (P ∧ Q)        |                                   |
+   | P is a sufficient condition for Q |                                   |
+   | P is sufficient for Q             |                                   |
+   | Q assuming that P                 |                                   |
+   | assuming that P, Q                |                                   |
+   | Q on the condition that P         |                                   |
+   | on the condition that P, Q        |                                   |
+   | Q given that P                    |                                   |
+   | given that P, Q                   |                                   |
+   | Q provided that P                 |                                   |
+   | provided that P, Q                |                                   |
+   | Q in case P                       |                                   |
+   | in case P, Q                      |                                   |
+   |                                   |                                   |
+   | ================================= | ================================= |
+   | P <-> Q                           | P <-> ￢Q                         |
+   | ================================= | ================================= |
+   | P if and only if Q                | P xor Q (computing)               |
+   | P iff Q                           | P (exclusive) or Q                |
+   | P just if Q                       | P unless also Q                   |
+   | P just in case Q                  | P unless Q                        |
+   | P exactly when Q                  | either P of Q                     |
+   | P exactly if Q                    |                                   |
+   | P but only if B                   |                                   |
+   | P is a necessary and sufficient   |                                   |
+   |    condition for Q                |                                   |
+   | P is necessary and sufficient     |                                   |
+   |    for Q                          |                                   |
+   +-----------------------------------------------------------------------+
+
 The semantics of a language are the concepts denoted by the lexemes and
 sentences (our wffs) of the language.
+
+Conversational Implicature
+==========================
+
+   CONVERSATIONAL IMPLICATURE is what's meant by a speaker's utterance that
+   are not part of the literal meaning of what's explicitly said.
+
+   'and then'
+
+   When 'and' is a shortened form of 'and then', it can't be translated
+   into a conjunction since the word 'then' here denotes a temporal
+   relationship between the clauses it joins and the operators in TFL have
+   no notion of time.
+
+         Keep up the good work and you'll go far.
+
+         Alice drove home and went to bed.
+
+   'if...then'
+
+   It can be tempting two rewrite 'and then' as 'if...then', but it doesn't
+   always result in a sentence with the same meaning.
+
+         Keep up the good work and you'll go far.
+         If you keep up the good work then you'll go far.
+
+         Alice drove home and went to bed.
+         If Alice drove home then she went to bed.
+
+   Again 'then' in 'if/then' denotes a temporal relationship, it can't
+   be translated into a TFL conditional.  Consider what happens by negating
+   the first rewrite example and seeing what we derive after applying
+   a few logical equivalences (similarly to algebra).
+
+         K -> F        if you keep up the good work then you'll go far.
+
+         ￢(K -> F)    it's false that if you keep up the work you'll go far
+         ￢(￢K ∨ F)
+         K ∧ ￢F       You keep up the good work and you don't go far.
+
 
 Truth-Function Anatomy
 ======================
 
-   The TF functions have "official" names, and slang-like English
-   conversational names; the OPERANDS, the things the operator applies
+   The TF functions have "official" names, and informal English
+   conversational names; the OPERANDS, the things the TF functions apply
    to, also have names.
 
          ======  =======  =============  =======  ===================
@@ -429,9 +699,9 @@ Truth-Function Anatomy
          ======  =======  =============  =======  ===================
 
    ARITY is the number of subordinates a symbol expects.  Example negation
-   has an arity of one because it takes one subordinate; while conjunction
+   has an arity of one because it has one subordinate; while conjunction
    has an arity of two.  The table below lists some common arities and some
-   different names for them.
+   different names they go by.
 
          =====  ====================  =========  ==========  ==========
          Arity  Examples              -ary name  -adic name  place name
@@ -492,8 +762,8 @@ TRUTH-TABLES
       under study; followed to the right by a second horizontal list of the
       formulas themselves.
 
-   2. Under the proposition symbols list list all possible combinations
-      of T and F for those symbols. usually we start with a row of all
+   2. Under the list of proposition symbols list all possible combinations
+      of T and F for those symbols.  usually we start with a row of all
       F and end with all T, or vice versa, according to preference.
       The values for the intermediate rows are attained as if counting
       in binary.
@@ -601,7 +871,7 @@ TRUTH-TABLES
 
    Truth-Table Study of Sets of WFFs
 
-   A truth-table study for a set of wffs can give us valuable insight into
+   A truth-table study of a set of wffs can give us valuable insight into
    the relationships between those formulas.
 
    CONSISTENT SET OF FORMULAS
@@ -615,8 +885,8 @@ TRUTH-TABLES
          we've shown that it's logically equivalent to ￢(P ∧ Q).
 
    INCONSISTENT SET OF FORMULAS
-      A set of wffs is INCONSISTENT if there is no valuation (row of the
-      table) on which all formulas have T under their main operators.
+      A set of wffs is INCONSISTENT if there is no valuation (row)
+      on which all formulas have T under their main operators.
 
    Truth-Table Study of Sequents
 
@@ -639,7 +909,7 @@ TRUTH-TABLES
        T T | T T  T | F  T  |  F  T
                *      *        *
 
-   The row indicated with an arrow verifies that this argument is VALID.
+   The row indicated with an arrow verifies that this argument is valid.
 
    If the premises of a valid argument are all *actually* true the argument
    is SOUND.  However, soundness isn't a concern of formal logic.
@@ -659,7 +929,7 @@ TRUTH-TABLES
                *       *        *
 
    We've discovered a row on which the premises are all T, but the conclusion
-   is F.  So the form is invalid.
+   is F.  So the argument form is invalid.
 
    The results for an inconsistent set of premises may seem counter-intuitive.
 
@@ -674,9 +944,8 @@ TRUTH-TABLES
    This argument is actually valid.  Since there are no rows where the
    premises are all true any conclusion whatever follows.
 
-   Notice that a disadvantage of truth-tables is that they grow
-   exponentially.  A set of wffs with n proposition symbols will
-   have 2^n rows.
+   Notice that a disadvantage of truth-tables is that they grow exponentially.
+   A set of wffs with n proposition symbols will have 2^n rows.
 
 Truth-Tables ("Fast Method")
 ============================
@@ -689,8 +958,8 @@ Truth-Tables ("Fast Method")
 
    Procedure
    1. Write down in a horizontal list the wff, set of wffs or sequent.  Set
-      the main operators to either T or F (depending on what you're trying
-      to find - see Truth-Table Study of Single WFFs above).
+      the main operators of each to either T or F (depending on what you're
+      trying to find - see Truth-Table Study of Single WFFs above).
 
    2. Now work backwards from the outermost operator down to the innermost
       parentheses.  Evaluate as many sub-expressions as possible, continuing
@@ -715,28 +984,31 @@ Truth-Tables ("Fast Method")
 
    Examples
 
-      1.  P ∧ Q     P ∨ ￢Q     P -> (￢Q ∨ R)     ￢￢P ∧ (Q ∨ P)
-            T          F          F                      T
+      1.  P ∧ Q     ￢￢P ∧ (Q ∨ P)     P ∨ ￢Q     P -> (￢Q ∨ R)
+            T             T               F           F
 
-      2.  P ∧ Q     P ∨ ￢Q     P -> (￢Q ∨ R)     ￢￢P ∧ (Q ∨ P)
-          T T T     F F F       T F       F        T     T    T
+      2.  P ∧ Q     ￢￢P ∧ (Q ∨ P)    P ∨ ￢Q     P -> (￢Q ∨ R)
+          T T T     T     T    T       F F F       T F       F
           *   *
-      3.            P ∨ ￢Q     P -> (￢Q ∨ R)     ￢￢P ∧ (Q ∨ P)
-                    F F F T     T F   F   F F      T F T T    T
-                    *     *
-      4.                       P -> (￢Q ∨ R)     ￢￢P ∧ (Q ∨ P)
-                               T F   F T F F      T F T T  ? T T
-                               *       *   *          *    *   *
+      3.            ￢￢P ∧ (Q ∨ P)    P ∨ ￢Q     P -> (￢Q ∨ R)
+                    T F T T    T       F F F T     T F   F   F F
+                                       *     *
+
+      4.            ￢￢P ∧ (Q ∨ P)                P -> (￢Q ∨ R)
+                    T F T T  ? T T                 T F   F T F F
+                        *    *   *                 *       *   *
 
    valuations Discovered
 
-          P=T       P=F        P=T                P=T
-          Q=F       Q=T        Q=T                Q=T or F
-                               R=F
+          P=T       P=T                P=F         P=T
+          Q=F       Q=T or F           Q=T         Q=T
+                                                   R=F
 
-   Notice in the last example we couldn't find a value for Q.  However,
-   upon closer examination we see that's because the wff is true on both
-   valuations.  In both P is T, but Q is T in one and F in the other.
+   Notice in the second example we couldn't find a value for Q.  However,
+   upon closer examination we see that's because Q's value doesn't matter;
+   both T and F for Q make the formula T.  So there are two valuations
+   on which the formula is T.  In both P is T, but Q is T in one and
+   F in the other.
 
    To test if a wff is contingent the process must be performed twice; once
    with T under the main operator, and once with F.  The wff is contingent
@@ -762,8 +1034,8 @@ Truth-Tables ("Fast Method")
           T T T    T      F                  T T T        T  
    
       3.  P ∧ Q    ￢(￢P ∨ ￢Q)             P ∧ Q    ￢P ∨ ￢Q
-          T T T    T  F   F F                T T T    F T F F T
-                                             *         *
+          T T T    T  F   F F                T T T    F T T F T
+                                             *        *     *
       4.  P ∧ Q    ￢(￢P ∨ ￢Q)             inconsistent
           T T T    T  F T F F T
             *      *
@@ -796,7 +1068,7 @@ Truth-Tables ("Fast Method")
    The search succeeded in finding a set of values that makes all the
    premises T and the conclusion F.  So the argument is invalid.
 
-   Example  Test the argument for validity
+   Example  Test the argument form for validity
 
       1.  P -> (Q ∨ R), Q -> S, P  ⊢  ￢R -> S
             T             T     T         F
@@ -812,7 +1084,7 @@ Truth-Tables ("Fast Method")
 
       5.  P -> (Q ∨ R), Q -> S, P  ⊢  ￢R -> S
           T T   F T F   F T  F  T     T F F  F
-            *             *     *         *
+                  *
 
    We've discovered a contradiction.  The highlighted disjunction can't be
    T if Q and R are both F.  Therefore, the form is valid.
@@ -856,17 +1128,17 @@ Truth-Trees
 
    Given a set of wffs a TRUTH-TREE is an exhaustive search for ways in which
    all the wffs can be true.  The nodes of our tree will each have a list of
-   one or more wffs.  A CLOSED PATH is any path that's terminated by a '⊥'.
+   one or more wffs.  A CLOSED PATH is any path that's terminated by '⊥'.
    So, an OPEN PATH is any path that's not closed.
 
    Procedure
-   1.  Write down a vertical list of wffs to be tested.  This list forms the
-       root of our tree, so place it at the top of the page.
+   1.  Write down a vertical list of the wffs to be tested.  This list forms
+       the root of our tree, so place it at the top of the page.
 
    2.  Repeatedly apply the following rules in any order.  The tree
        is completed when no more rules can be applied.
 
-   Notes:  While the order you apply rules doesn't matter, to keep the tree
+   Note that while the order you apply rules doesn't matter, to keep the tree
    smaller, at each step always apply any non-branching rules before applying
    branching rules.
 
@@ -972,13 +1244,13 @@ Truth-Tree Analysis
    Truth-Tree Study of Single WFFs
 
    To test a single wff using a truth-tree, we treat our wff as the set
-   of formulas being tested.  Then begin the search process.
+   of formulas being tested.  Then conduct the search process.
 
    If the completed tree for one wff contains no open paths then the wff is
    inconsistent.  If it contains one or more open paths the wff is consistent.
    If it contains two or more open paths then the wff is either tautologous or
-   contingent.  To find out which we can construct a second tree for the
-   negation of the original wff.  A wff is tautologous iff its negation is
+   contingent.  To find out which construct a second tree for the negation
+   of the original wff.  A wff is tautologous iff its negation is
    inconsistent.  Otherwise it's contingent.
 
       =============   ==========================   ==========
@@ -991,11 +1263,12 @@ Truth-Tree Analysis
 
    Truth-Tree Study of Sets of Wffs
 
-   To test a set of wffs using a truth-tree, we list the wffs.  Then begin
-   the search process by applying the above rules in any order.
+   To test a set of wffs using a truth-tree, we list vertically the wffs.
+   Then conduct the search process by applying the above rules in any order.
 
    The set of wffs is truth functionally consistent if the tree has a least
-   one open path. If a tree has no open paths the set of wffs is inconsistent.
+   one open path. If the tree has no open paths the set of wffs is
+   inconsistent.
 
       =============   ==========================
       Condition       wff Set
@@ -1024,137 +1297,9 @@ Truth-Tree Analysis
       1+ open paths   Invalid w/ counterexamples
       =============   ==========================
 
-Translation Hints
-=================
-
-   +-----------------------------------------------------------------------+
-   | =================================   ================================= |
-   | P                                 | ￢P                               |
-   | ================================= | ================================= |
-   | P                                 | it's false that P                 |
-   | it's true that P                  | it's not true that P              |
-   | it's the case that P              | it's not the case that P          |
-   | P whether or not Q                | non-P                             |
-   |   literally:  (Q ∨ ￢Q) -> P      |                                   |
-   |                                   |                                   |
-   | ================================= | ================================= |
-   | P ∧ Q                             | ￢(P ∧ Q)                         |
-   | ================================= | ================================= |
-   | P and Q                           | P nand Q (in computing)           |
-   | P but Q                           |                                   |
-   | P yet Q                           |                                   |
-   | P still Q                         |                                   |
-   | P also Q                          |                                   |
-   | both P and Q                      |                                   |
-   | P additionally Q                  |                                   |
-   | P furthermore Q                   |                                   |
-   | P however Q                       |                                   |
-   | P although Q                      |                                   |
-   | P nevertheless Q                  |                                   |
-   | P moreover Q                      |                                   |
-   | P even though Q                   |                                   |
-   | P even if Q                       |                                   |
-   | P whereas Q                       |                                   |
-   | not only P but also Q             |                                   |
-   |  literally: ￢(P ∧ ￢Q) ∧ (P ∧ Q) |                                   |
-   |                                   |                                   |
-   | ================================= | ================================= |
-   | P ∨ Q                             | ￢(P ∨ Q)                         |
-   | ================================= | ================================= |
-   | P or Q                            | neither P nor Q                   |
-   | P except if Q                     | P nor Q (in computing)            |
-   | P except when Q                   |                                   |
-   | P except on condition that Q      |                                   |
-   | P unless Q (weak/inclusive-or)    |                                   |
-   | either P or Q (inclusive)         |                                   |
-   |                                   |                                   |
-   | ================================= | ================================= |
-   | P -> Q                            | ￢P -> ￢Q                        |
-   | ================================= | ================================= |
-   | if P then Q                       | P is a necessary condition for Q  |
-   | P implies Q                       | P is necessary for Q              |
-   | P only if Q                       |                                   |
-   | only if Q, P                      |                                   |
-   | P results in Q                    |                                   |
-   | P brings about Q                  |                                   |
-   | P leads to Q                      |                                   |
-   | not P unless also Q               |                                   |
-   |  literally:  ￢P ∨ (P ∧ Q)        |                                   |
-   | P is a sufficient condition for Q |                                   |
-   | P is sufficient for Q             |                                   |
-   | Q assuming that P                 |                                   |
-   | assuming that P, Q                |                                   |
-   | Q on the condition that P         |                                   |
-   | on the condition that P, Q        |                                   |
-   | Q given that P                    |                                   |
-   | given that P, Q                   |                                   |
-   | Q provided that P                 |                                   |
-   | provided that P, Q                |                                   |
-   | Q in case P                       |                                   |
-   | in case P, Q                      |                                   |
-   |                                   |                                   |
-   | ================================= | ================================= |
-   | P <-> Q                           | P <-> ￢Q                         |
-   | ================================= | ================================= |
-   | P if and only if Q                | P xor Q (computing)               |
-   | P iff Q                           | P (exclusive) or Q                |
-   | P just if Q                       | P unless also Q                   |
-   | P just in case Q                  | P unless Q                        |
-   | P exactly when Q                  | either P of Q                     |
-   | P exactly if Q                    |                                   |
-   | P but only if B                   |                                   |
-   | P is a necessary and sufficient   |                                   |
-   |    condition for Q                |                                   |
-   | P is necessary and sufficient     |                                   |
-   |    for Q                          |                                   |
-   +-----------------------------------------------------------------------+
-
-Conversational Implicature
-==========================
-
-   CONVERSATIONAL IMPLICATURE is what's meant by a speaker's utterance that
-   are not part of the literal meaning of what's explicitly said.
-
-   'and then'
-
-   When 'and' is a shortened form of 'and then', it can't be translated
-   into a conjunction since the word 'then' here denotes a temporal
-   relationship between the clauses it joins and the operators in TFL have
-   no notion of time.
-
-      Keep up the good work and you'll go far.
-
-      Alice drove home and went to bed.
-
-   'if...then'
-
-   Sometimes it can be tempting two rewrite 'and then' as 'if...then', but
-   it doesn't always result in a sensical sentence.
-
-      Keep up the good work and you'll go far.
-      If you keep up the good work then you'll go far.
-
-      Alice drove home and went to bed.
-      If Alice drove home then she went to bed.
-
-   Again 'then' in 'if/then' denotes a temporal relationship, it can't
-   be translated into a TFL conditional.  Consider what happens by negating
-   the first rewrite example and seeing what we derive after applying
-   a few logical equivalences (similarly to algebra).
-
-      K -> F        if you keep up the good work then you'll go far.
-
-      ￢(K -> F)    it's false that if you keep up the work you'll go far
-      ￢(￢K ∨ F)
-      K ∧ ￢F        You keep up the good work and you don't go far.
-
-
-A calculus is used to construct formal proofs.  The calculus consists
-of rules which can be applied to wffs to derive conclusions.
-
-------
-Proofs
-------
+----------------------------------------------
+Truth-Functional Calculus (TFC - Fitch Method)
+----------------------------------------------
 
 Formal Proofs
 =============
@@ -1170,7 +1315,7 @@ Direct Proofs
    I'll also precede the proof with the word 'Proof' so the two surround
    the proof and serve similar roles to a pair of braces or a begin/end pair
    such as in programming.  In a Fitch style proof it's customary to list
-   all your premises first.
+   all the premises first.
 
    A FORMAL DEDUCTIVE SYSTEM (AKA CALCULUS) is a set of rules that describe
    truth-preserving inferences for a given formal language.
@@ -1184,8 +1329,8 @@ Direct Proofs
    (1, 2, 3, ...) followed by a proposition, the second column holds a
    justification for writing that proposition.  The justification is the
    name of an inference rule, preceded by, citations, a set of any line
-   numbers to which that rule was applied.  For our purposes all propositions
-   will take the form of wffs.
+   numbers of the propositions to which that rule was applied.  For our
+   purposes all propositions will take the form of wffs.
 
          P -> (Q ∧ R), P  ⊢  Q
          Proof
@@ -1200,20 +1345,19 @@ Direct Proofs
    we've successfully DERIVED or inferred the sequent's conclusion form.
 
    A DIRECT PROOF is any formal proof like the above which doesn't
-   contain any nested (indented) proofs.
+   contain any indented propositions.
 
 Subordinate Proof (Subproof)
 ----------------------------
 
    A SUBPROOF is a proof nested within another proof.  It's analogous
-   to a nested block of code in programming, they can even be nested
+   to a nested block of code in programming. Subproofs can be nested
    to any depth.  It's customary to indent the subproof from the surrounding
    proof to make clear that it's a subproof, it's also customary to draw
    a vertical bar down the right hand side of the subproof to further
    delineate which lines compose it.  Similar to listing premises first
    in the main proof, the first line of a subproof is called the HYPOTHESIS,
    a proposition to be tested.
-
 
          P -> Q, ￢Q  ⊢  ￢P
          Proof
@@ -1225,11 +1369,18 @@ Subordinate Proof (Subproof)
          06.   ￢P           3-5 ￢I        use steps 3 to 5 to perform ￢I.
          QED
 
-   In this example a subproof extends from line 3 through 5.  Notice
+   In this example the A's in the second column of steps 1 and 2 are
+   abbreviations for assumption (which is another word for premise).
+   For line 4 the justification cites lines 1 and 2 upon which the rule ->E
+   (Conditional Elimination) was applied.  Similarly in line 5
+   the rule ∧I (Conjunction Introduction) was applied to steps 2 and 4.
+
+   A subproof extends from line 3 through 5.  Notice
    in the second column the justification of the first line of the subproof
-   (step 3) is H, an abbreviation for hypothesis.  The A's in the left hand
-   column of steps 1 and 2 are abbreviations for assumption (which is another
-   word for premise).
+   (step 3) is H, an abbreviation for hypothesis.  The parentheses in the
+   justification for step 3 is just a notation to ourselves that we're
+   starting a subproof with the intention of eventually applying the rule
+   ￢I (Negation Introduction), which we subsequently perform in step 6.
 
    Note that a subproof is analogous to a block in a programming language.
    As such once a subproof is closed nothing within it is accessible for
@@ -1238,13 +1389,6 @@ Subordinate Proof (Subproof)
    inference rules.  This is exactly what's done in step 6 above.
    The justification for the ￢P is that the whole subproof denoted
    by the '3-5' citation for the subproof extending from line 3 throuth 5.
-
-----------------------------------------------
-Truth-Functional Calculus (TFC - Fitch Method)
-----------------------------------------------
-
-   This section introduces the inference rules, the justifications that
-   go in the second column of the two-column proof.
 
 Inference Rule Notation
 =======================
@@ -1265,6 +1409,9 @@ Inference Rule Notation
 
 Primitive Inference Rules
 =========================
+
+   This section introduces the inference rules, the justifications that
+   go in the second column of the two-column proof.
 
    Here are the basic inference rules.  Some of them have multiple names
    and abbreviations for each of those names are in parentheses.  It's
@@ -2133,150 +2280,6 @@ Important Derived Equivalences
    QED
 
 
-==========
-Set Theory
-==========
-
-A SET is a collection of objects which has no special order but in which every
-member object occurs just once.
-
-
---------------
-Set Definition
---------------
-
-   A = { my phone, empire state building, titanic,
-         the neighborhood dog that's always barking }
-
-   B = { } = null
-
-   '|' is read 'such that'
-
-   M = the set of all mammals
-     = { x | x is a mammal }
-     = read, "the set of all x such that x is a mammal."
-     This notation is known as a COMPREHENSION.
-
-   E = { x | x/2 = int(x/2) }
-     = "The set of all x such that x divided by 2 equals the integer
-       of x divided by 2."
-     = "The set of all even numbers."
-
-   P = { x | (x is an integer) or (x is red) }
-
-   Z = { x | x is an integer }
-       It's customary to denote this set with a old faced capital 'Z'.
-
-   F = { <x,y> | (x in Z) and (y=10x) }
-       The set of all ordered pairs <x,y> such that x is an integer
-       and y is ten times x.
-
-
---------------------
-Set-Member Relations
---------------------
-
-   The things that sets are composed of are called OBJECTS, ELEMENTS
-   or MEMBERS.
-
-   MEMBERSHIP
-
-      a in P, a is in set P.
-      Fido in Dog, Fido is a dog.
-      2 in Even, 2 is even.
-
-   Identity
-
-      A = B, Set A has exactly the same members as set B.
-
-   PROPER SUBSET
-
-      A ⊂ B,  A is composed of some of the objects in set B.
-      E ⊂ Z,  even numbered integers are a subset of integers.
-
-   SUBSET
-
-      A ⊆ B, A is a proper subset of or identical to B
-
-   PROPER SUPERSET & SUPERSET
-
-      ⊃ and ⊇ work in the same was as subset operators.
-
-
---------------
-Set Operations
---------------
-
-   Consider,
-
-       R = { x | x is red }
-       C = { x | x is a car }
-
-   UNION
-
-      The set of all things contained in two sets.
-
-      R ∪ C
-      = { x | x is red } ∪ { x | x is a car }
-      = { x | (x is red) ∨ (x is a car) }
-
-   INTERSECTION
-
-      The set of all things common to two sets.
-
-      R ∧ C
-      = { x | x is red } ∧ { x | x is a car }
-      = { x | (x is red) ∧ (x is a car) }
-
-   DIFFERENCE
-
-      R - C = { x | (x is red) ∧ (x is not a car) }
-
-   COMPLEMENT
-
-      The set of all things outside of (not in) the set.
-
-      C' = { x | x is not a car }
-      C'' = C
-
-   CARDINALITY
-
-      The CARDINALITY of a set is how many members it contains.
-
-      A = { a, b, c }
-      |A| = 3
-      |Z| = infinity
-
-
---------------
-Set Properties
---------------
-
-   UNIVERSE
-
-      U, UNIVERSE OF DISCOURSE (also DOMAIN OF DISCOURSE)
-         The set of all objects in our discussion.
-
-   DECIDABLE SET
-
-      A set is DECIDABLE iff there's an effective method for determining
-      whether an object is in the set.
-
-   1:1 CORRESPONDENCE
-
-      For any two sets there is a 1:1 CORRESPONDENCE iff there is a way
-      to pair members of set A with members of set B.  Every member of
-      both must be paired uniquely, so both sets have the same cardinality
-      |A| = |B|.  Every member of A is paired to exactly one member of B,
-      and vice versa.
-
-   DENUMERABLE
-
-      A set is DENUMERABLE iff there is a 1:1 correspondence between
-      it and the set of natural numbers.  Hence, the cardinality of the
-      set is infinite.
-
-
 ====================
 Predicate Logic (PL)
 ====================
@@ -2343,6 +2346,48 @@ Grammar
 ---------
 Semantics
 ---------
+
+Translation Hints
+=================
+
+              +-----------------------------------------------+             
+              | ============================================= |
+              | 0-Place Predicate (Proposition Symbols)       |
+              | ============================================= |
+              | S,    Zelda is at the store.                  |
+              | C,    cake is delicious.                      |
+              |                                               |
+              | ============================================= |
+              | 1-Place (Monadic) Predicates (Properties)     |
+              | ============================================= |
+              | Px,   x is P, x in set P                      |
+              |                                               |
+              | Ms,   Susy is a mammal.                       |
+              | Dr,   Rex is a dog.                           |
+              | Qr,   Rox is quiet.                           |
+              | En,   n is an even number.                    |
+              |                                               |
+              | ============================================= |
+              | 2-Place (Diadic) Predicates (Relations)       |
+              | ============================================= |
+              | Pxy,  x,y are related through P               |
+              |                                               |
+              | Sta,  Tom sees Agatha.                        |
+              | Tab,  Alice is taller than Bob.               |
+              | Aac,  lines a and c are adjacent.             |
+              | Los,  one is less than six.                   |
+              |                                               |
+              | ============================================= |
+              | 3-Place (Triadic) Predicates (Relations)      |
+              | ============================================= |
+              | Pxyz,  x,y,z are related through P            |
+              |                                               |
+              | Stsb,  Tom saw Sally steal from Barbara.      |
+              | Bxyz,  x is between y and z                   |
+              | Pxyz,  x purchased y from z                   |
+              |                                               |
+              +-----------------------------------------------+
+
 
 Model
 =====
@@ -2415,48 +2460,6 @@ Truth-Trees
 
    Truth trees are constructed according to the same rules as trees for
    TFL.
-
-
-Translation Hints
-=================
-
-              +-----------------------------------------------+             
-              | ============================================= |
-              | 0-Place Predicate (Proposition Symbols)       |
-              | ============================================= |
-              | S,    Zelda is at the store.                  |
-              | C,    cake is delicious.                      |
-              |                                               |
-              | ============================================= |
-              | 1-Place (Monadic) Predicates (Properties)     |
-              | ============================================= |
-              | Px,   x is P, x in set P                      |
-              |                                               |
-              | Ms,   Susy is a mammal.                       |
-              | Dr,   Rex is a dog.                           |
-              | Qr,   Rox is quiet.                           |
-              | En,   n is an even number.                    |
-              |                                               |
-              | ============================================= |
-              | 2-Place (Diadic) Predicates (Relations)       |
-              | ============================================= |
-              | Pxy,  x,y are related through P               |
-              |                                               |
-              | Sta,  Tom sees Agatha.                        |
-              | Tab,  Alice is taller than Bob.               |
-              | Aac,  lines a and c are adjacent.             |
-              | Los,  one is less than six.                   |
-              |                                               |
-              | ============================================= |
-              | 3-Place (Triadic) Predicates (Relations)      |
-              | ============================================= |
-              | Pxyz,  x,y,z are related through P            |
-              |                                               |
-              | Stsb,  Tom saw Sally steal from Barbara.      |
-              | Bxyz,  x is between y and z                   |
-              | Pxyz,  x purchased y from z                   |
-              |                                               |
-              +-----------------------------------------------+
 
 
 -----------------------
@@ -2550,6 +2553,104 @@ Grammar (Rules for wffs)
 ---------
 Semantics
 ---------
+
+Translation Hints
+=================
+
+   The Aristotelian Forms
+
+   The Aristotelian forms under the various interpretations can all be
+   represented into FOL.
+
+   The TRADITIONAL INTERPRETATION assigns existential import to all forms.
+
+                                    Quality  
+                     +---------------------+----------------------+
+                     | Affirmatives        | Negatives            |
+      Q +------------+---------------------+----------------------+
+      u | Universal  | ∀x(Sx -> Px) ∧ ∃xSx | ∀x(Sx -> ￢Px) ∧ ∃xSx | < EI
+      a |            |                     |                      |
+      n | Particular | ∃x(Sx ∧ Px)         | ∃x(Sx ∧ ￢Px)         | < EI
+      t +------------+---------------------+----------------------+
+      i | Singular   | Sx                  | ￢Sx                  | < EI
+      t |            | x=y                 | ￢x=y                 | < EI
+      y +------------+---------------------+----------------------+
+
+   The MODERN INTERPRETATION denies existential import to the universals.
+
+                                    Quality  
+                     +---------------------+----------------------+
+                     | Affirmatives        | Negatives            |
+      Q +------------+---------------------+----------------------+
+      u | Universal  | ∀x(Sx -> Px)        | ∀x(Sx -> ￢Px)        |
+      a |            |                     |                      |
+      n | Particular | ∃x(Sx ∧ Px)         | ∃x(Sx ∧ ￢Px)         | < EI
+      t +------------+---------------------+----------------------+
+      i | Singular   | Sx                  | ￢Sx                  | < EI
+      t |            | x=y                 | ￢x=y                 | < EI
+      y +------------+---------------------+----------------------+
+
+   An alternative interpretation might assign EI to the affirmatives
+   and singulars.
+
+                                    Quality  
+                     +---------------------+----------------------+
+                     | Affirmatives        | Negatives            |
+      Q +------------+---------------------+----------------------+
+      u | Universal  | ∀x(Sx -> Px) ∧ ExSx | ∀x(Sx -> ￢Px)        |
+      a |            |                     |                      |
+      n | Particular | ∃x(Sx ∧ Px)         | ∃x(Sx ∧ ￢Px) ∨ ￢ExSx |
+      t +------------+---------------------+----------------------+
+      i | Singular   | Sx                  | ￢Sx                  | < EI
+      t |            | x=y                 | ￢x=y                 | < EI
+      y +------------+---------------------+----------------------+
+                       ^^^^
+                        EI
+
+   Another interpretation might assign EI to the negatives and singulars.
+
+                                    Quality  
+                     +---------------------+----------------------+
+                     | Affirmatives        | Negatives            |
+      Q +------------+---------------------+----------------------+
+      u | Universal  | ∀x(Sx -> Px)        | ∀x(Sx -> ￢Px) ∧ ExSx |
+      a |            |                     |                      |
+      n | Particular | ∃x(Sx ∧ Px) ∨ ￢ExSx | ∃x(Sx ∧ ￢Px)         |
+      t +------------+---------------------+----------------------+
+      i | Singular   | Sx                  | ￢Sx                  | < EI
+      t |            | x=y                 | ￢x=y                 | < EI
+      y +------------+---------------------+----------------------+
+                                             ^^^^
+                                              EI
+
+   It's even possible to assign EI to a diagonal pair and deny it to the other
+   pair, or deny it to all universals and particulars.  It's not possible
+   to deny it from singulars and all FOL constants denote, which means
+   constants all have existential import.
+
+   English Quantification
+
+   When translating from English, it's usually best to first paraphrase
+   a sentence such that it's closer in structure to a wff.
+
+   Quantifier Placement (Default Rule)
+
+         Write the quantifiers in the same order as they occur in English.
+         Note that this rule has many exceptions.
+
+   Any/Anybody/Anyone/Anything/Anywhere
+
+   Any has different meanings depending upon how it's used.  It can indicate
+   either quantifier.  Generally, try to rephrase the proposition
+   so it doesn't use 'any'.
+
+         Not any...   ->   No...
+         If any...    ->   If some...
+         Any ...      ->   All...
+
+   Otherwise:  To translate 'any', put a ∀x at the beginning of the
+               wff regardless of where 'any' occurs in the sentence.
+
 
 Constants & Variables
 =====================
@@ -2761,104 +2862,6 @@ Truth-Tree Analysis
           1+ open paths   Invalid w/ counterexamples
           =============   ============================
 
-Translation Hints
-=================
-
-   The Aristotelian Forms
-
-   The Aristotelian forms under the various interpretations can all be
-   represented into FOL.
-
-   The TRADITIONAL INTERPRETATION assigns existential import to all forms.
-
-                                    Quality  
-                     +---------------------+----------------------+
-                     | Affirmatives        | Negatives            |
-      Q +------------+---------------------+----------------------+
-      u | Universal  | ∀x(Sx -> Px) ∧ ∃xSx | ∀x(Sx -> ￢Px) ∧ ∃xSx | < EI
-      a |            |                     |                      |
-      n | Particular | ∃x(Sx ∧ Px)         | ∃x(Sx ∧ ￢Px)         | < EI
-      t +------------+---------------------+----------------------+
-      i | Singular   | Sx                  | ￢Sx                  | < EI
-      t |            | x=y                 | ￢x=y                 | < EI
-      y +------------+---------------------+----------------------+
-
-   The MODERN INTERPRETATION denies existential import to the universals.
-
-                                    Quality  
-                     +---------------------+----------------------+
-                     | Affirmatives        | Negatives            |
-      Q +------------+---------------------+----------------------+
-      u | Universal  | ∀x(Sx -> Px)        | ∀x(Sx -> ￢Px)        |
-      a |            |                     |                      |
-      n | Particular | ∃x(Sx ∧ Px)         | ∃x(Sx ∧ ￢Px)         | < EI
-      t +------------+---------------------+----------------------+
-      i | Singular   | Sx                  | ￢Sx                  | < EI
-      t |            | x=y                 | ￢x=y                 | < EI
-      y +------------+---------------------+----------------------+
-
-   An alternative interpretation might assign EI to the affirmatives
-   and singulars.
-
-                                    Quality  
-                     +---------------------+----------------------+
-                     | Affirmatives        | Negatives            |
-      Q +------------+---------------------+----------------------+
-      u | Universal  | ∀x(Sx -> Px) ∧ ExSx | ∀x(Sx -> ￢Px)        |
-      a |            |                     |                      |
-      n | Particular | ∃x(Sx ∧ Px)         | ∃x(Sx ∧ ￢Px) ∨ ￢ExSx |
-      t +------------+---------------------+----------------------+
-      i | Singular   | Sx                  | ￢Sx                  | < EI
-      t |            | x=y                 | ￢x=y                 | < EI
-      y +------------+---------------------+----------------------+
-                       ^^^^
-                        EI
-
-   Another interpretation might assign EI to the negatives and singulars.
-
-                                    Quality  
-                     +---------------------+----------------------+
-                     | Affirmatives        | Negatives            |
-      Q +------------+---------------------+----------------------+
-      u | Universal  | ∀x(Sx -> Px)        | ∀x(Sx -> ￢Px) ∧ ExSx |
-      a |            |                     |                      |
-      n | Particular | ∃x(Sx ∧ Px) ∨ ￢ExSx | ∃x(Sx ∧ ￢Px)         |
-      t +------------+---------------------+----------------------+
-      i | Singular   | Sx                  | ￢Sx                  | < EI
-      t |            | x=y                 | ￢x=y                 | < EI
-      y +------------+---------------------+----------------------+
-                                             ^^^^
-                                              EI
-
-   It's even possible to assign EI to a diagonal pair and deny it to the other
-   pair, or deny it to all universals and particulars.  It's not possible
-   to deny it from singulars and all FOL constants denote, which means
-   constants all have existential import.
-
-   English Quantification
-
-   When translating from English, it's usually best to first paraphrase
-   a sentence such that it's closer in structure to a wff.
-
-   Quantifier Placement (Default Rule)
-
-         Write the quantifiers in the same order as they occur in English.
-         Note that this rule has many exceptions.
-
-   Any/Anybody/Anyone/Anything/Anywhere
-
-   Any has different meanings depending upon how it's used.  It can indicate
-   either quantifier.  Generally, try to rephrase the proposition
-   so it doesn't use 'any'.
-
-         Not any...   ->   No...
-         If any...    ->   If some...
-         Any ...      ->   All...
-
-   Otherwise:  To translate 'any', put a ∀x at the beginning of the
-               wff regardless of where 'any' occurs in the sentence.
-
-
 -------------------------------------------------------
 First-Order Quantification Calculus (FOC - Fitch Style)
 -------------------------------------------------------
@@ -3054,6 +3057,33 @@ Semantics
 The identity predicate does just one thing:  asserts that two object symbols
 denote the same object.
 
+Translation Hints
+=================
+
+   Numerical Quantification
+
+   One of the powers of identity is that it allows us to say things
+   about the number of members in a set P without using actual numbers.
+
+           ========  ============================================
+           Quantity  Proposition
+           ========  ============================================
+           #(P)=0    ￢∃xPx
+           #(P)=1    ∃x∀y(Px <-> y=x)
+           #(P)=2    ∃x∃y(￢x=y ∧ ∀z(Pz <-> (z=x ∨ z=y)))
+           #(P)=3    ∃w∃x∃y(￢w=x ∧ ￢w=y ∧ ￢x=y ∧
+                                   ∀z(Pz <-> (z=w ∨ z=x ∨ z=y)))
+           --------  --------------------------------------------
+           #(P)>=1   ∃xPx
+           #(P)>=2   ∃x∃y(￢x=y ∧ Px ∧ Py)
+           #(P)>=3   ∃x∃y∃z(￢x=y ∧ ￢y=z ∧ ￢x=z ∧ Px ∧ Py ∧ Pz)
+           --------  --------------------------------------------
+           #(P)<=1   ∃x∀y(Px -> y=x)
+           #(P)<=2   ∃x∃y∀z(Pz -> (z=x ∨ z=y))
+           #(P)<=3   ∃x∃y∃z∀w(Px -> (w=x ∨ w=y ∨ x=z))
+           ========  ============================================
+
+
 Properties of Relations
 =======================
 
@@ -3108,33 +3138,6 @@ Truth Trees
 
    Truth trees in FOL= are identical to those in FOL; identity is just
    a predicate so there's nothing more to mention.
-
-Translation Hints
-=================
-
-   Numerical Quantification
-
-   One of the powers of identity is that it allows us to say things
-   about the number of members in a set P without using actual numbers.
-
-           ========  ============================================
-           Quantity  Proposition
-           ========  ============================================
-           #(P)=0    ￢∃xPx
-           #(P)=1    ∃x∀y(Px <-> y=x)
-           #(P)=2    ∃x∃y(￢x=y ∧ ∀z(Pz <-> (z=x ∨ z=y)))
-           #(P)=3    ∃w∃x∃y(￢w=x ∧ ￢w=y ∧ ￢x=y ∧
-                                   ∀z(Pz <-> (z=w ∨ z=x ∨ z=y)))
-           --------  --------------------------------------------
-           #(P)>=1   ∃xPx
-           #(P)>=2   ∃x∃y(￢x=y ∧ Px ∧ Py)
-           #(P)>=3   ∃x∃y∃z(￢x=y ∧ ￢y=z ∧ ￢x=z ∧ Px ∧ Py ∧ Pz)
-           --------  --------------------------------------------
-           #(P)<=1   ∃x∀y(Px -> y=x)
-           #(P)<=2   ∃x∃y∀z(Pz -> (z=x ∨ z=y))
-           #(P)<=3   ∃x∃y∃z∀w(Px -> (w=x ∨ w=y ∨ x=z))
-           ========  ============================================
-
 
 ------------------------------------
 Identity Calculus (IC - Fitch Style)
@@ -3244,6 +3247,36 @@ Grammar (Formation Rules)
 ---------
 Semantics
 ---------
+
+Translation Hints
+=================
+
+   Simple functions
+
+      l(x),     the length of x.
+      l(p),     the length of the pool.
+      h(x),     the home planet of x.
+      h(e),     the home planet of E.T..
+
+   composed functions
+
+      m(x),     the mother of x.
+      m(m(x)),  the mother of the mother of x.  (x's grandmother)
+
+      0,        zero
+      s(0),     1 (the successor of zero).
+      s(s(0)),  2
+      s(s(n)),  n + 2
+
+   Non-functions
+
+      None of the following is a function because, none is guaranteed to
+      always map any object to exactly one object.
+
+      d(m),     the daughter of Mike.     Someone could 0,1,... daughters.
+      b(x),     the brother of x.         x could have 0,1,... brothers.
+      s(h),     the shingle of my house.  Houses have more than one shingle.
+
 
 Function Symbol Denotation
 ==========================
@@ -3365,36 +3398,6 @@ Functions in WFFs
       ∀x∀y( Txy       -> ￢Tyx       )
       ∀x∀y( Tf(x)f(y) -> ￢Tf(y)f(x) )
 
-Translation Hints
-=================
-
-   Simple functions
-
-      l(x),     the length of x.
-      l(p),     the length of the pool.
-      h(x),     the home planet of x.
-      h(e),     the home planet of E.T..
-
-   composed functions
-
-      m(x),     the mother of x.
-      m(m(x)),  the mother of the mother of x.  (x's grandmother)
-
-      0,        zero
-      s(0),     1 (the successor of zero).
-      s(s(0)),  2
-      s(s(n)),  n + 2
-
-   Non-functions
-
-      None of the following is a function because, none is guaranteed to
-      always map any object to exactly one object.
-
-      d(m),     the daughter of Mike.     Someone could 0,1,... daughters.
-      b(x),     the brother of x.         x could have 0,1,... brothers.
-      s(h),     the shingle of my house.  Houses have more than one shingle.
-
-
 ----------------------
 Function Calculus (FC)
 ----------------------
@@ -3433,6 +3436,11 @@ Functions in Proofs
       i.   ∀x:(Mf(x) -> Vf(x))
            ...
       j.   Mf(c) -> Vf(c)        i ∀E (c/x)
+
+
+====================
+Definite Descriptors
+====================
 
 
 ====================================

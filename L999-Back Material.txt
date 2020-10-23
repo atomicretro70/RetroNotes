@@ -236,8 +236,12 @@ Symbols
    ¬            negation                         ^KNO           lno
    ~            negation
    ～           negation                         ^KuFF5E        ltl
+   -            negation
    ∧            conjunction                      ^KAN           lan
+   &            conjunction
+   *            conjunction (Boolean Algebra)
    ∨            disjunction                      ^KOR           lor
+   +            disjunction (Boolean Algebra)
    ->           conditional
    →            conditional                      ^Vu2192        lif
    <->          biconditional
@@ -253,21 +257,26 @@ Symbols
    =            identity
    □            box                              ^Vu25A1        lbx
    ◇            diamond                          ^Vu25C7        ldi
+   ▫            small box                        ^Vu25AB        lsb
+   ⋄            small diamond                    ^Vu22C4        lsd
    ■            solid box                        ^Vu25A0        lfx
    ◆            solid diamond                    ^Vu25C6        lfd
+   ▪            small solid box                  ^Vu25AA        llx
+   ♦            small solid diamond              ^Vu2666        lld
    -<           strict conditional
    >-<          strict biconditional
    >-           strict reverse conditionall
    T            tautology, valid wff             ^Vu22A4        ltt
    ⊥            contradiction (inverted T)       ^Vu22A5        lff
-   ⊢            turnstile, 'entails'             ^Vu22A2        lin
+   ⊢            entails (turnstile)              ^Vu22A2        lin
    ⊨            'satisfies'                      ^Vu22A8        lsa
+   ⊬            doesn't entail                   ^Vu22AC        lni
+   ⊭            doesn't satisfy                  ^Vu22AD        lns
    𝕸            model function                   ^VU0001D578    lmo
-   /            for replacement of (one or more occurrences)
-   //           for replacement of (all occurrences)
-   *            conjunction (Boolean Algebra)
-   +            disjunction (Boolean Algebra)
-   =df          formal definition (not really a logic symbol)
+   /            replaces some of (one or more occurrences)
+   //           replaces each of (all occurrences)
+   =df          formal definition
+   QED          Quod Erat Demonstrandum
 
    Set Thoery Symbols                                          prefix us+
 
@@ -275,12 +284,12 @@ Symbols
    |  or  :     such that
    ∊            membership                       ^Vu220A        sel
    =            set equality
-   ⊂            proper subset                    ^Vu2282        sps
-   ⊆            subset                           ^Vu2286        sss
+   ⊂            proper subset                    ^Vu2282        sbp
+   ⊆            subset                           ^Vu2286        sbs
    ⊃            proper superset                  ^Vu2283        spp
    ⊇            superset                         ^Vu2287        sps
-   ∪            union                            ^Vu2229        sun
-   ∩            intersection                     ^Vu222A        sin
+   ∪            union                            ^Vu222A        sun
+   ∩            intersection                     ^Vu2229        sin
    -            set difference
    '            set complement
    ( and )      parentheses
