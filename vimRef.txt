@@ -415,6 +415,14 @@ n  ^R                   redo n edits
       print all such lines.  ! means all lines NOT containing regex.  v is
       equivalent to g!
 
+   :g/environ/s/old/new/g
+
+      Searches for all lines containing environ, on those lines changes all
+      occurrences of old with new.
+      - environ and new can ge regular expressions.
+      - If old is omitted, does a simple search of environ with new
+      
+
    :substitute, :s
       [<range>] :s/<regex>/<repl>/[<flags>]
       :s                repeat last s command without the flags
@@ -731,8 +739,8 @@ n  zz                   idem
       ( :digraph-table )
    :digraph-table       table of digraphs
 
-      ( :digraph )
-   :digraph             condenced digraph table
+      ( :digraphs, :digraph )
+   :digraphs            condenced digraph table
 
       ( :set, :se )
    :se                  show all options with non default values
@@ -891,8 +899,9 @@ Registers
 
       Metacharacters For Replacement Strings
       --------------------------------------
-   \t                   replacestring tab
-   \r                   replacestring newline
+   \t                   replacestring <TAB> horizontal tab
+   \n                   <LF> replacestring line feed
+   \r                   <NL> replacestring newline
    \u or \l             change next char to upper/lower case
    \U or \L             change next chars to upper/lower case
    \e or \E             end further changes in case

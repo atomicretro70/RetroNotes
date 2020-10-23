@@ -188,32 +188,32 @@ Symbols
 
        Upper                  Lower
 
-   Sym  Dig  Name         Sym  Dig  Name
-   -----------------      -----------------
-   Α    A*   ALPHA        α    a*   alpha
-   Β    B*   BETA         β    b*   beta
-   Γ    G*   GAMMA        γ    g*   gamma
-   Δ    D*   DELTA        δ    d*   delta
-   Ε    E*   EPSILON      ε    e*   epsilon
-   Ζ    Z*   ZETA         ζ    z*   zeta
-   Η    Y*   ETA          η    y*   eta
-   Θ    H*   THETA        θ    h*   theta
-   Ι    I*   IOTA         ι    i*   iota
-   Κ    K*   KAPPA        κ    k*   kappa
-   Λ    L*   LAMBDA       λ    l*   lambda
-   Μ    M*   MU           μ    m*   mu
-   Ν    N*   NU           Ν    n*   nu
-   Ξ    X*   XI           χ    x*   xi
-   Ο    O*   OMICRON      ο    o*   omicron
-   Π    P*   PI           π    p*   pi
-   Ρ    R*   RHO          ρ    r*   rho
-   Σ    S*   SIGMA        σ    s*   sigma
-   Τ    T*   TAU          τ    t*   tau
-   Υ    U*   UPSILON      υ    u*   upsilon
-   Φ    F*   PHI          φ    f*   phi
-   Χ    X*   CHI          χ    x*   chi
-   Ψ    Q*   PSI          ψ    q*   psi
-   Ω    W*   OMEGA        ω    w*   omega
+   Sym  Digr  Name         Sym  Digr  Name
+   ------------------     ------------------
+   Α    ^KA*  ALPHA        α    ^Ka*  alpha
+   Β    ^KB*  BETA         β    ^Kb*  beta
+   Γ    ^KG*  GAMMA        γ    ^Kg*  gamma
+   Δ    ^KD*  DELTA        δ    ^Kd*  delta
+   Ε    ^KE*  EPSILON      ε    ^Ke*  epsilon
+   Ζ    ^KZ*  ZETA         ζ    ^Kz*  zeta
+   Η    ^KY*  ETA          η    ^Ky*  eta
+   Θ    ^KH*  THETA        θ    ^Kh*  theta
+   Ι    ^KI*  IOTA         ι    ^Ki*  iota
+   Κ    ^KK*  KAPPA        κ    ^Kk*  kappa
+   Λ    ^KL*  LAMBDA       λ    ^Kl*  lambda
+   Μ    ^KM*  MU           μ    ^Km*  mu
+   Ν    ^KN*  NU           Ν    ^Kn*  nu
+   Ξ    ^KX*  XI           χ    ^Kx*  xi
+   Ο    ^KO*  OMICRON      ο    ^Ko*  omicron
+   Π    ^KP*  PI           π    ^Kp*  pi
+   Ρ    ^KR*  RHO          ρ    ^Kr*  rho
+   Σ    ^KS*  SIGMA        σ    ^Ks*  sigma
+   Τ    ^KT*  TAU          τ    ^Kt*  tau
+   Υ    ^KU*  UPSILON      υ    ^Ku*  upsilon
+   Φ    ^KF*  PHI          φ    ^Kf*  phi
+   Χ    ^KX*  CHI          χ    ^Kx*  chi
+   Ψ    ^KQ*  PSI          ψ    ^Kq*  psi
+   Ω    ^KW*  OMEGA        ω    ^Kw*  omega
 
    The English Alphabet (and Related Symbols)
    A...Z        english upper case letters
@@ -223,52 +223,64 @@ Symbols
    Pn           P subscript n
    P'           P prime
 
-   Logical Symbols
+   Symbol                                        ^V code       abbrev
+                                                               prefix with u
+   ============================================  ============  =============
+   Logical Symbols                                             prefix ul+
+
    T  or  1     logical value true
    F  or  0     logical value false
-   ∴            therefore
-   ¬            negation
-   ∧            conjunction
-   ∨            disjunction
+   ∴            therefore                        ^Vu2234        ltf
+   ∵            because                          ^Vu2235        lbc
+   ￢           negation                         ^VuFFE2        lnt
+   ¬            negation                         ^KNO           lno
+   ~            negation
+   ～           negation                         ^KuFF5E        ltl
+   ∧            conjunction                      ^KAN           lan
+   ∨            disjunction                      ^KOR           lor
    ->           conditional
+   →            conditional                      ^Vu2192        lif
    <->          biconditional
+   ↔            biconditional                    ^Vu2194        lio
    <-           reverse conditional
+   ←            reverse conditional, only if     ^Vu2190        lof
    |            Sheffer stroke
    ( and )      parentheses
    [ and ]      brackets
    { and }      braces
-   ∀            universal quantifier
-   ∃            existential quantifier
+   ∀            universal quantifier             ^KFA           lfa
+   ∃            existential quantifier           ^KTE           lte
    =            identity
-   □           box
-   ◇           diamond
-   [#]          solid box
-   <#>          solid diamond
+   □            box                              ^Vu25A1        lbx
+   ◇            diamond                          ^Vu25C7        ldi
+   ■            solid box                        ^Vu25A0        lfx
+   ◆            solid diamond                    ^Vu25C6        lfd
    -<           strict conditional
    >-<          strict biconditional
-   >-           strict reverse conditional
-   T            tautology, valid wff
-   ⊥            contradiction (inverted T)
-   |-           turnstile, 'entails'
-   |=           'satisfies'
+   >-           strict reverse conditionall
+   T            tautology, valid wff             ^Vu22A4        ltt
+   ⊥            contradiction (inverted T)       ^Vu22A5        lff
+   ⊢            turnstile, 'entails'             ^Vu22A2        lin
+   ⊨            'satisfies'                      ^Vu22A8        lsa
+   𝕸            model function                   ^VU0001D578    lmo
    /            for replacement of (one or more occurrences)
    //           for replacement of (all occurrences)
    *            conjunction (Boolean Algebra)
    +            disjunction (Boolean Algebra)
    =df          formal definition (not really a logic symbol)
 
-   Set Thoery Symbols
-   0  or  null  empty set
+   Set Thoery Symbols                                          prefix us+
+
+   ∅  or  null  empty set                        ^Vu2205        snl
    |  or  :     such that
-   in           membership
+   ∊            membership                       ^Vu220A        sel
    =            set equality
-   !=           is not equal to
-   ⊂            proper subset
-   ⊆            subset
-   ⊃            proper superset
-   ⊇           superset
-   ∪            union
-   ∩            intersection
+   ⊂            proper subset                    ^Vu2282        sps
+   ⊆            subset                           ^Vu2286        sss
+   ⊃            proper superset                  ^Vu2283        spp
+   ⊇            superset                         ^Vu2287        sps
+   ∪            union                            ^Vu2229        sun
+   ∩            intersection                     ^Vu222A        sin
    -            set difference
    '            set complement
    ( and )      parentheses
@@ -276,15 +288,16 @@ Symbols
    { and }      braces
    | and |      cardinality
    
-   Mathematical Symbols
+   Mathematical Symbols                                        prefix um+
+
    '            prime
    |            given that
    =            is equal to
-   !=           is not equal to
+   ≠            is not equal to                  ^Vu2260        mne
    <            is less than
-   <=           is less than or equal to
+   ≤            is less than or equal to         ^Vu2264        mle
    >            is greater than
-   >=           is greater than or equal to
+   ≥            is greater than or equal to      ^Vu2265        mge
    +            addition
    -            subtraction
    *            multiplication
@@ -293,6 +306,23 @@ Symbols
    ( and )      parentheses
    [ and ]      brackets
    { and }      braces
+
+   Box Drawing Symbols                                         prefix ub+
+
+   ┌            top left                         ^Vu250C        btl
+   ┐            top right                        ^Vu2510        btr
+   ─            horizontal                       ^Vu2500        bhz
+   │            vertical                         ^Vu2502        bvt
+   ┬            horizontal down                  ^Vu252C        bhd
+   ┴            horizontal up                    ^Vu2534        bhu
+   ┼            plus                             ^Vu253C        bpl
+   ├            vertical right                   ^Vu251C        bvr
+   ┤            vertical left                    ^Vu2524        bvl
+   └            bottom left                      ^Vu2514        bbr
+   ┘            bottom right                     ^Vu2518        bbr
+
+   ═            double horizontal                ^Vu2550        bdh
+   ║            double vertical                  ^Vu2551        bdv
 
    Other Symbols
    ...          ellipsis
