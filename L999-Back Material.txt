@@ -140,21 +140,20 @@ Every logic described is organized into the following sections:
 
 Inference Rules Notation
 
-   P(Q)   but, P(c) denotes predicate
-   P[Q]   but, [...] denotes optional things but 
-   P{Q}   but, {...} denotes sets
-   P<Q>   but, <...> denotes tuples
+   A capital Greek letter (Φ, Ψ, Θ, Δ, etc.) denotes any arbitrary formula,
+   and a lower case Greek letter (α, β, δ, etc.) denotes any arbitrary
+   object symbol.
 
-   P(Q) indicates that a wff P contains one or more occurrences of
-   sub-expression Q.
+   Φ(Ψ) indicates that a wff Φ contains one or more occurrences of
+   sub-wff Ψ.
 
-   P(R/Q) indicates the result of replacing one or more occurrences
-   of Q in P with R.  R/Q is read, "R replaced one or more occurrences of Q".
+   Φ(Θ/Ψ) indicates the result of replacing one or more occurrences
+   of Ψ in Ψ with Θ.  Θ/Ψ is read, "Θ replaced one or more occurrences of Ψ".
 
-   P(R//Q) like above but indicates replacing all occurrences of Q in P with
-   R.  R//Q is read, "R replaced all occurrences of Q"
+   Φ (Θ//Ψ) like above but indicates replacing all occurrences of Ψ in Φ with
+   Θ.  Θ//Ψ is read, "Θ replaced all occurrences of Ψ"
 
-   P(c),P(a/c),P(a//c), similar to the above but a and c are object symbols.
+   Φ(β),Φ(α/β),Φ(α//β), similar to the above but α and β are object symbols.
 
    [ ... ] indicates that the enclosed must exist, be defined or proven
    elsewhere.
@@ -223,73 +222,78 @@ Symbols
    Pn           P subscript n
    P'           P prime
 
-   Symbol                                        ^V code       abbrev
-                                                               prefix with u
-   ============================================  ============  =============
-   Logical Symbols                                             prefix ul+
+   Symbol                                           ^V code       abbrev
+   ===============================================  ============  ======
+   Logical Symbols
+
+   α            lower case alpha                                  jja
+   β            lower case beta                                   jjb
+   Γ            upper case gamma                                  jjG
+   Δ            upper case delta                                  jjD
+   δ            lower case delta                                  jjd
+   Θ            upper case theta                                  jjH
+   Φ            upper case phi                                    jjF
+   Ψ            upper case psi                                    jjQ
 
    T  or  1     logical value true
    F  or  0     logical value false
-   ∴            therefore                        ^Vu2234        ltf
-   ∵            because                          ^Vu2235        lbc
-   ￢           negation                         ^VuFFE2        lnt
-   ¬            negation                         ^KNO           lno
+   ∴            therefore                           ^Vu2234       jj.
+   ∵            because                             ^Vu2235
+   ￢           negation                            ^VuFFE2       jj-
+   ¬            negation                            ^KNO
    ~            negation
-   ～           negation                         ^KuFF5E        ltl
+   ～           negation                            ^KuFF5E
    -            negation
-   ∧            conjunction                      ^KAN           lan
+   ∧            conjunction                         ^KAN          jj^
    &            conjunction
    *            conjunction (Boolean Algebra)
-   ∨            disjunction                      ^KOR           lor
+   ∨            disjunction                         ^KOR          jjv
    +            disjunction (Boolean Algebra)
    ->           conditional
-   →            conditional                      ^Vu2192        lif
+   →            conditional                         ^Vu2192       jj>
    <->          biconditional
-   ↔            biconditional                    ^Vu2194        lio
+   ↔            biconditional                       ^Vu2194       jj=
    <-           reverse conditional
-   ←            reverse conditional, only if     ^Vu2190        lof
+   ←            reverse conditional, only if        ^Vu2190
    |            Sheffer stroke
    ( and )      parentheses
    [ and ]      brackets
    { and }      braces
-   ∀            universal quantifier             ^KFA           lfa
-   ∃            existential quantifier           ^KTE           lte
+   ∀            universal quantifier                ^KFA          jjA
+   ∃            existential quantifier              ^KTE          jjE
+   ℩            definite descriptor (inverted iota) ^Vu2129       jji
    =            identity
-   □            box                              ^Vu25A1        lbx
-   ◇            diamond                          ^Vu25C7        ldi
-   ▫            small box                        ^Vu25AB        lsb
-   ⋄            small diamond                    ^Vu22C4        lsd
-   ■            solid box                        ^Vu25A0        lfx
-   ◆            solid diamond                    ^Vu25C6        lfd
-   ▪            small solid box                  ^Vu25AA        llx
-   ♦            small solid diamond              ^Vu2666        lld
+   ▫            box                                 ^Vu25AB       jj[
+   ⋄            diamond                             ^Vu22C4       jj<
+   ▪            solid box                           ^Vu25AA
+   ♦            solid diamond                       ^Vu2666
    -<           strict conditional
    >-<          strict biconditional
    >-           strict reverse conditionall
-   T            tautology, valid wff             ^Vu22A4        ltt
-   ⊥            contradiction (inverted T)       ^Vu22A5        lff
-   ⊢            entails (turnstile)              ^Vu22A2        lin
-   ⊨            'satisfies'                      ^Vu22A8        lsa
-   ⊬            doesn't entail                   ^Vu22AC        lni
-   ⊭            doesn't satisfy                  ^Vu22AD        lns
-   𝕸            model function                   ^VU0001D578    lmo
+   T            tautology, valid wff                ^Vu22A4       jj1
+   ⊥            contradiction (inverted T)          ^Vu22A5       jj0
+   ⊢            entails (turnstile)                 ^Vu22A2       jje
+   ⊬            doesn't entail                      ^Vu22AC
+   ⊨            satisfies                           ^Vu22A8       jjs
+   ⊭            doesn't satisfy                     ^Vu22AD
+   𝕸            model function                      ^VU0001D578
    /            replaces some of (one or more occurrences)
    //           replaces each of (all occurrences)
    =df          formal definition
    QED          Quod Erat Demonstrandum
 
-   Set Thoery Symbols                                          prefix us+
+   Set Thoery Symbols
 
-   ∅  or  null  empty set                        ^Vu2205        snl
+   ∅  or  null  empty set                           ^Vu2205
    |  or  :     such that
-   ∊            membership                       ^Vu220A        sel
+   ∊            membership                          ^Vu220A
    =            set equality
-   ⊂            proper subset                    ^Vu2282        sbp
-   ⊆            subset                           ^Vu2286        sbs
-   ⊃            proper superset                  ^Vu2283        spp
-   ⊇            superset                         ^Vu2287        sps
-   ∪            union                            ^Vu222A        sun
-   ∩            intersection                     ^Vu2229        sin
+   ⊂            proper subset                       ^Vu2282
+   ⊆            subset                              ^Vu2286
+   ⊃            proper superset                     ^Vu2283
+   ⊇            superset                            ^Vu2287
+   ∪            union                               ^Vu222A
+   ∩            intersection                        ^Vu2229
    -            set difference
    '            set complement
    ( and )      parentheses
@@ -297,16 +301,16 @@ Symbols
    { and }      braces
    | and |      cardinality
    
-   Mathematical Symbols                                        prefix um+
+   Mathematical Symbols
 
    '            prime
    |            given that
    =            is equal to
-   ≠            is not equal to                  ^Vu2260        mne
+   ≠            is not equal to                     ^Vu2260       jjne
    <            is less than
-   ≤            is less than or equal to         ^Vu2264        mle
+   ≤            is less than or equal to            ^Vu2264       jjle
    >            is greater than
-   ≥            is greater than or equal to      ^Vu2265        mge
+   ≥            is greater than or equal to         ^Vu2265       jjge
    +            addition
    -            subtraction
    *            multiplication
@@ -316,22 +320,22 @@ Symbols
    [ and ]      brackets
    { and }      braces
 
-   Box Drawing Symbols                                         prefix ub+
+   Box Drawing Symbols
 
-   ┌            top left                         ^Vu250C        btl
-   ┐            top right                        ^Vu2510        btr
-   ─            horizontal                       ^Vu2500        bhz
-   │            vertical                         ^Vu2502        bvt
-   ┬            horizontal down                  ^Vu252C        bhd
-   ┴            horizontal up                    ^Vu2534        bhu
-   ┼            plus                             ^Vu253C        bpl
-   ├            vertical right                   ^Vu251C        bvr
-   ┤            vertical left                    ^Vu2524        bvl
-   └            bottom left                      ^Vu2514        bbr
-   ┘            bottom right                     ^Vu2518        bbr
+   ┌            top left                            ^Vu250C       jbtl
+   ┐            top right                           ^Vu2510       jbtr
+   ─            horizontal                          ^Vu2500       jbhz
+   │            vertical                            ^Vu2502       jbvt
+   ┬            horizontal down                     ^Vu252C       jbhd
+   ┴            horizontal up                       ^Vu2534       jbhu
+   ┼            plus                                ^Vu253C       jbpl
+   ├            vertical right                      ^Vu251C       jbvr
+   ┤            vertical left                       ^Vu2524       jbvl
+   └            bottom left                         ^Vu2514       jbbr
+   ┘            bottom right                        ^Vu2518       jbbr
 
-   ═            double horizontal                ^Vu2550        bdh
-   ║            double vertical                  ^Vu2551        bdv
+   ═            double horizontal                   ^Vu2550       jbdh
+   ║            double vertical                     ^Vu2551       jbdv
 
    Other Symbols
    ...          ellipsis

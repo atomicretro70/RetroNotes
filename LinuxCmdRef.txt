@@ -300,11 +300,18 @@ lolcat ...          colorizes input content
 
 ||||| application management (Debian, Ubuntu, Pop! OS) |||||||||||||||||||||||
 
-sudo apt-get update           retrieve list of available updates
-sudo apt-get upgrade          apply the updates
+sudo apt update               retrieve list of available updates
+sudo apt upgrade              apply the updates
 sudo apt-get install <app>    install an app
 sudo apt-cache search <str>   search for all available apps containging string
 sudo apt-get remove <app>     uninstall an app
+sudo apt autoremove           automatically remve unused libraries
+sudo apt full-upgrade         perform a full upgrade of the OS
+
+upgrade the OS
+   sudo apt update
+   sudo apt full-upgrade
+   pop-upgrade release upgrade
 
 ==================
 Command Line Usage
@@ -344,4 +351,72 @@ Bash Programming
 
 ||||| Variables & Quoting ||||||||||||||||||||||||||||||||||||||||||||||||||||
 
+reference a variable with    $varname
 
+set a variable with
+   myvar="some text"
+       ^^^
+     no spaces
+
+   mynum=10
+
+echo "my number is $mynum"
+
+echo "this is my ${mynum}th beer"
+
+echo "there are `wc -l < /etc/shadow` of lines in the /etc/shadow"
+                ^^^^^^^^^^^^^^^^^^^^^
+        backquotes for the result of the command
+
+
+numlines=`ls $HOME | wc -l`
+
+||||| How scripts work |||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+scripts begin with
+#!/bin/bash
+
+scripts end with exit.
+
+    exit 0   <-- return value.  0 means no errors, success
+
+    exit 1   
+
+    exit $?  <-- return the return value of the last command executed
+
+source calls another shell script to run
+. is an alias for source
+
+arguments
+   $#         is the number of args that our script was given
+   $0         is the filename of the script
+   $1...$n    the arguments
+
+if statements (new style test - nicer syntax)
+
+if [[ condition ]]; then
+   # statements
+fi
+
+if statements (old style test - more portable)
+
+if [ condition ]; then
+   # statements
+fi
+
+if [ "$NAME" = "Dave" ]; then
+   echo "Hi Dave!"
+fi
+
+
+if [ "$NAME" = "Dave" ]; then
+   echo "Hi Dave!"
+elif [ "$NAME" = "Steve" ]; then
+   echo "Tip of the hat"
+else
+   echo "slow head shake"
+fi
+
+    =     is equal to
+    !=    is not equal to
+    -lt   is less than
