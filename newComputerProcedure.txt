@@ -188,6 +188,9 @@ To View This Document Properly
 
      All of this when completed will stop the errors when starting vi.
 
+     k.  Since I'm trasitioning to neovim see :help nvim-from-vim to setup
+         init.vim to use .vimrc.
+
 34.  Possibly install
      a.  wine for...
            i. Kindle
@@ -199,12 +202,6 @@ To View This Document Properly
          iii. sudo apt install --install-recommends mkusb mkusb-nox usb-pack-efi
 
 35.  Don't forget about Kindle Cloud Reader at https://read.amazon.co
-
-36.  Consider migrating to NeoVim - optionally install the following with sudo
-     apt-get install.
-     i.  nvim      neovim
-     j.  gvim      gvim
-     k.  nvim-qt   neovim-qt
 
 ||||| At Some Later Date |||||||||||||||||||||||||||||||||||||||||||||||||||||
 

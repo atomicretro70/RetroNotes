@@ -1788,21 +1788,21 @@ The Remaining Basic Derived Rules
    Ex Falso Quodlibet (EFQ):   P, ￢P  ⊢  Q
    Proof
    01.   P                        A
-   02.   ￢P                       A
-   03.   |   ￢Q                   H (for ￢I)
-   04.   |   P ∧ ￢P               1,2 ∧I
-   05.   ￢￢Q                      3-4 ￢I
+   02.   ￢P                      A
+   03.   |   ￢Q                  H (for ￢I)
+   04.   |   P ∧ ￢P              1,2 ∧I
+   05.   ￢￢Q                    3-4 ￢I
    06.   Q                        5 ￢E
    QED
 
    Modus Tollens (MT):   P -> Q, ￢Q  ⊢  ￢P
    Proof
    01.   P -> Q                   A
-   02.   ￢Q                       A
+   02.   ￢Q                      A
    03.   |   P                    H (for ￢I)
    04.   |   Q                    1,3 ->E
-   05.   |   ⊥                    2,4 EFQ
-   06.   ￢P                       3-5 ￢I
+   05.   |   ⊥                    2,4 ⊥ I
+   06.   ￢P                      3-5 ⊥ E
    QED
 
    Hypothetical Syllogism (HS):   P -> Q, Q -> R  ⊢  P -> R
@@ -1844,22 +1844,22 @@ The Remaining Basic Derived Rules
    Proof
    01.   P -> Q                   A
    02.   R -> S                   A
-   03.   ￢Q ∨ ￢S                  A
-   04.   |   ￢Q                   H (for ->I)
-   05.   |   ￢P                   1,4 MT
-   06.   |   ￢P ∨ ￢R              5 ∨I
-   07.   ￢Q -> (￢P ∨ ￢R)          4-6 ->I
-   08.   |   ￢S                   H (for ->I)
-   09.   |   ￢R                   2,8 MT
-   10.   |   ￢P ∨ ￢R              9 ∨I
-   11.   ￢S -> (￢P ∨ ￢R)          8-10 ->I
-   12.   ￢P ∨ ￢R                  3,7,11 ∨E
+   03.   ￢Q ∨ ￢S                A
+   04.   |   ￢Q                  H (for ->I)
+   05.   |   ￢P                  1,4 MT
+   06.   |   ￢P ∨ ￢R            5 ∨I
+   07.   ￢Q -> (￢P ∨ ￢R)       4-6 ->I
+   08.   |   ￢S                  H (for ->I)
+   09.   |   ￢R                  2,8 MT
+   10.   |   ￢P ∨ ￢R            9 ∨I
+   11.   ￢S -> (￢P ∨ ￢R)       8-10 ->I
+   12.   ￢P ∨ ￢R                3,7,11 ∨E
    QED
 
    Disjunctive Syllogism (DS):  P ∨ Q, ￢P  ⊢  Q
    Proof
    01.   P ∨ Q                    A
-   02.   ￢P                       A
+   02.   ￢P                      A
    03.   |   P                    H (for ->I)
    04.   |   Q                    2,3 EFQ
    05.   P -> Q                   3-4 ->I
@@ -1872,7 +1872,7 @@ The Remaining Basic Derived Rules
    Disjunctive Syllogism (DS):   P ∨ Q, ￢Q  ⊢  P
    Proof
    01.   P ∨ Q                    A
-   02.   ￢Q                       A
+   02.   ￢Q                      A
    03.   |   P                    H (for ->I)
    04.   |   P                    3 RE
    05.   P -> P                   3-4 ->I
@@ -1888,14 +1888,14 @@ Important Derived Equivalences
    Double Negation (DN):   ⊢  P <-> ￢￢P
    Proof
    01.   |   P                    H (for ->I)
-   02.   |   |   ￢P               H (for ￢I)
-   03.   |   |   ⊥                1,2 EFQ
-   04.   |   ￢￢P                  2-3 ￢I
-   05.   P -> ￢￢P                 1-4 ->I
-   06.   |   ￢￢P                  H (for ->I)
+   02.   |   |   ￢P              H (for ￢I)
+   03.   |   |   ⊥                1,2 ⊥ I
+   04.   |   ￢￢P                2-3 ￢I
+   05.   P -> ￢￢P               1-4 ->I
+   06.   |   ￢￢P                H (for ->I)
    07.   |   P                    6 ￢E
-   08.   ￢￢P -> P                 6,7 ->I
-   09.   P <-> ￢￢P                5,8 <->I
+   08.   ￢￢P -> P               6,7 ->I
+   09.   P <-> ￢￢P              5,8 <->I
    QED
 
    Tautology (TAUT):   ⊢  P <-> (P ∧ P)
@@ -1927,14 +1927,14 @@ Important Derived Equivalences
    Transposition (TRANS):  ⊢  (P -> Q) <-> (￢Q -> ￢P)
    Proof
    01.   |   P -> Q               H (for ->I)
-   02.   |   |   ￢Q               H (for ->I)
-   03.   |   |   ￢P               1,2 MT
-   04.   |   ￢Q -> ￢P             2-3 ->I
-   05.   (P -> Q) -> (￢Q -> ￢P)   1-4 ->I
-   06.   |   ￢Q -> ￢P             H (for ->I)
+   02.   |   |   ￢Q              H (for ->I)
+   03.   |   |   ￢P              1,2 MT
+   04.   |   ￢Q -> ￢P           2-3 ->I
+   05.   (P -> Q) -> (￢Q -> ￢P) 1-4 ->I
+   06.   |   ￢Q -> ￢P           H (for ->I)
    07.   |   |   P                H (for ->I)
-   08.   |   |   ￢￢P              7 DN
-   09.   |   |   ￢￢Q              6,8 MT
+   08.   |   |   ￢￢P            7 DN
+   09.   |   |   ￢￢Q            6,8 MT
    10.   |   |   Q                9 ￢E
    11.   |   P -> Q               7-10 ->I
    12.   (￢Q -> ￢P) -> (P -> Q)   6-11 ->I
@@ -1944,24 +1944,24 @@ Important Derived Equivalences
    Material Implication (MI):   ⊢  (P -> Q) <-> (￢P ∨ Q)
    Proof
    01.   |   P -> Q               H (for ->I)
-   02.   |   |   ￢(￢P ∨ Q)        H (for ￢I)
+   02.   |   |   ￢(￢P ∨ Q)      H (for ￢I)
    03.   |   |   |   P            H (for ￢I)
    04.   |   |   |   Q            1,3 ->E
-   05.   |   |   |   ￢P ∨ Q       4 ∨I
-   06.   |   |   |  ⊥             2,5 EFQ
-   07.   |   |   ￢P               3-6 ￢I
-   08.   |   |   ￢P ∨ Q           7 ∨I
-   09.   |   |   ⊥                2,8 EFQ
-   10.   |   ￢￢(￢P ∨ Q)           2-9 ￢I
-   11.   |   ￢P ∨ Q               10 ￢E
-   12.   (P -> Q) -> (￢P ∨ Q)     1-11 ->I
-   13.   |   ￢P ∨ Q               H (for ->I)
+   05.   |   |   |   ￢P ∨ Q      4 ∨I
+   06.   |   |   |   ⊥            2,5 ⊥ I
+   07.   |   |   ￢P              3-6 ⊥ E
+   08.   |   |   ￢P ∨ Q          7 ∨I
+   09.   |   |   ⊥                2,8 ⊥ I
+   10.   |   ￢￢(￢P ∨ Q)        2-9 ⊥ E
+   11.   |   ￢P ∨ Q              10 ￢E
+   12.   (P -> Q) -> (￢P ∨ Q)    1-11 ->I
+   13.   |   ￢P ∨ Q              H (for ->I)
    14.   |   |   P                H (for ￢I)
-   15.   |   |   ￢￢P              14 DN
+   15.   |   |   ￢￢P            14 DN
    16.   |   |   Q                13,15 DS
    17.   |   P -> Q               14-16 ->I
-   18.   (￢P ∨ Q) -> (P -> Q)     13-17 ->I
-   19.   (P -> Q) <-> (￢P ∨ Q)    12,18 <->I
+   18.   (￢P ∨ Q) -> (P -> Q)    13-17 ->I
+   19.   (P -> Q) <-> (￢P ∨ Q)   12,18 <->I
    QED
 
    Association (ASSOC):   ⊢  (P ∧ (Q ∧ R)) <-> ((P ∧ Q) ∧ R)
@@ -2153,60 +2153,60 @@ Important Derived Equivalences
 
    DeMorgan's law (DM): ⊢  ￢(P ∧ Q) <-> (￢P ∨ ￢Q)
    Proof
-   01.   |   ￢(P ∧ Q)                            H (for ->I)
-   02.   |   |   ￢(￢P ∨ ￢Q)                      H (for ￢I)
-   03.   |   |   |   ￢P                          H (for ￢I)
-   04.   |   |   |   ￢P ∨ ￢Q                     3 ∨I
-   05.   |   |   |   ⊥                           2,4 EFQ
-   06.   |   |   ￢￢P                             3-6 ￢I
+   01.   |   ￢(P ∧ Q)                           H (for ->I)
+   02.   |   |   ￢(￢P ∨ ￢Q)                   H (for ￢I)
+   03.   |   |   |   ￢P                         H (for ￢I)
+   04.   |   |   |   ￢P ∨ ￢Q                   3 ∨I
+   05.   |   |   |   ⊥                           2,4 ⊥ I
+   06.   |   |   ￢￢P                           3-5 ⊥ E
    07.   |   |   P                               6 ￢E
-   08.   |   |   |   ￢Q                          H (for ￢I)
-   09.   |   |   |   ￢P ∨ ￢Q                     8 ∨I
-   10.   |   |   |   ⊥                           2,9 EFQ
-   11.   |   |   ￢￢Q                             9-10 ￢I
+   08.   |   |   |   ￢Q                         H (for ￢I)
+   09.   |   |   |   ￢P ∨ ￢Q                   8 ∨I
+   10.   |   |   |   ⊥                           2,9 ⊥ I
+   11.   |   |   ￢￢Q                           9-10 ⊥ E
    12.   |   |   Q                               11 ￢E
    13.   |   |   P ∧ Q                           7,12 ∧I
-   14.   |   |   ⊥                               1,13 EFQ
-   15.   |   ￢￢(￢P ∨ ￢Q)                         2-14 ￢I
-   16.   |   ￢P ∨ ￢Q                             15 ￢E
-   17.   ￢(P ∧ Q) -> (￢P ∨ ￢Q)                   1-16 ->I
-   18.   |   ￢P ∨ ￢Q                             H (for ->I)
+   14.   |   |   ⊥                               1,13 ⊥ I
+   15.   |   ￢￢(￢P ∨ ￢Q)                     2-14 ⊥ E
+   16.   |   ￢P ∨ ￢Q                           15 ￢E
+   17.   ￢(P ∧ Q) -> (￢P ∨ ￢Q)                1-16 ->I
+   18.   |   ￢P ∨ ￢Q                           H (for ->I)
    19.   |   |   P ∧ Q                           H (for ￢I)
    20.   |   |   P                               19 ∧E
    21.   |   |   Q                               19 ∧E
-   22.   |   |   ￢￢P                             20 DN
-   23.   |   |   ￢Q                              18,22 DS
-   24.   |   |   ⊥                               21,23 EFQ
-   25.   |   ￢(P ∧ Q)                            19-24 ￢I
-   26.   (￢P ∨ ￢Q) -> ￢(P ∧ Q)                   18-25 ->I
-   27.   ￢(P ∧ Q) <-> (￢P ∨ ￢Q)                  17,26 <->I
+   22.   |   |   ￢￢P                           20 DN
+   23.   |   |   ￢Q                             18,22 DS
+   24.   |   |   ⊥                               21,23 ⊥ I
+   25.   |   ￢(P ∧ Q)                           19-24 ⊥ E
+   26.   (￢P ∨ ￢Q) -> ￢(P ∧ Q)                18-25 ->I
+   27.   ￢(P ∧ Q) <-> (￢P ∨ ￢Q)               17,26 <->I
    QED
 
    DeMorgan's law (DM)  ⊢  ￢(P ∨ Q) <-> (￢P ∧ ￢Q)
    Proof
-   01.   |   ￢(P ∨ Q)                            H (for ->I)
-   02.   |   |   ￢(￢P ∧ ￢Q)                      H (for ￢I)
+   01.   |   ￢(P ∨ Q)                           H (for ->I)
+   02.   |   |   ￢(￢P ∧ ￢Q)                   H (for ￢I)
    03.   |   |   |   P                           H (for ￢I)
    04.   |   |   |   P ∨ Q                       3 ∨I
-   05.   |   |   |   ⊥                           1,4 EFQ
-   06.   |   |   ￢P                              3-5 ￢I
+   05.   |   |   |   ⊥                           1,4 ⊥ I
+   06.   |   |   ￢P                             3-5 ⊥ E
    07.   |   |   |   Q                           H (for ￢I)
    08.   |   |   |   P ∨ Q                       7 ∨I
-   09.   |   |   |   ⊥                           1,8 EFQ
-   10.   |   |   ￢Q                              7-9 ￢I
-   11.   |   |   ￢P ∧ ￢Q                         6,10 ∧I
-   12.   |   |   ⊥                               2,11 EFQ
-   13.   |   ￢P ∧ ￢Q                             2-12 ￢E
-   14.   ￢(P ∨ Q) -> (￢P ∧ ￢Q)                   1-13 ->I
-   15.   |   ￢P ∧ ￢Q                             H (for ->I)
+   09.   |   |   |   ⊥                           1,8 ⊥ I
+   10.   |   |   ￢Q                             7-9 ⊥ E
+   11.   |   |   ￢P ∧ ￢Q                       6,10 ∧I
+   12.   |   |   ⊥                               2,11 ⊥ I
+   13.   |   ￢P ∧ ￢Q                           2-12 ⊥ E
+   14.   ￢(P ∨ Q) -> (￢P ∧ ￢Q)                1-13 ->I
+   15.   |   ￢P ∧ ￢Q                           H (for ->I)
    16.   |   |   P ∨ Q                           H (for ￢I)
-   17.   |   |   ￢P                              15 ∧E
-   18.   |   |   ￢Q                              15 ∧E
+   17.   |   |   ￢P                             15 ∧E
+   18.   |   |   ￢Q                             15 ∧E
    19.   |   |   Q                               16,18 DS
-   20.   |   |   ⊥                               18,19 EFQ
-   21.   |   ￢(P ∨ Q)                            16-20 ￢I
-   22.   (￢P ∧ ￢Q) -> ￢(P ∨ Q)                   15-21 ->I
-   23.   ￢(P ∨ Q) <-> (￢P ∧ ￢Q)                  14,22 <->I
+   20.   |   |   ⊥                               18,19 ⊥ I
+   21.   |   ￢(P ∨ Q)                           16-20 ⊥ E
+   22.   (￢P ∧ ￢Q) -> ￢(P ∨ Q)                15-21 ->I
+   23.   ￢(P ∨ Q) <-> (￢P ∧ ￢Q)               14,22 <->I
    QED
 
    Material Equivalence (ME):  ⊢  (P <-> Q) <-> ((P -> Q) ∧ (Q -> P))
@@ -2229,26 +2229,26 @@ Important Derived Equivalences
    01.   |   P <-> Q                             H (for ->I)
    02.   |   P -> Q                              1 <->E
    03.   |   Q -> P                              1 <->E
-   04.   |   |   ￢((P ∧ Q) ∨ (￢P ∧ ￢Q))          H (for ￢I)
-   05.   |   |   ￢(P ∧ Q) ∧ ￢(￢P ∧ ￢Q)           4 DM
-   06.   |   |   ￢(P ∧ Q)                        5 ∧E
-   07.   |   |   ￢(￢P ∧ ￢Q)                      5 ∧E
-   08.   |   |   ￢P ∨ ￢Q                         6 DM
+   04.   |   |   ￢((P ∧ Q) ∨ (￢P ∧ ￢Q))       H (for ￢I)
+   05.   |   |   ￢(P ∧ Q) ∧ ￢(￢P ∧ ￢Q)       4 DM
+   06.   |   |   ￢(P ∧ Q)                       5 ∧E
+   07.   |   |   ￢(￢P ∧ ￢Q)                   5 ∧E
+   08.   |   |   ￢P ∨ ￢Q                       6 DM
    09.   |   |   P ∨ Q                           7 DM
-   10.   |   |   |   ￢P                          H (for ->I)
-   11.   |   |   |   ￢Q                          2,10 MT
+   10.   |   |   |   ￢P                         H (for ->I)
+   11.   |   |   |   ￢Q                         2,10 MT
    12.   |   |   |   P                           9,10 DS
-   13.   |   |   |   ⊥                           10,11 EFQ
-   14.   |   |   ￢P -> ⊥                         10-13 ->I
-   15.   |   |   |   ￢Q                          H (for ->I)
-   16.   |   |   |   ￢P                          2,15 MT
+   13.   |   |   |   ⊥                           10,11 ⊥ I
+   14.   |   |   ￢P -> ⊥                        10-13 ->I
+   15.   |   |   |   ￢Q                         H (for ->I)
+   16.   |   |   |   ￢P                         2,15 MT
    17.   |   |   |   P                           9,15 DS
-   18.   |   |   |   ⊥                           16,17 EFQ
-   19.   |   |   ￢Q -> ⊥                         15-18 ->I
-   20.   |   |   ⊥                               7,14,29 ∨E
-   21.   |   (P ∧ Q) ∨ (￢P ∧ ￢Q)                 4-20 ￢I
-   22.   (P <-> Q) -> ((P ∧ Q) ∨ (￢P ∧ ￢Q))      1-21 ->I
-   23.   |   (P ∧ Q) ∨ (￢P ∧ ￢Q)                 H (for ->I)
+   18.   |   |   |   ⊥                           16,17 ⊥ I
+   19.   |   |   ￢Q -> ⊥                        15-18 ->I
+   20.   |   |   ⊥                               8,14,19 ∨E
+   21.   |   (P ∧ Q) ∨ (￢P ∧ ￢Q)               4-20 ⊥ E
+   22.   (P <-> Q) -> ((P ∧ Q) ∨ (￢P ∧ ￢Q))    1-21 ->I
+   23.   |   (P ∧ Q) ∨ (￢P ∧ ￢Q)               H (for ->I)
    24.   |   |   P ∧ Q                           H (for ->I)
    25.   |   |   |   P                           H (for ->I)
    26.   |   |   |   Q                           24 ∧E
@@ -2258,19 +2258,19 @@ Important Derived Equivalences
    30.   |   |   Q -> P                          28-29 ->I
    31.   |   |   P <-> Q                         27,30 <->I
    32.   |   (P ∧ Q) -> (P <-> Q)                24-31 ->I
-   33.   |   |   ￢P ∧ ￢Q                         H (for ->I)
-   34.   |   |   |   ￢P                          H (for ->I)
-   35.   |   |   |   ￢Q                          33 ∧E
-   36.   |   |   ￢P -> ￢Q                        34-35 ->I
+   33.   |   |   ￢P ∧ ￢Q                       H (for ->I)
+   34.   |   |   |   ￢P                         H (for ->I)
+   35.   |   |   |   ￢Q                         33 ∧E
+   36.   |   |   ￢P -> ￢Q                      34-35 ->I
    37.   |   |   Q -> P                          36 TRANS
-   38.   |   |   |   ￢Q                          H (for ->I)
-   39.   |   |   |   ￢P                          33 ∧E
-   40.   |   |   ￢Q -> ￢P                        37-38 ->I
+   38.   |   |   |   ￢Q                         H (for ->I)
+   39.   |   |   |   ￢P                         33 ∧E
+   40.   |   |   ￢Q -> ￢P                      37-38 ->I
    41.   |   |   P -> Q                          40 TRANS
    42.   |   |   P <-> Q                         37,41 <->I
-   43.   |   (￢P ∧ ￢Q) -> (P <-> Q)              33-42 ->I
-   44.   ((P ∧ Q) ∨ (￢P ∧ ￢Q)) -> (P <-> Q)      23-44 ->I
-   45.   (P <-> Q) <-> ((P ∧ Q) ∨ (￢P ∧ ￢Q))     22,44 <->I
+   43.   |   (￢P ∧ ￢Q) -> (P <-> Q)            33-42 ->I
+   44.   ((P ∧ Q) ∨ (￢P ∧ ￢Q)) -> (P <-> Q)    23-44 ->I
+   45.   (P <-> Q) <-> ((P ∧ Q) ∨ (￢P ∧ ￢Q))   22,44 <->I
    QED
 
 
@@ -2278,8 +2278,8 @@ Important Derived Equivalences
 Predicate Logic
 ====================
 
-Predicate logic allows us to analyze proposition symbols down further.
-We'll construct predicate logic on top of TFL.
+Predicate logic is a way to analyze proposition symbols down into more
+basic components.
 
 
 --------
@@ -2295,7 +2295,6 @@ Lexemes
       Predicate Symbols:        A...Z
       Association Symbols:      ( )
 
-
    Logical Symbols
 
       Truth-Function Symbols:   ￢, ∧ ∨ -> <->
@@ -2306,7 +2305,7 @@ Grammar
    It's conventional to use capital Greek letters to stand for arbitrary
    wffs, and lower-case Greek letters to stand for arbitrary object symbols.
 
-   An ATOMIC FORMULA consisting of a Predicate symbol followed by zero
+   An ATOMIC FORMULA consists of a Predicate symbol followed by zero
    or more object Symbols.
 
    Formation Rules for wffs
@@ -2318,11 +2317,11 @@ Grammar
    Notes
 
    - We'll often use letters from the end of the alphabet (x, y and z), as
-     place holders for arbitrary object symbols.
+     place holders for arbitrary object symbols within a dictionary.
 
    - Identical sequences of symbols that form single atomic formulas should
      be regarded as if they were the same proposition symbol, while different
-     permutations ought be regarded as different proposition symbols.
+     sequences should be regarded as different proposition symbols.
 
 
 ---------
@@ -2342,28 +2341,28 @@ The Dictionary
 
    It's necessary to create a dictionary before constructing an atomic
    formula.  When we begin to investigate a new situation with logic
-   we want to be clear in what the atomic formulas mean.  A dictionary
-   is a way to list the symbols and what they denote in the current
-   universe (of discourse).  By convention we'll use letters towards
-   the end of the alphabet (u,v,wx,y,z) as placeholders which allow
-   us to more clearly define a Predicate's meaning.
+   we want to be clear in what the atomic formulas and their components
+   mean.  A dictionary is a list of the symbols and what they denote
+   in the current universe (of discourse).  By convention letters towards
+   the end of the alphabet (u,v,w,x,y,z) may serve as placeholders which
+   allow us to more clearly define a predicate's meaning.
 
 Properties
 ----------
 
    A property asserts that some object is a member of some particular
-   set which denotes a possible characteristic of the objects relevant
+   set which denotes a possible characteristic of the objects relevance
    to the universe.
 
          Dictionary
          ----------------
-         Object Symbols        Predicates
+         Object Symbols        1-Place Predicates
          a,   Alice            Bx,   x is blonde
          b,   Bob              Kx,   x is brunette
          c,   Charlie          Sx,   x is scaled
 
-   By substituting one of our object symbols in place of an x in a
-   predicate definition, we construct an atomic formula.
+   By substituting one of the object symbols in place of a place-holder
+   in a predicate definition, we construct an atomic formula.
 
          Ba,  Alice is blonde.
          Kb,  Bob is brunette.
@@ -2371,9 +2370,9 @@ Properties
 
          Sc -> ￢(Bc ∨ Kc)
          If Charlie is scaled then Charlie is neither blonde nor brunette.
-      
-   Any predicate formula Pc means, c is in set P.  Properties are 1-place
-   predicates.
+
+   A properties always have just one place-holder in the dictionary.
+   Any property Pc means, c is in set P, c is P, or c has property P.
 
 Relations
 ---------
@@ -2381,24 +2380,21 @@ Relations
    Much as it sounds a relation denotes a relationship between two or more
    objects.  Let's expand the dictionary:
 
-         Predicates
+         2-Place Predicates
          Txy,  x is taller than y.
 
    'Tall', while a property, wouldn't be a very good predicate for logic
-   because 'tall' is vague.  Eg. a tall building and a tall glass of water
+   because 'tall' is vague.  E.g. a tall building and a tall glass of water
    don't mean the same thing.  However, 'taller' is objective, making
    it ideal for logical reasoning.
-
-         Tab,  Alice is taller than Bob.
-         Tba,  Bob is taller than Alice.
 
          (Tab ∧ Tbc) -> Tac
          If Alice is taller than Bob and Bob is taller than Charlie,
             then Alice is taller than Charlie.
 
-   Any predicate larger than 1-place expresses a relation.
+   Any predicate with more than 1-place expresses a relation.
 
-         Predicates
+         3-Place Predicates
          Bxyz,     x is between y and z
 
          Bbac,     Bob is between Alice and Charlie
@@ -2408,9 +2404,9 @@ Relations
          and Charlie and Charlie isn't between Alice and Bob.
 
    Any number of places is acceptable, including 0.  0-place predicates are
-   functionally and semantically identical to TFL proposition symbols.
+   just proposition symbols.
 
-         Predicates
+         0-Place Predicates
          R,        it's raining
          W,        the ground is wet
 
@@ -2445,7 +2441,7 @@ Translation Hints
               |                                               |
               | Sta,  Tom sees Agatha.                        |
               | Tab,  Alice is taller than Bob.               |
-              | Aac,  lines a and c are adjacent.             |
+              | Pac,  lines a and c are perpendicular.        |
               | Los,  one is less than six.                   |
               |                                               |
               | ============================================= |
@@ -2463,19 +2459,19 @@ Truth-Tables
 ============
 
    Truth-tables technically can be constructed for predicate logic.
-   However, the number of atomic formulas gets very large very fast,
+   However, the number of atomic formulas gets very large very fast
    which makes tables impractical.
 
 Truth-Trees
 ===========
 
    Truth trees are constructed according to the same rules as trees for
-   TFL.
+   propositional logic.
 
 
------------------------
-Predicate Calculus (PC)
------------------------
+------------------
+Predicate Calculus
+------------------
 
    The calculus for constructing proofs in predicate logic is largely
    unmodified and from TFC.  The primary difference is in the definition
@@ -2490,39 +2486,39 @@ Predicate Calculus (PC)
 
          Agf -> Ags, ￢Ags  ⊢  ￢Agf
 
+   Here 'Agf' and 'Ags' are separate atomic formulas.
 
-==================================
-First-Order Quantified Logic (FOL)
-==================================
 
-   @@@Really bad
-   FOL introduces new concepts which build upon predicate logic to allow us
-   to express,
-   among other things, the Aristotelian proposition forms which denote
-   relations among sets.
+===========================
+First-Order Predicate Logic
+===========================
+
+   FOL introduces new concepts which build upon predicate logic enabling
+   the expression of, among other things, the Aristotelian proposition
+   forms which denote relations among sets.
 
          A:  All P is Q.
          E:  No P is Q.
          I:  Some P is Q.
          O:  Some P is not Q.
 
-   FOL introduces two new concepts on top of predicate logic: quantifiers which denote
-   quantities, and variable object symbols which denote arbitrary objects.
+   FOL brings in quantifiers, which denote quantities, and variable object
+   symbols which denote arbitrary objects.
 
 
 ------------------
 Regarding Notation
 ------------------
 
-   In the following current chapter on FOL there is some notation that you
-   should be aware of.
+   In the current chapter there are some notations that you should
+   be aware of.
 
    A capital Greek letter (Φ, Ψ, Θ, Δ, etc.) denotes any arbitrary formula,
    and a lower case Greek letter (α, β, δ, etc.) denotes any arbitrary
    object symbol.
 
    Φ(Ψ) indicates that a wff Φ contains one or more occurrences of
-   sub-wff Ψ.
+   a sub-wff Ψ.
 
    Φ(Θ/Ψ) indicates the result of replacing one or more occurrences
    of Ψ in Ψ with Θ.  Θ/Ψ is read, "Θ replaced one or more occurrences of Ψ".
@@ -2532,9 +2528,9 @@ Regarding Notation
 
    Φ(β),Φ(α/β),Φ(α//β), similar to the above but α and β are object symbols.
 
-   ( Φ ⊢ Ψ ), indicates a subproof with hypothesis Φ concluding with Ψ.
+   ( Φ ⊢ Ψ ), denotes a subproof with hypothesis Φ concluding with Ψ.
 
-   [ ... ] indicates that the enclosed must exist, be defined or proven
+   [ ... ] indicates that the enclosed must exist, be defined or proved
    elsewhere.
 
 
@@ -2555,21 +2551,21 @@ Lexemes
    Logical Symbols
       Truth-Function Symbols:  ￢, ∧, ∨, ->, <->
       Quantifiers
-         universal:            ∀x
-         existential:          ∃x
+         universal:            ∀
+         existential:          ∃
 
-Grammar (Rules for wffs)
-========================
+Grammar
+=======
 
-   An ATOMIC FORMULA is a predicate symbol, followed by zero or more
+   An ATOMIC FORMULA is a predicate symbol followed by zero or more
    constants.
 
-   1.  Every atomic formula is a wff.
-   2.  if Φ is a wff, then so is ￢Φ.
-   3.  if Φ,Ψ are wffs, then so are (Φ ∧ Ψ), (Φ ∨ Ψ), (Φ -> Ψ), (Φ <-> Ψ).
+   1.  Every atomic formula is a wff;
+   2.  if Φ is a wff, then so is ￢Φ;
+   3.  if Φ,Ψ are wffs, then so are (Φ ∧ Ψ), (Φ ∨ Ψ), (Φ -> Ψ), (Φ <-> Ψ);
    4.  if Φ(α) (α is a const object in a wff Ψ) is a wff,
        then ∀xΦ(x/α) and ∃xΦ(x/α) are wffs (where x is some new
-       variable in Φ).
+       variable in Φ);
    5.  Nothing else is a wff.
 
 
@@ -2597,15 +2593,12 @@ Predicates & Constants
          04.   Va                 3,4 ->E
          QED
 
-   In all of the above P is an arbitrary n-place predicate symbol and
-   x,y,z are placeholders.
-
 Quantifiers & Variables
 =======================
 
    A quantifier expression is a quantifier followed by a variable symbol
-   and then a wff.  The quantifier is said BIND the variable, or the variable
-   is BOUND to the quantifier.
+   and then a seb-wff.  The quantifier is said BIND the variable, or the
+   variable is BOUND to the quantifier.
 
          ∀xΦ       For every object x in our universe of discourse, Φ.
 
@@ -2645,26 +2638,31 @@ Quantifiers & Variables
          ∀xSx      Everything in our universe (if anything exists
                    at all) likes to swim.
 
+   Scope
+
    SCOPE refers to the substring in a quantified wff over which the
-   quantifier holds.  In FOL this substring is the complete wff which
-   follows the quantifier; if the expressions that follows is in
-   parentheses then the scope ranges from the opening to the matching
-   closing parenthesis.
+   quantifier-variable binding holds.  In FOL this substring
+   is the complete wff which follows the quantifier; if the expression
+   that follows is in parentheses then the scope ranges from the opening
+   to the matching closing parenthesis.
 
          ∀x(Dx -> Mx) ∧ ∃xRx
 
-   In this expression the x bound by ∀ is everything between the pair of
-   parentheses.  The x used with the R is a different x which is bound
-   by ∃ and whose scope is only the expression 'Rx'.
+   In this expression the x bound by ∀ is in scope within between
+   the pair of parentheses.  The x used with the atomic formula
+   Rx is a different x which is bound by ∃ and whose scope is only
+   the expression 'Rx'.
+
+   Free Variables
 
    A FREE VARIABLE is a variable that appears within a wff but is not
-   bound by a quantifier.  Our particular implementation of FOL makes
-   impossible to introduce a free variable into a wff provided the
-   formation rules are applied correctly.  However, some implementation
-   do allow free variables.  You should be aware that a free variable
-   doesn't denote anything; while a variable bound by ∀ denotes *any*
-   arbitrary object in our universe, and a variable bound by ∃ denotes
-   at least one object in our universe though we may not know which.
+   bound by a quantifier.  Our implementation of FOL doesn't have
+   free variables provided the formation rules are applied correctly.
+   However, some implementations do allow free variables.  Be aware that
+   a free variable doesn't denote anything; while a variable bound
+   by ∀ denotes *any* arbitrary object in our universe, and a variable
+   bound by ∃ denotes at least one object in our universe though
+   we may not know which.
 
 Single Quantifiers
 ==================
@@ -2689,13 +2687,13 @@ Single Quantifiers
                              such that, x is a dog and x likes to swim.
                          = Some dogs like to swim.
 
-   This notion of ∀ with ->, and ∃ with ∧, is further supported by the
-   fact of what happens when we negat one of these forms.
+   This notion of ∀ with ->, and ∃ with ∧, is further supported
+   by occurrence of these forms negated.
 
          ￢∀x(Cx -> ￢Sx)  It's false that all cats don't like to swim.
 
-   Now if we apply some equivalences to this wff we should get new
-   formulas that mean the same thing.
+   Applying some equivalences to this wff we should get a new formula
+   that means the same thing.
 
          ∃x￢(Cx -> ￢Sx)    ￢∀ is equivalent to ∃￢ 
          ∃x￢(￢Cx ∨ ￢Sx)   By material implication
@@ -2703,13 +2701,15 @@ Single Quantifiers
          ∃x(Cx ∧ Sx)         Double Negation
 
    So the conclusion reads, some cats like to swim.  Notice that we
-   started with ∀ ->, and ended with ∃ ∧.  So using ∀ with -> follows
-   naturally using ∃ with ∧.
+   started with ∀ ->, and ended with ∃ ∧.  So ∃ with ∧ follows naturally
+   from the occurrence of ∀ with ->; they are complementary forms.
 
 Multiple Quantifiers
 ====================
 
-   Just as with many other features of FOL, quantifiers can be stacked.
+   Just as with many other features of FOL, quantifiers can be recursively
+   combined.  When the same quantifier is repeated the order of the
+   quantifiers doesn't change the meaning of the wff.
 
          ∀x∀yLxy         Everyone loves everyone including themselves.
          ∀y∀xLxy         Everyone loves everyone including themselves.
@@ -2717,9 +2717,9 @@ Multiple Quantifiers
          ∃x∃yLxy         Someone loves someone (perhaps themself).
          ∃y∃xLxy         Someone loves someone (perhaps themself).
 
-   In the first two forms ∀x has scope over the following formula which
-   is ∀yLxy.  It's similarly the case with the second form.  However, if
-   the quantifiers are mixed things change.
+   In the first form ∀x has scope over the following formula which
+   is ∀yLxy.  It's similarly the case with the remaining forms.  However,
+   if the quantifiers are mixed the meaning changes depending upon order.
 
          ∃x∀yLxy         Someone loves everyone (including themselves).
          ∀x∃yLxy         Everyone loves someone (perhaps themselves).
@@ -2729,11 +2729,11 @@ Translation Hints
 
    The Aristotelian Forms
 
-   The Aristotelian forms under the various interpretations can all be
-   represented in FOL.
+   The Aristotelian forms under any interpretation can
+   all be represented in FOL.
 
    The TRADITIONAL INTERPRETATION assigns existential import to all forms.
-   The singular forms always denote a particular object in the universe
+   The singular forms always denote particular objects in the universe
    and so always have existential import.
 
                                     Quality  
@@ -2819,8 +2819,8 @@ Translation Hints
          If any...    ->   If some...
          Any ...      ->   All...
 
-   Otherwise:  To translate 'any', put a ∀x at the beginning of the
-               wff regardless of where 'any' occurs in the sentence.
+   In the remaining cases to translate 'any', put a ∀x at the beginning
+   of the wff regardless of where 'any' occurs in the sentence.
 
 Validity / Valid Formula
 ========================
@@ -2836,7 +2836,8 @@ Truth-Trees
 ===========
 
    Construction of Truth-trees in FOL is similar to how they are constructed
-   in TFL with the addition of a few extra rules for handling the quantifiers.
+   in predicate logic the addition of a few extra rules for handling
+   the quantifiers.
 
    ====  =====================================================================  
    Name  Rule
@@ -2916,18 +2917,18 @@ Truth-Tree Analysis
          1+ open paths   Invalid w/ counterexamples
          =============   ============================
 
--------------------------------------------------------
-First-Order Quantification Calculus (FOC - Fitch Style)
--------------------------------------------------------
+--------------------------------------------------
+First-Order Predicate Calculus (FOC - Fitch Style)
+--------------------------------------------------
 
 Primitive Inference Rules
 =========================
 
-   let α represent any constant symbol, and x represent any variable.
-   A boxed constant [α] introduces a *new* constant into a subproof; α goes
-   out of scope when the subproof closes (just like a local variable
-   in a computer program) meaning once the subproof is ended that symbol
-   is no longer accessible.
+   Let α represent any constant symbol, and x represent any variable.
+   A boxed constant [α] introduces a *new* constant into a subproof which
+   subsequently goes out of scope when the subproof closes (just like
+   a local variable in a computer program) meaning once the subproof
+   is ended α is no longer accessible.
 
    ================================  =========================================
    Name/Alternate Names              Rule
@@ -2947,26 +2948,26 @@ Primitive Inference Rules
    Existential Introduction (∃I)     From P(α), infer ∃xP(x/α)
    ================================  =========================================
 
-   These rules can also be describable in diagrams.
+   These rules can also be described in diagrams.
 
       +-------------------------------+-------------------------------+
       | ============================= | ============================= |
       |  ∀E                           |  ∀I                           |
       | ============================= | ============================= |
-      |   ∀x:Φ                        |   |[α]     (new α)            |
+      |   ∀xΦ                         |   |[α]     (new α)            |
       |  --------                     |   |   ...                     |
       |   Φ(α/x)  (any α)             |   |   Ψ(α)                    |
-      |                               |  ------------                 |
-      |                               |   ∀x:Ψ(x//α)                  |
+      |                               |  -----------                  |
+      |                               |   ∀xΨ(x//α)                   |
       |                               |                               |
       | ============================= | ============================= |
       |  ∃E                           |  ∃I                           |
       | ============================= | ============================= |
       |   ∃xΦ(x)                      |   Φ(α)                        |
-      |   |[α] Φ(α//x)  (new α)       |  -----------                  |
+      |   |[α] Φ(α//x)  (new α)       |  ----------                   |
       |   |   ...                     |   ∃xΦ(x/α)                    |
       |   |   Ψ                       |                               |
-      |  ---------------              |                               |
+      |  --------------               |                               |
       |   Ψ                           |                               |
       |                               |                               |
       +-------------------------------+-------------------------------+
@@ -2974,8 +2975,8 @@ Primitive Inference Rules
 Derived Inference Rules
 =======================
 
-   Once a sequent is proven it may be used as a new inference rule.  The
-   following are important derived rules:
+   Once a sequent is proved it may be used as a new inference rule.  The
+   following are important derived rules in FOC:
 
    ================================  =========================================
    Name/Alternate Names              Sequent
@@ -3004,7 +3005,7 @@ Proofs of Some Aristotelian Argument Forms
    05.   |   |   Qa -> Ra         1 ∀E (a/x)
    06.   |   |   Pa -> Qa         2 ∀E (a/x)
    06.   |   |   Qa               4,6 ->E
-   07.   |   |   Ra               5,6 ->E
+   07.   |   |   Ra               5,7 ->E
    08.   |   Pa -> Ra             4-7 ->I
    09.   ∀x(Px -> Rx)             3-8 AI
    QED
@@ -3039,9 +3040,9 @@ Proofs of Some Aristotelian Argument Forms
    08.   |   |   Qa               6,7 ->E
    09.   |   |   ￢Pa ∨ ￢Qa      5 ∀E (a/x)
    10.   |   |   ￢Pa             8,9 DS
-   11.   |   |   P ∧ ￢P          6,10 EFQ
-   12.   |   P ∧ ￢P              2,6-11 ∃E
-   13.   ￢￢∃x(Px ∧ Qx)          3-12 ￢I
+   11.   |   |   ⊥                6,10 ⊥ I
+   12.   |   ⊥                    2,6-11 ∃E
+   13.   ￢￢∃x(Px ∧ Qx)          3-12 ⊥ E
    14.   ∃x(Px ∧ Qx)              13 ￢E
    QED
 
@@ -3052,7 +3053,7 @@ Identity Logic (IL and FOL=)
 
    Identity Logic is the logic of the identity predicate = defined in the
    context of FOL.  The logic of the combined system is called First-Order
-   Quantified Logic with Identity (FOL=).
+   Predicate Logic with Identity (FOL=).
 
 
 --------
