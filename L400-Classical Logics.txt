@@ -1008,7 +1008,7 @@ Truth-Tables ("Fast Method")
                        T F T T  ? T T                  T F   F T F F
                            *    *   *                  *       *   *
 
-   valuations Discovered
+   Valuations Discovered
 
              P=T       P=T                 P=F         P=T
              Q=F       Q=T or F            Q=T         Q=T
@@ -1480,7 +1480,7 @@ Primitive Inference Rules
    Biconditional Introduction (<->I) From Φ -> Ψ and Ψ -> Φ, infer Φ <-> Ψ
 
    Equivalence Substitution (EQ)     From [ Φ <-> Ψ ], and Θ(Φ), infer Θ(Ψ/Φ);
-                                     or from [ Φ <-> Ψ ] and Θ(Q),
+                                     or from [ Φ <-> Ψ ] and Θ(Ψ),
                                      infer Θ(Φ/Ψ).
    ================================  =========================================
 
@@ -1725,6 +1725,30 @@ Refuting Dilemmas
    disjuncts true.  ESCAPING BETWEEN THE HORNS is proving the disjunction
    false by either proving there's a third option, or proving that both
    disjuncts are false.
+
+Relevance
+=========
+
+   Some philosophers have concerns over the inference rules ∨I, and H
+   because they provide a way for an arguer to introduce any statement
+   whatever into the proof relevant or not.   Their particular concern
+   is that this exposes a serious problem for FOC.  They've gone so far
+   as to introduce new systems of logic which remove such rules.
+
+   The classical perspective is these issues don't matter because the
+   inference rules are sufficient to weed out inconsistent sentences
+   wherever doing so makes sense, and that conclusions found by FOC=
+   always do conform to the definition of a valid deductive argument.
+   If one asserts that Φ is true, then referring back to the valuation
+   function v for disjunction shows that no matter what value of Ψ we
+   introduce, Φ ∨ Ψ will still be true simply because Φ is true.
+   While for H, it doesn't matter what we hypothesize.  If some
+   hypothesis Θ is inconsistent with the premises Θ will be negated after
+   the subproof is closed.  But if Θ is not inconsistent with the premises
+   then by definition it's consistent relevant or not and whose to say
+   what is and isn't relevant anyway.  Classical logic regards these as
+   arguments adequate to justify the inclusion and current formulation
+   of these rules.
 
 Semantic Soundness & Completeness of TFC
 ========================================
@@ -2291,7 +2315,8 @@ Lexemes
 
    Non-Logical Symbols
 
-      Object Symbols:           a...z
+      Object Symbols
+         Constants:             a...t
       Predicate Symbols:        A...Z
       Association Symbols:      ( )
 
@@ -2303,10 +2328,11 @@ Grammar
 =======
 
    It's conventional to use capital Greek letters to stand for arbitrary
-   wffs, and lower-case Greek letters to stand for arbitrary object symbols.
+   wffs, and lower-case Greek letters to stand for arbitrary constant
+   object symbols.
 
    An ATOMIC FORMULA consists of a Predicate symbol followed by zero
-   or more object Symbols.
+   or more constant object Symbols.
 
    Formation Rules for wffs
    1.  every atomic formula is a wff;
@@ -2316,8 +2342,9 @@ Grammar
 
    Notes
 
-   - We'll often use letters from the end of the alphabet (x, y and z), as
-     place holders for arbitrary object symbols within a dictionary.
+   - In a dictionary we'll use letters from the end of the alphabet
+     (x, y and z), as place holders for arbitrary object symbols
+     within a dictionary.
 
    - Identical sequences of symbols that form single atomic formulas should
      be regarded as if they were the same proposition symbol, while different
@@ -2351,8 +2378,7 @@ Properties
 ----------
 
    A property asserts that some object is a member of some particular
-   set which denotes a possible characteristic of the objects relevance
-   to the universe.
+   set which when combined denotes a characteristic of the object.
 
          Dictionary
          ----------------
@@ -2597,13 +2623,14 @@ Quantifiers & Variables
 =======================
 
    A quantifier expression is a quantifier followed by a variable symbol
-   and then a seb-wff.  The quantifier is said BIND the variable, or the
+   and then a sub-wff.  The quantifier is said BIND the variable, or the
    variable is BOUND to the quantifier.
 
-         ∀xΦ       For every object x in our universe of discourse, Φ.
+         ∀xΦ       For every object x in our universe of discourse,
+                   Φ.holds.
 
          ∃xΦ       There exists at least one object x in our universe
-                   of discourse such that, Φ.
+                   of discourse such that, Φ holds.
 
    Once the variable is bound it can be used within the wff.  In our FOL
    implementation a variable in a wff is always bound provided formation
@@ -2714,8 +2741,8 @@ Multiple Quantifiers
          ∀x∀yLxy         Everyone loves everyone including themselves.
          ∀y∀xLxy         Everyone loves everyone including themselves.
 
-         ∃x∃yLxy         Someone loves someone (perhaps themself).
-         ∃y∃xLxy         Someone loves someone (perhaps themself).
+         ∃x∃yLxy         Someone loves someone (perhaps themselves).
+         ∃y∃xLxy         Someone loves someone (perhaps themselves).
 
    In the first form ∀x has scope over the following formula which
    is ∀yLxy.  It's similarly the case with the remaining forms.  However,
@@ -2842,21 +2869,21 @@ Truth-Trees
    ====  =====================================================================  
    Name  Rule
    ====  =====================================================================
-   ∀     If ∀xP(x) appears on an open path, and α occurs in some wff on
-         that path, write P(α//x) (the result of replacing each occurrence
-         of x in P with α) at the bottom of the path.  If no wff containing
+   ∀     If ∀xΦ(x) appears on an open path, and α occurs in some wff on
+         that path, write Φ(α//x) (the result of replacing each occurrence
+         of x in Φ with α) at the bottom of the path.  If no wff containing
          α appears on the path, choose any α .
 
-   ￢∀   If ￢∀xP(x) appears on an open path, star it and write ∃x￢P(x)
+   ￢∀   If ￢∀xΦ(x) appears on an open path, star it and write ∃x￢Φ(x)
          at the bottom of every open path that contains the newly
          starred wff.
 
-   ∃     If ∃xP(x) appears on an open path, star it.  Choose a constant α
-         that doesn't appear on that path and write P(α//x) (the results of
-         replacing each occurrence of x by α in P) at the bottom of every
+   ∃     If ∃xΦ(x) appears on an open path, star it.  Choose a constant α
+         that doesn't appear on that path and write Φ(α//x) (the results of
+         replacing each occurrence of x by α in Φ) at the bottom of every
          open path that contains the newly starred wff.
 
-   ￢∃   If ￢∃xP(x) appears on an open path, star it and write ∀x￢P(x)
+   ￢∃   If ￢∃xΦ(x) appears on an open path, star it and write ∀x￢Φ(x)
          at the bottom of every open path that contains the newly
          starred wff.
    ====  =====================================================================
@@ -2867,18 +2894,18 @@ Truth-Trees
             | ======================== | ======================== |
             |          ∀Rule           |          ￢∀Rule         |
             | ======================== | ======================== |
-            |          ∀xP(x)          |       * ￢∀xP(x)         |
+            |          ∀xΦ(x)          |       * ￢∀xΦ(x)         |
             |         --------         |        ----------        |
-            |          P(c/x)          |         ∃x￢P(x)         |
+            |          Φ(c/x)          |         ∃x￢Φ(x)         |
             |                          |                          |
             | if possible c is not new |                          |
             |                          |                          |
             | ======================== | ======================== |
             |          ∃Rule           |          ￢∃Rule         |
             | ======================== | ======================== |
-            |       * ∃xP(x)           |       * ￢∃xP(x)         |
+            |       * ∃xΦ(x)           |       * ￢∃xΦ(x)         |
             |        ---------         |        -----------       |
-            |         P(c//x)          |         ∀x:￢P(x)        |
+            |         Φ(c//x)          |         ∀x:￢Φ(x)        |
             |                          |                          |
             |         c is new         |                          |
             |                          |                          |
@@ -2933,19 +2960,19 @@ Primitive Inference Rules
    ================================  =========================================
    Name/Alternate Names              Rule
    ================================  =========================================
-   Universal Elimination (∀E)        From ∀xP infer P(α//x);
-                                     where α is any const.
+   Universal Elimination (∀E)        From ∀xΦ infer Φ(α//x);
+                                     where α is any constant object.
 
    Universal Introduction (∀I)       From a subproof with hypothesis [α] and
-                                     ending Q(α), close the subproof and
-                                     infer ∀xQ(x//α); where α is new.
+                                     ending Ψ(α), close the subproof and
+                                     infer ∀xΨ(x//α); where α is new.
                                     
-   Existential Elimination (∃E)      From ∃xP(x), and a subproof with
-                                     hypothesis [α] P(α//x) and ending Q,
-                                     close the subproof and infer Q;
-                                     where α is new.  Q mustn't contain α.
+   Existential Elimination (∃E)      From ∃xΦ(x), and a subproof with
+                                     hypothesis [α] Φ(α//x) and ending Ψ,
+                                     close the subproof and infer Ψ;
+                                     where α is new.  Ψ mustn't contain α.
 
-   Existential Introduction (∃I)     From P(α), infer ∃xP(x/α)
+   Existential Introduction (∃I)     From Φ(α), infer ∃xΦ(x/α)
    ================================  =========================================
 
    These rules can also be described in diagrams.
@@ -2981,11 +3008,13 @@ Derived Inference Rules
    ================================  =========================================
    Name/Alternate Names              Sequent
    ================================  =========================================
-   Dual                              ⊢  ￢∀x￢Φ <-> ∃xΦ
-                                     ⊢  ￢∀xΦ <-> ∃x￢Φ
-                                     ⊢  ∀x￢Φ <-> ￢∃xΦ
-                                     ⊢  ∀xΦ <-> ￢∃x￢Φ
+   Dual                              ⊢  ￢∀xΦ <-> ∃x￢Φ
+                                     ⊢  ￢∃xΦ <-> ∀x￢Φ 
    ================================  =========================================
+
+Proofs of Non-Consequence
+=========================
+@@@ Need to fill this in with examples too.
 
 
 ------------------------------------------
@@ -3079,13 +3108,13 @@ Lexemes
 Grammar
 =======
 
-   ATOMIC FORMULA is a predicate symbol followed by zero or more consts;
-   or 'α=β' (where α,β are consts, and can be the same symbol).
+   An ATOMIC FORMULA is a predicate symbol followed by zero or more
+   constants; or 'α=β' (where α,β are constants, and can be the same symbol).
 
    1.  Every atomic formula is a wff;
    2.  if Φ is a wff, then so is ￢Φ;
    3.  if Φ,Ψ are wffs, then so are (Φ ∧ Ψ), (Φ ∨ Ψ), (Φ -> Ψ), (Φ <-> Ψ);
-   4.  if Φ(α) (α is some const) is a wff, then ∀xΦ(x/α) and ∃xΦ(x/α)
+   4.  if Φ(α) (α is some constant) is a wff, then ∀xΦ(x/α) and ∃xΦ(x/α)
        are wffs (where x is new to Φ).
    5.  Nothing else is a wff.
 
@@ -3095,7 +3124,7 @@ Semantics
 ---------
 
    The identity predicate does just one thing:  asserts that two object
-   symbols denote the same object.
+   symbols denote the same object; that the two symbols are like synonyms.
 
 Translation Hints
 =================
@@ -3129,8 +3158,12 @@ Translation Hints
 Properties of Relations
 =======================
 
-   Binary relations can have interesting properties which can be used
-   to impart logical meanings upon those relations.
+   The identity predicate enables further discussion into 2-place
+   predicates (sometimes called binary relations).  Binary relations
+   can have interesting properties which can be used to impart logical
+   meanings upon those relations.  Understanding these relations can
+   go a long way in teaching the student of logic how to translate
+   sentences into FOL=.
 
       Let,
          R,        be any binary relation (predicate)
@@ -3179,8 +3212,35 @@ Properties of Relations
 Truth Trees
 ===========
 
-   Truth trees in FOL= are identical to those in FOL; identity is just
-   a predicate so there are no new rules.
+   Truth trees in FOL= are nearly identical to those in FOL; identity
+   is just a predicate though with some special standing in FOL=.  Therefore,
+   we introduce two new tree rules.
+
+   ====  =====================================================================  
+   Name  Rule
+   ====  =====================================================================
+   =     If α=β appears on an open path along with either Φ(α) or Φ(β)
+         unstarred, write at the bottom of the path any wff not already
+         on the path which is the result of replacing one of more occurrences
+         of either of these name letters by the other in Φ. Do not check
+         either α=β or Φ.
+
+   ￢=   Close any path on which ￢α=α occurs.
+   ====  =====================================================================
+
+   These rules are often described with diagrams instead of words.
+
+            +--------------------------+--------------------------+
+            | ======================== | ======================== |
+            |          =Rule           |         ￢=Rule          |
+            | ======================== | ======================== |
+            |       α=β       α=β      |          ￢α=α           |
+            |       Φ(α)      Φ(β)     |         --------         |
+            |      --------  --------  |          ⊥               |
+            |       Φ(β/α)    Φ(α/β)   |                          |
+            |                          |                          |
+            +--------------------------+--------------------------+
+
 
 ------------------------------------
 Identity Calculus (IC - Fitch Style)
@@ -3194,13 +3254,13 @@ Primitive Inference Rules
    ================================  =========================================
    Name/Alternate Names              Sequent
    ================================  =========================================
-   Identity Elimination (=E)         From α=β, and P(α) infer P(β/α).
+   Identity Elimination (=E)         From α=β or β=α, and P(α), infer P(β/α).
 
-   Identity Introduction (=I)        Introduce α=α (for any const α) as a new
-                                     line in the proof.
+   Identity Introduction (=I)        Introduce α=α (for any constant α)
+                                     as a new line in the proof.
    ================================  =========================================
 
-   These rules can also be describable in diagrams.
+   These rules can also be described in diagrams.
 
       +-------------------------------+-------------------------------+
       | ============================= | ============================= |
@@ -3208,7 +3268,7 @@ Primitive Inference Rules
       | ============================= | ============================= |
       |   α=β                         |                               |
       |   Φ(α)                        |  -----                        |
-      |  --------                     |   α=α        α is any const   |
+      |  --------                     |   α=α     α is any constant   |
       |   Φ(β/α)                      |                               |
       |                               |                               |
       +-------------------------------+-------------------------------+
@@ -3221,12 +3281,12 @@ Philosophical Concerns
 Identity Peculiarity
 ====================
 
-   FOL= considers the following to be wffs though they're nonsensical:
+   FOL= classifies the following as wffs though they're nonsensical:
 
          ∀x￢x=α
          ￢∀xx=x
 
-   Their existential duals are just a problematic.
+   Their existential duals are just as problematic.
 
          ￢∃xx=x
          ∃x￢x=x
@@ -3237,10 +3297,10 @@ Function Logic (FL)
 ===================
 
    Function logic, constructed upon FOL=, provides a new way to analyze atomic
-   formulas by adding more expression.  FL however, doesn't add any power to
-   the logic.  It assigns valid/invalid to all the same forms.  For this
-   reason FL + FOL= is still FOL= because FL only adds new ways to say things
-   that FOL= can already say.
+   formulas by adding more expression.  FL however, doesn't add any new power
+   to the logic, it just adds new ways to say things FOL= can already say.
+   It assigns valid/invalid to all the same forms.  For this reason when
+   working with functions we're still in FOL=.
 
 
 --------
@@ -3267,16 +3327,16 @@ Lexemes
 Grammar (Formation Rules)
 =========================
 
-   An ATOMIC FORMULA is a predicate symbol followed by zero or more consts
-   objects; or 'α=β' (where α,β are any consts; and could be the same
-   const).  In addition to a const object symbol, a function symbol with
-   a const argument is also a const object symbol since functions are just
+   An ATOMIC FORMULA is a predicate symbol followed by zero or more constants;
+   or 'α=β' (where α,β are any constants; and could be the same constant).
+   In addition to a constant object symbol, a function symbol with a
+   constant argument is also a constant object symbol since functions are just
    objects.  Functions can also be composed (take functions as arguments).
 
    1.  Every atomic formula is a wff;
    2.  if Φ is a wff, then so is ￢Φ;
    3.  if Φ,Ψ are wffs, then so are (Φ ∧ Ψ), (Φ ∨ Ψ), (Φ -> Ψ), (Φ <-> Ψ);
-   4.  if Φ(α) (α a is some const) is a wff, then ∀xΦ(x/α) and ∃xΦ(x/α)
+   4.  if Φ(α) (α a is some constant) is a wff, then ∀xΦ(x/α) and ∃xΦ(x/α)
        are wffs (where x is new to Φ).
    5.  Nothing else is a wff.
 
@@ -3323,19 +3383,19 @@ Function Symbol Denotation
          c,    Charlie
          d,    Donna
          r,    Rob
-         s,    steve
+         s,    Steve
          t,    Tom
          u,    Uden
 
          State of Affairs in Universe
          -------------------------------------------
-         f(a) = r   or   f = { <a,r>, <b,s>, <c,t>, <d,t> }
-         f(b) = s
-         f(c) = t
-         f(d) = t
+         f(a) = r   or   f = { <a,r>,
+         f(b) = s              <b,s>,
+         f(c) = t              <c,t>,
+         f(d) = t              <d,t> }
 
    Charlie and Donna have the same father so they're siblings so,
-   f(d) = f(a) = r.  FOL= functions are general functions as in algebra
+   f(d) = f(c) = r.  FOL= functions are general functions as in algebra
    and calculus.  They aren't required to conform to a more limited
    definition such as being one-to-one.
 
@@ -3363,8 +3423,8 @@ Inverse Functions
 Variable Function Arguments
 ===========================
    
-   A function with a const argument always denotes the object that the
-   function maps the argument to, making the string of symbols denoting
+   A function with a constant object argument always denotes the object that
+   the function maps the argument to, making the string of symbols denoting
    use of a function itself a constant object symbol.  Each of the
    following is a constant object symbol.
 
@@ -3408,14 +3468,14 @@ Functions in WFFs
 Translation Hints
 =================
 
-   Simple functions
+   Simple Functions
 
          l(x),     the length of x.
          l(p),     the length of the pool.
          h(x),     the home planet of x.
          h(e),     the home planet of E.T..
 
-   composed functions
+   Composed Functions
 
          m(x),     the mother of x.
          m(m(x)),  the mother of the mother of x.  (x's grandmother)
@@ -3425,7 +3485,7 @@ Translation Hints
          s(s(0)),  2
          s(s(n)),  n + 2
 
-   Non-functions
+   Non-Functions
 
          None of the following is a function, because none is guaranteed to
          always map any object to exactly one object.
@@ -3443,15 +3503,14 @@ Function Calculus (FC)
    calculus doesn't add any new inference rules, since functions only add
    a new way to name existing objects.  Thus, functions don't require the
    addition of new inference rules.  However, they do allow us to analyze
-   sentences in a new way.  So, in this sense they do give us a new way 
-   to analyze sentences.  In these ways FL is analogous to predicate logic.
+   sentences in a new way.  In these ways FL is analogous to predicate logic.
 
 Functions in Proofs
 ===================
 
    Any constant function can be used within the body of a proof anywhere
    that constant object symbols can.  For example, such a function can
-   be the replacement value for x in applying ∀E.
+   be the replacement value for a variable x in applying ∀E.
 
          Dictionary
          --------------------------
@@ -3479,12 +3538,28 @@ Functions in Proofs
 Definite Descriptors
 ====================
 
+   In his *The Principles of Mathematics* Bertrand Russell introduced a
+   concept called a Definite Descriptor.  A definite descriptor, is
+   any noun phrase of the form "the x such that Px" which he wrote as
+   as ℩xPx (℩ is an inverted Greek lower case letter iota).  Like functions,
+   descriptors don't add anything new to FOL=; the FOL= concepts covered
+   so far can already say the same thing.
+
+         B(℩xPx)    =df    ∃x(∀y(Py <-> y=x) ∧ Bx)
+                    =df    ∃x(Ax ∧ ∀y(Ay -> y=x) ∧ Bx)
+
+         B(℩xKx), the king of France is bald.
+                  the x such that x is the king of France is Bald
+         =∃x(Kx ∧ ∀y(Ky -> y=x) ∧ Bx)
+
+
 
 ====================================
 Second-Order Quantified Logic (SOL=)
 ====================================
 
-   Second order logic adds quantifiers and variables that reign over predicates.
+   Second order logic adds new quantifiers and new variables that reign
+   over predicates.
 
          ∀x∃VVx    Every object has some (1 or more) property.
 
@@ -3515,32 +3590,56 @@ Lexemes
 Grammar
 =======
 
-   An ATOMIC FORMULA is a constant spredicate symbol followed by zero or more
-   constants; or 'α=β' (where α,β are consts; and could be the same symbol).
-   A constant; may also consist of a function symbol with some constant
-   in the parentheses since constant functions are just constant objects.
-   Functions can also be composed (take functions as arguments).
+   An ATOMIC FORMULA is a constant predicate symbol followed by zero or more
+   constant object symbols; or 'α=β' (where α,β are constant object symbols;
+   and could be the same symbol).  A constant object; may also consist of a
+   function symbol with some constant objects in the parentheses since
+   constant functions are just constant objects.  Functions can also be
+   composed (take functions as arguments).
 
    1.  Every atomic formula is a wff;
    2.  if Φ is a wff, then so is ￢Φ;
    3.  if Φ,Ψ are wffs, then so are (Φ ∧ Ψ), (Φ ∨ Ψ), (Φ -> Ψ), (Φ <-> Ψ);
    4.  if Φ(α) (α a is some constant object symbol) is a wff,
        then ∀xΦ(x/α) and ∃xΦ(x/α) are wffs (where x is new to Φ).
-   5.  if Φ(Ψ) (Φ,Ψ are const predicates) is a wff, then ∀VΦ(V/Ψ) and
+   5.  if Φ(Ψ) (Φ,Ψ are constant predicates) is a wff, then ∀VΦ(V/Ψ) and
        ∃VΦ(V/Ψ) are wffs where V is a variable predicate symbol and
        V is new to Φ.
    6.  Nothing else is a wff.
+
+
+---------
+Semantics
+---------
+
+   The quantifiers of FOL are here OVERLOADED, redefined so that they
+   still accept additional kinds of arguments.  In this case they're
+   overloaded to accept variable object symbols as their first argument
+   and they accept variable predicate symbols.  They are read the same
+   way and mean nearly the same as their FOL counterparts.  The variable
+   predicates are capital letters at the end of the alphabet (U,V,W,X,Y,Z)
+   which signals to the reader that the quantifier and variable reign over
+   arbitrary predicates as opposed to objects.
+
+         ∀VVc,     c has every property.
+         ∃VVc,     c has at least one property.
+
+         ∀x∃VVx,   Everything has at least one property.
+         ∃V∀xVx,   There are some properties that everything has.
+         ∀V∃xVx,   For all properties there exist some who have them.
+         ∃x∀VVx,   Some have all properties
 
 
 ---------------------------
 Second-Order Calculus (SOC)
 ---------------------------
 
-   The four quantifier inference rules from FOL are extended to these two new
-   quantifiers.  However, variable types must not be mixed.  If a quantifier
-   reigns over a predicate variable it must only be replaced by a constant
-   predicate, and if a quantifier reigns over an object it must only be
-   replaced by a constant object.
+   The four quantifier inference rules from FOL are expanded to these
+   two new quantifiers in more-or-less the same way as they are used
+   for variable object symbols.  However, variable types must not
+   be mixed.  If a quantifier reigns over a predicate variable it must
+   only be replaced by a predicate constant, and if a quantifier reigns
+   over an object it must only be replaced by a constant object.
 
 
 ----------------------
@@ -3549,7 +3648,7 @@ Philosophical Concerns
 
    The most important concern is that SOC is not semantically complete.
    That is, we are not guaranteed to be able to find a proof for a conclusion
-   form that in fact does follow from a set of premises.  A conclusion
+   form that does actually follow from a set of premises.  A conclusion
    may *actually be* a consequence of some premises and yet there is no
    proof that gets us from the premises to the conclusion.  However, SOC
    is still sound.  There's no way to derive a proof to a formula that
@@ -3569,7 +3668,7 @@ Mathematical Induction
 Inductive Definitions
 =====================
 
-   INDUCTIVE DEFINITIONS provide a way to enumerate all members of a set.
+   INDUCTIVE DEFINITIONS describe how to enumerate all members of a set.
    They are constructed recursively consisting of three types of numbered
    clauses.  The first clause is the BASE CLAUSE.  It identifies the most
    basic elements of the set and is non-recursive.  The FINAL CLAUSE states
@@ -3578,8 +3677,9 @@ Inductive Definitions
    (intermediate clauses) tell us how to *recursively* generate all non-base
    case elements of the set.
 
-   Our formation rules for our various logics are all examples of inductive
-   definitions.  Here are the formation rules for TFL.
+   The formation rules for all of the classical logics are examples
+   of inductive definitions.  Here are the formation rules for
+   propositional logic.
 
          1.   Every atomic formula is a wff.
          2.   If P is a wff, then so is ￢P.
@@ -3604,7 +3704,7 @@ Zero and The Successor Function
 
    Mathematical induction introduces a new constant object symbol 0 which
    denotes the number zero; it also introduces the SUCCESSOR function s;
-   the element that follows its argument.  Because the successor function
+   the number that comes after its argument.  Because the successor function
    is often composed with itself many times it's common to omit
    the parentheses.
 
@@ -3617,8 +3717,8 @@ Inductive Inference
 ===================
 
    Mathematical induction is used to construct a proof that all members
-   the set enumated by the inductive definition have some property P.
-   Once we have the difinition an INDUCTIVE INFERENCE proceeds in two
+   of the set enumerated by the inductive definition have some property P.
+   Once we have the definition an INDUCTIVE INFERENCE proceeds in two
    steps.  The BASE case, and the inductive case.  The BASE CASE of the
    proof requires that we prove that members denoted by the base clause
    of the inductive definition have property P.  The INDUCTIVE CASE
@@ -3626,15 +3726,16 @@ Inductive Inference
    for any x in our set, if x has the property P, then the successor
    of x also has property P.
 
-Mathematical Induction can be expressed over the natural numbers as an axiom
-in second-order logic, an axiom schema in first-order logic, or an inference
-rule.  All of the following are different ways to express the same thing.
+   Mathematical Induction can be expressed over the natural numbers as an
+   axiom in second-order logic, an axiom schema in first-order logic,
+   or an inference rule in first-order logic.  All of the following are
+   different ways to express the same thing.
 
          2nd-order axiom             ∀P((P0 ∧ ∀x(Px -> Psx)) -> ∀xPx)
 
          1st-order axiom schema      (P0 ∧ ∀x(Px -> Psx)) -> ∀xPx
 
-         Inference Rule              from P0 and ∀x(Px -> Psx), infer ∀xPx
+         1st-order Inference Rule    from P0 and ∀x(Px -> Psx), infer ∀xPx
 
 
 ===============================
@@ -3645,17 +3746,17 @@ The Fitch-style calculi presented thus far are known as NATURAL DEDUCTION
 systems, which consist only of inference rules.  These systems are called
 'natural' because they are more intuitive and more closely resemble how one
 reasons informally.  An AXIOMATIC DEDUCTION system, in contrast, consists
-of a minimal set of inference rules, perhaps just one, and one or more
+of a minimal set of inference rules, often just one, and one or more
 axiom schemata.  All instances of the schemata are axioms of the logic.
 Axiomatic deduction systems are usually simpler than Fitch in that they have
 fewer parts, but they are also more complicated and cumbersome to use and
 quite dissimilar to how one reasons informally.  Given all this, the one
 important similarity is that both kinds of systems count the same
-argument forms as valid.
+forms as valid.
 
        +--------------------------------------------------------------+
        | ============================================================ |
-       | Axiomatic Truth-Functional Logic & Calculus                  |
+       | Axiomatic Propositional Logic & Calculus                     |
        | ============================================================ |
        |                                                              |
        | Lexemes                                                      |
@@ -3670,7 +3771,7 @@ argument forms as valid.
        |                                                              |
        |    An ATOMIC FORMULA is any single proposition symbol.       |
        |                                                              |
-       |    1.  every atomic formula is a wff;                        |
+       |    1.  Every atomic formula is a wff;                        |
        |    2.  if Φ is a wff, then ￢Φ is a wff;                     |
        |    3.  if Φ ,Ψ is wffs, then so is (Φ -> Ψ);                 |
        |    4.  nothing else is a wff.                                |
@@ -3687,9 +3788,9 @@ argument forms as valid.
        |                                                              |
        | Axiom Schemata                                               |
        |                                                              |
-       |    Ax1.  P -> (Q -> P)                                       |
-       |    Ax2.  (P -> (Q -> R)) -> ((P -> Q) -> (P -> R))           |
-       |    Ax3.  (-P -> ￢Q) -> ((-P -> Q) -> P)                     |
+       |    AxS1.  P -> (Q -> P)                                      |
+       |    AxS2.  (P -> (Q -> R)) -> ((P -> Q) -> (P -> R))          |
+       |    AxS3.  (-P -> ￢Q) -> ((-P -> Q) -> P)                    |
        |                                                              |
        |    Every instance of these schemata is an axiom              |
        |    of the calculus.                                          |
@@ -3703,7 +3804,7 @@ Formal Theories
 
    A SYSTEM is a set of object, properties and relationships; while A MODEL
    is a limited representation of a system.  A THEORY is all the true
-   propositions that can be said about a model in the broad sense.
+   propositions that can be said about a model.
 
    Since any interesting theory has a large number (usually infinite number)
    of propositions, it would clearly be impractical to uncover all those
@@ -3716,8 +3817,8 @@ Formal Theories
    the model.
 
    The FIRST PRINCIPLES of a theory are those things from which the rest
-   of the theory is derived; they include but may not be limited to inference
-   rules, axioms and definitions.
+   of the theory may be derived; they include but may not be limited to
+   inference rules, axioms and definitions.
 
    An AXIOM is a proposition within a theory that describes the logical
    relationships between the various concepts of the theory (usually
@@ -3726,35 +3827,38 @@ Formal Theories
 
    POSTULATE is a synonym for axiom; another synonym is LAW.  Some theorists
    uses these terms as categories as a way to group different kinds of axioms,
-   but from the perspective of logic they are all the same thing.
+   others pick just one of the terms to use.  However from the perspective
+   of logic they are all the same thing.  Postulate, law and axiom all mean
+   the same thing.
 
    A SCHEMA (plural is SCHEMATA) is a general statement about definitions
-   or axioms whose substitution instances are actual definitions or axioms.
+   or axioms which contain placeholders and whose substitution instances
+   are actual definitions or axioms.
 
-   A THEOREM is any proposition derived from a theory's first principals,
-   or other theorems, via reasoning.  Theorems are propositions that are true
-   in all cases.  So an argument with premises is not a theorem in logic,
-   since it depends upon things other than the first principals for
+   A THEOREM is any proposition derived only from a theory's first
+   principles or other theorems, via reasoning.  Theorems are propositions
+   that are true in all cases.  So an argument with premises is not a theorem
+   in logic, since it depends upon things other than the first principals for
    its validity.
 
    A THEORY is the plural of theorem; a theory consists of the combined
-   set of first principals plus all the theorems (whether proven or not).
+   set of first principles plus all the theorems (whether proved or not).
 
-   A LEMMA is a theorem that has no use other than to serve as a premise
-   to another theorem.  The purpose of the lemma is to make the proof
-   of an otherwise long theorem shorter, by proving an intermediate step
-   first.  Proving lemmas before proving a theorem is a divide and conquer
-   approach to proving the intended theorem.
+   A LEMMA is a theorem that has no use other than to serve
+   as an intermediate step in the proof of another theorem.  The purpose
+   of the lemma is to make the proof of an otherwise long theorem shorter.
+   Proving lemmas before proving a theorem is a divide and conquer approach
+   to proving the intended theorem.
 
-   A COROLLARY is a theorem that "follows easily" from a first principal
+   A COROLLARY is a theorem that "follows easily" from a first principle
    or other theorem; ie. the corollary is only a few reasoning steps away
    from what it's claimed to follow from.
 
-   A CONJECTURE is any proposition which cannot be proven as a theorem in any
-   known theory but is still taken as a principle.  The well known Occam's
-   razor is sometimes called as a conjecture.  Einstein took Galileo's
-   equivalence principal, a conjecture, and raised it up to an axiom of his
-   own theory of relativity.
+   A CONJECTURE is any proposition which cannot be proved as a theorem in any
+   known theory but is still taken as a principle due to its usefulness.
+   The well known Occam's razor is sometimes called as a conjecture.  Einstein
+   took Galileo's equivalence principal, a conjecture, and raised it up to an
+   axiom of his own theory of relativity.
 
 
 ==================
@@ -3805,12 +3909,14 @@ Appendix A: Combined Logic & Calculus
 Regarding Notation
 ------------------
 
+   The following notations are used in the formal descriptions that follow.
+
    A capital Greek letter (Φ, Ψ, Θ, Δ, etc.) denotes any arbitrary formula,
    and a lower case Greek letter (α, β, δ, etc.) denotes any arbitrary
    object symbol.
 
    Φ(Ψ) indicates that a wff Φ contains one or more occurrences of
-   sub-wff Ψ.
+   a sub-wff Ψ.
 
    Φ(Θ/Ψ) indicates the result of replacing one or more occurrences
    of Ψ in Ψ with Θ.  Θ/Ψ is read, "Θ replaced one or more occurrences of Ψ".
@@ -3820,9 +3926,9 @@ Regarding Notation
 
    Φ(β),Φ(α/β),Φ(α//β), similar to the above but α and β are object symbols.
 
-   ( Φ ⊢ Ψ ), indicates a subproof with hypothesis Φ concluding with Ψ.
+   ( Φ ⊢ Ψ ), denotes a subproof with hypothesis Φ concluding with Ψ.
 
-   [ ... ] indicates that the enclosed must exist, be defined or proven
+   [ ... ] indicates that the enclosed must exist, be defined or proved
    elsewhere.
 
 Lexemes
@@ -3919,7 +4025,7 @@ Primitive Inference Rules
    Biconditional Introduction (<->I) From Φ -> Ψ and Ψ -> Φ, infer Φ <-> Ψ
 
    Equivalence Substitution (EQ)     From [ Φ <-> Ψ ], and Θ(Φ), infer Θ(Ψ/Φ);
-                                     or from [ Φ <-> Ψ ] and Θ(Q),
+                                     or from [ Φ <-> Ψ ] and Θ(Ψ),
                                      infer Θ(Φ/Ψ).
 
    --------------------------------  -----------------------------------------
@@ -3930,25 +4036,25 @@ Primitive Inference Rules
    --------------------------------  -----------------------------------------
 
    Universal Elimination (∀E)        From ∀xP infer P(α//x);
-                                     where α is any const.
+                                     where α is any constant object.
 
    Universal Introduction (∀I)       From a subproof with hypothesis [α] and
-                                     ending Q(α), close the subproof and
-                                     infer ∀xQ(x//α); where α is new.
+                                     ending Ψ(α), close the subproof and
+                                     infer ∀xΨ(x//α); where α is new.
                                     
-   Existential Elimination (∃E)      From ∃xP(x), and a subproof with
-                                     hypothesis [α] P(α//x) and ending Q,
-                                     close the subproof and infer Q;
-                                     where α is new.  Q mustn't contain α.
+   Existential Elimination (∃E)      From ∃xΦ(x), and a subproof with
+                                     hypothesis [α] Φ(α//x) and ending Ψ,
+                                     close the subproof and infer Ψ;
+                                     where α is new.  Ψ mustn't contain α.
 
-   Existential Introduction (∃I)     From P(α), infer ∃xP(x/α)
+   Existential Introduction (∃I)     From Φ(α), infer ∃xΦ(x/α)
 
    --------------------------------  -----------------------------------------
 
-   Identity Elimination (=E)         From α=β, and P(α) infer P(β/α).
+   Identity Elimination (=E)         From α=β, and Φ(α) infer Φ(β/α).
 
-   Identity Introduction (=I)        Introduce α=α (for any const α) as a new
-                                     line in the proof.
+   Identity Introduction (=I)        Introduce α=α (for any constant α)
+                                     as a new line in the proof.
 
    --------------------------------  -----------------------------------------
 
@@ -4038,7 +4144,7 @@ Primitive Inference Rules
       | ============================= | ============================= |
       |   α=β                         |                               |
       |   Φ(α)                        |  -----                        |
-      |  --------                     |   α=α        α is any const   |
+      |  --------                     |   α=α     α is any constant   |
       |   Φ(β/α)                      |                               |
       |                               |                               |
       | ============================= |                               |
@@ -4152,23 +4258,33 @@ Appendix B: Combined Truth-Tree Rules & Analysis
 
    ----  ---------------------------------------------------------------------
 
-   ∀     If ∀xP(x) appears on an open path, and α occurs in some wff on
-         that path, write P(α//x) (the result of replacing each occurrence
-         of x in P with α) at the bottom of the path.  If no wff containing
+   ∀     If ∀xΦ(x) appears on an open path, and α occurs in some wff on
+         that path, write Φ(α//x) (the result of replacing each occurrence
+         of x in Φ with α) at the bottom of the path.  If no wff containing
          α appears on the path, choose any α .
 
-   ￢∀   If ￢∀xP(x) appears on an open path, star it and write ∃x￢P(x)
+   ￢∀   If ￢∀xΦ(x) appears on an open path, star it and write ∃x￢Φ(x)
          at the bottom of every open path that contains the newly
          starred wff.
 
-   ∃     If ∃xP(x) appears on an open path, star it.  Choose a constant α
-         that doesn't appear on that path and write P(α//x) (the results of
-         replacing each occurrence of x by α in P) at the bottom of every
+   ∃     If ∃xΦ(x) appears on an open path, star it.  Choose a constant α
+         that doesn't appear on that path and write Φ(α//x) (the results of
+         replacing each occurrence of x by α in Φ) at the bottom of every
          open path that contains the newly starred wff.
 
-   ￢∃   If ￢∃xP(x) appears on an open path, star it and write ∀x￢P(x)
+   ￢∃   If ￢∃xΦ(x) appears on an open path, star it and write ∀x￢Φ(x)
          at the bottom of every open path that contains the newly
          starred wff.
+
+   ----  ---------------------------------------------------------------------
+
+   =     If α=β appears on an open path along with either Φ(α) or Φ(β)
+         unstarred, write at the bottom of the path any wff not already
+         on the path which is the result of replacing one of more occurrences
+         of either of these name letters by the other in Φ. Do not check
+         either α=β or Φ.
+
+   ￢=   Close any path on which ￢α=β occurs.
    ====  =====================================================================
 
 
@@ -4219,20 +4335,28 @@ Appendix B: Combined Truth-Tree Rules & Analysis
            | ========================= | ========================= |
            |           ∀Rule           |           ￢∀Rule         |
            | ========================= | ========================= |
-           |           ∀xP(x)          |        * ￢∀xP(x)         |
+           |           ∀xΦ(x)          |        * ￢∀xΦ(x)         |
            |          --------         |         ----------        |
-           |           P(c/x)          |          ∃x￢P(x)         |
+           |           Φ(c/x)          |          ∃x￢Φ(x)         |
            |                           |                           |
            | if possible c is not new  |                           |
            |                           |                           |
            | ========================= | ========================= |
            |           ∃Rule           |           ￢∃Rule         |
            | ========================= | ========================= |
-           |        * ∃xP(x)           |        * ￢∃xP(x)         |
+           |        * ∃xΦ(x)           |        * ￢∃xΦ(x)         |
            |         ---------         |         -----------       |
-           |          P(c//x)          |          ∀x:￢P(x)        |
+           |          Φ(c//x)          |          ∀x:￢Φ(x)        |
            |                           |                           |
            |          c is new         |                           |
+           |                           |                           |
+           | ========================= | ========================= |
+           |           =Rule           |         ￢=Rule           |
+           | ========================= | ========================= |
+           |       α=β       α=β       |          ￢α=α            |
+           |       Φ(α)      Φ(β)      |         --------          |
+           |      --------  --------   |          ⊥                |
+           |       Φ(β/α)    Φ(α/β)    |                           |
            |                           |                           |
            +---------------------------+---------------------------+
 
