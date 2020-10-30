@@ -83,7 +83,9 @@ To View This Document Properly
 
 21.  Take a snapshot
 
-22.  Download and install repository files
+22.  In settings under power disable the automatic locking.
+
+23.  Download and install repository files
      a.  mkdir ~/SWdev
      b.  cd ~/SWDev
      c.  git clone https://github.com/atomicretro70/VimConfig.git
@@ -97,22 +99,21 @@ To View This Document Properly
      k.  access the newComputerProcedure.txt file in ~/SWdev/RetroNotes
          for these instructions on how to procede.
 
-23.  Install vm tools
+24.  Install vm tools
      a.  Use 'sudo apt install open-vm-tools'
      b.  reboot linux.
      c.  use the window tools to expand the desktop to full screen, and to both
          monitors.
      d.  reboot
 
-24.  Make the windowing system more manageable
+25.  Make the windowing system more manageable
      a.  from pop shop install Tweaks.
      b.  modify font size and add minimize and maximize buttons to titlebars.
-     e.  In settings under power disable the automatic locking.
 
-25.  Dash to Panel Gnome Extension from Gnome extensions web site.
+26.  Dash to Panel Gnome Extension from Gnome extensions web site.
      a.  make it smaller and autohiding
 
-26.  Install the following commands using: sudo apt install <command>
+27.  Install the following commands using: sudo apt install <command>
      Fix The Bash Errors
      a.  figlet    figlet (don't forget fonts into /usr/share/figlet)
          showfigfonts
@@ -129,28 +130,28 @@ To View This Document Properly
      i.  tree      display the filesystem in a tree
      j.  bpytop    another top/htop app
 
-27.  Install more from Pop! Shop:
+28.  Install more from Pop! Shop:
      b.  Veloren.net
      d.  VSCode
      e.  OBS Studio (used for video recording)
      f.  screenkey show keypresses on the screen for doing videos.
      g.  peek
 
-28.  Install WingIDE from wing ware website - license: EN216-1NWM3-W29N3-2QLNX
+29.  Install WingIDE from wing ware website - license: EN216-1NWM3-W29N3-2QLNX
      Need to renew.  Wait until Wing 8.0.  $150 for upgrade.
 
-29.  Install additional Pop! OS Wallpapers
+30.  Install additional Pop! OS Wallpapers
      a.  sudo add-apt-repository -ys ppa:system76-dev/stable
      b.  sudo apt update
      c.  sudo apt install -y system76-wallpapers
 
-30.  tkinter
+31.  tkinter
      a.  sudo apt-get install python3-tk
      b.  reboot linux
      c.  test: enter python shell and type 'import tkinter'; there should
          be no errors. Type 'exit()' to exit.
 
-31.  make command py
+32.  make command py
      a.  sudo apt install python3.9
      .  cd /usr/bin
      b.  sudo ln -s python3.9 py
@@ -158,16 +159,16 @@ To View This Document Properly
      Could instead make an alias in .bashrc the difference being that
      the alias will only work for one user.
 
-32.  Install lazygit
+33.  Install lazygit
      a. sudo add-apt-repository ppa:lazygit-team/release
      b. sudo apt update
      c. sudo apt install lazygit
 
-33.  update
+34.  update
      a.  sudo apt update
      b.  sudo apt upgrade
 
-34.  Configure vim
+35.  Configure vim
      a.  sudo apt install vim
 
      b.  install vim-plug
@@ -194,7 +195,7 @@ To View This Document Properly
      k.  Since I'm trasitioning to neovim see :help nvim-from-vim to setup
          init.vim to use .vimrc.
 
-35.  Possibly install
+36.  Possibly install
      a.  wine for...
            i. Kindle
           ii. Treee DB Notes Pro
@@ -204,7 +205,7 @@ To View This Document Properly
           ii. sudo apt update
          iii. sudo apt install --install-recommends mkusb mkusb-nox usb-pack-efi
 
-36.  Don't forget about Kindle Cloud Reader at https://read.amazon.co
+37.  Don't forget about Kindle Cloud Reader at https://read.amazon.co
 
 ||||| At Some Later Date |||||||||||||||||||||||||||||||||||||||||||||||||||||
 
