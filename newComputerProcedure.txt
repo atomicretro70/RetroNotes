@@ -64,9 +64,12 @@ To View This Document Properly
 11.  Perform all system updates.
 12.  Produce a complete windows recovery disk 32GB USB Drive.
 13.  Label and Save recovery disk in backpack.
-14.  Download latest vmware player (free non-commercial) installer
-15.  Install vmware player in dir Linux Stuff on 1TB USB disk.
-16.  Install and Configure Pop! OS vm with the following disk allocations (all as primary partitions):
+14.  Download latest vmware workstation pro (free non-commercial) installer
+15.  Install vmware workstation pro in dir Linux Stuff on 1TB USB disk.
+
+16.  *** Be sure to set usb to usb 3.1. ***
+
+17.  Install and Configure Pop! OS vm with the following disk allocations (all as primary partitions):
         empty (boot)   1GB
         swap          16GB
         /             35GB
@@ -74,14 +77,18 @@ To View This Document Properly
                      ----- 
                      120GB   Total hd allocation
                      =====
-16.  Download latest Pop! OS installer.
-17.  Install Pop! OS into vmware
+18.  Download latest Pop! OS installer.
+19.  Install Pop! OS into vmware
 
 ||||| New Linux Installation |||||||||||||||||||||||||||||||||||||||||||||||||
 
-21.  Adjust the display in the settings app.
+20.  Adjust the display in the settings app.
 
-22.  Download and install repository files
+21.  Take a snapshot & reboot
+
+     -------------------------------------------------------------------------
+     
+30.  Download and install repository files
      a.  mkdir ~/SWdev
      b.  cd ~/SWDev
      c.  git clone https://github.com/atomicretro70/VimConfig.git
@@ -95,22 +102,23 @@ To View This Document Properly
      k.  access the newComputerProcedure.txt file in ~/SWdev/RetroNotes
          for these instructions on how to procede.
 
-22.  Install vm tools
-     a.  Use 'sudo apt-get install open-vm-tools'
+31.  Install vm tools
+     a.  Use 'sudo apt install open-vm-tools'
      b.  reboot linux.
      c.  use the window tools to expand the desktop to full screen, and to both
          monitors.
      d.  reboot
 
-23.  Make the windowing system more manageable
-     a.  install Tweaks.
-     b.  modify font size and add minimize and maximize buttons to titlebars.
-     e.  In settings under power disable the automatic locking.
+32.  In settings under power disable the automatic locking.
 
-24.  Dash to Panel Gnome Extension from Gnome extensions web site.
+33.  Make the windowing system more manageable
+     a.  from pop shop install Tweaks.
+     b.  modify font size and add minimize and maximize buttons to titlebars.
+
+34.  Dash to Panel Gnome Extension from Gnome extensions web site.
      a.  make it smaller and autohiding
 
-25.  Install the following commands using: sudo apt-get install <command>
+35.  Install the following commands using: sudo apt install <command>
      Fix The Bash Errors
      a.  figlet    figlet (don't forget fonts into /usr/share/figlet)
          showfigfonts
@@ -127,45 +135,50 @@ To View This Document Properly
      i.  tree      display the filesystem in a tree
      j.  bpytop    another top/htop app
 
-26.  Install more from Pop! Shop:
+36.  Install more from Pop! Shop:
      b.  Veloren.net
      d.  VSCode
      e.  OBS Studio (used for video recording)
      f.  screenkey show keypresses on the screen for doing videos.
+     g.  peek
 
-27.  Install WingIDE from wing ware website - license: EN216-1NWM3-W29N3-2QLNX
+36.  Install WingIDE from wing ware website - license: EN216-1NWM3-W29N3-2QLNX
      Need to renew.  Wait until Wing 8.0.  $150 for upgrade.
 
-28.  Install additional Pop! OS Wallpapers
-     a.  sudo apt-add-repository -ys ppa:system76-dev/stable
+37.  Make snapshot & reboot
+
+     ----------------------------------------------------------------------------
+     
+40.  Install additional Pop! OS Wallpapers
+     a.  sudo add-apt-repository -ys ppa:system76-dev/stable
      b.  sudo apt update
      c.  sudo apt install -y system76-wallpapers
 
-29.  tkinter
-     a.  sudo apt-get install python3-tk
-     b.  reboot linux
-     c.  test: enter python shell and type 'import tkinter'; there should
-         be no errors. Type 'exit()' to exit.
-
-30.  make command py
-     a.  sudo apt-get install python3.9
+41.  make command py
+     a.  sudo apt install python3.9
      .  cd /usr/bin
      b.  sudo ln -s python3.9 py
      Must remember to update this every time a new version is installed.
      Could instead make an alias in .bashrc the difference being that
      the alias will only work for one user.
 
-31   Install lazygit
-     a. sudo add-apt-repository ppa:lazygit-team/release
-     b. sudo apt-get update
-     c. sudo apt-get install lazygit
+42.  tkinter
+     1.  sudo apt install python3-tk
+     b.  reboot linux
+     c.  test: enter python shell and type 'import tkinter'; there should
+         be no errors. Type 'exit()' to exit.
 
-32.  update
+43.  Install lazygit
+     a. sudo add-apt-repository ppa:lazygit-team/release
+     b. sudo apt update
+     c. sudo apt install lazygit
+
+44.  update
      a.  sudo apt update
      b.  sudo apt upgrade
 
-33.  Configure vim
-     a.  sudo apt-get install vim
+45.  Configure vim
+     a.  sudo apt install vim
 
      b.  install vim-plug
          curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -173,9 +186,8 @@ To View This Document Properly
      c.  enter vim
 
      d.  type the command ':PlugInstall'
-     e.  install airline
 
-     f.  install powerline-fonts from airline website following the
+     f.  install powerline-fonts from airline website under "Integrating with powerline fonts"
          'Quick Installation' instructions.
      g.  enter settings for a terminal and change the font to Inconsolatat-dz for Powerline dz
 
@@ -191,7 +203,7 @@ To View This Document Properly
      k.  Since I'm trasitioning to neovim see :help nvim-from-vim to setup
          init.vim to use .vimrc.
 
-34.  Possibly install
+46.  Possibly install
      a.  wine for...
            i. Kindle
           ii. Treee DB Notes Pro
@@ -201,19 +213,7 @@ To View This Document Properly
           ii. sudo apt update
          iii. sudo apt install --install-recommends mkusb mkusb-nox usb-pack-efi
 
-35.  Don't forget about Kindle Cloud Reader at https://read.amazon.co
+47.  Don't forget about Kindle Cloud Reader at https://read.amazon.co
 
-||||| At Some Later Date |||||||||||||||||||||||||||||||||||||||||||||||||||||
-
-51.  Download latest Pop! OS installer.
-52.  Create an installer image for Pop! OS.       (on 32GB USB Drive)
-53.  Install Pop! OS as dual boot.                (from 32GB USB Drive)
-
-||||| At Some Later Date |||||||||||||||||||||||||||||||||||||||||||||||||||||
-
-61.  Download latest Pop! OS installer.
-62.  Create an installer image for Pop! OS.       (on 32GB USB Drive)
-63.  Install Pop! OS wiping windows.              (from 32GB USB Drive)
-64.  Download latest vmware for linux
-65.  Install windows inside vmware (may not be possible)
+48.  take snapshot & reboot
 
