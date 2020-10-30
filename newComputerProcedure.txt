@@ -79,7 +79,9 @@ To View This Document Properly
 
 ||||| New Linux Installation |||||||||||||||||||||||||||||||||||||||||||||||||
 
-21.  Adjust the display in the settings app.
+20.  Adjust the display in the settings app.
+
+21.  Take a snapshot
 
 22.  Download and install repository files
      a.  mkdir ~/SWdev
@@ -95,22 +97,22 @@ To View This Document Properly
      k.  access the newComputerProcedure.txt file in ~/SWdev/RetroNotes
          for these instructions on how to procede.
 
-22.  Install vm tools
-     a.  Use 'sudo apt-get install open-vm-tools'
+23.  Install vm tools
+     a.  Use 'sudo apt install open-vm-tools'
      b.  reboot linux.
      c.  use the window tools to expand the desktop to full screen, and to both
          monitors.
      d.  reboot
 
-23.  Make the windowing system more manageable
-     a.  install Tweaks.
+24.  Make the windowing system more manageable
+     a.  from pop shop install Tweaks.
      b.  modify font size and add minimize and maximize buttons to titlebars.
      e.  In settings under power disable the automatic locking.
 
-24.  Dash to Panel Gnome Extension from Gnome extensions web site.
+25.  Dash to Panel Gnome Extension from Gnome extensions web site.
      a.  make it smaller and autohiding
 
-25.  Install the following commands using: sudo apt-get install <command>
+26.  Install the following commands using: sudo apt install <command>
      Fix The Bash Errors
      a.  figlet    figlet (don't forget fonts into /usr/share/figlet)
          showfigfonts
@@ -127,45 +129,46 @@ To View This Document Properly
      i.  tree      display the filesystem in a tree
      j.  bpytop    another top/htop app
 
-26.  Install more from Pop! Shop:
+27.  Install more from Pop! Shop:
      b.  Veloren.net
      d.  VSCode
      e.  OBS Studio (used for video recording)
      f.  screenkey show keypresses on the screen for doing videos.
+     g.  peek
 
-27.  Install WingIDE from wing ware website - license: EN216-1NWM3-W29N3-2QLNX
+28.  Install WingIDE from wing ware website - license: EN216-1NWM3-W29N3-2QLNX
      Need to renew.  Wait until Wing 8.0.  $150 for upgrade.
 
-28.  Install additional Pop! OS Wallpapers
-     a.  sudo apt-add-repository -ys ppa:system76-dev/stable
+29.  Install additional Pop! OS Wallpapers
+     a.  sudo add-apt-repository -ys ppa:system76-dev/stable
      b.  sudo apt update
      c.  sudo apt install -y system76-wallpapers
 
-29.  tkinter
+30.  tkinter
      a.  sudo apt-get install python3-tk
      b.  reboot linux
      c.  test: enter python shell and type 'import tkinter'; there should
          be no errors. Type 'exit()' to exit.
 
-30.  make command py
-     a.  sudo apt-get install python3.9
+31.  make command py
+     a.  sudo apt install python3.9
      .  cd /usr/bin
      b.  sudo ln -s python3.9 py
      Must remember to update this every time a new version is installed.
      Could instead make an alias in .bashrc the difference being that
      the alias will only work for one user.
 
-31   Install lazygit
+32.  Install lazygit
      a. sudo add-apt-repository ppa:lazygit-team/release
-     b. sudo apt-get update
-     c. sudo apt-get install lazygit
+     b. sudo apt update
+     c. sudo apt install lazygit
 
-32.  update
+33.  update
      a.  sudo apt update
      b.  sudo apt upgrade
 
-33.  Configure vim
-     a.  sudo apt-get install vim
+34.  Configure vim
+     a.  sudo apt install vim
 
      b.  install vim-plug
          curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -191,7 +194,7 @@ To View This Document Properly
      k.  Since I'm trasitioning to neovim see :help nvim-from-vim to setup
          init.vim to use .vimrc.
 
-34.  Possibly install
+35.  Possibly install
      a.  wine for...
            i. Kindle
           ii. Treee DB Notes Pro
@@ -201,7 +204,7 @@ To View This Document Properly
           ii. sudo apt update
          iii. sudo apt install --install-recommends mkusb mkusb-nox usb-pack-efi
 
-35.  Don't forget about Kindle Cloud Reader at https://read.amazon.co
+36.  Don't forget about Kindle Cloud Reader at https://read.amazon.co
 
 ||||| At Some Later Date |||||||||||||||||||||||||||||||||||||||||||||||||||||
 
