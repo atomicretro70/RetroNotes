@@ -64,9 +64,10 @@ To View This Document Properly
 11.  Perform all system updates.
 12.  Produce a complete windows recovery disk 32GB USB Drive.
 13.  Label and Save recovery disk in backpack.
-14.  Download latest vmware player (free non-commercial) installer
-15.  Install vmware player in dir Linux Stuff on 1TB USB disk.
-16.  Install and Configure Pop! OS vm with the following disk allocations (all as primary partitions):
+14.  Download latest vmware workstation pro (free non-commercial) installer
+15.  Install vmware workstation pro in dir Linux Stuff on 1TB USB disk.
+16.  Be sure to set usb to usb 3.1.
+17.  Install and Configure Pop! OS vm with the following disk allocations (all as primary partitions):
         empty (boot)   1GB
         swap          16GB
         /             35GB
@@ -74,18 +75,16 @@ To View This Document Properly
                      ----- 
                      120GB   Total hd allocation
                      =====
-16.  Download latest Pop! OS installer.
-17.  Install Pop! OS into vmware
+18.  Download latest Pop! OS installer.
+19.  Install Pop! OS into vmware
 
 ||||| New Linux Installation |||||||||||||||||||||||||||||||||||||||||||||||||
 
 20.  Adjust the display in the settings app.
 
-21.  Take a snapshot
+21.  Take a snapshot & reboot
 
-22.  In settings under power disable the automatic locking.
-
-23.  Download and install repository files
+22.  Download and install repository files
      a.  mkdir ~/SWdev
      b.  cd ~/SWDev
      c.  git clone https://github.com/atomicretro70/VimConfig.git
@@ -99,12 +98,14 @@ To View This Document Properly
      k.  access the newComputerProcedure.txt file in ~/SWdev/RetroNotes
          for these instructions on how to procede.
 
-24.  Install vm tools
+23.  Install vm tools
      a.  Use 'sudo apt install open-vm-tools'
      b.  reboot linux.
      c.  use the window tools to expand the desktop to full screen, and to both
          monitors.
      d.  reboot
+
+24.  In settings under power disable the automatic locking.
 
 25.  Make the windowing system more manageable
      a.  from pop shop install Tweaks.
@@ -140,16 +141,12 @@ To View This Document Properly
 29.  Install WingIDE from wing ware website - license: EN216-1NWM3-W29N3-2QLNX
      Need to renew.  Wait until Wing 8.0.  $150 for upgrade.
 
-30.  Install additional Pop! OS Wallpapers
+30.  Make snapshot & reboot
+
+31.  Install additional Pop! OS Wallpapers
      a.  sudo add-apt-repository -ys ppa:system76-dev/stable
      b.  sudo apt update
      c.  sudo apt install -y system76-wallpapers
-
-31.  tkinter
-     a.  sudo apt-get install python3-tk
-     b.  reboot linux
-     c.  test: enter python shell and type 'import tkinter'; there should
-         be no errors. Type 'exit()' to exit.
 
 32.  make command py
      a.  sudo apt install python3.9
@@ -159,16 +156,22 @@ To View This Document Properly
      Could instead make an alias in .bashrc the difference being that
      the alias will only work for one user.
 
-33.  Install lazygit
+33.  tkinter
+     1.  sudo apt install python3-tk
+     b.  reboot linux
+     c.  test: enter python shell and type 'import tkinter'; there should
+         be no errors. Type 'exit()' to exit.
+
+34.  Install lazygit
      a. sudo add-apt-repository ppa:lazygit-team/release
      b. sudo apt update
      c. sudo apt install lazygit
 
-34.  update
+35.  update
      a.  sudo apt update
      b.  sudo apt upgrade
 
-35.  Configure vim
+36.  Configure vim
      a.  sudo apt install vim
 
      b.  install vim-plug
@@ -177,9 +180,8 @@ To View This Document Properly
      c.  enter vim
 
      d.  type the command ':PlugInstall'
-     e.  install airline
 
-     f.  install powerline-fonts from airline website following the
+     f.  install powerline-fonts from airline website under "Integrating with powerline fonts"
          'Quick Installation' instructions.
      g.  enter settings for a terminal and change the font to Inconsolatat-dz for Powerline dz
 
@@ -195,7 +197,7 @@ To View This Document Properly
      k.  Since I'm trasitioning to neovim see :help nvim-from-vim to setup
          init.vim to use .vimrc.
 
-36.  Possibly install
+37.  Possibly install
      a.  wine for...
            i. Kindle
           ii. Treee DB Notes Pro
@@ -205,7 +207,9 @@ To View This Document Properly
           ii. sudo apt update
          iii. sudo apt install --install-recommends mkusb mkusb-nox usb-pack-efi
 
-37.  Don't forget about Kindle Cloud Reader at https://read.amazon.co
+38.  Don't forget about Kindle Cloud Reader at https://read.amazon.co
+
+39.  take snapshot & reboot
 
 ||||| At Some Later Date |||||||||||||||||||||||||||||||||||||||||||||||||||||
 
