@@ -69,6 +69,73 @@ Definitions
    Assessment of Definitions
 
 
+============
+Introduction
+============
+
+
+-------
+History
+-------
+
+   Logic has a very long history.  An ancient Greek philosopher named
+   Aristotle (384 - 322 BCE) who lived in Athens, perhaps the best known
+   of Plato's students from the Academy, gave us the first formal logical
+   system today called Categorical Logic.  His logic is complete, it proves
+   everything that it can within the bounds of the logic; and it's sound,
+   if used properly it can't be coerced to prove something that doesn't
+   logically follow from the evidence provided.  The down side is that
+   Aristotle's logic is very limited in what it can say or prove.
+
+   Around the same time as Aristotle another philosopher named Chrysippus
+   is known to have written a book about a different kind of logical system
+   based upon 'not', 'if...then...', etc.  But his works are lost and only
+   known of through mention by other ancient authors.  Though an important
+   development, Chrysippus' logic was mostly ignored through history
+   overshadowed by categorical logic.
+
+   Aristotelian logic reigned supreme for over two thousand years.  Over the
+   centuries there were many commentaries, organizational and pedagogical
+   modifications, even advances in study of the logic's semantics but it
+   remained the same limited logic.  There were other advances in logic
+   outside of Aristotelian logic but they were limited; never producing fully
+   developed logical systems.
+
+   This changed in 1847 and 1854 when George Boole published his works
+   *The Mathematical Analysis of Logic* and *An Investigation of the Laws
+   of Thought* respectively.  In these books Boole outlined a new logic
+   with notions similar to those of Chrysippus, however Boole's logic
+   is mathematically precise.  Known today as BOOLEAN ALGEBRA, his system
+   is what would eventually come to power digital logic and computers.
+
+   Next came Friedrich Ludwig Gottlob Frege (1848 - 1925).  In 1879
+   Frege published his *Begriffsschrift* in which he made the important
+   advancement of a unified theory of logic joining Aristotle's and
+   Boole's systems.
+
+   Frege's logic was a revolutionary advancement in logic, but it has
+   major issues.  The problem stems from the fact that Frege allowed
+   self-reference.  While this gives the logic considerable expressive
+   power, it also makes the logic is unsound.  Bertrand Russell (1872
+   - 1970) exposed the problem within Frege's logic, by expressing
+   the problem as a paradox: the set of all sets that do not contain
+   themselves.  So, does the set contain itself or not?  The answer
+   is both or neither, which is nonsensical from the perspective of
+   Aristotle's and Boole's definition of a proposition.
+
+   In 1903 Russell, along with Alfred North Whitehead published the first
+   book of his *The Principles of Mathematics*, in which he outlined a
+   repaired but more limited variation of Frege's logic.  The primary change
+   Russell made was to disallow self-reference.  Russell also replaced
+   Frege's notation with something less cumbersome.  Importantly it's
+   more expressive than either Aristotle's or Boole's logics but also both
+   sound and complete, meaning for any set of data put into the logic one
+   can derive all and only valid conclusions.  Today Russell's is the
+   logic most commonly studied in introductory logic courses (with a slightly
+   simplified notation), it's often called Classical Logic, and it's the
+   subject of this book.
+
+
 =========
 Arguments
 =========

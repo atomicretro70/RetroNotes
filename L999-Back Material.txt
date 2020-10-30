@@ -239,11 +239,11 @@ Symbols
    F  or  0     logical value false
    ∴            therefore                           ^Vu2234       jj.
    ∵            because                             ^Vu2235
+   -            negation
    ￢           negation                            ^VuFFE2       jj-
    ¬            negation                            ^KNO
    ~            negation
    ～           negation                            ^KuFF5E
-   -            negation
    ∧            conjunction                         ^KAN          jj^
    &            conjunction
    *            conjunction (Boolean Algebra)
