@@ -66,7 +66,7 @@ To View This Document Properly
 13.  Label and Save recovery disk in backpack.
 14.  Download latest vmware player (free non-commercial) installer
 15.  Install vmware player in dir Linux Stuff on 1TB USB disk.
-16.  Install and Configure Pop! OS vm with the following disk allocations:
+16.  Install and Configure Pop! OS vm with the following disk allocations (all as primary partitions):
         empty (boot)   1GB
         swap          16GB
         /             35GB
