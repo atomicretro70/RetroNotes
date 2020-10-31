@@ -97,13 +97,13 @@ Preface
 
    This book is intended for anyone seeking a reference book in classical
    logic.  However, it's not an instruction manual.  The pace is quicker
-   having fewer examples and no exercises.  This should not discourage
+   with fewer examples and no exercises.  This should not discourage
    the student in need of a reference; the present book is detailed and
    makes a great study companion.
 
    The introduction begins with some preliminary information about logic:
    Namely a review of some important definitions, a discussion on formal
-   definitions, a short section on the laws of logic finished off by a quick
+   definitions, a short section on the laws of logic rounded out by a quick
    review of set theory.
 
    The first chapter covers propositional logic; the logic of 'not', 'and',
@@ -122,13 +122,13 @@ Preface
    of Axiomatic Deductive Systems, then Formal Theories and their Axioms.
 
    The notation selected for this book may vary slightly from that of whatever
-   books you may have studied.  The symbols were chosen to reflect
+   books you may have studied.  The symbols were chosen to reflect certain
    aesthetic principles.  All of the logical operators consist of straight
-   symmetrical lines.  They are well defined straight-lined geometric shapes
+   symmetrical lines.  They are well defined straight lined geometric shapes
    to denote the well-defined rigid logical operations.  Parentheses, used for
    grouping just as in math, can be thought of as representing nested bubbles.
    Both of these are in stark contrast to the large round or curvy letters
-   used to denote more complex less well-defined English sentences.
+   used to denote more complex less well defined English sentences.
 
    This book will be updated periodically and some sections may be dropped or
    developed further based upon your feedback.  If you wish to contribute by
@@ -1255,7 +1255,6 @@ Truth-Tree Analysis
          1+ open paths   Invalid w/ counterexamples
          =============   ==========================
 
-
 ------------------------------------
 Propositional Calculus (Fitch Style)
 ------------------------------------
@@ -1641,68 +1640,55 @@ Defining ⊥ Into Propositional Logic/Calculus
 Derivation Strategies
 =====================
 
-   Below is an outline of a proof strategy.  It's a recursive procedure
-   driven chiefly by the conclusion form.
+   Below are a set of strategies for deriving the desired conclusion.
+   These are mere hints, and do not guarantee success.  Therefor you must
+   be creative.  Many derivations can be accomplised by examining the
+   conclusion.  Some require going off the premise.  A very common
+   strategy is to begin by hypothesizing the negation of the conclusion
+   then procede as if trying to construct a proof of nonconsequence, in
+   this way if the proof doesn't work out you're already most of the way
+   towards deriving a counterexample.
 
-   In the main proof, list the premises one per line of the proof.  Then
-   hypothesize the unnegated or negated conclusion form, use direct proof
-   to attempt to reduce everything to atomic and negated atomic formulas.
-   If you encounter a contradiction use ⊥ I (or ∧I) to derive the
-   contradiction, then use ⊥ E (or -I), and finally if necessary use
-   -E to remove extra pairs of negations out front.  If you can't derive
-   a contradiction you probably have a counterexample.  Prove your work
-   by testing the counterexample truth-values in the original sequent.
+   Condition   Strategies
+   ==========  ===============================================================
+   Conclusion,
 
-   Intermediately apply the following procedure recursively
-   for each subproof,
+   Φ ∧ Ψ       Derive each conjunct, then use ∧ I.
 
-   Procedure,
-   1.  (Conclusion) If the conclusion has one of these forms,
+   Φ ∨ Ψ       Derive one disjunct then use ∨ I;
 
-         Φ ∧ Ψ       Derive each conjunct, apply ∧I.
+   Φ -> Ψ      Hypothesize Φ derive Ψ, close the subproof and use ->I.
 
-         Φ ∨ Ψ       Derive one disjunct, apply ∨I.
+   Φ <-> Ψ     Derive Φ -> Ψ, then derive Ψ -> Φ, finally use <->I.
 
-         Φ -> Ψ      Hypothesize Φ derive Ψ, close the subproof, apply ->I.
+   - WFF       Hypothesize the WFF (unnegated), derive ⊥ or derive
+               a contradiction, lastly perform -I or ⊥ E.
 
-         Φ <-> Ψ     Derive Φ -> Ψ, derive Ψ -> Φ, apply <->I.
+   WFF         hypothesize -WFF, derive ⊥ or contradiction, then
+               perform -I and finally -E.
 
-   2.  (Premise) Lastly try this if a premise has the following form
+   Premise,
 
-         Φ ∨ Ψ       Derive two conditionals Φ -> Θ and Ψ -> Θ to obtain the
-                     needed conclusion Θ.
+   Φ ∨ Ψ       Derive two conditionals Φ -> Θ and Ψ -> Θ to obtain the
+               needed conclusion Θ.
 
-   3.  (Reductio) Next try one of these taking WFF as the desired conclusion,
+   ----------  ---------------------------------------------------------------
 
-         - WFF       Hypothesize WFF (unnegated), derive ⊥ or derive
-                     a contradiction, lastly perform -I or ⊥ E.
+   Alternatively,
 
-         WFF         hypothesize -WFF, derive ⊥ or contradiction, then
-                     perform -I and finally -E.
+   WFF / -WFF  In the main proof, after listing the premises hypothesize the
+               negated conclusion form, attempt to reduce everything to atomic
+               and negated atomic formulas.  If you encounter a contradiction
+               use ⊥ I or ∧ I to derive the contradiction, then use ⊥ E or
+               ￢ I, and finally if necessary use -E to remove extra
+               negations out front.  If this method fails to derive
+               a contradiction in the subproof test for a counterexample.
+   ==========  ===============================================================
 
 
---------
-Concerns
---------
-
-Semantic Soundness & Completeness of Propositional Calculus
-===========================================================
-
-   A calculus is SEMANTICALLY SOUND if and only if for any consistent
-   set of premise wffs valid applications of the inference rules result
-   in *only* valid conclusions even if rules are applied randomly.
-
-   A calculus is SEMANTICALLY COMPLETE if and only if for any consistent set
-   of premise wffs valid applications of the inference rules result in *all
-   possible* valid conclusions even if rules are applied randomly.
-
-   If a given conclusion Φ logically follows from a set of premises, then
-   there exists at least one proof of Φ that has a finite number of steps.
-
-   Propositional calculus is semantically sound and semantically complete.
-   We don't prove these theorems here but it's handy to know of them.
-   The calculus derives all and only valid conclusions from any given set
-   of premises.
+----------------------
+Philosophical Concerns
+----------------------
 
 The Unnatural Conditional
 =========================
@@ -1726,16 +1712,25 @@ The Unnatural Conditional
    work and you don't go far.  Does this really sound like the negation of
    the original unnegated conditional wff?
 
+Refuting Dilemmas
+=================
+
+   A dilemma is a disjunctive premise that states exactly two options.  Being
+   IN A DILEMMA or IMPALED BY THE HORNS OF A DILEMMA means that the person
+   presented with the dilemma is confronted with a choice between two
+   undesirable options.  GRASPING THE BULL BY THE HORNS is proving one of the
+   disjuncts true.  ESCAPING BETWEEN THE HORNS is proving the disjunction
+   false by either proving there's a third option, or proving that both
+   disjuncts are false.
 
 Relevance
 =========
 
-   Some philosophers have concerns over the inference rules and namely ∨I,
-   and H because they provide a way for an arguer to introduce any statement
+   Some philosophers have concerns over the inference rules ∨I, and H
+   because they provide a way for an arguer to introduce any statement
    whatever into the proof relevant or not.   Their particular concern
-   is that this exposes a serious problem for the calculus.  They've gone
-   so far as to introduce new systems of logic in attempts to remove
-   such rules.
+   is that this exposes a serious problem for FOC.  They've gone so far
+   as to introduce new systems of logic which remove such rules.
 
    The classical perspective is these issues don't matter because the
    inference rules are sufficient to weed out inconsistent sentences
@@ -1752,20 +1747,28 @@ Relevance
    arguments adequate to justify the inclusion and current formulation
    of these rules.
 
-Refuting Dilemmas
-=================
+Semantic Soundness & Completeness of TFC
+========================================
 
-   A dilemma is a disjunctive premise that states exactly two options.  Being
-   IN A DILEMMA or IMPALED BY THE HORNS OF A DILEMMA means that the person
-   presented with the dilemma is confronted with a choice between two
-   undesirable options.  GRASPING THE BULL BY THE HORNS is proving one of the
-   disjuncts true.  ESCAPING BETWEEN THE HORNS is proving the disjunction
-   false by either proving there's a third option, or proving that both
-   disjuncts are false.
+   A calculus is SEMANTICALLY SOUND if and only if for any consistent
+   set of premise wffs valid applications of the inference rules result
+   in *only* valid conclusions even if rules are applied randomly.
 
-------
-Proofs
-------
+   A calculus is SEMANTICALLY COMPLETE if and only if for any consistent set
+   of premise wffs valid applications of the inference rules result in *all
+   possible* valid conclusions even if rules are applied randomly.
+
+   If a given conclusion Φ logically follows from a set of premises, then
+   there exists at least one proof of Φ that has a finite number of steps.
+
+   Propositional calculus is semantically sound and semantically complete.
+   We don't prove these theorems here but it's handy to know of them.
+   The calculus derives all and only valid conclusions from any given set
+   of premises.
+
+-------------------------------
+TFC Proofs of The Derived Forms
+-------------------------------
 
 Important Derived Rules
 =======================
@@ -3309,12 +3312,12 @@ Primitive Inference Rules
       +-------------------------------+-------------------------------+
 
 
---------
-Concerns
---------
+----------------------
+Philosophical Concerns
+----------------------
 
-Identity Peculiarities
-======================
+Identity Peculiarity
+====================
 
    FOL= classifies the following as wffs though they're nonsensical:
 
@@ -3677,9 +3680,9 @@ Second-Order Calculus (SOC)
    over an object it must only be replaced by a constant object.
 
 
---------
-Concerns
---------
+----------------------
+Philosophical Concerns
+----------------------
 
    The most important concern is that SOC is not semantically complete.
    That is, we are not guaranteed to be able to find a proof for a conclusion

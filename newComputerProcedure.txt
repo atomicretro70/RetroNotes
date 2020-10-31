@@ -187,9 +187,12 @@ To View This Document Properly
 
      d.  type the command ':PlugInstall'
 
-     f.  install powerline-fonts from airline website under "Integrating with powerline fonts"
-         'Quick Installation' instructions.
-     g.  enter settings for a terminal and change the font to Inconsolatat-dz for Powerline dz
+     f.  install powerline-fonts from airline website under "Integrating with
+         powerline fonts" after "Quick Installation" instructions.
+
+     g.  enter settings for a terminal, perform the install procedure for
+         'On other environments...', and change the font to Inconsolatat-dz
+         for Powerline dz
 
      g.  mkdir ~/.vim/thesaurus/
      h.  download both thesaurus from
