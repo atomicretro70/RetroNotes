@@ -60,23 +60,23 @@ Introduction
    Formal Definitions
    The Laws of Logic
    Set Theory
-Truth-Functional Logic (TFL)
-   Language
-   Semantics
-   Calculus (TFC)
-Predicate Logic
+Propositional Logic (PL)
    Language
    Semantics
    Calculus (PC)
+Predicate Logic
+   Language
+   Semantics
+   Calculus
 First-Order Quantified Logic (FOL)
    Language
    Semantics
    Calculus (FOC)
-Identity Logic (IL)
+Identity Logic (IL/FOL=)
    Language
    Semantics
    Calculus
-Function Logic (FL)
+Function Logic (FL/FOL=)
    Language
    Semantics
    Calculus
@@ -95,11 +95,11 @@ Formal Theories & Axioms
 Preface
 =======
 
-   This book is intended for anyone seeking a reference book in classical
-   logic.  However, it's not an instruction manual.  The pace is quicker
-   having fewer examples and no exercises.  This should not discourage
-   the student in need of a reference; the present book is detailed and
-   makes a great study companion.
+   This book is intended for anyone seeking a reference in classical logic.
+   However, it's not an instruction manual.  The pace is quicker having fewer
+   examples and no exercises.  This should not discourage the student in need
+   of a reference; the present book is detailed and makes for a great
+   study companion.
 
    The introduction begins with some preliminary information about logic:
    Namely a review of some important definitions, a discussion on formal
@@ -142,10 +142,10 @@ Introduction
 Preliminary Definitions
 -----------------------
 
+   A TRUTH-VALUE is any member of the set { true, false }.
+
    A PROPOSITION is the concept that a true or false statement denotes;
    many different statements can denote the same propositions. 
-
-   A TRUTH-VALUE is any member of the set { true, false }.
 
    An ARGUMENT is a set of propositions; where one is intended as a
    CONCLUSION, a sort of finding; the rest, the PREMISES, are claimed to
@@ -173,18 +173,13 @@ Preliminary Definitions
    A DEFINITION is a declaration that two strings are identical
    in meaning and thus interchangeable.
 
-   The DEFINIENDUM is the string in a definition being defined; often
-   the string naming a new word, abbreviation or phrase.
-
-   The DEFINIENS is the string in a definition doing the defining.
 
 ------------------
 Formal Definitions
 ------------------
 
-   A FORMAL DEFINITION is a declaration that two strings or groups of
-   strings mean the same thing; that they're interchangeable.  Definitions
-   are expressed as follows:
+   A FORMAL DEFINITION is a declaration that two strings mean the same thing;
+   that they're interchangeable.  Definitions are expressed as follows:
 
          *definiendum*  =df  *definiens*
 
@@ -237,7 +232,7 @@ The Laws of Logic
    From this binary relation it's possible to construct the following logical
    principles.
 
-   LAW OF NONCONTRADICTION (LNC)
+   LAW OF NON-CONTRADICTION (LNC)
 
          A proposition P is not both True and False.
 
@@ -323,7 +318,7 @@ Set-Member Relations
    PROPER SUBSET ( ⊂ )
 
          A ⊂ B,  A is composed of some but not all of the objects in set B.
-         E ⊂ Z,  even numbered integers are a subset of integers.
+         E ⊂ Z,  even-numbered integers are a subset of integers.
 
    SUBSET ( ⊆ )
 
@@ -476,8 +471,8 @@ Grammar
      subscripts (we use postscripts) after a proposition symbol
      to increase the number of available symbols.
 
-Substitution Instance (or Instance)
-===================================
+Substitution Instance
+=====================
 
    A SUBSTITUTION INSTANCE of a wff is another wff that has the
    same structure as the first such that proposition symbols in
@@ -487,7 +482,7 @@ Substitution Instance (or Instance)
    Q is an instance of P.
 
    =============  =====   =======   ===========   ========================
-   Original Form  P ∧ Q | P   ∧ Q | P       ∧ Q | P   -> (P    ∧ Q       )
+   Original Form  P ∧ Q | P   ∧ Q | P       ∧ Q | P  -> (P  ∧ Q       )
    =============  =====   =======   ===========   ========================
    Substitutions  P=R   | P=-S    | P=(C ∧ D)   | P=-H
                   Q=S   | Q=Z     | Q=D         | Q=(-S ∨ M)
@@ -668,7 +663,7 @@ Valuation Function
    a VALUATION FUNCTION, which encapsulates all there is to say about
    the meanings of propositional logic's truth-functional operators.
 
-   Here's the valuation function for TFL:
+   Here's the valuation function for propositional logic
 
          v(-Φ)      =  true if Φ is false;
                        false if Φ is true
@@ -691,7 +686,7 @@ Sequents
 
          P1,...,Pn  ⊢  C
 
-         '⊢' is a TURNSTILE. It's part of the metalanguage,
+         '⊢' is a TURNSTILE.  It's part of the metalanguage,
          not a part of propositional logic.
 
 TRUTH-TABLES
@@ -704,27 +699,27 @@ TRUTH-TABLES
    Basic Truth-Tables
 
    Procedure
-   1. Construct The table heading starting on the top left with a horizontal
-      alphabetical list of all proposition symbols occurring in the formulas
-      under study; followed to the right by a second horizontal list of the
-      formulas themselves.
+   1.  Construct The table heading starting on the top left with a horizontal
+       alphabetical list of all proposition symbols occurring in the formulas
+       under study; followed to the right by a second horizontal list of the
+       formulas themselves.
 
-   2. Under the list of proposition symbols list all possible combinations
-      of T and F for those symbols.  Usually we start with a row of all
-      F and end with all T, or vice versa, according to preference.
-      The values for the intermediate rows are attained as if counting
-      in binary.
+   2.  Under the list of proposition symbols list all possible combinations
+       of T and F for those symbols.  Usually we start with a row of all
+       F and end with all T, or vice versa, according to preference.
+       The values for the intermediate rows are attained as if counting
+       in binary.
 
-   3. The remainder of the table is populated row-by-row carrying the
-      T or F values under each proposition symbol to the right and placing
-      them under the corresponding symbol occurring in each wff.
+   3.  The remainder of the table is populated row-by-row carrying the
+       T or F values under each proposition symbol to the right and placing
+       them under the corresponding symbol occurring in each wff.
 
-   4. In a given row under the first formula, starting from the innermost
-      parentheses and working outwards, evaluate each of the expressions
-      according to the valuation function v.  Continue until a T or F can
-      be placed under the top level (outermost) operator on every row.
-      Repeat this valuation procedure below each wff and each row
-      in the table.
+   4.  In a given row under the first formula, starting from the innermost
+       parentheses and working outwards, evaluate each of the expressions
+       according to the valuation function v.  Continue until a T or F can
+       be placed under the top level (outermost) operator on every row.
+       Repeat this valuation procedure below each wff and each row
+       in the table.
 
    The study will only need to consider the columns under the wffs' main
    operators so it's convenient to highlight the completed column in some
@@ -911,21 +906,21 @@ Truth-Tables ("Fast Method")
    potentially huge tables due to a large number of proposition symbols.
 
    Procedure
-   1. Write down in a horizontal list the wff, set of wffs or sequent.  Set
-      the main operators of each formula to either T or F (depending on what
-      you're trying to find - see Truth-Table Study of Single WFFs above).
+   1.  Write down in a horizontal list the wff, set of wffs or sequent.  Set
+       the main operators of each formula to either T or F (depending on what
+       you're trying to find - see Truth-Table Study of Single WFFs above).
 
-   2. Now work backwards from the outermost operator down to the innermost
-      parentheses.  Evaluate as many sub-expressions as possible, continuing
-      until you can't do anything else (some subwffs may go undetermined).
+   2.  Now work backwards from the outermost operator down to the innermost
+       parentheses.  Evaluate as many sub-expressions as possible, continuing
+       until you can't do anything else (some subwffs may go undetermined).
 
-   3. While performing step 2 if you can find the truth value of a proposition
-      symbol, place that value under all other occurrences of that symbol.
+   3.  While performing step 2 if you can find the truth value of a proposition
+       symbol, place that value under all other occurrences of that symbol.
 
-   4. The search is successful you encounter a contradiction or if the
-      valuation we sought is now readable off the table.  This is the set
-      of values found for the proposition symbols that makes the main
-      operator T (or F).
+   4.  The search is successful you encounter a contradiction or if the
+       valuation we sought is now readable off the table.  This is the set
+       of values found for the proposition symbols that makes the main
+       operator T (or F).
 
    The study is to find valuations for the proposition symbols on which the
    whole wff is T (or F).  So, it's convenient to highlight somehow the values
@@ -1205,9 +1200,9 @@ Truth-Tree Analysis
 
    If the completed tree for one wff contains no open paths then the wff is
    inconsistent.  If it contains one or more open paths the wff is consistent.
-   If it contains two or more open paths then the wff is either tautologous or
-   contingent.  To find out which construct a second tree for the negation
-   of the original wff.  A wff is tautologous iff its negation is
+   If it contains two or more open paths then the wff is either tautological
+   or contingent.  To find out which construct a second tree for the negation
+   of the original wff.  A wff is tautological iff its negation is
    inconsistent.  Otherwise it's contingent.
 
          =============   ==========================   ==========
@@ -1225,7 +1220,7 @@ Truth-Tree Analysis
    rules in any order.
 
    The set of wffs is truth-functionally consistent if the tree has at least
-   one open path. If the tree has no open paths the set of wffs is
+   one open path.  If the tree has no open paths the set of wffs is
    inconsistent.
 
          =============   ==========================
@@ -1246,7 +1241,7 @@ Truth-Tree Analysis
 
    Any open paths of a finished tree for an argument form show all the
    counterexamples to that form.  Where a negated proposition symbol
-   is F, and an un-negated proposition symbol is T.
+   is F, and an unnegated proposition symbol is T.
 
          =============   ==========================
          Condition       Premises & -Conclusion
@@ -1382,7 +1377,7 @@ Primitive Inference Rules
 
    Here are the basic inference rules.  Some of them have multiple names
    and abbreviations for each name is in parentheses.  Use any name you
-   prefer, to maintain a fitch style use the 'introduction' and 'elimination'
+   prefer, to maintain a Fitch-style use the 'introduction' and 'elimination'
    names when available.
 
    ================================  =========================================
@@ -1537,8 +1532,8 @@ Theorems
    A theorem of propositional calculus is a derived rule which has no premises
    or undischarged hypotheses.  Theorems are the tautologies of propositional
    logic.  A sequent for a theorem Φ has the following form.  A theorem
-   of our calculus is proven by starting the proof with a hypothesis or with
-   a previously proven theorem.
+   of our calculus is proved by starting the proof with a hypothesis or with
+   a previously proved theorem.
 
          ⊢ Φ
 
@@ -1585,7 +1580,7 @@ Consequence and Non-Consequence
 
    Construct a proof of non-consequence by first listing the premises,
    then begin a subproof by hypothesizing the negation of the conclusion.
-   Procede by attempting to reduce everything to atomic and negated
+   Proceed by attempting to reduce everything to atomic and negated
    atomic formulas.  Proceed until no additional rules can be applied.
    Since we never reach the conclusion the proof is uncompleted, so we
    don't write QED at the bottom.
@@ -1600,7 +1595,7 @@ Consequence and Non-Consequence
 
    Once finished the valuations can be read off the proof.  The above proof
    tells us that the counterexamples are where P is false (due to occurring
-   negated in step 2), and Q is true (due to occurring un-negated in step 3).
+   negated in step 2), and Q is true (due to occurring unnegated in step 3).
    We can verify this with a truth-table.  If a proposition symbols doesn't
    appear negated or unnegated then it's truth-value doesn't matter
 
@@ -2329,7 +2324,7 @@ Grammar
    or more constant object Symbols.
 
    Formation Rules for wffs
-   1.  every atomic formula is a wff;
+   1.  Every atomic formula is a wff;
    2.  if Φ is a wff, then so is -Φ;
    3.  if Φ, Ψ are wffs, then so are (Φ ∧ Ψ), (Φ ∨ Ψ), (Φ -> Ψ), (Φ <-> Ψ);
    4.  Nothing else is a wff.
@@ -2352,7 +2347,7 @@ Semantics
 Model
 =====
 
-   Very roughly, a MODEL is a limited representation of some state of affairs
+   Roughly, a MODEL is a limited representation of some state of affairs
    which is expressed using set theory.  Since a set theory model can be a
    mathematical representation of something about the actual world, we can for
    our current purposes, informally regard the actual world as our model.
@@ -2377,19 +2372,19 @@ Properties
          Dictionary
          ----------------
          Object Symbols        1-Place Predicates
-         a,   Alice            Bx,   x is blonde
+         a,   Alice            Bx,   x is blond
          b,   Bob              Kx,   x is brunette
          c,   Charlie          Sx,   x is scaled
 
    By substituting one of the object symbols in place of a place-holder
    in a predicate definition, we construct an atomic formula.
 
-         Ba,  Alice is blonde.
+         Ba,  Alice is blond.
          Kb,  Bob is brunette.
          Sc,  Charlie is scaled.
 
          Sc -> -(Bc ∨ Kc)
-         If Charlie is scaled then Charlie is neither blonde nor brunette.
+         If Charlie is scaled then Charlie is neither blond nor brunette.
 
    A properties always have just one place-holder in the dictionary.
    Any property Pc means, c is in set P, c is P, or c has property P.
@@ -2403,7 +2398,7 @@ Relations
          2-Place Predicates
          Txy,  x is taller than y.
 
-   'Tall', while a property, wouldn't be a very good predicate for logic
+   'Tall', while a property, wouldn't be a suitable predicate for logic
    because 'tall' is vague.  E.g. a tall building and a tall glass of water
    don't mean the same thing.  However, 'taller' is objective, making
    it ideal for logical reasoning.
@@ -2494,8 +2489,8 @@ Predicate Calculus
 ------------------
 
    The calculus for constructing proofs in predicate logic is largely
-   unmodified and from TFC.  The primary difference is in the definition
-   of an atomic formula.
+   unmodified and from propositional calculus.  The primary difference
+   is in the definition of an atomic formula.
 
          Dictionary
          ----------
@@ -2583,7 +2578,7 @@ Grammar
    1.  Every atomic formula is a wff;
    2.  if Φ is a wff, then so is -Φ;
    3.  if Φ,Ψ are wffs, then so are (Φ ∧ Ψ), (Φ ∨ Ψ), (Φ -> Ψ), (Φ <-> Ψ);
-   4.  if Φ(α) (α is a const object in a wff Ψ) is a wff,
+   4.  if Φ(α) (α is a constant object in a wff Ψ) is a wff,
        then ∀xΦ(x/α) and ∃xΦ(x/α) are wffs (where x is some new
        variable in Φ);
    5.  Nothing else is a wff.
@@ -2908,7 +2903,8 @@ Truth-Trees
 Truth-Tree Analysis
 ===================
 
-   The rules for assessing completed trees are the same as those for TFL.
+   The rules for assessing completed trees are the same as those for
+   propositional logic.
 
    Truth-Tree Assessment of a Single WFF
 
@@ -3257,7 +3253,7 @@ Truth Trees
    =     If α=β appears on an open path along with either Φ(α) or Φ(β)
          unstarred, write at the bottom of the path any wff not already
          on the path which is the result of replacing one of more occurrences
-         of either of these name letters by the other in Φ. Do not check
+         of either of these name letters by the other in Φ.  Do not check
          either α=β or Φ.
 
    -=    Close any path on which -α=α occurs.
@@ -3992,11 +3988,12 @@ Grammar
 Formation Rules
 ---------------
 
-   An ATOMIC FORMULA is a constant spredicate symbol followed by zero or more
-   constants; or 'α=β' (where α,β are consts; and could be the same symbol).
-   A constant; may also consist of a function symbol with some constant
-   in the parentheses since constant functions are just constant objects.
-   Functions can also be composed (take functions as arguments).
+   An ATOMIC FORMULA is a constant predicate symbol followed by zero or more
+   constants; or 'α=β' (where α,β are constant object symbols; and could
+   be the same symbol).  A constant; may also consist of a function symbol
+   with some constant in the parentheses since constant functions are just
+   constant objects.  Functions can also be composed (take functions
+   as arguments).
 
    1.  Every atomic formula is a wff;
    2.  if Φ is a wff, then so is -Φ;
@@ -4316,7 +4313,7 @@ Appendix B: Combined Truth-Tree Rules & Analysis
    =     If α=β appears on an open path along with either Φ(α) or Φ(β)
          unstarred, write at the bottom of the path any wff not already
          on the path which is the result of replacing one of more occurrences
-         of either of these name letters by the other in Φ. Do not check
+         of either of these name letters by the other in Φ.  Do not check
          either α=β or Φ.
 
    -=    Close any path on which -α=β occurs.

@@ -46,8 +46,7 @@ To View This Document Properly
 * This document must be viewed with a mono-spaced font to enjoy the layout,
   tables and diagrams.
 
-* This document must be viewed in an editor that can display unicode utf-8.
-
+* This document must be viewed in an editor that can display unicode utf-8.  
 
 Setup
    git config --global user.name "<your name>"
@@ -57,13 +56,13 @@ Setup
 
 Create a new Repository from existing source tree
 
-   git init             type at root of soure tree
+   git init             type at root of source tree
 
 Checking source tree status
 
    git status
 
-move or rename file, dir, or symlink
+Move or rename file, dir, or symlink
 
    git mv <src> <dest>  rename source
    git mv <src> ... <dest-dir>   move sources

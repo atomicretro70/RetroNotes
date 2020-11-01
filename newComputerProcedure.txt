@@ -67,18 +67,22 @@ To View This Document Properly
 14.  Download latest vmware workstation pro (free non-commercial) installer
 15.  Install vmware workstation pro in dir Linux Stuff on 1TB USB disk.
 
-16.  *** Be sure to set usb to usb 3.1. ***
+17.  Configure VMWare
 
-17.  Install and Configure Pop! OS vm with the following disk allocations (all as primary partitions):
-        empty (boot)   1GB
-        swap          16GB
-        /             35GB
-        /home         68GB
-                     ----- 
-                     120GB   Total hd allocation
-                     =====
-18.  Download latest Pop! OS installer.
-19.  Install Pop! OS into vmware
+     a.  Be sure to set usb to usb 3.1.
+
+     b.  Install and Configure Pop! OS vm with the following disk allocations
+         (all as primary partitions):
+
+         empty (boot)   1GB
+         swap          16GB
+         /             35GB
+         /home         68GB
+                      ----- 
+                      120GB   Total hd allocation
+                      =====
+
+18.  Download & Install latest Pop! OS installer iso.
 
 ||||| New Linux Installation |||||||||||||||||||||||||||||||||||||||||||||||||
 
@@ -154,18 +158,16 @@ To View This Document Properly
      b.  sudo apt update
      c.  sudo apt install -y system76-wallpapers
 
-41.  make command py
-     a.  sudo apt install python3.9
-     .  cd /usr/bin
-     b.  sudo ln -s python3.9 py
-     Must remember to update this every time a new version is installed.
-     Could instead make an alias in .bashrc the difference being that
-     the alias will only work for one user.
+41.  Get the latest version of python going
 
-42.  tkinter
-     1.  sudo apt install python3-tk
-     b.  reboot linux
-     c.  test: enter python shell and type 'import tkinter'; there should
+     a.  sudo apt install python3.9
+     b.  .bashrc contains an alians py -> python3.9
+
+     Get tkinter going
+
+     c.  sudo apt install python3-tk
+     d.  reboot linux
+     e.  test: enter python shell and type 'import tkinter'; there should
          be no errors. Type 'exit()' to exit.
 
 43.  Install lazygit
@@ -205,6 +207,9 @@ To View This Document Properly
 
      k.  Since I'm trasitioning to neovim see :help nvim-from-vim to setup
          init.vim to use .vimrc.
+
+     l.  Follow setup instructions for vim-LanguageTool (web search).
+         Move the extracted directory to ~/.vim
 
 46.  Possibly install
      a.  wine for...
