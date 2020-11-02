@@ -55,7 +55,6 @@ CONTENTS
 Contents
 Preface
 Introduction
-   History
    Preliminary Definitions
    Formal Definitions
    The Laws of Logic
@@ -91,20 +90,20 @@ Mathematical Induction
 Axiomatic and Natural Deduction
 Formal Theories & Axioms
 
+
 =======
 Preface
 =======
 
-   This book is intended for anyone seeking a reference in classical logic.
-   However, it's not an instruction manual.  The pace is quicker having fewer
-   examples and no exercises.  This should not discourage the student in need
-   of a reference; the present book is detailed and makes for a great
-   study companion.
+   This book is intended for anyone who has a need for a reference book
+   of logic.  The concepts are defined and stated clearly and with detail
+   though the information density is higher than would be found in a text
+   book.
 
    The introduction begins with some preliminary information about logic:
-   Namely a review of some important definitions, a discussion on formal
-   definitions, a short section on the laws of logic finished off by a quick
-   review of set theory.
+   Namely a review of some basic though important definitions, a discussion
+   on formal definitions, a short section on the laws of logic finished off
+   by a quick review of some basic set theory.
 
    The first chapter covers propositional logic; the logic of 'not', 'and',
    'or', and similar notions.  It begins by describing the formal language:
@@ -130,22 +129,32 @@ Preface
    Both of these are in stark contrast to the large round or curvy letters
    used to denote more complex less well-defined English sentences.
 
+   There are some conventions in this book that you ought to be aware of.
+   When a term is defined it will appear in all capital letters.  This is
+   to facilitate searching.  A pair of asterisks will denote italics.
+   Single quotes will sometimes but not always be used to denote mention
+   but most of the time it will be clear that I'm mentioning something;
+   so to save space I'll omit the single quotes.
+
    This book will be updated periodically and some sections may be dropped or
    developed further based upon your feedback.  If you wish to contribute by
    reporting an error or omission, or have other comments please contact
    the author here: AtomicRetro@outlook.com.
 
+
 ============
 Introduction
 ============
 
+
+-----------------------
 Preliminary Definitions
 -----------------------
 
    A TRUTH-VALUE is any member of the set { true, false }.
 
    A PROPOSITION is the concept that a true or false statement denotes;
-   many different statements can denote the same propositions. 
+   many different statements can denote the same proposition. 
 
    An ARGUMENT is a set of propositions; where one is intended as a
    CONCLUSION, a sort of finding; the rest, the PREMISES, are claimed to
@@ -167,24 +176,25 @@ Preliminary Definitions
    reasoning errors, or missing premises, or incorrect applications of
    inference rules, etc.; any argument that isn't in actually deductive.
 
-   A COUNTEREXAMPLE is an clearly invalid argument with the same structure
+   A COUNTEREXAMPLE is a clearly invalid argument having the same structure
    as an argument claimed to be valid.
 
-   A DEFINITION is a declaration that two strings are identical
-   in meaning and thus interchangeable.
+   A DEFINITION is a declaration that two strings are identical in meaning
+   and thus interchangeable, without changing the meaning of the sentence.
 
 
 ------------------
 Formal Definitions
 ------------------
 
-   A FORMAL DEFINITION is a declaration that two strings mean the same thing;
-   that they're interchangeable.  Definitions are expressed as follows:
+   A FORMAL DEFINITION is a declaration that two strings, called the
+   DEFINIENDUM and the DEFINIENS, mean the same thing; that they're
+   interchangeable.  Definitions are expressed as follows:
 
-         *definiendum*  =df  *definiens*
+         *definiendum*   =df  *definiens*
 
-   In formal definitions the  *definiendum* is usually an abbreviation
-   for a *definiens*.
+   In formal definitions the *definiendum* is usually an abbreviation
+   for the *definiens*.
 
          *abbreviation*  =df  *definiens*
 
@@ -193,9 +203,9 @@ Formal Definitions
 Definition Schemata & Variables
 ===============================
    
-   We can introduce a DEFINITION SCHEMA (a "family" of definitions all having
-   the same structure) with the help of place-holders (which we denote using
-   letters towards the end of the alphabet: u,v,w,x,y,z), across which values
+   We can introduce a DEFINITION SCHEMA, a "family" of definitions all having
+   the same structure, with the help of place-holders, which we denote using
+   letters towards the end of the alphabet: u,v,w,x,y,z, across which values
    are substituted uniformly to obtain a definition.
 
    Example: formal definition of the conditional probability operation.
@@ -208,29 +218,27 @@ Definition Schemata & Variables
    be replaced by, its corresponding right-hand side replacing values for
    X and Y uniformly.  The reverse operation is also possible.
 
-   So the question, What's the probability that we Slip given that it's Dicey,
+   So the question, What's the probability that we Slip given that it's icy,
    yields the following definition.
 
                       P(S ∧ I)
          P(S|I)  =df  --------
                         P(I)
 
-Packing & Unpacking
-===================
+   PACKING A DEFINITION is when we rewrite a string such that we replace
+   a *definiens* with its *abbreviation*.
 
-   PACKING A DEFINITION is when we rewrite a string such that we replace one
-   or more occurrences of a *definiens* with its *abbreviation*.
+   UNPACKING A DEFINITION is when we rewrite a string expanding
+   an *abbreviation* into its *definiens*.
 
-   UNPACKING A DEFINITION is when we rewrite a string expanding one or more
-   occurrences of an *abbreviation* with its *definiens*.
 
 -----------------
 The Laws of Logic
 -----------------
 
-   The simplest logic has just two discrete truth-values: True and False.
-   From this binary relation it's possible to construct the following logical
-   principles.
+   The simplest logic has just two discrete truth-values: True and False;
+   which are complements:  false =df not true.  From this binary relation
+   it's possible to construct the following logical principles.
 
    LAW OF NON-CONTRADICTION (LNC)
 
@@ -268,14 +276,14 @@ Set Definition
          A = { my phone, empire state building, the number 6,
                the neighborhood dog that's always barking }
 
-   The null set is a special case.
+   The null set has it's own symbol.
 
          ∅ = { } = null/empty set
 
    Many sets are too large to enumerate so may be described by properties
    of their members.  This is usually done using a comprehension.
    A COMPREHENSION is a set defined by properties and includes the use of
-   '|', which is read as, 'such that' (sometimes ':' is used instead of '|').
+   '|', which is read as, 'such that'.
 
          M = the set of all mammals
            = { x | x is a mammal }
@@ -314,6 +322,7 @@ Set-Member Relations
    Identity ( = )
 
          A = B, Sets A and B have exactly the same members.
+         x = y, objects x and y are the same object.
 
    PROPER SUBSET ( ⊂ )
 
@@ -393,9 +402,9 @@ Set Properties
 
          For any two sets there is a 1:1 CORRESPONDENCE iff there is a way
          to pair off each member of set A with a member of set B.  Every
-         member of both must be paired uniquely, so both sets have the same
-         cardinality |A| = |B|.  Every member of A is paired to exactly one
-         member of B, and vice versa.
+         member of both sets must be paired uniquely, so both sets have the
+         same cardinality |A| = |B|.  Every member of A is paired to exactly
+         one member of B, and vice versa.
 
    DENUMERABLE
 
@@ -419,10 +428,10 @@ Language
    A LANGUAGE is defined by the set of all sensical sentences in the language.
 
    A FORMAL LANGUAGE is the set of all grammatically correct sentences
-   in a language.  Formal languages don't take semantics into
-   consideration, so many such sentences may be nonsensical.
+   in a language.  Formal languages don't take semantics into consideration,
+   so many such sentences may be nonsensical.
 
-   A METALANGUAGE is the language used to talk *about* a logic.  So sentences
+   A METALANGUAGE is the language used to talk *about* logic.  So sentences
    in the metalanguage mention properties of the logic, arguments and all
    things that they entail.  Most of this book is written in the metalanguage.
 
@@ -442,7 +451,7 @@ Grammar
 =======
 
    A FORMAL GRAMMAR is the set of rules that selects all and only the
-   grammatically correct strings in a given language without regard
+   grammatically correct strings in a given formal language without regard
    to meaning.
 
    A grammatically correct sentence in logic is called a WELL-FORMED FORMULA
@@ -453,7 +462,7 @@ Grammar
 
    An ATOMIC FORMULA is any single proposition symbol.
 
-   1.  every atomic formula is a wff;
+   1.  Each atomic formula is a wff;
    2.  if Φ is a wff, then -Φ is a wff;
    3.  if Φ,Ψ are wffs, then (Φ ∧ Ψ),(Φ ∨ Ψ),(Φ -> Ψ),(Φ <-> Ψ) are wffs;
    4.  nothing else is a wff.
@@ -463,7 +472,7 @@ Grammar
      this means that wffs can nest within other wffs to any depth.
      So, while P ∧ Q is a wff, so is (-(P ∨ Q) -> R).
 
-   - To aid readability we adopt the convention that if a wff
+   - To aid readability we adopt the convention that if a top-level wff
      begins with '(', we will drop the outermost pair of parentheses,
      doing so never introduces ambiguity to the formula.
 
@@ -481,14 +490,14 @@ Substitution Instance
    usually aren't.  P being an instance of Q, does not imply that
    Q is an instance of P.
 
-   =============  =====   =======   ===========   ========================
-   Original Form  P ∧ Q | P   ∧ Q | P       ∧ Q | P  -> (P  ∧ Q       )
-   =============  =====   =======   ===========   ========================
+   =============  =====   =======   ===========   =====================
+   Original Form  P ∧ Q | P  ∧ Q  | P       ∧ Q | P  -> (P  ∧ Q       )
+   =============  =====   =======   ===========   =====================
    Substitutions  P=R   | P=-S    | P=(C ∧ D)   | P=-H
                   Q=S   | Q=Z     | Q=D         | Q=(-S ∨ M)
-   -------------  ----- | ------- | ----------- | ------------------------
+   -------------  ----- | ------- | ----------- | ---------------------
    Instance       R ∧ S | -S ∧ Z  | (C ∧ D) ∧ D | -H -> (-H ∧ (-S ∨ M))
-   =============  =====   =======   ===========   ========================
+   =============  =====   =======   ===========   =====================
 
 
 ---------
@@ -587,7 +596,7 @@ Conversational Implicature
 ==========================
 
    CONVERSATIONAL IMPLICATURE is what's meant by a speaker's utterance that
-   are not part of the literal meaning of what's explicitly said.
+   is not part of the literal meaning of what's explicitly said.
 
    'and then'
 
@@ -614,7 +623,7 @@ Conversational Implicature
    Again this 'then' in 'if/then' denotes a temporal relationship, it can't
    be translated into a propositional logic conditional.  Consider what
    happens by negating the first rewritten example and seeing what we derive
-   after applying a few boolean algebra logical equivalences.
+   after applying a few logical equivalences.
 
          K -> F        if you keep up the good work then you'll go far.
 
@@ -696,7 +705,8 @@ TRUTH-TABLES
    wffs as defined by the valuation function.  Each row of the table is
    equivalent to one VALUATION of the function v upon a formula.
 
-   Basic Truth-Tables
+Truth-Table Construction
+------------------------
 
    Procedure
    1.  Construct The table heading starting on the top left with a horizontal
@@ -725,7 +735,8 @@ TRUTH-TABLES
    operators so it's convenient to highlight the completed column in some
    way.  Here we place an '*' at the bottom of those columns.
 
-   Truth-Table Study of The Truth-Functions
+Truth-Table Study of The Truth-Functions
+----------------------------------------
 
    The valuations for our primitive truth-functions are illustrated in the
    following truth-tables.
@@ -754,7 +765,8 @@ TRUTH-TABLES
           T T | F T  T  T  T T
                            *
 
-   Truth-Functional Completeness
+Truth-Functional Completeness
+-----------------------------
 
    TRUTH-FUNCTIONAL COMPLETENESS describes any set of truth-functional
    operators from which all other truth-functions can be defined.
@@ -777,7 +789,8 @@ TRUTH-TABLES
           T T |  T F T  | F T T T      T T | T T  T | F T T T
                    *      *                     *          *
 
-   Truth-Table Study of Single WFFs
+Truth-Table Study of a Single WFF
+---------------------------------
 
    Once the truth-table is completed examining the main column below
    the wff can reveal important properties of the formula.
@@ -788,7 +801,7 @@ TRUTH-TABLES
 
       CONTRADICTION
          A kind of inconsistent formula that's structured as the conjunction
-         of a wff and it's negation; i.e. any instance of 'Φ ∧ -Φ'.
+         of a wff with its negation; i.e. any instance of 'Φ ∧ -Φ'.
 
    CONSISTENT WFF
       A wff that is true on at least one valuation (row); i.e. the column
@@ -814,20 +827,21 @@ TRUTH-TABLES
          2+       0        tautology or validity
          =======  =======  ==========================
 
-   Truth-Table Study of Sets of WFFs
+Truth-Table Study of a Set of WFFs
+----------------------------------
 
-   A truth-table study of a set of wffs can give us valuable insight into
-   the relationships between those formulas.
+   A truth-table study of a set of wffs can give us insight into the
+   relationships between those formulas.
 
    CONSISTENT SET OF FORMULAS
       A set of wffs is CONSISTENT if there is at least one valuation (row)
-      of the table on which all formulas have T under their main operators.
+      of the table on which every formula has T under its main operator.
 
       LOGICALLY EQUIVALENT PAIR OF FORMULAS
-         A pair of wffs is LOGICALLY EQUIVALENT if for every row of the
-         table both wffs have the same value under their main operators.
-         Notice that for the truth table above for the Sheffer stroke
-         we've shown that it's logically equivalent to -(P ∧ Q).
+         A pair of wffs is LOGICALLY EQUIVALENT if for every valuation (row)
+         of the table both wffs have the same value under their main
+         operators.  Notice that for the truth table above for the Sheffer
+         stroke we've shown that it's logically equivalent to -(P ∧ Q).
 
    INCONSISTENT SET OF FORMULAS
       A set of wffs is INCONSISTENT if there is no valuation (row)
@@ -841,7 +855,8 @@ TRUTH-TABLES
           T T | T T  T | F T T T
                   *          *
 
-   Truth-Table Study of Sequents
+Truth-Table Study of a Sequent
+------------------------------
 
    A truth-table for an argument is constructed simply by treating the set
    of premises and the conclusion as a set of wffs being studied.
@@ -891,7 +906,7 @@ TRUTH-TABLES
                 *   *      *
 
    This argument is actually valid.  Since there are no rows where the
-   premises are all true any conclusion whatever follows.
+   premises are all true; any conclusion whatever follows.
 
    A disadvantage of truth-tables is that they grow exponentially.  A set
    of wffs with n proposition symbols will have 2^n rows.
@@ -906,27 +921,30 @@ Truth-Tables ("Fast Method")
    potentially huge tables due to a large number of proposition symbols.
 
    Procedure
-   1.  Write down in a horizontal list the wff, set of wffs or sequent.  Set
-       the main operators of each formula to either T or F (depending on what
-       you're trying to find - see Truth-Table Study of Single WFFs above).
+   1.  Write down in a horizontal list the wff, set of wffs or sequent under
+       study.  Set the main operators of each formula to either T or F
+       (depending on what you're trying to find - see Truth-Table Study
+       of Single WFFs above).
 
    2.  Now work backwards from the outermost operator down to the innermost
        parentheses.  Evaluate as many sub-expressions as possible, continuing
        until you can't do anything else (some subwffs may go undetermined).
 
-   3.  While performing step 2 if you can find the truth value of a proposition
-       symbol, place that value under all other occurrences of that symbol.
+   3.  While performing step 2 if you can find the truth value of
+       a proposition symbol, place that value under all other occurrences
+       of that symbol in each of the wffs under study.
 
-   4.  The search is successful you encounter a contradiction or if the
+   4.  The search is successful if you encounter a contradiction or if the
        valuation we sought is now readable off the table.  This is the set
        of values found for the proposition symbols that makes the main
        operator T (or F).
 
    The study is to find valuations for the proposition symbols on which the
    whole wff is T (or F).  So, it's convenient to highlight somehow the values
-   of the symbols at the end of this process.  I'll place a * under them.
+   of the symbols at the end of this process.  I'll place an '*' under them.
    
-   Fast truth-table Study of Single WFFs
+Fast truth-table Study of a Single WFF
+--------------------------------------
 
    To check if a wff has any valuation on which it's T, set its main
    operator to T; and to check if it has a valuation on which it's F,
@@ -942,12 +960,12 @@ Truth-Tables ("Fast Method")
              *   *
 
          3.            --P ∧ (Q ∨ P)     P ∨ - Q    P -> (- Q ∨ R)
-                       T F T T    T      F F F T    T F   F   F F
+                       TFT T    T T      F F F T    T F   F   F F
                                          *     *
 
          4.            --P ∧ (Q ∨ P)                P -> (- Q ∨ R)
-                       T F T T  ? T T               T F   F T F F
-                           *    *   *               *       *   *
+                       TFT T  ? T T                 T F   F T F F
+                         *    *   *                 *       *   *
 
    Valuations Discovered
 
@@ -956,10 +974,10 @@ Truth-Tables ("Fast Method")
                                                        R=F
 
    Notice in the second example we couldn't find a value for Q.  However,
-   upon closer examination we see that's because Q's value doesn't matter;
-   both T and F for Q make the formula T.  So there are two valuations
-   on which the formula is T.  In both P is T, but Q is T in one and
-   F in the other.
+   upon closer examination it should become apparent that's because Q's value
+   doesn't matter; both T and F for Q make the formula T.  So there are two
+   valuations on which the formula is T.  In both P is T, but Q is T in one
+   and F in the other.
 
    To test if a wff is contingent the process must be performed once with
    T under the main operator, and once with F.  The wff is contingent
@@ -967,14 +985,15 @@ Truth-Tables ("Fast Method")
    that makes the main operator T, and at least one valuation of the
    proposition symbols that make the main operator F.
 
-   Fast Truth-Tables Study of Sets of WFFs
+Fast Truth-Table Study of a Set of WFFs
+---------------------------------------
 
    We can use the same method to test a set of wffs for consistency or
    inconsistency by setting the main operators all to T (or all to F).
    The only extra note here is that step 3 now works *across* WFFs.
    That is, if you find the value of a proposition symbol in one wff you
    may write that value under all instances of the proposition symbol
-   across all of the wffs in the set.
+   in each wffs in the set.
 
    Example  Test each pair of wffs for consistency
 
@@ -982,17 +1001,21 @@ Truth-Tables ("Fast Method")
                T      T                          T         T
    
          2.  P ∧ Q    -(- P ∨ - Q)             P ∧ Q    -P ∨ -Q
-             T T T    T       F                T T T       T  
+             T T T    T     F                  T T T       T  
    
          3.  P ∧ Q    -(- P ∨ - Q)             P ∧ Q    - P ∨ - Q
-             T T T    T   F   F  F             T T T    F T T F T
-                                               *          *     *
+             T T T    T F   F F                T T T    F T T F T
+                                               *   *
          4.  P ∧ Q    -(- P ∨ - Q)             inconsistent
              T T T    T F T F F T
-               *      *
+             *   *        *     *
              consistent
+
+             P=T
+             Q=T
    
-   Fast Truth-Table Study of Sequents
+Fast Truth-Table Study of a Sequent
+-----------------------------------
 
    To test a sequent we test if it's invalid by setting the main operator of
    each premise to T and the conclusion's to F.  Then work backwards exactly
@@ -1035,10 +1058,10 @@ Truth-Tables ("Fast Method")
 
          5.  P -> (Q ∨ R), Q -> S, P  ⊢  - R -> S
              T T   F T F   F T  F  T     T F F  F
-                     *
+                   *
 
    We've discovered a contradiction.  The highlighted disjunction can't be
-   T if Q and R are both F.  Therefore, the form is valid.
+   T if both Q and R are F.  Therefore, the form is valid.
 
 Truth-Trees
 ===========
@@ -1055,8 +1078,8 @@ Truth-Trees
 
    Tree Graphs
 
-   Below is a tree graph; which are useful in organizing some kinds of
-   information.  The lines are called EDGES, which connect NODES or VERTICES.
+   Below is a tree graph.  Graphs are useful in organizing some kinds of
+   information.  The lines are called EDGES, which connect NODES or VERTEXES.
    A node that has an edge above it is CHILD; and conversely a node that has
    an edge below it is called a PARENT.  Tree graphs are inverted from their
    counterparts in nature, so the ROOT of a tree is at the top from which
@@ -1090,8 +1113,8 @@ Truth-Trees
    2.  Repeatedly apply the following rules in any order.  The tree
        is completed when no additional rules can be applied.
 
-   Note that while the order rules are applied rules doesn't matter, to keep
-   the tree smaller, at each step always apply all non-branching rules before
+   Note that while the order rules are applied doesn't matter, to keep the
+   tree smaller, at each step always apply all non-branching rules before
    applying branching rules.
 
    A STAR next to a wff indicates it's no longer available to apply rules.
@@ -1193,7 +1216,8 @@ Truth-Trees
 Truth-Tree Analysis
 ===================
 
-   Truth-Tree Study of Single WFFs
+Truth-Tree Study of a Single WFF
+--------------------------------
 
    To test a single wff using a truth-tree, we treat our wff as the set
    of formulas being tested.  Then conduct the search process.
@@ -1213,7 +1237,8 @@ Truth-Tree Analysis
          2+ open paths   tautology or contingency     contingent
          =============   ==========================   ==========
 
-   Truth-Tree Study of Sets of Wffs
+Truth-Tree Study of a Set of Wffs
+---------------------------------
 
    To test a set of wffs using a truth-tree, we list vertically the wffs
    forming the root.  Then conduct the search process by applying the above
@@ -1230,7 +1255,8 @@ Truth-Tree Analysis
          1+ open paths   consistent
          =============   ==========================
 
-   Semantic-Tree Study of Sequents
+Truth-Tree Study of a Sequent
+-----------------------------
 
    To test an argument form for validity using a truth-tree, we construct
    a list consisting of the argument's premises and negated conclusion.
@@ -1270,20 +1296,20 @@ Direct Proofs
    the proof and serve similar roles to a pair of braces or a begin/end pair
    such as in programming.
 
-   A FORMAL DEDUCTIVE SYSTEM (AKA CALCULUS) is a set of rules that describe
+   A CALCULUS (aka FORMAL DEDUCTIVE SYSTEM) is a set of rules that describe
    truth-preserving inferences for a given formal language.
 
    Given a sequent P1,P2,...  ⊢  C; a FORMAL DERIVATION is a list
    of the steps inferred from the premises to derive C using the rules
-   of a formal deductive system, a calculus.
+   of a calculus.
 
    A TWO-COLUMN PROOF is a FORMAL PROOF laid out in a list-like fashion in
    two parallel columns such that the first column contains a line number
-   (1, 2, 3, ...) followed by a proposition, the second column holds a
-   justification for writing that proposition.  The justification is the
+   (1, 2, 3, ...) followed by a proposition, the second column holds
+   a justification for writing that proposition.  The justification is the
    name of an inference rule, preceded by, citations, a set of any line
-   numbers of the propositions to which that rule was applied.  For our
-   purposes all propositions will take the form of wffs.
+   numbers of the premises to which that rule was applied.  For our purposes
+   all propositions will take the form of wffs.
 
             P -> (Q ∧ R), P  ⊢  Q
             Proof
@@ -1302,7 +1328,7 @@ Direct Proofs
    applied to steps 1 and 2 to reach step 3.  For now don't worry about
    what that means, just understand the structure of the proof.  Step 4
    applies a rule called 'Conjunction Elimination' to step 3 resulting
-   in the wff 'Q'.  Since Q is the conclusion form of the proof it's the
+   in the wff 'Q'.  Since Q is the conclusion form of the sequent it's the
    thing we were trying to attain.  So the proof has completed successfully
    which is why the proof is closed with the 'QED'.
 
@@ -1343,33 +1369,37 @@ Hypothetical Subordinate Proofs
    (H) of P.  The contents of the parentheses communicates to the reader that
    the goal of this hypothetical proof is to eventually reach a point where
    -I (Negation Introduction) can operate on the hypothesis.  Line 4 applies
-   ->E (Conditional Elimination) to propositions 1 and 3 resulting in 'Q'.
-   In line 5 ∧I operates upon propositions 2 and 4 producing Q ∧ -Q.  Line
-   5 ends the subproof and line 6 returns our attention to the enclosing
-   proof, the main proof.  Recall that the goal of the hypothetical subproof
-   was to perform -I; which is now performed on line 6.  Notice the citation
-   is a range of steps '3-5' which is the entirety of the subproof.  This
-   essentially says that the subproof provides justification for applying
-   the -I rule to obtain -P, which is the conclusion form of the sequent
-   so the proof completed successfully hence the 'QED'.
+   ->E (Conditional Elimination) to steps 1 and 3 resulting in 'Q'.  In line
+   5 ∧I operates upon steps 2 and 4 producing Q ∧ -Q.  Line 5 ends the
+   subproof and line 6 returns our attention to the enclosing proof, the main
+   proof.  Recall that the goal of the hypothetical subproof was to perform
+   -I; which is now performed on line 6.  Notice the citation is a range
+   of steps '3-5' which is the entire subproof.  This essentially says that
+   the subproof provides justification for applying the -I rule to obtain
+   -P, which is the conclusion form of the sequent so the proof completed
+   successfully hence the 'QED'.
+
+   Note to be able to write QED, we must not only successfully derive the
+   sequent's conclusion form, but also it must occur within the main
+   proof's sequence, not within a subproof.  That is all subproofs must
+   be closed.
 
 Regarding Notation
 ==================
 
-   Φ(Q) denotes a wff Φ contains one or more occurrences
-   of a sub-wff Q.
+   A capital Greek letter (Φ, Ψ, Θ, Δ, etc.) denotes any arbitrary formula.
 
-   Φ(R/Q) denotes the result of replacing one or more occurrences
-   of Q in Φ(Q) with R.  R/Q is read, "R replaced one or more
-   occurrences of Q", or simply "R for some Q".
+   Φ(Ψ) denotes a wff Φ contains one or more occurrences of a sub-wff Ψ.
 
-   Φ(R//Q) like above but indicates replacing all occurrences of Q in Φ(Q)
-   with R.  R//Q is read, "R replaced all occurrences of Q", or simply
-   "R for every Q".
+   Φ(Θ/Ψ) denotes the result of replacing one or more occurrences of Ψ in Φ
+   with Θ.  Θ/Ψ is read, "Θ replaced one or more occurrences of Ψ".
 
-   ( Φ ⊢ Ψ ), indicates a subproof with hypothesis Φ concluding with Ψ.
+   Φ (Θ//Ψ) like above but indicates replacing all occurrences of Ψ in Φ with
+   Θ.  Θ//Ψ is read, "Θ replaced all occurrences of Ψ"
 
-   [ ... ] indicate that the enclosed must exist, be defined or proven
+   ( Φ ⊢ Ψ ), denotes a subproof with hypothesis Φ concluding with Ψ.
+
+   [ ... ] denotes that the enclosed must exist, be defined or proved
    elsewhere (external to the proof).
 
 Primitive Inference Rules
@@ -1426,9 +1456,9 @@ Primitive Inference Rules
                                      infer Θ(Φ/Ψ).
    ================================  =========================================
 
-   Diagrams are another way to describe these rules.  Some rules have
-   multiple forms.  The horizontal lines denotes 'infer', and the vertical
-   line denotes a subproof.
+   Diagrams are another way to describe these rules.  The horizontal lines
+   denotes 'infer', and the vertical line denotes a subproof.  Some rules
+   have multiple forms.
 
       +-------------------------------+-------------------------------+
       | ============================= | ============================= |
@@ -1494,8 +1524,8 @@ Primitive Inference Rules
 Pseudo Inference Rules
 ======================
 
-   The following aren't inference rules but appear in proofs as if they
-   were inference rules.
+   The following aren't inference rules but appear in proofs as justification
+   for writing a derived wff.
 
    ================================  =========================================
    Name/Alternate Names              Rule
@@ -1507,7 +1537,7 @@ Pseudo Inference Rules
 Derived Inference Rules
 =======================
 
-   Use any proven sequent as a new inference rule; if a sequent is proven
+   Use any proved sequent as a new inference rule; if a sequent is proved
    valid, then all instances of the sequent are also valid.  The following
    are traditionally important rules derivable in our system.
 
@@ -1531,8 +1561,8 @@ Theorems
 
    A theorem of propositional calculus is a derived rule which has no premises
    or undischarged hypotheses.  Theorems are the tautologies of propositional
-   logic.  A sequent for a theorem Φ has the following form.  A theorem
-   of our calculus is proved by starting the proof with a hypothesis or with
+   logic.  A sequent for a theorem Φ has the form below.  A theorem of our
+   calculus is proved by starting the proof with a hypothesis or with
    a previously proved theorem.
 
          ⊢ Φ
@@ -1639,7 +1669,7 @@ Derivation Strategies
    Below is an outline of a proof strategy.  It's a recursive procedure
    driven chiefly by the conclusion form.
 
-   In the main proof, list the premises one per line of the proof.  Then
+   Begin the main proof by listing the premises one per line.  Then
    hypothesize the unnegated or negated conclusion form, use direct proof
    to attempt to reduce everything to atomic and negated atomic formulas.
    If you encounter a contradiction use ⊥ I (or ∧I) to derive the
@@ -1662,7 +1692,7 @@ Derivation Strategies
 
          Φ <-> Ψ     Derive Φ -> Ψ, derive Ψ -> Φ, apply <->I.
 
-   2.  (Premise) Lastly try this if a premise has the following form
+   2.  (Premise) If a premise has the following form
 
          Φ ∨ Ψ       Derive two conditionals Φ -> Θ and Ψ -> Θ to obtain the
                      needed conclusion Θ.
@@ -1683,18 +1713,15 @@ Concerns
 Semantic Soundness & Completeness of Propositional Calculus
 ===========================================================
 
-   A calculus is SEMANTICALLY SOUND if and only if for any consistent
-   set of premise wffs valid applications of the inference rules result
-   in *only* valid conclusions even if rules are applied randomly.
+   A calculus is SEMANTICALLY SOUND if and only if for any consistent set
+   of premises there is no sequence of inference rule applications that can
+   derive a wff that's not a logical consequence of those premises.
 
-   A calculus is SEMANTICALLY COMPLETE if and only if for any consistent set
-   of premise wffs valid applications of the inference rules result in *all
-   possible* valid conclusions even if rules are applied randomly.
+   A calculus is SEMANTICALLY COMPLETE if and only if a given conclusion Φ
+   logically follows from a set of premises and there exists at least one
+   proof of Φ that has a finite number of steps.
 
-   If a given conclusion Φ logically follows from a set of premises, then
-   there exists at least one proof of Φ that has a finite number of steps.
-
-   Propositional calculus is semantically sound and semantically complete.
+   Propositional calculus is semantically sound and semantically complete`.
    We don't prove these theorems here but it's handy to know of them.
    The calculus derives all and only valid conclusions from any given set
    of premises.
@@ -1703,10 +1730,10 @@ The Unnatural Conditional
 =========================
 
    A serious concern when it comes to the propositional logic conditional
-   is that it only denotes a small part of what if/then statements can
-   express.  This makes it quite controversial and many doubt the full power
-   of English if/then statements can ever be captured in a formal logical
-   system.  Moreover, propositional logic conditional can produce some
+   is that it only denotes a small part of what English if/then statements
+   can express.  This makes it quite controversial and many doubt the full
+   power of the if/then statement can ever be captured in a formal logical
+   system.  Moreover, the propositional logic conditional can produce some
    surprising results.  Let's revisit a prior example.
 
          K -> F        if you keep up the good work then you'll go far.
@@ -1718,34 +1745,31 @@ The Unnatural Conditional
          K ∧ -F        DeMorgan's
 
    Studying the conclusion we determine that is says, you keep up the good
-   work and you don't go far.  Does this really sound like the negation of
-   the original unnegated conditional wff?
+   work and you don't go far.  Does this sound like the negation of the
+   original unnegated conditional wff?  Many say it doesn't.
 
 
 Relevance
 =========
 
-   Some philosophers have concerns over the inference rules and namely ∨I,
+   Some people have concerns over the inference rules and namely ∨I,
    and H because they provide a way for an arguer to introduce any statement
    whatever into the proof relevant or not.   Their particular concern
-   is that this exposes a serious problem for the calculus.  They've gone
+   is that this exposes a serious problem for the calculus.  Some have gone
    so far as to introduce new systems of logic in attempts to remove
    such rules.
 
    The classical perspective is these issues don't matter because the
-   inference rules are sufficient to weed out inconsistent sentences
-   wherever doing so makes sense, and that conclusions found by FOC=
-   always do conform to the definition of a valid deductive argument.
-   If one asserts that Φ is true, then referring back to the valuation
-   function v for disjunction shows that no matter what value of Ψ we
-   introduce, Φ ∨ Ψ will still be true simply because Φ is true.
-   While for H, it doesn't matter what we hypothesize.  If some
-   hypothesis Θ is inconsistent with the premises Θ will be negated after
-   the subproof is closed.  But if Θ is not inconsistent with the premises
-   then by definition it's consistent relevant or not and whose to say
-   what is and isn't relevant anyway.  Classical logic regards these as
-   arguments adequate to justify the inclusion and current formulation
-   of these rules.
+   conclusions found by FOC= always do conform to the definition of a valid
+   deductive argument.  If one asserts that Φ is true, then referring back
+   to the valuation function v for disjunction shows that no matter what value
+   of Ψ we introduce, Φ ∨ Ψ will still be true simply because Φ is true.
+   While for H, it doesn't matter what we hypothesize.  If some hypothesis
+   Θ is inconsistent with the premises Θ will be negated after the subproof
+   is closed.  But if Θ is not inconsistent with the premises then by
+   definition it's consistent relevant or not and whose to say what is and
+   isn't relevant anyway.  Classical logic regards these as arguments adequate
+   to justify the inclusion and current formulation of these rules.
 
 Refuting Dilemmas
 =================
@@ -2291,8 +2315,8 @@ Important Derived Equivalences
 Predicate Logic
 ====================
 
-Predicate logic is a way to analyze proposition symbols down into more
-basic components.
+Predicate logic introduces a way to analyze proposition symbols down into
+more basic components.
 
 
 --------
@@ -2307,11 +2331,11 @@ Lexemes
       Object Symbols
          Constants:             a...t
       Predicate Symbols:        A...Z
-      Association Symbols:      ( )
+      Association Symbols:      (, )
 
    Logical Symbols
 
-      Truth-Function Symbols:   -, ∧ ∨ -> <->
+      Truth-Function Symbols:   -, ∧, ∨, ->, <->
 
 Grammar
 =======
@@ -2329,16 +2353,6 @@ Grammar
    3.  if Φ, Ψ are wffs, then so are (Φ ∧ Ψ), (Φ ∨ Ψ), (Φ -> Ψ), (Φ <-> Ψ);
    4.  Nothing else is a wff.
 
-   Notes
-
-   - In a dictionary we'll use letters from the end of the alphabet
-     (x, y and z), as place holders for arbitrary object symbols
-     within a dictionary.
-
-   - Identical sequences of symbols that form single atomic formulas should
-     be regarded as if they were the same proposition symbol, while different
-     sequences should be regarded as different proposition symbols.
-
 
 ---------
 Semantics
@@ -2355,7 +2369,7 @@ Model
 The Dictionary
 ==============
 
-   It's necessary to create a dictionary before constructing an atomic
+   It's helpful to create a dictionary before constructing an atomic
    formula.  When we begin to investigate a new situation with logic
    we want to be clear in what the atomic formulas and their components
    mean.  A dictionary is a list of the symbols and what they denote
@@ -2386,7 +2400,7 @@ Properties
          Sc -> -(Bc ∨ Kc)
          If Charlie is scaled then Charlie is neither blond nor brunette.
 
-   A properties always have just one place-holder in the dictionary.
+   Properties always have just one place-holder in the dictionary.
    Any property Pc means, c is in set P, c is P, or c has property P.
 
 Relations
@@ -2532,11 +2546,10 @@ Regarding Notation
    and a lower case Greek letter (α, β, δ, etc.) denotes any arbitrary
    object symbol.
 
-   Φ(Ψ) indicates that a wff Φ contains one or more occurrences of
-   a sub-wff Ψ.
+   Φ(Ψ) denotes a wff Φ contains one or more occurrences of a sub-wff Ψ.
 
-   Φ(Θ/Ψ) indicates the result of replacing one or more occurrences
-   of Ψ in Ψ with Θ.  Θ/Ψ is read, "Θ replaced one or more occurrences of Ψ".
+   Φ(Θ/Ψ) denotes the result of replacing one or more occurrences of Ψ in Φ
+   with Θ.  Θ/Ψ is read, "Θ replaced one or more occurrences of Ψ".
 
    Φ (Θ//Ψ) like above but indicates replacing all occurrences of Ψ in Φ with
    Θ.  Θ//Ψ is read, "Θ replaced all occurrences of Ψ"
@@ -2545,8 +2558,8 @@ Regarding Notation
 
    ( Φ ⊢ Ψ ), denotes a subproof with hypothesis Φ concluding with Ψ.
 
-   [ ... ] indicates that the enclosed must exist, be defined or proved
-   elsewhere.
+   [ ... ] denotes that the enclosed must exist, be defined or proved
+   elsewhere (external to the proof).
 
 
 --------
@@ -2616,7 +2629,7 @@ Quantifiers & Variables
    variable is BOUND to the quantifier.
 
          ∀xΦ       For every object x in our universe of discourse,
-                   Φ.holds.
+                   Φ holds.
 
          ∃xΦ       There exists at least one object x in our universe
                    of discourse such that, Φ holds.
@@ -2640,13 +2653,14 @@ Quantifiers & Variables
          ∃xDx,     There exists x in our universe such that, x is a dog.
                    = Some (one or more) dogs exist.
 
-   Existential Import
+Existential Import
+------------------
 
    ∃xΦ has existential import.  It asserts that at least one thing exists
    in the universe of discourse.
 
          ∃xSx      There exists some object in our universe that
-                   likes to swim.
+                   it likes to swim.
 
    ∀x lacks existential import.  It makes no claim that something actually
    exists in the universe of discourse.
@@ -2654,7 +2668,8 @@ Quantifiers & Variables
          ∀xSx      Everything in our universe (if anything exists
                    at all) likes to swim.
 
-   Scope
+Scope
+-----
 
    SCOPE refers to the substring in a quantified wff over which the
    quantifier-variable binding holds.  In FOL this substring
@@ -2664,15 +2679,15 @@ Quantifiers & Variables
 
          ∀x(Dx -> Mx) ∧ ∃xRx
 
-   In this expression the x bound by ∀ is in scope within between
-   the pair of parentheses.  The x used with the atomic formula
-   Rx is a different x which is bound by ∃ and whose scope is only
-   the expression 'Rx'.
+   In this expression the x bound by ∀ is in scope between the pair
+   of parentheses.  The x used with the expression Rx is a different
+   x which is bound by ∃ and whose scope is only the expression 'Rx'.
 
-   Free Variables
+Free Variables
+--------------
 
    A FREE VARIABLE is a variable that appears within a wff but is not
-   bound by a quantifier.  Our implementation of FOL doesn't have
+   bound by a quantifier.  Our implementation of FOL doesn't allow
    free variables provided the formation rules are applied correctly.
    However, some implementations do allow free variables.  Be aware that
    a free variable doesn't denote anything; while a variable bound
@@ -2686,24 +2701,24 @@ Single Quantifiers
    A universal quantifier is nearly always paired with the conditional.
 
          ∀x(Cx -> Mx),   For each object x in our universe,
-                         = if x is a cat then x is a mammal.
+                           if x is a cat then x is a mammal.
                          = all cats are mammals.
 
          ∀x(Cx -> -Sx),  For each object x in our universe,
-                         = if x is a cat then x doesn't like to swim.
+                           if x is a cat then x doesn't like to swim.
                          = no cats like to swim.
 
    An existential quantifier is nearly always paired with conjunction.
 
          ∃x(Dx ∧ Mx),    There's at least one object x in our universe
-                         = such that, x is a dog and x is a mammal.
+                           such that, x is a dog and x is a mammal.
                          = Some dogs are mammals.
 
          ∃x(Dx ∧ Sx),    There's at least one object x in our universe
-                         = such that, x is a dog and x likes to swim.
+                           such that, x is a dog and x likes to swim.
                          = Some dogs like to swim.
 
-   This notion of ∀ with ->, and ∃ with ∧, is further supported
+   This notion of ∀ with ->, and ∃ with ∧, is further demonstrated
    by occurrence of these forms negated.
 
          -∀x(Cx -> -Sx)  It's false that all cats don't like to swim.
@@ -2717,8 +2732,9 @@ Single Quantifiers
          ∃x(Cx ∧ Sx)     Double Negation
 
    So the conclusion reads, some cats like to swim.  Notice that we
-   started with ∀ ->, and ended with ∃ ∧.  So ∃ with ∧ follows naturally
-   from the occurrence of ∀ with ->; they are complementary forms.
+   started with ∀ and ->, and just by applying equivalences ended with
+   ∃ and ∧.  So ∃ with ∧ follows naturally from the occurrence of ∀ with
+   ->; they are complementary forms.
 
 Multiple Quantifiers
 ====================
@@ -2743,7 +2759,8 @@ Multiple Quantifiers
 Translation Hints
 =================
 
-   The Aristotelian Forms
+The Aristotelian Forms
+----------------------
 
    The Aristotelian forms under any interpretation can
    all be represented in FOL.
@@ -2804,7 +2821,7 @@ Translation Hints
       u | Universal  | ∀x(Sx -> Px)         | ∀x(Sx -> -Px) ∧ ExSx   |
       a |            |                      |                        |
       n | Particular | ∃x(Sx ∧ Px)          | ∃x(Sx ∧ -Px)           |
-      t |            |    ∨ -∃xSx ∨ -∃xPx |                          |
+      t |            |    ∨ -∃xSx ∨ -∃xPx   |                        |
       i +------------+----------------------+------------------------+
       t | Singular   | Sa                   | -Sa                    | < EI
       y |            | c=e                  | -c=e                   | < EI
@@ -2815,7 +2832,8 @@ Translation Hints
    It's even possible to assign EI to a diagonal pair and deny it to the other
    pair, or deny it to all universals and particulars.
 
-   English Quantification
+English Quantification
+----------------------
 
    When translating from English, it's usually best to first paraphrase
    a sentence such that it's closer in structure to a wff.
@@ -2825,7 +2843,8 @@ Translation Hints
          Write the quantifiers in the same order as they occur in English.
          Note that this rule has many exceptions.
 
-   Any/Anybody/Anyone/Anything/Anywhere
+Any/Anybody/Anyone/Anything/Anywhere
+------------------------------------
 
    Any has different meanings depending upon how it's used.  It can indicate
    either quantifier.  Generally, try to rephrase the proposition
@@ -3946,16 +3965,20 @@ Regarding Notation
    and a lower case Greek letter (α, β, δ, etc.) denotes any arbitrary
    object symbol.
 
-   Φ(Ψ) indicates that a wff Φ contains one or more occurrences of
-   a sub-wff Ψ.
+   Φ(Ψ) denotes a wff Φ contains one or more occurrences of a sub-wff Ψ.
 
-   Φ(Θ/Ψ) indicates the result of replacing one or more occurrences
-   of Ψ in Ψ with Θ.  Θ/Ψ is read, "Θ replaced one or more occurrences of Ψ".
+   Φ(Θ/Ψ) denotes the result of replacing one or more occurrences of Ψ in Φ
+   with Θ.  Θ/Ψ is read, "Θ replaced one or more occurrences of Ψ".
 
    Φ (Θ//Ψ) like above but indicates replacing all occurrences of Ψ in Φ with
    Θ.  Θ//Ψ is read, "Θ replaced all occurrences of Ψ"
 
    Φ(β),Φ(α/β),Φ(α//β), similar to the above but α and β are object symbols.
+
+   ( Φ ⊢ Ψ ), denotes a subproof with hypothesis Φ concluding with Ψ.
+
+   [ ... ] denotes that the enclosed must exist, be defined or proved
+   elsewhere (external to the proof).
 
    ( Φ ⊢ Ψ ), denotes a subproof with hypothesis Φ concluding with Ψ.
 
