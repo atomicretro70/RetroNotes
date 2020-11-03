@@ -95,10 +95,10 @@ Formal Theories & Axioms
 Preface
 =======
 
-   I wrote this book for anyone who needs a reference in logic.
-   The concepts are presented concisely but clearly with all necessary
-   detail.  Nevertheless, the information density is higher than would
-   be found in a textbook.
+   This book is intended for anyone who has a need for a reference book
+   of logic.  The concepts are defined and stated clearly and with detail
+   though the information density is higher than would be found in a text
+   book.
 
    The introduction begins with some preliminary information about logic:
    Namely a review of some basic though important definitions, a discussion
@@ -106,39 +106,39 @@ Preface
    by a quick review of some basic set theory.
 
    The first chapter covers propositional logic; the logic of 'not', 'and',
-   'or' and similar notions.  It begins by describing the formal language:
-   the lexemes and the grammar.  Next is a study of the language's semantics
-   with formal descriptions of the lexemes and the sentences.  The chapter
-   rounds out with an investigation into inference, introducing a modern
-   style calculus based on the logic of Frederick Fitch.
+   'or', and similar notions.  It begins by describing the formal language:
+   the lexemes and the grammar.  This is followed by a study of the
+   semantics, formal descriptions of meanings of sentences in the language. 
+   Then comes a modern Fitch-Style calculus for the language.
 
    Most of the remaining chapters follow the same pattern of language,
    semantics, calculus, with some supplementary sections here and there.
-   Each chapter describes a different system within classical logic covering:
-   Predicate Logic, First-Order Quantified Logic (FOL), Identity Logic and
-   FOL=, Function Logic (FL), Russell's Theory of Definite Descriptors,
-   Second-Order Quantification Logic (SOL), and lastly, Mathematical
-   Induction.  The book closes with mentions of Axiomatic Deductive Systems,
-   then Formal Theories and their Axioms.
+   Each chapter describes a different system of logic within the discipline
+   of classical logic covering:  Predicate Logic, First-Order Quantified
+   Logic (FOL), Identity Logic and FOL=, Function Logic (FL), Russell's
+   Theory of Definite Descriptors, Second-Order Quantification Logic (SOL),
+   and lastly Mathematical Induction.  The book closes with mentions
+   of Axiomatic Deductive Systems, then Formal Theories and their Axioms.
 
-   The notation selected for this book may vary slightly from that of other
-   books.  However, the symbol set was selected to reflect aesthetic
-   principles.  The logical operator symbols consist of well-defined straight
-   lines in symmetrical arrangements to reflect the similarly well-defined
-   rigid logical operations.  Parentheses, used for grouping just as in math,
-   can be thought of as representing nested bubbles.  Both of these are in
-   stark contrast to the large round or curvy letters used to denote more
-   complex, less well-defined English sentences.
+   The notation selected for this book may vary slightly from that of whatever
+   books you may have studied.  The symbols were chosen to reflect
+   aesthetic principles.  All of the logical operators consist of straight
+   symmetrical lines.  They are well defined straight-lined geometric shapes
+   to denote the well-defined rigid logical operations.  Parentheses, used for
+   grouping just as in math, can be thought of as representing nested bubbles.
+   Both of these are in stark contrast to the large round or curvy letters
+   used to denote more complex less well-defined English sentences.
 
-   The reader ought to be aware of some conventions used in this book.  When
-   a term is defined, it will appear in all capital letters to facilitate
-   searching.  A pair of asterisks denote italics.  Single quotes will denote
-   a mention, vs. a use, of a symbol.  Most of the time, single quotes will
-   be implicit.
+   There are some conventions in this book that you ought to be aware of.
+   When a term is defined it will appear in all capital letters.  This is
+   to facilitate searching.  A pair of asterisks will denote italics.
+   Single quotes will sometimes but not always be used to denote mention
+   but most of the time it will be clear that I'm mentioning something;
+   so to save space I'll omit the single quotes.
 
-   This book will be updated periodically, and some sections may be removed
-   or developed further based upon reader feedback.  Please contribute by
-   reporting an error or omission or submitting other comments by contacting
+   This book will be updated periodically and some sections may be dropped or
+   developed further based upon your feedback.  If you wish to contribute by
+   reporting an error or omission, or have other comments please contact
    the author here: AtomicRetro@outlook.com.
 
 
@@ -150,37 +150,6 @@ Introduction
 -----------------------
 Preliminary Definitions
 -----------------------
-
-   A TRUTH-VALUE is any member of the set { true, false }.
-
-   A PROPOSITION is the concept that a true or false statement denotes;
-   many different statements can denote the same proposition. 
-
-   An ARGUMENT is a set of propositions; one of which is intended
-   as a CONCLUSION, a sort of finding; the rest, the PREMISES, are
-   claimed to prove or provide some evidence for the conclusion.
-
-   INFERENCE is the reasoning process expressed by an argument.
-
-   FORMAL LOGIC is the study of arguments employing symbolic languages
-   and systems of inference that capture structures, patterns, or forms of
-   inference without regard to meaning.
-
-   A DEDUCTIVE ARGUMENT is an argument whose conclusion cannot be false when
-   all the premises are true.
-
-   A VALID ARGUMENT is a deductive argument which is genuinely deductive in
-   the sense defined above.
-
-   An INVALID ARGUMENT is an argument claimed to be deductive but contains
-   reasoning errors, or missing premises, or incorrect applications of
-   inference rules, and so on; any argument that is not really deductive.
-
-   A COUNTEREXAMPLE is a clearly invalid argument having the same structure
-   as an argument claimed to be valid.
-
-   A DEFINITION is a declaration that two strings are identical in meaning
-   and so are interchangeable without changing the meaning of the sentence.
 
    A TRUTH-VALUE is any member of the set { true, false }.
 
@@ -220,11 +189,11 @@ Formal Definitions
 
    A FORMAL DEFINITION is a declaration that two strings, called the
    DEFINIENDUM and the DEFINIENS, mean the same thing; that they're
-   interchangeable.  Express definitions as follows:
+   interchangeable.  Definitions are expressed as follows:
 
          *definiendum*   =df  *definiens*
 
-   In formal definitions, the *definiendum* is usually an abbreviation
+   In formal definitions the *definiendum* is usually an abbreviation
    for the *definiens*.
 
          *abbreviation*  =df  *definiens*
@@ -233,7 +202,7 @@ Formal Definitions
 
 Definition Schemata & Variables
 ===============================
-
+   
    We can introduce a DEFINITION SCHEMA, a "family" of definitions all having
    the same structure, with the help of place-holders, which we denote using
    letters towards the end of the alphabet: u,v,w,x,y,z, across which values
@@ -245,13 +214,12 @@ Definition Schemata & Variables
          P(X|Y)  =df  --------
                         P(Y)
 
-   Whenever we see an instance of P(X|Y), the definition informs us that
-   it is interchangeable with and so can be replaced by its corresponding
-   right-hand side, replacing values for X, and Y uniformly.  The reverse
-   operation is also possible.
+   Whenever we see an instance of P(X|Y) it's interchangeable, and so can
+   be replaced by, its corresponding right-hand side replacing values for
+   X and Y uniformly.  The reverse operation is also possible.
 
-   So the question, what is the probability that we slip given that
-   it is icy, yields the following definition.
+   So the question, What's the probability that we Slip given that it's icy,
+   yields the following definition.
 
                       P(S ∧ I)
          P(S|I)  =df  --------
@@ -261,15 +229,16 @@ Definition Schemata & Variables
    a *definiens* with its *abbreviation*.
 
    UNPACKING A DEFINITION is when we rewrite a string expanding
-   an *abbreviation* into its *definiens*.  
+   an *abbreviation* into its *definiens*.
+
 
 -----------------
 The Laws of Logic
 -----------------
 
-    The simplest logic has just two discrete truth-values: True and False;
-    which are complements:  false =df not true.  From this binary relation,
-    it is possible to construct the following logical principles.
+   The simplest logic has just two discrete truth-values: True and False;
+   which are complements:  false =df not true.  From this binary relation
+   it's possible to construct the following logical principles.
 
    LAW OF NON-CONTRADICTION (LNC)
 
@@ -281,18 +250,20 @@ The Laws of Logic
 
    IDENTITY OF INDISCERNIBILITY
 
-         If two things have all of the same properties, then they are
+         If two things have all of the same properties then they're
          the same object.
-
+      
    LAW OF INDISCERNIBILITY OF IDENTICALS (LEIBNIZ'S LAW)
 
-         If two things are the same object, then they have
+         If two things are the same object then they have
          all of the same properties.
+
 
 ----------
 Set Theory
 ----------
-A SET is a collection of objects which has no particular order but in which
+
+A SET is a collection of objects which has no special order but in which
 each member object occurs just once.
 
 Set Definition
@@ -305,14 +276,14 @@ Set Definition
          A = { my phone, empire state building, the number 6,
                the neighborhood dog that's always barking }
 
-   The null set has its own symbol.
+   The null set has it's own symbol.
 
          ∅ = { } = null/empty set
 
-   Many sets are too large to enumerate, so instead of enumerating their
-   members, their members' properties define them; this is accomplished using
-   a comprehension.  A COMPREHENSION is a set defined by properties and
-   includes the use of a '|', which is read as, 'such that'.
+   Many sets are too large to enumerate so may be described by properties
+   of their members.  This is usually done using a comprehension.
+   A COMPREHENSION is a set defined by properties and includes the use of
+   '|', which is read as, 'such that'.
 
          M = the set of all mammals
            = { x | x is a mammal }
@@ -327,7 +298,7 @@ Set Definition
            = "The set of all integer or red things."
 
          Z = { x | x is an integer }
-             It is customary to denote this set with a bold capital 'Z'.
+             It's customary to denote this set with a bold capital 'Z'.
 
    <x,y> is an ORDERED PAIR, a value which requires two numbers to be
    fully expressed, where x,y can be any two real numbers
@@ -344,19 +315,19 @@ Set-Member Relations
 
    MEMBERSHIP ( ∊ )
 
-         a ∊ P says, "a is a member/element of P," or, "a is in P."
+         a ∊ P is read, "a is a member/element of P", or, "a is in P".
          Fido ∊ Dog, Fido is a dog.
          2 ∊ Even, 2 is even.
 
    Identity ( = )
 
-         A = B, Sets A and B have the same members.
-         x = y, symbols x and y denote the same object.
+         A = B, Sets A and B have exactly the same members.
+         x = y, objects x and y are the same object.
 
    PROPER SUBSET ( ⊂ )
 
-         A ⊂ B, set A is composed of some but not all of the objects in set B.
-         E ⊂ Z, even-numbered integers are a subset of integers.
+         A ⊂ B,  A is composed of some but not all of the objects in set B.
+         E ⊂ Z,  even-numbered integers are a subset of integers.
 
    SUBSET ( ⊆ )
 
@@ -377,8 +348,7 @@ Set Operations
 
    UNION ( ∪ ) 
 
-         The union of two sets is the set of all things contained
-         in both of those sets.
+         The set of all things contained in two sets.
 
          R ∪ C
          = { x | x is red } ∪ { x | x is a car }
@@ -386,8 +356,7 @@ Set Operations
 
    INTERSECTION ( ∩ )
 
-         The intersection of two sets is the set of all things common
-         to those two sets.
+         The set of all things common to two sets.
 
          R ∩ C
          = { x | x is red } ∩ { x | x is a car }
@@ -399,7 +368,7 @@ Set Operations
 
    COMPLEMENT ( ' )
 
-         The complement of a set is the set of all things *not* in the set.
+         The set of all things outside of the set.
 
          C' = { x | x is not a car }
          C'' = C
@@ -417,38 +386,38 @@ Set Properties
 
    UNIVERSE
 
-         U, UNIVERSE OF DISCOURSE (also DOMAIN OF DISCOURSE) is the set
-         of all objects in our discussion.
+         U, UNIVERSE OF DISCOURSE (also DOMAIN OF DISCOURSE)
+            The set of all objects in our discussion.
 
-   The universe and the empty set are complements of each other.
+      The universe and the empty set are complements of each other.
 
          U' = { }
 
    DECIDABLE SET
 
-         A set is DECIDABLE if and only if there is an effective method
-         for determining whether an object is in the set.
+         A set is DECIDABLE iff there's an effective method for determining
+         whether an object is in the set.
 
    1:1 CORRESPONDENCE
 
-         There is a 1:1 CORRESPONDENCE between sets A and B if and only
-         if there is a way to pair off each member of set A with a unique
-         member of set B.  Therefore, both sets have the same cardinality;
-         |A| = |B|.  Every member of A pairs to exactly one member of B,
-         and vice versa.
+         For any two sets there is a 1:1 CORRESPONDENCE iff there is a way
+         to pair off each member of set A with a member of set B.  Every
+         member of both sets must be paired uniquely, so both sets have the
+         same cardinality |A| = |B|.  Every member of A is paired to exactly
+         one member of B, and vice versa.
 
    DENUMERABLE
 
          A set is DENUMERABLE iff there is a 1:1 correspondence between
-         it and the set of natural numbers.  Hence, the cardinality
-         of the set is infinite.
+         it and the set of natural numbers.  Hence, the cardinality of the
+         set is infinite.
 
 
 ===================
 Propositional Logic
 ===================
 
-   Propositional logic is about the truth-functions, 'and,' 'not' and
+   Propositional logic is about the truth-functions, 'and', 'not' and
    similar concepts.
 
 
@@ -459,12 +428,12 @@ Language
    A LANGUAGE is defined by the set of all sensical sentences in the language.
 
    A FORMAL LANGUAGE is the set of all grammatically correct sentences
-   in a language.  Formal languages do not consider semantics, so many such
-   sentences may be nonsensical.
+   in a language.  Formal languages don't take semantics into consideration,
+   so many such sentences may be nonsensical.
 
    A METALANGUAGE is the language used to talk *about* logic.  So sentences
-   in the metalanguage mention properties of the logic, arguments, and things
-   they entail.  Most of this book is written in the metalanguage.
+   in the metalanguage mention properties of the logic, arguments and all
+   things that they entail.  Most of this book is written in the metalanguage.
 
    A LEXEME is the smallest semantic unit of a language, often called words.
 
@@ -486,37 +455,40 @@ Grammar
    to meaning.
 
    A grammatically correct sentence in logic is called a WELL-FORMED FORMULA
-   (WFF, or FORMULA).  It is conventional to use Greek capital letters
+   (WFF, or FORMULA).  It's conventional to use capital Greek letters
    to represent arbitrary formulas.  A wff in propositional logic is any
-   string constructed by the following clauses (called FORMATION RULES):
+   string constructed in accordance with the following clauses (called
+   FORMATION RULES):
 
    An ATOMIC FORMULA is any single proposition symbol.
 
    1.  Each atomic formula is a wff;
    2.  if Φ is a wff, then -Φ is a wff;
-   3.  if Φ, Ψ are wffs, then (Φ ∧ Ψ),(Φ ∨ Ψ),(Φ -> Ψ),(Φ <-> Ψ) are wffs;
+   3.  if Φ,Ψ are wffs, then (Φ ∧ Ψ),(Φ ∨ Ψ),(Φ -> Ψ),(Φ <-> Ψ) are wffs;
    4.  nothing else is a wff.
 
    Notes
-   - Notice that the formation rules for wffs are recursive,
-     meaning that wffs can nest within other wffs to any depth.
-     While P ∧ Q is a wff, so is (-(P ∨ Q) -> R).
+   - Notices that the formation rules for wffs are recursive,
+     this means that wffs can nest within other wffs to any depth.
+     So, while P ∧ Q is a wff, so is (-(P ∨ Q) -> R).
 
-   - To aid readability, we adopt the convention that if a top-level wff
-     begins with '(, 'we will drop the outermost pair of parentheses,
+   - To aid readability we adopt the convention that if a top-level wff
+     begins with '(', we will drop the outermost pair of parentheses,
      doing so never introduces ambiguity to the formula.
 
-   - In practice, it is common to use PRIME marks ('), or numerical
+   - In practice it's common to use PRIME marks ('), or numerical
      subscripts (we use postscripts) after a proposition symbol
      to increase the number of available symbols.
 
 Substitution Instance
 =====================
-    A SUBSTITUTION INSTANCE of an *original* wff has the same structure
-    as the original but where *new* wffs uniformly replace proposition
-    symbols in the original.  'Instance of' relationships do not have
-    to be symmetrical and usually are not.  P being an instance of Q,
-    does not imply that Q is an instance of P.
+
+   A SUBSTITUTION INSTANCE of a wff is another wff that has the
+   same structure as the first such that proposition symbols in
+   the original are uniformly replaced by other subordinate wffs.
+   'Instance of' relationships don't have to be symmetrical, and
+   usually aren't.  P being an instance of Q, does not imply that
+   Q is an instance of P.
 
    =============  =====   =======   ===========   =====================
    Original Form  P ∧ Q | P  ∧ Q  | P       ∧ Q | P  -> (P  ∧ Q       )
@@ -623,53 +595,54 @@ Translation Hints
 Conversational Implicature
 ==========================
 
-   CONVERSATIONAL IMPLICATURE is what is meant by a speaker's utterance that
-   is not part of the literal meaning of what is explicitly said.
+   CONVERSATIONAL IMPLICATURE is what's meant by a speaker's utterance that
+   is not part of the literal meaning of what's explicitly said.
 
    'and then'
 
-   When 'and' is a shortened form of 'and then,' it cannot be translated
+   When 'and' is a shortened form of 'and then', it can't be translated
    into a conjunction since the word 'then' here denotes a temporal
-   relationship between the clauses it joins and the conjunction operator
-   in propositional logic has no notion of time.
+   relationship between the clauses it joins and the operators in
+   propositional logic have no notion of time.
 
-         Keep up the good work, and you'll go far.
+         Keep up the good work and you'll go far.
 
          Alice drove home and went to bed.
 
    'if...then'
 
-   It can be tempting to rewrite 'and then' as 'if...then,' but it doesn't
+   It can be tempting two rewrite 'and then' as 'if...then', but it doesn't
    always result in a sentence with the same meaning.
 
-         Keep up the good work, and you'll go far.
-         If you keep up the good work, then you'll go far.
+         Keep up the good work and you'll go far.
+         If you keep up the good work then you'll go far.
 
          Alice drove home and went to bed.
-         If Alice drove home, then she went to bed.
+         If Alice drove home then she went to bed.
 
-   Again the use of 'then' in 'if/then' denotes a temporal relationship;
-   it cannot be translated into a propositional logic conditional.  Consider
-   what happens by negating the first rewritten example and seeing what
-   we derive after applying a few logical equivalences.
+   Again this 'then' in 'if/then' denotes a temporal relationship, it can't
+   be translated into a propositional logic conditional.  Consider what
+   happens by negating the first rewritten example and seeing what we derive
+   after applying a few logical equivalences.
 
-         K -> F,     if you keep up the good work, then you'll go far.
+         K -> F        if you keep up the good work then you'll go far.
 
-         -(K -> F),  it's false that if you keep up the work, you'll go far
+         -(K -> F)     it's false that if you keep up the work you'll go far
          -(-K ∨ F)
-         K ∧ -F,     You keep up the good work, and you don't go far.
+         K ∧ -F        You keep up the good work and you don't go far.
+
 
 Truth-Function Anatomy
 ======================
 
-   The truth-functions each have an "official" name and a less formal English 
+   The truth-functions have "official" names, and less formal English
    conversational names; the OPERANDS, the things the truth-functions apply
-   to also have names.
+   to, also have names.
 
          ======  =======  =============  =======  ===================
          Symbol  Example  Name           English  Operand Names
          ======  =======  =============  =======  ===================
-          -      -P       NEGATION       not      P is a NEGATAND
+          -     -P        NEGATION       not      P is a NEGATAND
           ∧      P ∧ Q    CONJUNCTION    and      P,Q are CONJUNCTS
           ∨      P ∨ Q    DISJUNCTION    or       P,Q are DISJUNCTS
           ->     P -> Q   CONDITIONAL    if/then  P is the ANTECEDENT
@@ -677,10 +650,10 @@ Truth-Function Anatomy
           <->    P <-> Q  BICONDITIONAL  just if  Operands
          ======  =======  =============  =======  ===================
 
-   ARITY is the number of subordinates an operation requires.  For example,
-   negation has an arity of one because it has one subordinate, while
-   conjunction has two.  The table below lists some common arities and some
-   different names by which they go.
+   ARITY is the number of subordinates an operation requires.  Example,
+   negation has an arity of one because it has one subordinate; while
+   conjunction has an arity of two.  The table below lists some common 
+   arities and some different names they go by.
 
          =====  ====================  =========  ==========  ==========
          Arity  Examples              -ary name  -adic name  place name
@@ -699,7 +672,7 @@ Valuation Function
    a VALUATION FUNCTION, which encapsulates all there is to say about
    the meanings of propositional logic's truth-functional operators.
 
-   Here is the valuation function for propositional logic,
+   Here's the valuation function for propositional logic
 
          v(-Φ)      =  true if Φ is false;
                        false if Φ is true
@@ -711,7 +684,7 @@ Valuation Function
                        false if Φ is true and Ψ is false
          v(Φ <-> Ψ)  = true if both Φ and Ψ are true, or
                                both Φ and Ψ are false;
-                       false if either Φ is true and Ψ is false, or
+                       false if either Φ is true and Ψ is false or
                                        Φ is false and Ψ is true.
 
 Sequents
@@ -734,14 +707,15 @@ TRUTH-TABLES
 
 Truth-Table Construction
 ------------------------
-  Procedure
+
+   Procedure
    1.  Construct The table heading starting on the top left with a horizontal
        alphabetical list of all proposition symbols occurring in the formulas
-       under study, followed to the right by a second horizontal list of the
+       under study; followed to the right by a second horizontal list of the
        formulas themselves.
 
    2.  Under the list of proposition symbols list all possible combinations
-       of T and F for those symbols.  Usually, we start with a row of all
+       of T and F for those symbols.  Usually we start with a row of all
        F and end with all T, or vice versa, according to preference.
        The values for the intermediate rows are attained as if counting
        in binary.
@@ -752,14 +726,14 @@ Truth-Table Construction
 
    4.  In a given row under the first formula, starting from the innermost
        parentheses and working outwards, evaluate each of the expressions
-       according to the valuation function, v.  Continue until a T or F can
-       be placed under the top-level (outermost) operator on every row.
+       according to the valuation function v.  Continue until a T or F can
+       be placed under the top level (outermost) operator on every row.
        Repeat this valuation procedure below each wff and each row
        in the table.
 
-   The study will only need to consider the columns under each wffs' main
-   operator, so it is convenient to highlight the completed column somehow.
-   Here we place an '*' at the bottom of those columns.
+   The study will only need to consider the columns under the wffs' main
+   operators so it's convenient to highlight the completed column in some
+   way.  Here we place an '*' at the bottom of those columns.
 
 Truth-Table Study of The Truth-Functions
 ----------------------------------------
@@ -781,11 +755,7 @@ Truth-Table Study of The Truth-Functions
           T T |  T T T  |  T T T  |  T T  T  |  T  T  T
                    *         *         *           *
 
-Truth-Table Study of a Single WFF
----------------------------------
-
-   More typical of a truth-table is its construction for a more complex
-   formual.  Here's an example,
+   Here's the truth-table for a more complex formula
 
           P Q | -(P <-> Q) V P
          ======================
@@ -795,8 +765,35 @@ Truth-Table Study of a Single WFF
           T T | F T  T  T  T T
                            *
 
-   Once the truth-table is completed examining the column below the main
-   operator can reveal important properties of the formula.
+Truth-Functional Completeness
+-----------------------------
+
+   TRUTH-FUNCTIONAL COMPLETENESS describes any set of truth-functional
+   operators from which all other truth-functions can be defined.
+   Propositional logic's set of primitive operators -, ∧, ∨, -> and <->
+   is truth-functionally complete.  But so too is our negation with any one
+   of our other operators.  Some authors have defined new operators
+   which are truth-functionally complete by themselves.  An example is the
+   SHEFFER STROKE symbol '(P|Q)', whose valuation function is equivalent
+   to our how our valuation function would apply to the form -(P ∧ Q).
+   But any logic constructed upon just one operator is cumbersome to use.
+
+   Example, observe in the two examples that the main columns (highlighted
+   with '*') under each wff have the same value in the same valuation.
+
+          P Q | (P | Q) | -(P ∧ Q)     R S | R -> S | - R ∨ S
+         ==========================    ========================
+          F F |  F T F  | T F F F      F F | F T  F | T F T F
+          F T |  F T T  | T F F T      F T | F T  T | T F T T
+          T F |  T T F  | T T F F      T F | T F  F | F T F F
+          T T |  T F T  | F T T T      T T | T T  T | F T T T
+                   *      *                     *          *
+
+Truth-Table Study of a Single WFF
+---------------------------------
+
+   Once the truth-table is completed examining the main column below
+   the wff can reveal important properties of the formula.
 
    INCONSISTENT WFF
       A formula that has no true valuations; i.e. the column under the main
@@ -829,32 +826,6 @@ Truth-Table Study of a Single WFF
          1+       1+       contingent
          2+       0        tautology or validity
          =======  =======  ==========================
-
-Truth-Functional Completeness
------------------------------
-
-   TRUTH-FUNCTIONAL COMPLETENESS describes any set of truth-functional
-   operators from which all other truth-functions are definable.
-   Propositional logic's set of primitive operators -, ∧, ∨, -> and <->
-   is truth-functionally complete.  But so too is negation with any other
-   single operator.  Some authors have defined new operators that are
-   truth-functionally complete by themselves.  An example is the
-   SHEFFER STROKE symbol '(P|Q)', whose valuation function is equivalent
-   to how our valuation function would apply to the form -(P ∧ Q).
-   However, any logic constructed upon just one operator is cumbersome
-   to use.
-
-   For example, observe in the two examples that the columns under the
-   main operators (highlighted with '*') under each wff have the same
-   value in the same valuation.
-
-          P Q | (P | Q) | -(P ∧ Q)     R S | R -> S | - R ∨ S
-         ==========================    ========================
-          F F |  F T F  | T F F F      F F | F T  F | T F T F
-          F T |  F T T  | T F F T      F T | F T  T | T F T T
-          T F |  T T F  | T T F F      T F | T F  F | F T F F
-          T T |  T F T  | F T T T      T T | T T  T | F T T T
-                   *      *                     *          *
 
 Truth-Table Study of a Set of WFFs
 ----------------------------------
@@ -4558,7 +4529,7 @@ Appendix E: The Greek Alphabet
 
    The Greek Alphabet
 
-      Upper              Lower
+       Upper                  Lower
 
    Sym   Name         Sym   Name
    -------------     ------------------
@@ -4574,7 +4545,7 @@ Appendix E: The Greek Alphabet
    Κ     KAPPA        κ     kappa
    Λ     LAMBDA       λ     lambda
    Μ     MU           μ     mu
-   Ν     NU           ν     nu
+   Ν     NU           Ν     nu
    Ξ     XI           χ     xi
    Ο     OMICRON      ο     omicron
    Π     PI           π     pi
