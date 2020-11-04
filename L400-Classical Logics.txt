@@ -292,6 +292,7 @@ The Laws of Logic
 ----------
 Set Theory
 ----------
+
 A SET is a collection of objects which has no particular order but in which
 each member object occurs just once.
 
@@ -510,8 +511,97 @@ Grammar
      subscripts (we use postscripts) after a proposition symbol
      to increase the number of available symbols.
 
+Syntax Trees
+============
+
+Truth-Function Anatomy
+----------------------
+
+   The truth-functions each have an "official" name and a less formal English 
+   conversational names; the OPERANDS, the things the truth-functions apply
+   to also have names.
+
+         ======  =======  =============  =======  ===================
+         Symbol  Example  Name           English  Operand Names
+         ======  =======  =============  =======  ===================
+          -      -P       NEGATION       not      P is a NEGATAND
+          ∧      P ∧ Q    CONJUNCTION    and      P,Q are CONJUNCTS
+          ∨      P ∨ Q    DISJUNCTION    or       P,Q are DISJUNCTS
+          ->     P -> Q   CONDITIONAL    if/then  P is the ANTECEDENT
+                                                  Q is the CONSEQUENT
+          <->    P <-> Q  BICONDITIONAL  just if  Operands
+         ======  =======  =============  =======  ===================
+
+   ARITY is the number of subordinates an operation requires.  For example,
+   negation has an arity of one because it has one subordinate, while
+   conjunction has two.  The table below lists some common arities and some
+   different names by which they go.
+
+         =====  ====================  =========  ==========  ==========
+         Arity  Examples              -ary name  -adic name  place name
+         =====  ====================  =========  ==========  ==========
+          0     P                                            0-place
+          1     -P                    UNARY      MONADIC     1-place
+          2     P ∧ Q, P ∨ Q          BINARY     DIADIC      2-place
+          3     x is between y and z  TRINARY    TRIADIC     3-place
+         =====  ====================  =========  ==========  ==========
+
+Tree Graphs
+-----------
+
+   Below is a tree graph.  Graphs are useful in organizing some kinds
+   of information.  The lines are called EDGES, which connect NODES
+   or VERTEXES.  A node that has an edge above it is CHILD, and conversely,
+   a node that has an edge below it is called a PARENT.  Tree graphs are
+   inverted from their counterparts in nature.  Thus the ROOT of a tree graph
+   is at the top.   The rest of the tree descends from the root—placing
+   the childless LEAVES all at the bottom.  Traversing a series of nodes
+   via their joining edges down to a leaf is called a PATH
+   (e.g., parent&child -> node -> leaf4).  Paths BRANCH as we descend.
+
+                             Root 
+                             /  \
+                            /    \
+                        leaf1    parent&Child 
+                                 /          \
+                                /            \
+                             child           node 
+                             /   \           /   \
+                            /     \         /     \
+                         leaf2   leaf3   leaf4   leaf5
+
+Syntax Trees
+------------
+
+   It is essential to understand the structure of a wff.  Understanding
+   can be achieved by studying syntax trees for wffs.  In drawing a syntax
+   tree for any formula, first, think of it in terms of subformulas.  Each
+   subformula consists of an operator and one or two operands.  To draw the
+   subformula tree, draw the operator first, then in branches below it write
+   the operands.  Study the example to get a better understanding.
+
+         -(P -> (Q V -R))
+
+                               -
+                               |
+                               |
+                               ->
+                             /    \
+                           /        \
+                         P            ∨
+                                    /   \
+                                  /       \
+                                Q           -
+                                            |
+                                            |
+                                            R
+
+   The operator at the root of the tree is called the MAIN OPERATOR or
+   TOP-LEVEL Operator.  In the example the main operator is negation.
+
 Substitution Instance
 =====================
+
     A SUBSTITUTION INSTANCE of an *original* wff has the same structure
     as the original but where *new* wffs uniformly replace proposition
     symbols in the original.  'Instance of' relationships do not have
@@ -659,38 +749,6 @@ Conversational Implicature
          -(-K ∨ F)
          K ∧ -F,     You keep up the good work, and you don't go far.
 
-Truth-Function Anatomy
-======================
-
-   The truth-functions each have an "official" name and a less formal English 
-   conversational names; the OPERANDS, the things the truth-functions apply
-   to also have names.
-
-         ======  =======  =============  =======  ===================
-         Symbol  Example  Name           English  Operand Names
-         ======  =======  =============  =======  ===================
-          -      -P       NEGATION       not      P is a NEGATAND
-          ∧      P ∧ Q    CONJUNCTION    and      P,Q are CONJUNCTS
-          ∨      P ∨ Q    DISJUNCTION    or       P,Q are DISJUNCTS
-          ->     P -> Q   CONDITIONAL    if/then  P is the ANTECEDENT
-                                                  Q is the CONSEQUENT
-          <->    P <-> Q  BICONDITIONAL  just if  Operands
-         ======  =======  =============  =======  ===================
-
-   ARITY is the number of subordinates an operation requires.  For example,
-   negation has an arity of one because it has one subordinate, while
-   conjunction has two.  The table below lists some common arities and some
-   different names by which they go.
-
-         =====  ====================  =========  ==========  ==========
-         Arity  Examples              -ary name  -adic name  place name
-         =====  ====================  =========  ==========  ==========
-          0     P                                            0-place
-          1     -P                    UNARY      MONADIC     1-place
-          2     P ∧ Q, P ∨ Q          BINARY     DIADIC      2-place
-          3     x is between y and z  TRINARY    TRIADIC     3-place
-         =====  ====================  =========  ==========  ==========
-
 Valuation Function
 ==================
 
@@ -734,6 +792,7 @@ TRUTH-TABLES
 
 Truth-Table Construction
 ------------------------
+
   Procedure
    1.  Construct The table heading starting on the top left with a horizontal
        alphabetical list of all proposition symbols occurring in the formulas
@@ -868,9 +927,9 @@ Truth-Table Study of a Set of WFFs
 
       LOGICALLY EQUIVALENT PAIR OF FORMULAS
          A pair of wffs is LOGICALLY EQUIVALENT if for every valuation (row)
-         of the table both wffs have the same value under their main
+         of the table, both wffs have the same value under their main
          operators.  Notice that for the truth table above for the Sheffer
-         stroke we've shown that it's logically equivalent to -(P ∧ Q).
+         stroke, we've shown that it's logically equivalent to -(P ∧ Q).
 
    INCONSISTENT SET OF FORMULAS
       A set of wffs is INCONSISTENT if there is no valuation (row)
@@ -888,13 +947,13 @@ Truth-Table Study of a Sequent
 ------------------------------
 
    A truth-table for an argument is constructed simply by treating the set
-   of premises and the conclusion as a set of wffs being studied.
+   of premises and the conclusion as a set of wffs under study.
 
    Evaluation is just a matter of reading the definition of a valid
    deductive argument directly off the table.  A deductive argument
    is an argument whose conclusion cannot be F if the premises are all T.
    Notice from the definition that the conclusion is free to hold
-   any value on a valuation (row) where the premises aren't all true.
+   any value on a valuation (row) where the premises are not all true.
 
    Example
 
@@ -909,7 +968,7 @@ Truth-Table Study of a Sequent
    The row indicated with an arrow verifies that this argument is valid.
 
    An invalid argument is an argument that contains at least one valuation
-   on which all the premises are T but the conclusion is F.
+   on which all the premises are T, but the conclusion is F.
 
    Example
 
@@ -921,8 +980,8 @@ Truth-Table Study of a Sequent
           T T |   T    |  F    |  F T
                   *       *       *
 
-   We've discovered a row on which the premises are all T, but the conclusion
-   is F.  So the argument form is invalid.
+   We have discovered a row on which the premises are all T, but the conclusion
+   is F, so the argument form is invalid.
 
    The results for an inconsistent set of premises may seem counter-intuitive.
 
@@ -934,8 +993,8 @@ Truth-Table Study of a Sequent
           T T | T | F T |  T  <==
                 *   *      *
 
-   This argument is actually valid.  Since there are no rows where the
-   premises are all true; any conclusion whatever follows.
+   This argument is valid.  Since there are no rows where the premises
+   are all true; any conclusion whatever follows.
 
    A disadvantage of truth-tables is that they grow exponentially.  A set
    of wffs with n proposition symbols will have 2^n rows.
@@ -943,23 +1002,24 @@ Truth-Table Study of a Sequent
 Truth-Tables ("Fast Method")
 ============================
 
-   There's a faster way to construct a truth-table, though it's not as
-   visually satisfying.  Rather it's an implementation of a search algorithm
-   to find only those valuations on which a formula is T (or F).  It has the
-   advantage over a full truth-table in that we don't have the problem of
-   potentially huge tables due to a large number of proposition symbols.
+   There is a faster way to construct a truth-table, though it is not
+   as visually satisfying. Instead, it implements a search algorithm
+   to find only those valuations on which a formula is T (or F).  It has
+   the advantage over a full truth-table in that we do not have the problem
+   of potentially huge tables due to a large number of proposition symbols.
 
    Procedure
-   1.  Write down in a horizontal list the wff, set of wffs or sequent under
-       study.  Set the main operators of each formula to either T or F
-       (depending on what you're trying to find - see Truth-Table Study
-       of Single WFFs above).
+   1.  Write down in a horizontal list the wff, set of wffs, or sequent under
+       study.  Write T or F (depending on what you are trying to find - see
+       Truth-Table Study of Single WFFs above) below the main operator of each
+       formula.
 
-   2.  Now work backwards from the outermost operator down to the innermost
+   2.  Now work backward from the outermost operator down to the innermost
        parentheses.  Evaluate as many sub-expressions as possible, continuing
-       until you can't do anything else (some subwffs may go undetermined).
+       until it is not possible to do anything else - some subwffs may
+       go undetermined.
 
-   3.  While performing step 2 if you can find the truth value of
+   3.  While performing step 2 if you can find the truth-value of
        a proposition symbol, place that value under all other occurrences
        of that symbol in each of the wffs under study.
 
@@ -968,15 +1028,16 @@ Truth-Tables ("Fast Method")
        of values found for the proposition symbols that makes the main
        operator T (or F).
 
-   The study is to find valuations for the proposition symbols on which the
-   whole wff is T (or F).  So, it's convenient to highlight somehow the values
-   of the symbols at the end of this process.  I'll place an '*' under them.
-   
+   The study is to find valuations for the proposition symbols on which
+   the whole wff is T (or F).  So, it is convenient to highlight somehow
+   the symbols' values at the end of this process.  I will place
+   an '*' under them.
+
 Fast truth-table Study of a Single WFF
 --------------------------------------
 
-   To check if a wff has any valuation on which it's T, set its main
-   operator to T; and to check if it has a valuation on which it's F,
+   To check if a wff has any valuation on which it is T, set its main
+   operator to T; and to check if it has a valuation on which it is F,
    set its main operator to F.
 
    Examples
@@ -1020,8 +1081,8 @@ Fast Truth-Table Study of a Set of WFFs
    We can use the same method to test a set of wffs for consistency or
    inconsistency by setting the main operators all to T (or all to F).
    The only extra note here is that step 3 now works *across* WFFs.
-   That is, if you find the value of a proposition symbol in one wff you
-   may write that value under all instances of the proposition symbol
+   That is, upon finding the value of a proposition symbol in one wff
+   write that value under all instances of the proposition symbol
    in each wffs in the set.
 
    Example  Test each pair of wffs for consistency
@@ -1046,12 +1107,12 @@ Fast Truth-Table Study of a Set of WFFs
 Fast Truth-Table Study of a Sequent
 -----------------------------------
 
-   To test a sequent we test if it's invalid by setting the main operator of
-   each premise to T and the conclusion's to F.  Then work backwards exactly
-   as for a set of wffs.  If no contradiction is obtained it's indeed possible
-   for the premises to be T and the conclusion F, as originally assumed, the
-   argument is therefore invalid.  On the other hand if a contradiction is
-   obtained then the argument is valid.
+   To test a sequent, we test if it is invalid by setting each premise's
+   main operator to T and the conclusion's to F.  Then work backwards exactly
+   as for a set of wffs.  If no contradiction is obtained, it is indeed
+   possible for the premises to be T and the conclusion F, as initially
+   assumed; therefore, the argument is invalid.  On the other hand,
+   if a contradiction is obtained, then the argument is valid.
       
    Example  Test the sequent for validity
 
@@ -1068,7 +1129,7 @@ Fast Truth-Table Study of a Sequent
              T F T   F T T   T F      T F  F
                  *           *          *
 
-   The search succeeded in finding a set of values that makes all the
+   The search succeeded in finding a set of values that make all the
    premises T and the conclusion F.  So the argument is invalid.
 
    Example  Test the argument form for validity
@@ -1097,43 +1158,20 @@ Truth-Trees
 
    Decidability
 
-   If there's an algorithm for determining whether or not an argument form
+   If there is an algorithm for determining whether an argument form
    expressible in a formal system such as propositional logic is valid, then
-   that system is DECIDABLE.  Truth-tables and fast truth-table both
-   constitute such algorithms.  Therefore, the logic is decidable.  But those
-   methods can become impractical when the set of proposition symbols starts
-   to grow.  Truth-trees provide a more efficient algorithm for performing
-   the same tasks.
-
-   Tree Graphs
-
-   Below is a tree graph.  Graphs are useful in organizing some kinds of
-   information.  The lines are called EDGES, which connect NODES or VERTEXES.
-   A node that has an edge above it is CHILD; and conversely a node that has
-   an edge below it is called a PARENT.  Tree graphs are inverted from their
-   counterparts in nature, so the ROOT of a tree is at the top from which
-   the rest of the tree descends, and so the childless LEAVES are all at the
-   bottom.  Traversing a series of edges via their joining nodes all the way
-   down to a leaf is called a PATH (e.g. parent&child -> node -> leaf4).
-   Trees split as we descend paths, each split is a BRANCH.
-
-                             Root 
-                             /  \
-                            /    \
-                        leaf1    parent&Child 
-                                 /          \
-                                /            \
-                             child           node 
-                             /   \           /   \
-                            /     \         /     \
-                         leaf2   leaf3   leaf4   leaf5
+   that system is DECIDABLE.  Truth-tables and fast truth-tables both
+   constitute such algorithms.  Therefore, the logic is decidable.  However,
+   those methods can become impractical when the set of proposition symbols
+   starts to grow.  Truth-trees provide a more efficient algorithm for
+   performing the same tasks.
 
    Truth-Trees
 
-   Given a set of wffs a TRUTH-TREE is an exhaustive search for ways in which
-   all the wffs can be true.  The nodes of our tree will each have a list of
-   one or more wffs.  A CLOSED PATH is any path that's terminated by '⊥'.
-   So, an OPEN PATH is any path that's not closed.
+   Given a set of wffs, a TRUTH-TREE is an exhaustive search for ways
+   in which all the wffs can be true.  The nodes of our tree will each
+   have a list of one or more wffs.  A CLOSED PATH is any path that's
+   terminated by '⊥'.  So, an OPEN PATH is any path that's not closed.
 
    Procedure
    1.  Write down a vertical list of the wffs to be tested.  This list forms
@@ -1142,11 +1180,11 @@ Truth-Trees
    2.  Repeatedly apply the following rules in any order.  The tree
        is completed when no additional rules can be applied.
 
-   Note that while the order rules are applied doesn't matter, to keep the
-   tree smaller, at each step always apply all non-branching rules before
+   Note that while the order rules are applied does not matter, to keep the
+   tree smaller, at each step, always apply all non-branching rules before
    applying branching rules.
 
-   A STAR next to a wff indicates it's no longer available to apply rules.
+   A STAR next to a wff indicates it is no longer available to apply rules.
 
    ====  =====================================================================
    Name  Rule
@@ -1241,22 +1279,21 @@ Truth-Trees
            |                           |                           |
            +---------------------------+---------------------------+
 
-
 Truth-Tree Analysis
 ===================
 
 Truth-Tree Study of a Single WFF
 --------------------------------
 
-   To test a single wff using a truth-tree, we treat our wff as the set
-   of formulas being tested.  Then conduct the search process.
+   To test a single wff using a truth-tree, treat the wff as the set
+   of formulas.  Then conduct the search process.
 
-   If the completed tree for one wff contains no open paths then the wff is
-   inconsistent.  If it contains one or more open paths the wff is consistent.
-   If it contains two or more open paths then the wff is either tautological
-   or contingent.  To find out which construct a second tree for the negation
-   of the original wff.  A wff is tautological iff its negation is
-   inconsistent.  Otherwise it's contingent.
+   If the completed tree for one wff contains no open paths, then the
+   wff is inconsistent.  If it contains one or more open paths, the wff
+   is consistent.  If it contains two or more open paths, then the wff is
+   either tautological or contingent.  To find out which construct a second
+   tree for the negation of the original wff.  A wff is tautological if and
+   only if its negation is inconsistent.  Otherwise, it is contingent.
 
          =============   ==========================   ==========
          Condition       wff                          -wff
@@ -1269,13 +1306,13 @@ Truth-Tree Study of a Single WFF
 Truth-Tree Study of a Set of Wffs
 ---------------------------------
 
-   To test a set of wffs using a truth-tree, we list vertically the wffs
-   forming the root.  Then conduct the search process by applying the above
-   rules in any order.
+   To test a set of wffs using a truth-tree, list vertically the wffs forming
+   the root.  Then conduct the search process by applying the above rules
+   in any order.
 
    The set of wffs is truth-functionally consistent if the tree has at least
-   one open path.  If the tree has no open paths the set of wffs is
-   inconsistent.
+   one open path.  If the tree has no open paths, the set of wffs
+   is inconsistent.
 
          =============   ==========================
          Condition       wff Set
@@ -1289,9 +1326,9 @@ Truth-Tree Study of a Sequent
 
    To test an argument form for validity using a truth-tree, we construct
    a list consisting of the argument's premises and negated conclusion.
-   The tree is then constructed as usual.
+   Construct the tree as usual.
 
-   When the tree is completed we can assess the results.  If all paths
+   When the tree is complete, we can assess the results.  If all paths
    are closed with a ⊥ then the argument form is valid.
 
    Any open paths of a finished tree for an argument form show all the
@@ -1318,27 +1355,27 @@ Direct Proofs
 
    A PROOF is a non-circular, unambiguous, deductive argument.
 
-   It's customary (though not necessary) to conclude the proof with the 
+   It is customary (though not necessary) to conclude the proof with the 
    letters QED (QUOD ERAT DEMONSTRANDUM; Latin for "what was to be shown");
-   which signals to the reader that the proof has completed successfully.
-   I'll also precede the proof with the word 'Proof' so the two surround
+   which signals to the reader that the proof has been completed successfully.
+   I will also precede the proof with the word 'Proof' so the two surround
    the proof and serve similar roles to a pair of braces or a begin/end pair
    such as in programming.
 
    A CALCULUS (aka FORMAL DEDUCTIVE SYSTEM) is a set of rules that describe
    truth-preserving inferences for a given formal language.
 
-   Given a sequent P1,P2,...  ⊢  C; a FORMAL DERIVATION is a list
+   Given a sequent P1, P2, ...  ⊢  C; a FORMAL DERIVATION is a list
    of the steps inferred from the premises to derive C using the rules
    of a calculus.
 
    A TWO-COLUMN PROOF is a FORMAL PROOF laid out in a list-like fashion in
    two parallel columns such that the first column contains a line number
    (1, 2, 3, ...) followed by a proposition, the second column holds
-   a justification for writing that proposition.  The justification is the
-   name of an inference rule, preceded by, citations, a set of any line
-   numbers of the premises to which that rule was applied.  For our purposes
-   all propositions will take the form of wffs.
+   a justification for writing that proposition.  The justification
+   is the name of an inference rule, preceded by citations.  The citations
+   are a set of any line numbers of the premises to which that rule was
+   applied.  For our purposes, all propositions will take the form of wffs.
 
             P -> (Q ∧ R), P  ⊢  Q
             Proof
@@ -1348,40 +1385,38 @@ Direct Proofs
             04.   Q                3 Conjunction Elimination
             QED
 
-   In a Fitch style proof it's customary to begin the proof by listing the
+   In a Fitch style proof, it is customary to begin the proof by listing the
    premises, which is what we do in steps 1 and 2.  Notice that the
-   justification for those two steps are simply 'Assumption', which is
-   another word for premise.  Step 3 makes use of steps 1 and 2, and so
-   the justification begins by citing those steps by writing '1,2'.
-   'Conditional Elimination' is the name of the inference rule that was
-   applied to steps 1 and 2 to reach step 3.  For now don't worry about
-   what that means, just understand the structure of the proof.  Step 4
-   applies a rule called 'Conjunction Elimination' to step 3 resulting
-   in the wff 'Q'.  Since Q is the conclusion form of the sequent it's the
-   thing we were trying to attain.  So the proof has completed successfully
-   which is why the proof is closed with the 'QED'.
+   justification for those two steps are 'Assumption', which is another word
+   for 'premise'.  Step 3 makes use of steps 1 and 2, and so the justification
+   begins by citing those steps by writing '1,2'.  'Conditional Elimination'
+   is the name of the inference rule applied to steps 1 and 2 to reach step 3.
+   For now, do not worry about what that means; just understand the structure
+   of the proof.  Step 4 applies a rule called 'Conjunction Elimination'
+   to step 3, resulting in the wff 'Q'.  Since Q is the conclusion form
+   of the sequent, it is the thing we were trying to attain.  So the proof
+   has completed successfully, which is why the proof is closed with 'QED.'
 
-   Usually people abbreviate the names of the inference rules within a proof.
-   Assumptions are abbreviated as 'A'.  For each truth-functional operator
+   Usually, people abbreviate the names of the inference rules within a proof.
+   Assumptions are abbreviated as 'A'.  For each truth-functional operator,
    there are two inference rules: one called an 'introduction' rule, the other
-   called an 'elimination' rule; these are abbreviated to 'I' and 'E'
+   called an 'elimination' rule; which are abbreviated 'I' and 'E'
    respectively.  The Conditional Elimination rule used above in step
-   3 is abbreviated '->E'.  Similarly the Conjunction Elimination rule used
-   in step 4 is abbreviated '∧E'.
+   3 is abbreviated '->E'.  Similarly, the Conjunction Elimination rule
+   used in step 4 is abbreviated '∧E'.
 
-   A DIRECT PROOF is any formal proof which has no indented steps.
+   A DIRECT PROOF is any formal proof that has no indented steps.
 
 Hypothetical Subordinate Proofs
 -------------------------------
 
    A HYPOTHETICAL SUBORDINATE PROOF or SUBPROOF is a proof nested within
-   another proof.  It's analogous to nesting blocks of code in a computer
-   program, and similarly we can nest subproofs to any depth.  We indent
-   subproof from the surrounding proof and draw a vertical line just to
-   the right of the wffs to signal that something is a subproof.  Along
-   the same lines of listing premises first in the main proof, in the first
-   line of a subproof the proposition called the HYPOTHESIS, which
-   is a proposition we plan to test in the subproof.
+   another proof.  It is analogous to nesting blocks of code in a computer
+   program, and similarly, we can nest subproofs to any depth.  We indent
+   subproof from the surrounding proof and draw a vertical line just to the
+   right of the wffs to signal that something is a subproof.  The first line
+   of a subproof is the proposition called the HYPOTHESIS.
+   It is a proposition we plan to test in the subproof.
 
             P -> Q, -Q  ⊢  -P
             Proof
@@ -1393,24 +1428,24 @@ Hypothetical Subordinate Proofs
             06.   -P            3-5 -I       use steps 3 to 5 to perform -I.
             QED
 
-   In this example the A's in the second column of steps 1 and 2 signal
-   that those wffs are assumptions.  Line 3 begins a subproof with hypothesis
-   (H) of P.  The contents of the parentheses communicates to the reader that
-   the goal of this hypothetical proof is to eventually reach a point where
-   -I (Negation Introduction) can operate on the hypothesis.  Line 4 applies
-   ->E (Conditional Elimination) to steps 1 and 3 resulting in 'Q'.  In line
-   5 ∧I operates upon steps 2 and 4 producing Q ∧ -Q.  Line 5 ends the
-   subproof and line 6 returns our attention to the enclosing proof, the main
-   proof.  Recall that the goal of the hypothetical subproof was to perform
-   -I; which is now performed on line 6.  Notice the citation is a range
-   of steps '3-5' which is the entire subproof.  This essentially says that
-   the subproof provides justification for applying the -I rule to obtain
-   -P, which is the conclusion form of the sequent so the proof completed
-   successfully hence the 'QED'.
+   In this example, the A's in the second column of steps 1 and 2 signal
+   that those wffs are assumptions.  Line 3 begins a subproof with the
+   hypothesis (H).  The content of the parentheses communicates to the
+   reader that the goal of this hypothetical proof is to reach a point where
+   eventually -I (Negation Introduction) can operate on the hypothesis.
+   Line 4 applies ->E (Conditional Elimination) to steps 1 and 3, resulting
+   in 'Q'.  On line 5, ∧I operates upon steps 2 and 4 producing Q ∧ -Q.  Line
+   5 ends the subproof, and line 6 returns our attention to the enclosing
+   proof, the main proof.  Recall that the goal of the hypothetical subproof
+   was to perform -I; which is now performed on line 6.  Notice the citation
+   is a range of steps '3-5,' which is the entire subproof.  Which says that
+   the subproof justifies applying the -I rule to obtain -P, which is the
+   conclusion form of the sequent, so the proof completed successfully
+   hence the 'QED'.
 
-   Note to be able to write QED, we must not only successfully derive the
-   sequent's conclusion form, but also it must occur within the main
-   proof's sequence, not within a subproof.  That is all subproofs must
+   Note to be able to write QED, we must not only successfully derive
+   the sequent's conclusion form, but also it must occur within the main
+   proof's sequence, not within a subproof.  That is, all subproofs must
    be closed.
 
 Regarding Notation
@@ -1434,10 +1469,10 @@ Regarding Notation
 Primitive Inference Rules
 =========================
 
-   Here are the basic inference rules.  Some of them have multiple names
-   and abbreviations for each name is in parentheses.  Use any name you
-   prefer, to maintain a Fitch-style use the 'introduction' and 'elimination'
-   names when available.
+   Here are the basic inference rules.  Some of them have multiple names,
+   and the abbreviation for each name is in parentheses.  Use any name
+   according to preference.  To maintain a Fitch-style, use the 'introduction'
+   and 'elimination' names when available.
 
    ================================  =========================================
    Name (Abbreviation)               Rule
@@ -1485,7 +1520,7 @@ Primitive Inference Rules
                                      infer Θ(Φ/Ψ).
    ================================  =========================================
 
-   Diagrams are another way to describe these rules.  The horizontal lines
+   Diagrams are another way to describe these rules.  The horizontal line
    denotes 'infer', and the vertical line denotes a subproof.  Some rules
    have multiple forms.
 
@@ -1550,11 +1585,11 @@ Primitive Inference Rules
       |                               |                               |
       +-------------------------------+-------------------------------+
 
-Pseudo Inference Rules
-======================
+Other Justifications
+====================
 
-   The following aren't inference rules but appear in proofs as justification
-   for writing a derived wff.
+   The following aren't inference rules but do appear in proofs as
+   justification for deriving a wff.
 
    ================================  =========================================
    Name/Alternate Names              Rule
@@ -1563,10 +1598,14 @@ Pseudo Inference Rules
                                      and [ Φ =df Ψ ], Θ(Ψ), infer Θ(Φ/Ψ).
    ================================  =========================================
 
+   Notice that in the rules the definition is in brackets '[' and ']'.
+   Brackets indicate that the definition needs to exist but doesn't need
+   to appear in the proof to be applied.
+
 Derived Inference Rules
 =======================
 
-   Use any proved sequent as a new inference rule; if a sequent is proved
+   Use any proved sequent as a new inference rule.  If a sequent is proved
    valid, then all instances of the sequent are also valid.  The following
    are traditionally important rules derivable in our system.
 
@@ -1591,7 +1630,7 @@ Theorems
    A theorem of propositional calculus is a derived rule which has no premises
    or undischarged hypotheses.  Theorems are the tautologies of propositional
    logic.  A sequent for a theorem Φ has the form below.  A theorem of our
-   calculus is proved by starting the proof with a hypothesis or with
+   calculus is provable by starting its proof with a hypothesis or with
    a previously proved theorem.
 
          ⊢ Φ
@@ -1599,8 +1638,9 @@ Theorems
 Equivalences
 ============
 
-   An equivalence is a theorem in the form of a biconditional.  The following
-   are traditionally important equivalences derivable in our system.
+   An equivalence is a theorem whose main operator is a biconditional.
+   The following are traditionally important equivalences derivable
+   in our system.
 
          ⊢ Φ <-> Ψ
 
@@ -1627,22 +1667,23 @@ Equivalences
 
 Consequence and Non-Consequence
 ===============================
-   A PROOF OF CONSEQUENCE is a proof that demonstrates that some wff C is
-   derivable by repeatedly applying inference rules.  It's the kind of proof
-   we've been discussing all along.  The example proofs presented so far are
-   all proofs of consequence.
+
+   A PROOF OF CONSEQUENCE is any proof that demonstrates that some wff
+   C is derivable by applying a series of inference rules.  It is the kind
+   of proof we have been discussing all along.  The example proofs presented
+   so far are all proofs of consequence.
 
    A PROOF OF NON-CONSEQUENCE (also known as a REFUTATION PROOF)
-   is a demonstration that some wff C is *not* derivable, by any
-   number of applications of inference rules, from a set of premises.
-   The proof constructed lists the counterexamples.
+   is a demonstration that some wff C is *not* derivable, by any number
+   of applications of inference rules.  The completed proof lists
+   the counterexamples.
 
    Construct a proof of non-consequence by first listing the premises,
    then begin a subproof by hypothesizing the negation of the conclusion.
-   Proceed by attempting to reduce everything to atomic and negated
-   atomic formulas.  Proceed until no additional rules can be applied.
-   Since we never reach the conclusion the proof is uncompleted, so we
-   don't write QED at the bottom.
+   Proceed by attempting to reduce everything to atomic and negated atomic
+   formulas.  Proceed until no additional rules can be applied.  Since
+   we never reach the conclusion the proof is uncompleted, so we do not
+   write QED at the bottom.
 
          Example
 
@@ -1652,11 +1693,12 @@ Consequence and Non-Consequence
          02.   -P            A
          03.   |   Q         H (for -I)
 
-   Once finished the valuations can be read off the proof.  The above proof
-   tells us that the counterexamples are where P is false (due to occurring
-   negated in step 2), and Q is true (due to occurring unnegated in step 3).
-   We can verify this with a truth-table.  If a proposition symbols doesn't
-   appear negated or unnegated then it's truth-value doesn't matter
+   Once finished, the valuations are readable directly off the proof.
+   The above proof tells us that the counterexamples are where P is false
+   (due to occurring negated in step 2), and Q is true (due to occurring
+   unnegated in step 3).  We can verify this with a truth-table. 
+   If a proposition symbol doesn't appear negated or unnegated, then
+   it is truth-value does not matter
 
           P Q | P -> Q , - P  ⊢  - Q
          =============================
@@ -1674,16 +1716,17 @@ Consequence and Non-Consequence
 Defining ⊥ Into Propositional Logic/Calculus
 ============================================
 
+
    Some Fitch implementations use ⊥ (the contradiction symbol) to remove
-   tedium and improve readability of proofs.  Applications -I are often
-   preceded by ∧I, but the resulting conjunction can be quite long.  Since
-   EFQ infers any wff from two contradictory propositions we can always
-   infer 'P ∧ -P' instead of a long conjunction.  But the following
+   tedium and improve the readability of proofs.  Applications of -I are
+   often preceded by ∧I, but the resulting conjunction can be quite long.
+   Since EFQ infers any wff from two contradictory propositions; we can
+   always infer 'P ∧ -P' instead of a long conjunction.  But the following
    definition is even better.
 
          ⊥  =df  P ∧ -P
 
-   From which we derive new inferential machinery.
+   From which we derive new inference rules.
   
    ================================  =========================================
    Name/Alternate Names              Sequent
@@ -1743,27 +1786,27 @@ Semantic Soundness & Completeness of Propositional Calculus
 ===========================================================
 
    A calculus is SEMANTICALLY SOUND if and only if for any consistent set
-   of premises there is no sequence of inference rule applications that can
+   of premises, there is no sequence of inference rule applications that can
    derive a wff that's not a logical consequence of those premises.
 
    A calculus is SEMANTICALLY COMPLETE if and only if a given conclusion Φ
-   logically follows from a set of premises and there exists at least one
+   logically follows from a set of premises, and there exists at least one
    proof of Φ that has a finite number of steps.
 
-   Propositional calculus is semantically sound and semantically complete`.
-   We don't prove these theorems here but it's handy to know of them.
+   Propositional calculus is semantically sound and semantically complete.
+   We do not prove these theorems here, but it is handy to know of them.
    The calculus derives all and only valid conclusions from any given set
    of premises.
 
 The Unnatural Conditional
 =========================
 
-   A serious concern when it comes to the propositional logic conditional
-   is that it only denotes a small part of what English if/then statements
-   can express.  This makes it quite controversial and many doubt the full
-   power of the if/then statement can ever be captured in a formal logical
-   system.  Moreover, the propositional logic conditional can produce some
-   surprising results.  Let's revisit a prior example.
+   A serious concern with the propositional logic conditional is that
+   it only denotes a small part of what English if/then statements can
+   express.  Hence -> is quite controversial, with many doubting that the
+   full power of the if/then statement can ever be captured in a formal
+   logical system.  Moreover, the propositional logic conditional can
+   produce some surprising results.  Let us revisit a previous example.
 
          K -> F        if you keep up the good work then you'll go far.
 
@@ -1773,10 +1816,9 @@ The Unnatural Conditional
          -(-K ∨ F)     Material Implication
          K ∧ -F        DeMorgan's
 
-   Studying the conclusion we determine that is says, you keep up the good
-   work and you don't go far.  Does this sound like the negation of the
-   original unnegated conditional wff?  Many say it doesn't.
-
+   Studying the conclusion, we determine that it says, "you keep up the good
+   work and you don't go far."  Does this sound like the negation of the
+   original unnegated conditional wff?  Many say it does not.
 
 Relevance
 =========
@@ -1784,32 +1826,33 @@ Relevance
    Some people have concerns over the inference rules and namely ∨I,
    and H because they provide a way for an arguer to introduce any statement
    whatever into the proof relevant or not.   Their particular concern
-   is that this exposes a serious problem for the calculus.  Some have gone
-   so far as to introduce new systems of logic in attempts to remove
+   is that this exposes a severe problem of the calculus.  Some have
+   gone so far as to introduce new systems of logic in attempts to remove
    such rules.
 
-   The classical perspective is these issues don't matter because the
+   The classical perspective is that these issues do not matter because the
    conclusions found by FOC= always do conform to the definition of a valid
    deductive argument.  If one asserts that Φ is true, then referring back
    to the valuation function v for disjunction shows that no matter what value
    of Ψ we introduce, Φ ∨ Ψ will still be true simply because Φ is true.
-   While for H, it doesn't matter what we hypothesize.  If some hypothesis
+   While for H, it does not matter what we hypothesize.  If some hypothesis
    Θ is inconsistent with the premises Θ will be negated after the subproof
-   is closed.  But if Θ is not inconsistent with the premises then by
-   definition it's consistent relevant or not and whose to say what is and
-   isn't relevant anyway.  Classical logic regards these as arguments adequate
-   to justify the inclusion and current formulation of these rules.
+   is closed.  However, if Θ is not inconsistent with the premises, then by
+   definition, it is consistent relevant or not, and who is to say what
+   is and is not relevant.  Classical logic regards these as arguments
+   adequate to justify the inclusion and current formulation of these rules.
 
 Refuting Dilemmas
 =================
 
-   A dilemma is a disjunctive premise that states exactly two options.  Being
-   IN A DILEMMA or IMPALED BY THE HORNS OF A DILEMMA means that the person
-   presented with the dilemma is confronted with a choice between two
-   undesirable options.  GRASPING THE BULL BY THE HORNS is proving one of the
-   disjuncts true.  ESCAPING BETWEEN THE HORNS is proving the disjunction
-   false by either proving there's a third option, or proving that both
-   disjuncts are false.
+   A dilemma is a disjunctive premise that states precisely two options.
+   Being IN A DILEMMA or IMPALED BY THE HORNS OF A DILEMMA means that
+   the person presented with the dilemma is confronted with a choice between
+   two undesirable options.  GRASPING THE BULL BY THE HORNS is proving one
+   of the disjuncts true.  ESCAPING BETWEEN THE HORNS is to prove the
+   disjunction false by proving a third option or proving that both disjuncts
+   are false.
+
 
 ------
 Proofs
