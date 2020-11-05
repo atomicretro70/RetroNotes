@@ -46,7 +46,7 @@ To View This Document Properly
 * This document must be viewed with a mono-spaced font to enjoy the layout,
   tables and diagrams.
 
-* This document must be viewed in an editor that can display unicode utf-8.
+* This document must be viewed in an editor that can display Unicode UTF-8.
 
 
 ============================================
@@ -81,7 +81,9 @@ Inference: Categorical Syllogisms
    Reducing Terms
 
 Inference: Enthymemes
+
 Inference: Sorites
+
 Inference: The Distribution Test
 
 

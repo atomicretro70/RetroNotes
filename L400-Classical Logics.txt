@@ -2434,20 +2434,20 @@ Model
 =====
 
    Roughly, a MODEL is a limited representation of some state of affairs
-   which is expressed using set theory.  Since a set theory model can be a
-   mathematical representation of something about the actual world, we can for
-   our current purposes, informally regard the actual world as our model.
+   expressed using set theory.  Since a set theory model can be a mathematical
+   representation of something about the actual world, we can for our current
+   purposes, informally regard the actual world as our model.
   
 The Dictionary
 ==============
 
-   It's helpful to create a dictionary before constructing an atomic
-   formula.  When we begin to investigate a new situation with logic
-   we want to be clear in what the atomic formulas and their components
-   mean.  A dictionary is a list of the symbols and what they denote
-   in the current universe (of discourse).  By convention letters towards
-   the end of the alphabet (u,v,w,x,y,z) may serve as placeholders which
-   allow us to more clearly define a predicate's meaning.
+   It is helpful to create a dictionary before constructing an atomic formula.
+   When we investigate a new situation with logic, we want to clarify
+   the meanings of the atomic formulas and the meanings of their components.
+   A dictionary lists the symbols and what they denote in the current universe
+   of discourse.  By convention, letters towards the end of the alphabet
+   (u,v,w,x,y,z) may serve as placeholders, allowing us to define
+   a predicate's meaning more clearly.
 
 Properties
 ----------
@@ -2473,20 +2473,20 @@ Properties
          If Charlie is scaled then Charlie is neither blond nor brunette.
 
    Properties always have just one place-holder in the dictionary.
-   Any property Pc means, c is in set P, c is P, or c has property P.
+   Any property Pc means, c ∊ P (i.e., c is in set P), or c has property P.
 
 Relations
 ---------
 
-   Much as it sounds a relation denotes a relationship between two or more
-   objects.  Let's expand the dictionary:
+   Much as it sounds, a relation denotes a relationship between two or more
+   objects.  Let us expand the dictionary:
 
          2-Place Predicates
          Txy,  x is taller than y.
 
-   'Tall', while a property, wouldn't be a suitable predicate for logic
-   because 'tall' is vague.  E.g. a tall building and a tall glass of water
-   don't mean the same thing.  However, 'taller' is objective, making
+   'Tall,' while a property, would not be a suitable predicate for logic
+   because 'tall' is vague.  E.g., a tall building and a tall glass of water
+   do not mean the same thing.  However, 'taller' is objective, making
    it ideal for logical reasoning.
 
          (Tab ∧ Tbc) -> Tac
@@ -2559,15 +2559,15 @@ Translation Hints
 Truth-Tables
 ============
 
-   Truth-tables technically can be constructed for predicate logic.
+   Technically, truth-tables can be constructed for predicate logic.
    However, the number of atomic formulas gets very large very fast
    which makes tables impractical.
 
 Truth-Trees
 ===========
 
-   Truth trees are constructed according to the same rules as trees for
-   propositional logic.
+   Truth trees for predicate logic are constructed according to the same
+   rules as trees for propositional logic.
 
 
 ------------------
@@ -2676,8 +2676,8 @@ Semantics
 Predicates & Constants
 ======================
 
-   Truth-functions, predicates and constants continue to work as presented.
-   The one note, in consistency with predicate logic is that use of letters
+   Truth-functions, predicates, and constants continue to work as presented.
+   The one note, in consistency with predicate logic, is that use of letters
    such as x,y,z within a dictionary are not variables but placeholders.
 
          Dictionary (where x,y,z are placeholders)
@@ -2697,7 +2697,7 @@ Quantifiers & Variables
 =======================
 
    A quantifier expression is a quantifier followed by a variable symbol
-   and then a sub-wff.  The quantifier is said BIND the variable, or the
+   and then a sub-wff.  The quantifier is said to BIND the variable, or the
    variable is BOUND to the quantifier.
 
          ∀xΦ       For every object x in our universe of discourse,
@@ -2706,7 +2706,7 @@ Quantifiers & Variables
          ∃xΦ       There exists at least one object x in our universe
                    of discourse such that, Φ holds.
 
-   Once the variable is bound it can be used within the wff.  In our FOL
+   Once the variable is bound, it can be used within the wff.  In our FOL
    implementation a variable in a wff is always bound provided formation
    rules are applied correctly.
 
@@ -2744,25 +2744,25 @@ Scope
 -----
 
    SCOPE refers to the substring in a quantified wff over which the
-   quantifier-variable binding holds.  In FOL this substring
+   quantifier-variable binding holds.  In FOL, this substring
    is the complete wff which follows the quantifier; if the expression
    that follows is in parentheses then the scope ranges from the opening
    to the matching closing parenthesis.
 
          ∀x(Dx -> Mx) ∧ ∃xRx
 
-   In this expression the x bound by ∀ is in scope between the pair
+   In this expression, the x bound by ∀ is in scope between the pair
    of parentheses.  The x used with the expression Rx is a different
-   x which is bound by ∃ and whose scope is only the expression 'Rx'.
+   x, which is bound by ∃ and whose scope is only the expression 'Rx'.
 
 Free Variables
 --------------
 
    A FREE VARIABLE is a variable that appears within a wff but is not
-   bound by a quantifier.  Our implementation of FOL doesn't allow
+   bound by a quantifier.  Our implementation of FOL does not allow
    free variables provided the formation rules are applied correctly.
    However, some implementations do allow free variables.  Be aware that
-   a free variable doesn't denote anything; while a variable bound
+   a free variable does not denote anything; while a variable bound
    by ∀ denotes *any* arbitrary object in our universe, and a variable
    bound by ∃ denotes at least one object in our universe though
    we may not know which.
@@ -2790,8 +2790,8 @@ Single Quantifiers
                            such that, x is a dog and x likes to swim.
                          = Some dogs like to swim.
 
-   This notion of ∀ with ->, and ∃ with ∧, is further demonstrated
-   by occurrence of these forms negated.
+   However, this notion of ∀ with ->, and ∃ with ∧, isn't arbitrary.
+   They are complementary forms.
 
          -∀x(Cx -> -Sx)  It's false that all cats don't like to swim.
 
@@ -2812,7 +2812,7 @@ Multiple Quantifiers
 ====================
 
    Just as with many other features of FOL, quantifiers can be recursively
-   combined.  When the same quantifier is repeated the order of the
+   combined.  When the same quantifier is repeated, the order of the
    quantifiers doesn't change the meaning of the wff.
 
          ∀x∀yLxy         Everyone loves everyone including themselves.
@@ -2821,9 +2821,9 @@ Multiple Quantifiers
          ∃x∃yLxy         Someone loves someone (perhaps themselves).
          ∃y∃xLxy         Someone loves someone (perhaps themselves).
 
-   In the first form ∀x has scope over the following formula which
+   In the first form, ∀x has scope over the following formula which
    is ∀yLxy.  It's similarly the case with the remaining forms.  However,
-   if the quantifiers are mixed the meaning changes depending upon order.
+   if the quantifiers are mixed, the meaning changes depending upon order.
 
          ∃x∀yLxy         Someone loves everyone (including themselves).
          ∀x∃yLxy         Everyone loves someone (perhaps themselves).
@@ -2834,11 +2834,11 @@ Translation Hints
 The Aristotelian Forms
 ----------------------
 
-   Any intrepretation of the Aristotelian forms can be represented in FOL.
+   Any interpretation of the Aristotelian forms can be represented in FOL.
 
    The TRADITIONAL INTERPRETATION assigns existential import to all forms.
    The singular forms always denote particular objects in the universe
-   and so always have existential import.
+   so always have existential import.
 
                                     Quality  
                      +----------------------+------------------------+
@@ -2934,7 +2934,7 @@ Validity / Valid Formula
    A VALIDITY or VALID FORMULA, like a tautology, is true in all cases,
    however the term is more broad.  Tautology only refers to something being
    true in all cases in virtue of truth-functions.  While 'validity' refers
-   to all expressions of this nature.  The following is valid in FOL.
+   to all expressions of this nature.  The following is a valid wff in FOL.
 
          ∀x-Px  <->  -∃xPx,    where P is an arbitrary predicate.
 
@@ -3035,7 +3035,7 @@ Primitive Inference Rules
 =========================
 
    Let α represent any constant symbol, and x represent any variable.
-   A boxed constant [α] introduces a *new* constant into a subproof which
+   A boxed constant [α] introduces a *new* constant into a subproof, which
    subsequently goes out of scope when the subproof closes (just like
    a local variable in a computer program) meaning once the subproof
    is ended that occurrence of α is no longer accessible.
@@ -3151,8 +3151,8 @@ Proofs of Non-Consequence
                                           ⊥  
 
       In the first open branch we read P=F, Q=?; in the second open branch
-      P=F, Q=F; and in the third open branch P=F,Q=T.  So there are two
-      counterexamples: P=F,Q=F; and P=F,Q=T.  Which is consistent with the
+      P=F, Q=F; and in the third open branch P=F, Q=T.  So there are two
+      counterexamples: P=F, Q=F; and P=F, Q=T.  Which is consistent with the
       proof of non-consequence.
 
 ------------------------------------------
@@ -3198,9 +3198,9 @@ Proofs of Some Aristotelian Argument Forms
 Identity Logic (IL and FOL=)
 ============================
 
-   Identity Logic is the logic of the identity predicate '=' defined in the
-   context of FOL.  The combined system is called First-Order Predicate
-   Logic with Identity (FOL=).
+   Identity Logic is the logic of the identity predicate '=', which we define
+   here in the context of FOL.  The combined system is called First-Order
+   Predicate Logic with Identity (FOL=).
 
 
 --------
@@ -3250,8 +3250,8 @@ Translation Hints
    Numerical Quantification
 
    One of the powers of identity is that it allows us to say things
-   about the number of members in a set Φ without using numbers.  Recall
-   |A| is the cardinality of a set A, which equals the number of members
+   about the number of members in a set P without using numbers.  Recall
+   |P| is the cardinality of a set P, which equals the number of members
    A contains.
 
            ========  ===============================================
@@ -3276,15 +3276,14 @@ Translation Hints
 Properties of Relations
 =======================
 
-   The identity predicate enables further discussion of 2-place
-   predicates (sometimes called binary relations).  Binary relations
-   can have interesting properties which can be used to impart logical
-   meaning upon those relations.  Understanding these relations can
-   go a long way in teaching the student of logic how to translate
-   sentences into FOL=.
+   The identity predicate enables further discussion of 2-place predicates
+   (sometimes called binary relations).  Binary relations can have
+   interesting properties that can impart logical meaning upon those
+   relations.  Understanding these relations can go a long way in teaching
+   the student of logic how to translate sentences into FOL=.
 
       Let,
-         R,        be any binary relation (predicate)
+         R,        be any binary relation
          x,y,z,    be any object symbols
          a,b,c,    be any constant symbols
 
@@ -3416,8 +3415,8 @@ Identity Peculiarities
 Function Logic (FL)
 ===================
 
-   Function logic, constructed upon FOL=, provides a new way to analyze atomic
-   formulas by adding more expression.  FL however, doesn't add any new power
+   Function logic is constructed upon FOL=.  It provides a another way
+   to analyze atomic formulas.  FL however, doesn't add any new power
    to the logic, it just adds new ways to say things FOL= can already say.
    It assigns valid/invalid to all the same forms.  For this reason when
    working with functions we're still in FOL=.
@@ -3468,13 +3467,13 @@ Semantics
 Function Symbol Denotation
 ==========================
 
-   A FUNCTION maps one set (called a DOMAIN SET) of objects onto another
-   set (called a RANGE SET) of objects; each domain set object is mapped
-   to exactly one range set object though multiple domain objects can map
-   to the same range object.  For any function expression f(x), we read
-   it as "f of x." There are various ways to define function mappings but
-   for FOL= often it's necessary to just list all the mappings along with
-   the other propositions describing the state of affairs.
+   A FUNCTION maps one set of objects (called a DOMAIN SET) onto another set
+   of objects (called a RANGE SET); each domain object maps to exactly one
+   range set object though multiple domain objects can map to the same range
+   object.  For any function expression f(x), we read it as "f of x."  There
+   are various ways to define function mappings, but for FOL= often,
+   it is necessary to exhaustively list all the mappings along with
+   the defined predicate and object symbols describing the state of affairs.
 
          Domain Set          Range Set
          +---------+         +---------+
@@ -3491,7 +3490,7 @@ Function Symbol Denotation
          |         |         |         |
          +---------+         +---------+
 
-   In the diagram each domain object maps to just one range object.  However,
+   In the diagram each domain object maps to a range object.  However,
    two domain objects c and d map to the same range object.  The following
    denotes the state of affairs in the diagram.
 
@@ -3514,10 +3513,10 @@ Function Symbol Denotation
          f(c) = t              <c,t>,
          f(d) = t              <d,t> }
 
-   Charlie and Donna have the same father so they're siblings so,
+   Charlie and Donna have the same father; they're siblings so,
    f(d) = f(c) = r.  FOL= functions are general functions as in algebra
-   and calculus.  They aren't required to conform to a more limited
-   definition such as being one-to-one.
+   and calculus.  They are not required to conform to a more limited
+   definition, such as being one-to-one.
 
 Inverse Functions
 =================
@@ -3525,19 +3524,19 @@ Inverse Functions
    An INVERSE FUNCTION is a function that reverses the mapping of another
    function; a function must be bijective to have an inverse.  If our
    universe is the set of all integers, the successor s(x) function always
-   denotes the integer *after* x, and is bijective.  So, its inverse
-   function is predecessor p(x) which of course denotes the integer
+   denotes the integer *after* x and is bijective.  So, its inverse
+   function is predecessor p(x), which of course denotes the integer
    *before* x.
 
    Our father function f(x) tempts one to define an inverse function
-   child c(x).  However, this isn't possible because some people like Uden
+   child c(x).  However, this is not possible because some people like Uden
    don't have any children, while others like Tom have more than one.  It
    might also be tempting to challenge this requirement by just having c(x)
    return a set of objects containing the children of the argument x.
-   But the requirement is that a function maps an object to one object.
-   So c(x) can't be a function.  Note that is that while functions have these
-   restriction, there's nothing preventing anyone from defining a relation
-   like Cxy, "x is a child of y" so 'Cct' and 'Cdt' are perfectly good
+   However, the requirement is that a function maps an object to one object.
+   So c(x) cannot be a function.  Note that is that while functions have these
+   restriction, there is nothing preventing anyone from defining a relation
+   like Cxy, "x is a child of y", so 'Cct' and 'Cdt' are perfectly good
    predicates.
 
 Variable Function Arguments
@@ -3555,7 +3554,7 @@ Variable Function Arguments
 
    However, when a variable is the argument to a function, the function
    doesn't denote an object; not until the variable is replaced with
-   a constant object symbol.  But functions with variable arguments
+   a constant object symbol.  However, functions with variable arguments
    can still contribute semantically to general assertions.
 
          Dictionary
@@ -3570,7 +3569,7 @@ Functions in WFFs
 
    A function is just another way to denote objects, and so can occur
    anywhere object symbols can occur.  All of the following expressions
-   are well formed.
+   are well-formed.
 
          a=c,        a and c denote the same object.
          m(s)=g,     the mother of Susan is Gloria; Susan's mother is Gloria.
@@ -3578,9 +3577,9 @@ Functions in WFFs
          a(r(i))=v,  the address of my residence is v.
 
          Mx,         x is a millionaire.
-         Mf(m)       my father is a millionaire.
+         Mf(k)       the father of the king is a millionaire.
          Txy,        x is taller than y.
-         Tf(y)f(m),  your father is taller than my father.
+         Tf(y)f(i),  your father is taller than my father.
 
          ∀x∀y( Txy       -> -Tyx       )
          ∀x∀y( Tf(x)f(y) -> -Tf(y)f(x) )
@@ -3614,8 +3613,8 @@ Translation Hints
          b(x),     the brothers of x.
          s(h),     the shingles of my house.
 
-         However, if in the universe of discourse objects do map to unique
-         objects then they may be functions within the universe even if they
+         If in the universe of discourse objects do map to unique objects
+         then they may be functions within the universe even if they
          aren't functions in the actual world.
 
 
@@ -3625,9 +3624,9 @@ Function Calculus (FC)
 
    All the inference rules of FOC= are valid in Function Logic.  Function
    calculus doesn't add any new inference rules, since functions only add
-   a new way to name existing objects.  Thus, functions don't require the
+   a new way to name existing objects.  Thus, functions do not require the
    addition of new inference rules.  However, they do allow us to analyze
-   sentences in a new way.  In these ways FL is analogous to predicate logic.
+   sentences in a new way.  In these ways, FL is analogous to predicate logic.
 
 Functions in Proofs
 ===================
@@ -3650,7 +3649,7 @@ Functions in Proofs
               ...
          j.   Mf(e) -> Vf(e)        i ∀E (f(e)/x)
 
-   alternatively, the function might already be in the wff with a
+   Alternatively, the function might already be in the wff with a
    variable argument.
 
          i.   ∀x:(Mf(x) -> Vf(x))
@@ -3665,7 +3664,7 @@ Definite Descriptors
    In his *The Principles of Mathematics* Bertrand Russell introduced a
    concept called a Definite Descriptor.  A definite descriptor, is
    any noun phrase of the form "the x such that Px" which he wrote as
-   as ℩xPx (℩ is an inverted Greek lower case letter iota).  In spite of
+   as ℩xPx (℩ is an inverted Greek lower case letter iota).  Despite
    looking like a quantified wff, a definite descriptor names a particular
    object in the universe of discourse.  Like functions, descriptors don't
    add anything new to FOL=; the FOL= concepts covered so far can already
@@ -3739,10 +3738,10 @@ Semantics
 ---------
 
    The quantifiers of FOL are here OVERLOADED, redefined so that they
-   still accept additional kinds of arguments.  In this case they're
-   overloaded to accept variable object symbols as their first argument
-   and they accept variable predicate symbols.  They are read the same
-   way and mean nearly the same as their FOL counterparts.  The variable
+   accept other kinds of arguments.  In this case, they are overloaded
+   to accept variable object symbols as their first argument and they
+   accept variable predicate symbols.  They are read the same way
+   and mean nearly the same as their FOL counterparts.  The variable
    predicates are capital letters at the end of the alphabet (U,V,W,X,Y,Z)
    which signals to the reader that the quantifier and variable reign over
    arbitrary predicates as opposed to objects.
@@ -3761,32 +3760,30 @@ Second-Order Calculus (SOC)
 ---------------------------
 
    The four quantifier inference rules from FOL are expanded to these
-   two new quantifiers in more-or-less the same way as they are used
+   two new quantifiers in more-or-less the same way as they are usable
    for variable object symbols.  However, variable types must not
-   be mixed.  If a quantifier reigns over a predicate variable it must
-   only be replaced by a predicate constant, and if a quantifier reigns
-   over an object it must only be replaced by a constant object.
-
+   be confused with one another.  If a quantifier reigns over a predicate
+   variable, it must be replaced only by a predicate constant, and
+   if a quantifier reigns over an object it must only be replaced
+   by a constant object.
 
 --------
 Concerns
 --------
 
-   The most important concern is that SOC is not semantically complete.
-   That is, we are not guaranteed to be able to find a proof for a conclusion
-   form that does actually follow from a set of premises.  A conclusion
-   may *actually be* a consequence of some premises and yet there is no
-   proof that gets us from the premises to the conclusion.  However, SOC
-   is still sound.  There's no way to derive a proof to a formula that
-   doesn't follow from the premises.  So, SOL can still be useful.
-
+   The most critical concern is that SOC is not semantically complete;
+   we are not guaranteed to find a proof for a conclusion form.  A conclusion
+   may *be* a consequence of some premises, and yet no proof gets us from
+   the premises to the conclusion.  Nevertheless, SOC is still sound.
+   There is no way to derive a proof to a formula that doesn't follow from
+   the premises.  So, it can still be useful despite not being complete.
 
 ======================
 Mathematical Induction
 ======================
 
-   Mathematical induction is used to prove that all members of an infinite
-   enumerable set have some property P.  Such an argument has two parts,
+   Mathematical induction is a method to prove that all members of an 
+   denumerable set have some property P.  Such an argument has two parts,
    an inductive definition that enumerates all members of the set we're
    reasoning about; and an inductive inference which proves that all members
    have the property P.
@@ -3794,17 +3791,17 @@ Mathematical Induction
 Inductive Definitions
 =====================
 
-   INDUCTIVE DEFINITIONS describe how to enumerate all members of a set.
-   They are constructed recursively consisting of three types of numbered
+   An INDUCTIVE DEFINITION describes how to enumerate all members of a set.
+   They are constructed recursively, consisting of three types of numbered
    clauses.  The first clause is the BASE CLAUSE.  It identifies the most
    basic elements of the set and is non-recursive.  The FINAL CLAUSE states
-   that if something isn't in accordance with the prior clauses then it's not
+   that if something is not constructed via the prior clauses then it is not
    a member of the set and is also non-recursive.  The INDUCTIVE CLAUSES
    (intermediate clauses) tell us how to *recursively* generate all non-base
    case elements of the set.
 
    The formation rules for all of the classical logics are examples
-   of inductive definitions.  For illustration here are the formation rules
+   of inductive definitions.  For illustration, here are the formation rules
    for propositional logic.
 
          1.   Every atomic formula is a wff;
@@ -3815,23 +3812,23 @@ Inductive Definitions
 
    Clause 1 establishes our base case: any atomic formula is a wff.
 
-   Clause 4 our final clause excludes anything that can't be constructed
+   Clause 4, our final clause, excludes anything that cannot be constructed
    by these clauses.
 
    Clauses 2 & 3 tell us how to generate all the intermediate members
    of the set.
 
-   There are a few sets for which we don't need an inductive definition.
+   There are a few sets for which we do not need an inductive definition.
    For example, the inductive proof alone is often all we need to reason
    about integers.
 
 Zero and The Successor Function
 ===============================
 
-   Mathematical induction introduces a new constant object symbol 0 which
+   Mathematical induction introduces a new constant object symbol 0, which
    denotes the number zero; it also introduces the SUCCESSOR function s;
-   the number that comes after its argument.  Because the successor function
-   is often composed with itself many times it's common to omit
+   that is the number that comes after its argument.  Because the successor
+   function is often composed with itself many times it is common to omit
    the parentheses.
 
          s0     =  s(0)       = the successor of 0  = 1
@@ -3842,10 +3839,10 @@ Zero and The Successor Function
 Inductive Inference
 ===================
 
-   Mathematical induction is used to construct a proof that all members
+   Mathematical induction is infers a proof that all members
    of the set enumerated by the inductive definition have some property P.
-   Once we have the definition an INDUCTIVE INFERENCE proceeds in two
-   steps.  The BASE case, and the inductive case.  The BASE CASE of the
+   Once we have the definition, an INDUCTIVE INFERENCE proceeds in two
+   steps:  the BASE case and the inductive case.  The BASE CASE of the
    proof requires that we prove that the members denoted by the base clause
    of the inductive definition have property P.  The INDUCTIVE CASE
    is a hypothetical proof.  The method is to prove the conditional that
@@ -3853,7 +3850,7 @@ Inductive Inference
    of x also has property P.  All of these pieces put together are adequate
    to conclude that all members of the set have property P.
 
-   The inferential step of Mathematical Induction can be expressed over the
+   The inferential step of Mathematical Induction is expressible over the
    natural numbers as an axiom in second-order logic, an axiom schema in
    first-order logic, or an inference rule in first-order logic.  All of the
    following are different ways to express the same thing.
@@ -3870,15 +3867,15 @@ Axiomatic and Natural Deduction
 ===============================
 
    The Fitch-style calculi presented thus far are known as NATURAL DEDUCTION
-   systems, which consist only of inference rules.  These systems are called
-   'natural' because they are more intuitive and more closely resemble how one
+   systems, which consist only of inference rules.  These natural
+   deduction systems are more intuitive and more closely resemble how one
    reasons informally.  An AXIOMATIC DEDUCTION system, in contrast, consists
    of a minimal set of inference rules, often just one, and one or more
    axiom schemata.  All instances of the schemata are axioms of the logic.
    Axiomatic deduction systems are usually simpler than Fitch in that they
    have fewer parts, but they are also more complicated and cumbersome to use
-   and quite dissimilar to how one reasons informally.  Given all this, the
-   one important similarity is that both kinds of systems count the same
+   and entirely dissimilar to how one reasons informally.  Given all this, the
+   one significant similarity is that both kinds of systems count the same
    forms as valid.
 
        +--------------------------------------------------------------+
@@ -3929,62 +3926,61 @@ Axiomatic and Natural Deduction
 Formal Theories
 ===============
 
-   A SYSTEM is a set of object, properties and relationships; while A MODEL
+   A SYSTEM is a set of objects, properties, and relationships, while A MODEL
    is a limited representation of a system.  A THEORY is all the true
    propositions that can be said about a model.
 
    Since any interesting theory has a large number (usually infinite number)
-   of propositions, it would clearly be impractical to uncover all those
-   truths.  The way we attempt to tackle this problem is with a set of first
-   principles we can reason about to uncover the rest of the theory.  In this
-   way the first principles combined with logical reasoning we say GENERATES
-   theorems.  It's easy to construct a theory that OVER GENERATES, proves too
-   many things, ie. theorems that aren't actually true of the model; or UNDER
-   GENERATES, doesn't prove all of the true things that there are to say
+   of propositions, it would be impractical to uncover all those truths.
+   We attempt to tackle this problem with a set of first principles we
+   can reason about to uncover the rest of the theory.  In this way the
+   first principles combined with logical reasoning we say GENERATES theorems.
+   It is easy to construct a theory that OVER GENERATES, proves too many
+   things, i.e. theorems that are not true of the model; or UNDER GENERATES,
+   does not prove all of the true things that there are to say
    about the model.
 
    The FIRST PRINCIPLES of a theory are those things from which the rest
    of the theory may be derived; they include but may not be limited to
-   inference rules, axioms and definitions.
+   inference rules, axioms, and definitions.
 
    An AXIOM is a proposition within a theory that describes the logical
-   relationships between the various concepts of the theory (usually
-   predicates and objects).  Many axioms follow some of the schema listed
-   under Properties of Relations in the chapter on Identity Logic.
+   relationships between the theory's various concepts (usually predicates
+   and objects).  Many axioms follow some of the schema listed under
+   Properties of Relations in the chapter on Identity Logic.
 
    POSTULATE is a synonym for axiom; another synonym is LAW.  Some theorists
    uses these terms as categories in which to group different kinds of axioms,
-   others pick just one of the terms to use.  However from the perspective
-   of logic they are all the same thing.  Postulate, law and axiom all mean
+   others pick just one of the terms to use.  However, from the perspective
+   of logic they are all the same thing.  Postulate, law, and axiom all mean
    the same thing.
 
    A SCHEMA (plural is SCHEMATA) is a general statement about definitions
    or axioms which contain placeholders and whose substitution instances
    are actual definitions or axioms.
 
-   A THEOREM is any proposition derived only from a theory's first
-   principles or other theorems, via reasoning.  Theorems are propositions
-   that are true in all cases.  So an argument with premises is not a theorem
-   in logic, since it depends upon things other than the first principals for
-   its validity.
+   A THEOREM is any proposition derived only from a theory's first principles
+   or other theorems via reasoning.  Theorems are propositions that are true
+   in all cases.  So an argument with premises is not a theorem in logic since
+   it depends upon things other than the first principles for its validity.
 
    A THEORY is the plural of theorem; a theory consists of the combined
    set of first principles plus all the theorems (whether proved or not).
 
-   A LEMMA is a theorem that has no use other than to serve as an intermediate
-   step in the proof of another theorem.  The purpose of the lemma is to make
-   the proof of a theorem shorter.  Proving lemmas before proving a theorem
-   is a divide and conquer approach to theorem proving.
+   A LEMMA is a theorem that serves as an intermediate step in the proof
+   of another theorem.  The purpose of the lemma is to make the proof of
+   a theorem shorter.  Proving lemmas before proving a theorem is a divide
+   and conquer approach to theorem proving.
 
    A COROLLARY is a theorem that "follows easily" from a first principle
-   or other theorem; ie. the corollary is only a few reasoning steps away
-   from what it's claimed to follow from.
+   or another theorem; i.e., the corollary is only a few reasoning steps away
+   from what it is claimed to follow from.
 
-   A CONJECTURE is any proposition which cannot be proved as a theorem in any
-   known theory but is still taken as a principle due to its usefulness or
+   A CONJECTURE is any proposition that cannot be proved as a theorem in any
+   known theory but is still taken as a true principle due to its usefulness or
    apparent wisdom.  The well known Occam's razor is sometimes called
-   a conjecture.  Einstein took Galileo's equivalence principal, a conjecture,
-   and promoted it to an axiom of his own theory of relativity.
+   a conjecture.  Einstein took Galileo's equivalence principle, a conjecture,
+   and promoted it to an axiom of his theory of relativity.
 
 
 ================
@@ -4196,14 +4192,14 @@ Primitive Inference Rules
 
       +-------------------------------+-------------------------------+
       | ============================= | ============================= |
-      |  A                            |  H                            |
+      |  Assumption (A)               |  Hypothesis (H)               |
       | ============================= | ============================= |
       |                               |                               |
       |  ---                          |  -------                      |
       |   Φ   (Φ is a premise)        |   |   Φ   (Φ is a hypothesis) |
       |                               |                               |
       | ============================= | ============================= |
-      |  -E                           |  -I                           |
+      |  Negation Elim (-E)           |  Negation Intro (-I)          |
       | ============================= | ============================= |
       |   --Φ                         |   |   Φ                       |
       |  -------                      |   |   ...                     |
@@ -4212,7 +4208,7 @@ Primitive Inference Rules
       |                               |   -Φ                          |
       |                               |                               |
       | ============================= | ============================= |
-      |  ∧E                           |  ∧I                           |
+      |  Conjunction Elim (∧E)        |  Conjunction Intro (∧I)       |
       | ============================= | ============================= |
       |   Φ ∧ Ψ    Φ ∧ Ψ              |   Φ        Φ                  |
       |  -------  -------             |   Ψ        Ψ                  |
@@ -4220,7 +4216,7 @@ Primitive Inference Rules
       |                               |   Φ ∧ Ψ    Ψ ∧ Φ              |
       |                               |                               |
       | ============================= | ============================= |
-      |  ∨E                           |  ∨I                           |
+      |  Disjunction Elim (∨E)        |  Disjunction Intro (∨I)       |
       | ============================= | ============================= |
       |   Φ ∨ Ψ                       |   Φ        Φ                  |
       |   Φ -> Θ                      |  -------  -------             |
@@ -4229,7 +4225,7 @@ Primitive Inference Rules
       |   Θ                           |    (Ψ is any wff whatever)    |
       |                               |                               |
       | ============================= | ============================= |
-      |  ->E                          |  ->I                          |
+      |  Conditional Elim (->E)       |  Conditional Intro (->I)      |
       | ============================= | ============================= |
       |   Φ -> Ψ                      |   |   Φ                       |
       |   Φ                           |   |   ...                     |
@@ -4238,7 +4234,7 @@ Primitive Inference Rules
       |                               |   Φ -> Ψ                      |
       |                               |                               |
       | ============================= | ============================= |
-      |  <->E                         |  <->I                         |
+      |  Biconditional Elim (<->E)    |  Biconditional Intro (<->I)   |
       | ============================= | ============================= |
       |   Φ <-> Ψ    Φ <-> Ψ          |   Φ -> Ψ     Φ -> Ψ           |
       |  ---------  ---------         |   Ψ -> Φ     Ψ -> Φ           |
@@ -4246,7 +4242,7 @@ Primitive Inference Rules
       |                               |   Φ <-> Ψ    Ψ <-> Φ          |
       |                               |                               |
       | ============================= | ============================= |
-      |  EQ (Equiv. Substitution)     |  DEF                          |
+      |  Equivalence Subst (EQ)       |  Definition (DEF)             |
       | ============================= | ============================= |
       |   [ Φ <-> Ψ ]    [ Φ <-> Ψ ]  |  [ Φ =df Ψ ]    [ Φ =df Ψ ]   |
       |   Θ(Φ)           Θ(Ψ)         |  Θ(Φ)           Θ(Ψ)          |
@@ -4255,7 +4251,7 @@ Primitive Inference Rules
       |                               |                               |
       |                               |                               |
       | ============================= | ============================= |
-      |  ∀E                           |  ∀I                           |
+      |  Universal Elim (∀E)          |  Universal Intro (∀I)         |
       | ============================= | ============================= |
       |   ∀x:Φ                        |   |[α]     (new α)            |
       |  --------                     |   |   ...                     |
@@ -4264,7 +4260,7 @@ Primitive Inference Rules
       |                               |   ∀x:Ψ(x//α)                  |
       |                               |                               |
       | ============================= | ============================= |
-      |  ∃E                           |  ∃I                           |
+      |  Existential Elim (∃E)        |  Existential Intro (∃I)       |
       | ============================= | ============================= |
       |   ∃xΦ(x)                      |   Φ(α)                        |
       |   |[α] Φ(α//x)  (new α)       |  -----------                  |
@@ -4274,7 +4270,7 @@ Primitive Inference Rules
       |   Ψ                           |                               |
       |                               |                               |
       | ============================= | ============================= |
-      |  =E                           |  =I                           |
+      |  Identity Elim (=E)           |  Identity Intro (=I)          |
       | ============================= | ============================= |
       |   α=β        β=α              |                               |
       |   Φ(α)       Φ(α)             |  -----                        |
@@ -4282,7 +4278,7 @@ Primitive Inference Rules
       |   Φ(β/α)     Φ(β/α)           |                               |
       |                               |                               |
       | ============================= | ============================= |
-      |  MInd                         |  Ax                           |
+      |  Mathematical Induct (MInd)   |  Axiom (Ax)                   |
       | ============================= | ============================= |
       |   P0                          |                               |
       |   ∀x(Px -> Psx)               | ---                           |
