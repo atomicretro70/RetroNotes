@@ -87,12 +87,27 @@ Inference: Sorites
 Inference: The Distribution Test
 
 
+============
+Introduction
+============
+
+At its core logic is about *meaning*.  Yes it's about argumentation and
+inference, but none of that can happen without meaning.  Logic studies those
+systems whose meaning can be defined with mathematical prcision.  It's only
+through this deep level of understanding of meaning that one can have
+certainty in logical relationships of statements and parts of statements.
+"Propositional Logic", the logic of truth-functions requires an understanding
+of valuations and how truth-functions operate upon them.  Aristotelian and
+Predicate Logic require models in set theory.  Modal logics requires
+relationships between possible worlds.
+
+
 =======================
 Aristotelian Logic (AL)
 =======================
 
-Aristotelian logic is the study categorical statement forms.  These forms talk
-about all, none, some, and similar notions.
+Aristotelian logic is the study of categorical statement forms.  These forms
+talk about all, none, some, and similar notions.
 
 
 --------
@@ -123,8 +138,8 @@ Grammar
 
    3.                <singular-term>    <copula> <singular-term>
 
-   Restriction:  the 'is not' copula must only occur in a sentence beginning
-   'some'; never with 'all' or 'no'.
+   Restriction:  the 'is not' copula may not occur in a sentence beginning
+   with 'all' or 'no'.
 
    This grammar results in eight STANDARD FORM PROPOSITIONS.  The four in
    the first column are called CATEGORICAL PROPOSITIONS; while those on
@@ -133,17 +148,17 @@ Grammar
       ====  =================      ====  ================
       Name  Category Form          Name  Singular Form
       ====  =================      ====  ================
-       A    all S is P             As    x is P
+       A    all S is P              AS   x is P
                                          x is y
       ----  -----------------      ----  ----------------
-       E    no S is P
-
+       E    no S is P               ES   x is not P
+                                         x is not y
       ----  -----------------      ----  ----------------
        I    some S is P
 
       ----  -----------------      ----  ----------------
-       O    some S is not P        Es    x is not P
-                                         x is not y
+       O    some S is not P
+
       ====  =================      ====  ================
 
 Alternative Notation
@@ -169,12 +184,12 @@ Quality and Quantity
 
    The QUALITY of a form is either AFFIRMATIVE or NEGATIVE.
 
-   The QUANTITY of a form is expressed through quantifiers: a UNIVERSAL
+   Quantifiers express the QUANTITY of a subject term: a UNIVERSAL
    QUANTIFIER 'all' and 'no', the PARTICULAR QUANTIFIER 'some', or the
    SINGULAR QUANTIFIER (no quantifying word present).
 
    Tradition holds that the designations (A,E,I,O) come from the vowels
-   in the Latin words affirmo (affirmatives), and nego (negatives).
+   in the Latin words affirmo (affirmative), and nego (negative).
 
 Terms
 =====
@@ -185,15 +200,15 @@ Terms
    SINGULAR TERMS are represented by lower case letters and denote
    individual persons or objects.
 
-   In any of the standard form propositions the first term is called
-   the SUBJECT TERM; while the second term is the PREDICATE TERM.
+   In any of the standard form propositions, the first term is the
+   SUBJECT TERM; while the second term is the PREDICATE TERM.
 
 Distribution
 ============
 
    Quality and Quantity categorize the forms by proposition properties.
    Distribution is a property of terms.  If the proposition makes
-   an assertion about every member of a term, it's a DISTRIBUTED TERM.
+   an assertion about every member of a term, then it is a DISTRIBUTED TERM.
 
       A:   All S is P.                S is distributed
       E:   No S is P.                 S and P are distributed
@@ -205,8 +220,8 @@ Distribution
            x is not y                 y is distributed                
 
    Memory Aid:  Universals distribute subjects, negatives distribute
-   predicates.  Notice that this means that 'No' (being both universal and
-   negative) distributes both.
+   predicates.  Notice that this means that 'No' (being both universal
+   and negative) distributes both.
 
 Existential Import
 ==================
@@ -223,12 +238,12 @@ INTERPRETATIONS
 
    Traditional Interpretation
 
-   Under the TRADITIONAL INTERPRETATION EI is assigned to to all forms, but
+   Under the TRADITIONAL INTERPRETATION, EI is assigned to all forms, but
    that subject terms of universals only have EI if a member actually exists.
    However, the universals are conditional upon the subject terms actually
-   existing.  (* indicates distributed terms)  This can cause problems when
-   the subject term is actually empty, so the EI assigned to the universals
-   is taken as a PRESUMPTION OF EXISTENTIAL IMPORT.
+   existing (* indicates distributed terms).  This can cause problems when
+   the subject term is empty, so the EI assigned to the universals is taken
+   as a PRESUMPTION OF EXISTENTIAL IMPORT.
 
                                      Quality  
                      +------------------+-----------------------+
@@ -273,14 +288,14 @@ INTERPRETATIONS
 
    This can lead to some surprising results.  One would expect the following
    argument to be valid, but while it is under the traditional interpretation
-   it's not in the modern interpretation due to distribution of existential
-   import.
+   it is not in the modern interpretation due to the distribution
+   of existential import.
 
          All Cats are Mammals.
        ∴ Some Cats are Mammals.      # Invalid #
 
    If all cats are mammals, then intuitively *some* of them must be.  But the
-   premise doesn't claim any cats actually exist, so the conclusion can't
+   premise does not claim any cats actually exist, so the conclusion can't
    follow from it.
 
 Venn Diagrams
@@ -289,15 +304,15 @@ Venn Diagrams
    VENN DIAGRAMS are visual tool useful for analyzing the semantics of
    Aristotelian propositions and inferences.
 
-   There are two kinds of Venn diagrams we'll be studying: two-term diagrams,
+   There are two kinds of Venn diagrams we will be studying: two-term diagrams,
    and three-term diagrams.  They look like the below.
 
    Each rectangle represents an Aristotelian term.  The entire diagram
-   is usually enclosed in another rectangle which represents the entire
-   UNIVERSE OF DISCOURSE (The set of all things in our discussion).  For
-   brevity we omit the outer rectangle, but can't forget it's there, we'll
+   is usually enclosed in another rectangle, which represents the entire
+   UNIVERSE OF DISCOURSE (The set of all things in our discussion).  We omit
+   the outer rectangle for brevity but cannot forget it is there; we will
    be using that space.  Here we have the rectangles labeled with the standard
-   subject (S), predicate (P) and middle (M) terms.
+   subject (S), predicate (P), and middle (M) terms.
 
                                                +-----------+
                                                |           |M
@@ -311,13 +326,15 @@ Venn Diagrams
                                            |           |P
                                            +-----------+
 
-   We use Venn diagrams by placing various marks in the different regions.  A
+
+   We use Venn diagrams by placing various marks in the various regions.  A
    shaded region denotes that it has no members, while an X denotes at least
-   one member in the region.  A (X) denotes that we're *presuming* that a
+   one member in the region.  An (X) denotes that we are *presuming* that a
    region has at least one member.  This mark is only used for universals
    under the traditional interpretation.  Finally, a region left unmarked
-   denotes we know nothing about that region.  In most cases we'll be laying
-   out diagrams for the modern and traditional interpretations side-by-side.
+   denotes we know nothing about that region.  In most cases, we will
+   be laying out diagrams for the modern and traditional interpretations
+   side-by-side.
 
    Standard Forms
 
@@ -371,8 +388,9 @@ Venn Diagrams
 
    "It's false that..."
 
-      The rules for representing standard form propositions prefixed with,
-      'It's false that' are straight forward:
+    The rules for representing standard form propositions prefixed with,
+    'It's false that' are straight forward:
+
       1.   Construct a Venn diagram as if there were no 'It's false that'.
 
       2.   Begin a second blank diagram.
@@ -471,9 +489,9 @@ Venn Diagrams
 
    Complemented Terms
 
-      A COMPLEMENTED TERM is a term prefixed by 'non-'.  A Complement
-      denotes areas outside the term's rectangle.  It's sometimes
-      easier to think about if you use 'is outside of' instead of 'non-'.
+      A COMPLEMENTED TERM is a term prefixed by 'non-'.  A Complement denotes
+      areas outside the term's rectangle.  It is sometimes easier to think
+      about if you use 'is outside of' instead of 'non-'.
 
       Modern Interpretation        Traditional Interpretation
 
@@ -647,8 +665,8 @@ Venn Diagrams
 
       Venn diagrams can test an argument's validity.  The process is: under
       each interpretation mark the diagram according to the premises just as
-      we did above, if valid you should be able to read the conclusion from
-      the marked diagram without making additional marks.
+      we did above, and if valid, we should be able to read the conclusion
+      from the marked diagram without making additional marks.
 
       Modern Interpretation        Traditional Interpretation
 
@@ -737,35 +755,36 @@ Venn Diagrams
    Arguments with Two Premises
 
       A SYLLOGISM is a deductive argument in AL that has two premises, one
-      conclusion and three terms among them.  No two of the statements should
-      contain the same two terms.  Each of the conclusion's terms should appear
-      in exactly one premise.  The third term is called the MIDDLE TERM (which
-      we'll be denoting 'M') appears once in each of the two premises.
+      conclusion, and three terms among them.  No two of the statements
+      should contain the same two terms.  Each of the conclusion's terms
+      should appear in exactly one premise.  The third term is called the
+      MIDDLE TERM (which
+      we will be denoting 'M') appears once in each of the two premises.
 
-      The process of validation is similar to before; on the diagram mark
-      the premises; if the argument is valid the conclusion can be read off
-      the diagram without making additional marks.  The marking process,
-      however, is more complex.
+      The process of validation is similar to before; on the diagram, mark
+      the premises.  If the argument is valid, the conclusion can be read
+      off the diagram without making additional marks.  The marking process,
+      however, is more complicated.
 
       1.  Mark universal premises, then mark particulars.
 
       2.  When shading the if rectangle for the unmentioned term bisects
-          the mentioned area both sides of the bisection must be shaded.
+          the mentioned area, both sides of the bisection must be shaded.
 
-      3.  The area in which an X goes is always bisected, place the X in
-          any of the two bisected areas if it's unshaded.
+      3.  The area in which an X goes is always bisected; place the X in
+          any of the two bisected areas if it is unshaded.
 
-      If the conclusion displays on the completed diagram it's valid under
-      both interpretations.  If it's invalid, we can still test to see
-      if it's valid under the traditional interpretation.
+      If the conclusion displays on the completed diagram, it is valid under
+      both interpretations.  If it is invalid, we can still test to see
+      if it is valid under the traditional interpretation.
 
-      4.  If there's a rectangle that's completely shaded '/' except for one
+      4.  If there is a rectangle that's completely shaded '/' except for one
           region, place a '(X)' in that region.
 
       If the conclusion displays on the modified diagram *and* the region
       marked '(X)' actually contains one member in the real world, the form
       is valid under the traditional interpretation.
-      
+
       Example
 
          @@@ not 4AAA
@@ -773,7 +792,7 @@ Venn Diagrams
          All M are P.
        ∴ All S are P.
 
-         1. Since both premises are universal mark them both on the diagram
+         1. Since both premises are universal, mark them both on the diagram
 
          Modern Interpretation        Traditional Interpretation
 
@@ -863,7 +882,7 @@ Venn Diagrams
               +-----------+                +-----------+
 
          2. The conclusion doesn't display in the diagram so the form
-            is invalid; but we can still test the traditional interpretation
+            is invalid, but we can still test the traditional interpretation
             since the M term has exactly one unshaded region.
 
                   +-----------+                +-----------+
@@ -1147,18 +1166,19 @@ Translation Hints
    The following translations should server as illustrations from English to
    Standard Form
 
+
    Noun-less Predicates Terms
       English    No dogs are nocturnal.
-      Standard   No dogs is nocturnal animals.
+      Standard   No dog is a nocturnal animals.
 
       English    Some cars are fast.
-      Standard   Some cars is fast cars.
+      Standard   Some car is a fast cars.
 
       English    All athletes are healthy.
       English    All athletes is healthy people.
 
    Singular Terms
-      English    Boo didn't catch the ball.
+      English    Boo did not catch the ball.
       Standard   All dogs identical to Boo is dogs who didn't catch the ball.
 
       English    Tweety bird sang a song.
@@ -1177,8 +1197,8 @@ Translation Hints
       English    Some animals migrate with the seasons.
       Standard   Some animals is animals that migrate with the seasons.
 
-      English    Some church goers don't believe in gods.
-      Standard   Some church goers is people who don't believe in gods.
+      English    Some churchgoers don't believe in gods.
+      Standard   Some churchgoers is people who don't believe in gods.
 
    Other Explicit Quantifiers
       English    He glitters when he walks.
@@ -1188,7 +1208,7 @@ Translation Hints
       Standard   Some birds are animals that don't swim.
 
       English    Sarah sometimes doesn't study.
-      Standard   Some times is times Sarah doesn't study.
+      Standard   Sometimes is times Sarah doesn't study.
 
       English    Whoever works hard will succeed.
       Standard   All who work hard is persons who will succeed.
@@ -1202,7 +1222,7 @@ Translation Hints
       English    Judges always wear robes in court.
       Standard   All times judges go to work is times they wear robes
 
-      English    Not many storms include Hail.
+      English    Not many storms include hail.
       Standard   Some storms are not storms that include hail.
 
       English    Any number divisible by two is even.
@@ -1219,13 +1239,13 @@ Translation Hints
       Standard   All grapes is fruits that grow on vines.
 
       English    A fisherman fishes.
-      Standard   Some fishermen and people who fish.
+      Standard   Some fishermen is people who fish.
 
       English    An apple tree is deciduous.
       Standard   All apple trees is deciduous trees.
 
-      English    There are dust devils on mars.
-      Standard   Some dust devils are dust devils on mars.
+      English    There are dust devils on Mars.
+      Standard   Some dust devils are dust devils on Mars.
 
       English    Fish are not mammals.
       Standard   No fish is mammals.
@@ -1246,14 +1266,14 @@ Translation Hints
       English    If an animal has feathers, then it's not a cat.
       Standard   No animal with feathers is a cat.
 
-      English    If it produces milk unless it's not a mammal.
-      Standard   No milk producing animal is non-mammals. 
+      English    If it produces milk, then it's not a mammal.
+      Standard   No milk-producing animal is non-mammal. 
 
       English    Boat sinkings result in coral reefs.
       Standard   All boat sinkings are things that result in coral reefs.
 
       English    Being caviar is sufficient for it to be expensive.
-      Standard   All foods that are caviar are expensive foods.
+      Standard   All foods that's caviar is expensive food.
       
       English    A glass will shatter if it falls to the ground.
       Standard   All glasses that fall to the ground are things that shatter.
@@ -1275,7 +1295,7 @@ Translation Hints
       Standard   All things that will grow here is grass.
 
       English    The only pieces in this museum are paintings.
-      Standard   All things in this museum is paintings.
+      Standard   All pieces in this museum is paintings.
 
       English    Termites are the only pests who did all this destruction.
       Standard   All pests who did all this damage is termites.
@@ -1283,10 +1303,10 @@ Translation Hints
    'all but', 'all except', 'except'
       English    All but the immunocompromised ought receive the vaccine.
       Standard   All non-immunocompromised persons ought to receive the
-                 vaccine, and no immunocompromised persons is persons who
+                 vaccine and no immunocompromised persons is persons who
                  ought receive the vaccine.
 
-      English    Except peanut products she can eat anything.
+      English    Except for peanut products, she can eat anything.
       Standard   All non-peanut products are things she can eat and,
                  no peanut products is things that she can eat.
 
@@ -1302,7 +1322,7 @@ Translations from Aristotelian Logic
          S's are P's.
          Those who are S are P.
          If a person is S, then he or she is P.
-         If you're S, then you're P.
+         If you are S, then you are P.
          No one is S unless he or she is P.
          No one is S without being P.
          A thing isn't S unless it's B.
@@ -1348,7 +1368,7 @@ The Square of Opposition
 ========================
 
    The square of opposition diagrams the logical relationships among the four
-   main proposition forms.  It's useful for memorizing the direct immediate
+   main proposition forms.  It is useful for memorizing the direct immediate
    inferences.
 
    Modern Square of Opposition       Traditional Square of Opposition
@@ -1369,10 +1389,10 @@ The Square of Opposition
 
    CONTRADICTORY forms have opposite truth values.
 
-   CONTRARY forms can't both be true.   If either form A or E is true, then
+   CONTRARY forms cannot both be true.   If either form A or E is true, then
    the other form must be false.
 
-   SUBCONTRARY forms can't both be false.  If either form I or O is false,
+   SUBCONTRARY forms cannot both be false.  If either form I or O is false,
    then the other form must be true.
 
    SUBALTERNATE forms are like conditionals.  If form A is true, then form I
@@ -1575,18 +1595,18 @@ Standard Form Categorical Syllogism
 ===================================
 
    A CATEGORICAL SYLLOGISM is a deductive argument in AL consisting of two
-   premises, one conclusion and three terms; each being an A,E,I or O form.
+   premises, one conclusion, and three terms, each being an A,E,I or O form.
 
    Categorical syllogisms have one term occurring once in each premise
-   called the MIDDLE TERM.  The other two terms occur in the conclusion.  The
-   conclusion's predicate term is called the MAJOR TERM, and the conclusion's
-   subject term is called the MINOR TERM.  The MAJOR PREMISE is the premise
-   containing the major term, and the MINOR PREMISE is the premise containing
-   the minor term.
+   called the MIDDLE TERM.  The other two terms occur in the conclusion.
+   The conclusion's predicate term is called the MAJOR TERM, and the
+   conclusion's subject term is called the MINOR TERM.  The MAJOR PREMISE
+   is the premise containing the major term, and the MINOR PREMISE is the
+   premise containing the minor term.
 
    A STANDARD FORM CATEGORICAL SYLLOGISM is a categorical syllogism in which
-   the major premise is listed first, the minor premise is listed second, and
-   the conclusion is listed third.
+   the major premise is listed first, the minor premise is listed second,
+   and the conclusion is listed third.
 
    The MOOD of the syllogism is the three letters of the three forms in the
    syllogism listed in order: major premise, minor premise, conclusion.
@@ -1594,7 +1614,6 @@ Standard Form Categorical Syllogism
 
    The FIGURE of the syllogism is the pattern formed by the arrangement of the
    middle term in the two premises of the standard form categorical syllogism.
-
 
                         ========    ========    ========    ========
                         Figure 1    Figure 2    Figure 3    Figure 4
@@ -1633,9 +1652,9 @@ Syllogistic Inference By Form
        1-EIO       2-EIO       3-OAO
       ========    ========    ========    ========
 
-   The next 9 forms are invalid under the modern interpretation, but
-   conditionally Valid under the traditional interpretation.  (Demarcated rows
-   are significant)
+    The following nine forms are invalid under the modern interpretation
+    but conditionally Valid under the traditional interpretation.
+    (Demarcated rows are significant)
 
       ========    ========    ========    ========    ============
       Figure-1    Figure-2    Figure-3    Figure-4    Condition
@@ -1651,8 +1670,8 @@ Syllogistic Inference By Form
 
       ========    ========    ========    ========    ============
 
-   These should all be proven to yourself through Venn Diagrams before you
-   actually use them.
+   You should prove all of these to yourself through Venn Diagrams before you
+   use them.
 
 Syllogistic Inference By Rules
 ==============================
@@ -1672,16 +1691,17 @@ Syllogistic Inference By Rules
         conclusion is negative, one premise must be negative.
 
    Modern Rules (Modern Interpretation Only)
-   5.   A particular conclusion can't be inferred from two universal premises.
+   5.   A particular conclusion cannot be inferred from two universal
+        premises.
 
 Reducing Terms
 ==============
 
-   Sometimes a syllogism will have more than three terms, but the extra
-   terms are complements (non-) of other terms.  In this case it may be
-   possible to use immediate inferences to either remove the 'non-' from 
-   the complements, or use them to add 'non-' to uncomplemented terms.
-   In either case the goal is to reduce the number of terms.
+   Sometimes a syllogism will have more than three terms, but the
+   additional terms are complements (non-) of other terms.  In this case,
+   it may be possible to use immediate inferences to either remove the
+   'non-' from the complements, or use them to add 'non-' to uncomplemented
+   terms.  In either case, the goal is to reduce the number of terms.
 
    Procedure
    1.  Eliminate synonyms
@@ -1701,8 +1721,9 @@ Inference: Enthymemes
 Inference: Sorites
 ------------------
 
-   A SORITES (Greek for 'heap') is a list of categorical syllogism where
-   the intermediate conclusions have been omitted.  It's actually quite like
+
+   A SORITES (Greek for 'heap') is a list of categorical syllogisms where
+   the intermediate conclusions are omitted.  It's actually quite like
    having multiple enthymemes where just the conclusions are missing.
 
       @@@example from Hurley, p 307.
@@ -1711,19 +1732,19 @@ Inference: Sorites
          No fish are mammals.
        ∴ No fish are bloodhounds.
 
-   Here we can see that the first two premises have the conclusion that,
-   all bloodhounds are mammals.  Now take that as a premise along with
-   the third premise above and we get the stated conclusion.  The
-   intermediate arguments can be tested with Venn diagrams.
+   Here we can see that the first two premises have the conclusion that
+   all tradesmen are tradespersons.  Now take that as a premise along with
+   the third premise above, and we get the stated conclusion.  The
+   intermediate arguments are testable with Venn diagrams.
 
 
 --------------------------------
 Inference: The Distribution Test
 --------------------------------
 
-   @@@ This section can't be allowed in any public distribution
+   @@@ This section cannot be allowed in any public distribution
    This test is a remarkably simple way to determine if any AL inference
-   is valid.  It's quite a recent discovery by Gensler.  It works
+   is valid.  It is quite a recent discovery by Gensler.  It works
    for any categorical argument with any number of premises, including
    sorites, provided each proposition is one of the eight standard forms.
 
@@ -1733,15 +1754,15 @@ Inference: The Distribution Test
    2.  Mark all undistributed terms in the conclusion.
 
    Assessment
-   3.  In the modern interpretation the argument is valid if and only if,
-       every categorical term is marked EXACTLY once and of ALL the statements
-       exactly one predicate is marked.
+   3.  In the modern interpretation, the argument is valid if and only if,
+       every categorical term is marked EXACTLY once and of ALL the
+       statements, exactly one predicate is marked.
        
-       In the traditional interpretation the argument is valid if and only if,
-       every categorical term is marked AT LEAST once and of ALL the
+       In the traditional interpretation, the argument is valid if and only
+       if, every categorical term is marked AT LEAST once and of ALL the
        statements exactly one predicate is marked.
 
-   The test can also be used to assist in filling in enthymemes where the
+   The test can also assist in filling in enthymemes where the
    conclusion is missing.
 
    Procedure
@@ -1755,11 +1776,11 @@ Inference: The Distribution Test
    4.  Add the conclusion, use the star test to determine which of the
        conclusion terms is the subject and which is the predicate.
 
-   Figuring out the conclusion letters.
+   Figuring Out The Conclusion Letters.
 
-   Every middle term ought to be paired off.  That is, if a term is a middle
-   term it ought to appear exactly twice (each time in a different premise).
-   what out to remain are just two unpaired terms.  Those are the terms that
+   Every middle term ought to be paired off.  That is if a term is a middle
+   term, it ought to appear exactly twice (each time in a different premise).
+   What ought to remain are just two unpaired terms.  Those are the terms that
    will go into the conclusion.
 
    Figuring out the conclusion form
@@ -1772,7 +1793,7 @@ Inference: The Distribution Test
      use a 'some' conclusion.
 
    - If at least one conclusion letter is singular:  the conclusion will
-     have a singular term, 'is' or 'is not', and then the other letter.
+     have a singular term, 'is' or 'is not,' and then the other letter.
 
    - Always derive a negative conclusion if any premise has 'no' or 'not'.
 
@@ -1792,9 +1813,9 @@ Inference: The Distribution Test
 
      3.  Identify the conclusion form.
 
-         A premise has 'some' so the conclusion has 'some', and we don't have
-         any negative premises so the copula is 'is'.  So, Both conclusion
-         terms are undistributed.
+         A premise has 'some' so the conclusion has 'some', and we do not
+         have any negative premises, so the copula is 'is'.  So, Both
+         conclusion terms are undistributed.
 
          Some C is F.
          All F* is l.

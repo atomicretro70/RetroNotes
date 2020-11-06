@@ -109,7 +109,7 @@ To View This Document Properly
    Most of the commands in this document assume you are in NORMAL mode.
    Only the Insert Commands and Visual Commands assume other modes.
 
-   <ESC>                usually pressing escape goes to to normal mode.
+   <ESC>                usually pressing escape puts vim into normal mode.
                         once in normal mode pressing escape does nothing.
 
    exit<CR>             in terminal 'exit' and enter will go to normal mode
@@ -313,7 +313,6 @@ n  i                    insert <text> n times before cur
 n  I                    insert <text> n times before first non-blank char
 n  a                    append <text> n times after cur
 n  A                    append <text> n times at eol
-n  ea                   append <text> at the end of the word
 n  R                    replace: overtype rest of line
 n  c  <mov>             change n of mov with <text> (default cur)
 n  cc                   change n lines with <text>
@@ -561,7 +560,7 @@ n  zz                   idem
       Key Mapping
       -----------
       ( :map, :unmap, :unm, :verbose map, :vmap, :vunmap )
-   :map [!] [<char>]    show all [! insert mode] mappings [for char]
+   :map [!] [<char>]       show all [! insert mode] mappings [for char]
    :map [!] <char> <cmds>  map [! insert mode] char to commands
    :unm [!] <char>         clear [! insert mode] mapping of char
    :verbose map [<char>]   show mappings [for char] verbosely
@@ -572,9 +571,9 @@ n  zz                   idem
       Abbreviations
       -------------
       ( :abbrev, :ab, :unabbreviate, :una )
-   :ab                  show all current insert mode abbreviations
+   :ab                     show all current insert mode abbreviations
    :ab [<abbrev> <text>]   set insert mode abbreviation to text
-   :una abbrev          clear insert mode abbreviation
+   :una abbrev             clear insert mode abbreviation
 
    Abbreviations expand text while in insert mode.
 
