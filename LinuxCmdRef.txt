@@ -177,9 +177,6 @@ wc -w               print the number of words from stdin
 awk ...             scripted filtering
 sed ...             scripted stream editing
 
-xargs ...           treat lines from stdin as args to a command
-tee ...             copy stdin to each file and also to stdout
-
 ||||| Jobs & Processes |||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 ^C                  terminate the current running process
@@ -237,6 +234,10 @@ passwd              change your password
 
       /etc/passwd   User account file
       /etc/shadow   User password file
+
+su                  log in to a different user account
+sudo <full-command> execute a command as root
+sudo su             log in to the root account
 
 ||||| Sockets & Handles ||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
@@ -302,11 +303,14 @@ lolcat ...          colorizes input content
 
 sudo apt update               retrieve list of available updates
 sudo apt upgrade              apply the updates
-sudo apt-get install <app>    install an app
-sudo apt-cache search <str>   search for all available apps containging string
-sudo apt-get remove <app>     uninstall an app
+sudo apt install <app>        install an app
+sudo apt remove <app>         uninstall an app
 sudo apt autoremove           automatically remve unused libraries
 sudo apt full-upgrade         perform a full upgrade of the OS
+sudo apt-cache search <str>   search for all available apps containging string
+sudo apt-cache policy <app>   show info about available version of <app>
+sudo add-apt-repository       add a sw repository to search. follow with
+                              'sudo apt update'
 
 upgrade the OS
    sudo apt update
@@ -344,6 +348,9 @@ Command Line Usage
 <cmd> < <file>      run cmd using file contents as stdin
 
 <cmd1> | <cmd2>     PIPE (send) stdout of cmd1 to stdin for cmd2
+
+xargs <cmd>         for each <line> in stdin, call cmd with <line> as last arg
+tee ...             copy stdin to each file and also to stdout
 
 ================
 Bash Programming
