@@ -1543,10 +1543,10 @@ Other Justifications
    justification for deriving a wff.
 
    ================================  =========================================
-   Name/Alternate Names              Rule
+   Name (Abbreviation)               Rule
    ================================  =========================================
    Definition Substitution (DEF)     From [ Φ =df Ψ ], Θ(Φ), infer Θ(Ψ/Φ);
-                                     and [ Φ =df Ψ ], Θ(Ψ), infer Θ(Φ/Ψ).
+                                     and from [ Φ =df Ψ ], Θ(Ψ), infer Θ(Φ/Ψ).
    ================================  =========================================
 
    Notice that in the rules the definition is in brackets '[' and ']'.
@@ -1561,15 +1561,15 @@ Derived Inference Rules
    are traditionally important rules derivable in our system.
 
    ================================  =========================================
-   Name/Alternate Names              Sequent
+   Name (Abbreviation)               Sequent
    ================================  =========================================
    Reiterate (RE)                    P  ⊢  P
-   Falso Quodlibet (EFQ)             P, -P  ⊢  Q    (Q is any wff whatever)
+   Ex Falso Quodlibet (EFQ)          P, -P  ⊢  Q    (Q is any wff whatever)
    Modus Tollens (MT)                P -> Q, -Q  ⊢  -P
    Hypothetical Syllogism (HS)       P -> Q, Q -> R  ⊢  P -> R
    Absorption (Abs)                  P -> Q  ⊢  P -> (P ∧ Q)
    Constructive Dilemma (CD)         P ∨ Q, P -> R, Q -> S  ⊢  R ∨ S
-   Destructive Dilemma (DD)          P -> Q, R -> S, -Q ∨ -S ⊢ -P ∨ -Q
+   Destructive Dilemma (DD)          P -> Q, R -> S, -Q ∨ -S  ⊢  -P ∨ -Q
    Disjunctive Syllogism (DS)        P ∨ Q, -P  ⊢  Q
    Disjunctive Syllogism (DS)        P ∨ Q, -Q  ⊢  P
    Theorem (THM)                     [ ⊢ P ]  ⊢  P
@@ -1596,7 +1596,7 @@ Equivalences
          ⊢ Φ <-> Ψ
 
    ================================  =========================================
-   Name/Alternate Names              Sequent
+   Name (Abbreviation)               Sequent
    ================================  =========================================
    Double Negation (DN)              ⊢  P <-> --P
    Tautology (TAUT)                  ⊢  P <-> (P ∧ P)
@@ -1676,14 +1676,14 @@ Defining ⊥ Into Propositional Logic/Calculus
    often preceded by ∧I, but the resulting conjunction can be quite long.
    Since EFQ infers any wff from two contradictory propositions; we can
    always infer 'P ∧ -P' instead of a long conjunction.  But the following
-   definition is even better.
+   definition is even briefer.
 
          ⊥  =df  P ∧ -P
 
    From which we derive new inference rules.
   
    ================================  =========================================
-   Name/Alternate Names              Sequent
+   Name (Abbreviation)               Sequent
    ================================  =========================================
    ⊥ Introduction (⊥ I)              P, -P  ⊢  ⊥
    ⊥ Elimination (⊥ E)               (P ⊢ ⊥)  ⊢  -P
@@ -1728,7 +1728,7 @@ Derivation Strategies
          - WFF       Hypothesize WFF (unnegated), derive ⊥ or derive
                      a contradiction, lastly perform -I or ⊥ E.
 
-         WFF         hypothesize -WFF, derive ⊥ or contradiction, then
+         WFF         Hypothesize -WFF, derive ⊥ or contradiction, then
                      perform -I and finally -E.
 
 
