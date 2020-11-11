@@ -82,11 +82,11 @@ To View This Document Properly
                            <reg>     a register name
                            <regex>   see Regular Expressions
                            <sequence>   any sequence of keystrokes
-   : ...                   : is the first character of an ex command when
+   :                       : is the first character of an ex command when
                            vi is in visual normal mode.  However, in ex mode
                            the colon should be omitted.  The colon appears
-                           precedes the commands below only to denote that
-                           the command is actually an ex command.
+                           only to denote that the command is actually an
+                           ex command.
    n or - (in column 1)    Most of the movement and editing commands are
                            preceded by  either 'n' or '-'.  The n indicates
                            an integer n > 1 (default is 1).  The '-' indicates
@@ -147,24 +147,23 @@ To View This Document Properly
       Quitting
       --------
    ZQ                   quit vim (same as :q!) - discards all changes
-   ZZ                   write if modified then quit (same as :wq)
+   ZZ                   write if modified then quit (same as :x)
 
-   :quit, :q
-      :q[!]             quit current viewport [! ignores warnings]
+      ( :quit, :q )
+   :q[!]                quit current viewport [! ignores warnings]
 
-   :wq, :xit, :x
-      :wq[!]            write and quit current viewport  [! override warnings]
-      :x[!]             write if modified then quit viewport 
-      :wqa              write and quit on all viewport 
+      ( :wq, :xit, :x )
+   :wq[!]               write and quit current viewport  [! override warnings]
+   :x[!]                write if modified then quit viewport 
+   :wqa                 write, quit, all viewports
 
       Writing
       -------
-   :write, :w
-      [<range>] :w[!]              write buf [range]
-      [<range>] :w[!] [[>>]<file>] write buf [range] to file [>> for append]
-      [<range>] :w !<cmd>          write buf [range] to command
-      :w !sudo tee %               write buf using sudo
-         !   overwrite [cur] file ignoring warnings
+      ( :write, :w )
+   :[<range>] w[!] [[>>]<file>] write buf [range] [>> for append] [to file]
+   :[<range>] w !<cmd>          write buf [range] to command
+   :w !sudo tee %               write buf using sudo
+      !   overwrite [cur] file ignoring warnings
 
       ( :preserve, :pre )
    :pre                 Write cur edit buf as if the sys were about to crash.
@@ -361,7 +360,7 @@ n  [<reg>] yy           yank lines: copy n lines (alias Y)
       ------------------------
 n  [<reg>] p            put: paste text n times after cursor
 n  [<reg>] P            put: paste text n times before cursor
--  ]p                   put: paste and adjust indent to current line
+-  ]p                   put: paste and adjust indent to cur line
 
       ( :put, :pu )
    :[<addr>] pu [<buf>] put:  paste text from buf at loc specified by addr
@@ -403,12 +402,12 @@ n  u                    undo last n edit commands
 n  ^R                   redo n edits
 
       ( :undo, :u )
-   :u                   undo last edit
+n  :u                   undo last [n] edits
 
       Searching & Replacing
       ---------------------
-   :global, :g, :v
-      [<range>] :g[!]/<regex>/[<cmds>]
+      ( :global, :g, :v )
+   [<range>] :g[!]/<regex>/[<cmds>]
 
       Exec commands on every line [in range] matching regex.  If no commands,
       print all such lines.  ! means all lines NOT containing regex.  v is
@@ -422,10 +421,10 @@ n  ^R                   redo n edits
       - If old is omitted, does a simple search of environ with new
       
 
-   :substitute, :s
-      [<range>] :s/<regex>/<repl>/[<flags>]
-      :s                repeat last s command without the flags
-      :s [<flags>]      repeat last s command with new flags
+      ( :substitute, :s )
+   [<range>] :s/<regex>/<repl>/[<flags>]
+   :s                   repeat last s command without the flags
+   :s [<flags>]         repeat last s command with new flags
 
       Replace each instance of regex in buf [or range] with repl.  If regex
       and repl are omitted, repeat last substitution.  Flags are:
@@ -652,8 +651,8 @@ n  zz                   idem
 
    ^W o                 only: close all other splits/viewports
 
-   :close, :clo
-      :clo              close the current split
+      ( :close, :clo )
+   :clo                 close the current split
 
       Tab Commands
       ------------

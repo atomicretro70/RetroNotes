@@ -132,7 +132,10 @@ Preface
    a term is defined, it will appear in all capital letters to facilitate
    searching.  A pair of asterisks denote italics.  Single quotes will denote
    a mention, vs. a use, of a symbol.  Most of the time, single quotes will
-   be implicit.
+   be implicit.  Strings surrounded by single quotes denote something
+   that is to be taken literally.  To avoid confusion this book ignores
+   the usual English grammar rules for punctuation within quotations when
+   following the rules can lead to confusion.
 
    This book will be updated periodically, and some sections may be removed
    or developed further based upon reader feedback.  Please contribute by
@@ -280,7 +283,7 @@ Set Definition
    Many sets are too large to enumerate, so instead of enumerating their
    members, their members' properties define them; this is accomplished using
    a comprehension.  A COMPREHENSION is a set defined by properties and
-   includes the use of a '|', which is read as, 'such that'.
+   includes the use of a '|', which is read as, 'such that.'
 
          M = the set of all mammals
            = { x | x is a mammal }
@@ -426,15 +429,17 @@ Language
 
    A LANGUAGE is defined by the set of all sensical sentences in the language.
 
+   A LEXEME is the smallest semantic unit of a language, often called words.
+
    A FORMAL LANGUAGE is the set of all grammatically correct sentences
    in a language.  Formal languages do not consider semantics, so many such
    sentences may be nonsensical.
 
-   A METALANGUAGE is the language used to talk *about* logic.  So sentences
+   METALOGIC is the discipline that studies and proves things about logic.
+
+   A METALANGUAGE is the language used to talk about logic.  So sentences
    in the metalanguage mention properties of the logic, arguments, and things
    they entail.  Most of this book is written in the metalanguage.
-
-   A LEXEME is the smallest semantic unit of a language, often called words.
 
 Lexemes
 =======
@@ -471,7 +476,7 @@ Grammar
      While P ∧ Q is a wff, so is (-(P ∨ Q) -> R).
 
    - To aid readability, we adopt the convention that if a top-level wff
-     begins with '(, 'we will drop the outermost pair of parentheses,
+     begins with '(', we will drop the outermost pair of parentheses,
      doing so never introduces ambiguity to the formula.
 
    - In practice, it is common to use PRIME marks ('), or numerical
@@ -484,19 +489,19 @@ Syntax Trees
 Truth-Function Anatomy
 ----------------------
 
-   The truth-functions each have an "official" name and a common name; the
-   OPERANDS, the things the truth-functions apply to also have names.
+   Below are the formal, informal, and metalogical names of the operations
+   and operands.
 
-         ======  =======  =============  =======  ===================
-         Symbol  Example  Name           English  Operand Names
-         ======  =======  =============  =======  ===================
-          -      -P       NEGATION       not      P is a NEGATAND
-          ∧      P ∧ Q    CONJUNCTION    and      P,Q are CONJUNCTS
-          ∨      P ∨ Q    DISJUNCTION    or       P,Q are DISJUNCTS
-          ->     P -> Q   CONDITIONAL    if/then  P is the ANTECEDENT
-                                                  Q is the CONSEQUENT
-          <->    P <-> Q  BICONDITIONAL  just if  Operands
-         ======  =======  =============  =======  ===================
+         ======  ========  =============  =======  ===================
+         Formal  Informal  Metalogical    Example  Operand Names
+         ======  ========  =============  =======  ===================
+          -      not       NEGATION       -P       P is a NEGATAND
+          ∧      and       CONJUNCTION    P ∧ Q    P,Q are CONJUNCTS
+          ∨      or        DISJUNCTION    P ∨ Q    P,Q are DISJUNCTS
+          ->     if/then   CONDITIONAL    P -> Q   P is the ANTECEDENT,
+                                                    Q is the CONSEQUENT
+          <->    just if   BICONDITIONAL  P <-> Q  Operands
+         ======  ========  =============  =======  ===================
 
    ARITY is the number of subordinates an operation requires.  For example,
    negation has an arity of one because it has one subordinate, while
@@ -515,7 +520,7 @@ Truth-Function Anatomy
 Tree Graphs
 -----------
 
-   Below is a tree graph.  Graphs are useful in organizing some kinds
+   Below is a tree graph.  Tree graphs are useful in organizing some kinds
    of information.  The lines are called EDGES, which connect NODES
    or VERTEXES.  A node that has an edge above it is CHILD, and conversely,
    a node that has an edge below it is called a PARENT.  Tree graphs are
@@ -523,7 +528,8 @@ Tree Graphs
    is at the top.   The rest of the tree descends from the root—placing
    the childless LEAVES all at the bottom.  Traversing a series of nodes
    via their joining edges down to a leaf is called a PATH
-   (e.g., parent&child -> node -> leaf4).  Paths BRANCH as we descend.
+   (e.g., parent&child > node > leaf4).  As we descend a path children
+   split into BRANCHES.
 
                              Root 
                              /  \
@@ -589,7 +595,7 @@ Semantics
 ---------
 
 The semantics of a language are the concepts denoted by the lexemes and
-sentences (our wffs) of the language.
+sentences (propositional logic wffs).
 
 Translation Hints
 =================
@@ -624,11 +630,10 @@ Translation Hints
    | ================================= | ================================= |
    | P ∨ Q                             | -(P ∨ Q)                          |
    | ================================= | ================================= |
-   | P or Q                            | neither P nor Q                   |
+   | either P or Q                     | neither P nor Q                   |
    | P except if/when Q                | P nor Q (in computing)            |
    | P except on condition that Q      |                                   |
-   | P unless Q (weak/inclusive-or)    |                                   |
-   | either P or Q (inclusive)         |                                   |
+   | P unless Q                        |                                   |
    |                                   |                                   |
    | ================================= | ================================= |
    | P -> Q                            | -P -> -Q                          |
@@ -1346,7 +1351,7 @@ Direct Proofs
    of the proof.  Step 4 applies a rule called 'Conjunction Elimination'
    to step 3, resulting in the wff 'Q'.  Since Q is the conclusion form
    of the sequent, it is the thing we were trying to attain.  So the proof
-   has completed successfully, which is why the proof is closed with 'QED.'
+   has completed successfully, which is why the proof is closed with 'QED'.
 
    Usually, people abbreviate the names of the inference rules within a proof.
    Assumptions are abbreviated as 'A'.  For each truth-functional operator,
@@ -1389,7 +1394,7 @@ Hypothetical Subordinate Proofs
    5 ends the subproof, and line 6 returns our attention to the enclosing
    proof, the main proof.  Recall that the goal of the hypothetical subproof
    was to perform -I; which is now performed on line 6.  Notice the citation
-   is a range of steps '3-5,' which is the entire subproof.  Which says that
+   is a range of steps '3-5', which is the entire subproof.  Which says that
    the subproof justifies applying the -I rule to obtain -P, which is the
    conclusion form of the sequent, so the proof completed successfully
    hence the 'QED'.
@@ -1909,7 +1914,7 @@ Relations
          2-Place Predicates
          Txy,  x is taller than y.
 
-   'Tall,' while a property, would not be a suitable predicate for logic
+   'Tall', while a property, would not be a suitable predicate for logic
    because 'tall' is vague.  E.g., a tall building and a tall glass of water
    do not mean the same thing.  However, 'taller' is objective, making
    it ideal for logical reasoning.
@@ -2006,13 +2011,13 @@ Predicate Calculus
          Dictionary
          ----------
          Constants            Predicates
-         g,    Gandalf        Axy,   x abandons y
-         f,    Frodo
-         s,    Sam
+         m,    Merlin         Axy,   x abandons y
+         a,    Arthur
+         g,    Guinevere
 
-         Agf -> Ags, -Ags  ⊢  -Agf
+         Ama -> Amg, -Amg  ⊢  -Ama
 
-   Here 'Agf' and 'Ags' are separate atomic formulas.
+   Here 'Ama' and 'Amg' are separate atomic formulas.
 
 
 ===========================
