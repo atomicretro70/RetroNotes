@@ -1,4 +1,4 @@
-#############################################################################
+##############################################################################
 ##############################################################################
 ##############################################################################
 ##############################################################################
@@ -37,56 +37,56 @@
 ==============================
 To View This Document Properly
 ==============================
-* Best if viewed in VIM using with settings
-     :set columns=80
-     :set encoding=utf-8
+   * Best if viewed in VIM using with settings
+         :set columns=80
+         :set encoding=utf-8
 
-* This document must be viewed with a mono-spaced font to enjoy the layout,
-  tables and diagrams.
+   * This document must be viewed with a mono-spaced font to enjoy the layout,
+     tables and diagrams.
 
-* This document must be viewed in an editor that can display unicode utf-8.
+   * This document must be viewed in an editor that can display unicode utf-8.
 
 
 ======================================
 CONTENTS
 ======================================
-Contents
-Preface
-Introduction
-   Preliminary Definitions
-   Formal Definitions
-   The Laws of Logic
-   Set Theory
-Propositional Logic (PL)
-   Language
-   Semantics
-   Calculus (PC)
-Predicate Logic
-   Language
-   Semantics
-   Calculus
-First-Order Quantified Logic (FOL)
-   Language
-   Semantics
-   Calculus (FOC)
-Identity Logic (IL/FOL=)
-   Language
-   Semantics
-   Calculus
-Function Logic (FL/FOL=)
-   Language
-   Semantics
-   Calculus
-Definite Descriptors
-   Language
-   Semantics
-   Calculus
-Second-Order Quantified Logic (SOL=)
-   Language
-   Calculus
-Mathematical Induction
-Axiomatic and Natural Deduction
-Formal Theories & Axioms
+   Contents
+   Preface
+   Introduction
+      Preliminary Definitions
+      Formal Definitions
+      The Laws of Logic
+      Set Theory
+   Propositional Logic (PL)
+      Language
+      Semantics
+      Calculus (PC)
+   Predicate Logic
+      Language
+      Semantics
+      Calculus
+   First-Order Quantified Logic (FOL)
+      Language
+      Semantics
+      Calculus (FOC)
+   Identity Logic (IL/FOL=)
+      Language
+      Semantics
+      Calculus
+   Function Logic (FL/FOL=)
+      Language
+      Semantics
+      Calculus
+   Definite Descriptors
+      Language
+      Semantics
+      Calculus
+   Second-Order Quantified Logic (SOL=)
+      Language
+      Calculus
+   Mathematical Induction
+   Axiomatic and Natural Deduction
+   Formal Theories & Axioms
 
 
 =======
@@ -201,8 +201,8 @@ Formal Definitions
 
                       ⊥  =df  (P ∧ -P)
 
-Definition Schemata & Variables
-===============================
+Definition Schemata
+===================
 
    We can introduce a DEFINITION SCHEMA, a "family" of definitions all having
    the same structure, with the help of place-holders, which we denote using
@@ -237,9 +237,9 @@ Definition Schemata & Variables
 The Laws of Logic
 -----------------
 
-    The simplest logic has just two discrete truth-values: True and False;
-    which are complements:  false =df not true.  From this binary relation,
-    it is possible to construct the following logical principles.
+   The simplest logic has just two discrete truth-values: True and False;
+   which are complements:  false =df not true.  From this binary relation,
+   it is possible to construct the following logical principles.
 
    LAW OF NON-CONTRADICTION (LNC)
 
@@ -256,15 +256,15 @@ The Laws of Logic
 
    LAW OF INDISCERNIBILITY OF IDENTICALS (LEIBNIZ'S LAW)
 
-         If two things are the same object, then they have
-         all of the same properties.
+         If two things are the same object, then they have all of the
+         same properties.
 
 ----------
 Set Theory
 ----------
 
-A SET is a collection of objects which has no particular order but in which
-each member object occurs just once.
+   A SET is a collection of objects which has no particular order but in which
+   each member object occurs just once.
 
 Set Definition
 ==============
@@ -276,7 +276,7 @@ Set Definition
          A = { my phone, empire state building, the number 6,
                the neighborhood dog that's always barking }
 
-   The null set has its own symbol.
+   The empty set called NULL has its own symbol.
 
          ∅ = { } = null/empty set
 
@@ -295,13 +295,13 @@ Set Definition
            = "The set of all numbers evenly divisible by two."
 
          P = { x | (x is an integer) or (x is red) }
-           = "The set of all integer or red things."
+           = "The set of all integers or red things."
 
          Z = { x | x is an integer }
              It is customary to denote this set with a bold capital 'Z'.
 
    <x,y> is an ORDERED PAIR, a value which requires two numbers to be
-   fully expressed, where x,y can be any two real numbers
+   fully expressed, where x,y can be any two real numbers.
 
          F = { <x,y> | (x in Z) and (y=10x) }
              The set of all ordered pairs <x,y> such that x is an integer
@@ -310,12 +310,12 @@ Set Definition
 Set-Member Relations
 ====================
 
-   The things that sets are composed of are called OBJECTS, ELEMENTS
-   or MEMBERS.
+         The things that sets are composed of are called OBJECTS, ELEMENTS
+         or MEMBERS; a set *is* its membership.
 
    MEMBERSHIP ( ∊ )
 
-         a ∊ P says, "a is a member/element of P," or, "a is in P."
+         a ∊ P says, "a is a MEMBER/ELEMENT of P," or, "OBJECT a is in P."
          Fido ∊ Dog, Fido is a dog.
          2 ∊ Even, 2 is even.
 
@@ -343,13 +343,13 @@ Set Operations
 
    Consider,
 
-          R = { x | x is red }
-          C = { x | x is a car }
+         R = { x | x is red }
+         C = { x | x is a car }
 
    UNION ( ∪ ) 
 
-         The union of two sets is the set of all things contained
-         in both of those sets.
+   The union of two sets is the set of all things contained in both
+   of those sets.
 
          R ∪ C
          = { x | x is red } ∪ { x | x is a car }
@@ -357,8 +357,8 @@ Set Operations
 
    INTERSECTION ( ∩ )
 
-         The intersection of two sets is the set of all things common
-         to those two sets.
+   The intersection of two sets is the set of all things common to those
+   two sets.
 
          R ∩ C
          = { x | x is red } ∩ { x | x is a car }
@@ -370,14 +370,14 @@ Set Operations
 
    COMPLEMENT ( ' )
 
-         The complement of a set is the set of all things *not* in the set.
+   The complement of a set is the set of all things *not* in the set.
 
          C' = { x | x is not a car }
          C'' = C
 
    CARDINALITY ( || )
 
-         The CARDINALITY of a set is how many members it contains.
+   The CARDINALITY of a set is how many members it contains.
 
          A = { a, b, c }
          |A| = 3
@@ -388,8 +388,8 @@ Set Properties
 
    UNIVERSE
 
-         U, UNIVERSE OF DISCOURSE (also DOMAIN OF DISCOURSE) is the set
-         of all objects in our discussion.
+   U, UNIVERSE OF DISCOURSE (also DOMAIN OF DISCOURSE) is the set of all
+   objects in our discussion.
 
    The universe and the empty set are complements of each other.
 
@@ -397,22 +397,21 @@ Set Properties
 
    DECIDABLE SET
 
-         A set is DECIDABLE if and only if there is an effective method
-         for determining whether an object is in the set.
+   A set is DECIDABLE if and only if there is an effective method
+   for determining whether an object is in the set.
 
    1:1 CORRESPONDENCE
 
-         There is a 1:1 CORRESPONDENCE between sets A and B if and only
-         if there is a way to pair off each member of set A with a unique
-         member of set B.  Therefore, both sets have the same cardinality;
-         |A| = |B|.  Every member of A pairs to exactly one member of B,
-         and vice versa.
+   There is a 1:1 CORRESPONDENCE between sets A and B if and only if there
+   is a way to pair off each member of set A with a unique member of set
+   B.  Therefore, both sets have the same cardinality; |A| = |B|.  Every
+   member of A pairs to exactly one member of B, and vice versa.
 
    DENUMERABLE
 
-         A set is DENUMERABLE if and only if there is a 1:1 correspondence
-         between it and the set of natural numbers.  Hence, the cardinality
-         of the set is infinite.
+   A set is DENUMERABLE if and only if there is a 1:1 correspondence between
+   it and the set of natural numbers.  Hence, the cardinality of the set
+   is infinite.
 
 
 ===================
@@ -574,11 +573,11 @@ Syntax Trees
 Substitution Instance
 =====================
 
-    A SUBSTITUTION INSTANCE of an *original* wff has the same structure
-    as the original but where *new* wffs uniformly replace proposition
-    symbols in the original.  'Instance of' relationships do not have
-    to be symmetrical and usually are not.  P being an instance of Q,
-    does not imply that Q is an instance of P.
+   A SUBSTITUTION INSTANCE of an *original* wff has the same structure
+   as the original but where *new* wffs uniformly replace proposition
+   symbols in the original.  'Instance of' relationships do not have
+   to be symmetrical and usually are not.  P being an instance of Q,
+   does not imply that Q is an instance of P.
 
    =============  =====   =======   ===========   =====================
    Original Form  P ∧ Q | P  ∧ Q  | P       ∧ Q | P  -> (P  ∧ Q       )
@@ -750,6 +749,7 @@ Truth-Table Construction
 ------------------------
 
   Procedure
+
    1.  Construct The table heading starting on the top left with a horizontal
        alphabetical list of all proposition symbols occurring in the formulas
        under study, followed to the right by a second horizontal list of the
@@ -817,22 +817,22 @@ Truth-Table Study of A Single WFF
       A formula that has no true valuations; i.e. the column under the main
       operator has all F's.
 
-      CONTRADICTION
-         A kind of inconsistent formula that's structured as the conjunction
-         of a wff with its negation; i.e. any instance of 'Φ ∧ -Φ'.
+   CONTRADICTION
+      A kind of inconsistent formula that's structured as the conjunction
+      of a wff with its negation; i.e. any instance of 'Φ ∧ -Φ'.
 
    CONSISTENT WFF
       A wff that is true on at least one valuation (row); i.e. the column
       under the formula's main operator contains at least one T.
 
-      CONTINGENT WFF
-         A consistent formula that's true on some valuations and false on
-         others; i.e. the column under the main operator contains at least
-         one T and at least one F.
+   CONTINGENT WFF
+      A consistent formula that's true on some valuations and false on
+      others; i.e. the column under the main operator contains at least
+      one T and at least one F.
 
-      TAUTOLOGY or VALIDITY
-         A consistent formula that's true on all valuations; i.e. the column
-         under the main operator contains all T's.
+   TAUTOLOGY or VALIDITY
+      A consistent formula that's true on all valuations; i.e. the column
+      under the main operator contains all T's.
 
    Summary
 
@@ -881,11 +881,11 @@ Truth-Table Study of A Set of WFFs
       A set of wffs is CONSISTENT if there is at least one valuation (row)
       of the table on which every formula has T under its main operator.
 
-      LOGICALLY EQUIVALENT PAIR OF FORMULAS
-         A pair of wffs is LOGICALLY EQUIVALENT if for every valuation (row)
-         of the table, both wffs have the same value under their main
-         operators.  Notice that for the truth table above for the Sheffer
-         stroke, we've shown that it's logically equivalent to -(P ∧ Q).
+   LOGICALLY EQUIVALENT PAIR OF FORMULAS
+      A pair of wffs is LOGICALLY EQUIVALENT if for every valuation (row)
+      of the table, both wffs have the same value under their main
+      operators.  Notice that for the truth table above for the Sheffer
+      stroke, we've shown that it's logically equivalent to -(P ∧ Q).
 
    INCONSISTENT SET OF FORMULAS
       A set of wffs is INCONSISTENT if there is no valuation (row)
@@ -965,6 +965,7 @@ Truth-Tables ("Fast Method")
    of potentially huge tables due to a large number of proposition symbols.
 
    Procedure
+
    1.  Write down in a horizontal list the wff, set of wffs, or sequent under
        study.  Write T or F (depending on what you are trying to find - see
        Truth-Table Study of Single WFFs above) below the main operator of each
@@ -1130,6 +1131,7 @@ Truth-Trees
    terminated by '⊥'.  So, an OPEN PATH is any path that's not closed.
 
    Procedure
+
    1.  Write down a vertical list of the wffs to be tested.  This list forms
        the root of the tree, so place it at the top of the page.
 
@@ -1420,7 +1422,7 @@ Regarding Notation
    ( Φ ⊢ Ψ ), denotes a subproof with hypothesis Φ concluding with Ψ.
 
    [ ... ] denotes that the enclosed must exist, be defined or proved
-   elsewhere (external to the proof).
+   elsewhere (external to the current proof).
 
 Primitive Inference Rules
 =========================
@@ -1712,7 +1714,8 @@ Derivation Strategies
    Intermediately apply the following procedure recursively
    for each subproof,
 
-   Procedure,
+   Procedure
+
    1.  (Conclusion) If the conclusion has one of these forms,
 
          Φ ∧ Ψ       Derive each conjunct, apply ∧I.
@@ -2061,7 +2064,7 @@ Regarding Notation
    ( Φ ⊢ Ψ ), denotes a subproof with hypothesis Φ concluding with Ψ.
 
    [ ... ] denotes that the enclosed must exist, be defined or proved
-   elsewhere (external to the proof).
+   elsewhere (external to the current proof).
 
 
 --------
@@ -2230,7 +2233,7 @@ Single Quantifiers
 
          ∃x-(Cx -> -Sx)  -∀ is equivalent to ∃- 
          ∃x-(-Cx ∨ -Sx)  By material implication
-         ∃x(--Cx ∧ --Sx) DeMorgans
+         ∃x(--Cx ∧ --Sx) DeMorgan's
          ∃x(Cx ∧ Sx)     Double Negation
 
    So the conclusion reads, some cats like to swim.  Notice that we
@@ -2532,6 +2535,7 @@ Proofs of Non-Consequence
    of propositional logic.
 
    Procedure
+
    1.   Begin the proof by listing each of the assumptions first.  Then
         open a subproof by hypothesizing the negated conclusion form.
 
@@ -2845,7 +2849,7 @@ Identity Peculiarities
 Function Logic (FL)
 ===================
 
-   Function logic is constructed upon FOL=.  It provides a another way
+   Function logic is constucted in FOL=.  It provides another way
    to analyze atomic formulas.  FL however, doesn't add any new power
    to the logic, it just adds new ways to say things FOL= can already say.
    It assigns valid/invalid to all the same forms.  For this reason when
@@ -2873,8 +2877,8 @@ Lexemes
          universal:            ∀
          existential:          ∃
 
-Grammar (Formation Rules)
-=========================
+Grammar
+=======
 
    An ATOMIC FORMULA is a predicate symbol followed by zero or more constants;
    or 'α=β' (where α,β are any constants; and could be the same constant).
@@ -2910,7 +2914,7 @@ Function Symbol Denotation
          |         |    f    |         |
          |    a ---+---------+--> r    |
          |         |         |         |
-         |    b ----------------> s    |
+         |    b ---+---------+--> s    |
          |         |         |         |
          |    c ---+---------+--> t    |
          |         |         |   /     |
@@ -3672,7 +3676,7 @@ Regarding Notation
    ( Φ ⊢ Ψ ), denotes a subproof with hypothesis Φ concluding with Ψ.
 
    [ ... ] denotes that the enclosed must exist, be defined or proved
-   elsewhere (external to the proof).
+   elsewhere (external to the current proof).
 
 
 Lexemes
@@ -3713,7 +3717,7 @@ Formation Rules
    3.  if Φ,Ψ are wffs, then so are (Φ ∧ Ψ), (Φ ∨ Ψ), (Φ -> Ψ), (Φ <-> Ψ);
    4.  if Φ(α) (α a is some constant object symbol) is a wff,
        then ∀xΦ(x/α) and ∃xΦ(x/α) are wffs (where x is new to Φ).
-   5.  if Φ(Ψ) (Φ,Ψ are const predicates) is a wff, then ∀VΦ(V/Ψ) and
+   5.  if Φ(Ψ) (Φ,Ψ are constant predicates) is a wff, then ∀VΦ(V/Ψ) and
        ∃VΦ(V/Ψ) are wffs where V is a variable predicate symbol and
        V is new to Φ.
    6.  Nothing else is a wff.

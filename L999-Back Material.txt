@@ -627,59 +627,72 @@ Do's and Don'ts
    Avoid having a string of one or more small words at the end of a line;
    especially following a period.
 
-Section Headers
+First Text Column
 
-=======
-Level 1
-=======
+   Headers of levels 1,2,3,4 begins in column 1.
+
+   Level 5 headers begin in column 4, and are short.
+
+   All body text begins in column 4.
+
+   Examples and all other kinds of text begin in column 10.
+
+   Tables and diagrams will begin in column 10 provided everything can fit
+   on the line, otherwise they'll begin in column 4.
+   
+Headers
+
+   All headers will be surrounded blank lines.  Over/Underline headers
+   are preceded by two blank lines.
+
+
+
+==============
+Level 1 Header
+==============
 
 ==============================================================================
-||||| Level 1 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||| Level 1 Header |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 ==============================================================================
 
-||||| Level 2 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨
+||||| Level 1 Header |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧
 
-Level 3
-=======
+------------------------------------------------------------------------------
+||||| Level 1 Header |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+------------------------------------------------------------------------------
 
-Level 4
+
+
+-------
+Level 2
 -------
 
-vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
-||||| Level 1 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[[[[[ Level 2 Header ]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
 
-------------------------------------------------------------------------------
-||||| Level 1 ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-------------------------------------------------------------------------------
+((((( Level 2 Header )))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 
-((((( Level 2 ))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
 
-   =======
-   Level 1
-   =======
 
-   -------
-   Level 2
-   -------
+Level 3 Header
+==============
 
-   Level 3
-   =======
+||||| Level 3 Header |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
-   Level 4
-   -------
 
-   All headers will be preceded by a blank line.
 
-   Over/Underline headers are preceded by two blank lines.
+Level 4 Header
+--------------
 
-   Level 1, 2, 3 and 4 headers will be left justified.  Other headers are
-   indented 3 spaces for each level.
+::::: Level 4 Header::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-   Indentation of tables and diagrams will be more liberal to accomodate the
-   limited page width.
 
-   I really like this very simple clean level 1 header below
+   Level 5 Header
+
+   Body text goes here.
+
+         Examples begin here
 
 
 Document Text
