@@ -86,43 +86,20 @@ To View This Document Properly
 
 ||||| New Linux Installation |||||||||||||||||||||||||||||||||||||||||||||||||
 
-20.  Adjust the display in the settings app.
+30.  Install vm tools
+     a.  From the Pop! Shop search for 'sudo apt install open-vm-tools'
+     b.  install
 
-21.  Take a snapshot & reboot
+31.  In settings under power disable the automatic locking.
 
-     -------------------------------------------------------------------------
-     
-30.  Download and install repository files
-     a.  mkdir ~/SWdev
-     b.  cd ~/SWDev
-     c.  git clone https://github.com/atomicretro70/VimConfig.git
-     d.  git clone https://github.com/atomicretro70/RetroNotes.git
-     e.  cd VimConfig
-     f.  cp _vimrc ~/.vimrc
-     g.  cp _bashrc ~/.bashrc
-     h.  cp *.py ~
-     i.  mkdir ~/.vim
-     j.  cp *.vim ~/.vim
-     k.  access the newComputerProcedure.txt file in ~/SWdev/RetroNotes
-         for these instructions on how to procede.
-
-31.  Install vm tools
-     a.  Use 'sudo apt install open-vm-tools'
-     b.  reboot linux.
-     c.  use the window tools to expand the desktop to full screen, and to both
-         monitors.
-     d.  reboot
-
-32.  In settings under power disable the automatic locking.
-
-33.  Make the windowing system more manageable
+32.  Make the windowing system more manageable
      a.  from pop shop install Tweaks.
      b.  modify font size and add minimize and maximize buttons to titlebars.
 
-34.  Dash to Panel Gnome Extension from Gnome extensions web site.
+33.  Dash to Panel Gnome Extension from Gnome extensions web site.
      a.  make it smaller and autohiding
 
-35.  Install the following commands using: sudo apt install <command>
+34.  Install the following commands using: sudo apt install <command>
      Fix The Bash Errors
      a.  figlet    figlet (don't forget fonts into /usr/share/figlet)
          showfigfonts
@@ -137,50 +114,26 @@ To View This Document Properly
      g.  neofetch  displays system info
      h.  htop      enhanced top command
      i.  tree      display the filesystem in a tree
-     j.  bpytop    another top/htop app
+     k.  thunar    file manager
 
-36.  Install more from Pop! Shop:
-     b.  Veloren.net
-     d.  VSCode
-     e.  OBS Studio (used for video recording)
-     f.  screenkey show keypresses on the screen for doing videos.
-     g.  peek
+35.  Intalls bpytop
+     a.  sudo apt install python3-pip
+     b.  sudo pip3 install bpytop --upgrade
+ 
+46.  Download and install repository files
+     a.  mkdir ~/SWdev
+     b.  cd ~/SWDev
+     c.  git clone https://github.com/atomicretro70/VimConfig.git
+     d.  git clone https://github.com/atomicretro70/RetroNotes.git
+     e.  cd VimConfig
+     f.  cp _vimrc ~/.vimrc
+     g.  cp _bashrc ~/.bashrc
+     h.  cp *.py ~
+     i.  mkdir ~/.vim
+     j.  cp *.vim ~/.vim
 
-36.  Install WingIDE from wing ware website - license: EN216-1NWM3-W29N3-2QLNX
-     Need to renew.  Wait until Wing 8.0.  $150 for upgrade.
-
-37.  Make snapshot & reboot
-
-     ----------------------------------------------------------------------------
-     
-40.  Install additional Pop! OS Wallpapers
-     a.  sudo add-apt-repository -ys ppa:system76-dev/stable
-     b.  sudo apt update
-     c.  sudo apt install -y system76-wallpapers
-
-41.  Get the latest version of python going
-
-     a.  sudo apt install python3.9
-     b.  .bashrc contains an alians py -> python3.9
-
-     Get tkinter going
-
-     c.  sudo apt install python3-tk
-     d.  reboot linux
-     e.  test: enter python shell and type 'import tkinter'; there should
-         be no errors. Type 'exit()' to exit.
-
-43.  Install lazygit
-     a. sudo add-apt-repository ppa:lazygit-team/release
-     b. sudo apt update
-     c. sudo apt install lazygit
-
-44.  update
-     a.  sudo apt update
-     b.  sudo apt upgrade
-
-45.  Configure vim
-     a.  sudo apt install vim
+37.  Configure vim
+     a.  sudo apt install vim vim-gtk3 neovim
 
      b.  install vim-plug
          curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -211,17 +164,43 @@ To View This Document Properly
      l.  Follow setup instructions for vim-LanguageTool (web search).
          Move the extracted directory to ~/.vim
 
-46.  Possibly install
-     a.  wine for...
-           i. Kindle
-          ii. Treee DB Notes Pro
-         iii. Calculator software
-     b.  mkusb
-           i. sudo add-apt-repository ppa:mkusb/ppa
-          ii. sudo apt update
-         iii. sudo apt install --install-recommends mkusb mkusb-nox usb-pack-efi
+38.  Install more from Pop! Shop:
+     a.  VSCode
+     b.  OBS Studio (used for video recording)
+     c.  screenkey show keypresses on the screen for doing videos.
+     d.  peek
 
-47.  Don't forget about Kindle Cloud Reader at https://read.amazon.co
+39.  Install WingIDE from wing ware website - license: EN216-1NWM3-W29N3-2QLNX
+     Need to renew.  Wait until Wing 8.0.  $150 for upgrade.
 
-48.  take snapshot & reboot
+40.  Install additional Pop! OS Wallpapers
+     a.  sudo add-apt-repository -ys ppa:system76-dev/stable
+     b.  sudo apt update
+     c.  sudo apt install -y system76-wallpapers
 
+41.  Get the latest version of python going
+     a.  sudo apt install python3.9
+     b.  .bashrc contains an alias py -> python3.9
+
+     Get tkinter going
+
+     c.  sudo apt install python3-tk
+     d.  test: enter python shell and type 'import tkinter'; there should
+         be no errors. Type 'exit()' to exit.
+
+42.  Install lazygit
+     a. sudo add-apt-repository ppa:lazygit-team/release
+     b. sudo apt update
+     c. sudo apt install lazygit
+
+43.  Install mkusb
+     a.  sudo add-apt-repository ppa:mkusb/ppa
+     b.  sudo apt update
+     c.  sudo apt install --install-recommends mkusb mkusb-nox usb-pack-efi
+
+44.  Update, Upgrade & snapshot
+     a.  type sudo apt update
+     b.  type sudo apt upgrade
+     c.  take a VMWARE snapshot and reboot
+     
+45.  Don't forget about Kindle Cloud Reader at https://read.amazon.co
