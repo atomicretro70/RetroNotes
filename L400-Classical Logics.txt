@@ -310,8 +310,8 @@ Set Definition
 Set-Member Relations
 ====================
 
-         The things that sets are composed of are called OBJECTS, ELEMENTS
-         or MEMBERS; a set *is* its membership.
+   The things that sets are composed of are called OBJECTS, ELEMENTS
+   or MEMBERS; a set *is* its membership.
 
    MEMBERSHIP ( ∊ )
 
@@ -319,7 +319,7 @@ Set-Member Relations
          Fido ∊ Dog, Fido is a dog.
          2 ∊ Even, 2 is even.
 
-   Identity ( = )
+   IDENTITY ( = )
 
          A = B, Sets A and B have the same members.
          x = y, symbols x and y denote the same object.
@@ -733,8 +733,8 @@ Sequents
 
          P1,...,Pn  ⊢  C
 
-         '⊢' is a TURNSTILE.  It's part of the metalanguage,
-         not a part of propositional logic.
+   '⊢' is a TURNSTILE.  It's part of the metalanguage, not a part of
+   propositional logic.
 
 TRUTH-TABLES
 ============
@@ -1251,13 +1251,13 @@ Truth-Tree Study of A Single WFF
    tree for the negation of the original wff.  A wff is tautological if and
    only if its negation is inconsistent.  Otherwise, it is contingent.
 
-         =============   ==========================   ==========
+         =============   ==========================   ===========
          Condition       wff                          -wff
-         =============   ==========================   ==========
-         0  open paths   inconsistent                 tautology
+         =============   ==========================   ===========
+         0  open paths   inconsistent                 tautologous
          1+ open paths   consistent                   contingent
-         2+ open paths   tautology or contingency     contingent
-         =============   ==========================   ==========
+         2+ open paths   tautologous or contingent    contingent
+         =============   ==========================   ===========
 
 Truth-Tree Study of A Set of Wffs
 ---------------------------------
@@ -1343,7 +1343,7 @@ Direct Proofs
 
    In a Fitch style proof, it is customary to begin the proof by listing the
    premises, which is what we do in steps 1 and 2.  Notice that the
-   justification for those two steps are 'Assumption', which is another word
+   justification for those two steps are 'ASSUMPTION', which is another word
    for 'premise'.  Step 3 makes use of steps 1 and 2, and so the justification
    begins by citing those steps by writing '1,2'.  'Conditional Elimination'
    is the name of the inference rule applied to steps 1 and 2 to reach step 3.
@@ -1409,17 +1409,17 @@ Regarding Notation
 
    A capital Greek letter (Φ, Ψ, Θ, Δ, etc.) denotes any arbitrary formula.
 
-   Φ(Ψ) denotes a wff Φ contains one or more occurrences of a sub-wff Ψ.
+   'Φ(Ψ)' denotes a wff Φ contains one or more occurrences of a sub-wff Ψ.
 
-   Φ(Θ/Ψ) denotes the result of replacing one or more occurrences of Ψ in Φ
+   'Φ(Θ/Ψ)' denotes the result of replacing one or more occurrences of Ψ in Φ
    with Θ.  Θ/Ψ is read, "Θ replaced one or more occurrences of Ψ".
 
-   Φ (Θ//Ψ) like above but indicates replacing all occurrences of Ψ in Φ with
-   Θ.  Θ//Ψ is read, "Θ replaced all occurrences of Ψ"
+   'Φ (Θ//Ψ)' like above but indicates replacing all occurrences of Ψ in Φ
+   with Θ.  Θ//Ψ is read, "Θ replaced all occurrences of Ψ".
 
-   ( Φ ⊢ Ψ ), denotes a subproof with hypothesis Φ concluding with Ψ.
+   '( Φ ⊢ Ψ )' denotes a subproof with hypothesis Φ concluding with Ψ.
 
-   [ ... ] denotes that the enclosed must exist, be defined or proved
+   '[ ... ]' denotes that the enclosed must exist, be defined or proved
    elsewhere (external to the current proof).
 
 Primitive Inference Rules
@@ -1443,14 +1443,14 @@ Primitive Inference Rules
    Negation Elimination (-E)         From --Φ, infer Φ.
 
    Negation Introduction (-I)        From a subproof with hypothesis Φ
-      Reductio ad absurdum (RAA)     ending in (Ψ ∧ -Ψ), close the subproof,
-      Proof by Contradiction (PBC)   and infer -Φ.
+      Reductio Ad Absurdum (RAA)     ending in (Ψ ∧ -Ψ), close the subproof,
+      Proof By Contradiction (PBC)   and infer -Φ.
       Indirect Proof (IP)
 
    Conjunction Elimination (∧E)      From Φ ∧ Ψ, infer Φ, or infer Ψ.
       Simplification (Simp)
 
-   Conjunction (∧I)                  From Φ and Ψ, infer Φ ∧ Ψ,
+   Conjunction Introduction (∧I)     From Φ and Ψ, infer Φ ∧ Ψ,
                                      or infer Ψ ∧ Φ.
 
    Disjunction Elimination (∨E)      From Φ ∨ Ψ, Φ → Θ and Ψ → Θ, infer Θ.
@@ -1464,12 +1464,12 @@ Primitive Inference Rules
 
    Conditional Introduction (→ I)    From a subproof with hypothesis Φ
       Conditional Proof (CP)         and ending Ψ, close the subproof,
-                                     and infer Ψ → Φ.
+                                     then infer Ψ → Φ.
 
    Biconditional Elimination (↔ E)   From Φ ↔ Ψ, infer Φ → Ψ,
                                      or infer Ψ → Φ.
 
-   Biconditional Introduction (↔ I)  From Φ → Ψ and Ψ → Φ, infer Φ ↔ Ψ
+   Biconditional Introduction (↔ I)  From Φ → Ψ and Ψ → Φ, infer Φ ↔ Ψ.
 
    Equivalence Substitution (EQ)     From [ Φ ↔ Ψ ], and Θ(Φ), infer Θ(Ψ/Φ);
                                      or from [ Φ ↔ Ψ ] and Θ(Ψ),
@@ -1621,8 +1621,8 @@ Equivalences
    Material Equivalence (ME)         ⊢  (P ↔ Q) ↔ ((P ∧ Q) ∨ (-P ∧ -Q))
    ================================  =========================================
 
-   Appendix C contains the proof of all the derived forms, theorems and
-   equivalence theorems.
+   Appendix C contains the proofs of all of these derived forms, theorems and
+   equivalences.
 
 Consequence and Non-Consequence
 ===============================
@@ -1657,7 +1657,7 @@ Consequence and Non-Consequence
    (due to occurring negated in step 2), and Q is true (due to occurring
    unnegated in step 3).  We can verify this with a truth-table. 
    If a proposition symbol doesn't appear negated or unnegated, then
-   it is truth-value does not matter
+   it is truth-value does not matter.
 
           P Q | P → Q , - P  ⊢  - Q
          ============================
@@ -1676,12 +1676,12 @@ Defining ⊥ Into Propositional Logic/Calculus
 ============================================
 
 
-   Some Fitch implementations use ⊥ (the contradiction symbol) to remove
-   tedium and improve the readability of proofs.  Applications of -I are
-   often preceded by ∧I, but the resulting conjunction can be quite long.
-   Since EFQ infers any wff from two contradictory propositions; we can
-   always infer 'P ∧ -P' instead of a long conjunction.  But the following
-   definition is even briefer.
+   Some Fitch implementations use ⊥ (the CONTRADICTION SYMBOL) tedium and
+   improve the readability of proofs.  Applications of -I are often preceded
+   by ∧I, but the resulting conjunction can be quite long.  Since EFQ infers
+   any wff from two contradictory propositions; we can always infer 'P ∧ -P'
+   instead of a long conjunction.  But the following definition is even
+   briefer.
 
          ⊥  =df  P ∧ -P
 
@@ -1716,26 +1716,26 @@ Derivation Strategies
 
    1.  (Conclusion) If the conclusion has one of these forms,
 
-         Φ ∧ Ψ       Derive each conjunct, apply ∧I.
+         Φ ∧ Ψ       derive each conjunct, apply ∧I
 
-         Φ ∨ Ψ       Derive one disjunct, apply ∨I.
+         Φ ∨ Ψ       derive one disjunct, apply ∨I
 
-         Φ → Ψ       Hypothesize Φ derive Ψ, close the subproof, apply → I.
+         Φ → Ψ       hypothesize Φ derive Ψ, close the subproof, apply → I
 
-         Φ ↔ Ψ       Derive Φ → Ψ, derive Ψ → Φ, apply ↔ I.
+         Φ ↔ Ψ       derive Φ → Ψ, derive Ψ → Φ, apply ↔ I
 
    2.  (Premise) If a premise has the following form
 
-         Φ ∨ Ψ       Derive two conditionals Φ → Θ and Ψ → Θ to obtain the
-                     needed conclusion Θ.
+         Φ ∨ Ψ       derive two conditionals Φ → Θ and Ψ → Θ to obtain the
+                     needed conclusion Θ
 
    3.  (Reductio) Next try one of these taking WFF as the desired conclusion,
 
-         - WFF       Hypothesize WFF (unnegated), derive ⊥ or derive
-                     a contradiction, lastly perform -I or ⊥ E.
+         - WFF       hypothesize WFF (unnegated), derive ⊥ or derive
+                     a contradiction, lastly perform -I or ⊥ E
 
-         WFF         Hypothesize -WFF, derive ⊥ or contradiction, then
-                     perform -I and finally -E.
+         WFF         hypothesize -WFF, derive ⊥ or contradiction, then
+                     perform -I and finally -E
 
 
 --------
