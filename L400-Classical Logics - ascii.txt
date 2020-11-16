@@ -310,8 +310,8 @@ Set Definition
 Set-Member Relations
 ====================
 
-   The things that sets are composed of are called OBJECTS, ELEMENTS
-   or MEMBERS; a set *is* its membership.
+         The things that sets are composed of are called OBJECTS, ELEMENTS
+         or MEMBERS; a set *is* its membership.
 
    MEMBERSHIP ( ∊ )
 
@@ -319,7 +319,7 @@ Set-Member Relations
          Fido ∊ Dog, Fido is a dog.
          2 ∊ Even, 2 is even.
 
-   IDENTITY ( = )
+   Identity ( = )
 
          A = B, Sets A and B have the same members.
          x = y, symbols x and y denote the same object.
@@ -448,7 +448,7 @@ Lexemes
       Association Symbols:      (, )
 
    Logical Symbols
-      Truth-Function Symbols:   -, ∧, ∨, →, ↔
+      Truth-Function Symbols:   -, ∧, ∨, ->, <->
 
 Grammar
 =======
@@ -466,13 +466,13 @@ Grammar
 
    1.  Each atomic formula is a wff;
    2.  if Φ is a wff, then -Φ is a wff;
-   3.  if Φ, Ψ are wffs, then (Φ ∧ Ψ),(Φ ∨ Ψ),(Φ → Ψ),(Φ ↔ Ψ) are wffs;
+   3.  if Φ, Ψ are wffs, then (Φ ∧ Ψ),(Φ ∨ Ψ),(Φ -> Ψ),(Φ <-> Ψ) are wffs;
    4.  nothing else is a wff.
 
    Notes
    - Notice that the formation rules for wffs are recursive,
      meaning that wffs can nest within other wffs to any depth.
-     While P ∧ Q is a wff, so is (-(P ∨ Q) → R).
+     While P ∧ Q is a wff, so is (-(P ∨ Q) -> R).
 
    - To aid readability, we adopt the convention that if a top-level wff
      begins with '(', we will drop the outermost pair of parentheses,
@@ -491,30 +491,30 @@ Truth-Function Anatomy
    Below are the formal, informal, and metalogical names of the operations
    and operands.
 
-         ======  ========  =============  =======  ====================
+         ======  ========  =============  =======  ===================
          Formal  Informal  Metalogical    Example  Operand Names
-         ======  ========  =============  =======  ====================
+         ======  ========  =============  =======  ===================
           -      not       NEGATION       -P       P is a NEGATAND
           ∧      and       CONJUNCTION    P ∧ Q    P,Q are CONJUNCTS
           ∨      or        DISJUNCTION    P ∨ Q    P,Q are DISJUNCTS
-          →      if/then   CONDITIONAL    P → Q    P is the ANTECEDENT,
+          ->     if/then   CONDITIONAL    P -> Q   P is the ANTECEDENT,
                                                     Q is the CONSEQUENT
-          ↔      just if   BICONDITIONAL  P ↔ Q    Operands
-         ======  ========  =============  =======  ====================
+          <->    just if   BICONDITIONAL  P <-> Q  Operands
+         ======  ========  =============  =======  ===================
 
    ARITY is the number of subordinates an operation requires.  For example,
    negation has an arity of one because it has one subordinate, while
    conjunction has two.  The table below lists some common arities and some
    different names by which they go.
 
-         =====  =========  ==========  ==========  ====================
-         Arity  -ary name  -adic name  place name  Examples
-         =====  =========  ==========  ==========  ====================
-          0                            0-place     P
-          1     UNARY      MONADIC     1-place     -P
-          2     BINARY     DIADIC      2-place     P ∧ Q, P ∨ Q
-          3     TRINARY    TRIADIC     3-place     x is between y and z
-         =====  =========  ==========  ==========  ====================
+         =====  ====================  =========  ==========  ==========
+         Arity  Examples              -ary name  -adic name  place name
+         =====  ====================  =========  ==========  ==========
+          0     P                                            0-place
+          1     -P                    UNARY      MONADIC     1-place
+          2     P ∧ Q, P ∨ Q          BINARY     DIADIC      2-place
+          3     x is between y and z  TRINARY    TRIADIC     3-place
+         =====  ====================  =========  ==========  ==========
 
 Tree Graphs
 -----------
@@ -544,17 +544,19 @@ Tree Graphs
 Syntax Trees
 ------------
 
-   Wff's can be diagrammed into a recursive tree structure in which
-   operators are parent nodes and atomic and non-atomic subordinate wff's
-   are the child nodes.  The number of children an operator node has is equal
-   to the arity of that operator.
+   It is essential to understand the structure of a wff.  Understanding
+   can be achieved by studying syntax trees for wffs.  In drawing a syntax
+   tree for any formula, first, think of it in terms of subformulas.  Each
+   subformula consists of an operator and one or two operands.  To draw the
+   subformula tree, draw the operator first, then in branches below it write
+   the operands.  Study the example to get a better understanding.
 
-         -(P → (Q V -R))
+         -(P -> (Q V -R))
 
                                -
                                |
                                |
-                               →
+                               ->
                              /    \
                            /        \
                          P            ∨
@@ -577,14 +579,14 @@ Substitution Instance
    to be symmetrical and usually are not.  P being an instance of Q,
    does not imply that Q is an instance of P.
 
-   =============  =====   =======   ===========   ====================
-   Original Form  P ∧ Q | P  ∧ Q  | P       ∧ Q | P  → (P  ∧ Q       )
-   =============  =====   =======   ===========   ====================
+   =============  =====   =======   ===========   =====================
+   Original Form  P ∧ Q | P  ∧ Q  | P       ∧ Q | P  -> (P  ∧ Q       )
+   =============  =====   =======   ===========   =====================
    Substitutions  P=R   | P=-S    | P=(C ∧ D)   | P=-H
                   Q=S   | Q=Z     | Q=D         | Q=(-S ∨ M)
-   -------------  ----- | ------- | ----------- | --------------------
-   Instance       R ∧ S | -S ∧ Z  | (C ∧ D) ∧ D | -H → (-H ∧ (-S ∨ M))
-   =============  =====   =======   ===========   ====================
+   -------------  ----- | ------- | ----------- | ---------------------
+   Instance       R ∧ S | -S ∧ Z  | (C ∧ D) ∧ D | -H -> (-H ∧ (-S ∨ M))
+   =============  =====   =======   ===========   =====================
 
 
 ---------
@@ -605,7 +607,7 @@ Translation Hints
    | it's true that P                  | it's not true that P              |
    | it's the case that P              | it's not the case that P          |
    | P whether or not Q                | non-P                             |
-   |   literally:  (Q ∨ -Q) → P        |                                   |
+   |   literally:  (Q ∨ -Q) -> P       |                                   |
    |                                   |                                   |
    | ================================= | ================================= |
    | P ∧ Q                             | -(P ∧ Q)                          |
@@ -633,7 +635,7 @@ Translation Hints
    | P unless Q                        |                                   |
    |                                   |                                   |
    | ================================= | ================================= |
-   | P → Q                             | -P → -Q                           |
+   | P -> Q                            | -P -> -Q                          |
    | ================================= | ================================= |
    | if P then Q                       | P is a necessary condition for Q  |
    | P implies Q                       | P is necessary for Q              |
@@ -650,7 +652,7 @@ Translation Hints
    | Q in case P                       |                                   |
    |                                   |                                   |
    | ================================= | ================================= |
-   | P ↔ Q                             | P ↔ -Q                            |
+   | P <-> Q                           | P <-> -Q                          |
    | ================================= | ================================= |
    | P if and only if (iff) Q          | P xor Q (in computing)            |
    | P just if Q                       | P (exclusive) or Q                |
@@ -696,9 +698,9 @@ Conversational Implicature
    what happens by negating the first rewritten example and seeing what
    we derive after applying a few logical equivalences.
 
-         K → F,      if you keep up the good work, then you'll go far.
+         K -> F,     if you keep up the good work, then you'll go far.
 
-         -(K → F),   it's false that if you keep up the work, you'll go far
+         -(K -> F),  it's false that if you keep up the work, you'll go far
          -(-K ∨ F)
          K ∧ -F,     You keep up the good work, and you don't go far.
 
@@ -712,18 +714,18 @@ Valuation Function
 
    Here is the valuation function for propositional logic,
 
-         v(-Φ)    = true if Φ is false;
-                    false if Φ is true
-         v(Φ ∧ Ψ) = true if both Φ and Ψ are true;
-                    false if either Φ or Ψ or both are false
-         v(Φ ∨ Ψ) = true if either Φ or Ψ or both are true;
-                    false if both Φ and Ψ are false
-         v(Φ → Ψ) = true if Φ is false or Ψ is true;
-                    false if Φ is true and Ψ is false
-         v(Φ ↔ Ψ) = true if both Φ and Ψ are true, or
-                            both Φ and Ψ are false;
-                    false if either Φ is true and Ψ is false, or
-                                    Φ is false and Ψ is true.
+         v(-Φ)      =  true if Φ is false;
+                       false if Φ is true
+         v(Φ ∧ Ψ)    = true if both Φ and Ψ are true;
+                       false if either Φ or Ψ or both are false
+         v(Φ ∨ Ψ)    = true if either Φ or Ψ or both are true;
+                       false if both Φ and Ψ are false
+         v(Φ -> Ψ)   = true if Φ is false or Ψ is true;
+                       false if Φ is true and Ψ is false
+         v(Φ <-> Ψ)  = true if both Φ and Ψ are true, or
+                               both Φ and Ψ are false;
+                       false if either Φ is true and Ψ is false, or
+                                       Φ is false and Ψ is true.
 
 Sequents
 ========
@@ -733,8 +735,8 @@ Sequents
 
          P1,...,Pn  ⊢  C
 
-   '⊢' is a TURNSTILE.  It's part of the metalanguage, not a part of
-   propositional logic.
+         '⊢' is a TURNSTILE.  It's part of the metalanguage,
+         not a part of propositional logic.
 
 TRUTH-TABLES
 ============
@@ -786,13 +788,13 @@ Truth-Table Study of The Truth-Functions
           T   | F T
                 *
 
-          P Q | (P ∧ Q) | (P ∨ Q) | (P → Q) | (P ↔ Q)
-         =============================================
-          F F |  F F F  |  F F F  |  F T F  |  F T  F
-          F T |  F F T  |  F T T  |  F T T  |  F F  T
-          T F |  T F F  |  T T F  |  T F F  |  T F  F
-          T T |  T T T  |  T T T  |  T T T  |  T T  T
-                   *         *         *         *
+          P Q | (P ∧ Q) | (P ∨ Q) | (P -> Q) | (P <-> Q)
+         ===============================================
+          F F |  F F F  |  F F F  |  F T  F  |  F  T  F
+          F T |  F F T  |  F T T  |  F T  T  |  F  F  T
+          T F |  T F F  |  T T F  |  T F  F  |  T  F  F
+          T T |  T T T  |  T T T  |  T T  T  |  T  T  T
+                   *         *         *           *
 
 Truth-Table Study of A Single WFF
 ---------------------------------
@@ -800,13 +802,13 @@ Truth-Table Study of A Single WFF
    More typical of a truth-table is its construction for a more complex
    formula.  Here's an example,
 
-          P Q | -(P ↔ Q) V P
+          P Q | -(P <-> Q) V P
          ======================
-          F F | F F T F  F F
-          F T | T F F T  T F
-          T F | T T F F  T T
-          T T | F T T T  T T
-                         *
+          F F | F F  T  F  F F
+          F T | T F  F  T  T F
+          T F | T T  F  F  T T
+          T T | F T  T  T  T T
+                           *
 
    Once the truth-table is completed examining the column below the main
    operator can reveal important properties of the formula.
@@ -848,7 +850,7 @@ Truth-Functional Completeness
 
    TRUTH-FUNCTIONAL COMPLETENESS describes any set of truth-functional
    operators from which all other truth-functions are definable.
-   Propositional logic's set of primitive operators -, ∧, ∨, → and ↔
+   Propositional logic's set of primitive operators -, ∧, ∨, -> and <->
    is truth-functionally complete.  But so too is negation with any other
    single operator.  Some authors have defined new operators that are
    truth-functionally complete by themselves.  An example is the
@@ -861,13 +863,13 @@ Truth-Functional Completeness
    main operators (highlighted with '*') under each wff have the same
    value in the same valuation.
 
-          P Q | (P | Q) | -(P ∧ Q)     R S | R → S | - R ∨ S
+          P Q | (P | Q) | -(P ∧ Q)     R S | R -> S | - R ∨ S
          ==========================    ========================
-          F F |  F T F  | T F F F      F F | F T F | T F T F
-          F T |  F T T  | T F F T      F T | F T T | T F T T
-          T F |  T T F  | T T F F      T F | T F F | F T F F
-          T T |  T F T  | F T T T      T T | T T T | F T T T
-                   *      *                    *     *
+          F F |  F T F  | T F F F      F F | F T  F | T F T F
+          F T |  F T T  | T F F T      F T | F T  T | T F T T
+          T F |  T T F  | T T F F      T F | T F  F | F T F F
+          T T |  T F T  | F T T T      T T | T T  T | F T T T
+                   *      *                     *          *
 
 Truth-Table Study of A Set of WFFs
 ----------------------------------
@@ -889,13 +891,13 @@ Truth-Table Study of A Set of WFFs
       A set of wffs is INCONSISTENT if there is no valuation (row)
       on which all formulas have T under their main operators.
 
-          R S | R → S | - R ∨ S
-         =======================
-          F F | F T F | T F T F
-          F T | F T T | T F T T
-          T F | T F F | F T F F
-          T T | T T T | F T T T
-                  *         *
+          R S | R -> S | - R ∨ S
+         =========================
+          F F | F T  F | T F T F
+          F T | F T  T | T F T T
+          T F | T F  F | F T F F
+          T T | T T  T | F T T T
+                  *          *
 
 Truth-Table Study of A Sequent
 ------------------------------
@@ -911,13 +913,13 @@ Truth-Table Study of A Sequent
 
    Example
 
-          P Q | P → Q , - Q  ⊢  - P
-         ===========================
-          F F | F T F | T F  |  T F  <==
-          F T | F T T | F T  |  T F
-          T F | T F F | T F  |  F T
-          T T | T T T | F T  |  F T
-                  *     *       *
+          P Q | P -> Q , - Q  ⊢  - P
+         =============================
+          F F | F T  F | T F  |  T F  <==
+          F T | F T  T | F T  |  T F
+          T F | T F  F | T F  |  F T
+          T T | T T  T | F T  |  F T
+                  *      *       *
 
    The row indicated with an arrow verifies that this argument is valid.
 
@@ -926,13 +928,13 @@ Truth-Table Study of A Sequent
 
    Example
 
-          P Q | P → Q ,  - P  ⊢  - Q
-         ============================
-          F F |   T   |  T    |  T F
-          F T |   T   |  T    |  F T  <==
-          T F |   F   |  F    |  T F
-          T T |   T   |  F    |  F T
-                  *      *       *
+          P Q | P -> Q ,  - P  ⊢  - Q
+         =============================
+          F F |   T    |  T    |  T F
+          F T |   T    |  T    |  F T  <==
+          T F |   F    |  F    |  T F
+          T T |   T    |  F    |  F T
+                  *       *       *
 
    We have discovered a row on which the premises are all T, but the conclusion
    is F, so the argument form is invalid.
@@ -971,7 +973,7 @@ Truth-Tables ("Fast Method")
 
    2.  Now work backward from the outermost operator down to the innermost
        parentheses.  Evaluate as many sub-expressions as possible, continuing
-       until it is not possible to do anything else - some sub-wffs may
+       until it is not possible to do anything else - some subwffs may
        go undetermined.
 
    3.  While performing step 2 if you can find the truth-value of
@@ -997,20 +999,20 @@ Fast truth-table Study of A Single WFF
 
    Examples
 
-         1.  P ∧ Q     --P ∧ (Q ∨ P)     P ∨ -Q     P → (- Q ∨ R)
+         1.  P ∧ Q     --P ∧ (Q ∨ P)     P ∨ -Q     P -> (- Q ∨ R)
                T           T               F          F
 
-         2.  P ∧ Q     --P ∧ (Q ∨ P)     P ∨ -Q     P → (- Q ∨ R)
-             T T T     T   T    T        F F F      T F    F
+         2.  P ∧ Q     --P ∧ (Q ∨ P)     P ∨ -Q     P -> (- Q ∨ R)
+             T T T     T   T    T        F F F      T F     F
              *   *
 
-         3.            --P ∧ (Q ∨ P)     P ∨ - Q    P → (- Q ∨ R)
-                       TFT T    T T      F F F T    T F  F   F F
+         3.            --P ∧ (Q ∨ P)     P ∨ - Q    P -> (- Q ∨ R)
+                       TFT T    T T      F F F T    T F   F   F F
                                          *     *
 
-         4.            --P ∧ (Q ∨ P)                P → (- Q ∨ R)
-                       TFT T  ? T T                 T F  F T F F
-                         *    *   *                 *      *   *
+         4.            --P ∧ (Q ∨ P)                P -> (- Q ∨ R)
+                       TFT T  ? T T                 T F   F T F F
+                         *    *   *                 *       *   *
 
    Valuations Discovered
 
@@ -1071,39 +1073,39 @@ Fast Truth-Table Study of A Sequent
       
    Example  Test the sequent for validity
 
-         1.  - P → (Q ∨ R), - Q  ⊢   R → P
-                 T          T          F
+         1.  - P -> (Q ∨ R), - Q  ⊢   R -> P
+                 T           T          F
 
-         2.  - P → (Q ∨ R), - Q  ⊢   R → P
-                 T          T F      T F F
+         2.  - P -> (Q ∨ R), - Q  ⊢   R -> P
+                 T           T F      T F  F
 
-         3.  - P → (Q ∨ R), - Q  ⊢   R → P
-               F T  F   T   T F      T F F
+         3.  - P -> (Q ∨ R), - Q  ⊢   R -> P
+               F T   F   T   T F      T F  F
 
-         4.  - P → (Q ∨ R), - Q  ⊢   R → P
-             T F T  F T T   T F      T F F
-                 *          *          *
+         4.  - P -> (Q ∨ R), - Q  ⊢   R -> P
+             T F T   F T T   T F      T F  F
+                 *           *          *
 
    The search succeeded in finding a set of values that make all the
    premises T and the conclusion F.  So the argument is invalid.
 
    Example  Test the argument form for validity
 
-         1.  P → (Q ∨ R), Q → S, P  ⊢  - R → S
-               T            T    T         F
+         1.  P -> (Q ∨ R), Q -> S, P  ⊢  - R -> S
+               T             T     T         F
 
-         2.  P → (Q ∨ R), Q → S, P  ⊢  - R → S
-               T            T    T     T   F F
+         2.  P -> (Q ∨ R), Q -> S, P  ⊢  - R -> S
+               T             T     T     T   F  F
 
-         3.  P → (Q ∨ R), Q → S, P  ⊢  - R → S
-             T T            T F  T     T F F F
+         3.  P -> (Q ∨ R), Q -> S, P  ⊢  - R -> S
+             T T             T  F  T     T F F  F
 
-         4.  P → (Q ∨ R), Q → S, P  ⊢  - R → S
-             T T    T F   F T F  T     T F F F
+         4.  P -> (Q ∨ R), Q -> S, P  ⊢  - R -> S
+             T T     T F   F T  F  T     T F F  F
 
-         5.  P → (Q ∨ R), Q → S, P  ⊢  - R → S
-             T T  F T F   F T F  T     T F F F
-                  *
+         5.  P -> (Q ∨ R), Q -> S, P  ⊢  - R -> S
+             T T   F T F   F T  F  T     T F F  F
+                   *
 
    We've discovered a contradiction.  The highlighted disjunction can't be
    T if both Q and R are F.  Therefore, the form is valid.
@@ -1169,21 +1171,21 @@ Truth-Trees
          it and write both -Φ and -Ψ at the bottom of every open path that
          contains this newly starred wff.
 
-   →     If an open path contains an unstarred instance of Φ → Ψ, star it
+   ->    If an open path contains an unstarred instance of Φ -> Ψ, star it
          and split the bottom of each open path containing this newly starred
          wff into two branches, at the end of the first branch write -Φ and
          at the end of the second branch write Ψ.
 
-   -→    If an open path contains an unstarred instance of -(Φ → Ψ),
+   -->   If an open path contains an unstarred instance of -(Φ -> Ψ),
          star it and write both Φ and -Ψ at the bottom of every open path
          that contains this newly starred wff.
 
-   ↔     If an open path contains an unstarred instance of Φ ↔ Ψ, star
+   <->   If an open path contains an unstarred instance of Φ <-> Ψ, star
          it and split the bottom of each open path containing this newly
          starred wff into two branches, at the end of the first write both
          Φ and Ψ, and at the end of the second write both -Φ and -Ψ.
 
-   -↔    If an open path contains an unstarred instance of -(Φ ↔ Ψ), star
+   -<->  If an open path contains an unstarred instance of -(Φ <-> Ψ), star
          it and split the bottom of each open path containing this newly
          starred wff into two branches, at the end of the first write both
          Φ and -Ψ, and at the end of the second write both -Φ and Ψ.
@@ -1217,18 +1219,18 @@ Truth-Trees
            |          Φ     Ψ          |             -Ψ            |
            |                           |                           |
            | ========================= | ========================= |
-           |             →             |            -→             |
+           |             ->            |            -->            |
            | ========================= | ========================= |
-           |         * Φ → Ψ           |       * -(Φ → Ψ)          |
-           |          --------         |        -----------        |
+           |         * Φ -> Ψ          |       * -(Φ -> Ψ)         |
+           |          --------         |        ------------       |
            |           /    \          |             Φ             |
            |         -Φ      Ψ         |            -Ψ             |
            |                           |                           |
            | ========================= | ========================= |
-           |            ↔              |           -↔              |
+           |            <->            |           -<->            |
            | ========================= | ========================= |
-           |        * Φ ↔ Ψ            |       * -(Φ ↔ Ψ)          |
-           |         ---------         |        -----------        |
+           |        * Φ <-> Ψ          |       * -(Φ <-> Ψ)        |
+           |         ---------         |        ------------       |
            |          /     \          |           /     \         |
            |         Φ      -Φ         |          Φ       -Φ       |
            |         Ψ      -Ψ         |         -Ψ        Ψ       |
@@ -1251,13 +1253,13 @@ Truth-Tree Study of A Single WFF
    tree for the negation of the original wff.  A wff is tautological if and
    only if its negation is inconsistent.  Otherwise, it is contingent.
 
-         =============   ==========================   ===========
+         =============   ==========================   ==========
          Condition       wff                          -wff
-         =============   ==========================   ===========
-         0  open paths   inconsistent                 tautologous
+         =============   ==========================   ==========
+         0  open paths   inconsistent                 tautology
          1+ open paths   consistent                   contingent
-         2+ open paths   tautologous or contingent    contingent
-         =============   ==========================   ===========
+         2+ open paths   tautology or contingency     contingent
+         =============   ==========================   ==========
 
 Truth-Tree Study of A Set of Wffs
 ---------------------------------
@@ -1333,9 +1335,9 @@ Direct Proofs
    are a set of any line numbers of the premises to which that rule was
    applied.  For our purposes, all propositions will take the form of wffs.
 
-            P → (Q ∧ R), P  ⊢  Q
+            P -> (Q ∧ R), P  ⊢  Q
             Proof
-            01.   P → (Q ∧ R)      Assumption
+            01.   P -> (Q ∧ R)     Assumption
             02.   P                Assumption
             03.   Q ∧ R            1,2 Conditional Elimination
             04.   Q                3 Conjunction Elimination
@@ -1343,7 +1345,7 @@ Direct Proofs
 
    In a Fitch style proof, it is customary to begin the proof by listing the
    premises, which is what we do in steps 1 and 2.  Notice that the
-   justification for those two steps are 'ASSUMPTION', which is another word
+   justification for those two steps are 'Assumption', which is another word
    for 'premise'.  Step 3 makes use of steps 1 and 2, and so the justification
    begins by citing those steps by writing '1,2'.  'Conditional Elimination'
    is the name of the inference rule applied to steps 1 and 2 to reach step 3.
@@ -1358,7 +1360,7 @@ Direct Proofs
    there are two inference rules: one called an 'introduction' rule, the other
    called an 'elimination' rule; which are abbreviated 'I' and 'E'
    respectively.  The Conditional Elimination rule used above in step
-   3 is abbreviated '→E'.  Similarly, the Conjunction Elimination rule
+   3 is abbreviated '->E'.  Similarly, the Conjunction Elimination rule
    used in step 4 is abbreviated '∧E'.
 
    A DIRECT PROOF is any formal proof that has no indented steps.
@@ -1374,12 +1376,12 @@ Hypothetical Subordinate Proofs
    of a subproof is the proposition called the HYPOTHESIS.
    It is a proposition we plan to test in the subproof.
 
-            P → Q, -Q  ⊢  -P
+            P -> Q, -Q  ⊢  -P
             Proof
-            01.   P → Q         A            Begin by listing the premises
+            01.   P -> Q        A            Begin by listing the premises
             02.   -Q            A
             03.   |   P         H (for -I)   Try to prove -P using -I.
-            04.   |   Q         1,3 → E      Use steps 1 & 3 to perform →E.
+            04.   |   Q         1,3 ->E      Use steps 1 & 3 to perform ->E.
             05.   |   Q ∧ -Q    2,4 ∧I       Use steps 2 & 4 to perform ∧I.
             06.   -P            3-5 -I       use steps 3 to 5 to perform -I.
             QED
@@ -1389,7 +1391,7 @@ Hypothetical Subordinate Proofs
    hypothesis (H).  The content of the parentheses communicates to the
    reader that the goal of this hypothetical proof is to reach a point where
    eventually -I (Negation Introduction) can operate on the hypothesis.
-   Line 4 applies → E (Conditional Elimination) to steps 1 and 3, resulting
+   Line 4 applies ->E (Conditional Elimination) to steps 1 and 3, resulting
    in 'Q'.  On line 5, ∧I operates upon steps 2 and 4 producing Q ∧ -Q.  Line
    5 ends the subproof, and line 6 returns our attention to the enclosing
    proof, the main proof.  Recall that the goal of the hypothetical subproof
@@ -1409,17 +1411,17 @@ Regarding Notation
 
    A capital Greek letter (Φ, Ψ, Θ, Δ, etc.) denotes any arbitrary formula.
 
-   'Φ(Ψ)' denotes a wff Φ contains one or more occurrences of a sub-wff Ψ.
+   Φ(Ψ) denotes a wff Φ contains one or more occurrences of a sub-wff Ψ.
 
-   'Φ(Θ/Ψ)' denotes the result of replacing one or more occurrences of Ψ in Φ
+   Φ(Θ/Ψ) denotes the result of replacing one or more occurrences of Ψ in Φ
    with Θ.  Θ/Ψ is read, "Θ replaced one or more occurrences of Ψ".
 
-   'Φ (Θ//Ψ)' like above but indicates replacing all occurrences of Ψ in Φ
-   with Θ.  Θ//Ψ is read, "Θ replaced all occurrences of Ψ".
+   Φ (Θ//Ψ) like above but indicates replacing all occurrences of Ψ in Φ with
+   Θ.  Θ//Ψ is read, "Θ replaced all occurrences of Ψ"
 
-   '( Φ ⊢ Ψ )' denotes a subproof with hypothesis Φ concluding with Ψ.
+   ( Φ ⊢ Ψ ), denotes a subproof with hypothesis Φ concluding with Ψ.
 
-   '[ ... ]' denotes that the enclosed must exist, be defined or proved
+   [ ... ] denotes that the enclosed must exist, be defined or proved
    elsewhere (external to the current proof).
 
 Primitive Inference Rules
@@ -1443,36 +1445,36 @@ Primitive Inference Rules
    Negation Elimination (-E)         From --Φ, infer Φ.
 
    Negation Introduction (-I)        From a subproof with hypothesis Φ
-      Reductio Ad Absurdum (RAA)     ending in (Ψ ∧ -Ψ), close the subproof,
-      Proof By Contradiction (PBC)   and infer -Φ.
+      Reductio ad absurdum (RAA)     ending in (Ψ ∧ -Ψ), close the subproof,
+      Proof by Contradiction (PBC)   and infer -Φ.
       Indirect Proof (IP)
 
    Conjunction Elimination (∧E)      From Φ ∧ Ψ, infer Φ, or infer Ψ.
       Simplification (Simp)
 
-   Conjunction Introduction (∧I)     From Φ and Ψ, infer Φ ∧ Ψ,
+   Conjunction (∧I)                  From Φ and Ψ, infer Φ ∧ Ψ,
                                      or infer Ψ ∧ Φ.
 
-   Disjunction Elimination (∨E)      From Φ ∨ Ψ, Φ → Θ and Ψ → Θ, infer Θ.
+   Disjunction Elimination (∨E)      From Φ ∨ Ψ, Φ -> Θ and Ψ -> Θ, infer Θ.
       Proof by Cases (PBC)
 
    Disjunction Introduction (∨I)     From Φ, infer Φ ∨ Ψ, or infer Ψ ∨ Φ.
       Addition (Add)
 
-   Conditional Elimination (→ E)     From Φ → Ψ and Φ, infer Ψ.
+   Conditional Elimination (->E)     From Φ -> Ψ and Φ, infer Ψ.
       Modus Ponens (MP)
 
-   Conditional Introduction (→ I)    From a subproof with hypothesis Φ
+   Conditional Introduction (->I)    From a subproof with hypothesis Φ
       Conditional Proof (CP)         and ending Ψ, close the subproof,
-                                     then infer Ψ → Φ.
+                                     and infer Ψ -> Φ.
 
-   Biconditional Elimination (↔ E)   From Φ ↔ Ψ, infer Φ → Ψ,
-                                     or infer Ψ → Φ.
+   Biconditional Elimination (<->E)  From Φ <-> Ψ, infer Φ -> Ψ,
+                                     or infer Ψ -> Φ.
 
-   Biconditional Introduction (↔ I)  From Φ → Ψ and Ψ → Φ, infer Φ ↔ Ψ.
+   Biconditional Introduction (<->I) From Φ -> Ψ and Ψ -> Φ, infer Φ <-> Ψ
 
-   Equivalence Substitution (EQ)     From [ Φ ↔ Ψ ], and Θ(Φ), infer Θ(Ψ/Φ);
-                                     or from [ Φ ↔ Ψ ] and Θ(Ψ),
+   Equivalence Substitution (EQ)     From [ Φ <-> Ψ ], and Θ(Φ), infer Θ(Ψ/Φ);
+                                     or from [ Φ <-> Ψ ] and Θ(Ψ),
                                      infer Θ(Φ/Ψ).
    ================================  =========================================
 
@@ -1509,32 +1511,32 @@ Primitive Inference Rules
       |  ∨E                           |  ∨I                           |
       | ============================= | ============================= |
       |   Φ ∨ Ψ                       |   Φ        Φ                  |
-      |   Φ → Θ                       |  -------  -------             |
-      |   Ψ → Θ                       |   Φ ∨ Ψ    Ψ ∨ Φ              |
+      |   Φ -> Θ                      |  -------  -------             |
+      |   Ψ -> Θ                      |   Φ ∨ Ψ    Ψ ∨ Φ              |
       |  --------                     |                               |
       |   Θ                           |    (Ψ is any wff whatever)    |
       |                               |                               |
       | ============================= | ============================= |
-      |  → E                          |  → I                          |
+      |  ->E                          |  ->I                          |
       | ============================= | ============================= |
-      |   Φ → Ψ                       |   |   Φ                       |
+      |   Φ -> Ψ                      |   |   Φ                       |
       |   Φ                           |   |   ...                     |
       |  ---------                    |   |   Ψ                       |
       |   Ψ                           |  ---------                    |
-      |                               |   Φ → Ψ                       |
+      |                               |   Φ -> Ψ                      |
       |                               |                               |
       | ============================= | ============================= |
-      |  ↔ E                          |  ↔ I                          |
+      |  <->E                         |  <->I                         |
       | ============================= | ============================= |
-      |   Φ ↔ Ψ      Φ ↔ Ψ            |   Φ → Ψ      Φ → Ψ            |
-      |  ---------  ---------         |   Ψ → Φ      Ψ → Φ            |
-      |   Φ → Ψ      Ψ → Φ            |  ---------  ---------         |
-      |                               |   Φ ↔ Ψ      Ψ ↔ Φ            |
+      |   Φ <-> Ψ    Φ <-> Ψ          |   Φ -> Ψ     Φ -> Ψ           |
+      |  ---------  ---------         |   Ψ -> Φ     Ψ -> Φ           |
+      |   Φ -> Ψ     Ψ -> Φ           |  ---------  ---------         |
+      |                               |   Φ <-> Ψ    Ψ <-> Φ          |
       |                               |                               |
       | ============================= | ============================= |
       |  EQ (Equiv. Substitution)     |  Ax (Axiom)                   |
       | ============================= | ============================= |
-      |   [ Φ ↔ Ψ ]    [ Φ ↔ Ψ ]      |                               |
+      |   [ Φ <-> Ψ ]    [ Φ <-> Ψ ]  |                               |
       |   Θ(Φ)           Θ(Ψ)         |  ---                          |
       |  -------------  ------------- |   Φ   (Φ is an axiom)         |
       |   Θ(Ψ/Φ)         Θ(Φ/Ψ)       |                               |
@@ -1570,11 +1572,11 @@ Derived Inference Rules
    ================================  =========================================
    Reiterate (RE)                    P  ⊢  P
    Ex Falso Quodlibet (EFQ)          P, -P  ⊢  Q    (Q is any wff whatever)
-   Modus Tollens (MT)                P → Q, -Q  ⊢  -P
-   Hypothetical Syllogism (HS)       P → Q, Q → R  ⊢  P → R
-   Absorption (Abs)                  P → Q  ⊢  P → (P ∧ Q)
-   Constructive Dilemma (CD)         P ∨ Q, P → R, Q → S  ⊢  R ∨ S
-   Destructive Dilemma (DD)          P → Q, R → S, -Q ∨ -S  ⊢  -P ∨ -Q
+   Modus Tollens (MT)                P -> Q, -Q  ⊢  -P
+   Hypothetical Syllogism (HS)       P -> Q, Q -> R  ⊢  P -> R
+   Absorption (Abs)                  P -> Q  ⊢  P -> (P ∧ Q)
+   Constructive Dilemma (CD)         P ∨ Q, P -> R, Q -> S  ⊢  R ∨ S
+   Destructive Dilemma (DD)          P -> Q, R -> S, -Q ∨ -S  ⊢  -P ∨ -Q
    Disjunctive Syllogism (DS)        P ∨ Q, -P  ⊢  Q
    Disjunctive Syllogism (DS)        P ∨ Q, -Q  ⊢  P
    Theorem (THM)                     [ ⊢ P ]  ⊢  P
@@ -1598,31 +1600,31 @@ Equivalences
    The following are traditionally important equivalences derivable
    in our system.
 
-         ⊢ Φ ↔ Ψ
+         ⊢ Φ <-> Ψ
 
    ================================  =========================================
    Name (Abbreviation)               Sequent
    ================================  =========================================
-   Double Negation (DN)              ⊢  P ↔ --P
-   Tautology (TAUT)                  ⊢  P ↔ (P ∧ P)
-   Tautology (TAUT)                  ⊢  P ↔ (P ∨ P)
-   Transposition (TRANS)             ⊢  (P → Q) ↔ (-Q → -P)
-   Material Implication (MI)         ⊢  (P → Q) ↔ (-P ∨ Q)
-   Association (ASSOC)               ⊢  (P ∧ (Q ∧ R)) ↔ ((P ∧ Q) ∧ R)
-   Association (ASSOC)               ⊢  (P ∨ (Q ∨ R)) ↔ ((P ∨ Q) ∨ R)
-   Commutation (COM)                 ⊢  (P ∧ Q) ↔ (Q ∧ P)
-   Commutation (COM)                 ⊢  (P ∨ Q) ↔ (Q ∨ P)
-   Exportation (EXP)                 ⊢  ((P ∧ Q) → R) ↔ (P → (Q → R))
-   Distribution (DIST)               ⊢  (P ∧ (Q ∨ R)) ↔ ((P ∧ Q) ∨ (P ∧ R))
-   Distribution (DIST)               ⊢  (P ∨ (Q ∧ R)) ↔ ((P ∨ Q) ∧ (P ∨ R))
-   DeMorgan's law (DM)               ⊢  -(P ∧ Q) ↔ (-P ∨ -Q)
-   DeMorgan's law (DM)               ⊢  -(P ∨ Q) ↔ (-P ∧ -Q)
-   Material Equivalence (ME)         ⊢  (P ↔ Q) ↔ ((P → Q) ∧ (Q → P))
-   Material Equivalence (ME)         ⊢  (P ↔ Q) ↔ ((P ∧ Q) ∨ (-P ∧ -Q))
+   Double Negation (DN)              ⊢  P <-> --P
+   Tautology (TAUT)                  ⊢  P <-> (P ∧ P)
+   Tautology (TAUT)                  ⊢  P <-> (P ∨ P)
+   Transposition (TRANS)             ⊢  (P -> Q) <-> (-Q -> -P)
+   Material Implication (MI)         ⊢  (P -> Q) <-> (-P ∨ Q)
+   Association (ASSOC)               ⊢  (P ∧ (Q ∧ R)) <-> ((P ∧ Q) ∧ R)
+   Association (ASSOC)               ⊢  (P ∨ (Q ∨ R)) <-> ((P ∨ Q) ∨ R)
+   Commutation (COM)                 ⊢  (P ∧ Q) <-> (Q ∧ P)
+   Commutation (COM)                 ⊢  (P ∨ Q) <-> (Q ∨ P)
+   Exportation (EXP)                 ⊢  ((P ∧ Q) -> R) <-> (P -> (Q -> R))
+   Distribution (DIST)               ⊢  (P ∧ (Q ∨ R)) <-> ((P ∧ Q) ∨ (P ∧ R))
+   Distribution (DIST)               ⊢  (P ∨ (Q ∧ R)) <-> ((P ∨ Q) ∧ (P ∨ R))
+   DeMorgan's law (DM)               ⊢  -(P ∧ Q) <-> (-P ∨ -Q)
+   DeMorgan's law (DM)               ⊢  -(P ∨ Q) <-> (-P ∧ -Q)
+   Material Equivalence (ME)         ⊢  (P <-> Q) <-> ((P -> Q) ∧ (Q -> P))
+   Material Equivalence (ME)         ⊢  (P <-> Q) <-> ((P ∧ Q) ∨ (-P ∧ -Q))
    ================================  =========================================
 
-   Appendix C contains the proofs of all of these derived forms, theorems and
-   equivalences.
+   Appendix C contains the proof of all the derived forms, theorems and
+   equivalence theorems.
 
 Consequence and Non-Consequence
 ===============================
@@ -1646,9 +1648,9 @@ Consequence and Non-Consequence
 
          Example
 
-            P → Q, -P  ⊢  -Q
+            P -> Q, -P  ⊢  -Q
          Proof
-         01.   P → Q         A
+         01.   P -> Q        A
          02.   -P            A
          03.   |   Q         H (for -I)
 
@@ -1657,15 +1659,15 @@ Consequence and Non-Consequence
    (due to occurring negated in step 2), and Q is true (due to occurring
    unnegated in step 3).  We can verify this with a truth-table. 
    If a proposition symbol doesn't appear negated or unnegated, then
-   it is truth-value does not matter.
+   it is truth-value does not matter
 
-          P Q | P → Q , - P  ⊢  - Q
-         ============================
-          F F | F T F | T F  |  T F
-          F T | F T T | T F  |  F T  <==
-          T F | T F F | F T  |  T F
-          T T | T T T | F T  |  F T
-                  *     *       *
+          P Q | P -> Q , - P  ⊢  - Q
+         =============================
+          F F | F T  F | T F  |   T F
+          F T | F T  T | T F  |   F T  <==
+          T F | T F  F | F T  |   T F
+          T T | T T  T | F T  |   F T
+                  *      *        *
 
    The highlighted row is our counterexample (all true premises but
    false conclusion).  On that row P and Q have the same truth-values as
@@ -1676,12 +1678,12 @@ Defining ⊥ Into Propositional Logic/Calculus
 ============================================
 
 
-   Some Fitch implementations use ⊥ (the CONTRADICTION SYMBOL) tedium and
-   improve the readability of proofs.  Applications of -I are often preceded
-   by ∧I, but the resulting conjunction can be quite long.  Since EFQ infers
-   any wff from two contradictory propositions; we can always infer 'P ∧ -P'
-   instead of a long conjunction.  But the following definition is even
-   briefer.
+   Some Fitch implementations use ⊥ (the contradiction symbol) to remove
+   tedium and improve the readability of proofs.  Applications of -I are
+   often preceded by ∧I, but the resulting conjunction can be quite long.
+   Since EFQ infers any wff from two contradictory propositions; we can
+   always infer 'P ∧ -P' instead of a long conjunction.  But the following
+   definition is even briefer.
 
          ⊥  =df  P ∧ -P
 
@@ -1716,26 +1718,26 @@ Derivation Strategies
 
    1.  (Conclusion) If the conclusion has one of these forms,
 
-         Φ ∧ Ψ       derive each conjunct, apply ∧I
+         Φ ∧ Ψ       Derive each conjunct, apply ∧I.
 
-         Φ ∨ Ψ       derive one disjunct, apply ∨I
+         Φ ∨ Ψ       Derive one disjunct, apply ∨I.
 
-         Φ → Ψ       hypothesize Φ derive Ψ, close the subproof, apply → I
+         Φ -> Ψ      Hypothesize Φ derive Ψ, close the subproof, apply ->I.
 
-         Φ ↔ Ψ       derive Φ → Ψ, derive Ψ → Φ, apply ↔ I
+         Φ <-> Ψ     Derive Φ -> Ψ, derive Ψ -> Φ, apply <->I.
 
    2.  (Premise) If a premise has the following form
 
-         Φ ∨ Ψ       derive two conditionals Φ → Θ and Ψ → Θ to obtain the
-                     needed conclusion Θ
+         Φ ∨ Ψ       Derive two conditionals Φ -> Θ and Ψ -> Θ to obtain the
+                     needed conclusion Θ.
 
    3.  (Reductio) Next try one of these taking WFF as the desired conclusion,
 
-         - WFF       hypothesize WFF (unnegated), derive ⊥ or derive
-                     a contradiction, lastly perform -I or ⊥ E
+         - WFF       Hypothesize WFF (unnegated), derive ⊥ or derive
+                     a contradiction, lastly perform -I or ⊥ E.
 
-         WFF         hypothesize -WFF, derive ⊥ or contradiction, then
-                     perform -I and finally -E
+         WFF         Hypothesize -WFF, derive ⊥ or contradiction, then
+                     perform -I and finally -E.
 
 
 --------
@@ -1763,16 +1765,16 @@ The Unnatural Conditional
 
    A serious concern with the propositional logic conditional is that
    it only denotes a small part of what English if/then statements can
-   express.  Hence → is quite controversial, with many doubting that the
+   express.  Hence -> is quite controversial, with many doubting that the
    full power of the if/then statement can ever be captured in a formal
    logical system.  Moreover, the propositional logic conditional can
    produce some surprising results.  Let us revisit a previous example.
 
-         K → F         if you keep up the good work then you'll go far.
+         K -> F        if you keep up the good work then you'll go far.
 
    Now lets consider what happens if we take it's negation.
 
-         -(K → F)      it's false that if you keep up the work you'll go far
+         -(K -> F)     it's false that if you keep up the work you'll go far
          -(-K ∨ F)     Material Implication
          K ∧ -F        DeMorgan's
 
@@ -1838,7 +1840,7 @@ Lexemes
 
    Logical Symbols
 
-      Truth-Function Symbols:   -, ∧, ∨, →, ↔
+      Truth-Function Symbols:   -, ∧, ∨, ->, <->
 
 Grammar
 =======
@@ -1853,7 +1855,7 @@ Grammar
    Formation Rules for wffs
    1.  Every atomic formula is a wff;
    2.  if Φ is a wff, then so is -Φ;
-   3.  if Φ, Ψ are wffs, then so are (Φ ∧ Ψ), (Φ ∨ Ψ), (Φ → Ψ), (Φ ↔ Ψ);
+   3.  if Φ, Ψ are wffs, then so are (Φ ∧ Ψ), (Φ ∨ Ψ), (Φ -> Ψ), (Φ <-> Ψ);
    4.  Nothing else is a wff.
 
 
@@ -1900,7 +1902,7 @@ Properties
          Kb,  Bob is brunette.
          Sc,  Charlie is scaled.
 
-         Sc → -(Bc ∨ Kc)
+         Sc -> -(Bc ∨ Kc)
          If Charlie is scaled then Charlie is neither blond nor brunette.
 
    Properties always have just one place-holder in the dictionary.
@@ -1920,7 +1922,7 @@ Relations
    do not mean the same thing.  However, 'taller' is objective, making
    it ideal for logical reasoning.
 
-         (Tab ∧ Tbc) → Tac
+         (Tab ∧ Tbc) -> Tac
          If Alice is taller than Bob and Bob is taller than Charlie,
             then Alice is taller than Charlie.
 
@@ -1931,7 +1933,7 @@ Relations
 
          Bbac,     Bob is between Alice and Charlie
 
-         Bbac → (-Babc ∧ -Bcab)
+         Bbac -> (-Babc ∧ -Bcab)
          If Bob is between Alice and Charlie then, Alice isn't between Bob
          and Charlie and Charlie isn't between Alice and Bob.
 
@@ -1942,7 +1944,7 @@ Relations
          R,        it's raining
          W,        the ground is wet
 
-         R → W
+         R -> W
          If it's raining then the ground is wet.
 
 Translation Hints
@@ -2016,7 +2018,7 @@ Predicate Calculus
          a,    Arthur
          g,    Guinevere
 
-         Ama → Amg, -Amg  ⊢  -Ama
+         Ama -> Amg, -Amg  ⊢  -Ama
 
    Here 'Ama' and 'Amg' are separate atomic formulas.
 
@@ -2080,7 +2082,7 @@ Lexemes
       Association Symbols:     (, )
 
    Logical Symbols
-      Truth-Function Symbols:  -, ∧, ∨, →, ↔
+      Truth-Function Symbols:  -, ∧, ∨, ->, <->
       Quantifiers
          universal:            ∀
          existential:          ∃
@@ -2093,7 +2095,7 @@ Grammar
 
    1.  Every atomic formula is a wff;
    2.  if Φ is a wff, then so is -Φ;
-   3.  if Φ,Ψ are wffs, then so are (Φ ∧ Ψ), (Φ ∨ Ψ), (Φ → Ψ), (Φ ↔ Ψ);
+   3.  if Φ,Ψ are wffs, then so are (Φ ∧ Ψ), (Φ ∨ Ψ), (Φ -> Ψ), (Φ <-> Ψ);
    4.  if Φ(α) (α is a constant object in a wff Ψ) is a wff,
        then ∀xΦ(x/α) and ∃xΦ(x/α) are wffs (where x is some new
        variable in Φ);
@@ -2118,10 +2120,10 @@ Predicates & Constants
          Bxyz,  x has some relation P to y and z.
 
          Proof (where x,y,z are variables)
-         01.   ∀x(Mx → Vx)        A
+         01.   ∀x(Mx -> Vx)       A
          02.   Ma                 A
-         03.   Ma → Va            2 ∀ E (a/x)
-         04.   Va                 3,4 → E
+         03.   Ma -> Va           2 ∀ E (a/x)
+         04.   Va                 3,4 ->E
          QED
 
 Quantifiers & Variables
@@ -2180,7 +2182,7 @@ Scope
    that follows is in parentheses then the scope ranges from the opening
    to the matching closing parenthesis.
 
-         ∀x(Dx → Mx) ∧ ∃xRx
+         ∀x(Dx -> Mx) ∧ ∃xRx
 
    In this expression, the x bound by ∀ is in scope between the pair
    of parentheses.  The x used with the expression Rx is a different
@@ -2203,11 +2205,11 @@ Single Quantifiers
 
    A universal quantifier is nearly always paired with the conditional.
 
-         ∀x(Cx → Mx),   For each object x in our universe,
+         ∀x(Cx -> Mx),   For each object x in our universe,
                            if x is a cat then x is a mammal.
                          = all cats are mammals.
 
-         ∀x(Cx → -Sx),  For each object x in our universe,
+         ∀x(Cx -> -Sx),  For each object x in our universe,
                            if x is a cat then x doesn't like to swim.
                          = no cats like to swim.
 
@@ -2221,23 +2223,23 @@ Single Quantifiers
                            such that, x is a dog and x likes to swim.
                          = Some dogs like to swim.
 
-   However, this notion of ∀ with →, and ∃ with ∧, isn't arbitrary.
+   However, this notion of ∀ with ->, and ∃ with ∧, isn't arbitrary.
    They are complementary forms.
 
-         -∀x(Cx → -Sx)   It's false that all cats don't like to swim.
+         -∀x(Cx -> -Sx)  It's false that all cats don't like to swim.
 
    Applying some equivalences to this wff we should get a new formula
    that means the same thing.
 
-         ∃x-(Cx → -Sx)   -∀ is equivalent to ∃- 
+         ∃x-(Cx -> -Sx)  -∀ is equivalent to ∃- 
          ∃x-(-Cx ∨ -Sx)  By material implication
          ∃x(--Cx ∧ --Sx) DeMorgan's
          ∃x(Cx ∧ Sx)     Double Negation
 
    So the conclusion reads, some cats like to swim.  Notice that we
-   started with ∀ and →, and just by applying equivalences ended with
+   started with ∀ and ->, and just by applying equivalences ended with
    ∃ and ∧.  So ∃ with ∧ follows naturally from the occurrence of ∀ with
-   →; they are complementary forms.
+   ->; they are complementary forms.
 
 Multiple Quantifiers
 ====================
@@ -2275,7 +2277,7 @@ The Aristotelian Forms
                      +----------------------+------------------------+
                      | Affirmatives         | Negatives              |
       Q +------------+----------------------+------------------------+
-      u | Universal  | ∀x(Sx → Px) ∧ ∃xSx   | ∀x(Sx → -Px) ∧ ∃xSx    | < EI
+      u | Universal  | ∀x(Sx -> Px) ∧ ∃xSx  | ∀x(Sx -> -Px) ∧ ∃xSx   | < EI
       a |            |                      |                        |
       n | Particular | ∃x(Sx ∧ Px)          | ∃x(Sx ∧ -Px)           | < EI
       t +------------+----------------------+------------------------+
@@ -2289,7 +2291,7 @@ The Aristotelian Forms
                      +----------------------+------------------------+
                      | Affirmatives         | Negatives              |
       Q +------------+----------------------+------------------------+
-      u | Universal  | ∀x(Sx → Px)          | ∀x(Sx → -Px)           |
+      u | Universal  | ∀x(Sx -> Px)         | ∀x(Sx -> -Px)          |
       a |            |                      |                        |
       n | Particular | ∃x(Sx ∧ Px)          | ∃x(Sx ∧ -Px)           | < EI
       t +------------+----------------------+------------------------+
@@ -2303,7 +2305,7 @@ The Aristotelian Forms
                      +----------------------+------------------------+
                      | Affirmatives         | Negatives              |
       Q +------------+----------------------+------------------------+
-      u | Universal  | ∀x(Sx → Px) ∧ ExSx   | ∀x(Sx → -Px)           |
+      u | Universal  | ∀x(Sx -> Px) ∧ ExSx  | ∀x(Sx -> -Px)          |
       a |            |                      |                        |
       n | Particular | ∃x(Sx ∧ Px)          | ∃x(Sx ∧ -Px)           |
       t |            |                      |    ∨ -∃xSx v -∃xPx     |
@@ -2320,10 +2322,10 @@ The Aristotelian Forms
                      +----------------------+------------------------+
                      | Affirmatives         | Negatives              |
       Q +------------+----------------------+------------------------+
-      u | Universal  | ∀x(Sx → Px)          | ∀x(Sx → -Px) ∧ ExSx    |
+      u | Universal  | ∀x(Sx -> Px)         | ∀x(Sx -> -Px) ∧ ExSx   |
       a |            |                      |                        |
       n | Particular | ∃x(Sx ∧ Px)          | ∃x(Sx ∧ -Px)           |
-      t |            |    ∨ -∃x(Sx ∧ ∃xPx)  |                        |
+      t |            |    ∨ -∃x(Sx jj^ ∃xPx)  |                        |
       i +------------+----------------------+------------------------+
       t | Singular   | Sa                   | -Sa                    | < EI
       y |            | c=e                  | -c=e                   | < EI
@@ -2367,7 +2369,7 @@ Validity / Valid Formula
    true in all cases in virtue of truth-functions.  While 'validity' refers
    to all expressions of this nature.  The following is a valid wff in FOL.
 
-         ∀x-Px  ↔  -∃xPx,    where P is an arbitrary predicate.
+         ∀x-Px  <->  -∃xPx,    where P is an arbitrary predicate.
 
 Truth-Trees
 ===========
@@ -2522,8 +2524,8 @@ Derived Inference Rules
    ================================  =========================================
    Name/Alternate Names              Sequent
    ================================  =========================================
-   Dual                              ⊢  -∀xΦ ↔ ∃x-Φ
-                                     ⊢  -∃xΦ ↔ ∀x-Φ 
+   Dual                              ⊢  -∀xΦ <-> ∃x-Φ
+                                     ⊢  -∃xΦ <-> ∀x-Φ 
    ================================  =========================================
 
 Proofs of Non-Consequence
@@ -2548,31 +2550,31 @@ Proofs of Non-Consequence
          All P is Q
          ∴ Some P is Q
 
-         ∀x(Px → Qx)  ⊢  ∃x(Px ∧ Qx)
+         ∀x(Px -> Qx)  ⊢  ∃x(Px ∧ Qx)
          Proof
-         01.   ∀x(Px → Qx)              A
-         02.   |   -∃x(Px ∧ Qx)         H (for →I)
+         01.   ∀x(Px -> Qx)             A
+         02.   |   -∃x(Px ∧ Qx)         H (for ->I)
          03.   |   ∀x-(Px ∧ Qx)         2 Dual
-         04.   |   Pa → Qa              1 ∀E
+         04.   |   Pa -> Qa             1 ∀E
          05.   |   -(Pa ∧ Qa)           3 ∀E
          06.   |   -Pa ∨ -Qa            5 DM
-         07.   |   -Pa ∨ Qa             4 MI
+         07.   |   -Pa ∨ Qa              4 MI
          08.   |   (-Pa ∨ -Qa) ∧ (-Pa ∨ Qa) 6,7 ∧I
          09.   |   -Pa ∨ (-Qa ∧ Qa)     8 Dist
-         10.   |   Pa → (-Qa ∧ Qa)      9 MI
-         11.   |   Pa → ⊥               10 Def ⊥
+         10.   |   Pa -> (-Qa ∧ Qa)     9 MI
+         11.   |   Pa -> ⊥              10 Def ⊥
          12.   |   |   Pa               H (for -I)
-         13.   |   |   ⊥                14 → E
+         13.   |   |   ⊥                14 -> E
          15.   |   -Pa                  12-13 ⊥ E
 
    So, the counterexample is where Pa is false.
 
        A proof can't be found so the form is invalid.
 
-                        ∀x(Px → Qx)
+                        ∀x(Px -> Qx)
                      *  -∃x(Px ∧ Qx)
                         ∀x-(Px ∧ Qx)
-                     *  Pa → Qa
+                     *  Pa -> Qa
                      *  -(Pa ∧ Qa)
                           /     \
                         /         \
@@ -2595,31 +2597,31 @@ Proofs of Some Aristotelian Argument Forms
    All P is Q
    ∴ All P is R
 
-   ∀x(Qx → Rx), ∀x(Px → Qx)  ⊢  ∀x(Px → Rx)
+   ∀x(Qx -> Rx), ∀x(Px -> Qx)  ⊢  ∀x(Px -> Rx)
    Proof
-   01.   ∀x(Qx → Rx)              A
-   02.   ∀x(Px → Qx)              A
+   01.   ∀x(Qx -> Rx)             A
+   02.   ∀x(Px -> Qx)             A
    03.   |[a]                     H (for ∀I)
-   04.   |   |   Pa               H (for →I)
-   05.   |   |   Qa → Ra          1 ∀E (a/x)
-   06.   |   |   Pa → Qa          2 ∀E (a/x)
-   06.   |   |   Qa               4,6 →E
-   07.   |   |   Ra               5,7 →E
-   08.   |   Pa → Ra              4-7 →I
-   09.   ∀x(Px → Rx)              3-8 AI
+   04.   |   |   Pa               H (for ->I)
+   05.   |   |   Qa -> Ra         1 ∀E (a/x)
+   06.   |   |   Pa -> Qa         2 ∀E (a/x)
+   06.   |   |   Qa               4,6 ->E
+   07.   |   |   Ra               5,7 ->E
+   08.   |   Pa -> Ra             4-7 ->I
+   09.   ∀x(Px -> Rx)             3-8 AI
    QED
 
    All P is Q
    some P exist
    ∴ Some P is Q
 
-   ∀x(Px → Qx), ∃xPx  ⊢  ∃x(Px ∧ Qx)
+   ∀x(Px -> Qx), ∃xPx  ⊢  ∃x(Px ∧ Qx)
    Proof
-   01.   ∀x(Px → Qx)              A
+   01.   ∀x(Px -> Qx)             A
    02.   ∃xPx                     A
    03.   |[a]Pa                   H (for EE)
-   04.   |   Pa → Qa              1 ∀ E (a/x)
-   05.   |   Qa                   3,4 →E
+   04.   |   Pa -> Qa             1 ∀ E (a/x)
+   05.   |   Qa                   3,4 ->E
    06.   |   Pa ∧ Qa              3,5 ∧ I
    07.   |   ∃x(Px ∧ Qx)          6 ∃ I (x/a)
    08.   ∃x(Px ∧ Qx)              2, 3-7 ∃ E
@@ -2650,7 +2652,7 @@ Lexemes
       Association Symbols:     (, )
 
    Logical Symbols
-      Truth-Function Symbols:  -, ∧, ∨, →, ↔
+      Truth-Function Symbols:  -, ∧, ∨, ->, <->
       Quantifiers
          universal:            ∀
          existential:          ∃
@@ -2663,7 +2665,7 @@ Grammar
 
    1.  Every atomic formula is a wff;
    2.  if Φ is a wff, then so is -Φ;
-   3.  if Φ,Ψ are wffs, then so are (Φ ∧ Ψ), (Φ ∨ Ψ), (Φ → Ψ), (Φ ↔ Ψ);
+   3.  if Φ,Ψ are wffs, then so are (Φ ∧ Ψ), (Φ ∨ Ψ), (Φ -> Ψ), (Φ <-> Ψ);
    4.  if Φ(α) (α is some constant) is a wff, then ∀xΦ(x/α) and ∃xΦ(x/α)
        are wffs (where x is new to Φ).
    5.  Nothing else is a wff.
@@ -2690,18 +2692,18 @@ Translation Hints
            Quantity  Proposition
            ========  ===============================================
            |P| = 0   -∃xPx
-           |P| = 1   ∃x∀y(Px ↔ y=x)
-           |P| = 2   ∃x∃y(-x=y ∧ ∀z(Pz ↔ (z=x ∨ z=y)))
+           |P| = 1   ∃x∀y(Px <-> y=x)
+           |P| = 2   ∃x∃y(-x=y ∧ ∀z(Pz <-> (z=x ∨ z=y)))
            |P| = 3   ∃w∃x∃y(-w=x ∧ -w=y ∧ -x=y ∧
-                                  ∀z(Pz ↔ (z=w ∨ z=x ∨ z=y)))
+                                  ∀z(Pz <-> (z=w ∨ z=x ∨ z=y)))
            --------  -----------------------------------------------
            |P| >= 1  ∃xPx
            |P| >= 2  ∃x∃y(-x=y ∧ Px ∧ Py)
            |P| >= 3  ∃x∃y∃z(-x=y ∧ -y=z ∧ -x=z ∧ Px ∧ Py ∧ Pz)
            --------  -----------------------------------------------
-           |P| <= 1  ∃x∀y(Px → y=x)
-           |P| <= 2  ∃x∃y∀z(Pz → (z=x ∨ z=y))
-           |P| <= 3  ∃x∃y∃z∀w(Pw → (w=x ∨ w=y ∨ x=z))
+           |P| <= 1  ∃x∀y(Px -> y=x)
+           |P| <= 2  ∃x∃y∀z(Pz -> (z=x ∨ z=y))
+           |P| <= 3  ∃x∃y∃z∀w(Pw -> (w=x ∨ w=y ∨ x=z))
            ========  ===============================================
 
 
@@ -2722,29 +2724,29 @@ Properties of Relations
     ================  ================================  =================
     Property          Characteristics                   Examples
     ================  ================================  =================
-    Symmetric(R)      =df ∀x∀y(Rxy → Ryx)               Sibling(x,y)
+    Symmetric(R)      =df ∀x∀y(Rxy -> Ryx)              Sibling(x,y)
                                                         x=y
 
-    Transitive(R)     =df ∀x∀y∀z((Rxy ∧ Ryz) → Rxz)     x=y
-                                                        a=b ∧ b=c → a=c
+    Transitive(R)     =df ∀x∀y∀z((Rxy ∧ Ryz) -> Rxz)    x=y
+                                                        a=b ∧ b=c -> a=c
                                                         Descendant(x,y)
 
     Reflexive(R)      =df ∀xRxx                         x=x
                                                         SameHeight(x,y)
 
-    Asymmetric(R)     =df ∀x∀y(Rxy → -Ryx)              x<y
+    Asymmetric(R)     =df ∀x∀y(Rxy -> -Ryx)             x<y
                                                         Child(x,y)
 
-    Antisymmetric(R)  =df ∀x∀y((Rxy ∧ Ryx) → x=y)       x>=y
+    Antisymmetric(R)  =df ∀x∀y((Rxy ∧ Ryx) -> x=y)      x>=y
 
 
     Nonsymmetric(R)   =df -( Symmetric(R) ∨             Brother(bob,kim)
                               Asymmetric(R) ∨
                               Antisymmetric(R) )
 
-    Intransitive(R)   =df ∀x∀y∀z((Rxy ∧ Rxz) → -Rxz)    OppositeSide(x,y)
+    Intransitive(R)   =df ∀x∀y∀z((Rxy ∧ Rxz) -> -Rxz)  OppositeSide(x,y)
 
-    Nontransitive(R)  =df -( Transitive(R) ∨            ChildOf(x,y)
+    Nontransitive(R)  =df -( Transitive(R) ∨           ChildOf(x,y)
                               Intransitive(R) )
 
     Irreflexive(R)    =df ∀x-Rxx                        x<y
@@ -2870,7 +2872,7 @@ Lexemes
       Association Symbols:     (, )
 
    Logical Symbols
-      Truth-Function Symbols:  -, ∧, ∨, →, ↔
+      Truth-Function Symbols:  -, ∧, ∨, ->, <->
       Quantifiers
          universal:            ∀
          existential:          ∃
@@ -2886,7 +2888,7 @@ Grammar
 
    1.  Every atomic formula is a wff;
    2.  if Φ is a wff, then so is -Φ;
-   3.  if Φ,Ψ are wffs, then so are (Φ ∧ Ψ), (Φ ∨ Ψ), (Φ → Ψ), (Φ ↔ Ψ);
+   3.  if Φ,Ψ are wffs, then so are (Φ ∧ Ψ), (Φ ∨ Ψ), (Φ -> Ψ), (Φ <-> Ψ);
    4.  if Φ(α) (α a is some constant) is a wff, then ∀xΦ(x/α) and ∃xΦ(x/α)
        are wffs (where x is new to Φ).
    5.  Nothing else is a wff.
@@ -2994,7 +2996,7 @@ Variable Function Arguments
          Predicates                Functions
          Px,    x is a person.     f(x),  the father of x.
 
-         ∀x( Px → ∃yy=f(x) )  Everyone has a father.
+         ∀x( Px -> ∃yy=f(x) )  Everyone has a father.
 
 Functions in WFFs
 =================
@@ -3013,8 +3015,8 @@ Functions in WFFs
          Txy,        x is taller than y.
          Tf(y)f(i),  your father is taller than my father.
 
-         ∀x∀y( Txy       → -Tyx       )
-         ∀x∀y( Tf(x)f(y) → -Tf(y)f(x) )
+         ∀x∀y( Txy       -> -Tyx       )
+         ∀x∀y( Tf(x)f(y) -> -Tf(y)f(x) )
 
 Translation Hints
 =================
@@ -3077,16 +3079,16 @@ Functions in Proofs
          f(x),  the father of x
 
 
-         i.   ∀x(Mx → Vx)
+         i.   ∀x(Mx -> Vx)
               ...
-         j.   Mf(e) → Vf(e)         i ∀E (f(e)/x)
+         j.   Mf(e) -> Vf(e)        i ∀E (f(e)/x)
 
    Alternatively, the function might already be in the wff with a
    variable argument.
 
-         i.   ∀x:(Mf(x) → Vf(x))
+         i.   ∀x:(Mf(x) -> Vf(x))
               ...
-         j.   Mf(c) → Vf(c)         i ∀E (c/x)
+         j.   Mf(c) -> Vf(c)        i ∀E (c/x)
 
 
 ====================
@@ -3102,12 +3104,13 @@ Definite Descriptors
    add anything new to FOL=; the FOL= concepts covered so far can already
    express the same ideas.
 
-         B(℩xPx)    =df    ∃x(∀y(Py ↔ y=x) ∧ Bx)
-                    =df    ∃x(Ax ∧ ∀y(Ay → y=x) ∧ Bx)
+         B(℩xPx)    =df    ∃x(∀y(Py <-> y=x) ∧ Bx)
+                    =df    ∃x(Ax ∧ ∀y(Ay -> y=x) ∧ Bx)
 
          B(℩xKx), the king of France is bald.
                   the x such that x is the king of France is Bald
-         =∃x(Kx ∧ ∀y(Ky → y=x) ∧ Bx)
+         =∃x(Kx ∧ ∀y(Ky -> y=x) ∧ Bx)
+
 
 
 ====================================
@@ -3138,7 +3141,7 @@ Lexemes
       Association Symbols:     (, )
 
    Logical Symbols
-      Truth-Function Symbols:  -, ∧, ∨, →, ↔
+      Truth-Function Symbols:  -, ∧, ∨, ->, <->
       Quantifiers
          universal:            ∀
          existential:          ∃
@@ -3155,7 +3158,7 @@ Grammar
 
    1.  Every atomic formula is a wff;
    2.  if Φ is a wff, then so is -Φ;
-   3.  if Φ,Ψ are wffs, then so are (Φ ∧ Ψ), (Φ ∨ Ψ), (Φ → Ψ), (Φ ↔ Ψ);
+   3.  if Φ,Ψ are wffs, then so are (Φ ∧ Ψ), (Φ ∨ Ψ), (Φ -> Ψ), (Φ <-> Ψ);
    4.  if Φ(α) (α a is some constant object symbol) is a wff,
        then ∀xΦ(x/α) and ∃xΦ(x/α) are wffs (where x is new to Φ).
    5.  if Φ(Ψ) (Φ,Ψ are constant predicates) is a wff, then ∀VΦ(V/Ψ) and
@@ -3238,7 +3241,7 @@ Inductive Definitions
          1.   Every atomic formula is a wff;
          2.   If P is a wff, then so is -P;
          3.   If P,Q are wffs, then so are
-              (P ∧ Q), (P ∨ Q), (P → Q), (P ↔ Q);
+              (P ∧ Q), (P ∨ Q), (P -> Q), (P <-> Q);
          4.   Nothing else is a wff.
 
    Clause 1 establishes our base case: any atomic formula is a wff.
@@ -3286,11 +3289,11 @@ Inductive Inference
    first-order logic, or an inference rule in first-order logic.  All of the
    following are different ways to express the same thing.
 
-         2nd-order axiom             ∀P((P0 ∧ ∀x(Px → Psx)) → ∀xPx)
+         2nd-order axiom             ∀P((P0 ∧ ∀x(Px -> Psx)) -> ∀xPx)
 
-         1st-order axiom schema      (P0 ∧ ∀x(Px → Psx)) → ∀xPx
+         1st-order axiom schema      (P0 ∧ ∀x(Px -> Psx)) -> ∀xPx
 
-         1st-order Inference Rule    from P0 and ∀x(Px → Psx), infer ∀xPx
+         1st-order Inference Rule    from P0 and ∀x(Px -> Psx), infer ∀xPx
 
 
 ===============================
@@ -3320,7 +3323,7 @@ Axiomatic and Natural Deduction
        |       Association Symbols:      (, )                         |
        |                                                              |
        |    Logical Symbols                                           |
-       |       Truth-Function Symbols:   -, →                         |
+       |       Truth-Function Symbols:   -, ->                        |
        |                                                              |
        | Grammar                                                      |
        |                                                              |
@@ -3328,24 +3331,24 @@ Axiomatic and Natural Deduction
        |                                                              |
        |    1.  Every atomic formula is a wff;                        |
        |    2.  if Φ is a wff, then -Φ is a wff;                      |
-       |    3.  if Φ ,Ψ is wffs, then so is (Φ → Ψ);                  |
+       |    3.  if Φ ,Ψ is wffs, then so is (Φ -> Ψ);                 |
        |    4.  nothing else is a wff.                                |
        |                                                              |
        | Definitions                                                  |
        |                                                              |
-       |    (P ∧ Q)     =df  -(P → -Q)                                |
-       |    (P ∨ Q)     =df  -P → Q                                   |
-       |    (P ↔ Q)   =df  ((P → Q) ∧ (Q → P))                        |
+       |    (P ∧ Q)     =df  -(P -> -Q)                               |
+       |    (P ∨ Q)     =df  -P -> Q                                  |
+       |    (P <-> Q)   =df  ((P -> Q) ∧ (Q -> P))                    |
        |                                                              |
        | Inference Rule                                               |
        |                                                              |
-       |    Given Φ → Ψ, and Φ infer Ψ.                               |
+       |    Given Φ -> Ψ, and Φ infer Ψ.                              |
        |                                                              |
        | Axiom Schemata                                               |
        |                                                              |
-       |    AxS1.  P → (Q → P)                                        |
-       |    AxS2.  (P → (Q → R)) → ((P → Q) → (P → R))                |
-       |    AxS3.  (-P → -Q) → ((-P → Q) → P)                         |
+       |    AxS1.  P -> (Q -> P)                                      |
+       |    AxS2.  (P -> (Q -> R)) -> ((P -> Q) -> (P -> R))          |
+       |    AxS3.  (-P -> -Q) -> ((-P -> Q) -> P)                     |
        |                                                              |
        |    Every instance of these schemata is an axiom              |
        |    of the calculus.                                          |
@@ -3429,9 +3432,9 @@ Theory of Taller-Than
 
    Axioms
 
-         Ax1.  ∀x∀y(Txy → -Tyx)                  T is Asymmetric
-         Ax2.  ∀x∀y∀z((Txy ∧ Tyz) → Txz)         T is Transitive
-         Ax3.  ∀x∀y(Txy → ∃z(Txz ∧ Tzy))         T is Dense
+         Ax1.  ∀x∀y(Txy -> -Tyx)                  T is Asymmetric
+         Ax2.  ∀x∀y∀z((Txy ∧ Tyz) -> Txz)         T is Transitive
+         Ax3.  ∀x∀y(Txy -> ∃z(Txz ∧ Tzy))         T is Dense
 
 
 =================
@@ -3449,14 +3452,14 @@ integers).
 
    Axioms
          A1.   ∀x-0=sx
-         A2.   ∀x∀y(sx=sy → x=y)
+         A2.   ∀x∀y(sx=sy -> x=y)
          A3.   ∀x(x+0)=x
          A4.   Ax∀y(x+sy)=s(x+y)
          A5.   ∀x(x*0)=0
          A6.   ∀x∀y(x*sy)=((x*y)+x)
 
    Mathematical Induction Axiom
-      MI.   ∀P((P0 ∧ ∀x(Px → Psx)) → ∀xPx)
+      MI.   ∀P((P0 ∧ ∀x(Px -> Psx)) -> ∀xPx)
 
 
 ================================================
@@ -3490,21 +3493,21 @@ Appendix A: Combined Truth-Tree Rules & Analysis
          it and write both -Φ and -Ψ at the bottom of every open path that
          contains this newly starred wff.
 
-   →     If an open path contains an unstarred instance of Φ → Ψ, star it
+   ->    If an open path contains an unstarred instance of Φ -> Ψ, star it
          and split the bottom of each open path containing this newly starred
          wff into two branches, at the end of the first branch write -Φ and
          at the end of the second branch write Ψ.
 
-   -→    If an open path contains an unstarred instance of -(Φ → Ψ),
+   -->   If an open path contains an unstarred instance of -(Φ -> Ψ),
          star it and write both Φ and -Ψ at the bottom of every open path
          that contains this newly starred wff.
 
-   ↔     If an open path contains an unstarred instance of Φ ↔ Ψ, star
+   <->   If an open path contains an unstarred instance of Φ <-> Ψ, star
          it and split the bottom of each open path containing this newly
          starred wff into two branches, at the end of the first write both
          Φ and Ψ, and at the end of the second write both -Φ and -Ψ.
 
-   -↔    If an open path contains an unstarred instance of -(Φ ↔ Ψ), star
+   -<->  If an open path contains an unstarred instance of -(Φ <-> Ψ), star
          it and split the bottom of each open path containing this newly
          starred wff into two branches, at the end of the first write both
          Φ and -Ψ, and at the end of the second write both -Φ and Ψ.
@@ -3569,21 +3572,21 @@ Appendix A: Combined Truth-Tree Rules & Analysis
            |          Φ     Ψ          |             -Ψ            |
            |                           |                           |
            | ========================= | ========================= |
-           |           → Rule          |          -→ Rule          |
+           |           ->Rule          |          -->Rule          |
            | ========================= | ========================= |
-           |         * Φ → Ψ           |       * -(Φ → Ψ)          |
-           |          --------         |        ----------         |
+           |         * Φ -> Ψ          |       * -(Φ -> Ψ)         |
+           |          --------         |        ------------       |
            |           /    \          |             Φ             |
-           |         -Φ      Ψ         |            -Ψ             |
+           |         -Φ      Ψ        |             -Ψ             |
            |                           |                           |
            | ========================= | ========================= |
-           |          ↔ Rule           |         -↔ Rule           |
+           |          <->Rule          |         -<->Rule          |
            | ========================= | ========================= |
-           |        * Φ ↔ Ψ            |       * -(Φ ↔ Ψ)          |
-           |         ---------         |        ------------       |
+           |        * Φ <-> Ψ          |       * -(Φ <-> Ψ)        |
+           |         ---------         |        -------------      |
            |          /     \          |           /     \         |
-           |         Φ      -Φ         |         Φ      -Φ         |
-           |         Ψ      -Ψ         |        -Ψ       Ψ         |
+           |         Φ      -Φ        |          Φ      -Φ         |
+           |         Ψ      -Ψ        |         -Ψ       Ψ         |
            |                           |                           |
            | ========================= | ========================= |
            |           ∀Rule           |           -∀Rule          |
@@ -3691,7 +3694,7 @@ Lexemes
 
 
    Logical Symbols
-      Truth-Function Symbols:  -, ∧, ∨, →, ↔
+      Truth-Function Symbols:  -, ∧, ∨, ->, <->
       Quantifiers
          universal:            ∀
          existential:          ∃
@@ -3711,7 +3714,7 @@ Formation Rules
 
    1.  Every atomic formula is a wff;
    2.  if Φ is a wff, then so is -Φ;
-   3.  if Φ,Ψ are wffs, then so are (Φ ∧ Ψ), (Φ ∨ Ψ), (Φ → Ψ), (Φ ↔ Ψ);
+   3.  if Φ,Ψ are wffs, then so are (Φ ∧ Ψ), (Φ ∨ Ψ), (Φ -> Ψ), (Φ <-> Ψ);
    4.  if Φ(α) (α a is some constant object symbol) is a wff,
        then ∀xΦ(x/α) and ∃xΦ(x/α) are wffs (where x is new to Φ).
    5.  if Φ(Ψ) (Φ,Ψ are constant predicates) is a wff, then ∀VΦ(V/Ψ) and
@@ -3752,26 +3755,26 @@ Primitive Inference Rules
    Conjunction (∧I)                  From Φ and Ψ, infer Φ ∧ Ψ,
                                      or infer Ψ ∧ Φ.
 
-   Disjunction Elimination (∨E)      From Φ ∨ Ψ, Φ → Θ and Ψ → Θ, infer Θ.
+   Disjunction Elimination (∨E)      From Φ ∨ Ψ, Φ -> Θ and Ψ -> Θ, infer Θ.
       Proof by Cases (PBC)
 
    Disjunction Introduction (∨I)     From Φ, infer Φ ∨ Ψ, or infer Ψ ∨ Φ.
       Addition (Add)
 
-   Conditional Elimination (→ E)     From Φ → Ψ and Φ, infer Ψ.
+   Conditional Elimination (->E)     From Φ -> Ψ and Φ, infer Ψ.
       Modus Ponens (MP)
 
-   Conditional Introduction (→ I)    From a subproof with hypothesis Φ
+   Conditional Introduction (->I)    From a subproof with hypothesis Φ
       Conditional Proof (CP)         and ending Ψ, close the subproof,
-                                     and infer Ψ → Φ.
+                                     and infer Ψ -> Φ.
 
-   Biconditional Elimination (↔ E)   From Φ ↔ Ψ, infer Φ → Ψ,
-                                     or infer Ψ → Φ.
+   Biconditional Elimination (<->E)  From Φ <-> Ψ, infer Φ -> Ψ,
+                                     or infer Ψ -> Φ.
 
-   Biconditional Introduction (↔ I)  From Φ → Ψ and Ψ → Φ, infer Φ ↔ Ψ
+   Biconditional Introduction (<->I) From Φ -> Ψ and Ψ -> Φ, infer Φ <-> Ψ
 
-   Equivalence Substitution (EQ)     From [ Φ ↔ Ψ ], and Θ(Φ), infer Θ(Ψ/Φ);
-                                     or from [ Φ ↔ Ψ ] and Θ(Ψ),
+   Equivalence Substitution (EQ)     From [ Φ <-> Ψ ], and Θ(Φ), infer Θ(Ψ/Φ);
+                                     or from [ Φ <-> Ψ ] and Θ(Ψ),
                                      infer Θ(Φ/Ψ).
 
    --------------------------------  -----------------------------------------
@@ -3804,7 +3807,7 @@ Primitive Inference Rules
 
    --------------------------------  -----------------------------------------
 
-   Mathematical Induction (MInd)     from P0 and ∀x(Px → Psx), infer ∀xPx
+   Mathematical Induction (MInd)     from P0 and ∀x(Px -> Psx), infer ∀xPx
    ================================  =========================================
 
       +-------------------------------+-------------------------------+
@@ -3836,32 +3839,32 @@ Primitive Inference Rules
       |  Disjunction Elim (∨E)        |  Disjunction Intro (∨I)       |
       | ============================= | ============================= |
       |   Φ ∨ Ψ                       |   Φ        Φ                  |
-      |   Φ → Θ                       |  -------  -------             |
-      |   Ψ → Θ                       |   Φ ∨ Ψ    Ψ ∨ Φ              |
+      |   Φ -> Θ                      |  -------  -------             |
+      |   Ψ -> Θ                      |   Φ ∨ Ψ    Ψ ∨ Φ              |
       |  --------                     |                               |
       |   Θ                           |    (Ψ is any wff whatever)    |
       |                               |                               |
       | ============================= | ============================= |
-      |  Conditional Elim (→ E)       |  Conditional Intro (→ I)      |
+      |  Conditional Elim (->E)       |  Conditional Intro (->I)      |
       | ============================= | ============================= |
-      |   Φ → Ψ                       |   |   Φ                       |
+      |   Φ -> Ψ                      |   |   Φ                       |
       |   Φ                           |   |   ...                     |
       |  ---------                    |   |   Ψ                       |
       |   Ψ                           |  ---------                    |
-      |                               |   Φ → Ψ                       |
+      |                               |   Φ -> Ψ                      |
       |                               |                               |
       | ============================= | ============================= |
-      |  Biconditional Elim (↔ E)     |  Biconditional Intro (↔ I)    |
+      |  Biconditional Elim (<->E)    |  Biconditional Intro (<->I)   |
       | ============================= | ============================= |
-      |   Φ ↔ Ψ      Φ ↔ Ψ            |   Φ → Ψ      Φ → Ψ            |
-      |  -------    ---------         |   Ψ → Φ      Ψ → Φ            |
-      |   Φ → Ψ      Ψ → Φ            |  ---------  ---------         |
-      |                               |   Φ ↔ Ψ      Ψ ↔ Φ            |
+      |   Φ <-> Ψ    Φ <-> Ψ          |   Φ -> Ψ     Φ -> Ψ           |
+      |  ---------  ---------         |   Ψ -> Φ     Ψ -> Φ           |
+      |   Φ -> Ψ     Ψ -> Φ           |  ---------  ---------         |
+      |                               |   Φ <-> Ψ    Ψ <-> Φ          |
       |                               |                               |
       | ============================= | ============================= |
       |  Equivalence Subst (EQ)       |  Definition (DEF)             |
       | ============================= | ============================= |
-      |   [ Φ ↔ Ψ ]      [ Φ ↔ Ψ ]    |  [ Φ =df Ψ ]    [ Φ =df Ψ ]   |
+      |   [ Φ <-> Ψ ]    [ Φ <-> Ψ ]  |  [ Φ =df Ψ ]    [ Φ =df Ψ ]   |
       |   Θ(Φ)           Θ(Ψ)         |  Θ(Φ)           Θ(Ψ)          |
       |  -------------  ------------- | -------------  -------------  |
       |   Θ(Ψ/Φ)         Θ(Φ/Ψ)       |  Θ(Ψ/Φ)         Θ(Φ/Ψ)        |
@@ -3898,8 +3901,8 @@ Primitive Inference Rules
       |  Mathematical Induct (MInd)   |  Axiom (Ax)                   |
       | ============================= | ============================= |
       |   P0                          |                               |
-      |   ∀x(Px → Psx)                |  ---                          |
-      |  ---------------              |   Φ       (Φ is an axiom)     |
+      |   ∀x(Px -> Psx)               | ---                           |
+      |  ---------------              |  Φ       (Φ is an axiom)      |
       |   ∀xPx                        |                               |
       |                               |                               |
       +-------------------------------+-------------------------------+
@@ -3912,11 +3915,11 @@ Derived Inference Rules
    ================================  =========================================
    Reiterate (RE)                    P  ⊢  P
    Falso Quodlibet (EFQ)             P, -P  ⊢  Q    (Q is any wff whatever)
-   Modus Tollens (MT)                P → Q, -Q  ⊢  -P
-   Hypothetical Syllogism (HS)       P → Q, Q → R  ⊢  P → R
-   Absorption (Abs)                  P → Q  ⊢  P → (P ∧ Q)
-   Constructive Dilemma (CD)         P ∨ Q, P → R, Q → S  ⊢  R ∨ S
-   Destructive Dilemma (DD)          P → Q, R → S, -Q ∨ -S ⊢ -P ∨ -Q
+   Modus Tollens (MT)                P -> Q, -Q  ⊢  -P
+   Hypothetical Syllogism (HS)       P -> Q, Q -> R  ⊢  P -> R
+   Absorption (Abs)                  P -> Q  ⊢  P -> (P ∧ Q)
+   Constructive Dilemma (CD)         P ∨ Q, P -> R, Q -> S  ⊢  R ∨ S
+   Destructive Dilemma (DD)          P -> Q, R -> S, -Q ∨ -S ⊢ -P ∨ -Q
    Disjunctive Syllogism (DS)        P ∨ Q, -P  ⊢  Q
    Disjunctive Syllogism (DS)        P ∨ Q, -Q  ⊢  P
    Theorem (THM)                     [ ⊢ P ]  ⊢  P
@@ -3933,26 +3936,26 @@ Derived Equivalences
    ================================  =========================================
    Name/Alternate Names              Sequent
    ================================  =========================================
-   Double Negation (DN)              ⊢  P ↔ --P
-   Tautology (TAUT)                  ⊢  P ↔ (P ∧ P)
-   Tautology (TAUT)                  ⊢  P ↔ (P ∨ P)
-   Transposition (TRANS)             ⊢  (P → Q) ↔ (-Q → -P)
-   Material Implication (MI)         ⊢  (P → Q) ↔ (-P ∨ Q)
-   Association (ASSOC)               ⊢  (P ∧ (Q ∧ R)) ↔ ((P ∧ Q) ∧ R)
-   Association (ASSOC)               ⊢  (P ∨ (Q ∨ R)) ↔ ((P ∨ Q) ∨ R)
-   Commutation (COM)                 ⊢  (P ∧ Q) ↔ (Q ∧ P)
-   Commutation (COM)                 ⊢  (P ∨ Q) ↔ (Q ∨ P)
-   Exportation (EXP)                 ⊢  ((P ∧ Q) → R) ↔ (P → (Q → R))
-   Distribution (DIST)               ⊢  (P ∧ (Q ∨ R)) ↔ ((P ∧ Q) ∨ (P ∧ R))
-   Distribution (DIST)               ⊢  (P ∨ (Q ∧ R)) ↔ ((P ∨ Q) ∧ (P ∨ R))
-   DeMorgan's law (DM)               ⊢  -(P ∧ Q) ↔ (-P ∨ -Q)
-   DeMorgan's law (DM)               ⊢  -(P ∨ Q) ↔ (-P ∧ -Q)
-   Material Equivalence (ME)         ⊢  (P ↔ Q) ↔ ((P → Q) ∧ (Q → P))
-   Material Equivalence (ME)         ⊢  (P ↔ Q) ↔ ((P ∧ Q) ∨ (-P ∧ -Q))
-   Dual                              ⊢  -∀x-Φ ↔ ∃xΦ
-                                     ⊢  -∀xΦ ↔ ∃x-Φ
-                                     ⊢  ∀x-Φ ↔ -∃xΦ
-                                     ⊢  ∀xΦ ↔ -∃x-Φ
+   Double Negation (DN)              ⊢  P <-> --P
+   Tautology (TAUT)                  ⊢  P <-> (P ∧ P)
+   Tautology (TAUT)                  ⊢  P <-> (P ∨ P)
+   Transposition (TRANS)             ⊢  (P -> Q) <-> (-Q -> -P)
+   Material Implication (MI)         ⊢  (P -> Q) <-> (-P ∨ Q)
+   Association (ASSOC)               ⊢  (P ∧ (Q ∧ R)) <-> ((P ∧ Q) ∧ R)
+   Association (ASSOC)               ⊢  (P ∨ (Q ∨ R)) <-> ((P ∨ Q) ∨ R)
+   Commutation (COM)                 ⊢  (P ∧ Q) <-> (Q ∧ P)
+   Commutation (COM)                 ⊢  (P ∨ Q) <-> (Q ∨ P)
+   Exportation (EXP)                 ⊢  ((P ∧ Q) -> R) <-> (P -> (Q -> R))
+   Distribution (DIST)               ⊢  (P ∧ (Q ∨ R)) <-> ((P ∧ Q) ∨ (P ∧ R))
+   Distribution (DIST)               ⊢  (P ∨ (Q ∧ R)) <-> ((P ∨ Q) ∧ (P ∨ R))
+   DeMorgan's law (DM)               ⊢  -(P ∧ Q) <-> (-P ∨ -Q)
+   DeMorgan's law (DM)               ⊢  -(P ∨ Q) <-> (-P ∧ -Q)
+   Material Equivalence (ME)         ⊢  (P <-> Q) <-> ((P -> Q) ∧ (Q -> P))
+   Material Equivalence (ME)         ⊢  (P <-> Q) <-> ((P ∧ Q) ∨ (-P ∧ -Q))
+   Dual                              ⊢  -∀x-Φ <-> ∃xΦ
+                                     ⊢  -∀xΦ <-> ∃x-Φ
+                                     ⊢  ∀x-Φ <-> -∃xΦ
+                                     ⊢  ∀xΦ <-> -∃x-Φ
    ================================  =========================================
 
 
@@ -3976,12 +3979,12 @@ Important Derived Rules
 
    ⊥ Elimination (⊥ E):   (P ⊢ ⊥)  ⊢  -P
    Schematic Proof
-    i.   |   P                    H (for →I)
+    i.   |   P                    H (for ->I)
     ...  |   ...                  ...
     j.   |   ⊥
-    k.   P → ⊥                    i - j →I
+    k.   P -> ⊥                   i - j ->I
     k+1. |   P                    H (for -I)
-    k+2. |   ⊥                    k,k+1 →E
+    k+2. |   ⊥                    k,k+1 ->E
     k+3. |   P ∧ -P               k+2 DEF ⊥
     k+4. -P                       k+1 - k+3 -I
     QED
@@ -4006,64 +4009,64 @@ The Remaining Basic Derived Rules
    06.   Q                        5 -E
    QED
 
-   Modus Tollens (MT):   P → Q, -Q  ⊢  -P
+   Modus Tollens (MT):   P -> Q, -Q  ⊢  -P
    Proof
-   01.   P → Q                    A
+   01.   P -> Q                   A
    02.   -Q                       A
    03.   |   P                    H (for -I)
-   04.   |   Q                    1,3 →E
+   04.   |   Q                    1,3 ->E
    05.   |   ⊥                    2,4 ⊥ I
    06.   -P                       3-5 ⊥ E
    QED
 
-   Hypothetical Syllogism (HS):   P → Q, Q → R  ⊢  P → R
+   Hypothetical Syllogism (HS):   P -> Q, Q -> R  ⊢  P -> R
    Proof
-   01.   P → Q                    A
-   02.   Q → R                    A
+   01.   P -> Q                   A
+   02.   Q -> R                   A
    03.   |   P                    H (for R)
-   04.   |   Q                    1,3 →E
-   05.   |   R                    2,4 →E
-   06.   P → R                    3-5 →I
+   04.   |   Q                    1,3 ->E
+   05.   |   R                    2,4 ->E
+   06.   P -> R                   3-5 ->I
    QED
 
-   Absorption (ABS):  P → Q  ⊢  P → (P ∧ Q)
+   Absorption (ABS):  P -> Q  ⊢  P -> (P ∧ Q)
    Proof
-   01.   P → Q                    A
+   01.   P -> Q                   A
    02.   |   P                    H (for P ∧ Q)
-   03.   |   Q                    1,2 →E
+   03.   |   Q                    1,2 ->E
    04.   |   P ∧ Q                2,3 ∧I
-   05.   P → (P ∧ Q)              2-4 →I
+   05.   P -> (P ∧ Q)             2-4 ->I
    QED
 
-   Constructive Dilemma (CD):   P ∨ Q, P → R, Q → S  ⊢  R ∨ S
+   Constructive Dilemma (CD):   P ∨ Q, P -> R, Q -> S  ⊢  R ∨ S
    Proof
    01.   P ∨ Q                    A
-   02.   P → R                    A
-   03.   Q → S                    A
-   04.   |   P                    H (for →I)
-   05.   |   R                    2,4 →E
+   02.   P -> R                   A
+   03.   Q -> S                   A
+   04.   |   P                    H (for ->I)
+   05.   |   R                    2,4 ->E
    06.   |   R ∨ S                5 ∨I
-   07.   P → (R ∨ S)              4-6 →I
-   08.   |   Q                    H (for →I)
-   09.   |   S                    3,8 →E
+   07.   P -> (R ∨ S)             4-6 ->I
+   08.   |   Q                    H (for ->I)
+   09.   |   S                    3,8 ->E
    10.   |   R ∨ S                9 ∨I
-   11.   Q → (R ∨ S)              9-12 →I
+   11.   Q -> (R ∨ S)             9-12 ->I
    12.   R ∨ S                    1,7,11 ∨E
    QED
 
-   Destructive Dilemma (DD):    P → Q, R → S, -Q ∨ -S  ⊢  -P ∨ -R
+   Destructive Dilemma (DD):    P -> Q, R -> S, -Q ∨ -S  ⊢  -P ∨ -R
    Proof
-   01.   P → Q                    A
-   02.   R → S                    A
+   01.   P -> Q                   A
+   02.   R -> S                   A
    03.   -Q ∨ -S                  A
-   04.   |   -Q                   H (for →I)
+   04.   |   -Q                   H (for ->I)
    05.   |   -P                   1,4 MT
    06.   |   -P ∨ -R              5 ∨I
-   07.   -Q → (-P ∨ -R)           4-6 →I
-   08.   |   -S                   H (for →I)
+   07.   -Q -> (-P ∨ -R)          4-6 ->I
+   08.   |   -S                   H (for ->I)
    09.   |   -R                   2,8 MT
    10.   |   -P ∨ -R              9 ∨I
-   11.   -S → (-P ∨ -R)           8-10 →I
+   11.   -S -> (-P ∨ -R)          8-10 ->I
    12.   -P ∨ -R                  3,7,11 ∨E
    QED
 
@@ -4071,12 +4074,12 @@ The Remaining Basic Derived Rules
    Proof
    01.   P ∨ Q                    A
    02.   -P                       A
-   03.   |   P                    H (for →I)
+   03.   |   P                    H (for ->I)
    04.   |   Q                    2,3 EFQ
-   05.   P → Q                    3-4 →I
-   06.   |   Q                    H (for →I)
+   05.   P -> Q                   3-4 ->I
+   06.   |   Q                    H (for ->I)
    07.   |   Q                    6 RE
-   08.   Q → Q                    6-7 →I
+   08.   Q -> Q                   6-7 ->I
    09.   Q                        1,5,8 ∨E
    QED
 
@@ -4084,80 +4087,80 @@ The Remaining Basic Derived Rules
    Proof
    01.   P ∨ Q                    A
    02.   -Q                       A
-   03.   |   P                    H (for →I)
+   03.   |   P                    H (for ->I)
    04.   |   P                    3 RE
-   05.   P → P                    3-4 →I
-   06.   |   Q                    H (for →I)
+   05.   P -> P                   3-4 ->I
+   06.   |   Q                    H (for ->I)
    07.   |   P                    2,6 EFQ
-   08.   Q → P                    6-7 →I
+   08.   Q -> P                   6-7 ->I
    09.   P                        1,5,8 ∨E
    QED
 
 Important Derived Equivalences
 ------------------------------
 
-   Double Negation (DN):   ⊢  P ↔ --P
+   Double Negation (DN):   ⊢  P <-> --P
    Proof
-   01.   |   P                    H (for →I)
+   01.   |   P                    H (for ->I)
    02.   |   |   -P               H (for -I)
    03.   |   |   ⊥                1,2 ⊥ I
    04.   |   --P                  2-3 -I
-   05.   P → --P                  1-4 →I
-   06.   |   --P                  H (for →I)
+   05.   P -> --P                 1-4 ->I
+   06.   |   --P                  H (for ->I)
    07.   |   P                    6 -E
-   08.   --P → P                  6,7 →I
-   09.   P ↔ --P                  5,8 ↔I
+   08.   --P -> P                 6,7 ->I
+   09.   P <-> --P                5,8 <->I
    QED
 
-   Tautology (TAUT):   ⊢  P ↔ (P ∧ P)
+   Tautology (TAUT):   ⊢  P <-> (P ∧ P)
    Poof
-   01.   |   P                    H (for →I)
+   01.   |   P                    H (for ->I)
    02.   |   P ∧ P                1,1 ∧I
-   03.   P → (P ∧ P)              2-3 →I
-   04.   |   P ∧ P                H (for →I)
+   03.   P -> (P ∧ P)             2-3 ->I
+   04.   |   P ∧ P                H (for ->I)
    05.   |   P                    4 ∧E
-   06.   (P ∧ P) → P              4-5 →I
-   07.   P ↔ (P ∧ P)              3,6 ↔I
+   06.   (P ∧ P) -> P             4-5 ->I
+   07.   P <-> (P ∧ P)            3,6 <->I
    QED
 
-   Tautology (TAUT):   ⊢  P ↔ (P ∨ P)
+   Tautology (TAUT):   ⊢  P <-> (P ∨ P)
    Proof
-   01.   |   P                    H (for →I)
+   01.   |   P                    H (for ->I)
    02.   |   P ∨ P                1 ∨I
-   03.   P → (P ∨ P)              1-2 →I
-   04.   |   P ∨ P                H (for →I)
-   05.   |   |   P                H (for →I)
+   03.   P -> (P ∨ P)             1-2 ->I
+   04.   |   P ∨ P                H (for ->I)
+   05.   |   |   P                H (for ->I)
    06.   |   |   P                5 RE
-   07.   |   P → P                5-6 →I
-   08.   |   P → P                7 RE
+   07.   |   P -> P               5-6 ->I
+   08.   |   P -> P               7 RE
    09.   |   P                    4,7,8 ∨E
-   10.   (P ∨ P) → P              4-9 →I
-   11.   P ↔ (P ∨ P)              3,10 ↔I
+   10.   (P ∨ P) -> P             4-9 ->I
+   11.   P <-> (P ∨ P)            3,10 <->I
    QED
 
-   Transposition (TRANS):  ⊢  (P → Q) ↔ (-Q → -P)
+   Transposition (TRANS):  ⊢  (P -> Q) <-> (-Q -> -P)
    Proof
-   01.   |   P → Q                H (for →I)
-   02.   |   |   -Q               H (for →I)
+   01.   |   P -> Q               H (for ->I)
+   02.   |   |   -Q               H (for ->I)
    03.   |   |   -P               1,2 MT
-   04.   |   -Q → -P              2-3 →I
-   05.   (P → Q) → (-Q → -P) 1-4 →I
-   06.   |   -Q → -P              H (for →I)
-   07.   |   |   P                H (for →I)
+   04.   |   -Q -> -P             2-3 ->I
+   05.   (P -> Q) -> (-Q -> -P) 1-4 ->I
+   06.   |   -Q -> -P             H (for ->I)
+   07.   |   |   P                H (for ->I)
    08.   |   |   --P              7 DN
    09.   |   |   --Q              6,8 MT
    10.   |   |   Q                9 -E
-   11.   |   P → Q                7-10 →I
-   12.   (-Q → -P) → (P → Q)      6-11 →I
-   13.   (P → Q) ↔ (-Q → -P)      5,12 ↔I
+   11.   |   P -> Q               7-10 ->I
+   12.   (-Q -> -P) -> (P -> Q)   6-11 ->I
+   13.   (P -> Q) <-> (-Q -> -P)  5,12 <->I
    QED
 
-   Material Implication (MI):   ⊢  (P → Q) ↔ (-P ∨ Q)
+   Material Implication (MI):   ⊢  (P -> Q) <-> (-P ∨ Q)
    Proof
-   01.   |   P → Q                H (for →I)
+   01.   |   P -> Q               H (for ->I)
    02.   |   |   -(-P ∨ Q)        H (for -I)
    03.   |   |   |   P            H (for -I)
-   04.   |   |   |   Q            1,3 →E
+   04.   |   |   |   Q            1,3 ->E
    05.   |   |   |   -P ∨ Q       4 ∨I
    06.   |   |   |   ⊥            2,5 ⊥ I
    07.   |   |   -P               3-6 ⊥ E
@@ -4165,206 +4168,206 @@ Important Derived Equivalences
    09.   |   |   ⊥                2,8 ⊥ I
    10.   |   --(-P ∨ Q)           2-9 ⊥ E
    11.   |   -P ∨ Q               10 -E
-   12.   (P → Q) → (-P ∨ Q)       1-11 →I
-   13.   |   -P ∨ Q               H (for →I)
+   12.   (P -> Q) -> (-P ∨ Q)     1-11 ->I
+   13.   |   -P ∨ Q               H (for ->I)
    14.   |   |   P                H (for -I)
    15.   |   |   --P              14 DN
    16.   |   |   Q                13,15 DS
-   17.   |   P → Q                14-16 →I
-   18.   (-P ∨ Q) → (P → Q)       13-17 →I
-   19.   (P → Q) ↔ (-P ∨ Q)       12,18 ↔I
+   17.   |   P -> Q               14-16 ->I
+   18.   (-P ∨ Q) -> (P -> Q)     13-17 ->I
+   19.   (P -> Q) <-> (-P ∨ Q)    12,18 <->I
    QED
 
-   Association (ASSOC):   ⊢  (P ∧ (Q ∧ R)) ↔ ((P ∧ Q) ∧ R)
+   Association (ASSOC):   ⊢  (P ∧ (Q ∧ R)) <-> ((P ∧ Q) ∧ R)
    Proof
-   01.   |   P ∧ (Q ∧ R)                         H (for →I)
+   01.   |   P ∧ (Q ∧ R)                         H (for ->I)
    02.   |   P                                   1 ∧E
    03.   |   Q ∧ R                               1 ∧E
    04.   |   Q                                   3 ∧E
    05.   |   R                                   3 ∧E
    06.   |   P ∧ Q                               2,4 ∧I
    07.   |   (P ∧ Q) ∧ R                         5,6 ∧I
-   08.   (P ∧ (Q ∧ R)) → ((P ∧ Q) ∧ R)           1-7 →I
-   09.   |   (P ∧ Q) ∧ R                         H (for →I)
+   08.   (P ∧ (Q ∧ R)) -> ((P ∧ Q) ∧ R)          1-7 ->I
+   09.   |   (P ∧ Q) ∧ R                         H (for ->I)
    10.   |   P ∧ Q                               9 ∧E
    11.   |   R                                   9 ∧E
    12.   |   P                                   10 ∧E
    13.   |   Q                                   10 ∧E
    14.   |   Q ∧ R                               11,13 ∧I
    15.   |   P ∧ (Q ∧ R)                         12,14 ∧I
-   16.   ((P ∧ Q) ∧ R) → (P ∧ (Q ∧ R))           9-15 →I
-   17.   (P ∧ (Q ∧ R)) ↔ ((P ∧ Q) ∧ R)           8,16 ↔I
+   16.   ((P ∧ Q) ∧ R) -> (P ∧ (Q ∧ R))          9-15 ->I
+   17.   (P ∧ (Q ∧ R)) <-> ((P ∧ Q) ∧ R)         8,16 <->I
    QED
 
-   Association (ASSOC):   ⊢  (P ∨ (Q ∨ R)) ↔ ((P ∨ Q) ∨ R)
+   Association (ASSOC):   ⊢  (P ∨ (Q ∨ R)) <-> ((P ∨ Q) ∨ R)
    Proof
-   01.   |   P ∨ (Q ∨ R)                         H (for →I)
-   02.   |   |   P                               H (for →I)
+   01.   |   P ∨ (Q ∨ R)                         H (for ->I)
+   02.   |   |   P                               H (for ->I)
    03.   |   |   P ∨ Q                           2 ∨I
    04.   |   |   (P ∨ Q) ∨ R                     3 ∨I
-   05.   |   P → ((P ∨ Q) ∨ R)                   2-4 →I
-   06.   |   |   Q ∨ R                           H (for →I)
-   07.   |   |   |   Q                           H (for →I)
+   05.   |   P -> ((P ∨ Q) ∨ R)                  2-4 ->I
+   06.   |   |   Q ∨ R                           H (for ->I)
+   07.   |   |   |   Q                           H (for ->I)
    08.   |   |   |   P ∨ Q                       7 ∨I
    09.   |   |   |   (P ∨ Q) ∨ R                 8 ∨I
-   10.   |   |   Q → ((P ∨ Q) ∨ R)               7-9 →I
-   11.   |   |   |   R                           H (for →I)
+   10.   |   |   Q -> ((P ∨ Q) ∨ R)              7-9 ->I
+   11.   |   |   |   R                           H (for ->I)
    12.   |   |   |   (P ∨ Q) ∨ R                 11 ∨I
-   13.   |   |   R → ((P ∨ Q) ∨ R)               11-12 →I
+   13.   |   |   R -> ((P ∨ Q) ∨ R)              11-12 ->I
    14.   |   |   (P ∨ Q) ∨ R                     6,10,13 ∨E
-   15.   |   (Q ∨ R) → ((P ∨ Q) ∨ R)             6-14 →I
+   15.   |   (Q ∨ R) -> ((P ∨ Q) ∨ R)            6-14 ->I
    16.   |   (P ∨ Q) ∨ R                         1,5,15 ∨E
-   17.   (P ∨ (Q ∨ R)) → ((P ∨ Q) ∨ R)           1-16 →I
-   18.   |   (P ∨ Q) ∨ R                         H (for →I)
-   19.   |   |   P ∨ Q                           H (for →I)
-   20.   |   |   |   P                           H (for →I)
+   17.   (P ∨ (Q ∨ R)) -> ((P ∨ Q) ∨ R)          1-16 ->I
+   18.   |   (P ∨ Q) ∨ R                         H (for ->I)
+   19.   |   |   P ∨ Q                           H (for ->I)
+   20.   |   |   |   P                           H (for ->I)
    21.   |   |   |   P ∨ (Q ∨ R)                 20 ∨I
-   22.   |   |   P → (P ∨ (Q ∨ R))               20-21 →I
-   23.   |   |   |   Q                           H (for →I)
+   22.   |   |   P -> (P ∨ (Q ∨ R))              20-21 ->I
+   23.   |   |   |   Q                           H (for ->I)
    24.   |   |   |   Q ∨ R                       23 ∨I
    25.   |   |   |   P ∨ (Q ∨ R)                 14 ∨I
-   26.   |   |   Q → (P ∨ (Q ∨ R))               23-25 →I
+   26.   |   |   Q -> (P ∨ (Q ∨ R))              23-25 ->I
    27.   |   |   P ∨ (Q ∨ R)                     19,22,26 ∨E
-   28.   |   (P ∨ Q) → (P ∨ (Q ∨ R))             19-27 →I
-   29.   |   |   R                               H (for →I)
+   28.   |   (P ∨ Q) -> (P ∨ (Q ∨ R))            19-27 ->I
+   29.   |   |   R                               H (for ->I)
    30.   |   |   Q ∨ R                           29 ∨I
    31.   |   |   P ∨ (Q ∨ R)                     30 ∨I
-   32.   |   R → (P ∨ (Q ∨ R))                   29-31
+   32.   |   R -> (P ∨ (Q ∨ R))                  29-31
    33.   |   P ∨ (Q ∨ R)                         13,28,32 ∨E
-   34.   ((P ∨ Q) ∨ R) → (P ∨ (Q ∨ R))           18-33 →I
-   35.   (P ∨ (Q ∨ R)) ↔ ((P ∨ Q) ∨ R)           17,34 ↔I
+   34.   ((P ∨ Q) ∨ R) -> (P ∨ (Q ∨ R))          18-33 ->I
+   35.   (P ∨ (Q ∨ R)) <-> ((P ∨ Q) ∨ R)         17,34 <->I
    QED
 
-   Commutation (COM):   ⊢  (P ∧ Q) ↔ (Q ∧ P)
+   Commutation (COM):   ⊢  (P ∧ Q) <-> (Q ∧ P)
    Proof
-   01.   |   P ∧ Q                               H (for →I)
+   01.   |   P ∧ Q                               H (for ->I)
    02.   |   P                                   1 ∧E
    03.   |   Q                                   1 ∧E
    04.   |   Q ∧ P                               2,3 ∧I
-   05.   (P ∧ Q) → (Q ∧ P)                       1-4 →I
-   06.   |   Q ∧ P                               H (for →I)
+   05.   (P ∧ Q) -> (Q ∧ P)                      1-4 ->I
+   06.   |   Q ∧ P                               H (for ->I)
    07.   |   Q                                   ∧E
    08.   |   P                                   ∧E
    09.   |   P ∧ Q                               ∧I
-   10.   (Q ∧ P) → (P ∧ Q)                       6-9 →I
-   11.   (P ∧ Q) ↔ (Q ∧ P)                       5,10 ↔I
+   10.   (Q ∧ P) -> (P ∧ Q)                      6-9 ->I
+   11.   (P ∧ Q) <-> (Q ∧ P)                     5,10 <->I
    QED
 
-   Commutation (COM):   ⊢  (P ∨ Q) ↔ (Q ∨ P)
+   Commutation (COM):   ⊢  (P ∨ Q) <-> (Q ∨ P)
    Proof
-   01.   |   P ∨ Q                               H (for →I)
-   02.   |   |   P                               H (for →I)
+   01.   |   P ∨ Q                               H (for ->I)
+   02.   |   |   P                               H (for ->I)
    03.   |   |   Q ∨ P                           2 ∨I
-   04.   |   P → (Q ∨ P)                         2-4 →I
-   05.   |   |   Q                               H (for →I)
+   04.   |   P -> (Q ∨ P)                        2-4 ->I
+   05.   |   |   Q                               H (for ->I)
    06.   |   |   Q ∨ P                           5 ∨I
-   07.   |   Q → (Q ∨ P)                         5-6 →I
+   07.   |   Q -> (Q ∨ P)                        5-6 ->I
    08.   |   Q ∨ P                               1,4,7 ∨E
-   09.   (P ∨ Q) → (Q ∨ P)                       1-8 →I
-   10.   |   Q ∨ P                               H (for →I)
-   11.   |   |   Q                               H (for →I)
+   09.   (P ∨ Q) -> (Q ∨ P)                      1-8 ->I
+   10.   |   Q ∨ P                               H (for ->I)
+   11.   |   |   Q                               H (for ->I)
    12.   |   |   P ∨ Q                           11 ∨I
-   13.   |   Q → (P ∨ Q)                         11-12 →I
-   14.   |   |   P                               H (for →I)
+   13.   |   Q -> (P ∨ Q)                        11-12 ->I
+   14.   |   |   P                               H (for ->I)
    15.   |   |   P ∨ Q                           14 ∨I
-   16.   |   P → (P ∨ Q)                         14-15 →I
+   16.   |   P -> (P ∨ Q)                        14-15 ->I
    17.   |   P ∨ Q                               10,13,16 ∨E
-   18.   (Q ∨ P) → (P ∨ Q)                       10-17 →I
-   19.   (P ∨ Q) ↔ (Q ∨ P)                       9,18 ↔I
+   18.   (Q ∨ P) -> (P ∨ Q)                      10-17 ->I
+   19.   (P ∨ Q) <-> (Q ∨ P)                     9,18 <->I
    QED
 
-   Exportation (EXP):   ⊢  ((P ∧ Q) → R) ↔ (P → (Q → R))
+   Exportation (EXP):   ⊢  ((P ∧ Q) -> R) <-> (P -> (Q -> R))
    Proof
-   01.   |   (P ∧ Q) → R                         H (for →I)
-   02.   |   |   P                               H (for →I)
-   03.   |   |   |   Q                           H (for →I)
+   01.   |   (P ∧ Q) -> R                        H (for ->I)
+   02.   |   |   P                               H (for ->I)
+   03.   |   |   |   Q                           H (for ->I)
    04.   |   |   |   P ∧ Q                       2,3 ∧I
-   05.   |   |   |   R                           1,4 →E
-   06.   |   |   Q → R                           3-5 →I
-   07.   |   P → (Q → R)                         2-6 →I
-   08.   ((P ∧ Q) → R) → (P → (Q → R))           1-7 →I
-   09.   |   P → (Q → R)                         H (for →I)
-   10.   |   |   P ∧ Q                           H (for →I)
+   05.   |   |   |   R                           1,4 ->E
+   06.   |   |   Q -> R                          3-5 ->I
+   07.   |   P -> (Q -> R)                       2-6 ->I
+   08.   ((P ∧ Q) -> R) -> (P -> (Q -> R))       1-7 ->I
+   09.   |   P -> (Q -> R)                       H (for ->I)
+   10.   |   |   P ∧ Q                           H (for ->I)
    11.   |   |   P                               13 ∧E
-   12.   |   |   Q → R                           9,11 →E
+   12.   |   |   Q -> R                          9,11 ->E
    13.   |   |   Q                               10 ∧E
-   14.   |   |   R                               12,13 →E
-   15.   |   (P ∧ Q) → R                         10-14 →I
-   16.   (P → (Q → R)) → ((P ∧ Q) → R)           9-15 →I
-   17.   ((P ∧ Q) → R) ↔ (P → (Q → R))           8,16 ↔I
+   14.   |   |   R                               12,13 ->E
+   15.   |   (P ∧ Q) -> R                        10-14 ->I
+   16.   (P -> (Q -> R)) -> ((P ∧ Q) -> R)       9-15 ->I
+   17.   ((P ∧ Q) -> R) <-> (P -> (Q -> R))      8,16 <->I
    QED
 
-   Distribution (DIST):   ⊢  (P ∧ (Q ∨ R)) ↔ ((P ∧ Q) ∨ (P ∧ R))
+   Distribution (DIST):   ⊢  (P ∧ (Q ∨ R)) <-> ((P ∧ Q) ∨ (P ∧ R))
    Proof
-   01.   |   P ∧ (Q ∨ R)                         H (for →I)
+   01.   |   P ∧ (Q ∨ R)                         H (for ->I)
    02.   |   P                                   1 ∧E
    03.   |   Q ∨ R                               1 ∧E
-   04.   |   |   Q                               H (for →I)
+   04.   |   |   Q                               H (for ->I)
    05.   |   |   P ∧ Q                           2,4 ∧I
    06.   |   |   (P ∧ Q) ∨ (P ∧ R)               5 ∨I
-   07.   |   Q → ((P ∧ Q) ∨ (P ∧ R))             4-6 →I
-   08.   |   |   R                               H (for →I)
+   07.   |   Q -> ((P ∧ Q) ∨ (P ∧ R))            4-6 ->I
+   08.   |   |   R                               H (for ->I)
    09.   |   |   P ∧ R                           2,8 ∧I
    10.   |   |   (P ∧ Q) ∨ (P ∧ R)               9 ∨I
-   11.   |   R → ((P ∧ Q) ∨ (P ∧ R))             8-10 →I
+   11.   |   R -> ((P ∧ Q) ∨ (P ∧ R))            8-10 ->I
    12.   |   (P ∧ Q) ∨ (P ∧ R)                   3,7,11 ∨E
-   13.   (P ∧ (Q ∨ R)) → ((P ∧ Q) ∨ (P ∧ R))     1-12 →I
-   14.   |   (P ∧ Q) ∨ (P ∧ R)                   H (for →I)
-   15.   |   |   P ∧ Q                           H (for →I)
+   13.   (P ∧ (Q ∨ R)) -> ((P ∧ Q) ∨ (P ∧ R))    1-12 ->I
+   14.   |   (P ∧ Q) ∨ (P ∧ R)                   H (for ->I)
+   15.   |   |   P ∧ Q                           H (for ->I)
    16.   |   |   P                               15 ∧E
    17.   |   |   Q                               15 ∧E
    18.   |   |   Q ∨ R                           17 ∨I
    19.   |   |   P ∧ (Q ∨ R)                     17,18 ∧I
-   20.   |   (P ∧ Q) → (P ∧ (Q ∨ R))             15-18 →I
-   21.   |   |   P ∧ R                           H (for →I)
+   20.   |   (P ∧ Q) -> (P ∧ (Q ∨ R))            15-18 ->I
+   21.   |   |   P ∧ R                           H (for ->I)
    22.   |   |   P                               21 ∧E
    23.   |   |   R                               21 ∧E
    24.   |   |   Q ∨ R                           23 ∨I
    25.   |   |   P ∧ (Q ∨ R)                     24 ∧I
-   26.   |   (P ∧ R) → (P ∧ (Q ∨ R))             21-25 →I
+   26.   |   (P ∧ R) -> (P ∧ (Q ∨ R))            21-25 ->I
    27.   |   P ∧ (Q ∨ R)                         14,20,26 ∨E
-   28.   ((P ∧ Q) ∨ (P ∧ R)) → (P ∧ (Q ∨ R))     14-27 →I
-   29.   (P ∧ (Q ∨ R)) ↔ ((P ∧ Q) ∨ (P ∧ R))     13,28 ↔I
+   28.   ((P ∧ Q) ∨ (P ∧ R)) -> (P ∧ (Q ∨ R))    14-27 ->I
+   29.   (P ∧ (Q ∨ R)) <-> ((P ∧ Q) ∨ (P ∧ R))   13,28 <->I
    QED
 
-   Distribution (DIST):   ⊢  (P ∨ (Q ∧ R)) ↔ ((P ∨ Q) ∧ (P ∨ R))
+   Distribution (DIST):   ⊢  (P ∨ (Q ∧ R)) <-> ((P ∨ Q) ∧ (P ∨ R))
    Proof
-   01.   |   P ∨ (Q ∧ R)                         H (for →I)
-   02.   |   |   P                               H (for →I)
+   01.   |   P ∨ (Q ∧ R)                         H (for ->I)
+   02.   |   |   P                               H (for ->I)
    03.   |   |   P ∨ Q                           2 ∨I
    04.   |   |   P ∨ R                           2 ∨I
    05.   |   |   (P ∨ Q) ∧ (P ∨ R)               3,4 ∧I
-   06.   |   P → ((P ∨ Q) ∧ (P ∨ R))             2-5 →I
-   07.   |   |   Q ∧ R                           H (for →I)
+   06.   |   P -> ((P ∨ Q) ∧ (P ∨ R))            2-5 ->I
+   07.   |   |   Q ∧ R                           H (for ->I)
    08.   |   |   Q                               7 ∧E
    09.   |   |   R                               7 ∧E
    10.   |   |   P ∨ Q                           8 ∨I
    11.   |   |   P ∨ R                           9 ∨I
    12.   |   |   (P ∨ Q) ∧ (P ∨ R)               10,11 ∧I
-   13.   |   (Q ∧ R) → ((P ∨ Q) ∧ (P ∨ R))       7-12 →I
+   13.   |   (Q ∧ R) -> ((P ∨ Q) ∧ (P ∨ R))      7-12 ->I
    14.   |   (P ∨ Q) ∧ (P ∨ R)                   1,6,13 ∨E
-   15.   (P ∨ (Q ∧ R)) → ((P ∨ Q) ∧ (P ∨ R))     1-14 →I
-   16.   |   (P ∨ Q) ∧ (P ∨ R)                   H (for →I)
+   15.   (P ∨ (Q ∧ R)) -> ((P ∨ Q) ∧ (P ∨ R))    1-14 ->I
+   16.   |   (P ∨ Q) ∧ (P ∨ R)                   H (for ->I)
    17.   |   P ∨ Q                               18 ∧E
    18.   |   P ∨ R                               16 ∧E
-   19.   |   |   P                               H (for →I)
+   19.   |   |   P                               H (for ->I)
    20.   |   |   P ∨ (Q ∧ R)                     19 ∨I
-   21.   |   P → (P ∨ (Q ∧ R))                   19-20 →I
-   22.   |   |   Q                               H (for →I)
-   23.   |   |   |   R                           H (for →I)
+   21.   |   P -> (P ∨ (Q ∧ R))                  19-20 ->I
+   22.   |   |   Q                               H (for ->I)
+   23.   |   |   |   R                           H (for ->I)
    24.   |   |   |   Q ∧ R                       22,23 ∧I
    25.   |   |   |   P ∨ (Q ∧ R)                 24 ∨I
-   26.   |   |   R → (P ∨ (Q ∧ R))               23-25 →I
+   26.   |   |   R -> (P ∨ (Q ∧ R))              23-25 ->I
    27.   |   |   P ∨ (Q ∧ R)                     28,21,26 ∨E
-   28.   |   Q → (P ∨ (Q ∧ R))                   22-26 →I
+   28.   |   Q -> (P ∨ (Q ∧ R))                  22-26 ->I
    29.   |   P ∨ (Q ∧ R)                         17,21,28 ∨E
-   30.   ((P ∨ Q) ∧ (P ∨ R)) → (P ∨ (Q ∧ R))     16-29 →I
-   31.   (P ∨ (Q ∧ R)) ↔ ((P ∨ Q) ∧ (P ∨ R))     15,30 ↔I
+   30.   ((P ∨ Q) ∧ (P ∨ R)) -> (P ∨ (Q ∧ R))    16-29 ->I
+   31.   (P ∨ (Q ∧ R)) <-> ((P ∨ Q) ∧ (P ∨ R))   15,30 <->I
    QED
 
-   DeMorgan's law (DM): ⊢  -(P ∧ Q) ↔ (-P ∨ -Q)
+   DeMorgan's law (DM): ⊢  -(P ∧ Q) <-> (-P ∨ -Q)
    Proof
-   01.   |   -(P ∧ Q)                            H (for →I)
+   01.   |   -(P ∧ Q)                            H (for ->I)
    02.   |   |   -(-P ∨ -Q)                      H (for -I)
    03.   |   |   |   -P                          H (for -I)
    04.   |   |   |   -P ∨ -Q                     3 ∨I
@@ -4380,8 +4383,8 @@ Important Derived Equivalences
    14.   |   |   ⊥                               1,13 ⊥ I
    15.   |   --(-P ∨ -Q)                         2-14 ⊥ E
    16.   |   -P ∨ -Q                             15 -E
-   17.   -(P ∧ Q) → (-P ∨ -Q)                    1-16 →I
-   18.   |   -P ∨ -Q                             H (for →I)
+   17.   -(P ∧ Q) -> (-P ∨ -Q)                   1-16 ->I
+   18.   |   -P ∨ -Q                             H (for ->I)
    19.   |   |   P ∧ Q                           H (for -I)
    20.   |   |   P                               19 ∧E
    21.   |   |   Q                               19 ∧E
@@ -4389,13 +4392,13 @@ Important Derived Equivalences
    23.   |   |   -Q                              18,22 DS
    24.   |   |   ⊥                               21,23 ⊥ I
    25.   |   -(P ∧ Q)                            19-24 ⊥ E
-   26.   (-P ∨ -Q) → -(P ∧ Q)                    18-25 →I
-   27.   -(P ∧ Q) ↔ (-P ∨ -Q)                    17,26 ↔I
+   26.   (-P ∨ -Q) -> -(P ∧ Q)                   18-25 ->I
+   27.   -(P ∧ Q) <-> (-P ∨ -Q)                  17,26 <->I
    QED
 
-   DeMorgan's law (DM)  ⊢  -(P ∨ Q) ↔ (-P ∧ -Q)
+   DeMorgan's law (DM)  ⊢  -(P ∨ Q) <-> (-P ∧ -Q)
    Proof
-   01.   |   -(P ∨ Q)                            H (for →I)
+   01.   |   -(P ∨ Q)                            H (for ->I)
    02.   |   |   -(-P ∧ -Q)                      H (for -I)
    03.   |   |   |   P                           H (for -I)
    04.   |   |   |   P ∨ Q                       3 ∨I
@@ -4408,81 +4411,82 @@ Important Derived Equivalences
    11.   |   |   -P ∧ -Q                         6,10 ∧I
    12.   |   |   ⊥                               2,11 ⊥ I
    13.   |   -P ∧ -Q                             2-12 ⊥ E
-   14.   -(P ∨ Q) → (-P ∧ -Q)                    1-13 →I
-   15.   |   -P ∧ -Q                             H (for →I)
+   14.   -(P ∨ Q) -> (-P ∧ -Q)                   1-13 ->I
+   15.   |   -P ∧ -Q                             H (for ->I)
    16.   |   |   P ∨ Q                           H (for -I)
    17.   |   |   -P                              15 ∧E
    18.   |   |   -Q                              15 ∧E
    19.   |   |   Q                               16,18 DS
    20.   |   |   ⊥                               18,19 ⊥ I
    21.   |   -(P ∨ Q)                            16-20 ⊥ E
-   22.   (-P ∧ -Q) → -(P ∨ Q)                    15-21 →I
-   23.   -(P ∨ Q) ↔ (-P ∧ -Q)                    14,22 ↔I
+   22.   (-P ∧ -Q) -> -(P ∨ Q)                   15-21 ->I
+   23.   -(P ∨ Q) <-> (-P ∧ -Q)                  14,22 <->I
    QED
 
-   Material Equivalence (ME):  ⊢  (P ↔ Q) ↔ ((P → Q) ∧ (Q → P))
+   Material Equivalence (ME):  ⊢  (P <-> Q) <-> ((P -> Q) ∧ (Q -> P))
    Proof
-   01.   |   P ↔ Q                              H (for →I)
-   02.   |   P → Q                              1 ↔E
-   03.   |   Q → P                              1 ↔E
-   04.   |   (P → Q) ∧ (Q → P)                  2,3 ∧I
-   05.   (P ↔ Q) → ((P → Q) ∧ (Q → P))          1-4 →I
-   06.   |   (P → Q) ∧ (Q → P)                  H (for →I)
-   07.   |   P → Q                              6 ∧E
-   08.   |   Q → P                              6 ∧E
-   09.   |   P ↔ Q                              7,8 ↔I
-   10.   ((P → Q) ∧ (Q → P)) → (P ↔ Q)          6-9 →I
-   11.   (P ↔ Q) ↔ ((P → Q) ∧ (Q → P))          5,10 ↔I
+   01.   |   P <-> Q                             H (for ->I)
+   02.   |   P -> Q                              1 <->E
+   03.   |   Q -> P                              1 <->E
+   04.   |   (P -> Q) ∧ (Q -> P)                 2,3 ∧I
+   05.   (P <-> Q) -> ((P -> Q) ∧ (Q -> P))      1-4 ->I
+   06.   |   (P -> Q) ∧ (Q -> P)                 H (for ->I)
+   07.   |   P -> Q                              6 ∧E
+   08.   |   Q -> P                              6 ∧E
+   09.   |   P <-> Q                             7,8 <->I
+   10.   ((P -> Q) ∧ (Q -> P)) -> (P <-> Q)      6-9 ->I
+   11.   (P <-> Q) <-> ((P -> Q) ∧ (Q -> P))     5,10 <->I
    QED
 
-   Material Equivalence (ME):  ⊢  (P ↔ Q) ↔ ((P ∧ Q) ∨ (-P ∧ -Q))
+   Material Equivalence (ME):  ⊢  (P <-> Q) <-> ((P ∧ Q) ∨ (-P ∧ -Q))
    Proof
-   01.   |   P ↔ Q                               H (for →I)
-   02.   |   P → Q                               1 ↔E
-   03.   |   Q → P                               1 ↔E
+   01.   |   P <-> Q                             H (for ->I)
+   02.   |   P -> Q                              1 <->E
+   03.   |   Q -> P                              1 <->E
    04.   |   |   -((P ∧ Q) ∨ (-P ∧ -Q))          H (for -I)
    05.   |   |   -(P ∧ Q) ∧ -(-P ∧ -Q)           4 DM
    06.   |   |   -(P ∧ Q)                        5 ∧E
    07.   |   |   -(-P ∧ -Q)                      5 ∧E
    08.   |   |   -P ∨ -Q                         6 DM
    09.   |   |   P ∨ Q                           7 DM
-   10.   |   |   |   -P                          H (for →I)
+   10.   |   |   |   -P                          H (for ->I)
    11.   |   |   |   -Q                          2,10 MT
    12.   |   |   |   P                           9,10 DS
    13.   |   |   |   ⊥                           10,11 ⊥ I
-   14.   |   |   -P → ⊥                          10-13 →I
-   15.   |   |   |   -Q                          H (for →I)
+   14.   |   |   -P -> ⊥                         10-13 ->I
+   15.   |   |   |   -Q                          H (for ->I)
    16.   |   |   |   -P                          2,15 MT
    17.   |   |   |   P                           9,15 DS
    18.   |   |   |   ⊥                           16,17 ⊥ I
-   19.   |   |   -Q → ⊥                          15-18 →I
+   19.   |   |   -Q -> ⊥                         15-18 ->I
    20.   |   |   ⊥                               8,14,19 ∨E
    21.   |   (P ∧ Q) ∨ (-P ∧ -Q)                 4-20 ⊥ E
-   22.   (P ↔ Q) → ((P ∧ Q) ∨ (-P ∧ -Q))         1-21 →I
-   23.   |   (P ∧ Q) ∨ (-P ∧ -Q)                 H (for →I)
-   24.   |   |   P ∧ Q                           H (for →I)
-   25.   |   |   |   P                           H (for →I)
+   22.   (P <-> Q) -> ((P ∧ Q) ∨ (-P ∧ -Q))      1-21 ->I
+   23.   |   (P ∧ Q) ∨ (-P ∧ -Q)                 H (for ->I)
+   24.   |   |   P ∧ Q                           H (for ->I)
+   25.   |   |   |   P                           H (for ->I)
    26.   |   |   |   Q                           24 ∧E
-   27.   |   |   P → Q                           25-26 →I
-   28.   |   |   |   Q                           H (for →I)
+   27.   |   |   P -> Q                          25-26 ->I
+   28.   |   |   |   Q                           H (for ->I)
    29.   |   |   |   P                           24 ∧E
-   30.   |   |   Q → P                           28-29 →I
-   31.   |   |   P ↔ Q                           27,30 ↔I
-   32.   |   (P ∧ Q) → (P ↔ Q)                   24-31 →I
-   33.   |   |   -P ∧ -Q                         H (for →I)
-   34.   |   |   |   -P                          H (for →I)
+   30.   |   |   Q -> P                          28-29 ->I
+   31.   |   |   P <-> Q                         27,30 <->I
+   32.   |   (P ∧ Q) -> (P <-> Q)                24-31 ->I
+   33.   |   |   -P ∧ -Q                         H (for ->I)
+   34.   |   |   |   -P                          H (for ->I)
    35.   |   |   |   -Q                          33 ∧E
-   36.   |   |   -P → -Q                         34-35 →I
-   37.   |   |   Q → P                           36 TRANS
-   38.   |   |   |   -Q                          H (for →I)
+   36.   |   |   -P -> -Q                        34-35 ->I
+   37.   |   |   Q -> P                          36 TRANS
+   38.   |   |   |   -Q                          H (for ->I)
    39.   |   |   |   -P                          33 ∧E
-   40.   |   |   -Q → -P                         37-38 →I
-   41.   |   |   P → Q                           40 TRANS
-   42.   |   |   P ↔ Q                           37,41 ↔I
-   43.   |   (-P ∧ -Q) → (P ↔ Q)                 33-42 →I
-   44.   ((P ∧ Q) ∨ (-P ∧ -Q)) → (P ↔ Q)         23-44 →I
-   45.   (P ↔ Q) ↔ ((P ∧ Q) ∨ (-P ∧ -Q))         22,44 ↔I
+   40.   |   |   -Q -> -P                        37-38 ->I
+   41.   |   |   P -> Q                          40 TRANS
+   42.   |   |   P <-> Q                         37,41 <->I
+   43.   |   (-P ∧ -Q) -> (P <-> Q)              33-42 ->I
+   44.   ((P ∧ Q) ∨ (-P ∧ -Q)) -> (P <-> Q)      23-44 ->I
+   45.   (P <-> Q) <-> ((P ∧ Q) ∨ (-P ∧ -Q))     22,44 <->I
    QED
+
 
 
 =================================
@@ -4516,7 +4520,7 @@ Appendix D: UTF-8 Character Codes
    ⊭            doesn't satisfy                        22AD
    𝕸            model function                         0001D578
 
-   Set Theory Symbols
+   Set Thoery Symbols
 
    ∅  or  null  empty set                              2205
    ∊            membership                             220A
