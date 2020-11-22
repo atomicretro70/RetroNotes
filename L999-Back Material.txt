@@ -49,6 +49,12 @@ To View This Document Properly
 * This document must be viewed in an editor that can display unicode utf-8.
 
 
+Scientists discover the measurable contours and shapes of a physical
+reality, *the natural*.  But that path doesn't possess complete explanatory
+power.  The sceniences themselves are beautiful, but will always discover
+the mechanical (discrete, deterministic), but never explaining infinitude mind .
+Is the universe that and nothing more than what can be measured?ZZZZZZ
+
 ================================
 Organization of Ron's Text Notes
 ================================
@@ -343,107 +349,172 @@ Symbols
    "..."        double quotes
  
 
-Diagram & Table Templates
--------------------------
+Document Conventions
+--------------------
 
-Venn Diagrams
+Do's and Don'ts
 
-          +-------+
-         S|       |
-          |   +---+---+
-          |   |   |   |
-          +---+---+   |
-              |       |P
-              +-------+
+   TABS ARE THE ENEMY - SPACES ONLY!
 
-          +-------+                    +-------+
-         S|       |                   S|       |
-          |   +---+---+                |   +---+---+
-          |   |   |   |                |   |   |   |
-          +---+---+   |                +---+---+   |
-              |       |P                   |       |P
-              +-------+                    +-------+
+   White space is our friend.  Don't squish stuff together Everything looks
+   better with more whitespace than is technically necessary (but please,
+   not *too* much).
 
-                  +-----------+
-                  |           |M
-          +-------+---+       |
-         S|       |   |       |
-          |   +---+---+---+   |
-          |   |   |   |   |   |
-          |   |   +---+---+---+
-          |   |       |   |
-          +---+-------+   |
-              |           |P
-              +-----------+
+   Avoid stacking - when the same symbols appear in two separate lines
+   one below the other.
 
-                  +-----------+                +-----------+
-                  |           |M               |           |M
-          +-------+---+       |        +-------+---+       |
-         S|       |   |       |       S|       |   |       |
-          |   +---+---+---+   |        |   +---+---+---+   |
-          |   |   |   |   |   |        |   |   |   |   |   |
-          |   |   +---+---+---+        |   |   +---+---+---+
-          |   |       |   |            |   |       |   |
-          +---+-------+   |            +---+-------+   |
-              |           |P               |           |P
-              +-----------+                +-----------+
+   Avoid splitting hyphenated words when one of the two words is very short
+   (like 2 or 3 letters).  (Try very to not split words between lines)
 
-Squares of Opposition
+   Avoid ending a paragraph or column of text with a line containing only
+   a few words.
 
-   Modern Square of Opposition       Traditional Square of Opposition
+   Avoid too long a sequence of lines that grow progressively longer or
+   progressively shorter.  Ideally the left column should have a nice wavy
+   look.  (This may be difficult in mono-spaced font).
 
-                                             contraries
-      A                   E             A - - - - - - - - - E
-        \               /              s| \               / |s
-          \           /                u    \           /    u
-            \       /                  b|     \       /     |b
-              \   /                    a        \   /        a
-         Contradictories               l|  contradictories  |l
-              /   \                    t        /   \        t
-            /       \                  e|     /       \     |e
-          /           \                r    /           \    r
-        /               \              n| /               \ |n
-      I                   O             I - - - - - - - - - O
-                                            subcontraries
+   Avoid having a string of one or more small words at the end of a line;
+   especially following a period.
 
-Tree Graph
+   Try to use shorter words when I think of it and it seems to me to not
+   degrade clarity.  Again to conserve space.
 
-                             Root 
-                             /  \
-                            /    \
-                        leaf1    parent&Child 
-                                 /          \
-                                /            \
-                             child           node 
-                             /   \           /   \
-                            /     \         /     \
-                         leaf2   leaf3   leaf4   leaf5
+   Try to keep personal commentary minimal
 
-Information Box
+typography
 
-      +---------------------------+------------------------------+
-      | ========================= | ============================ |
-      | Header                    | Header                       |
-      | ========================= | ============================ |
-      | content                   | content                      |
-      | content                   | content                      |
-      | content                   | content                      |
-      |                           |                              |
-      | ========================= | ============================ |
-      | Header                    | Header                       |
-      | ========================= | ============================ |
-      | content                   | content                      |
-      | content                   | content                      |
-      | content                   | content                      |
-      |                           |                              |
-      | ========================= | ============================ |
-      | Header                    | Header                       |
-      | ========================= | ============================ |
-      | content                   | content                      |
-      | content                   | content                      |
-      | content                   | content                      |
-      |                           |                              |
-      +---------------------------+------------------------------+
+   *text*  Asterisks denote italics
+
+   @@@text denotes any editing annotations to myself.  (These should never
+           be visible in a release version - if I don't mess up).
+
+   TEXT  makes important pieces of text stand out, mostly used for a term
+           when it's defined (to make it easier to search for the definition).
+
+Use, Mention and Quotes
+
+   It's useful to differentiate between whether something's meaning is part
+   of a sentence structure, of whether something is just being mentioned.
+
+   SINGLE QUOTES are used When we wish to merely MENTIONING something.
+
+      The sentence 'Alice loves Bob,' is transitive.
+
+   NO QUOTES are used if something is used as part of the sentence.
+
+      Alice loves Bob, but Bob doesn't love Alice.
+
+   To indicate something that someone actually said, we use DOUBLE QUOTES.
+
+      Alice said, "I love Bob."
+
+   Notice double quotes, like single, describe something that's mentioned.
+   The key difference being that double quotes surround verbatim sentences.
+
+First Text Column
+
+   Headers of levels 1,2,3,4 begin in column 1.
+
+   Level 5 headers begin in column 4, and are short.
+
+   All body text begins in column 4.  If a level 5 header is a term, the
+   subordinate body text begins in column 7.
+
+   Examples and all other kinds of text begin in column 10.
+
+   Tables and diagrams will begin in column 10 provided everything can fit
+   on the line, otherwise they'll begin in column 4.
+   
+Headers
+
+   All headers will be surrounded blank lines.  Level 1 & 2 headers
+   are preceded by two blank lines.
+
+
+==============
+Level 1 Header
+==============
+
+==============================================================================
+||||| Level 1 Header |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+==============================================================================
+
+∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨
+||||| Level 1 Header |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧
+
+------------------------------------------------------------------------------
+||||| Level 1 Header |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+------------------------------------------------------------------------------
+
+
+
+-------
+Level 2
+-------
+
+[[[[[ Level 2 Header ]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+
+((((( Level 2 Header )))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+
+
+
+Level 3 Header
+==============
+
+||||| Level 3 Header |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+
+Level 4 Header
+--------------
+
+::::: Level 4 Header::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+   Level 5 Header
+
+   Body text goes here.
+
+         Examples begin here
+
+
+Diagrams & Tables
+
+   I'll do my best to align diagrams and tables when they appear close
+   together, but width limitations (and mono-spacing) can make that difficult.
+
+   For text don't cr unless necessary; try to get close to column 78.  There
+   may be oddball cases where it looks like a word is straggling new column
+   78 but the nearby text is quite shorter.  In this case I'll CR early to
+   avoid that orphan or dangler.
+
+Notation Regarding SYMBOLOGY
+
+   The notation selected for this book may vary slightly from that of other
+   books.  However, the symbol set was selected to reflect aesthetic
+   principles.  The logical operator symbols consist of well-defined straight
+   lines in symmetrical arrangements to reflect the similarly well-defined
+   rigid logical operations.  Parentheses, used for grouping just as in math,
+   can be thought of as representing nested bubbles.  Both of these are in
+   stark contrast to the large round or curvy letters used to denote more
+   complex, less well-defined English sentences.
+
+Notation Regarding Venn Diagrams
+
+   Obviously circles aren't possible.  I did consider diamonds using / and \,
+   but they would have been larger causing the diagrams to take up more space.
+   I wanted the diagrams to be more compact and they are as compact as they
+   can get with my chosen set of marks.  I think any smaller and it would
+   become too difficult to read them.  Upon first glace the rectangles may
+   seem harder to read than circles, but I found I adjusted quickly.  For
+   those disappointed in my choice, cocking your head to the right makes the
+   rectangles look more similar to conventional Venn diagrams.  If you read
+   this with the same editor and font that I'm using, the rectangles look
+   nearly square.
+
+Lists, Table & Diagram Templates
+--------------------------------
 
 Unordered List (Bullets)
 
@@ -465,6 +536,7 @@ Unordered List (Bullets)
 Ordered List (Procedure)
 
    Procedure
+
    1.  Write a vertical list of wffs to be tested.  This list forms the root
        of our tree.
 
@@ -494,34 +566,31 @@ Ordered Lists (Proofs)
 
    ^^ double digit line numbers.
 
-Unordered Lists (Parallel)
+Information Box
 
-      ========    ========    ========    ========
-      Figure-1    Figure-2    Figure-3    Figure-4
-      ========    ========    ========    ========
-       1-AAA       2-AEE       3-AII       4-AEE
-       1-AII       2-AOO       3-EIO       4-EIO
-       1-EAE       2-EAE       3-IAI       4-IAI
-       1-EIO       2-EIO       3-OAO
-      ========    ========    ========    ========
-              ^^^^        ^^^^        ^^^^
-              Four spaces between columns.
-
-Unordered List (Parallel) with Sections
-
-      ========    ========    ========    ========    ============
-      Figure-1    Figure-2    Figure-3    Figure-4    Condition
-                                                      for Validity
-      ========    ========    ========    ========    ============
-       1-AAI       2-AEO                   4-AEO       S exists
-       1-EAO       2-EAO
-      --------    --------    --------    --------    ------------
-                               3-AII       4-EAO       M exists
-                               3-EAO
-      --------    --------    --------    --------    ------------
-                                           4-AAI       P exists
-
-      ========    ========    ========    ========    ============
+      +---------------------------+------------------------------+
+      | ========================= | ============================ |
+      | Header                    | Header                       |
+      | ========================= | ============================ |
+      | content                   | content                      |
+      | content                   | content                      |
+      | content                   | content                      |
+      |                           |                              |
+      | ========================= | ============================ |
+      | Header                    | Header                       |
+      | ========================= | ============================ |
+      | content                   | content                      |
+      | content                   | content                      |
+      | content                   | content                      |
+      |                           |                              |
+      | ========================= | ============================ |
+      | Header                    | Header                       |
+      | ========================= | ============================ |
+      | content                   | content                      |
+      | content                   | content                      |
+      | content                   | content                      |
+      |                           |                              |
+      +---------------------------+------------------------------+
 
 Table without Sections
 
@@ -600,195 +669,78 @@ Truth-Tables
                *      *        *
 
 
-Document Conventions
---------------------
-
-Do's and Don'ts
-
-   TABS ARE THE ENEMY - SPACES ONLY!
-
-   White space is our friend.  Don't squish stuff together Everything looks
-   better with more whitespace than is technically necessary (but please,
-   not *too* much).
-
-   Avoid stacking - when the same symbols appear in two separate lines
-   one below the other.
-
-   Avoid splitting hyphenated words when one of the two words is very short
-   (like 2 or 3 letters).  (Try very to not split words between lines)
-
-   Avoid ending a paragraph or column of text with a line containing only
-   a few words.
-
-   Avoid too long a sequence of lines that grow progressively longer or
-   progressively shorter.  Ideally the left column should have a nice wavy
-   look.  (This may be difficult in mono-spaced font).
-
-   Avoid having a string of one or more small words at the end of a line;
-   especially following a period.
-
-First Text Column
-
-   Headers of levels 1,2,3,4 begins in column 1.
-
-   Level 5 headers begin in column 4, and are short.
-
-   All body text begins in column 4.
-
-   Examples and all other kinds of text begin in column 10.
-
-   Tables and diagrams will begin in column 10 provided everything can fit
-   on the line, otherwise they'll begin in column 4.
-   
-Headers
-
-   All headers will be surrounded blank lines.  Over/Underline headers
-   are preceded by two blank lines.
-
-
-
-==============
-Level 1 Header
-==============
-
-==============================================================================
-||||| Level 1 Header |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-==============================================================================
-
-∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨∨
-||||| Level 1 Header |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧∧
-
-------------------------------------------------------------------------------
-||||| Level 1 Header |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-------------------------------------------------------------------------------
-
-
-
--------
-Level 2
--------
-
-[[[[[ Level 2 Header ]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
-
-((((( Level 2 Header )))))))))))))))))))))))))))))))))))))))))))))))))))))))))
-
-
-
-Level 3 Header
-==============
-
-||||| Level 3 Header |||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-
-
-
-Level 4 Header
---------------
-
-::::: Level 4 Header::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
-   Level 5 Header
-
-   Body text goes here.
-
-         Examples begin here
-
-
-Document Text
-
-   I'll try to use shorter words when I think of it and it seems to me to not
-   degrade clarity.  Again to conserve space.
-
-   I'll try to keep personal commentary minimal
-
-Diagrams & Tables
-
-   I'll do my best to align diagrams and tables when they appear close
-   together, but width limitations (and mono-spacing) can make that difficult.
-
-   For text don't cr unless necessary; try to get close to column 78.  There
-   may be oddball cases where it looks like a word is straggling new column
-   78 but the nearby text is quite shorter.  In this case I'll CR early to
-   avoid that orphan or dangler.
-
-ALL CAPS
-
-   Used to make important pieces to text stand out, mostly used for a term
-   when it's defined (to make it easier to search for the definition).
-
-Italics
-
-   When some text is italicized it will be surrounded *like this*.
-
-Use, Mention and Quotes
-
-   It's useful to differentiate between whether something's meaning is part
-   of a sentence structure, of whether something is just being mentioned.
-
-   SINGLE QUOTES are used When we wish to merely MENTIONING something.
-
-      The sentence 'Alice loves Bob,' is transitive.
-
-   NO QUOTES are used if something is used as part of the sentence.
-
-      Alice loves Bob, but Bob doesn't love Alice.
-
-   To indicate something that someone actually said, we use DOUBLE QUOTES.
-
-      Alice said, "I love Bob."
-
-   Notice double quotes, like single, describe something that's mentioned.
-   The key difference being that double quotes surround verbatim sentences.
-
-   @@@ I'm sort of lax about using single quote for mentions, and often
-   don't.  I may or may not correct this in future revisions.
-
-Annotations to myself
-
-   I will precede any editing annotations to myself with @@@.
-   (These should never be visible in a release version - if I don't mess up).
-
-Notation Regarding SYMBOLOGY
-
-   The particular set of symbols chosen in this text may not be to everyone's
-   taste.  However, this symbology was chosen on several aesthetic principles
-   that I believe are analogous to their denotations.  My chosen set of
-   logical operation symbols forms a set of symmetric symbols consisting
-   entirely of straight *well-defined* lines - just as the discrete primitive
-   principles they denote. Symbols remain that can be flipped and rotated but
-   my two favorite are <- and >-.  Because I like to think most
-   would agree that these symbols clearly symmetrically denote 'provided' and
-   'strictly provided'; Or (P -> Q) written backwards (Q <- P), and
-   □(-P -> -Q), and so are easily defined, perhaps as toys, from our
-   traditional symbology.  
-
-   Compare that to the large rounded (P,Q,R,S) letters denoting things less
-   easily defined.  No doubt at this point one might be wondering of the
-   parentheses.  Surely all of this implies I ought to have chosen brackets?
-   But the beauty in choosing these vertical arcs is that they denote circles;
-   sometimes you can even see two-dimensional bubble around its contents, (x).
-   All such that our formulas are in perfectly nested recursive bubbles that
-   pop one-by-one from the outside in, or form the inside out as we manipulate
-   or evaluate expressions.
-
-   So the chosen symbol set is round and curvy just where it needs to be, and
-   rigidly defined straight line symmetries to denote similarly rigidly
-   defined definitions and operations.  And just in between those we have the
-   symmetrical arcs of the parenthesis denoting two-dimensional bubbles.
-
-Notation Regarding Venn Diagrams
-
-   Obviously circles aren't possible.  I did consider diamonds using / and \,
-   but they would have been larger causing the diagrams to take up more space.
-   I wanted the diagrams to be more compact and they are as compact as they
-   can get with my chosen set of marks.  I think any smaller and it would
-   become too difficult to read them.  Upon first glace the rectangles may
-   seem harder to read than circles, but I found I adjusted quickly.  For
-   those disappointed in my choice, cocking your head to the right makes the
-   rectangles look more similar to conventional Venn diagrams.  If you read
-   this with the same editor and font that I'm using, the rectangles look
-   nearly square.
+Venn Diagrams
+
+          +-------+
+         S|       |
+          |   +---+---+
+          |   |   |   |
+          +---+---+   |
+              |       |P
+              +-------+
+
+          +-------+                    +-------+
+         S|       |                   S|       |
+          |   +---+---+                |   +---+---+
+          |   |   |   |                |   |   |   |
+          +---+---+   |                +---+---+   |
+              |       |P                   |       |P
+              +-------+                    +-------+
+
+                  +-----------+
+                  |           |M
+          +-------+---+       |
+         S|       |   |       |
+          |   +---+---+---+   |
+          |   |   |   |   |   |
+          |   |   +---+---+---+
+          |   |       |   |
+          +---+-------+   |
+              |           |P
+              +-----------+
+
+                  +-----------+                +-----------+
+                  |           |M               |           |M
+          +-------+---+       |        +-------+---+       |
+         S|       |   |       |       S|       |   |       |
+          |   +---+---+---+   |        |   +---+---+---+   |
+          |   |   |   |   |   |        |   |   |   |   |   |
+          |   |   +---+---+---+        |   |   +---+---+---+
+          |   |       |   |            |   |       |   |
+          +---+-------+   |            +---+-------+   |
+              |           |P               |           |P
+              +-----------+                +-----------+
+
+Squares of Opposition
+
+   Modern Square of Opposition       Traditional Square of Opposition
+
+                                             contraries
+      A                   E             A - - - - - - - - - E
+        \               /              s| \               / |s
+          \           /                u    \           /    u
+            \       /                  b|     \       /     |b
+              \   /                    a        \   /        a
+         Contradictories               l|  contradictories  |l
+              /   \                    t        /   \        t
+            /       \                  e|     /       \     |e
+          /           \                r    /           \    r
+        /               \              n| /               \ |n
+      I                   O             I - - - - - - - - - O
+                                            subcontraries
+
+Tree Graph
+
+                             Root 
+                             /  \
+                            /    \
+                        leaf1    parent&Child 
+                                 /          \
+                                /            \
+                             child           node 
+                             /   \           /   \
+                            /     \         /     \
+                         leaf2   leaf3   leaf4   leaf5
 
 
  O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O O

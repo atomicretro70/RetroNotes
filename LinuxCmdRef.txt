@@ -301,19 +301,20 @@ lolcat ...          colorizes input content
 
 ||||| application management (Debian, Ubuntu, Pop! OS) |||||||||||||||||||||||
 
-sudo apt update               retrieve list of available updates
-sudo apt upgrade              apply the updates
-sudo apt install <app>        install an app
-sudo apt remove <app>         uninstall an app
-sudo apt autoremove           automatically remve unused libraries
-sudo apt full-upgrade         perform a full upgrade of the OS
-sudo apt-cache search <str>   search for all available apps containging string
-sudo apt-cache policy <app>   show info about available version of <app>
-sudo add-apt-repository       add a sw repository to search. follow with
-                              'sudo apt update'
+sudo apt update              retrieve list of available updates
+sudo apt upgrade             apply the updates
+sudo apt install <app>       install an app
+sudo apt remove <app>        uninstall an app
+sudo apt autoremove          automatically remve unused libraries
+sudo apt full-upgrade        perform a full upgrade of the OS
+sudo apt search <str>        search for all available apps containging string
+sudo apt-cache policy <app>  show info about available version of <app>
+sudo add-apt-repository      add a sw repository to search. follow with
+                             'sudo apt update'
 
 upgrade the OS
    sudo apt update
+   sudo apt upgrade
    sudo apt full-upgrade
    pop-upgrade release upgrade
 
