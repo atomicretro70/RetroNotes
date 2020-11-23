@@ -74,13 +74,13 @@ To View This Document Properly
      b.  Install and Configure Pop! OS vm with the following disk allocations
          (all as primary partitions):
 
-         empty (boot)   1GB
-         swap          16GB
-         /             35GB
-         /home         68GB
-                      ----- 
-                      120GB   Total hd allocation
-                      =====
+         empty (boot)   1GB   1GB   1GB   1GB    1GB
+         swap          16GB   8GB   8GB   8GB    8GB
+         /             35GB  36GB  25GB  20GB   12GB
+         /home         68GB  30GB  10GB   6GB    4GB
+                      -----  ----  ----  ----   ----
+         TOT HD SIZE  120GB  75GB  44GB  35GB   25GB
+                      =====  ====  ====  ====   ====
 
 18.  Download & Install latest Pop! OS installer iso.
 
