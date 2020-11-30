@@ -246,20 +246,10 @@ Symbols
    ∴            therefore                           ^Vu2234       jj.
    ∵            because                             ^Vu2235
    -            negation
-   ￢           negation                            ^VuFFE2       jj-
-   ¬            negation                            ^KNO
-   ~            negation
-   ～           negation                            ^KuFF5E
    ∧            conjunction                         ^KAN          jj^
-   &            conjunction
-   *            conjunction (Boolean Algebra)
    ∨            disjunction                         ^KOR          jjv
-   +            disjunction (Boolean Algebra)
-   ->           conditional
    →            conditional                         ^Vu2192       jj>
-   <->          biconditional
    ↔            biconditional                       ^Vu2194       jj=
-   <-           reverse conditional
    ←            reverse conditional, only if        ^Vu2190
    |            Sheffer stroke
    ( and )      parentheses
@@ -282,9 +272,9 @@ Symbols
    ⊬            doesn't entail                      ^Vu22AC
    ⊨            satisfies                           ^Vu22A8       jjs
    ⊭            doesn't satisfy                     ^Vu22AD
-   𝕸            model function                      ^VU0001D578
-   /            replaces some of (one or more occurrences)
-   //           replaces each of (all occurrences)
+   𝕸            the model function                  ^VU0001D578
+   /            replaces some (one or more occurrences) of
+   //           replaces each (all occurrences) of
    =df          formal definition
    QED          Quod Erat Demonstrandum
 

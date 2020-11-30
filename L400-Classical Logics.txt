@@ -507,6 +507,16 @@ Grammar
      subscripts (we use postscripts) after a proposition symbol
      to increase the number of available symbols.
 
+Alternative Notation
+--------------------
+
+         Negation       ￢ ～
+         Conjunction    &  *
+         Disjunction    +
+         Conditional    ⊃
+         Biconditional  =
+         Association    [...]  {...}
+
 Syntax Trees
 ============
 

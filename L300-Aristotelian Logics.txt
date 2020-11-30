@@ -52,62 +52,99 @@ To View This Document Properly
 ============================================
 Contents
 ============================================
-
-Aristotelian Logic (AL)
-
-Language
-   Lexemes
-   Grammar
-   Alternative Notation
-
-Semantics
-   Quality and Quantity
-   Terms
-   Distribution
-   Existential Import
-   Interpretations
-   Venn Diagrams
-   Translation Hints
-
-Inference: Immediate Inferences
-   The Square of Opposition
-   Transformation Inferences
-   Immediate Inference Chains
-
-Inference: Categorical Syllogisms
-   Standard Form Categorical Syllogisms
-   Syllogistic Inference By Form
-   Syllogistic Inference By Rules
-   Reducing Terms
-
-Inference: Enthymemes
-
-Inference: Sorites
-
-Inference: The Distribution Test
+   Aristotelian Logic (AL)
+   Language
+      Lexemes
+      Grammar
+      Alternative Notation
+   Semantics
+      Quality and Quantity
+      Terms
+      Distribution
+      Existential Import
+      Interpretations
+      Venn Diagrams
+      Translation Hints
+   Inference: Immediate Inferences
+      The Square of Opposition
+      Transformation Inferences
+      Immediate Inference Chains
+   Inference: Categorical Syllogisms
+      Standard Form Categorical Syllogisms
+      Syllogistic Inference By Form
+      Syllogistic Inference By Rules
+      Reducing Terms
+   Inference: Enthymemes
+   Inference: Sorites
+   Inference: The Distribution Test
 
 
 ============
 Introduction
 ============
 
-At its core logic is about *meaning*.  Yes it's about argumentation and
-inference, but none of that can happen without meaning.  Logic studies those
-systems whose meaning can be defined with mathematical prcision.  It's only
-through this deep level of understanding of meaning that one can have
-certainty in logical relationships of statements and parts of statements.
-"Propositional Logic", the logic of truth-functions requires an understanding
-of valuations and how truth-functions operate upon them.  Aristotelian and
-Predicate Logic require models in set theory.  Modal logics requires
-relationships between possible worlds.
+   At its core logic is about *meaning*.  Yes it's about argumentation and
+   inference, but none of that can happen without meaning.  Logic studies
+   those systems whose meaning can be defined with mathematical prcision.
+   It's only through this deep level of understanding of meaning that one
+   can have certainty in logical relationships of statements and parts of
+   statements.  "Propositional Logic", the logic of truth-functions requires
+   an understanding of valuations and how truth-functions operate upon them.
+   Aristotelian and Predicate Logic require models in set theory.  Modal
+   logics requires relationships between possible worlds.
+
+
+-----------------------
+Preliminary Definitions
+-----------------------
+
+   TRUTH-VALUE
+
+      Any member of the set { true, false }.
+
+   PROPOSITION
+
+      The concept that a true or false statement denotes; many different
+      statements can denote the same proposition. 
+
+   ARGUMENT
+
+      a set of propositions; one of which is intended as a CONCLUSION, a sort
+      of finding; the rest, the PREMISES, are claimed to provide some evidence
+      for the conclusion.
+
+   INFERENCE
+
+      the reasoning process expressed by an argument.
+
+   DEDUCTIVE ARGUMENT
+
+      An argument whose conclusion cannot be false when all the premises
+      are true.
+
+   VALID ARGUMENT
+
+      A deductive argument which is genuinely deductive in the sense
+      defined above.
+
+   INVALID ARGUMENT
+
+      An INVALID ARGUMENT is an argument claimed to be deductive but contains
+      reasoning errors, or missing premises, or incorrect applications of
+      inference rules, and so on; any argument that is not really deductive.
+
+   COUNTEREXAMPLE
+
+      A clearly invalid argument having the same structure as an argument
+      claimed to be valid.
 
 
 =======================
 Aristotelian Logic (AL)
 =======================
 
-Aristotelian logic is the study of categorical statement forms.  These forms
-talk about all, none, some, and similar notions.
+   Aristotelian logic is the study of categorical statement forms.  These
+   forms talk about all, none, some, and similar notions.
 
 
 --------
@@ -118,66 +155,64 @@ Lexemes
 =======
 
    Non-Logical Symbols
-      Category terms:   A...Z
-      Singular terms:   a...z
+      Categorical terms:   A...Z
+      Singular terms:      a...z
 
    Logical Symbols
-      copula:           is, is not
+      copula:              is, is not
       Quantifiers
-         Universal:     all, no
-         Particular:    some
+         Universal:        all, no
+         Particular:       some
 
 Grammar
 =======
 
    The structure of an AL proposition conforms to one of the following rules.
 
-   1.  <quantifier>  <categorical-term> <copula> <categorical-term>
-
-   2.                <singular-term>    <copula> <categorical-term>
-
-   3.                <singular-term>    <copula> <singular-term>
+   1.  <quantifier> <categorical-term> <copula> <categorical-term>
+   2.               <singular-term>    <copula> <categorical-term>
+   3.               <singular-term>    <copula> <singular-term>
 
    Restriction:  the 'is not' copula may not occur in a sentence beginning
    with 'all' or 'no'.
 
    This grammar results in eight STANDARD FORM PROPOSITIONS.  The four in
    the first column are called CATEGORICAL PROPOSITIONS; while those on
-   the left are SINGLUAR PROPOSITIONS.
+   the right are SINGLUAR PROPOSITIONS.
 
-      ====  =================      ====  ================
-      Name  Category Form          Name  Singular Form
-      ====  =================      ====  ================
-       A    all S is P              AS   x is P
-                                         x is y
-      ----  -----------------      ----  ----------------
-       E    no S is P               ES   x is not P
-                                         x is not y
-      ----  -----------------      ----  ----------------
-       I    some S is P
+         ====  =================      ====  ================
+         Name  Categorical Form       Name  Singular Form
+         ====  =================      ====  ================
+          A    all S is P              AS   x is P
+                                            x is y
+         ----  -----------------      ----  ----------------
+          E    no S is P               ES   x is not P
+                                            x is not y
+         ----  -----------------      ----  ----------------
+          I    some S is P
 
-      ----  -----------------      ----  ----------------
-       O    some S is not P
+         ----  -----------------      ----  ----------------
+          O    some S is not P
 
-      ====  =================      ====  ================
+         ====  =================      ====  ================
 
 Alternative Notation
 ====================
 
-   A    All S is P.         A(S,P)    SaP    SP'=0
-   E    No S is P.          E(S,P)    SeP    SP=0
-   I    Some S is P.        I(S,P)    SiP    SP!=0
-   O    Some S is not P.    O(S,P)    SoP    SP'!=0
+         A    All S is P.         A(S,P)    SaP    SP'=0
+         E    No S is P.          E(S,P)    SeP    SP=0
+         I    Some S is P.        I(S,P)    SiP    SP!=0
+         O    Some S is not P.    O(S,P)    SoP    SP'!=0
 
 
 ---------
 Semantics
 ---------
 
-The meanings of each of the eight forms seem intuitive.  However, there
-are many nuances that if not understood can lead to invalid arguments.
-So, we need to define some notions more precisely before we can construct
-good arguments.
+   The meanings of each of the eight forms seem intuitive.  However, there
+   are many nuances that if not understood can lead to invalid arguments.
+   So, we need to define some notions more precisely before we can construct
+   good arguments.
 
 Quality and Quantity
 ====================
@@ -200,7 +235,7 @@ Terms
    SINGULAR TERMS are represented by lower case letters and denote
    individual persons or objects.
 
-   In any of the standard form propositions, the first term is the
+   In any of the standard form propositions, the first term is called the
    SUBJECT TERM; while the second term is the PREDICATE TERM.
 
 Distribution
