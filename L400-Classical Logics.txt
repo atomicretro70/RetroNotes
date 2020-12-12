@@ -1824,7 +1824,7 @@ The Unnatural Conditional
 
          K → F         if you keep up the good work then you'll go far.
 
-   Now lets consider what happens if we take it's negation.
+   Now let's consider what happens if we take it's negation.
 
          -(K → F)      it's false that if you keep up the work you'll go far
          -(-K ∨ F)     Material Implication
@@ -1832,7 +1832,7 @@ The Unnatural Conditional
 
    Studying the conclusion, we determine that it says, "you keep up the good
    work and you don't go far."  Does this sound like the negation of the
-   original unnegated conditional wff?  Many say it does not.
+   original unnegated conditional?  Many say it does not.
 
 Relevance
 =========
