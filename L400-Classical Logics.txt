@@ -154,11 +154,11 @@ Preliminary Definitions
 
    TRUTH-VALUE
 
-      Any member of the set { true, false }.
+      any member of the set { true, false }.
 
    PROPOSITION
 
-      The concept that a true or false statement denotes; many different
+      the concept that a true or false statement denotes; many different
       statements can denote the same proposition. 
 
    ARGUMENT
@@ -171,32 +171,31 @@ Preliminary Definitions
 
       the reasoning process expressed by an argument.
 
-   FORMAL LOGIC
-
-      the study of arguments employing symbolic languages and systems
-      of inference that capture structures, patterns, or forms of
-      inference without regard to meaning.
-
    DEDUCTIVE ARGUMENT
 
-      An argument whose conclusion cannot be false when all the premises
+      an argument whose conclusion cannot be false when all the premises
       are true.
 
    VALID ARGUMENT
 
-      A deductive argument which is genuinely deductive in the sense
+      a deductive argument which is genuinely deductive in the sense
       defined above.
 
    INVALID ARGUMENT
 
-      An INVALID ARGUMENT is an argument claimed to be deductive but contains
+      an INVALID ARGUMENT is an argument claimed to be deductive but contains
       reasoning errors, or missing premises, or incorrect applications of
       inference rules, and so on; any argument that is not really deductive.
 
    COUNTEREXAMPLE
 
-      A clearly invalid argument having the same structure as an argument
+      a clearly invalid argument having the same structure as an argument
       claimed to be valid.
+
+   FORMAL LOGIC
+
+      the study of argument forms or patterns without regard to meaning.
+      Formal logic is recognizable because it makes use of symbol languages.
 
 
 ------------------
@@ -3780,8 +3779,8 @@ Definitions
 
          ⊥  =df  (P ∧ -P)
 
-Primitive Inference Rules
-=========================
+Primitive Inference Rules & Other Justifications
+================================================
 
    ================================  =========================================
    Name (Abbreviation)               Rule

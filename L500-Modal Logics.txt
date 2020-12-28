@@ -49,33 +49,131 @@ To View This Document Properly
 * This document must be viewed in an editor that can display unicode utf-8.
 
 
+========
+Contents
+========
+   Truth-Functional Logic
+      Language
+      Semantics
+      Calculus
+      Notes
+      Proofs
+
+   Alethic Modal Logic
+      Intro
+      Language
+      Semantics
+      Translation Hints
+      System K
+      System D
+      System B
+      System T/M
+      System s4
+      System s5
+      Kripke Semantics
+      Fitch Natural Deduction
+      Non-Hisorical Modal Systems
+      Notes
+
+   Deontic Modal Logic
+      Language
+      Semantics
+      System D
+      System K
+      System M/B
+      System T
+      System s4
+      System s5
+      Standard Deontic Logic (SDL)
+      Deontic Reductionism
+      Common Sense Deontic Logic
+
+   Temporal Modal Logic
+      The Logic of Time
+      Language
+      Semantics
+      System Kt
+
+      System K
+      System M/B
+      System T
+      System s4
+      System s5
+
+   Doxastic & Epistemic Logics
+      Language
+      Semantics
+      System K
+      System M/B
+      System T
+      System s4
+      System s5
+
+   Relating the Systems
+   K-Model Semantics
+   Modal Truth-Trees
+   FOL=
+   Modal FOL=
+   Leibnizian Semantics (World Theory)
+   Kripke Semantics (Accessibility Relation)
+   System L
+   Other Systems (G-Systems, Neo-Systems, etc...)
+
+   Free Logic (FL=)
+      Modal extensions of FL=
+
+
+=======
+Preface
+=======
+
+
+============
+Introduction
+============
+
+   At its core logic is about *meaning*.  Yes, it's about argumentation and
+   inference, but none of that can happen without regard to meaning.  Logic
+   studies those systems whose meaning can be defined with mathematical
+   prcision.  It's only through this deep level of understanding of meaning
+   that one can have certainty in logical relationships of statements and
+   parts of statements.  "Propositional Logic", the logic of truth-functions
+   requires an understanding of valuations and how truth-functions operate
+   upon them.  Aristotelian and Predicate Logic require understanding models
+   in set theory.  Modal logics requires understanding relationships between
+   possible worlds.
+
+
 ======================
 Truth-Functional Logic
 ======================
 
-Here we'll introduce an austere Logic and Fitch-Style Calculus introduced
-by Garson and which we'll call Garson-Fitch.  The system has just two
-operators, but a more robust system can be developed from it.
+   Here we'll introduce an austere Fitch-Style Logic & Calculus from Garson
+   and which we'll call Garson-Fitch.  The system has just two operators, but
+   a more robust system can be derived from it.
 
 
-Formal Language (TFL)
----------------------
+--------
+Language
+--------
 
 Lexemes
+=======
 
    Non-Logical Symbols
       Proposition Symbols:      A...Z
 
    Logical Symbols
-      Truth-Function Symbols:   ->, ⊥
+      Truth-Function Symbols:   →, ⊥
       Association Symbols:      (, )
 
-Grammar (Formation Rules for Well-Formed Formulas)
+Grammar
+=======
 
    An ATOMIC FORMULA is either ⊥ or any proposition symbol.
 
    1.  every atomic formula is a wff;
-   2.  if P,Q  are wffs, then (P -> Q) is a wff;
+   2.  if P,Q  are wffs, then (P → Q) is a wff;
    3.  nothing else is a wff.
 
    Notes
@@ -88,45 +186,52 @@ Grammar (Formation Rules for Well-Formed Formulas)
      infinity the number of available symbols.
 
 Definitions
+-----------
 
    We define the remaining truth-functions as follows:
 
-      Def -:    ¬P         =df  (P -> ⊥)
-      Def ∧:    (P ∧ Q)    =df  ¬(P -> ¬Q)
-      Def ∨:    (P ∨ Q)    =df  (¬P -> Q)
-      Def <->:  (P <-> Q)  =df  ((P -> Q) ∧ (Q -> P))
+         Def -:    -P         =df  (P → ⊥)
+         Def ∧:    (P ∧ Q)    =df  -(P → -Q)
+         Def ∨:    (P ∨ Q)    =df  (-P → Q)
+         Def ↔:    (P ↔ Q)    =df  ((P → Q) ∧ (Q → P))
 
 
+---------
 Semantics
 ---------
 
 Valuation Function
+==================
 
    The valuation function v for our minimal TFL is defined as follows:
 
-      v(⊥)      = false
-      v(P -> Q) = true  if P is false or Q is true;
-                  false if P is true and Q is false
+         v(⊥)      = false
+         v(P → Q)  = true  if P is false or Q is true;
+                     false if P is true and Q is false
 
 
+-----------------------------------------------------
 Truth-Functional Calculus (TFC - Garson-Fitch System)
 -----------------------------------------------------
 
-Regarding The Inference Rules
+Regarding Notation
+==================
 
-   P(Q) indicates that a wff P contains one or more occurrences of
-   sub-expression Q.
+   'Φ(Ψ)' denotes a wff Φ contains one or more occurrences of a sub-wff Ψ.
 
-   P(R/Q) indicates the result of replacing one or more occurrences
-   of Q in P with R.  R/Q is read, "R replaced one or more occurrences of Q".
+   'Φ(Θ/Ψ)' denotes the result of replacing one or more occurrences of Ψ in Φ
+   with Θ.  Θ/Ψ is read, "Θ replaced one or more occurrences of Ψ".
 
-   P(R//Q) like above but indicates replacing all occurrences of Q in P with
-   R.  R//Q is read, "R replaced all occurrences of Q"
+   'Φ (Θ//Ψ)' like above but indicates replacing all occurrences of Ψ in Φ
+   with Θ.  Θ//Ψ is read, "Θ replaced all occurrences of Ψ".
 
-   [ ... ] indicate that the enclosed must already exist, be defined or
-   proven elsewhere (outside of the proof).
+   '( Φ ⊢ Ψ )' denotes a subproof with hypothesis Φ concluding with Ψ.
+
+   '[ ... ]' denotes that the enclosed must exist, be defined or proved
+   elsewhere (external to the current proof).
 
 Primitive Inference Rules
+=========================
  
    ================================  =========================================
    Name/Alternate Names              Rule
@@ -138,21 +243,21 @@ Primitive Inference Rules
 
    Axiom (Ax)                        Introduce an axiom at any step.
 
-   Conditional Elimination (->E)     From P -> Q and P, infer Q; all within
+   Conditional Elimination (→ E)     From Φ → Ψ and Φ, infer Ψ; all within
       Modus Ponens (MP)              the same subproof.
 
-   Conditional Introduction (->I)    From a subproof with hypothesis P
-      Conditional Proof (CP)         and ending Q, close the subproof,
-                                     and infer Q -> P.
+   Conditional Introduction (→ I)    From a subproof with hypothesis Φ
+      Conditional Proof (CP)         and ending Ψ, close the subproof,
+                                     and infer Φ → Ψ.
 
-   Negation Elimination (¬E)         From ¬¬p, infer p; all with the
+   Negation Elimination (-E)         From --Φ, infer Φ; all within the
                                      same subproof.
 
-   Reiterate (RE)                    From P, infer P into the same subproof,
+   Reiterate (RE)                    From Φ, infer Φ into the same subproof,
                                      or into an immediately nested subproof.
 
-   Equivalence Substitution (EQ)     From P <-> Q, and R(P), infer R(Q/P),
-                                     or from P <-> Q and R(Q), infer R(P/Q).
+   Equivalence Substitution (EQ)     From [ Φ ↔ Ψ ], and Θ(Φ), infer Θ(Ψ/Φ);
+                                     or from [ Φ ↔ Ψ ] and Θ(Ψ), infer Θ(Φ/Ψ).
    ================================  =========================================
 
    Note: Apart from RE we can only appeal to lines in the current subproof.
@@ -167,67 +272,108 @@ Primitive Inference Rules
       | ============================= | ============================= |
       |                               |                               |
       |  ---                          |  -------                      |
-      |   P   (P is a premise)        |   |   P   (P is a hypothesis) |
+      |   Φ   (Φ is a premise)        |   |   Φ   (Φ is a hypothesis) |
       |                               |                               |
       | ============================= | ============================= |
-      |  ->E                          |  ->I                          |
+      |  → E                          |  → I                          |
       | ============================= | ============================= |
-      |   P -> Q                      |   |   P                       |
-      |   P                           |   |   ...                     |
-      |  ---------                    |   |   Q                       |
-      |   Q   (all in one subproof)   |  ---------                    |
-      |                               |   P -> Q                      |
+      |   Φ → Ψ                       |   |   Φ                       |
+      |   Φ                           |   |   ...                     |
+      |  ---------                    |   |   Ψ                       |
+      |   Ψ   (all in one subproof)   |  ---------                    |
+      |                               |   Φ → Ψ                       |
       |                               |                               |
       | ============================= | ============================= |
-      |  ¬E                           |  EQ (Equiv. Substitution)     |
+      |  -E                           |  EQ (Equiv. Substitution)     |
       | ============================= | ============================= |
-      |   ¬¬P                         |   [ P <-> Q ]    [ P <-> Q ]  |
-      |  -----                        |   R(P)           R(Q)         |
-      |   P                           |  -------------  ------------- |
-      |                               |   R(Q/P)         R(P/Q)       |
-      |                               |                               |
+      |   --Φ                         |   [ Φ ↔ Ψ ]      [ Φ ↔ Ψ ]    |
+      |  -----                        |   Θ(Φ)           Θ(Ψ)         |
+      |   Φ  (all in one subproof)    |  -------------  ------------- |
+      |                               |   Θ(Ψ/Φ)         Θ(Φ/Ψ)       |
       |                               |                               |
       | ============================= | ============================= |
       |  RE                           |  Ax                           |
       | ============================= | ============================= |
-      |   P      P                    |                               |
-      |  ---    ---------             |  ---                          |
-      |   P      |   ...              |   P   (P is an axiom)         |
-      |          |   P    (immediate  |                               |
-      |                    subproof)  |                               |
+      |   Φ         Φ                 |                               |
+      |  ---       ---------          |  ---                          |
+      |   Φ         |   ...           |   Φ   (Φ is an axiom)         |
+      |             |   Φ             |                               |
+      |                               |                               |
+      |  (within   (immediately       |                               |
+      |  same       nested            |                               |
+      |  subproof)  subproof)         |                               |
       +-------------------------------+-------------------------------+
 
-Pseudo Inference Rules
+Other Justifications
+====================
 
-   Applying definitions to pack or unpack abbreviations isn't actually an
-   inference rule.  One doesn't really require justification to rewrite
-   a string with a definition packed or unpacked; given that all
-   a definition does is abbreviate more complex expressions.
-
-   ================================  =========================================
-   Name/Alternate Names              Rule
-   ================================  =========================================
-   Definition Substitution (DEF)     From [P =df Q], R(P), infer R(Q/P);
-                                     and [P =df Q], R(Q), infer R(P/Q).
-   ================================  =========================================
-
-Derived Rules
-
-   Once proven a sequent may be used as a new inference rule.  The following
-   are important derived rules.
+   The following aren't inference rules but do appear in proofs as
+   justification for deriving a wff.
 
    ================================  =========================================
-   Name/Alternate Names              Sequent
+   Name (Abbreviation)               Rule
    ================================  =========================================
-   Falso Quodlibet (EFQ)             P, ¬P  |-  Q
-   Modus Tollens (MT)                P -> Q, ¬Q  |-  ¬P
-   Hypothetical Syllogism (HS)       P -> Q, Q -> R  |-  P -> R
-   Absorption (Abs)                  P -> Q  |-  P -> (P ∧ Q)
-   Constructive Dilemma (CD)         P ∨ Q, P -> R, Q -> S  |-  R ∨ S
-   Destructive Dilemma (DD)          (P -> Q), R -> S, ¬Q ∨ ¬S |- ¬P ∨ ¬Q
-   Disjunctive Syllogism (DS)        P ∨ Q, ¬P  |-  Q
-   Disjunctive Syllogism (DS)        P ∨ Q, ¬Q  |-  P
-   Theorem (THM)                     [ |- P ]  |-  P
+   Definition Substitution (DEF)     From [ Φ =df Ψ ], Θ(Φ), infer Θ(Ψ/Φ);
+                                     and from [ Φ =df Ψ ], Θ(Ψ), infer Θ(Φ/Ψ).
+   ================================  =========================================
+
+   Notice that in the rules the definition is in brackets '[' and ']'.
+   Brackets indicate that the definition needs to exist but doesn't need
+   to appear in the proof to be applied.
+
+Derived Inference Rules
+=======================
+
+   Once proven a sequent may be used as a new inference rule.  This property
+   allows us to derive additional Fitch-style inference rules.
+
+   Deriving Fitch
+
+   Additional Fitch style inference rules are listed here and proven below.
+   The order of these rules is important since later rules depend upon
+   earlier rules having been proven.  While EFQ and MT aren't really
+   Fitch rules, defining them early means we can take advantage of them
+   when proving the below rules.  All of the derived rules, theorems and
+   equivalences are easier to prove if we first prove these.
+
+   ================================  =========================================
+   Name                              Sequent
+   ================================  =========================================
+   Negation Rules
+      -I                             ( P   ⊢  ⊥ )  ⊢  -P
+      -I                             ( -P  ⊢  ⊥ )  ⊢  P
+
+   Conjunction Rules
+      ∧E                             P ∧ Q  ⊢  Q
+      ∧E                             P ∧ Q  ⊢  P
+      ∧I                             P, Q  ⊢  P ∧ Q
+
+   Disjunction Rules
+      VE                             P ∨ Q, P → R, Q → R  ⊢  R
+      VI                             P  ⊢  P ∨ Q
+      VI                             P  ⊢  Q ∨ P
+
+   Biconditional Rules
+      ↔ E                            P ↔ Q  ⊢  P → Q
+      ↔ E                            P ↔ Q  ⊢  Q → P
+      ↔ I                            P → Q, Q → P  ⊢  P ↔ Q
+      ↔ I                            P → Q, Q → P  ⊢  Q ↔ P
+   ================================  =========================================
+
+   Other Important Derived Rules
+
+   ================================  =========================================
+   Name (Abbreviation)               Sequent
+   ================================  =========================================
+   Ex Falso Quodlibet (EFQ)          P, -P  ⊢  Q
+   Modus Tollens (MT)                P → Q, -Q  ⊢  -P
+   Hypothetical Syllogism (HS)       P → Q, Q → R  ⊢  P → R
+   Absorption (Abs)                  P → Q  ⊢  P → (P ∧ Q)
+   Constructive Dilemma (CD)         P ∨ Q, P → R, Q → S  ⊢  R ∨ S
+   Destructive Dilemma (DD)          (P → Q), R → S, -Q ∨ -S ⊢ -P ∨ -Q
+   Disjunctive Syllogism (DS)        P ∨ Q, -P  ⊢  Q
+   Disjunctive Syllogism (DS)        P ∨ Q, -Q  ⊢  P
+   Theorem (THM)                     [ ⊢ P ]  ⊢  P
    ================================  =========================================
 
 Theorems
@@ -236,34 +382,34 @@ Theorems
    hypotheses.  Theorems are all tautologies.  A sequent for a theorem
    P looks like this
 
-      |- P
+      ⊢ P
 
 Equivalences
 
    An equivalence is a theorem in the form of a biconditional.  Below are
    important equivalence theorems.
 
-      |- P <-> Q
+      ⊢ P ↔ Q
 
    ================================  =========================================
-   Name/Alternate Names              Sequent
+   Name (Abbreviation)               Sequent
    ================================  =========================================
-   Double Negation (DN)              |-  P <-> ¬¬P
-   Idempotence (IDEM)                |-  P <-> (P ∧ P)
-   Idempotence (IDEM)                |-  P <-> (P ∨ P)
-   Transposition (TRANS)             |-  (P -> Q) <-> (¬Q -> ¬P)
-   Material Implication (MI)         |-  (P -> Q) <-> (¬P ∨ Q)
-   Association (ASSOC)               |-  (P ∧ (Q ∧ R)) <-> ((P ∧ Q) ∧ R)
-   Association (ASSOC)               |-  (P ∨ (Q ∨ R)) <-> ((P ∨ Q) ∨ R)
-   Commutation (COM)                 |-  (P ∧ Q) <-> (Q ∧ P)
-   Commutation (COM)                 |-  (P ∨ Q) <-> (Q ∨ P)
-   Exportation (EXP)                 |-  ((P ∧ Q) -> R) <-> (P -> (Q -> R))
-   Distribution (DIST)               |-  (P ∧ (Q ∨ R)) <-> ((P ∧ Q) ∨ (P ∧ R))
-   Distribution (DIST)               |-  (P ∨ (Q ∧ R)) <-> ((P ∨ Q) ∧ (P ∨ R))
-   DeMorgan's law (DM)               |-  ¬(P ∧ Q) <-> (¬P ∨ ¬Q)
-   DeMorgan's law (DM)               |-  ¬(P ∨ Q) <-> (¬P ∧ ¬Q)
-   Material Equivalence (ME)         |-  (P <-> Q) <-> ((P -> Q) ∧ (Q -> P))
-   Material Equivalence (ME)         |-  (P <-> Q) <-> ((P ∧ Q) ∨ (¬P ∧ ¬Q))
+   Double Negation (DN)              ⊢  P ↔ --P
+   Idempotence (IDEM)                ⊢  P ↔ (P ∧ P)
+   Idempotence (IDEM)                ⊢  P ↔ (P ∨ P)
+   Transposition (TRANS)             ⊢  (P → Q) ↔ (-Q → -P)
+   Material Implication (MI)         ⊢  (P → Q) ↔ (-P ∨ Q)
+   Association (ASSOC)               ⊢  (P ∧ (Q ∧ R)) ↔ ((P ∧ Q) ∧ R)
+   Association (ASSOC)               ⊢  (P ∨ (Q ∨ R)) ↔ ((P ∨ Q) ∨ R)
+   Commutation (COM)                 ⊢  (P ∧ Q) ↔ (Q ∧ P)
+   Commutation (COM)                 ⊢  (P ∨ Q) ↔ (Q ∨ P)
+   Exportation (EXP)                 ⊢  ((P ∧ Q) → R) ↔ (P → (Q → R))
+   Distribution (DIST)               ⊢  (P ∧ (Q ∨ R)) ↔ ((P ∧ Q) ∨ (P ∧ R))
+   Distribution (DIST)               ⊢  (P ∨ (Q ∧ R)) ↔ ((P ∨ Q) ∧ (P ∨ R))
+   DeMorgan's law (DM)               ⊢  -(P ∧ Q) ↔ (-P ∨ -Q)
+   DeMorgan's law (DM)               ⊢  -(P ∨ Q) ↔ (-P ∧ -Q)
+   Material Equivalence (ME)         ⊢  (P ↔ Q) ↔ ((P → Q) ∧ (Q → P))
+   Material Equivalence (ME)         ⊢  (P ↔ Q) ↔ ((P ∧ Q) ∨ (-P ∧ -Q))
    ================================  =========================================
 
    Equivalence Theorem Substitution
@@ -275,51 +421,13 @@ Equivalences
    not not permitting it at all.
 
    @@@ It may be possible to still use these provided the thing being
-   rewritten is not the main operator under □ or ◇.  Must test this
+   rewritten is not the main operator under □  or ◇ .  Must test this
    more to be sure.  The course forbids it altogether.
 
-Deriving Fitch
 
-   Additional Fitch style inference rules are listed here and proven below.
-   The order of these rules is important since later rules depend upon
-   earlier rules having been proven.  While EFQ and MT aren't really
-   Fitch rules, defining them early means we can take advantage of them
-   when proving the below rules.  All of the derived rules, theorems and
-   equivalences are easier to prove if we first prove these.
-
-   ================================  =========================================
-   Name/Alternate Names              Sequent
-   ================================  =========================================
-   Negation Rules
-      ¬I                             ( P   |-  ⊥ )  |-  ¬P
-      ¬I                             ( ¬P  |-  ⊥ )  |-  P
-      EFQ (Ex Falso Quodlibet)       P, ¬P  |-  Q
-
-   Conditional Rules
-      MT (Modus Tollens)             P -> Q, ¬Q  |-  ¬P
-
-   Conjunction Rules
-      ∧E                             P ∧ Q  |-  Q
-      ∧E                             P ∧ Q  |-  P
-      ∧I                             P, Q  |-  P ∧ Q
-
-   Disjunction Rules
-      VE                             P ∨ Q, P -> R, Q -> R  |-  R
-      VI                             P  |-  P ∨ Q
-      VI                             P  |-  Q ∨ P
-
-   Biconditional Rules
-      <->E                           P <-> Q  |-  P -> Q
-      <->E                           P <-> Q  |-  Q -> P
-      <->I                           P -> Q, Q -> P  |-  P <-> Q
-      <->I                           P -> Q, Q -> P  |-  Q <-> P
-   ================================  =========================================
-
-
-======
-Proofs
-======
-
+=================================
+Proofs Of The Derived Fitch Rules
+=================================
 
 Negation Derivations
 --------------------
@@ -327,195 +435,194 @@ Negation Derivations
 These rules must be proven schematically because they describe
 new kinds of reasoning with subproofs.
 
-¬I:   ( P  |-  ⊥ )  |-  ¬P
+-I:   ( P  ⊢  ⊥ )  ⊢  -P
 Proof
- i.    |   P         H (for ¬I)
+ i.    |   P         H (for -I)
        |   ...
  j.    |   ⊥
- j+1.  P -> ⊥        i-j ->I
- j+2.  ¬P            j+1 Def ¬
+ j+1.  P → ⊥         i-j → I
+ j+2.  -P            j+1 Def -
 QED
 
-¬I:   ( ¬P  |-  ⊥ )  |-  P
+-I:   ( -P  ⊢  ⊥ )  ⊢  P
 Proof
- i.    |   ¬P        H (for ¬I)
+ i.    |   -P        H (for -I)
        |   ...
  j.    |   ⊥
- j+1.  ¬P -> ⊥       i-j ->I
- j+2.  ¬¬P           j+1 Def ¬
- j+3.  P             j+2 ¬E
+ j+1.  -P → ⊥        i-j → I
+ j+2.  --P           j+1 Def -
+ j+3.  P             j+2 -E
 QED
 
-Ex Falso Quodlibet (EFQ):   P, ¬P  |-  Q
+Ex Falso Quodlibet (EFQ):   P, -P  ⊢  Q
 Proof
-01.   P                      A
-02.   ¬P                     A
-03.   |   ¬Q                 H (for ⊥)
-04.   |   P                  1 RE
-05.   |   ¬P                 2 RE
-06.   |   P -> ⊥             5 Def ¬
-07.   |   ⊥                  4,6 ->E
-08.   Q                      3-7 ¬I
+01.   P              A
+02.   -P             A
+03.   |   -Q         H (for ⊥)
+04.   |   P          1 RE
+05.   |   -P         2 RE
+06.   |   P → ⊥      5 Def -
+07.   |   ⊥          4,6 → E
+08.   Q              3-7 -I
 QED
 
 
 Conditional Derivations
 -----------------------
 
-Modus Tollens (MT):   P -> Q, ¬Q  |-  ¬P
+Modus Tollens (MT):   P → Q, -Q  ⊢  -P
 Proof
-01.   P -> Q                 A
-02.   ¬Q                     A
-03.   |   P                  H (for ¬I)
-04.   |   P -> Q             1 RE
-05.   |   ¬Q                 2 RE
-06.   |   Q                  3,4 ->E
-07.   |   ⊥                  5,6 EFQ
-08.   ¬P                     3-7 ¬I
+01.   P → Q          A
+02.   -Q             A
+03.   |   P          H (for -I)
+04.   |   P → Q      1 RE
+05.   |   -Q         2 RE
+06.   |   Q          3,4 → E
+07.   |   ⊥          5,6 EFQ
+08.   -P             3-7 -I
 QED
 
 
 Conjunction Derivations
 -----------------------
 
-∧E:   P ∧ Q  |-  Q
+∧E:   P ∧ Q  ⊢  Q
 Proof
-01.   P ∧ Q                  A
-02.   ¬(P -> ¬Q)             1 def ∧
-03.   |   ¬Q                 H (for ¬I)
-04.   |   |   P              H (for ->I)
-05.   |   |   ¬Q             3 RE
-06.   |   P -> ¬Q            4-5 ->I
-07.   |   ¬(P -> ¬Q)         2 RE
-08.   |   ⊥                  6,7 EFQ
-09.   Q                      3-8 ¬I
+01.   P ∧ Q          A
+02.   -(P → -Q)      1 def ∧
+03.   |   -Q         H (for -I)
+04.   |   |   P      H (for → I)
+05.   |   |   -Q     3 RE
+06.   |   P → -Q     4-5 → I
+07.   |   -(P → -Q)  2 RE
+08.   |   ⊥          6,7 EFQ
+09.   Q              3-8 -I
 QED
 
-∧E:   P ∧ Q  |-  P
+∧E:   P ∧ Q  ⊢  P
 Proof
-01.   P ∧ Q                  A
-02.   Q ∧ P                  1 Com
-03.   P                      2 ∧E
+01.   P ∧ Q          A
+02.   Q ∧ P          1 Com
+03.   P              2 ∧E
 QED
 
-∧I:   P, Q  |-  P ∧ Q
+∧I:   P, Q  ⊢  P ∧ Q
 Proof
-01.   P                      A
-02.   Q                      A
-03.   |   P -> ¬Q            H (for ¬I)
-04.   |   P                  1 RE
-05.   |   Q                  2 RE
-06.   |   ¬Q                 3,4 ->E
-07.   |   ⊥                  5,6 EFQ
-08.   ¬(P -> ¬Q)             3-7 ¬I
-09.   P ∧ Q                  8 Def ∧
+01.   P              A
+02.   Q              A
+03.   |   P → -Q     H (for -I)
+04.   |   P          1 RE
+05.   |   Q          2 RE
+06.   |   -Q         3,4 → E
+07.   |   ⊥          5,6 EFQ
+08.   -(P → -Q)      3-7 -I
+09.   P ∧ Q          8 Def ∧
 QED
 
 
 Disjunction Derivations
 -----------------------
 
-VE/Poof by Cases (PBC):   P ∨ Q, P -> R, Q -> R  |-  R
+VE/Poof by Cases (PBC):   P ∨ Q, P → R, Q → R  ⊢  R
 Proof
 01.   P ∨ Q                  A
-02.   P -> R                 A
-03.   Q -> R                 A
-04.   ¬P -> Q                1 def ∨
-05.   |   ¬R                 H (for ¬I)
-06.   |   P -> R             2 RE
-07.   |   Q -> R             3 RE
-08.   |   ¬P -> Q            4 RE
-09.   |   ¬P                 5,6 MT
-10.   |   ¬Q                 5,7 MT
-11.   |   Q                  8,9 ->E
+02.   P → R                  A
+03.   Q → R                  A
+04.   -P → Q                 1 def ∨
+05.   |   -R                 H (for -I)
+06.   |   P → R              2 RE
+07.   |   Q → R              3 RE
+08.   |   -P → Q             4 RE
+09.   |   -P                 5,6 MT
+10.   |   -Q                 5,7 MT
+11.   |   Q                  8,9 →E
 12.   |   ⊥                  10,11 EFQ
-13.   R                      5-12 ¬I
+13.   R                      5-12 -I
 QED
 
-VI:   P  |-  P ∨ Q
+VI:   P  ⊢  P ∨ Q
 Proof
 01.   P                      A
-02.   |   ¬(P ∨ Q)           H (for ¬I)
-03.   |   ¬(¬P -> Q)         2 Def ∨
-04.   |   (¬P -> Q) -> ⊥     3 Def ¬
+02.   |   -(P ∨ Q)           H (for -I)
+03.   |   -(-P → Q)          2 Def ∨
+04.   |   (-P → Q) → ⊥       3 Def -
 05.   |   P                  1 RE
-06.   |   |   ¬P             H (for Q)
+06.   |   |   -P             H (for Q)
 07.   |   |   P              5 RE
 08.   |   |   Q              6,7 EFQ
-09.   |   ¬P -> Q            6-8 ->I
-10.   |   ⊥                  4,9 ->E
-11.   P ∨ Q                  2-10 ¬I
+09.   |   -P → Q             6-8 → I
+10.   |   ⊥                  4,9 → E
+11.   P ∨ Q                  2-10 -I
 QED
 
-VI:   P  |-  Q ∨ P
+VI:   P  ⊢  Q ∨ P
 Proof
 01.   P                      A
 02.   P ∨ Q                  1 VI
-03.   |   ¬(Q ∨ P)           H (for ¬I)
-04.   |   ¬(¬Q -> P)         3 Def ∨
-05.   |   (¬Q -> P) -> ⊥     4 Def ¬
+03.   |   -(Q ∨ P)           H (for -I)
+04.   |   -(-Q → P)          3 Def ∨
+05.   |   (-Q → P) → ⊥       4 Def -
 06.   |   P                  1 RE
-07.   |   |   ¬Q             H (for ->I)
+07.   |   |   -Q             H (for → I)
 08.   |   |   P              6 RE
-09.   |   ¬Q -> P            7-8 ->I
-10.   |   ⊥                  5,9 ->E
-11.   Q ∨ P                  3-10 ¬I
+09.   |   -Q → P             7-8 →I
+10.   |   ⊥                  5,9 →E
+11.   Q ∨ P                  3-10 -I
 QED
 
 
 Biconditional Derivations
 -------------------------
 
-<->E:   P <-> Q  |-  P -> Q
+↔E:   P ↔ Q  ⊢  P → Q
 Proof
-01.   P <-> Q                A
-02.   (P -> Q) ∧ (Q -> P)    1 Def <->
-03.   P -> Q                 2 ∧E
+01.   P ↔ Q                 A
+02.   (P → Q) ∧ (Q → P)     1 Def ↔
+03.   P → Q                 2 ∧E
 QED
 
-<->E:   P <-> Q  |-  Q -> P
+↔E:   P ↔ Q  ⊢  Q → P
 Proof
-01.   P <-> Q                A
-02.   (P -> Q) ∧ (Q -> P)    1 Def <->
-03.   Q -> P                 2 ∧E
+01.   P ↔ Q                 A
+02.   (P → Q) ∧ (Q → P)     1 Def ↔
+03.   Q → P                 2 ∧E
 QED
 
-<->I:   P -> Q, Q -> P  |-  P <-> Q
+↔I:   P → Q, Q → P  ⊢  P ↔ Q
 Proof
-01.   P -> Q                             A
-02.   Q -> P                             A
-04.   |   ¬(P <-> Q)                     H (for ¬I)
-05.   |   ¬((P -> Q) ∧ (Q -> P))         4 Def <->
-06.   |   ((P -> Q) ∧ (Q -> P)) -> ⊥     5 Def ¬
-07.   |   P -> Q                         1 RE
-08.   |   Q -> P                         2 RE
-09.   |   (P -> Q) ∧ (Q -> P)            7,8 ∧I
-10.   |   ⊥                              6,9 ->E
-11.   P <-> Q                            4-10 ¬I
+01.   P → Q                            A
+02.   Q → P                            A
+04.   |   -(P ↔ Q)                     H (for -I)
+05.   |   -((P → Q) ∧ (Q → P))         4 Def ↔
+06.   |   ((P → Q) ∧ (Q → P)) → ⊥      5 Def -
+07.   |   P → Q                        1 RE
+08.   |   Q → P                        2 RE
+09.   |   (P → Q) ∧ (Q → P)            7,8 ∧I
+10.   |   ⊥                            6,9 →E
+11.   P ↔ Q                            4-10 -I
 QED
 
-<->I:   P -> Q, Q -> P  |-  Q <-> P
+↔I:   P → Q, Q → P  ⊢  Q ↔ P
 Proof
-01.   P -> Q                             A
-02.   Q -> P                             A
-03.   |   ¬(Q <-> P)                     H (for ¬I)
-04.   |   (Q <-> P) -> ⊥                 3 Def ¬
-05.   |   ((Q -> P) ∧ (P -> Q)) -> ⊥     4 Def <->
-06.   |   Q -> P                         2 RE
-07.   |   P -> Q                         1 RE
-08.   |   (Q -> P) ∧ (P -> Q)            6,7 ∧I
-09.   |   ⊥                              5,8 ->I
-10.   Q <-> P                            3-9 <->I
+01.   P → Q                            A
+02.   Q → P                            A
+03.   |   -(Q ↔ P)                     H (for -I)
+04.   |   (Q ↔ P) → ⊥                  3 Def -
+05.   |   ((Q → P) ∧ (P → Q)) → ⊥      4 Def ↔
+06.   |   Q → P                        2 RE
+07.   |   P → Q                        1 RE
+08.   |   (Q → P) ∧ (P → Q)            6,7 ∧I
+09.   |   ⊥                            5,8 → I
+10.   Q ↔ P                            3-9 ↔ I
 QED
 
 
-=========================
-Modal Logic Preliminaries
-=========================
+===================
+Alethic Modal Logic
+===================
 
 Alethic modal logic studies the concepts of 'it's necessary that, P'
-symbolized □P, and 'it's possible that, P' symbolized ◇P.  Here are some
-examples of necessary.
+symbolized □ P, and 'it's possible that, P' symbolized ◇ P.
 
    Kinds of Necesssity
 
@@ -531,17 +638,157 @@ examples of necessary.
                           necessary nor theoretically explicable, but are
                           simply taken as true.
 
+
+--------
+Language
+--------
+
+Lexemes
+=======
+
+   Non-Logical Symbols
+      Proposition Symbols:      A...Z
+
+   Logical Symbols
+      Truth-Function Symbols:   →, ⊥
+      Association Symbols:      (, )
+      Modal Symbols:            □
+
+Grammar
+=======
+
+   An ATOMIC FORMULA is either ⊥ or any proposition symbol.
+
+   1.  every atomic formula is a wff;
+   2.  if P,Q  are wffs, then (P → Q) is a wff;
+   3.  if P is a wff, then □ P is also a wff;
+   4.  nothing else is a wff.
+
+   Notes
+
+   - To aid readability of a wffs we adopt the convention that if a wff
+     that begins with '(', we will drop the outer-most pair of parenthesis.
+
+   - In practice it's common to use tick marks or numerical subscripts
+     (we use postscripts) after the proposition symbol to increase to
+     infinity the number of available symbols.
+
+Definitions
+-----------
+
+         Def -:    -P         =df  (P → ⊥)
+         Def ∧:    (P ∧ Q)    =df  -(P → -Q)
+         Def ∨:    (P ∨ Q)    =df  (-P → Q)
+         Def ↔:    (P ↔ Q)    =df  ((P → Q) ∧ (Q → P))
+         Def ◇:    ◇ P        =df  -□ -P
+         Def -<:   (P -< Q)   =df  □ (P → Q)
+         Def >-<:  (P >-< Q)  =df  (P -< Q) ∧ (Q -< P)
+
+
+---------
 Semantics
+---------
 
-   modal square of opposition
+Translation Hints
+=================
 
-      □P-----------□¬P
+   ============  ======================================================
+   Form          Translations
+   ============  ======================================================
+   P             P
+                 it's true that P
+                 it's the case that, P
+                 P is true in the actual world
+   ------------  ------------------------------------------------------
+   ◇ P           it's possible that P
+                 P is logically possible (not self-contradictory)
+                 P is true in some possible world
+                 P is consistent
+                 P could be true
+   ------------  ------------------------------------------------------
+   □ P           it's necessary that P
+                 P is logically necessary (self-contradictory to deny)
+                 P is true in all possible worlds
+                 P must be true
+                 P has to be true
+   ------------  ------------------------------------------------------
+   -◇ P          P is not possible
+   ------------  ------------------------------------------------------
+   □ -P          P has to be false
+   ------------  ------------------------------------------------------
+   □ (P → Q)     P entails Q
+                 P strictly implies Q
+   ------------  ------------------------------------------------------
+   ◇ (P ∧ Q)     P is logically consistent with Q
+                 P is logically compatible with Q
+                 It's possible that, P and Q
+   ------------  ------------------------------------------------------
+   -◇ (P ∧ Q)    P is logically inconsistent with Q
+   ------------  ------------------------------------------------------
+   (◇ P ∧ ◇ -P)  P is a contingent statement
+   ------------  ------------------------------------------------------
+   (P ∧ ◇ -P)    P is a contingent truth
+   ============  ======================================================
+
+Ambiguous Conditionals
+======================
+
+   "Necessarily, if P then Q."                        (unambiguous)
+
+         Possible Translations
+            □ (P → Q)
+
+   "If P then Q (by itself) is necessary."            (unambiguous)
+
+         Possible Translations
+            (P → □ Q)
+
+   "If P then it's necessary (must be) that Q."       (ambiguous)
+
+         Possible Translations
+            (P → □ Q)    
+            □ (P → Q)
+
+   "If P then it's impossible (couldn't be) that Q."  (ambiguous)
+
+         Possible Translations
+            (P → □ -Q)
+            □ (P → -Q)
+
+Example First-Order Modal Forms
+-------------------------------
+
+         ◇ ∀xAx          Everyone could be above average
+         ∀x◇ Ax          Anyone could be above average
+
+         □ Px            P is a necessary (essential) property of x
+         (Px ∧ ◇ -Px)    P is a contingent (accidental) property of x
+
+         Simple Necessity
+         ∀x(Px → □ Qx)   All bachelors are inherently unmarriable.
+
+         Condityional Necessity
+         □ ∀x(Px → Qx)   It's necessarily true that all bachelores are unmarried.
+
+         But translate something like, "All P's are necessarily Q's" into
+         both forms
+
+         ∀x(Px → □ Qx)
+         □ ∀x(Px → Qx)
+
+---------
+Semantics
+---------
+
+   Modal Square Of Opposition
+
+     □ P-----------□ -P
        | \       / |
        |   \   /   |
        |     X     |
        |   /   \   |
        | /       \ |
-      ◇P-----------◇¬P
+     ◇ P-----------◇ -P
 
    extension   the extension of a sentence is its truth value; the extension
                of a predicate is the class of things to which it applies;
@@ -550,7 +797,7 @@ Semantics
    intension   the intension of a sentence is the abstract thought or
                proposition it expresses; the intension of a predicate is
                the property, concept or idea it represents, and the
-               intension of a object symbol is its 'meaning', 'sense' or the
+               intension of an object symbol is its 'meaning', 'sense' or the
                'individual concept' it uses to pick out its bearer.
 
    Extensional Contexts
@@ -563,19 +810,19 @@ Semantics
    always possible to infer what results from replacing a subexpression
    in that statement with one with the same extension.  So,
 
-      TFL   From '...P...' (wff containing P), and P <-> Q, one can
+      TFL   From '...P...' (wff containing P), and P ↔ Q, one can
             always infer '...Q...'
 
-      FOL=  From '...F...' (wff containing F), and Ax:(Fx <-> Gx) one can
+      FOL=  From '...F...' (wff containing F), and ∀x(Fx ↔ Gx) one can
             always infer '...G...'
 
       Ident From '...a...' (wff containing a), and a=b one can
             always infer '...b...'
 
 
-      TFL   From R(P) and P <-> Q, infer R(Q/P)
+      TFL   From R(P) and P ↔ Q, infer R(Q/P)
 
-      FOL=  From R(F) and Ax:(Fx <-> Gx), infer R(G/F)
+      FOL=  From R(F) and ∀x(Fx ↔ Gx), infer R(G/F)
 
       Ident From R(a) and a=b, infer R(b/a)
 
@@ -591,74 +838,298 @@ Semantics
    These are called intensional contexts, since in these contexts, intension
    matters, not just extension.  So,
 
-      □(2+2=4)                        is true but,
-      □(Mercury is the first planet)  is false
+         □ (2+2=4)                        is true but,
+         □ (Mercury is the first planet)  is false
 
-      □(8>7)                          is true but,
-      □(number of planets>7)          is false
+         □ (8>7)                          is true but,
+         □ (number of planets>7)          is false
 
    Operators that generate such contexts are called intensional contexts.
    Both □ and ◇ are examples of intensional operators.
 
    @@@It seems that we may be able to permit extension substitutions as
    described above provided they aren't performed on the top-level wff
-   that is the argument of a modal operator.  It may be still be ok to do
+   that is the argument of a modal operator.  It may still be ok to do
    internally.
 
 
-Formal Language (TFL)
----------------------
+----------------------
+Alethic Modal Calculus
+----------------------
+System K (Kripke) - Minimal and Uncontrovesial
+   Not able to perform many operations
 
-Lexemes
-
-   Non¬Logical Symbols
-      Proposition Symbols:      A...Z
-
-   Logical Symbols
-      Truth-Function Symbols:   ->, ⊥
-      Association Symbols:      (, )
-      Modal Symbols:            □
-
-Grammar (Formation Rules for Well-Formed Formulas)
-
-   An ATOMIC FORMULA is either ⊥ or any proposition symbol.
-
-   1.  every atomic formula is a wff;
-   2.  if P,Q  are wffs, then (P -> Q) is a wff;
-   3.  if P is a wff, then □P is also a wff;
-   4.  nothing else is a wff.
-
-   Notes
-
-   - To aid readability of a wffs we adopt the convention that if a wff
-     that begins with '(', we will drop the outer-most pair of parenthesis.
-
-   - In practice it's common to use tick marks or numerical subscripts
-     (we use postscripts) after the proposition symbol to increase to
-     infinity the number of available symbols.
-
-Definitions
-
-   ◇P         =df  ¬□¬P
-   (P -< Q)   =df  □(P -> Q)
-   (P >-< Q)  =df  (P -< Q) ∧ (Q -< P)
-
-==============
-Modal System K
-==============
+   The Principles
    
-Alethic Modal Calculus K
-------------------------
+         Necessitation Rule (NR)
+            If A is an axiom or theorem of K then □ A is as well
+            if ⊢ A then □ A
 
-   This modal calculus is constructed upon TFC above.  We will modify two
-   inference rules and add two new ones.
+         Distribution Axiom (MDist)
+            □ (A → B) → (□ A → □ B)
+
+         Definition of Possibility (Def◇ )
+            ◇ A =df -□ -A
+
+   System K can alternatively be defined in Fitch thus:
+
+      Boxed subproof, a subproof with no hypothesis but rather simply the
+      operator □ .  Informally, the □  header indicates that every line in
+      the subproof is shown to be necessarily true.
+
+      We can't bring statements into boxed subproofs using Reit.
+
+      □ E:  If a line of the form □ P is not closed in the enclosing subproof
+            one may infer P within the boxed subproof.
+
+      □ I:  If P is derived within a boxed subproof, the boxed subproof may
+            be closed and one may infer □ P outside of the subproof.
+
+      The Distribution axiom above is a theorem in this system.
+
+      Using boxed subproofs it's possible to derive □ P for any tautology P.
+
+System D (System K + Axiom D)
+      Weakest System Considered
+      Most often used with Deontic over Alethic.
+   Axiom D (D)
+      □ P → ◇ P
+
+System T (AKA System M)
+      System K + Axiom M/T (Modality)
+      Stronger version of D
+      D is contained (derivable from) in M
+      More commonly used in modal logic
+   Axiom M (Axiom T)
+      □ P → P   Corollary  P → ◇ P
+
+System S4 (System T/M + Axiom 4)
+      System K + Axiom T/M + Axiom 4
+   Axiom 4 (C.I.Lewis' Ax 4)
+      □ P → □ □ P   Corollary ◇ ◇ P → ◇ P
+
+System S5 (System T/M + Axiom 5)
+      Axiom 5 is a stronger version of Axiom 4
+      4 is derivable from 5
+   Axiom 5 (C.I.Lewis' Ax 5)
+      ◇ P → □ ◇ P    corollary ◇ □ P → □ P (corollary where most contention)
+
+System B (System T + Axiom B)
+      (S5 can be formulated either by adding 5 or (B and 4) to T)
+      A consequence of M + K is □ (P → ◇ P)
+   Axiom B (L.E.J.Brouwer)
+      P → □ ◇ P     corollary ◇ □ P → P (corollary is contentious)
+
+Controversey over S4 and S5
+   S5 is used for the modal ontological arguments which don't work in any
+      other modal system.  Yet people feel that s5 says and infers things
+      that people don't usually want as part of their alethic system.
+   S4 is much less controversial.
+   Perhaps instead of Ax 5, (◇ P → □ ◇ P), we want □ (◇ P → ◇ P)
+      Remember these are ambiguous: □ (P → Q), (P → □ Q)
+
+Other Axioms That Have Been Used
+   Axiom g    ◇ □ P → □ ◇ P
+   Axiom L    □ (□ A → B) ∨ □ (□ B → A)    (L - linear)
+   
+Misc
+   Axiom 5 = Axiom 4 + Axiom B
+   S4   = K + M + 4
+   S5   = K + M + 5
+        = K + M + 4 + B
+   Ax 5 = 4 + B
+
+   System M/System T =
+   System K + allowing every instance of M as an axiom.
+
+   System B =
+   System T + allowing every instance of B as an axiom.
+
+   System S4 =
+   System T + allowing every instance of 4 as an axiom.
+
+   System S5 =
+   System T + allowing every instance of 5 as an axiom.
+
+        Rules          Axioms          Modal Logics
+        -------------  --------------  -----------------
+System  NR Dist Def◇   D  T/M s4 s5 B  Al De Tem Epi Dox
+------  -------------  --------------  -----------------
+K       *   *    *
+
+D       *   *    *     *               1  9
+T/M     *   *    *     .   *
+
+S4      *   *    *         *  *
+S5      *   *    *         *  .  *
+
+B       *   *    *         *        *
+
+. means it's entailed in the axiom to the right.
+
+Ax T entails Ax D ("T is stronger than D")
+Ax s5 entails Ax s4 ("S5 is stronger than S4")
+S5 can be formulated either by adding 5 or B and 4 to T     ?????
+S5 is used for the modal ontological arguments which don't work in any
+   other modal system.  Yet people feel that s5 says and infers things
+   that people don't usually want as part of their alethic system.
+
+Kripke Semantics
+----------------
+
+Kripke defined modal semantics starting with the position of possible worlds,
+which was already being done, but Kripke defined a new semantic concept of an
+accessability relation between two worlds.
+
+   The accessability relation
+     wxRwy             means world wx can access world wy, 
+                       where x,y are possible world numbers
+
+You can think of it as an arrow pointing from wx to xy; indicating
+accessibility and its direction.
+  Gensler compared it to a one way
+intergalactic travel ticket.  The ticket is 'defined' every time a ◇ 
+operator causes us to open a new world (Explicitly done in modal truth
+trees and Fitch proofs).
+
+Handling the ◇  operator is uncontroversial.  It's to always split off into
+a new world.  However, the □  operator is another story.  Every time we split
+a new world off as a consequence of ◇ , we create an accessibility relation
+from the origin world to the new world.  The controversey is in how □ P
+propositions should be granted access.  There are all different ideas such as
+granting P in any child world (where you can follow the accessibility relation
+arrow).  Some people say the arrow should be two-way granting access to
+□ P
+from the origin world to the new world.  The controversey is in how □ P
+propositions should be granted access.  There are all different ideas such as
+granting P in any child world (where you can follow the accessibility relation
+arrow).  Some people say the arrow should be two-way granting access to
+□ P
+propositions from either of the two worlds to P in the other.  There are
+versions that allow transitivity; traversing along multiple arrows.
+
+All of these different versions of the modal accessibility relation for
+□ 
+propositions.  To understand the variations lets first look at different
+properties the relation operator might have.
+
+   Reflexivity
+      If exists wx then wxRwx.   (Allows □ P to assert P in the current world)
+
+   Symmetry
+      If wxRwy then wyRwx.       (Every accessability arrow is double ended)
+
+   Transitivity
+      If wxRwy and wyRwz then wxRwz.   (□ P can traverse multiple worlds)
+
+System M/T = K + refl                     □ A → A (axiom M/T) = K + T
+System B   = K + refl + symmetry          A → □ ◇ A (axiom B)
+System S4  = K + refl + trans             □ A → □ □ A (axiom 4)
+System S5  = K + refl + symmetry + trans  ◇ A → □ ◇ A (axiom 5)
+
+In S5 every world has access to every other world.
+
+Genzler Semantics & Fitch Inference Rules
+-----------------------------------------
+Galactic Travel (a rewording of the accessibility relation)
+
+   World Prefixes (Indexes)
+      Gensler uses the concept of World Prefixes. These are strings of the
+      form 'Wn', where n is some integer and the entire string is the name of
+      some possible world.
+
+      Use 'W0' for the actual world.
+
+   Travel Tickets
+      Travel Tickets are just a more intuitive notion to grasp than the
+      accessiblity relation.  However, the concepts are actually identical
+      and therefore interchangeable.  Gensler uses the concept of a travel
+      ticket written, 'Wn=>Wm' to indicate that we have a ticket to travel
+      from one world 'Wn' to another world 'Wm'.
+
+   The ◇ E inference rule
+      According to Gensler the inference rule for ◇ Elim is simple and
+      uncontroversial.  From ◇ P at i, we use ◇ Elim to enter any new
+      (previously unvisited) world, and so we obtain P at j.  In other words
+      we can "drop diamond" into a new world index.  So, if we start with
+◇ P
+      at 0, we can ◇ E producing P at 1.
+
+      ◇ E also gives us a travel ticket W0=>W1.
+
+      Travel tickets are then by □ E to drop into worlds.  The particular
+      system determines how we are allowed to use travel tickets to perform
+      □ E
+
+   Systems
+
+   System T/M - We need a ticket w1 => w2 first,
+                for a □ Elim to go from w1 to w2.
+
+   System B   - Like System T, but tickets work in both directions
+                (symmetry)
+
+   System S4  - Like System T, but we can jump a series of connecting tickets
+                (transitive)
+
+   System s5  - □ Elim into any world
+                (symmetry + transitive)
+
+□ Elim   □ P/n,Wn=>Wm     ⊢  P/m    (use travel ticket according to system)
+□ Intro  ( P/n ⊢ Q/n)     ⊢  □ Q    (this rule is not needed)
+◇ Elim   ◇ P/n            ⊢  P/m & Travel Ticket Wn=>Wm (m is a new world)
+◇ Intro  P/n              ⊢  ◇ P/n  (this rule is not needed)
+
+Kinds of Accessibility Relations
+
+serial              Ser(R)    =df  ∀x∃yxRy
+Reflexive           Ref(R)    =df  ∀x(∃y(xRy ∨ yRx) → xRx)
+Completely Reflex   C-Ref(R)  =df  ∀x(xRx)
+Irreflexive         Irref(R)  =df  -∃x(xRx)
+Transitive          Trans(R)  =df  ∀x∀y∀z((xRy ∧ yRz) → xRz)
+Symmetric           Sym(R)    =df  ∀x∀y(xRy → yRx)
+Euclidean           Euc(R)    =df  ∀x∀y∀z((xRy ∧ xR) → yRz)
+Incestual           Incest(R) =df  ∀x∀y∀z((xRy ∧ xRz) → ∃w(yRw ∧ zRw))
+Asymmetric          Asym(R)   =df  ∀x∀y(xRy → -(yRx))
+Anti-Symmetric      Anti(R)   =df  ∀x∀y((xRy ∧ yRx) → x=y)
+Universal           Univ(R)   =df  ∀x∀y(xRy)
+Identity            Iden(R)   =df  ∀x∀y(xRy → x=y)
+Functional          Fun(R)    =df  ∀x∀y∀z((xRy ∧ xRz) → y=z)
+Inverse-Funcational I-Fun(R)  =df  ∀x∀y∀z((xRz ∧ yRz) → x=y)
+Strongly Connected  SCon(R)   =df  ∀x∀y(xRy ∨ yRx)
+Weakly Connected    WCon(R)   =df  ∀x∀y(-x=y → (xRy ∨ yRx))
+Non-Convergent      N-Con(R)  =df  ∀x∀y∀z(((xRz ∧ yRz) ∧ -x=y) → xRy ∨ yRx)
+Non-Divergent       N-Div(R)  =df  ∀x∀y∀z((xRy ∧ xRz ∧ -y=z) → (yRz ∨ zRy))
+Equiv Relation      Equ(R)    =df  CRef(R) ∧ Tran(R) ∧ Sym(R)
+Quasi-Ordering      QO(R)     =df  CRef(R) ∧ Tran(R)
+Partial Ordering    PO(R)     =df  QO(R) ∧ Anti(R)
+Refl Linear Order   RLO(R)    =df  PO(R) ∧ SCon(R)
+Irrefl Linear Ord   ILO(R)    =df  Asym(R) ∧ Trans(R) ∧ W-Con(R)
+Tree-Ordering       Tree(R)   =df  PO(R) ∧ N-Conv(R)
+Root-Ordering       Root(R)   =df  PO(R) ∧ N-Div(R)
+Upper-Bounded       U-Bound(R)=df  ∀x∀y((∃z(xRz) ∧ ∃z(yRz)) → ∃z(xRz ∧ yRz))
+Lower-Bounded       L-Bound(R)=df  ∀x∀y((∃z(zRx) ∧ ∃z(zRy)) → ∃z(zRx ∧ zRy))
+Bounded             Bound(R)  =df  U-Bound(R) ∧ L-Bound(R)
+Dense               Dense(R)  =df  ∀x∀z((xRz ∧ -x=z)
+                                      → ∃y(-x=y ∧ -y=z ∧ xRy ∧ yRz))
+
+
+-----------------------
+Fitch Natural Deduction
+-----------------------
+
+System K
+========
+   
+   This modal calculus is constructed upon alethic modal logic above.  We will
+   modify two inference rules and add two new ones.
 
    ================================  =========================================
    Name/Alternate Names              Sequent
    ================================  =========================================
-   Hypothesis (H for □I)             Introduce a hypothesis at any step
-                                     provided it beings a new subproof.  The
-                                     hypothesis can be '□' alone which is
+   Hypothesis (H for □ I)            Introduce a hypothesis at any step
+                                     provided it begins a new subproof.  The
+                                     hypothesis can be '□ ' alone which is
                                      called a BOXED SUBPROOF.
 
    Reiterate (RE)                    From P, infer P into the same subproof,
@@ -666,16 +1137,15 @@ Alethic Modal Calculus K
                                      provided the nested subproof is not a
                                      boxed subproof.
 
-   Necessitation Elimination (□E)    From □P, infer P into any immediately
+   Necessitation Elimination (□ E)   From □ P, infer P into any immediately
                                      nested boxed subproof.
 
-   Necessitation Introduction (□I)   From a boxed subproof ending in P,
-                                     infer □P.
+   Necessitation Introduction (□ I)  From a boxed subproof ending in P,
+                                     infer □ P.
    ================================  =========================================
 
-   These rules are sometimes represented more visually.  The horizontal bar
-   denotes 'infer', vertical lines denote subproofs, other symbology comes
-   directly from my modified sequent notation.
+   These rules are sometimes represented in diagrams.  The horizontal bar
+   denotes 'infer', vertical lines denote subproofs.
 
       +-------------------------------+-------------------------------+
       | ============================= | ============================= |
@@ -687,118 +1157,118 @@ Alethic Modal Calculus K
       |                               |          |   P     not boxed  |
       |                               |                               |
       | ============================= | ============================= |
-      |  □E                           |  □I                           |
+      |  □ E                          |  □ I                          |
       | ============================= | ============================= |
-      |   □P                          |   |□                          |
+      |   □ P                         |   |□                          |
       |  ---------                    |   |   ...                     |
       |   |□                          |   |   P                       |
       |   |   ...                     |  ---------                    |
-      |   |   P                       |   □P                          |
+      |   |   P                       |   □ P                         |
       |                               |                               |
       +-------------------------------+-------------------------------+
 
-MDist  |¬K  □(P -> Q) -> (□P -> □Q)
+Modal Distribution (MDist)  ⊢K  □ (P → Q) → (□ P → □ Q)
 Proof
-01.   |   □(P -> Q)               A
-02.   |   |   □P                  H (for ->I)
-03.   |   |   □(P -> Q)           1 RE
-04.   |   |   |□                  H (for □I
-05.   |   |   |   P               2 □E
-06.   |   |   |   P -> Q          3 □E
-07.   |   |   |   Q               5,6 ->E
-08.   |   |   □Q                  4-7 □I
-09.   |   □P -> □Q                2-8 ->I
-10.   □(P -> Q) -> (□P -> □Q)     1-9 ->I
+01.   |   □ (P → Q)               A
+02.   |   |   □ P                 H (for →I)
+03.   |   |   □ (P → Q)           1 RE
+04.   |   |   |□                  H (for □ I
+05.   |   |   |   P               2 □ E
+06.   |   |   |   P → Q           3 □ E
+07.   |   |   |   Q               5,6 →E
+08.   |   |   □ Q                 4-7 □ I
+09.   |   □ P → □ Q               2-8 →I
+10.   □ (P → Q) → (□ P → □ Q)     1-9 →I
 QED
 
-   |¬K  □(P -> (Q -> P))
+   ⊢K  □ (P → (Q → P))
 Proof
-01.   |□                          H (for □I)
-02.   |   |   P                   H (for ->I)
-03.   |   |   |   Q               H (for ->I)
+01.   |□                          H (for □ I)
+02.   |   |   P                   H (for →I)
+03.   |   |   |   Q               H (for →I)
 04.   |   |   |   P               2 RE
-05.   |   |   Q -> P              3-4 ->I
-06.   |   P -> (Q -> P)           2-5 ->I
-07.   □(P -> (Q -> P))            1-6 □I
+05.   |   |   Q → P               3-4 →I
+06.   |   P → (Q → P)             2-5 →I
+07.   □ (P → (Q → P))             1-6 □ I
 QED
 
-   Rule of Necessitation (NEC)   if |-K P then |-K □P
-   Modal Distribution (MDist)    |-K □(P -> Q) -> (□P -> □Q)
+   Rule of Necessitation (NEC)   if ⊢K P then ⊢K □ P
+   Modal Distribution (MDist)    ⊢K □ (P → Q) → (□ P → □ Q)
 
-These two rules are equivalent to: □I and □E.
+These two rules are equivalent to: □ I and □ E.
 
 Some derived rules
 
-¬◇   ¬◇P  |-K  □¬P
+-◇    -◇ P  ⊢K  □ -P
 Proof
-01.   ¬◇P                         A
-02.   ¬¬□¬P                       1 DEF◇
-03.   □¬P                         2 ¬E
+01.   -◇ P                        A
+02.   --□ -P                      1 DEF◇ 
+03.   □ -P                        2 -E
 QED
 
-¬□   ¬□P  |-K  ◇¬P
+-□    -□ P  ⊢K  ◇ -P
 Proof
-01.   ¬□P                         A
-02.   |   □¬¬P                    H (¬E)
-03.   |   |□                      H (for □I)
-04.   |   |   ¬¬P                 2 □E
-05.   |   |   P                   4 ¬E
-06.   |   □P                      3-5 □I
-07.   |   ¬□P                     1 RE
+01.   -□ P                        A
+02.   |   □ --P                   H (-E)
+03.   |   |□                      H (for □ I)
+04.   |   |   --P                 2 □ E
+05.   |   |   P                   4 -E
+06.   |   □ P                     3-5 □ I
+07.   |   -□ P                    1 RE
 08.   |   ⊥                       6,7 EFQ
-09.   ¬¬◇¬P                       2-8 ¬I
-10.   ◇¬P                         9 ¬E
+09.   --◇ -P                      2-8 -I
+10.   ◇ -P                        9 -E
 QED
 
-◇DIST   |-K  □(P -> Q) -> (◇P -> ◇Q)
+◇ DIST   ⊢K  □ (P → Q) → (◇ P → ◇ Q)
 Proof
-01.   |   □(P -> Q)               A
-02.   |   |   □¬Q                 H (for ->I)
-03.   |   |   □(P -> Q)           1 RE
-04.   |   |   |□                  H (for □I)
-05.   |   |   |   ¬Q              2 □E
-06.   |   |   |   P -> Q          3 □E
-07.   |   |   |   ¬P              5,6 MT
-08.   |   |   □¬P                 4-7 □I
-09.   |   □¬Q -> □¬P              2-8 ->I
-10.   |   ¬□¬P -> ¬□¬Q            9 TRANS
-11.   |   ◇P -> ◇Q                10 DEF◇
-12.   □(P -> Q) -> (◇P -> ◇Q)     1-11 ->I
+01.   |   □ (P → Q)               A
+02.   |   |   □ -Q                H (for → I)
+03.   |   |   □ (P → Q)           1 RE
+04.   |   |   |□                  H (for □ I)
+05.   |   |   |   -Q              2 □ E
+06.   |   |   |   P → Q           3 □ E
+07.   |   |   |   -P              5,6 MT
+08.   |   |   □ -P                4-7 □ I
+09.   |   □ -Q → □ -P             2-8 → I
+10.   |   -□ -P → -□ -Q           9 TRANS
+11.   |   ◇ P → ◇ Q               10 DEF ◇ 
+12.   □ (P → Q) → (◇ P → ◇ Q)     1-11 → I
 QED
 
-◇E   |-K   ◇P, (□ (P |- Q))  |-  ◇Q
+◇ E     ◇ P, (□  (P ⊢ Q))  ⊢K  ◇ Q
 Schematic Proof
-i.   ◇P
-j.   |□                           H (for □I)
-k.   |   |   P                    H (for ->I)
+i.   ◇ P
+j.   |□                           H (for □ I)
+k.   |   |   P                    H (for → I)
 ...
 l.   |   |   Q
-l+1. |   P -> Q                   k-l ->I
-l+2. □(P -> Q)                    j-l+1 □I
-l+3. □(P -> Q) -> (◇P -> ◇Q)      ◇DIST
-l+4. ◇P -> ◇Q                     l+2,l+3 ->E
-l+5. ◇Q                           i,l+4 ->E
+l+1. |   P → Q                    k-l → I
+l+2. □ (P → Q)                    j-l+1 □ I
+l+3. □ (P → Q) → (◇ P → ◇ Q)      ◇ DIST
+l+4. ◇ P → ◇ Q                    l+2,l+3 → E
+l+5. ◇ Q                          i,l+4 → E
 QED
 
 This proof form is very common, so it's worth while to introduce further
 abbreviation, with a WORLD-SUBPROOF.  In such a case we introduce a boxed
 subproof and a wff in one step.
 
-   (□,P |-K ... )
+   (□ ,P ⊢K ... )
 Schematic Proof
-i.   |□,P
+i.   |□ ,P
 ...
 j.   |
 QED
 
 We shall generalize further.
 
-   (A,B,C |-K D) |-K A -> (B -> (C -> D))
+   (A,B,C ⊢K D)  ⊢K  A → (B → (C → D))
 Schematic Proof
 i.   |   A,B,C
 ...
 j.   |   D
-j+1. A -> (B -> (C -> D))         i-j ->I
+j+1. A → (B → (C → D))            i-j →I
 QED
 
 Schematic Proof
@@ -807,9 +1277,9 @@ j.   |   |   Q
 k.   |   |   |   R
 ...
 l.   |   |   |   S
-l+1. |   |   R -> S               k-l ->I
-l+2. |   Q -> (R -> S)            j-l+1 ->I
-l+3  P -> (Q -> (R -> S))         i-l+2 ->I
+l+1. |   |   R → S                k-l →I
+l+2. |   Q → (R → S)              j-l+1 →I
+l+3  P → (Q → (R → S))            i-l+2 →I
 QED
 
 Alternatively, the hypotheses can be placed on separate lines so they can be
@@ -821,247 +1291,287 @@ i+1. |   Q
 i+2. |   R
 ...
 j.   |   S
-j+1. P -> (Q -> (R -> S))         i-j+1 ->I
+j+1. P → (Q → (R → S))         i-j+1 →I
 QED
 
-◇&Dist  |-K  ◇(P ∧ Q) -> (◇P ∧ ◇Q)
+◇ &Dist  ⊢K  ◇ (P ∧ Q) → (◇ P ∧ ◇ Q)
 Proof
-01.   |   ◇(P ∧ Q)                H (for ◇E)
-02.   |   |□,P ∧ Q                H (for □I)
+01.   |   ◇ (P ∧ Q)                H (for ◇ E)
+02.   |   |□ ,P ∧ Q                H (for □ I)
 03.   |   |   P                   2 ∧E
-04.   |   ◇P                      1,2-3 ◇I
-05.   |   |□,P ∧ Q                H (for □I)
+04.   |   ◇ P                      1,2-3 ◇ I
+05.   |   |□ ,P ∧ Q                H (for □ I)
 06.   |   |   Q                   5 ∧E
-07.   |   ◇Q                      5-6 ◇I
-08.   |   ◇P ∧ ◇Q                 4,7 ∧I
-09.   ◇(P ∧ Q) -> (◇P ∧ ◇Q)       1-8 ->I
+07.   |   ◇ Q                      5-6 ◇ I
+08.   |   ◇ P ∧ ◇ Q                 4,7 ∧I
+09.   ◇ (P ∧ Q) → (◇ P ∧ ◇ Q)       1-8 →I
 QED
 
-   |-K   (□P ∧ ◇Q) -> ◇(P ∧ Q)
+   ⊢K   (□ P ∧ ◇ Q) → ◇ (P ∧ Q)
 Proof
-01.   |   □P ∧ ◇Q                 H (for ->I)
-02.   |   □P                      1 ∧E
-03.   |   ◇Q                      1 ∧E
-04.   |   |□,Q                    H (for ◇E)
-05.   |   |   P                   2 □E
+01.   |   □ P ∧ ◇ Q                 H (for →I)
+02.   |   □ P                      1 ∧E
+03.   |   ◇ Q                      1 ∧E
+04.   |   |□ ,Q                    H (for ◇ E)
+05.   |   |   P                   2 □ E
 06.   |   |   P ∧ Q               4,5 ∧I
-07.   |   ◇(P ∧ Q)                3,4-6 ◇E
-08.   (□P ∧ ◇Q) -> ◇(P ∧ Q)       1-7 ->I
+07.   |   ◇ (P ∧ Q)                3,4-6 ◇ E
+08.   (□ P ∧ ◇ Q) → ◇ (P ∧ Q)       1-7 →I
 QED
 
 
-Alethic Modal Calculus T, B, S4, S5
------------------------------------
 
-Axiom Schimata
-   M (Modality):        □P -> P
-   B (L.E.J.Brouwer):   P -> □◇P
-   4 (C.I.Lewis Ax 4):  □P -> □□P
-   5 (C.I.Lewis Ax 5):  ◇P -> □◇P
 
-System M/System T
-   System K + allowing every instance of M as an axiom.
 
-System B
-   System T + allowing every instance of B as an axiom.
 
-System S4
-   System T + allowing every instance of 4 as an axiom.
 
-System S5
-   System T + allowing every instance of 5 as an axiom.
 
-   |-K   ◇(P ∧ Q) -> (◇P ∧ ◇Q)
+
+   ⊢K   ◇ (P ∧ Q) → (◇ P ∧ ◇ Q)
 Proof
-01.   |   ◇(P ∧ Q)                H (for ->I)
-02.   |   |□,P ∧ Q                H (for ◇E)
+01.   |   ◇ (P ∧ Q)                H (for →I)
+02.   |   |□ ,P ∧ Q                H (for ◇ E)
 03.   |   |   P                   2 ∧E
-04.   |   ◇P                      1,2-3 ◇E
-05.   |   |□,P ∧ Q                H (for ◇E)
+04.   |   ◇ P                      1,2-3 ◇ E
+05.   |   |□ ,P ∧ Q                H (for ◇ E)
 06.   |   |   Q                   5 ∧E
-07.   |   ◇Q                      1,5-6 ◇E
-08.   |   ◇P ∧ ◇Q                 4,7 ∧I
-09.   ◇(P ∧ Q) -> (◇P ∧ ◇Q)       1-8 ->I
+07.   |   ◇ Q                      1,5-6 ◇ E
+08.   |   ◇ P ∧ ◇ Q                 4,7 ∧I
+09.   ◇ (P ∧ Q) → (◇ P ∧ ◇ Q)       1-8 →I
 QED
 
-◇I (Dual of M):   |-T   P -> ◇P
+◇ I (Dual of M):   ⊢T   P → ◇ P
 Proof
-01.   |   P                       H (for ->I)
-02.   |   □¬P -> ¬P               Ax M
-03.   |   ¬¬P                     1 DN
-04.   |   ¬□¬P                    2,3 MT
-05.   |   ◇P                      4 DEF◇
-06.   P -> ◇P                     1-5 ->I
+01.   |   P                       H (for →I)
+02.   |   □ -P → -P               Ax M
+03.   |   --P                     1 DN
+04.   |   -□ -P                    2,3 MT
+05.   |   ◇ P                      4 DEF◇ 
+06.   P → ◇ P                     1-5 →I
 QED
 
-¬◇I:   □¬P  |-  ¬◇P
+-◇ I:   □ -P  ⊢  -◇ P
 Proof
-01.   □¬P                         A
-02.   |   ◇P                      H (for ¬I)
-03.   |   ¬□¬P                    2 DEF◇
-04.   |   □¬P                     1 RE
+01.   □ -P                         A
+02.   |   ◇ P                      H (for -I)
+03.   |   -□ -P                    2 DEF◇ 
+04.   |   □ -P                     1 RE
 05.   |   ⊥                       3,4 EFQ
-06.   ¬◇P                         2-5 ¬I
+06.   -◇ P                         2-5 -I
 QED
 
-¬□I:   ◇¬P  |-  ¬□P
+-□ I:   ◇ -P  ⊢  -□ P
 Proof
-01.   ◇¬A                         A
-02.   |   □A                      H (for ¬I)
-03.   |   |□                      H (for □I)
-04.   |   |   A                   2 □E
-05.   |   |   ¬¬A                 4 DN
-06.   |   □¬¬A                    3-5 □I
-07.   |   ◇¬A                     1 RE
-08.   |   ¬□¬¬A                   7 DEF◇
+01.   ◇ -A                         A
+02.   |   □ A                      H (for -I)
+03.   |   |□                       H (for □ I)
+04.   |   |   A                   2 □ E
+05.   |   |   --A                 4 DN
+06.   |   □ --A                    3-5 □ I
+07.   |   ◇ -A                     1 RE
+08.   |   -□ --A                   7 DEF◇ 
 09.   |   ⊥                       6,8 EFQ
-10.   ¬□A                         2-9 ¬I
+10.   -□ A                         2-9 -I
 QED
 
-B' (Dual of B):  |-B  ◇□P -> P
+B' (Dual of B):  ⊢B  ◇ □ P → P
 Proof
-01.   |   ◇□P,¬P                  H
-02.   |   ¬P -> □◇¬P              Ax B
-03.   |   □◇¬P                    1,2 ->E
-04.   |   |□                      H (for □I)
-05.   |   |   ◇¬P                 3 □E
-06.   |   |   ¬□P                 5 DUAL
-07.   |   □¬□P                    4-6 □I
-08.   |   ¬◇□P                    7 DUAL
+01.   |   ◇ □ P,-P                  H
+02.   |   -P → □ ◇ -P              Ax B
+03.   |   □ ◇ -P                    1,2 →E
+04.   |   |□                       H (for □ I)
+05.   |   |   ◇ -P                 3 □ E
+06.   |   |   -□ P                 5 DUAL
+07.   |   □ -□ P                    4-6 □ I
+08.   |   -◇ □ P                    7 DUAL
 09.   |   ⊥                       1a,8 EFQ
-10.   ◇□P -> P                    1-9 ->I, ¬I
+10.   ◇ □ P → P                    1-9 →I, -I
 QED
 
-4' (Dual of 4):  |-S4  ◇◇P -> ◇P
+4' (Dual of 4):  ⊢S4  ◇ ◇ P → ◇ P
 Proof
-01.   |   ◇◇P, ¬◇P                H (for ->I,¬I)
-02.   |   □¬P                     1b DUAL
-03.   |   □¬P -> □□¬P             Ax 4
-04.   |   □□¬P                    2,3 ->E
-05.   |   |□                      H (for □I)
-06.   |   |   □¬P                 4 □E
-07.   |   |   ¬¬□¬P               6 DN
-08.   |   □¬¬□¬P                  5-7 □I
-09.   |   □¬◇A                    8 DEF◇
-10.   |   ¬□¬◇P                   1a DEF◇
+01.   |   ◇ ◇ P, -◇ P                H (for →I,-I)
+02.   |   □ -P                     1b DUAL
+03.   |   □ -P → □ □ -P             Ax 4
+04.   |   □ □ -P                    2,3 →E
+05.   |   |□                       H (for □ I)
+06.   |   |   □ -P                 4 □ E
+07.   |   |   --□ -P               6 DN
+08.   |   □ --□ -P                  5-7 □ I
+09.   |   □ -◇ A                    8 DEF◇ 
+10.   |   -□ -◇ P                   1a DEF◇ 
 11.   |   ⊥                       9,10 EFQ
-12.   ◇◇P -> ◇P                   1-11 ->I,¬I
+12.   ◇ ◇ P → ◇ P                   1-11 →I,-I
 QED
 
-Steps 2-6 demonstrate that from □P one can infer □P into a subproof
-without losing the □.
+Steps 2-6 demonstrate that from □ P one can infer □ P into a subproof
+without losing the □ .
 
 S4 = System T + 4' as an axiom schema.
 
-5' (Dual of 5):  |-S5  ◇□P -> □P
+5' (Dual of 5):  ⊢S5  ◇ □ P → □ P
 Proof
-01.   |   ◇□P, ¬□P               H (for ->I,¬I)
-02.   |   ◇¬P                    1 DUAL
-03.   |   ◇¬P -> □◇¬P            Ax 5
-04.   |   □◇¬A                   2,3 ->E
-05.   |   |□                     H (for □I)
-06.   |   |   ◇¬P                4 □E
-07.   |   |   ¬□P                6 ¬□I
-08.   |   □¬□P                   5-7 □I
-09.   |   ¬□¬□P                  1a DEF◇
+01.   |   ◇ □ P, -□ P               H (for →I,-I)
+02.   |   ◇ -P                    1 DUAL
+03.   |   ◇ -P → □ ◇ -P            Ax 5
+04.   |   □ ◇ -A                   2,3 →E
+05.   |   |□                      H (for □ I)
+06.   |   |   ◇ -P                4 □ E
+07.   |   |   -□ P                6 -□ I
+08.   |   □ -□ P                   5-7 □ I
+09.   |   -□ -□ P                  1a DEF◇ 
 10.   |   ⊥                      8,9 EFQ
-11.   ◇□P -> □P                  1-10 ->I,¬I
+11.   ◇ □ P → □ P                  1-10 →I,-I
 QED
 
-Steps 2-6 demonstrate that from ◇P one can infer ◇P into a subproof
-without losing the ◇.
+Steps 2-6 demonstrate that from ◇ P one can infer ◇ P into a subproof
+without losing the ◇ .
 
-   |-S5  P -> □◇P
+   ⊢S5  P → □ ◇ P
 Proof
-01.   P -> ◇P                    ◇I
-02.   ◇P -> □◇P                  Ax 5
-03.   P -> □◇P                   1,2 HS
+01.   P → ◇ P                    ◇ I
+02.   ◇ P → □ ◇ P                  Ax 5
+03.   P → □ ◇ P                   1,2 HS
 QED
 
-   |-S5  □P -> □□P
+   ⊢S5  □ P → □ □ P
 Proof
-01.   □P -> □◇□P                 Ax B
-02.   |□                         H (for □I)
-03.   |   ◇□P -> □P              5'
-04.   □(◇□P -> □P)               2-3 □I
-05.   □(◇□P -> □P) -> (□◇□P -> □□P)  MDist
-06.   □◇□P -> □□P                4,5 ->E
-07.   □P -> □□P                  1,6 HS
+01.   □ P → □ ◇ □ P                 Ax B
+02.   |□                          H (for □ I)
+03.   |   ◇ □ P → □ P              5'
+04.   □ (◇ □ P → □ P)               2-3 □ I
+05.   □ (◇ □ P → □ P) → (□ ◇ □ P → □ □ P)  MDist
+06.   □ ◇ □ P → □ □ P                4,5 →E
+07.   □ P → □ □ P                  1,6 HS
 QED
 
-   |-S4  □P <-> □□P
-   |-S4  ◇P <-> ◇◇P
+   ⊢S4  □ P ↔ □ □ P
+   ⊢S4  ◇ P ↔ ◇ ◇ P
 
 But also,
 
-   |-S4  □P <-> □□□P
+   ⊢S4  □ P ↔ □ □ □ P
 Proof
-01.   □P -> □□P                   Ax 4
-02.   □□P -> □□□P                 Ax 4
-03.   □P -> □□□P                  1,2 HS
-04.   □□□P -> □□P                 Ax M
-05.   □□P -> □P                   Ax M
-06.   □□□P -> □P                  4,5 HS
-07.   □P <-> □□□P                 3,6 <->I
+01.   □ P → □ □ P                   Ax 4
+02.   □ □ P → □ □ □ P                 Ax 4
+03.   □ P → □ □ □ P                  1,2 HS
+04.   □ □ □ P → □ □ P                 Ax M
+05.   □ □ P → □ P                   Ax M
+06.   □ □ □ P → □ P                  4,5 HS
+07.   □ P ↔ □ □ □ P                 3,6 ↔I
 QED
 
-   |-S4  ◇P <-> ◇◇◇P
+   ⊢S4  ◇ P ↔ ◇ ◇ ◇ P
 
-   |-S4  □(P -> □□Q) <-> □(P -> □Q)`
-01.   |   □(P -> □□Q)
-02.   |   |□                      H (for □I)
-03.   |   |   P -> □□Q            1 □E
-04.   |   |   □□Q -> □Q           Ax M
-05.   |   |   P -> □Q             3,4 HS
-06.   |   □(P -> □Q)              2-5 □I
-07.   □(P -> □□Q) -> □(P -> □Q)   1-6 ->I
-08.   |   □(P -> □Q)              H (for ->I)
-09.   |   |□                      H (for □I)
-10.   |   |   P -> □Q             8 □E
-11.   |   |   □Q -> □□Q           Ax 4
-12.   |   |   P -> □□Q            10,11 HS
-13.   |   □(P -> □□P)             9-12 □I
-14.   □(P -> □Q) -> □(P -> □□Q)   8-13 ->I
-15.   □(P -> □□Q) <-> □(P -> □Q)  1-6 ->I
+   ⊢S4  □ (P → □ □ Q) ↔ □ (P → □ Q)`
+01.   |   □ (P → □ □ Q)
+02.   |   |□                       H (for □ I)
+03.   |   |   P → □ □ Q            1 □ E
+04.   |   |   □ □ Q → □ Q           Ax M
+05.   |   |   P → □ Q             3,4 HS
+06.   |   □ (P → □ Q)              2-5 □ I
+07.   □ (P → □ □ Q) → □ (P → □ Q)   1-6 →I
+08.   |   □ (P → □ Q)              H (for →I)
+09.   |   |□                       H (for □ I)
+10.   |   |   P → □ Q             8 □ E
+11.   |   |   □ Q → □ □ Q           Ax 4
+12.   |   |   P → □ □ Q            10,11 HS
+13.   |   □ (P → □ □ P)             9-12 □ I
+14.   □ (P → □ Q) → □ (P → □ □ Q)   8-13 →I
+15.   □ (P → □ □ Q) ↔ □ (P → □ Q)  1-6 →I
 QED
 
-   |-S5  □◇◇□P <-> □P
+   ⊢S5  □ ◇ ◇ □ P ↔ □ P
 Proof
-01.   |   □◇◇□P                   H (for ->I)
-02.   |   ◇◇□P                    1 Ax M
-03.   |   ◇□P                     2 Ax 4'
-04.   |   □P                      3 Ax 5'
-05.   □◇◇□P -> □P                 1-4 ->I
-06.   |   □P                      H (for ->I)
-07.   |   ◇□P                     6 ◇I
-08.   |   ◇◇□A                    7 ◇I
-09.   |   □◇◇□P                   8 Ax 5
-10.   □P -> □◇◇□P                 6-9 ->I
-11.   □◇◇□P <-> □P                5,10 <->I
+01.   |   □ ◇ ◇ □ P                   H (for →I)
+02.   |   ◇ ◇ □ P                    1 Ax M
+03.   |   ◇ □ P                     2 Ax 4'
+04.   |   □ P                      3 Ax 5'
+05.   □ ◇ ◇ □ P → □ P                 1-4 →I
+06.   |   □ P                      H (for →I)
+07.   |   ◇ □ P                     6 ◇ I
+08.   |   ◇ ◇ □ A                    7 ◇ I
+09.   |   □ ◇ ◇ □ P                   8 Ax 5
+10.   □ P → □ ◇ ◇ □ P                 6-9 →I
+11.   □ ◇ ◇ □ P ↔ □ P                5,10 ↔I
 QED
 
-   |-S5 ◇(□◇P ∧ ◇□Q) <-> ◇(◇A ∧ □B)
+   ⊢S5 ◇ (□ ◇ P ∧ ◇ □ Q) ↔ ◇ (◇ A ∧ □ B)
 Proof
-01.   |   ◇(□◇P ∧ ◇□Q)            H (for ->I)
-02.   |   |□,□◇P ∧ ◇□Q            H (for ◇E)
-03.   |   |   □◇P                 2 ∧E
-04.   |   |   ◇□B                 2 ∧E
-05.   |   |   ◇P                  3 Ax M
-06.   |   |   □B                  4 Ax 5'
-07.   |   |   ◇P ∧ □Q             5,6 ∧I
-08.   |   ◇(◇P ∧ □Q)              1,2-7 ◇E
-09.   ◇(□◇P ∧ ◇□Q) -> ◇(◇P ∧ □Q)  1-8 ->I
-10.   |   ◇(◇P ∧ □Q)              H (for ->I)
-11.   |   |□,◇A ∧ □B              H (for ◇E)
-12.   |   |   ◇P                  11 ∧E
-13.   |   |   □B                  11 ∧E
-14.   |   |   □◇P                 12 Ax 5
-15.   |   |   ◇□Q                 13 ◇E
-16.   |   |   □◇P ∧ ◇□Q           14,15 ∧I
-17.   |   ◇(□◇P ∧ ◇□Q)            10,11-16 ◇E
-18.   ◇(◇P ∧ □Q) -> ◇(□◇P ∧ ◇□Q)  10-17 ->I
-19.   ◇(□◇P ∧ ◇□Q) <-> ◇(◇P ∧ □Q) 9,18 <->I
+01.   |   ◇ (□ ◇ P ∧ ◇ □ Q)            H (for →I)
+02.   |   |□ ,□ ◇ P ∧ ◇ □ Q            H (for ◇ E)
+03.   |   |   □ ◇ P                 2 ∧E
+04.   |   |   ◇ □ B                 2 ∧E
+05.   |   |   ◇ P                  3 Ax M
+06.   |   |   □ B                  4 Ax 5'
+07.   |   |   ◇ P ∧ □ Q             5,6 ∧I
+08.   |   ◇ (◇ P ∧ □ Q)              1,2-7 ◇ E
+09.   ◇ (□ ◇ P ∧ ◇ □ Q) → ◇ (◇ P ∧ □ Q)  1-8 →I
+10.   |   ◇ (◇ P ∧ □ Q)              H (for →I)
+11.   |   |□ ,◇ A ∧ □ B              H (for ◇ E)
+12.   |   |   ◇ P                  11 ∧E
+13.   |   |   □ B                  11 ∧E
+14.   |   |   □ ◇ P                 12 Ax 5
+15.   |   |   ◇ □ Q                 13 ◇ E
+16.   |   |   □ ◇ P ∧ ◇ □ Q           14,15 ∧I
+17.   |   ◇ (□ ◇ P ∧ ◇ □ Q)            10,11-16 ◇ E
+18.   ◇ (◇ P ∧ □ Q) → ◇ (□ ◇ P ∧ ◇ □ Q)  10-17 →I
+19.   ◇ (□ ◇ P ∧ ◇ □ Q) ↔ ◇ (◇ P ∧ □ Q) 9,18 ↔I
 QED
+
+
+
+
+----------------------------
+Non-Historical Modal Systems
+----------------------------
+
+   Neo-Systems
+
+   KB     k,b rules
+   K4     k,4 rules
+   K5     k,5 rules
+   KDB    k,d,b rules
+   KD4    k,d,4 rules
+   KD5    k,d,5 rules
+   K45    k,4,5 rules
+   KD45   k,d,4,5 rules
+   KB4    k,b,4 rules
+
+   G-Systems
+
+   A G-System axiom is any axiom achieved by exponentiating the modal
+   operators in the formual g as follows
+
+                      j  k       m  n
+      G(j,k,m,n)      ◇   □   P → □   ◇  P
+
+   The exponents work as expected in that they simply name the number of
+   occurrences of the base symbol.
+
+   A G-system is a modal logic that contains the K-thesis as well as
+   finitely many theses of the form G(j,k,m,n).  Nearly every thesis we
+   have considered can be written using G-notation
+
+      axiom    G-notation     Dual
+      -----    ----------     ----
+       g       G(1,1,1,1)
+       d       G(0,1,0,1)
+       t       G(0,1,0,0)     G(0,0,1,0)
+       b       G(1,1,0,0)     G(0,0,1,1)
+       4       G(0,1,2,0)     G(2,0,0,1)
+       4.2     G(0,2,3,0)     G(3,0,0,2)
+       4.3     G(0,3,4,0)     G(4,0,0,3)
+       ...
+       5       G(1,1,1,0)     G(1,0,1,1)
+
+   System X1
+       K           □ (A → B) → (□ A → □ B)
+       G(0,1,1,1)  □ A → □ ◇ A
+
+   System X2
+       K           □ (P → Q) → (□ P → □ Q)
+       G(2,1,2,1)  ◇ ◇ □ P → □ □ ◇ P
 
 
 ================================================
@@ -1077,8 +1587,8 @@ Notions
 
 Definitions
 
-   (Def P)   P:P  =df  ¬O:¬P         (It's permissible that P)
-   (Def F)   F:P  =df  O:¬P          (It's forbidden that P)
+   (Def P)   P:P  =df  -O:-P         (It's permissible that P)
+   (Def F)   F:P  =df  O:-P          (It's forbidden that P)
 
 
 System D
@@ -1090,9 +1600,9 @@ System D
       | ============================= | ============================= |
       |  O:E                          |  O:I                          |
       | ============================= | ============================= |
-      |   OR                          |   |□                         |
+      |   OR                          |   |□                          |
       |  ---------                    |   |   ...                     |
-      |   |□                          |   |   R                       |
+      |   |□                           |   |   R                       |
       |   |   ...                     |  ---------                    |
       |   |   R                       |   OR                          |
       |                               |                               |
@@ -1100,13 +1610,13 @@ System D
 
    Axioms
 
-      D.   O:R -> P:R
+      D.   O:R → P:R
 
    Other Possible Axioms
 
-      OO.  O:R <-> OO:R         (biconditional version of axiom 4)
-      OP.  P:R <-> OP:R         (biconditional version of axiom 5)
-      OM.  O:(O:R -> R)
+      OO.  O:R ↔ OO:R         (biconditional version of axiom 4)
+      OP.  P:R ↔ OP:R         (biconditional version of axiom 5)
+      OM.  O:(O:R → R)
 
    Since S4 and S5 include axiom M, which is stronger than
    (axiom OM) + (axiom D).
@@ -1117,19 +1627,19 @@ System D
       All theorems (tautologies) are obligatory and their negations
       are forbidden.
 
-         |-D  F⊥                 (contradiction is forbidden)
-         |-D  O:(R -> R)
+         ⊢D  F⊥                 (contradiction is forbidden)
+         ⊢D  O:(R → R)
 
       But these seem odd.
 
-         |-D  P:R -> P:(R ∨ S)     (provable with K alone)
+         ⊢D  P:R → P:(R ∨ S)     (provable with K alone)
 
          Example
 
          H,   you hug
          S,   you spit
 
-         P:H  |-  P:(H ∨ S)
+         P:H  ⊢  P:(H ∨ S)
 
       Which seems to produce, It's permissible that you either hug or spit.
       But this seems to imply
@@ -1138,26 +1648,33 @@ System D
 
       Similarly,
 
-         |-D  OR -> O:(R ∨ S)
+         ⊢D  OR → O:(R ∨ S)
 
       Suppose, I ought to hug.  Does this imply I ought to hug or spit?
 
-         NonCon  |-D  ¬(O:R ∧ O:¬R)
+         NonCon  ⊢D  -(O:R ∧ O:-R)
 
       Chisholm's Paradox
 
       D cannot adequately capture conditional obligations.
 
          1. O:G           Obligatorily Sadie goes.
-         2. O:(G -> T)    Obligatorily if Sadie goes, she talks.
-         3. ¬G -> O:¬T    If Sadie doesn't go, she ought not talks.
-         4. ¬G            Sadie doesn't go.
+         2. O:(G → T)    Obligatorily if Sadie goes, she talks.
+         3. -G → O:-T    If Sadie doesn't go, she ought not talks.
+         4. -G            Sadie doesn't go.
 
       Which derives a contradiction.   
 
       Another odd thoerem in D
 
-         |-D  OR -> O:(¬R -> S)
+         ⊢D  OR → O:(-R → S)
+
+
+
+
+
+
+
 
 
 ===============================================
@@ -1175,30 +1692,30 @@ Notions
 Definition
 ----------
 
-      DEF F.   F:S  =df  ¬G:¬S    (It will at some time be the case that S)
-      DEF P.   P:S  =df  ¬H:¬S    (It was at some time the case that S)
+      DEF F.   F:S  =df  -G:-S    (It will at some time be the case that S)
+      DEF P.   P:S  =df  -H:-S    (It was at some time the case that S)
 
 
 Inference
 ---------
 
-      G:I, H:I,   correspond to □I
-      G:E, H:E,   correspond to □E
+      G:I, H:I,   correspond to □ I
+      G:E, H:E,   correspond to □ E
 
    These insure that all tautologies, axioms and theorems of the system
    have always been and always will be the case.
 
-      GP.   S -> GP:S
-      HF.   S -> HF:S
+      GP.   S → GP:S
+      HF.   S → HF:S
 
    Duals
 
-      |-Kt  PG:S -> S
-      |-Kt  FH:S -> S
-      |-Kt  G:S -> GG:S
-      |-Kt  H:S -> HH:S
-      |-Kt  FF:S -> F:S
-      |-Kt  PP:S -> P:S
+      ⊢Kt  PG:S → S
+      ⊢Kt  FH:S → S
+      ⊢Kt  G:S → GG:S
+      ⊢Kt  H:S → HH:S
+      ⊢Kt  FF:S → F:S
+      ⊢Kt  PP:S → P:S
 
 
 ================================================================
@@ -1216,15 +1733,15 @@ Notions
 Definitions
 -----------
 
-   DEF C.   C:S  =df  ¬B:¬S    (Maybe 'conceive'?)
-   DEF P.   P:S  =df  ¬K:¬S    (Maybe 'ponders'?)
+   DEF C.   C:S  =df  -B:-S    (Maybe 'conceive'?)
+   DEF P.   P:S  =df  -K:-S    (Maybe 'ponders'?)
 
 
 Derived Rules
 
-   DIST-K.  K:(R -> S) -> (K:R -> K:S)
-   M-K.     K:R -> R
-   KK.      K:R -> KK:R
+   DIST-K.  K:(R → S) → (K:R → K:S)
+   M-K.     K:R → R
+   KK.      K:R → KK:R
 
    Which is S4
 
@@ -1232,7 +1749,7 @@ Problem with Kx:
 
    The epistemic necessitation rule entails that all tautologies are known.
 
-         if  |-E P  then  K:P
+         if  ⊢E P  then  K:P
 
    @@@ Seems equivalent to Fitch's knowability paradox.
 
@@ -1241,15 +1758,15 @@ Problem with Kx:
    MDist entails that knowledge is closed under implication, ie. that whenever
    we know a conditional and know it's antecedent, we know its consequent.
 
-         K:(P -> Q)   then   K:P -> K:Q
+         K:(P → Q)   then   K:P → K:Q
 
       1.  I know that, I'm seeing a book.
       2.  I know that, if I'm seeing a book then I'm not a brain in a vat.
       3.  I don't know that I'm not a brain in a vat.
 
       Ki:S
-      Ki:(S -> ¬V)
-      ¬Ki:¬V
+      Ki:(S → -V)
+      -Ki:-V
 
    Which can't all be true in epistemic S4.
 
@@ -1257,7 +1774,7 @@ Problem with Kx:
 
    Claims that whatever we know is something we know that we know.
 
-         K:P -> KK:P
+         K:P → KK:P
 
    KK seems most suitable for a very strong idealized notion of knowledge.
 
@@ -1267,7 +1784,7 @@ Problem with Kx:
 Reinterpreation of Kx:
 
    One could take Kx:P to mean, x is in a position to know P.
-   (Not quite the same as saying ◇K:P)
+   (Not quite the same as saying ◇ K:P)
 
    This seems to fix the above problems.
 
@@ -1278,12 +1795,12 @@ Problem with Bx:
 
    One natural formulaxion of doxastic logic would be KD4.
 
-         D-B.       B:P -> C:P
-         BB.        B:P -> BB:P
+         D-B.       B:P → C:P
+         BB.        B:P → BB:P
 
    Which leads to this result.
 
-         NonCon-B.  ¬(B:P ∧ B:¬P)
+         NonCon-B.  -(B:P ∧ B:-P)
 
 Reinterpretation of Bx:
 
@@ -1292,13 +1809,13 @@ Reinterpretation of Bx:
 
 Other Accepted but Disputed Principles
 
-         BB:P -> B:P
-         K:P -> B:P
-         B:P -> K:B:P
-         ¬K:P -> K:¬K:P
-         P:K:P -> K:P:P
-         B:K:P -> B:P
-         ¬B:⊥
+         BB:P → B:P
+         K:P → B:P
+         B:P → K:B:P
+         -K:P → K:-K:P
+         P:K:P → K:P:P
+         B:K:P → B:P
+         -B:⊥
 
 
 Semantics
@@ -1333,7 +1850,7 @@ K-Model Truth Assignment
 
 
                         | T   if aw(P)=F or aw(Q)=T
-         aw(P -> Q)  = -+
+         aw(P → Q)  = -+
                         | F   otherwise
 
 
@@ -1341,7 +1858,7 @@ K-Model Truth Assignment
 
 
                         | T   if aw(P) = F
-         aw(¬P)      = -+
+         aw(-P)      = -+
                         | F   if aw(P) = T
 
 
@@ -1356,7 +1873,7 @@ K-Model Truth Assignment
 
 
                         | T   if aw(P) = aw(Q)
-         aw(P <-> Q) = -+
+         aw(P ↔ Q) = -+
                         | F   otherwise
 
 
@@ -1364,22 +1881,22 @@ K-Model Truth Assignment
 
 
                         | T   if av(P) = T for every v in W such that wRv
-         aw(□P)     = -+
+         aw(□ P)     = -+
                         | F   otherwise
 
 
                         | T   if av(P) = T for some v in W such that wRv
-         aw(◇P)     = -+
+         aw(◇ P)     = -+
                         | F   otherwise
 
 
 K-Model Definitions
 
-   An argument P1, P2, ..., Pn |- C is K-VALID iff there is no K-model,
+   An argument P1, P2, ..., Pn ⊢ C is K-VALID iff there is no K-model,
    <W,R,a>, and world w in W, for which aw(P1)=T and aw(P2)=T and ... and
    aw(Pn)=T, but aw(C)=T.
 
-   An argument P1, P2, ..., Pn |- C is said to have a K-COUNTEREXAMPLE
+   An argument P1, P2, ..., Pn ⊢ C is said to have a K-COUNTEREXAMPLE
    iff there exists a K-model <W,R,a> and world w in W, for which
    aw(P1)=T and aw(P2)=T and ... and aw(Pn)=T, but as aw(C)=F.
 
@@ -1389,7 +1906,7 @@ K-Model Definitions
    K-SATISFIABILITY, K-EQUIVALENCE, etc. can be defined similarly.
 
    We write P1, P2, ..., Pn |=K C to mean that the argument
-   P1, P2, ..., Pn |- C is K-valid.
+   P1, P2, ..., Pn ⊢ C is K-valid.
 
    We write |=K P to assert that the wff P is K-VALID (K-logically true).
 
@@ -1405,20 +1922,20 @@ Modal Truth-Trees
    ====  =====================================================================
    Name  Rule
    ====  =====================================================================
-   □    If an open path in some world w contain an unstarred wff □P, place
+   □     If an open path in some world w contain an unstarred wff □ P, place
          P at the bottom of every open path in every world v accessible
          from w.
 
-   ¬□   If an open path in some world w contains an unstarred wff ¬□P,
-         star it, write ¬P at the top of a new world v, and draw an arrow
+   -□    If an open path in some world w contains an unstarred wff -□ P,
+         star it, write -P at the top of a new world v, and draw an arrow
          from each open path in w to v.
 
-   ◇    If an open path in some world w contains an unstarred wff ◇P,
+   ◇     If an open path in some world w contains an unstarred wff ◇ P,
          star it, write P at the top of a new world v, and draw an arrow
          from each open path in w to v.
 
-   ¬◇   If an open path in some world w contain an unstarred wff ¬◇P, place
-         ¬P at the bottom of every open path in every world v accessible
+   -◇    If an open path in some world w contain an unstarred wff -◇ P, place
+         -P at the bottom of every open path in every world v accessible
          from w.
    ====  =====================================================================
 
@@ -1426,41 +1943,41 @@ Modal Truth-Trees
 
            +---------------------------+---------------------------+         
            | ========================= | ========================= |
-           |           □Rule           |          ¬□Rule           |
+           |           □ Rule          |          -□ Rule          |
            | ========================= | ========================= |
            |         +-------+w        |         +-------+w        |
-           |         |  □P  |          |         | *¬□P  |         |
+           |         |  □ P  |         |         | *-□ P |         |
            |         +-------+         |         +-------+         |
            |             |             |             |             |
            |             V             |             V             |
            |         +-------+v  every |         +-------+v  v is  |
-           |         |  ...  |   v     |         |  ¬P   |   new   |
+           |         |  ...  |   v     |         |  -P   |   new   |
            |         |   P   |         |         |  ...  |         |
            |         +-------+         |         +-------+         |
            |                           |                           |
            | ========================= | ========================= |           
-           |          ◇Rule            |         ¬◇Rule            |
+           |          ◇ Rule           |         -◇ Rule           |
            | ========================= | ========================= |
            |         +-------+w        |         +-------+w        |
-           |         | *◇P  |          |         |  ¬◇P  |         |
+           |         | *◇ P  |         |         |  -◇ P |         |
            |         +-------+         |         +-------+         |
            |             |             |             |             |
            |             V             |             V             |
            |         +-------+v  v is  |         +-------+v  every |
            |         |   P   |   new   |         |  ...  |   v     |
-           |         |  ...  |         |         |  ¬P   |         |
+           |         |  ...  |         |         |  -P   |         |
            |         +-------+         |         +-------+         |
            |                           |                           |
            |                           |                           |
            +---------------------------+---------------------------+
 
-      Notice ¬□ converts to ◇¬, and that ¬◇ is defined to convert to □¬.
+      Notice -□  converts to ◇ -, and that -◇  is defined to convert to □ -.
       Thus, it's possible to regard there as being only two rules, and it's
-      the ◇ which creates new world boxes while □ just drops into
+      the ◇  which creates new world boxes while □  just drops into
       existing worlds.
 
-      However, ◇ is defined in terms of □, so the two rules to be taken
-      as fundamental are □ and ¬□, while the ◇ rules ought to be
+      However, ◇  is defined in terms of □ , so the two rules to be taken
+      as fundamental are □  and -□ , while the ◇  rules ought to be
       regarded as derived.
 
    Tree Construction
@@ -1469,7 +1986,7 @@ Modal Truth-Trees
    but add the notion of world boxes which are introduced according
    to the above rules.  However, there are just a few notes,
 
-   - To close a branch we need P and ¬P in the same world box.
+   - To close a branch we need P and -P in the same world box.
 
    - Branching rules from TFL mean that a world can exist on a certain branch.
 
@@ -1478,10 +1995,10 @@ Modal Truth-Trees
    - Rules for TF operators should always be applied before rules for
      modal operators.
 
-   - Modal rules that create new world boxes ¬□ and ◇ should be
+   - Modal rules that create new world boxes -□  and ◇  should be
      applied before modal rules that don't
 
-   - Rules applied to □P and ¬◇P do not star the original wff because
+   - Rules applied to □ P and -◇ P do not star the original wff because
      for each new world the rules must be reapplied.
      
 
@@ -1511,7 +2028,7 @@ Truth-Tree Analysis
    Truth-Tree Assessment of a Sequent
 
           =============   ============================
-          Condition       Premises & ¬Conclusion
+          Condition       Premises & -Conclusion
           =============   ============================
           0  open paths   valid
           1+ open paths   Invalid w/ counterexamples
@@ -1519,53 +2036,53 @@ Truth-Tree Analysis
 
 K-Model Truth-Trees
 
-   □(P ∧ Q) |- □P ∧ □Q
+   □ (P ∧ Q) ⊢ □ P ∧ □ Q
 
             
             +---------------------+w0       All paths close
-            |  *  □(P ∧ Q)        |         so the argument
-            |  * ¬(□P ∧ □Q)       |         is K-valid.
+            |  *  □ (P ∧ Q)       |         so the argument
+            |  * -(□ P ∧ □ Q)     |         is K-valid.
             |      /       \      |
             |    /           \    |
-            |* ¬□P        * ¬□Q   |
+            |* -□ P        * -□ Q |
             +---------------------+
                |               |
                V               V
          +---------+w1     +---------+w2
-         |    ¬P   |       |   ¬Q    |
+         |    -P   |       |   -Q    |
          |* P ∧ Q  |       |* P ∧ Q  |
          |    P    |       |    P    |
          |    Q    |       |    Q    |
          |    X    |       |    X    |
          +---------+       +---------+
 
-   ◇(P -> Q), ◇P |- ◇Q
+   ◇ (P → Q), ◇ P ⊢ ◇ Q
 
                +--------------+w0           Not all paths close
-               |* ◇(P -> Q)   |             so the argument
-               |*     ◇P      |             is K-invalid.
-               |*    ¬◇Q      |
+               |* ◇ (P → Q)   |             so the argument
+               |*     ◇ P     |             is K-invalid.
+               |*    -◇ Q     |
                +--------------+
                 |            |
                 |            V
                 |   +-----------------+w2
-                |   |      P -> Q     |
-                |   |        ¬Q       |
+                |   |      P → Q      |
+                |   |        -Q       |
                 |   |      /    \     |
                 |   |    /        \   |
-                |   |  ¬P          Q  |
+                |   |  -P          Q  |
                 |   |              X  |
                 |   +-----------------+
                 |      |
                 V      V
                 +------+w1                  w1 is on the left branch but
                 |   P  |                    accessible from w0 because it's
-                |  ¬Q  |                    original wff ◇P is in w0.
+                |  -Q  |                    original wff ◇ P is in w0.
                 +------+
 
-      As for our argument listed out in world box w0, ◇(P -> Q) is true
-      in w0, since P -> Q is true in at least one world w2.  ◇P is true
-      in w0, since P is true in w1.  But ◇Q is false in w0, since there
+      As for our argument listed out in world box w0, ◇ (P → Q) is true
+      in w0, since P → Q is true in at least one world w2.  ◇ P is true
+      in w0, since P is true in w1.  But ◇ Q is false in w0, since there
       is not world accessible from w0 where Q is true.  Since the premises
       are all true but the conclusion is false, the form is invalid.
 
@@ -1574,7 +2091,7 @@ M-Model/T-Model Definitions
    An M-MODEL is a K-model <W,R,a> in which the accessibility relation
    R is reflexive (K-models are not M-models).
 
-   An argument P1, P2, ..., Pn |- C is M-VALID, or P1, P2, ..., Pn |=M B,
+   An argument P1, P2, ..., Pn ⊢ C is M-VALID, or P1, P2, ..., Pn |=M B,
    iff there is no M-model <W,R,a> and world w in W for which aw(P1) = T
    and aw(P2) = T and ... and aw(Pn) = T but aw(C) = F
 
@@ -1585,13 +2102,13 @@ M-Model Truth-Trees
 
    To construct a truth-tree for M-validity always place an arrow from
    a world w to itself as soon as a world is introduced.  This means
-   that the non-world-creating modal rules □ and ¬◇ are applied within
+   that the non-world-creating modal rules □  and -◇  are applied within
    the same world
 
 Definitions of Other Models
 
    A K4-MODEL is a K-model <W,R,a> in which the accessibility relation
-   is transitive.  So □ and ¬◇ rules can hop any number of arrows.
+   is transitive.  So □  and -◇  rules can hop any number of arrows.
    So, if we have arrows for wRv, vRu then we can draw an arrow for vRu.
 
    A KB-MODEL is a K-model <W,R,a> in which the accessibility relation
@@ -1611,14 +2128,14 @@ Definitions of Other Models
    ====  ==================  ===============  ================================
    Name  Axiom               R-Condition      Description
    ====  ==================  ===============  ================================
-   D     □P -> ◇P            Serial           wRv for some v
-   CD    ◇P -> □P            Unique           if wRv and wRu then v=u
-   □M   □(□P -> P)           Shift Reflexive  if wRv then vRv
-   L     □(□P -> P) ∨        connected        if wRv and wRu then
-           ((Q ∧ □Q) -> P)                       vRu or uRv or v=u
-   C4    □□P -> □P           Dense            if wRv then vRu or uRv
+   D     □ P → ◇ P            Serial           wRv for some v
+   CD    ◇ P → □ P            Unique           if wRv and wRu then v=u
+   □ M   □ (□ P → P)           Shift Reflexive  if wRv then vRv
+   L     □ (□ P → P) ∨        connected        if wRv and wRu then
+           ((Q ∧ □ Q) → P)                       vRu or uRv or v=u
+   C4    □ □ P → □ P           Dense            if wRv then vRu or uRv
                                                  for some u
-   C     ◇□P -> □◇P          Convergent       if wRv and wRu then
+   C     ◇ □ P → □ ◇ P          Convergent       if wRv and wRu then
                                                  vRt or uRt for some t
    ====  ==================  ===============  ================================
 
@@ -1630,16 +2147,16 @@ Subjunctive Conditional
    A subjunctive conditional is an if a proposition could/migh be (but isnt
    yet).  eg.  If I were you, I would run.
 
-         P □¬> Q
+         P □ -> Q
 
 
                          |T   If in any world v av(Q)=T such that av(P)=T
-         ax(P □¬> Q) = -+       and v is at least as close to w as any
+         ax(P □ -> Q) = -+       and v is at least as close to w as any
                          |       other world u such that au(P)=T.
                          |F   Otherise
 
-   Unfortunately P □¬> B cannot be defined in terms of □ and ->.  Were
-   we to add the sign □¬> to the language of our propositional modal logic,
+   Unfortunately P □ -> B cannot be defined in terms of □  and →.  Were
+   we to add the sign □ -> to the language of our propositional modal logic,
    in order to do its formal semantics, we sould need our models to take the
    form <W,R,C,a> where C would be a 3-place relation between worlds
    (meaning, v is at least as close to w as u).
@@ -1696,10 +2213,10 @@ Lexemes
       Predicates:              A...Z,=
 
    Logical Symbols
-      Truth-Function Symbols:  ->, ⊥
+      Truth-Function Symbols:  →, ⊥
       Association Symbols:     (, )
       Quantifiers
-         universal:            Ax: (A is inverted)
+         universal:            ∀x (A is inverted)
 
 Grammar (Rules for wffs)
 
@@ -1708,9 +2225,9 @@ Grammar (Rules for wffs)
    be the same symbol).
 
    1.  Every atomic formula is a wff.
-   2.  If P,Q are wffs, then (P -> Q) is a wff.
-   3.  if P(c) is a wff, then so is Ax:P(x/c)
-   4.  If P is a wff, then □P is a wff.
+   2.  If P,Q are wffs, then (P → Q) is a wff.
+   3.  if P(c) is a wff, then so is ∀xP(x/c)
+   4.  If P is a wff, then □ P is a wff.
    5.  Nothing else is a wff.
 
    Notes
@@ -1731,12 +2248,12 @@ Grammar (Rules for wffs)
 
 Definitions
    
-      Def -:    ¬P         =df  (P -> ⊥)
-      Def ∧:    (P ∧ Q)    =df  ¬(P -> ¬Q)
-      Def ∨:    (P ∨ Q)    =df  (¬P -> Q)
-      Def <->:  (P <-> Q)  =df  ((P -> Q) ∧ (Q -> P))
-      Def ◇:   ◇P          =df  ¬□¬P
-      Def E:    Ex:P       =df  ¬Ax:¬P
+      Def -:    -P         =df  (P → ⊥)
+      Def ∧:    (P ∧ Q)    =df  -(P → -Q)
+      Def ∨:    (P ∨ Q)    =df  (-P → Q)
+      Def ↔:  (P ↔ Q)  =df  ((P → Q) ∧ (Q → P))
+      Def ◇ :   ◇ P          =df  -□ -P
+      Def E:    Ex:P       =df  -∀x-P
 
 Definite Descriptors
 
@@ -1755,7 +2272,7 @@ Definite Descriptors
 
    We can define this general statement in terms of Ex: and A:.
 
-      Qix:Px  =df  Ex:(Ax:(Py <-> x=y) ∧ Qx)
+      Qix:Px  =df  Ex:(∀x(Py ↔ x=y) ∧ Qx)
 
 First-Order Quantification Calculus (FOC - Fitch Style)
 -------------------------------------------------------
@@ -1778,7 +2295,7 @@ Regarding Inference Rules
 
 Inference Rules (TFC)
 
-   All the primitive inference rules from system TFL (->E, ¬I, RE, ¬E, ...)
+   All the primitive inference rules from system TFL (→E, -I, RE, -E, ...)
    are carried over to FOL.  All derived rules carry over as well.
 
 Inference Rules for Quantifiers
@@ -1788,12 +2305,12 @@ Inference Rules for Quantifiers
    ================================  =========================================
    Name/Alternate Names              Rule
    ================================  =========================================
-   Universal Elimination (A:E)       From Ax:P infer P(c//x);
+   Universal Elimination (A:E)       From ∀xP infer P(c//x);
                                      where c is any const.
 
    Universal Introduction (A:I)      From a subproof with hypothesis [c] and
                                      ending Q(c), close the subproof and
-                                     infer Ax:Q(x//c); where c is new.
+                                     infer ∀xQ(x//c); where c is new.
                                     
    Identity Elimination (=E)         From a=b, and P(a) infer P(b/a).
 
@@ -1809,11 +2326,11 @@ Inference Rules for Quantifiers
       | ============================= | ============================= |
       |  A:E                          |  A:I                          |
       | ============================= | ============================= |
-      |   Ax:P                        |   |   [c]  (new c)            |
+      |   ∀xP                        |   |   [c]  (new c)            |
       |  --------                     |   |   ...                     |
       |   P(c/x)  (any c)             |   |   Q(c)                    |
       |                               |  ------------                 |
-      |                               |   Ax:Q(c//c)                  |
+      |                               |   ∀xQ(c//c)                  |
       |                               |                               |
       | ============================= | ============================= |
       |  =E                           |  =I                           |
@@ -1857,59 +2374,59 @@ Derived Inference Rules
    ================================  =========================================
    Name/Alternate Names              Sequent
    ================================  =========================================
-   Dual                              |-  ¬Ax:¬P <-> Ex:P
-                                     |-  ¬Ax:P <-> Ex:¬P
-                                     |-  Ax:¬P <-> ¬Ex:P
-                                     |-  Ax:P <-> ¬Ex:¬P
-   =Symmetry (=Sym)                  a=c  |-  c=a
-   =Transitivity (=Trans)            a=c, c=e  |-  a=e
+   Dual                              ⊢  -∀x-P ↔ Ex:P
+                                     ⊢  -∀xP ↔ Ex:-P
+                                     ⊢  ∀x-P ↔ -Ex:P
+                                     ⊢  ∀xP ↔ -Ex:-P
+   =Symmetry (=Sym)                  a=c  ⊢  c=a
+   =Transitivity (=Trans)            a=c, c=e  ⊢  a=e
    ================================  =========================================
 
 
 Proof
 -----
 
-E:Lemma (E:Lemma):  Ex:Px, Ax:(Px -> Q) |-QL Q
+E:Lemma (E:Lemma):  Ex:Px, ∀x(Px → Q) ⊢QL Q
 proof
 01.   Ex:Px                  A
-02.   Ax:(Px -> Q)           A
-03.   ¬Ax:¬Px                1 DEF E:
-04.   |   ¬Q                 H (for ¬I)
-05.   |   Ax:(Px -> Q)       2 RE
-06.   |   Pc -> Q            5 A:E (c/x)
-07.   |   ¬Pc                4,6 MT
-08.   |   Ax:¬Px             7 A:I (x/c)
-09.   |   ¬Ax:¬Px            3 RE
+02.   ∀x(Px → Q)           A
+03.   -∀x-Px                1 DEF E:
+04.   |   -Q                 H (for -I)
+05.   |   ∀x(Px → Q)       2 RE
+06.   |   Pc → Q            5 A:E (c/x)
+07.   |   -Pc                4,6 MT
+08.   |   ∀x-Px             7 A:I (x/c)
+09.   |   -∀x-Px            3 RE
 10.   |   ⊥                  8,9 EFQ
-11.   ¬¬Q                    4-10 ¬I
-12.   Q                      11 ¬E
+11.   --Q                    4-10 -I
+12.   Q                      11 -E
 QED
 
-Existential Introduction (E:I)  Ex:P(x), ( [c] P(c//x) |- Q ) |- Q
+Existential Introduction (E:I)  Ex:P(x), ( [c] P(c//x) ⊢ Q ) ⊢ Q
 Proof
  i.   Ex:P(x)                A
- j.   |[c]P(c)               H (for ->I)
+ j.   |[c]P(c)               H (for →I)
       |   ...
  k.   |   Q
- k+1. P(c) -> Q
- k+2. Ax:(Px -> Q)           k+1 A:I
+ k+1. P(c) → Q
+ k+2. ∀x(Px → Q)           k+1 A:I
  k+3. Q                      j,k+2 E:Lemma
 QED
 
 
-Existential Elimination (E:I)  P(c) |-  Ex:P(x/c)
+Existential Elimination (E:I)  P(c) ⊢  Ex:P(x/c)
 Proof
 01.   P(c)                   A
-02.   |   ¬Ex:P(x)           H (for ¬I)
-03.   |   Ax:¬P(x)           2 Def E:
-04.   |   ¬P(c)              3 A:E (c/x)
+02.   |   -Ex:P(x)           H (for -I)
+03.   |   ∀x-P(x)           2 Def E:
+04.   |   -P(c)              3 A:E (c/x)
 05.   |   P(c)               1 RE
 06.   |   ⊥                  4,5 ⊥
-07.   ¬¬Ex:P(x)              1-6 ¬I
-08.   Ex:P(x)                7 ¬E
+07.   --Ex:P(x)              1-6 -I
+08.   Ex:P(x)                7 -E
 QED
 
-=Symmetry (=Sym):   a=c  |-  c=a
+=Symmetry (=Sym):   a=c  ⊢  c=a
 =Commutation (=COM)
    let Ixy, be a dummy identity predcate
 Proof
@@ -1920,7 +2437,7 @@ Proof
 05.   c=a                    
 QED
 
-=Transitivity (=Trans):  a=c, c=e  |-  a=e
+=Transitivity (=Trans):  a=c, c=e  ⊢  a=e
    let Ixy, be a dummy identity predcate
 Proof
 01.   a=c                    A
@@ -1940,13 +2457,13 @@ Modal First-Order Quantified Logic (MFOL=)
 Language
 --------
 
-   Among the lexemes we add the two modal operators □ and ◇.
+   Among the lexemes we add the two modal operators □  and ◇ .
 
    For the Grammar the formation rules are extended to add two new cases
-   to rule 2.  Notice we don't include ◇ since the definition takes care
+   to rule 2.  Notice we don't include ◇  since the definition takes care
    of that case.
 
-   2.  if P is a wff, then so are ¬P, □P.
+   2.  if P is a wff, then so are -P, □ P.
 
 
 Semantics
@@ -1961,8 +2478,8 @@ Calculus
    We will prepend 'q' to the name of a modal system to indicate that it's
    the MFOL= version.
 
-   System qK:  The system obtained from FOL= by adding '□' to the syntax
-   and □I and □E as additional inference rules.
+   System qK:  The system obtained from FOL= by adding '□ ' to the syntax
+   and □ I and □ E as additional inference rules.
 
    System qT (qM):  The system is obtained from qK by adding every instance
    of schema M as an axiom.
@@ -1979,56 +2496,56 @@ Calculus
    ================================  =========================================
    Name/Alternate Names              Sequent
    ================================  =========================================
-                                     |-qK  Ax:(□Fx <-> □Ay:(x=y -> Fy))
-   BF                                |-qK  Ax:□Px <-> □Ax:Px
+                                     ⊢qK  ∀x(□ Fx ↔ □ ∀y(x=y → Fy))
+   BF                                ⊢qK  ∀x□ Px ↔ □ ∀xPx
    ================================  =========================================
 
 Proofs
 
-   |- qK  Ax:(□Fx <-> □Ay:(x=y -> Fy))
+   ⊢ qK  ∀x(□ Fx ↔ □ ∀y(x=y → Fy))
 Proof
-01.   |   □Fc                     H (for ->I)
-02.   |   |□                      H (for □I)
-03.   |   |   Fc                  1 □E
-04.   |   |   |   c=d             H (for ->I)
+01.   |   □ Fc                     H (for →I)
+02.   |   |□                       H (for □ I)
+03.   |   |   Fc                  1 □ E
+04.   |   |   |   c=d             H (for →I)
 05.   |   |   |   Fc              3 RE
 06.   |   |   |   Fd              4,5 =E
-07.   |   |   c=d -> Fd           4-6 ->I
-08.   |   |   Ay:(c=y -> Fy)      7 A:I
-09.   |   □Ay:(c=y -> Fy)         2-8 □I
-10.   □Fc -> □Ay:(c=y -> Fy)      1-9 ->I
-11.   |   □Ay:(c=y -> Fy)         H (for ->I)
-12.   |   |□                      H (for □I)
-13.   |   |   Ay:(c=y -> Fy)      11 □E
-14.   |   |   c=c -> Fc           13 A:E (c/y)
+07.   |   |   c=d → Fd           4-6 →I
+08.   |   |   ∀y(c=y → Fy)      7 A:I
+09.   |   □ ∀y(c=y → Fy)         2-8 □ I
+10.   □ Fc → □ ∀y(c=y → Fy)      1-9 →I
+11.   |   □ ∀y(c=y → Fy)         H (for →I)
+12.   |   |□                       H (for □ I)
+13.   |   |   ∀y(c=y → Fy)      11 □ E
+14.   |   |   c=c → Fc           13 A:E (c/y)
 15.   |   |   c=c                 =I
-16.   |   |   Fc                  14,15 ->E
-17.   |   □Fc                     11-16 □I
-18.   □Ay:(c=y -> Fy) -> □Fc      11-17 ->I
-19.   □Fc <-> □Ay:(c=y -> Fy)     10,18 <->I
-20.   Ax:(□Fx <-> □Ay:(x=y -> Fy))  19 AI (x/c)
+16.   |   |   Fc                  14,15 →E
+17.   |   □ Fc                     11-16 □ I
+18.   □ ∀y(c=y → Fy) → □ Fc      11-17 →I
+19.   □ Fc ↔ □ ∀y(c=y → Fy)     10,18 ↔I
+20.   ∀x(□ Fx ↔ □ ∀y(x=y → Fy))  19 AI (x/c)
 QED
 
 
-BF   |-qK  Ax:□Px <-> □Ax:Px
+BF   ⊢qK  ∀x□ Px ↔ □ ∀xPx
 Proof
-01.   |   Ax:□Px                       H (for ->I)
-02.   |   □Pc                          1 A:E (c/x)
-03.   |   |□                           H (for □I)
+01.   |   ∀x□ Px                       H (for →I)
+02.   |   □ Pc                          1 A:E (c/x)
+03.   |   |□                            H (for □ I)
 04.   |   |   Pc                       2 A:E
-05.   |   |   Ax:Px                    4 A:I (x/c)
-06.   |   □Ax:Px                       3-5 □I
-07.   Ax:□Px -> □Ax:Px                 1-6 ->I
-08.   |   □Ax:Px                       H (for ->I)
+05.   |   |   ∀xPx                    4 A:I (x/c)
+06.   |   □ ∀xPx                       3-5 □ I
+07.   ∀x□ Px → □ ∀xPx                 1-6 →I
+08.   |   □ ∀xPx                       H (for →I)
 09.   |   |[c]                         H (for A:I)
-10.   |   |   □Ax:Px                   8 RE
-11.   |   |   |□                       H (for □I)
-12.   |   |   |   Ax:Px                10 □E
+10.   |   |   □ ∀xPx                   8 RE
+11.   |   |   |□                        H (for □ I)
+12.   |   |   |   ∀xPx                10 □ E
 13.   |   |   |   Pc                   12 A:E (c/x)
-14.   |   |   □Pc                      11-13 □I
-15.   |   Ax:□Px                       10-14 A:I (x/c)
-16.   □Ax:Px -> Ax:□Px                 8-15 ->I
-17.   Ax:□Px <-> □Ax:Px                1-6 ->I
+14.   |   |   □ Pc                      11-13 □ I
+15.   |   ∀x□ Px                       10-14 A:I (x/c)
+16.   □ ∀xPx → ∀x□ Px                 8-15 →I
+17.   ∀x□ Px ↔ □ ∀xPx                1-6 →I
 QED
 
 
@@ -2046,9 +2563,9 @@ Primitive Inference Rules
    ================================  =========================================
    Name/Alternate Names              Rule
    ================================  =========================================
-   Universal Elimination (A:E)       from Ax:Px infer E!c -> Pc.
+   Universal Elimination (A:E)       from ∀xPx infer E!c → Pc.
 
-   Universal Introduction (A:I)      from E!c -> Pc infer Ax:Px, provided
+   Universal Introduction (A:I)      from E!c → Pc infer ∀xPx, provided
                                      c is not active in P or in the proof.
    ================================  =========================================
 
@@ -2061,9 +2578,9 @@ Derived Rules
    ================================  =========================================
    Name/Alternate Names              Rule
    ================================  =========================================
-   Existential Elimination (E:E)     From E!c -> Pc infer Ax:Px, provided
+   Existential Elimination (E:E)     From E!c → Pc infer ∀xPx, provided
                                      c is not active in P, or in the proof.
-                                     Ex:Px, ( E!c ∧ Pc |- B ) |- B
+                                     Ex:Px, ( E!c ∧ Pc ⊢ B ) ⊢ B
 
    Existential Introduction (E:I)    From E!c ∧ Pc infer Ex:Px.
    ================================  =========================================
@@ -2077,8 +2594,8 @@ rules and axioms of one of our modal truth-functional logics to FL=.  We'll
 use a 'f' prefix to names to indicate that we intend the free logic
 equivalent.
 
-   System fK:  The system obtained from FL by adding □ to the syntax of the
-   language, and the inference rules □I and □O.
+   System fK:  The system obtained from FL by adding □  to the syntax of the
+   language, and the inference rules □ I and □ O.
 
    System fT/fM:  The system obtained from fK by adding every instance of
    axiom schema M as an axiom.
@@ -2096,11 +2613,11 @@ Saul Kripke argued in *Naming and Necessity* that the objects that constant
 object symbols denote exist in all possible worlds, and hence both identity
 and negated identity atomic formulas are all necessary.
 
-         a=a -> □a=a
+         a=a → □ a=a
 
-         c=i -> □c=i
+         c=i → □ c=i
 
-         -x=y -> □¬x=y
+         -x=y → □ -x=y
 
          etc.
 
@@ -2116,42 +2633,42 @@ Leibnizian Semantics (World Theory)
 
 Notation
    Necessary
-   □P    =df  it's necessary that, P.
+   □ P    =df  it's necessary that, P.
    World Index Notation
    [P/i]  =df  P (is true) at/in world i. (where i is any positive integer)
 
 Leibniz Proposed,
    to be necessary is to be true in/at every possible world
 Which we might write semi-formally as,
-   Principle L:  □P  <->  Ai:(World(i) -> [P/i])
-   or,           □P  <->  Ai:[P/i]
+   Principle L:  □ P  ↔  Ai:(World(i) → [P/i])
+   or,           □ P  ↔  Ai:[P/i]
 
-Multiple □
-   for A string of boxes    □...□P <-> □P
+Multiple □ 
+   for A string of boxes    □ ...□ P ↔ □ P
 
-   □□P <-> □P   is a theorem in Leibniz' system
+   □ □ P ↔ □ P   is a theorem in Leibniz' system
 
 Axioms of Leibnizian Semantics/World Theory
-   wt(0)     P              <->  P/0
-   wt(-)     [¬P/i]         <->  ¬[P/i]
-   wt(->)    [(P -> Q)/i]   <->  ([P/i] -> [Q/i])
-   wt(^)     [(P ∧ Q)/i]    <->  ([P/i] ^ [Q/i])
-   wt(V)     [(P ∨ Q)/i]    <->  ([P/i] V [Q/i])
-   wt(<->)   [(P <-> Q)/i]  <->  ([P/i] <-> [Q/i])
-   wt(□)    [□P/i]        <->  Aj:[P/j]
-   Wt(◇)    [◇P/i]        <->  Ej:[P/j]
-   wt(A:)    [Ax:P/i]       <->  Ax:[P/i]
-   wt(E:)    [Ex:P/i]       <->  Ex:[P/i]
-   wt(/)     [[P/i]/j]      <->  [P/i]
+   wt(0)     P              ↔  P/0
+   wt(-)     [-P/i]         ↔  -[P/i]
+   wt(→)    [(P → Q)/i]   ↔  ([P/i] → [Q/i])
+   wt(∧)     [(P ∧ Q)/i]    ↔  ([P/i] ∧ [Q/i])
+   wt(V)     [(P ∨ Q)/i]    ↔  ([P/i] ∨ [Q/i])
+   wt(↔)   [(P ↔ Q)/i]  ↔  ([P/i] ↔ [Q/i])
+   wt(□ )    [□ P/i]        ↔  Aj:[P/j]
+   Wt(◇ )    [◇ P/i]        ↔  Ej:[P/j]
+   wt(A:)    [∀xP/i]       ↔  ∀x[P/i]
+   wt(E:)    [Ex:P/i]       ↔  Ex:[P/i]
+   wt(/)     [[P/i]/j]      ↔  [P/i]
 
 Theorems
-   t1:     □P -> P
-   t2:     □(P -> Q) -> (□P -> □Q)
-   t3:     ¬◇P <-> □¬P
-   t4:     ¬□P <-> ◇¬P
-   t5:     □P <-> □□P
-   t6:     Ai:Aj:([□P/i] -> [□P/j])
-   t7:     Ai:Aj:([◇P/i] -> [◇P/j])
+   t1:     □ P → P
+   t2:     □ (P → Q) → (□ P → □ Q)
+   t3:     -◇ P ↔ □ -P
+   t4:     -□ P ↔ ◇ -P
+   t5:     □ P ↔ □ □ P
+   t6:     Ai:Aj:([□ P/i] → [□ P/j])
+   t7:     Ai:Aj:([◇ P/i] → [◇ P/j])
 
 
 ==============================
@@ -2169,58 +2686,58 @@ For all current logic rules, all propositions are within the same world.
 Inference Rules
 
 ⊥I:     P     /i      ⊥E:        ⊥          /*        ⊥R:     ⊥   /*
-        ¬P    /i              -------                        -------
+        -P    /i              -------                        -------
        ----                      P          /j                ⊥   /*
         ⊥     /*
 
 
-□E:     □P    /i      □D:     SHOW: □P      /i
+□ E:     □ P    /i      □ D:     SHOW: □ P      /i
        -----                  |  SHOW:  P   /k (new)
         P     /j              |  |
                         An old index is one that's
                         already active (not closed)
                         on the current line.
 
-◇I:     P     /i      ◇E:      ◇P           /i
+◇ I:     P     /i      ◇ E:      ◇ P           /i
        -----                  ------
-        ◇P    /j               P            /j (new)
+        ◇ P    /j               P            /j (new)
 
-MDual:  ¬□P                   ¬◇A
-       ======                 ======    <-- the double line reps '<->'
-        ◇¬P                   □¬P
+MDual:  -□ P                   -◇ A
+       ======                 ======    <-- the double line reps '↔'
+        ◇ -P                   □ -P
 
-¬□E:    ¬□P    /i              ¬◇P          /i
+-□ E:    -□ P    /i              -◇ P          /i
        ------                 ------
-        ¬P     /k (new)        ¬P           /j
+        -P     /k (new)        -P           /j
 
 Definitions
 
-'(P -< Q)'   =df  '□(P -> Q)'     (called 'strict conditional')
+'(P -< Q)'   =df  '□ (P → Q)'     (called 'strict conditional')
 
-'(P >-< Q)'  =df  '□(P <-> Q)'    (called 'strict biconditional')
+'(P >-< Q)'  =df  '□ (P ↔ Q)'    (called 'strict biconditional')
 
 
 Examples
-   □(P -> Q), □P  |-  □Q
+   □ (P → Q), □ P  ⊢  □ Q
 Proof
-01.   □(P -> Q)            /0     A
-02.   □P                   /0     A
-03.   SHOW: □Q             /0     □D
+01.   □ (P → Q)            /0     A
+02.   □ P                   /0     A
+03.   SHOW: □ Q             /0     □ D
 04.   |  SHOW: Q           /1     DD
-05.   |  |  (P -> Q)       /1     1 □E
-06.   |  |  P              /1     2 □E
-07.   |  |  Q              /1     5,6 ->E
+05.   |  |  (P → Q)       /1     1 □ E
+06.   |  |  P              /1     2 □ E
+07.   |  |  Q              /1     5,6 →E
 QED
 
-   □(P -> Q), ◇P  |-  ◇Q
+   □ (P → Q), ◇ P  ⊢  ◇ Q
 Proof
-01.   □(P -> Q)            /0     A
-02.   ◇P                   /0     A
-03.   SHOW: ◇Q             /0     DD
-04.   |  P                 /1     2 ◇E
-05.   |  (P -> Q)          /1     1 □E
-06.   |  Q                 /1     4,5 ->E
-07.   |  ◇Q                /0     6 ◇I
+01.   □ (P → Q)            /0     A
+02.   ◇ P                   /0     A
+03.   SHOW: ◇ Q             /0     DD
+04.   |  P                 /1     2 ◇ E
+05.   |  (P → Q)          /1     1 □ E
+06.   |  Q                 /1     4,5 →E
+07.   |  ◇ Q                /0     6 ◇ I
 QED
 
 Counter-Models in System L
@@ -2237,15 +2754,15 @@ General Ideas about Invalidity (definitions)
             =df  a set ∨ of valuations on L.  The set ∨ is the set of
                  admissible valuations for that semantics.
 
-   d3.   Let L and ∨ be as before.  Let P1,...,Pn |- C be an argument
-         in L.  Then P1,...,Pn |- C is '*valid* relative to ∨'
+   d3.   Let L and ∨ be as before.  Let P1,...,Pn ⊢ C be an argument
+         in L.  Then P1,...,Pn ⊢ C is '*valid* relative to ∨'
             iff there is no v in ∨ such that
                 v(p1)=v(P2)=...=v(Pn)=T and v(C) = F.
 
-   d4.   Let L,V and P1,...,Pn |- C be as before.  Let v be a valuation
+   d4.   Let L,V and P1,...,Pn ⊢ C be as before.  Let v be a valuation
          in V. Then v is
-         'v is a *counter-model* to P1,...,Pn |- C'
-            <->  v(P1)=v(P2)=...v(pn)=T and v(C)=F
+         'v is a *counter-model* to P1,...,Pn ⊢ C'
+            ↔  v(P1)=v(P2)=...v(pn)=T and v(C)=F
 
 Valuations in TFL
 
@@ -2253,11 +2770,11 @@ Valuations in TFL
          'v is admissible'
             =df  v satisfies the following conditions
 
-         1. v(¬P)      = T   iff   v(P) = F
+         1. v(-P)      = T   iff   v(P) = F
          2. v(P ∧ Q)   = T   iff   v(P) = T and v(Q) = T
          3. v(P ∨ Q)   = T   iff   v(P) = T and/or v(Q) = T
-         4. v(P -> Q)  = T   iff   v(P) = F or v(Q) = T
-         5. v(P <-> Q) = T   iff   v(P) = v(Q)
+         4. v(P → Q)  = T   iff   v(P) = F or v(Q) = T
+         5. v(P ↔ Q) = T   iff   v(P) = v(Q)
 
 Valuations in Indexed TF Logic
 
@@ -2268,11 +2785,11 @@ Valuations in Indexed TF Logic
             =df  it satisfies the following conditions for every
                  element i of I (where we write v(P/i))
 
-         1. v(¬P/i)    = T   iff   v(P/i) = F
+         1. v(-P/i)    = T   iff   v(P/i) = F
          2. v(P∧Q/i)   = T   iff   v(P/i) = T and v(Q/i) = T
          3. v(PVQ/i)   = T   iff   v(P/i) = T and/or v(Q/i) = T
-         4. v(P->Q/i)  = T   iff   v(P/i) = F or v(Q/i) = F
-         5. v(P<->Q/i) = T   iff   v(P/i) = v(Q/i)
+         4. v(P→Q/i)  = T   iff   v(P/i) = F or v(Q/i) = F
+         5. v(P↔i) = T   iff   v(P/i) = v(Q/i)
 
    d7.   Let L,S,and I be as in d6; let v be a valuation on S.
          'v is an *admissible valuation* on L'
@@ -2296,11 +2813,11 @@ Valuations in Indexed TF Logic
    abbrev, since we don't refer to truth-valuse, we use 'T' instead of
    'True', and 'F' instead of 'False'
 
-         1. ¬P is T/i    = T   iff   P is F/i
+         1. -P is T/i    = T   iff   P is F/i
          2. P∧Q is T/i   = T   iff   P is T/i and Q is T/i
          3. PVQ is T/i   = T   iff   P is T/i and/or Q is T/i
-         4. P->Q is T/i  = T   iff   P is F/i or Q is F/i)
-         5. P<->Q is T/i = T   iff   A,B are T/i or A,B are F/i
+         4. P→Q is T/i  = T   iff   P is F/i or Q is F/i)
+         5. P↔Q is T/i = T   iff   A,B are T/i or A,B are F/i
 
    Notice that these closely parallel the axioms of World Theory that
    pertain to the TF operators.  To show the parallel, one first notes
@@ -2318,18 +2835,18 @@ Valuations in System L
              from (S X I = (Modal TFL + Indices)) into {F,T} subject to the
              following conditions on every element i of I.
 
-         1. v(¬P/i)    = T   iff   v(P/i) = F
+         1. v(-P/i)    = T   iff   v(P/i) = F
          2. v(P∧Q/i)   = T   iff   v(P/i) = T and v(Q/i) = T
          3. v(PVQ/i)   = T   iff   v(P/i) = T and/or v(Q/i) = T
-         4. v(P->Q/i)  = T   iff   v(P/i) = F or v(Q/i) = F
-         5. v(P<->Q/i) = T   iff   v(P/i) = v(Q/i)
-         6. v(□P/i)   = T   iff   v(P/j) = T, for every j in I
-         7. v(◇P/i)   = T   iff   v(P/j) = T, for at least one j in I
+         4. v(P→Q/i)  = T   iff   v(P/i) = F or v(Q/i) = F
+         5. v(P↔Q/i) = T   iff   v(P/i) = v(Q/i)
+         6. v(□ P/i)   = T   iff   v(P/j) = T, for every j in I
+         7. v(◇ P/i)   = T   iff   v(P/j) = T, for at least one j in I
          8. v(P-<Q/i)  = T   iff   v(P/j) = F or v(Q/i) = F, for every j in I
          9. v(P>-<Q/i) = T   iff   v(P/j) = v(Q/j), for every j in I
 
-   d11.  Let L,S be as before, P1,...,Pn |- C can be an argument in L.  Then
-         a counter-model to P1,...,Pn |- C is any indexed valuation v on L
+   d11.  Let L,S be as before, P1,...,Pn ⊢ C can be an argument in L.  Then
+         a counter-model to P1,...,Pn ⊢ C is any indexed valuation v on L
          and index i such that
             v(P1/i)=v(P2/i)=...=v(Pn/i)=T, and v(C/i)=F
 
@@ -2356,47 +2873,47 @@ Counter Models in System L
        Some values will have to be ? (unknown).
 
    Example
-      Let's evaluate □(P ∨ Q) |- (□P ∨ □Q)
+      Let's evaluate □ (P ∨ Q) ⊢ (□ P ∨ □ Q)
 
       1. Write it out.
 
-            □ ( P ∨ Q ) |- ( □ P ∨ □ Q )
+            □  ( P ∨ Q ) ⊢ ( □  P ∨ □  Q )
          0 
 
       2. Write F under conclusion & 3 write T under each premise.
 
-            □ ( P ∨ Q ) |- ( □ P ∨ □ Q )
+            □  ( P ∨ Q ) ⊢ ( □  P ∨ □  Q )
          0  T                    F
 
       3. Next we apply the truth conditions to index 0 wherever we can.
-         First, since □(P ∨ Q) is T/0, (P ∨ Q) is T/0.  Since (□P ∨ □Q)
-         is F/0, □P is F/0, and □Q is F/0.
+         First, since □ (P ∨ Q) is T/0, (P ∨ Q) is T/0.  Since (□ P ∨ □ Q)
+         is F/0, □ P is F/0, and □ Q is F/0.
 
-            □ ( P ∨ Q ) |- ( □ P ∨ □ Q )
+            □  ( P ∨ Q ) ⊢ ( □  P ∨ □  Q )
          0  T     T          F   F F
 
-      4. Next since □P is F/p, P must be F at *some* index.  So we 'create'
-         a new index, labeled '1', at which P is F.  Similarly, □Q is F/0,
+      4. Next since □ P is F/p, P must be F at *some* index.  So we 'create'
+         a new index, labeled '1', at which P is F.  Similarly, □ Q is F/0,
          so Q must be F at some index.  We create a new index '2', at which
          Q is F.  Notice if a wff occurs twice on a line, its truth-value is
          written twice.
 
-            □ ( P ∨ Q ) |- ( □ P ∨ □ Q )
+            □  ( P ∨ Q ) ⊢ ( □  P ∨ □  Q )
          0  T     T          F   F F
          1      F              F
          2          F                F
 
-      5. But since □(P ∨ Q) is T/0, (P ∨ Q) must be T/1 and T/2. The former
+      5. But since □ (P ∨ Q) is T/0, (P ∨ Q) must be T/1 and T/2. The former
          is necessary so T in all world indices.
 
-            □ ( P ∨ Q ) |- ( □ P ∨ □ Q )
+            □  ( P ∨ Q ) ⊢ ( □  P ∨ □  Q )
          0  T     T          F   F F
          1      F T            F
          2        T F                F
 
       6. Applying the truth-function for ∨.
 
-            □ ( P ∨ Q ) |- ( □ P ∨ □ Q )
+            □  ( P ∨ Q ) ⊢ ( □  P ∨ □  Q )
          0  T     T          F   F F
          1      F T T          F     T
          2      T T F          T     F
@@ -2404,7 +2921,7 @@ Counter Models in System L
       7. That the table can be completed in a manner that is consistent with
          the semantic rules.   Here's one way to do this.
    
-            □ ( P ∨ Q ) |- ( □ P ∨ □ Q )
+            □  ( P ∨ Q ) ⊢ ( □  P ∨ □  Q )
          0  T   T T F        F T F F F
          1  T   F T T        F F F T T
          2  T   T T F        F T F F F
@@ -2412,7 +2929,7 @@ Counter Models in System L
       8. By way of concluding this section, we observe that the above table
          can be replaced by a smaller one that consolidates indices 0 and 2.
 
-            □ ( P ∨ Q ) |- ( □ P ∨ □ Q )
+            □  ( P ∨ Q ) ⊢ ( □  P ∨ □  Q )
          0  T   T T F        F T F F F
          1  T   F T T        F F F T T
 
@@ -2426,46 +2943,46 @@ Rules for Constructing Counter-Models in L
    Reminder:  The TF rules of indexed TFL
    (presented shorly after d9 - definition 9 - above)
 
-         1. ¬P is T/i    = T   iff   P is F/i
+         1. -P is T/i    = T   iff   P is F/i
          2. P∧Q is T/i   = T   iff   P is T/i and Q is T/i
          3. PVQ is T/i   = T   iff   P is T/i and/or Q is T/i
-         4. P->Q is T/i  = T   iff   P is F/i or Q is F/i)
-         5. P<->Q is T/i = T   iff   A,B are T/i or A,B are F/i
+         4. P→Q is T/i  = T   iff   P is F/i or Q is F/i)
+         5. P↔Q is T/i = T   iff   A,B are T/i or A,B are F/i
 
    Modal Rules
 
-      ◇E:  If ◇P is T/i, then P is T/j (new index).
+      ◇ E:  If ◇ P is T/i, then P is T/j (new index).
 
             See this?         Do this:
 
-                 ◇P               ◇P
+                 ◇ P               ◇ P
             i    T            i    T
                               j      T    <- create new world index j
 
-      □E:  If □P is T/i, then P is T/j (j is any index accessible to i).
+      □ E:  If □ P is T/i, then P is T/j (j is any index accessible to i).
             This discharges a rule at ever existing accessible world.
 
             See this?         Do this:
 
-                 □P               □P
+                 □ P               □ P
             i    T            i    T
                               j      T    <- any existing world j
                                              accessible to i
 
-      ¬□E: If □P is F/i, then P is F/j (new index).
+      -□ E: If □ P is F/i, then P is F/j (new index).
 
             See this?         Do this:
 
-                 □P               □ P
+                 □ P               □  P
             i    F            i   F
                               j     F    <- create new world index j
 
-       ¬◇E: If ◇P is F/i, then P is F/j (j is any index accessible to i).
+       -◇ E: If ◇ P is F/i, then P is F/j (j is any index accessible to i).
             This discharges a rule at ever existing accessible world.
 
             See this?         Do this:
 
-                 ◇P               ◇ P
+                 ◇ P               ◇  P
             i    F            i   F
                               j   F F    <- any existing world j
                                              accessible to i
@@ -2476,8 +2993,8 @@ From the following definitions for the strict operators, we can expand any
 strict operator to a modal-conditional wff.  Then continue analyzing
 accordingly.
 
-   (P -< Q)   =df  □(P -> Q)     (called 'strict conditional')
-   (P >-< Q)  =df  □(P <-> Q)    (called 'strict biconditional')
+   (P -< Q)   =df  □ (P → Q)     (called 'strict conditional')
+   (P >-< Q)  =df  □ (P ↔ Q)    (called 'strict biconditional')
 
 Relation Between Derivations & Counter-Models in System L
 
@@ -2485,23 +3002,23 @@ Relation Between Derivations & Counter-Models in System L
    are identical to the rules for constructing derivations.  Consider our
    earlier example.
 
-      □(P ∨ Q) |- (□P ∨ □Q)
+      □ (P ∨ Q) ⊢ (□ P ∨ □ Q)
 
    Let's construct a partial derivation.  Notice we go immediately into an
    indirection derivation.   This corresponds to the first step in
    construcing a counter-model.
 
-      01.   □(P ∨ Q)              /0    Pr
-      02.   ~: (□P ∨ □Q)          /0    ID
-      03.      ~(□P ∨ □Q)         /0    As
+      01.   □ (P ∨ Q)              /0    Pr
+      02.   ~: (□ P ∨ □ Q)          /0    ID
+      03.      ~(□ P ∨ □ Q)         /0    As
       04.      ~: ⊥               /*
-      05.         ¬□P             /0    3 SL
-      06.         ¬□Q             /0    3 SL
-      07.         (P ∨ Q)         /0    1 □E
-      08.         ¬P              /1    5 ¬□E
-      09.         ¬Q              /2    6 ¬□E
-      10.         (P ∨ Q)         /1    1 □E
-      11.         (P ∨ Q)         /2    1 □E
+      05.         -□ P             /0    3 SL
+      06.         -□ Q             /0    3 SL
+      07.         (P ∨ Q)         /0    1 □ E
+      08.         -P              /1    5 -□ E
+      09.         -Q              /2    6 -□ E
+      10.         (P ∨ Q)         /1    1 □ E
+      11.         (P ∨ Q)         /2    1 □ E
       12.         P               /1    8,10 DS
       13.         Q               /2    9,11 DS
 
@@ -2522,375 +3039,12 @@ Relation Between Derivations & Counter-Models in System L
    the counter-model.
 
 
-===================
-Alethic Modal Logic
-===================
 
 
-Grammar
--------
 
-Lexemes
-   Operators
-      Basic:    □A, it's necessary that, A.  For all possible worlds, A.
-      Derived:  ◇A, it's possible that, A.   For some possible world, A
 
-   Syntax
-      In addition to all the rules of FOL=:
-      2.  if A is a proposition so is □A.
 
-   Definitions
-      Def◇    ◇P        =df  ¬□¬P
-      Def-<    (P -< Q)   =df  □(P -> Q)
-      Def>-<   (P >-< Q)  =df  (P -< Q) ∧ (Q -< P)
 
-Semantics
-   modal square of opposition
-
-      □P-----------□¬P
-       | \       / |
-       |   \   /   |
-       |     X     |
-       |   /   \   |
-       | /       \ |
-      ◇P-----------◇¬P
-
-Translation Hints
-
-   Form          Translations
-   ------------  ------------------------------------------------------
-   P             it's true that P
-                 P is true in the actual world
-   ◇P            it's possible that P
-                 P is logically possible (not self-contradictory)
-                 P is true in some possible world
-                 P is consistent
-                 P could be true
-   □P            it's necessary that P
-                 P is logically necessary (self-contradictory to deny)
-                 P is true in all possible worlds
-                 P must be true
-                 P has to be true
-   ¬◇P           P is not possible
-   □¬P           P has to be false
-   □(P -> Q)     P entails Q
-                 P strictly implies Q
-   ◇(P ∧ Q)      P is logically consistent with Q
-                 P is logically compatible with Q
-                 It's possible that, P and Q
-   ¬◇(P ∧ Q)     P is logically inconsistent with Q
-   (◇P ∧ ◇¬P)    P is a contingent statement
-   (P ∧ ◇¬P)     P is a contingent truth
-
-   If P then necessary (must be) that Q  (ambiguous)
-      translations   (P -> □Q)    
-                     □(P -> Q)
-   If P then it's impossible (couldn't be) that Q (ambiguous)
-                     (P -> □¬Q) or □(P -> ¬Q)
-   If P then Q (by itself) is necessary (unambiguous)
-                     (P -> □Q)
-
-   ◇Ax:Ax       Everyone could be above average
-   Ax:◇Ax       Anyone could be above average
-
-   □Px          P is a necessary (essential) property of x
-   (Px ∧ ◇¬Px)  P is a contingent (accidental) property of x
-
-   Simple Necessity
-   Ax:(Px -> □Qx)   All bachelors are inherently unmarriable.
-
-   Condityional Necessity
-   □Ax:(Px -> Qx)   It's necessarily true that all bachelores are unmarried.
-
-   But translate something like, "All P's are necessarily Q's" into both forms
-      Ax:(Px -> □Qx)
-      □Ax:(Px -> Qx)
-
-System K (Kripke) - Minimal and Uncontrovesial
-   Not able to perform many operations
-   Necessitation Rule (NR)
-      If A is an axiom or theorem of K then □A is as well
-      if |- A then □A
-   Distribution Axiom (MDist)
-      □(A -> B) -> (□A -> □B)
-   Definition of Possibility (Def◇)
-      ◇A =df ¬□¬A
-
-   System K can alternatively be defined in Fitch thus:
-
-      Boxed subproof, a subproof with no hypothesis but rather simply the
-      operator □.  Informally, the □ header indicates that every line in
-      the subproof is shown to be necessarily true.
-
-      We can't bring statements into boxed subproofs using Reit.
-
-      □E:  If a line of the form □P is not closed in the enclosing subproof
-            one may infer P within the boxed subproof.
-
-      □I:  If P is derived within a boxed subproof, the boxed subproof may
-            be closed and one may infer □P outside of the subproof.
-
-      The Distribution axiom above is a theorem in this system.
-
-      Using boxed subproofs it's possible to derive □P for any tautology P.
-
-System D (System K + Axiom D)
-      Weakest System Considered
-      Most often used with Deontic over Alethic.
-   Axiom D (D)
-      □A -> ◇A
-
-System T (AKA System M)
-      System K + Axiom M (or T)
-      Stronger version of D
-      D is contained (derivable from) in M
-      More commonly used in modal logic
-   Axiom M (Axiom T)
-      □A -> A   Corollary  A -> ◇A
-
-System S4 (System T/M + Axiom 4)
-      System K + Axiom T/M + Axiom 4
-   Axiom 4
-      □A -> □□A   Corollary ◇◇A -> ◇A
-
-System S5 (System T/M + Axiom 5)
-      Axiom 5 is a stronger version of Axiom 4
-      4 is derivable from 5
-   Axiom 5
-      ◇A -> □◇A    corollary ◇□A -> □A (corollary where most contention)
-
-System B (System T + Axiom B)
-      (S5 can be formulated either by adding 5 or (B and 4) to T)
-      A consequence of M + K is □(A -> ◇A)
-   Axiom B
-      A -> □◇A     corollary ◇□A -> A (corollary is contentious)
-
-Controversey over S4 and S5
-   S5 is used for the modal ontological arguments which don't work in any
-      other modal system.  Yet people feel that s5 says and infers things
-      that people don't usually want as part of their alethic system.
-   S4 is much less controversial.
-   Perhaps instead of Ax 5, (◇A -> □◇A), we want □(◇A -> ◇A)
-      Remember these are ambiguous: □(P -> Q), (P -> □Q)
-
-Other Axioms That Have Been Used
-   Axiom g    ◇□P -> □◇P
-   Axiom L    □(□A -> B) ∨ □(□B -> A)    (L - linear)
-   
-Misc
-   Axiom 5 = Axiom 4 + Axiom B
-   S4   = K + M + 4
-   S5   = K + M + 5
-        = K + M + 4 + B
-   Ax 5 = 4 + B
-
-        Rules          Axioms          Modal Logics
-        -------------  --------------  -----------------
-System  NR Dist Def◇   D  T/M s4 s5 B  Al De Tem Epi Dox
-------  -------------  --------------  -----------------
-K       *   *    *
-
-D       *   *    *     *               1  9
-T/M     *   *    *     .   *
-
-S4      *   *    *         *  *
-S5      *   *    *         *  .  *
-
-B       *   *    *         *        *
-
-. means it's entailed in the axiom to the right.
-
-Ax T entails Ax D ("T is stronger than D")
-Ax s5 entails Ax s4 ("S5 is stronger than S4")
-S5 can be formulated either by adding 5 or B and 4 to T     ?????
-S5 is used for the modal ontological arguments which don't work in any
-   other modal system.  Yet people feel that s5 says and infers things
-   that people don't usually want as part of their alethic system.
-
-Non-Historical Modal Systems
-
-   Neo-Systems
-
-   KB     k,b rules
-   K4     k,4 rules
-   K5     k,5 rules
-   KDB    k,d,b rules
-   KD4    k,d,4 rules
-   KD5    k,d,5 rules
-   K45    k,4,5 rules
-   KD45   k,d,4,5 rules
-   KB4    k,b,4 rules
-
-   G-Systems
-
-   A G-System axiom is any axiom achieved by exponentiating the modal
-   operators in the formual g as follows
-
-                      j  k       m  n
-      G(j,k,m,n)      ◇  □  P -> □  ◇ P
-
-   The exponents work as expected in that they simply name the number of
-   occurrences of the base symbol.
-
-   A G-system is a modal logic that contains the K-thesis as well as
-   finitely many theses of the form G(j,k,m,n).  Nearly every thesis we
-   have considered can be written using G-notation
-
-      axiom    G-notation     Dual
-      -----    ----------     ----
-       g       G(1,1,1,1)
-       d       G(0,1,0,1)
-       t       G(0,1,0,0)     G(0,0,1,0)
-       b       G(1,1,0,0)     G(0,0,1,1)
-       4       G(0,1,2,0)     G(2,0,0,1)
-       4.2     G(0,2,3,0)     G(3,0,0,2)
-       4.3     G(0,3,4,0)     G(4,0,0,3)
-       ...
-       5       G(1,1,1,0)     G(1,0,1,1)
-
-   System X1
-       K           □(A -> B) -> (□A -> □B)
-       G(0,1,1,1)  □A -> □◇A
-
-   System X2
-       K           □(P -> Q) -> (□P -> □Q)
-       G(2,1,2,1)  ◇◇□P -> □□◇P
-
-
-Kripke Semantics
-----------------
-
-Kripke defined modal semantics starting with the position of possible worlds,
-which was already being done, but Kripke defined a new semantic concept of an
-accessability relation between two worlds.
-
-   The accessability relation
-     wxRwy             means world wx can access world wy, 
-                       where x,y are possible world numbers
-
-You can think of it as an arrow pointing from wx to xy; indicating
-accessibility and its direction.
-  Gensler compared it to a one way
-intergalactic travel ticket.  The ticket is 'defined' every time a ◇
-operator causes us to open a new world (Explicitly done in modal truth
-trees and Fitch proofs).
-
-Handling the ◇ operator is uncontroversial.  It's to always split off into
-a new world.  However, the □ operator is another story.  Every time we split
-a new world off as a consequence of ◇, we create an accessibility relation
-from the origin world to the new world.  The controversey is in how □P
-propositions should be granted access.  There are all different ideas such as
-granting P in any child world (where you can follow the accessibility relation
-arrow).  Some people say the arrow should be two-way granting access to □P
-from the origin world to the new world.  The controversey is in how □P
-propositions should be granted access.  There are all different ideas such as
-granting P in any child world (where you can follow the accessibility relation
-arrow).  Some people say the arrow should be two-way granting access to □P
-propositions from either of the two worlds to P in the other.  There are
-versions that allow transitivity; traversing along multiple arrows.
-
-All of these different versions of the modal accessibility relation for □
-propositions.  To understand the variations lets first look at different
-properties the relation operator might have.
-
-   Reflexivity
-      If exists wx then wxRwx.   (Allows □P to assert P in the current world)
-
-   Symmetry
-      If wxRwy then wyRwx.       (Every accessability arrow is double ended)
-
-   Transitivity
-      If wxRwy and wyRwz then wxRwz.   (□P can traverse multiple worlds)
-
-System M/T = K + refl                     □A -> A (axiom M/T) = K + T
-System B   = K + refl + symmetry          A -> □◇A (axiom B)
-System S4  = K + refl + trans             □A -> □□A (axiom 4)
-System S5  = K + refl + symmetry + trans  ◇A -> □◇A (axiom 5)
-
-In S5 every world has access to every other world.
-
-Genzler Semantics & Fitch Inference Rules
------------------------------------------
-Galactic Travel (a rewording of the accessibility relation)
-
-   World Prefixes (Indexes)
-      Gensler uses the concept of World Prefixes. These are strings of the
-      form 'Wn', where n is some integer and the entire string is the name of
-      some possible world.
-
-      Use 'W0' for the actual world.
-
-   Travel Tickets
-      Travel Tickets are just a more intuitive notion to grasp than the
-      accessiblity relation.  However, the concepts are actually identical
-      and therefore interchangeable.  Gensler uses the concept of a travel
-      ticket written, 'Wn=>Wm' to indicate that we have a ticket to travel
-      from one world 'Wn' to another world 'Wm'.
-
-   The ◇E inference rule
-      According to Gensler the inference rule for ◇Elim is simple and
-      uncontroversial.  From ◇P at i, we use ◇Elim to enter any new
-      (previously unvisited) world, and so we obtain P at j.  In other words
-      we can "drop diamond" into a new world index.  So, if we start with ◇P
-      at 0, we can ◇E producing P at 1.
-
-      ◇E also gives us a travel ticket W0=>W1.
-
-      Travel tickets are then by □E to drop into worlds.  The particular
-      system determines how we are allowed to use travel tickets to perform
-      □E
-
-   Systems
-
-   System T/M - We need a ticket w1 => w2 first,
-                for a □Elim to go from w1 to w2.
-
-   System B   - Like System T, but tickets work in both directions
-                (symmetry)
-
-   System S4  - Like System T, but we can jump a series of connecting tickets
-                (transitive)
-
-   System s5  - □Elim into any world
-                (symmetry + transitive)
-
-□Elim   □P/n,Wn=>Wm     |-  P/m    (use travel ticket according to system)
-□Intro  ( P/n |- Q/n)    |-  □Q    (this rule is not needed)
-◇Elim   ◇P/n            |-  P/m & Travel Ticket Wn=>Wm (m is a new world)
-◇Intro  P/n              |-  ◇P/n  (this rule is not needed)
-
-Kinds of Accessibility Relations
-
-serial              Ser(R)    =df  Ax:Ey:(xRy)
-Reflexive           Ref(R)    =df  Ax:(Ey:(xRy ∨ yRx) -> xRx)
-Completely Reflex   C-Ref(R)  =df  Ax:(xRx)
-Irreflexive         Irref(R)  =df  ¬Ex(xRx)
-Transitive          Trans(R)  =df  Axyz:((xRy ∧ yRz) -> xRz)
-Symmetric           Sym(R)    =df  Axy:(xRy -> yRx)
-Euclidean           Euc(R)    =df  Axyz:((xRy ∧ xR) -> yRz)
-Incestual           Incest(R) =df  Axyz:((xRy ∧ xRz) -> Ew:(yRw ∧ zRw))
-Asymmetric          Asym(R)   =df  Axy:(xRy -> ¬(yRx))
-Anti-Symmetric      Anti(R)   =df  Axy:((xRy ∧ yRx) -> x=y)
-Universal           Univ(R)   =df  Axy:(xRy)
-Identity            Iden(R)   =df  Axy:(xRy -> x=y)
-Functional          Fun(R)    =df  Axyz:((xRy ∧ xRz) -> y=z)
-Inverse-Funcational I-Fun(R)  =df  Axyz:((xRz ∧ yRz) -> x=y)
-Strongly Connected  SCon(R)   =df  Axy:(xRy ∨ yRx)
-Weakly Connected    WCon(R)   =df  Axy:(-x=y -> (xRy ∨ yRx))
-Non-Convergent      N-Con(R)  =df  Axyz:(((xRz ∧ yRz) ∧ -x=y) -> xRy ∨ yRx)
-Non-Divergent       N-Div(R)  =df  Axyz:((xRy ∧ xRz ∧ -y=z) -> (yRz ∨ zRy))
-Equiv Relation      Equ(R)    =df  CRef(R) ∧ Tran(R) ∧ Sym(R)
-Quasi-Ordering      QO(R)     =df  CRef(R) ∧ Tran(R)
-Partial Ordering    PO(R)     =df  QO(R) ∧ Anti(R)
-Refl Linear Order   RLO(R)    =df  PO(R) ∧ SCon(R)
-Irrefl Linear Ord   ILO(R)    =df  Asym(R) ∧ Trans(R) ∧ W-Con(R)
-Tree-Ordering       Tree(R)   =df  PO(R) ∧ N-Conv(R)
-Root-Ordering       Root(R)   =df  PO(R) ∧ N-Div(R)
-Upper-Bounded       U-Bound(R)=df  Axy:((Ez(xRz) ∧ Ez:(yRz)) -> Ez:(xRz ∧ yRz))
-Lower-Bounded       L-Bound(R)=df  Axy:((Ez(zRx) ∧ Ez:(zRy)) -> Ez:(zRx ∧ zRy))
-Bounded             Bound(R)  =df  U-Bound(R) ∧ L-Bound(R)
-Dense               Dense(R)  =df  Axz:((xRz ∧ -x=z)
-                                      -> Ey:(-x=y ∧ -y=z ∧ xRy ∧ yRz))
 
 Deontic Logic
 =============
@@ -2904,9 +3058,9 @@ Deontic Logic
       - Any one of the first four lexemes above is sufficient to define all
         of the remaining 5 operations.  We will define them in terms of OB.
       IM(p) =df OB(-p)
-      PE(p) =df ¬OB(-p)
-      OM(p) =df ¬OB(p)
-      OP(p) =df ¬OB(p) ∧ ¬OB(-p)
+      PE(p) =df -OB(-p)
+      OM(p) =df -OB(p)
+      OP(p) =df -OB(p) ∧ -OB(-p)
    Trifold Classification
       Table:
 
@@ -2947,19 +3101,19 @@ Deontic Logic
 
       - contradictory (cross through the middle)
            means: They have opposite truth values.
-           ¬(OB(p) <-> OM(p))
-           ¬(IM(p) <-> PE(p))
+           -(OB(p) ↔ OM(p))
+           -(IM(p) ↔ PE(p))
       - contrary (across the top)
            means: At least one is false (can't both be true)
-           ¬OB(p) ∨ ¬IM(p)
+           -OB(p) ∨ -IM(p)
       - subcontrary (across the bottom)
            means: At least one is true (can't both be false)
            PE(p) ∨ OM(p)
       - subalt/subalternation (down the sides)
            means: Truth flows downward, Falsehood flows upward
            Or, the Top term implies the lower term
-           OB(p) -> PE(p)
-           IM(p) -> OM(p)
+           OB(p) → PE(p)
+           IM(p) → OM(p)
 
    Deontic Hexagon
 
@@ -2976,45 +3130,45 @@ Deontic Logic
                PE--subcontrary--OM
 
       - OB, IM  are contraries (at least one is false)
-           ¬OB(p) ∨ ¬IM(p)
+           -OB(p) ∨ -IM(p)
       - OB, OP- are contraries
-           ¬OB(p) ∨ ¬OP(-p)
+           -OB(p) ∨ -OP(-p)
       - OB, OP  are contraries
-           ¬OB(p) v ¬OP(p)
+           -OB(p) v -OP(p)
       - IM, OP  are contraries
-           ¬IM(p) v ¬OP(p)
+           -IM(p) v -OP(p)
       - IM, OP- are contraries
-           ¬IM(p) ∨ ¬OP(-p)
+           -IM(p) ∨ -OP(-p)
       - OB, PE  are subalternates
-           OB(p) -> PE(p)
+           OB(p) → PE(p)
       - OP, PE  are subalternates
-           OP(p) -> PE(p)
+           OP(p) → PE(p)
       - OP, OM  are subalternates
-           OP(p) -> OM(p)
+           OP(p) → OM(p)
       - IM, OM  are subalternates
-           IM(p) -> OM(p)
+           IM(p) → OM(p)
       - OP-, OM are subalternates
-           OP(-p) -> OM(p)
+           OP(-p) → OM(p)
       - PE, OM  are subcontraries
            PE(p) v OM(p)
       - OP, OP- are equivalent
-           OP(p) <-> OP(-p)
+           OP(p) ↔ OP(-p)
  
    Isomorphisms
       Deontic  Alethic
       -------  -------
-      OB(p)    □p
-      PE(p)    ◇p
-      IM(p)    ¬◇p
-      OM(p)    ¬□p
-      OP(p)    ◇P ∧ ◇¬P  (contingent)
+      OB(p)    □ p
+      PE(p)    ◇ p
+      IM(p)    -◇ p
+      OM(p)    -□ p
+      OP(p)    ◇ P ∧ ◇ -P  (contingent)
 
       Deontic                     Alethic
       -------                     -------
-      PE(p) =df ¬OB(-p)           ◇p =df ¬□¬p
-      IM(p) =df OB(p)             impossible p =df □¬p
-      OM(p) =df ¬OB(p)            ¬□p =df ¬□p
-      OP(p) =df ¬OB(p) ∧ ¬OB(-p)  contingent p =df ¬□p ∧ ¬□¬p
+      PE(p) =df -OB(-p)           ◇ p =df -□ -p
+      IM(p) =df OB(p)             impossible p =df □ -p
+      OM(p) =df -OB(p)            -□ p =df -□ p
+      OP(p) =df -OB(p) ∧ -OB(-p)  contingent p =df -□ p ∧ -□ -p
 
       - The alethic operations fit in the Hexagon
       
@@ -3022,13 +3176,13 @@ Deontic Logic
       - There are some alethic modal logic axioms, such as axiom T,
         that make sense in alethic modal logic but not in deontic.
       - Axiom T (T or M)
-        □A -> A
+        □ A → A
         Yet it wouldn't make sense to say that anything that is OB is true,
         since clearly there are things that are OB but aren't done.
 
    Deontic Equivalence Axiom
       Equivalence Axiom (DEA)
-         (p <-> q) -> (OB(p) <-> OB(q))
+         (p ↔ q) → (OB(p) ↔ OB(q))
 
    Tautology and Contradiction Notation
       lexemes
@@ -3036,27 +3190,27 @@ Deontic Logic
          ⊥   =df  all logical contradictions
 
       Ex
-         □T     all logical truths are necessary
-         ¬◇⊥  it's not the case that it's possible that all contradictions
+         □ T     all logical truths are necessary
+         -◇ ⊥  it's not the case that it's possible that all contradictions
                  are the case
 
    Omissibility of Contradictions Axiom (OmA)
-      ¬OB(⊥) also OM(⊥)
+      -OB(⊥) also OM(⊥)
          If something is ⊥, no deontic system can requires that it's OB
 
    Type os Deontic Contradictions
-      OM         DNC (Deontic non¬Contradiction)
+      OM         DNC (Deontic non-Contradiction)
       --------   -------------------------------
-      ¬OB(⊥)     ¬(OB(p) ∧ OB(-p))
+      -OB(⊥)     -(OB(p) ∧ OB(-p))
 
       These are not interderivable 
       
       Omissibility
-         ¬OB(⊥)
+         -OB(⊥)
          means: can't make someone do something that's a contradiction.
 
       Deontic non-contradiction (DNC)
-         ¬(OB(p) ∧ OB(-p))
+         -(OB(p) ∧ OB(-p))
          means: can't obligate both p and -p.
 
          - The key differences between these two is in the scope of OB.
@@ -3078,29 +3232,29 @@ Standard Deontic Logic (SDL)
 
    Definitions
       Definition of Permissible (PEDef)
-         PE(p)  =df  ¬OB(-p)
+         PE(p)  =df  -OB(-p)
 
    Axioms
       Axiom K (K)
-         Alethic:  □(A -> B) -> (□A -> □B)
-         Deontic:  OB(p -> q) -> (OB(p) -> OB(q)) 
+         Alethic:  □ (A → B) → (□ A → □ B)
+         Deontic:  OB(p → q) → (OB(p) → OB(q)) 
 
       Axiom D (D)
-         Alethic:  □A -> ◇A
-         Deontic:  OB(p) -> ¬OB(-p)   or by definition,
-                   OB(p) -> PE(p)
+         Alethic:  □ A → ◇ A
+         Deontic:  OB(p) → -OB(-p)   or by definition,
+                   OB(p) → PE(p)
 
          Corollary
-            IM(p) -> ¬OB(p)
+            IM(p) → -OB(p)
 
       Necessitation Rule (NR)
-         Alethic:  if |- A then □A      for all axioms and theorems A
-         Deontic:  if |- p then OB(p)    for all axioms ans theorems p
+         Alethic:  if ⊢ A then □ A      for all axioms and theorems A
+         Deontic:  if ⊢ p then OB(p)    for all axioms ans theorems p
 
          - It can be used with D to prove OmA (Omissibility of
            Contradictions Axiom).
          - According to this rule it's not just illogical to have
-           p and -p, it's morally wrong.  It's OB(¬(p ∧ -p)).
+           p and -p, it's morally wrong.  It's OB(-(p ∧ -p)).
          - Demonstrating that the liar paradox breaks the LEM is not just
            annoying it's ethically impermissible.
 
@@ -3115,11 +3269,11 @@ Augmented Standard Deontic Logic
 
    Axioms
       Double Obligation Axiom (DOA)
-         Deontic:  OB(OB(p) -> p)
+         Deontic:  OB(OB(p) → p)
          - corollary
-              OB(OB(p))-> OB(p)
+              OB(OB(p))→ OB(p)
            Similar to Axiom 4
-              □A -> □□A
+              □ A → □ □ A
 
    Notes
    - This axiom is contentius.
@@ -3139,7 +3293,7 @@ Semantics of Deontic Logic
    Semantics of Deontic Logic
       The Acceptability Relation in Deontic Sematics
          The Acceptability Relation (DADef - Deontic Acceptability Definition)
-         Ai:Aj:(Aij <-> Ap:(OB(p)i -> pj))
+         Ai:Aj:(Aij ↔ Ap:(OB(p)i → pj))
          - For any worlds i,j, j is acceptable to i if and only if for all
            propositions p, if p is obligatory in i then p is the case in j.
          - Where i and j are worlds, p is a proposition and xw means x is true
@@ -3218,9 +3372,9 @@ Semantics of Deontic Logic
    Semantics of Augmented Deontic Logic
       - Recall that Augmented Deontic Logic includes the DOA (Double Obligation
         Axiom):
-           OB(OB(p) -> p)
+           OB(OB(p) → p)
         corollary:
-           OB(OB(p)) -> OB(p)
+           OB(OB(p)) → OB(p)
       - This axiom doesn't hold for the semantics of Standard Deontic Logic.
       Semantics
          Imagine 3 possible worlds
@@ -3235,13 +3389,13 @@ Semantics of Deontic Logic
          
          - We're going to try to create a counterexample.
            So, in world i we're going to deny DOA.
-            ¬OB(OB(p) -> p) in world i
+            -OB(OB(p) → p) in world i
             therefore
-            OB¬(OB(p) -> p) in world i
+            OB-(OB(p) → p) in world i
          - But because of our relation, everything in i is true in some j.
            So,
-                 ¬(OB(p) -> p) in world j
-              ∴ ¬(¬OB(p) v p) in world j
+                 -(OB(p) → p) in world j
+              ∴ -(-OB(p) v p) in world j
               ∴ OB(p) ∧ -p    where it's -p in world j
            The result may be surprising but it's not a contradiction.
            Often obligations aren't fulfilled in a world.
@@ -3266,9 +3420,9 @@ Semantics of Deontic Logic
 
       A+ Acceptability relation (A+)
          Recall that the acceptability relation is defined as:
-                 Ai:Aj:(Aij <-> Ap:( OB(p)i           -> pj))
+                 Ai:Aj:(Aij ↔ Ap:( OB(p)i           → pj))
          We're going to make a new acceptability relation called A+
-                 Ai:Aj:(Aij <-> Ap:((OB(p)i ∨ OB(p)j) -> pj)
+                 Ai:Aj:(Aij ↔ Ap:((OB(p)i ∨ OB(p)j) → pj)
              World i bears the acceptability relation to world j, if and only
              if for all propositions p, p being obligatory in i or j implies
              that it is true in j.
@@ -3286,14 +3440,14 @@ Deontic Reductionism
       Kanger (System Kd)
          Uses a propositional constant 'd' which means all normative
          demands are met.  Kanger will replace all of the axioms of our
-         deontic system with one simple axiom ◇d (it's possible that all
+         deontic system with one simple axiom ◇ d (it's possible that all
          normative demands are met) and the standard modal axioms for
          System K.  We'll call this system Kd.
       Anderson
          Did the same but used a constant 's' instead of 'd' which means
          some normative demand has been violated.  It should be clear
          that this is identical to -d, and we could take for an equivalent
-         axiom to ◇d either ◇¬s or ¬□s.
+         axiom to ◇ d either ◇ -s or -□ s.
       Notes
          - This system may seem to reduce SDL to alethic system K.  But we'll
            show that this isn't the case.
@@ -3304,20 +3458,20 @@ Deontic Reductionism
 
       System K (K)
          Definitions
-            Definition of Possibility (Def◇)
-               ◇A  =df  ¬□¬A
+            Definition of Possibility (Def◇ )
+               ◇ A  =df  -□ -A
 
          Axioms
             Necessitation Rule (Nec)
-               if A is an axiom or theorem of K then □A is too.
+               if A is an axiom or theorem of K then □ A is too.
             Distribution Axiom (MDist)
-               □(A -> B) -> (□A -> □B)
+               □ (A → B) → (□ A → □ B)
 
       System Kd
          Uses all of the above plus the following axiom.
 
          Axiom d (d)
-            ◇d, it is possible that all normative demands, or obligations
+            ◇ d, it is possible that all normative demands, or obligations
                  are met.
 
       We can use this system to derive many of the theorems of SDL (Standard
@@ -3333,30 +3487,30 @@ Deontic Reductionism
 
       Definitions in System Kd (KdD)
          Kd can sufficiently represent all of the deontic terms that we
-         have learned in terms of d and □ (and ◇ which can be defined
-         in terms of □).  All of these will be referred to as KdD in
+         have learned in terms of d and □  (and ◇  which can be defined
+         in terms of □ ).  All of these will be referred to as KdD in
          proofs.
 
-         OB(p)  =df  □(d -> p)
+         OB(p)  =df  □ (d → p)
 
-         PE(p)  =df  ◇(d ∧ p)
+         PE(p)  =df  ◇ (d ∧ p)
 
-         IM(p)  =df  □(p -> -d)
+         IM(p)  =df  □ (p → -d)
 
-         OM(p)  =df  ◇(d ∧ -p)
+         OM(p)  =df  ◇ (d ∧ -p)
 
       Examples
          - Let's say:  'it's obligatory that you always wash your hands
            before dinner.'
               OB(w)
            So by definition,
-              □(d -> w)
+              □ (d → w)
            In all possible worlds where all obligations are fulfilled, you
            always wash your hands before dinner.
          - Let's say, 'Killing is omissible.'
               OM(k)
            Then by definition:
-              ◇(d ∧ -k)
+              ◇ (d ∧ -k)
            'There exists some possible world in which both all obligations
            are fulfilled and no one is killed.'
 
@@ -3368,20 +3522,20 @@ Deontic Reductionism
 
       System K (K)
          Necessitation Rule (NR)
-            if A is an axiom or theorem of K then □A is too.
+            if A is an axiom or theorem of K then □ A is too.
          Distribution Axiom (MDist)
-            □(A -> B) -> (□A -> □B)
-         Definition of Possibility (Def◇)
-            ◇A =df ¬□¬A
+            □ (A → B) → (□ A → □ B)
+         Definition of Possibility (Def◇ )
+            ◇ A =df -□ -A
 
       Anderson's Axom (Axiom s)
-         ¬□s     it is not the case that, it's necessary that, s.
+         -□ s     it is not the case that, it's necessary that, s.
 
       Definitions
          The definitions are basically all the same as those in syste Kd.
          For example.
 
-         OB(p)  =df  □(-p -> s)
+         OB(p)  =df  □ (-p → s)
             etc.
 
       Notes
@@ -3393,12 +3547,12 @@ Deontic Reductionism
 
       Axioms
          Axiom M (Axiom T)
-            Alethic:  □A -> A
-            Deontic:  OB(A) -> A
+            Alethic:  □ A → A
+            Deontic:  OB(A) → A
 
             - corollary
-              A -> ◇A
-              A -> PE(A)
+              A → ◇ A
+              A → PE(A)
 
       Recall System T (System M) where necessity implies truth.  System T
       is System K with Axiom M (or Axiom T).
@@ -3407,7 +3561,7 @@ Deontic Reductionism
 
       Why Kd and Ks are not actually reducible to SDL.
 
-      - While a deontic version of T (OB(p) -> p) might be too strong, it
+      - While a deontic version of T (OB(p) → p) might be too strong, it
         seems that a logical system is hard to create without the alethic
         version.  Most systems of alethic modality require that if something
         is in all possible worlds it is in the actual worl, and if
@@ -3440,7 +3594,7 @@ Deontic Reductionism
 
 Semantics
    Modal Accessibility Definition relation (MADef)
-      Ai:Aj:(ARij <-> Ap:(Pi -> ◇pj))
+      Ai:Aj:(ARij ↔ Ap:(Pi → ◇ pj))
       Where,
          i and j are worlds
          p is a proposition
@@ -3507,7 +3661,7 @@ Common Sense Deontic Logic
 
             BC(p)  =df  PE(p) ∧ MI(-p)
             PS(p)  =df  PE(p) ∧ MA(-p)
-            SI(p)  =df  ¬IN(p)
+            SI(p)  =df  -IN(p)
 
 
       Venn Diagram
@@ -3557,11 +3711,11 @@ Common Sense Deontic Logic
          +---------------------------------------------------------+
          |         +-------------------------+                     |
          |         |         MA(-p)          |                     |
-         |         |         PS(p)           |         ¬MA(p) ∧    |
-         |         |                         |             ¬MA(-p) |
+         |         |         PS(p)           |         -MA(p) ∧    |
+         |         |                         |             -MA(-p) |
          | +-------+------------+------------+-------+             |
-         | |       |            |            |       | ¬MI(p) ∧    |
-         | |       |  MI(-p)    |   MI(p)    |       |     ¬MI(-p) |
+         | |       |            |            |       | -MI(p) ∧    |
+         | |       |  MI(-p)    |   MI(p)    |       |     -MI(-p) |
          | |       |  MA(-p)    |   MA(-p)   |       |             |
          | |MI(-p) |            |            | MI(p) |             |
          | |BC(p)  |            |            | BC(-p)|             |
@@ -3580,6 +3734,10 @@ Common Sense Deontic Logic
 
          - The area around the outermost box is the area SI(p) from the prior
            diagram.  It's that innermost box.
+
+
+
+
 
 Temporal Logic
 ==============
@@ -3632,20 +3790,20 @@ Is Precedence Reflexive?
 
    If precedence is irreflexive, that means that no moment is before
    itself.  No instant bears the precedence relation to itself.
-      Ax:¬(x<x)      (IrPT)
+      ∀x:-(x<x)      (IrPT)
 
    But we can also take another meaning of precedence and claim that every
    instant bears the precedence relation to itself.
-      Ax:(x<x)       (RePT)
+      ∀x:(x<x)       (RePT)
 
    Generally, one that asserts the precedence relation is reflexive will
    also assert that it is anti-symmetrical (if two instants are before
    the other, they are the same instant)
-      Ax:Ay:(((x<y) ∧ (y<x)) -> x=y)          (ASPT)
+      ∀x:∀y(((x<y) ∧ (y<x)) → x=y)          (ASPT)
 
 The Transitivity of Time
    Transitivity (TrPT)
-      Ax:Ay:Az:(((x<y) ∧ (y<z)) -> (x<z))     (TrPT)
+      ∀x:∀yAz:(((x<y) ∧ (y<z)) → (x<z))     (TrPT)
 
 The Connectedness of Time
    Connectedness, or trichotomy is a property that we have not seen
@@ -3653,7 +3811,7 @@ The Connectedness of Time
    the temporal logics that we are going to look at.  Simply, given
    any two instants, either one is before the other or they are
    identical.
-      Ax:Ay:(((x<y) ∨ (y<x)) ∨ x=y)      (CoPT)
+      ∀x:∀y(((x<y) ∨ (y<x)) ∨ x=y)      (CoPT)
 
 The Density of Time
    For any two points in time there is a third between them.
@@ -3663,7 +3821,7 @@ The Density of Time
    between them.  However, the set of all real numbers is dense.
 
    If you accept density (like a real number) then include this property.
-      Ax:Ay:((x<y) -> Ez:((x<z) ∧ (z<y)))    (DnPT)
+      ∀x:∀y((x<y) → Ez:((x<z) ∧ (z<y)))    (DnPT)
 
 Predecessors and Successors in Time
    Predecessorship claims that each instant has an immediate predecessor
@@ -3679,11 +3837,11 @@ Predecessors and Successors in Time
    you would say that the precedence relation has the predecessorship
    and successorship properties.
 
-      Ax:Ey:((x<y) ∧ Az:((x<z) -> (y<=z)))     (ISPT)
+      ∀x:Ey:((x<y) ∧ Az:((x<z) → (y<=z)))     (ISPT)
          Every instant has an immediate successor.  Take the case where y
          is immediate successor x, then y<=z.
 
-      Ax:Ey:((y<x) ∧ Az:((z<x) -> (z<=y)))     (IPPT)
+      ∀x:Ey:((y<x) ∧ Az:((z<x) → (z<=y)))     (IPPT)
          Every instant has an immediate predecessor.
 
 Discreteness of Time
@@ -3696,22 +3854,22 @@ Discreteness of Time
        the two formal axioms stated in Predecessors and Successors in
        Time.*
       Forward Discreteness  (FDPT)
-         Ax:Ey:((x<y) -> Ey:((x<y) ∧ Az:((x<z) -> (y<=z))))
+         ∀x:Ey:((x<y) → Ey:((x<y) ∧ Az:((x<z) → (y<=z))))
 
       Backward Discreteness (BDPT)
-         Ax:Ey:((y<x) -> Ey:((y<x) ∧ Az:((z<x) -> (z<=y))))
+         ∀x:Ey:((y<x) → Ey:((y<x) ∧ Az:((z<x) → (z<=y))))
 
 Beginnings and Endings
    To say that there is no beginning and not end to our timeline.
 
    No Beginning (NBPT)
-      Ax:Ey:(y<x)
+      ∀x:Ey:(y<x)
    No Ending (NEPT)
-      Ax:Ey:(x<y)
+      ∀x:Ey:(x<y)
    Beginning (BePT)
-      ¬Ax:Ey:(y<x)            (Negation of No Beginning)
+      -∀x:Ey:(y<x)            (Negation of No Beginning)
    Ending (EnPT)
-      ¬Ax:Ey:(x<y)            (Negation of No Ending)
+      -∀x:Ey:(x<y)            (Negation of No Ending)
 
    Notes:
    - If we have predecessorship we don't need no beginning (because it
@@ -3754,7 +3912,7 @@ Well Ordering
       We need to borrow some set theory concepts. We'll use A..Z as sets,
       'in' as the set membership operator, and 'null' as the null set.
 
-         AA:(¬(A=null) -> Ex:((x in A) ∧ Ay:((y in A) -> (x <= y))))
+         AA:(-(A=null) → Ex:((x in A) ∧ ∀y((y in A) → (x <= y))))
 
             For all sets A, where A is non-empty implies there exists some
             instant x such that, x in A and for any y, y in A implies x <= y.
@@ -3779,14 +3937,14 @@ Arthur Prior's Tense Operators
       present we'll consider t as now.
 
    Formal Definitions (TODEF)
-      H(p)t  =df  Ax:((x<t) -> px)
+      H(p)t  =df  ∀x:((x<t) → px)
          H(p)t, is defined as,
          At all instants prior to now, p is true.
       P(p)t  =df  Ex:((x<t) ∧ px)
          P(p)t, is defined as,
          At some instant prior to now, p is true.
 
-      G(p)t  =df  Ax:((t<x) -> px)
+      G(p)t  =df  ∀x:((t<x) → px)
       F(p)t  =df  Ex:((t<x) ∧ Px)
       
       The next two are defined in terms of the above four.
@@ -3875,23 +4033,23 @@ Comparing Alethic & Temporal logic
    Temporal, alethic and deontic are isomorphically similar.
 
    Operators
-      Strong Operators:  □  OB  H  G
-      Weak Operators:    ◇  PE  P  F
+      Strong Operators:  □   OB  H  G
+      Weak Operators:    ◇   PE  P  F
 
    Table
 
       Alethic      Deontic      Temporal
                                 Past         Future
       -----------  -----------  -----------  -----------
-      □p          OB(p)        H(p)         G(p)
-      ◇p          PE(p)        P(p)         F(p)
-      □p =df      OB(p) =df    H(p) =df     G(p) =df
-         ¬◇¬p        ¬PE(-p)      ¬P(-p)       ¬F(-p)
+      □ p          OB(p)        H(p)         G(p)
+      ◇ p          PE(p)        P(p)         F(p)
+      □ p =df      OB(p) =df    H(p) =df     G(p) =df
+         -◇ -p        -PE(-p)      -P(-p)       -F(-p)
 
    Change of Temporal Quantifier (CTQ)
       Definitions
-         H(p)  =df  ¬P(-p)
-         G(p)  =df  ¬F(-p)
+         H(p)  =df  -P(-p)
+         G(p)  =df  -F(-p)
 
 System Kt (Minimal Temporal Logic)
    System Kt is an isomorphism to alethic modal logic's System K.  'K' from
@@ -3900,31 +4058,31 @@ System Kt (Minimal Temporal Logic)
 
    System K (First Principals from Alethic System K)
       Definitions
-         Alethic:             □p    =df  ¬◇¬p
-         Deontic:             OB(p)  =df  ¬PE(-p)
-         Temporal:            H(p)   =df  ¬P(-p)
-                              G(p)   =df  ¬F(-p)
+         Alethic:             □ p    =df  -◇ -p
+         Deontic:             OB(p)  =df  -PE(-p)
+         Temporal:            H(p)   =df  -P(-p)
+                              G(p)   =df  -F(-p)
       Axioms
          Modal Distribution Axiom (MDist)
-            Alethic (MDist):  □(A -> B) -> (□A -> □B)
-            Deontic (MDist):  OB(p -> q) -> (OB(p) -> OB(q))
-            Temporal (KG):    G(p -> q) -> (G(p) -> G(q))
-            Temporal (KH):    H(p -> q) -> (H(p) -> H(q))
+            Alethic (MDist):  □ (A → B) → (□ A → □ B)
+            Deontic (MDist):  OB(p → q) → (OB(p) → OB(q))
+            Temporal (KG):    G(p → q) → (G(p) → G(q))
+            Temporal (KH):    H(p → q) → (H(p) → H(q))
 
             if it had always been the case that, d implies m, then it has always
             been the case that d implies it has always been the case that m.
 
          Necessitation Rule (NR)
-            Alethic:          if |- A then □A
-            Deontic:          if |- p then OB(p)
-            Temporal (TNR):   if |- p then A(p)
+            Alethic:          if ⊢ A then □ A
+            Deontic:          if ⊢ p then OB(p)
+            Temporal (TNR):   if ⊢ p then A(p)
                if A,p are axioms or theorems ...
 
    System Kt Axioms
       System Kt is all of the System K principles above plus the following
       axioms.  (These axioms relate the past to the future.)
-         Axiom GP (TAGP):  p -> GP(p)
-         Axiom HF (TAHF):  p -> HF(p)
+         Axiom GP (TAGP):  p → GP(p)
+         Axiom HF (TAHF):  p → HF(p)
 
 System K4t (Transitive Temporal Logic)
    Similar to Alethic System K4, which adds axiom s4 to system K.  K4t assumes
@@ -3935,14 +4093,14 @@ System K4t (Transitive Temporal Logic)
       All of the first principals of System Kt, plus the following:
 
       Axiom 4
-         Alethic (4,s4):   □A -> □□A
-         Temporal          G(p) -> G(G(p))
-           (Kt4 or TA4):   H(p) -> H(H(p))
+         Alethic (4,s4):   □ A → □ □ A
+         Temporal          G(p) → G(G(p))
+           (Kt4 or TA4):   H(p) → H(H(p))
 
       Corollary to Axiom 4
-         Alethic:          ◇◇A -> ◇A
-         Temporal:         F(F(p)) -> F(p)
-                           P(P(p)) -> P(p)
+         Alethic:          ◇ ◇ A → ◇ A
+         Temporal:         F(F(p)) → F(p)
+                           P(P(p)) → P(p)
 
    Notes
       Notice how G(G(p)) is two applications of G (which are defined using
@@ -3959,16 +4117,16 @@ System S4t (Reflexive Temporal Logic)
       All of the first principals of system K4t, plus the following:
 
       Axiom T (T,M)
-         Alethic (T,M):    □A -> A
-         Deontic (T,M):    OB(p) -> p
-         Temporal (TAT):   G(p) -> p
-                           H(p) -> p
+         Alethic (T,M):    □ A → A
+         Deontic (T,M):    OB(p) → p
+         Temporal (TAT):   G(p) → p
+                           H(p) → p
 
       Corollary to Axiom T
-         Alethic:          A -> ◇A
-         Deontic:          p -> PE(p)
-         Temporal:         p -> F(p)
-                           p -> P(p)
+         Alethic:          A → ◇ A
+         Deontic:          p → PE(p)
+         Temporal:         p → F(p)
+                           p → P(p)
 
    Notes
       - These axioms and corollaries seem a little fishy to me.  I'm not sure
@@ -3988,7 +4146,7 @@ System Lt (Linear Temporal)
       All of the first principals of System K4t
 
       Temporal Axiom of Linearity
-         Temporal (TAL):   (F(P(p)) ∨ P(F(p))) -> E(p)
+         Temporal (TAL):   (F(P(p)) ∨ P(F(p))) → E(p)
 
 System Nt (Well Ordered Temporal Logic)  Natural Numbers
    This logic is going to include everything from L, but add on three new
@@ -4003,18 +4161,18 @@ System Nt (Well Ordered Temporal Logic)  Natural Numbers
       All of the first principals of system Lt
 
       Axiom D
-         Alethic (D):      □A -> ◇A
-         Deontic (D):      OB(p) -> PE(p)
+         Alethic (D):      □ A → ◇ A
+         Deontic (D):      OB(p) → PE(p)
          Temporal Axiom of
-            No End (TANE):        G(p) -> F(p)
+            No End (TANE):        G(p) → F(p)
 
       Axiom 5 (s5)
-         Alethic (5):      ◇A -> □◇A
-         Temporal (5):     (F(p) ∧ G(p -> F(p))) -> G(F(p))
+         Alethic (5):      ◇ A → □ ◇ A
+         Temporal (5):     (F(p) ∧ G(p → F(p))) → G(F(p))
             Temporal Forward Induction Axiom
 
       Temporal Axiom of Well Ordering
-         Temporal:         H(H(p) -> p) -> H(p)
+         Temporal:         H(H(p) → p) → H(p)
             For any set of instances there is a least (or first).
 
    Notes
@@ -4039,12 +4197,12 @@ System Zt (Inductive Temporal Logic)   Integers
       All of the first principles of Lt (Liner Temporal).
 
       Temporal Axiom of
-         No End:           G(p) -> F(p)
-         No Begin:         H(p) -> P(p)
+         No End:           G(p) → F(p)
+         No Begin:         H(p) → P(p)
 
       Temporal Induction Axiom
-         Forward:          (F(p) ∧ G(p -> F(p))) -> G(F(p))
-         Backward:         (P(p) ∧ H(p -> P(p))) -> H(P(p))
+         Forward:          (F(p) ∧ G(p → F(p))) → G(F(p))
+         Backward:         (P(p) ∧ H(p → P(p))) → H(P(p))
 
 System Qt (Dense Temporal Logic)    Rationals
    If time is dense that means that between any two instants there is another
@@ -4059,12 +4217,12 @@ System Qt (Dense Temporal Logic)    Rationals
       All of the first principles of Lt (Linear Temporal Logic)
 
       Temporal Axiom of
-         No End:           G(p) -> F(p)
-         No Begin:         H(p) -> P(p)
+         No End:           G(p) → F(p)
+         No Begin:         H(p) → P(p)
 
       Temporal Density Axiom:
-                           G(G(p)) -> G(p)
-                           F(p) -> F(F(p))
+                           G(G(p)) → G(p)
+                           F(p) → F(F(p))
 
 System Rt (Complete Temporal Logic)   Reals
    For a timeline to be complete, that instants that any set of instants that
@@ -4080,7 +4238,7 @@ System Rt (Complete Temporal Logic)   Reals
       All of the first principles of Qt
 
       Temporal Completeness Axiom
-                           A(H(p) -> F(H(p)) -> (H(p) -> G(p))
+                           A(H(p) → F(H(p)) → (H(p) → G(p))
 
 
 
@@ -4131,17 +4289,17 @@ The Next Time Operator
       Y(p), in the instant directly before this one, p. (Yesterday operator)
 
    Definitions
-      X(p)t  =df  Ex:((t<x) ∧ (Ay:((t<y) -> (x<=y)) ∧ px))
-      Y(p)t  =df  Ex:((x<t) ∧ (Ay:((y<t) -> (y<=y)) ∧ px))
+      X(p)t  =df  Ex:((t<x) ∧ (∀y((t<y) → (x<=y)) ∧ px))
+      Y(p)t  =df  Ex:((x<t) ∧ (∀y((y<t) → (y<=y)) ∧ px))
 
    Axioms
-      Axiom Kx:            X(P -> q) -> (X(p) -> X(q))
-      Functionality:       ¬X(p) <-> X(-p)
+      Axiom Kx:            X(P → q) → (X(p) → X(q))
+      Functionality:       -X(p) ↔ X(-p)
 
    Notes
       - let's break down 'next' to better understand it
-        X(p)t  =df  Ex:( (t<x) ∧   (Ay:( (t<y) ->      (x<=y))    ^  px))
-        X(p)t  =df  Ex:(  t<x  ^   (Ay:(  t<y  ->       x<=y )    ^  px))
+        X(p)t  =df  Ex:( (t<x) ∧   (∀y( (t<y) →      (x<=y))    ∧  px))
+        X(p)t  =df  Ex:(  t<x  ∧   (∀y(  t<y  →       x<=y )    ∧  px))
                    some  after &   all   after are      after or  &  px
                    time  now       times now   (implies)identical
                    x                                    to x
@@ -4158,15 +4316,15 @@ Since and Until Operators
       U(p)(q), p will be the case until such a time when q.
 
    Definitions
-      S(p)(q)t  =df  Ex:( (x<t ∧ qx) ∧ Ay:((y<t ∧ x<y) -> py))
-      U(p)(q)t  =df  Ex:( (t<x ∧ qx) ∧ Ay:((t<y ∧ y<x) -> py))
+      S(p)(q)t  =df  Ex:( (x<t ∧ qx) ∧ ∀y((y<t ∧ x<y) → py))
+      U(p)(q)t  =df  Ex:( (t<x ∧ qx) ∧ ∀y((t<y ∧ y<x) → py))
 
-      S(p)(q)   =df  Ax:( x>=q -> px )
+      S(p)(q)   =df  Ax:( x>=q → px )
    
    Notes
       - Let's break down 'since' to better understand it
-        S(p)(q)t =df Ex:( ((x<t) ∧ qx)  ^   Ay:(((y<t) ∧ (x<y)) -> py))
-                     Ex:( ( x<t  ^ qx)  ^   Ay:(  x<y<t         -> py))
+        S(p)(q)t =df Ex:( ((x<t) ∧ qx)  ∧   ∀y(((y<t) ∧ (x<y)) → py))
+                     Ex:( ( x<t  ∧ qx)  ∧   ∀y(  x<y<t         → py))
                     some   in the past  &   all   after then &     p
                     time   when q          times  before now
         p is true since (all instants after) q but before t. Or given the
@@ -4213,7 +4371,7 @@ LTL (Linear Time Logic)
 
    Definitions
       Definition of X
-                           X(p)t  =df  Ex:((t<x) ∧ (Ay:((t<y) -> (x<=y)) ∧ px))
+                           X(p)t  =df  Ex:((t<x) ∧ (∀y((t<y) → (x<=y)) ∧ px))
 
       Reflexive Recursive Definition of G
                            G(p)  =df  (p ∧ X(G(p)))
@@ -4224,21 +4382,21 @@ LTL (Linear Time Logic)
                            U(p)(q)  =df  (q ∨ (p ∧ X(U(p)(q))))
    Axioms
       Modal Distribution
-         Alethic:          □(p -> q) -> (□p -> □q)
-         LTL (KG,MDist):   G(p -> q) -> (G(p) -> G(q))
-         LTL (KX,MDist):   X(p -> q) -> (X(p) -> X(q))
+         Alethic:          □ (p → q) → (□ p → □ q)
+         LTL (KG,MDist):   G(p → q) → (G(p) → G(q))
+         LTL (KX,MDist):   X(p → q) → (X(p) → X(q))
 
       Necessitation Rule
-         LTL (NR):         if |- p then A(p)
+         LTL (NR):         if ⊢ p then A(p)
 
       Next Time Functionality Axiom
-                           ¬X(p) <-> X(-p)
+                           -X(p) ↔ X(-p)
 
       Inductive Principle regarding X and G
-                           p ∧ G(p -> (q ∧ X(p))) -> G(p)
+                           p ∧ G(p → (q ∧ X(p))) → G(p)
 
       Principle Regarding Least Fixed Points and Completeness
-                           G((p ∨ (q ∧ X(r))) -> q) -> (U(q)(p) -> r)
+                           G((p ∨ (q ∧ X(r))) → q) → (U(q)(p) → r)
 
 Branching Time
    Branching time deals with the future only.  It deals with the possibility
@@ -4260,7 +4418,7 @@ Ockhamist Branches of Temporal Logic
    temporal logic.
 
    Grammar
-      Often branching temporal logic uses ◇ and □ to denote "there exists
+      Often branching temporal logic uses ◇  and □  to denote "there exists
       some future timeline" and "for all future timelines" respectively.
       So that we don't confuese these with our alethic operators, we'll
       use <*> to denote "there exists some future timeline" and [*] to
@@ -4289,7 +4447,7 @@ Ockhamist Branches of Temporal Logic
 
       Just as any non-quantified symbols in modal logic apply to the
       actual world, symbols without a branching temporal quantifier will
-      apply to the actual future.  So F(p) -> <*>F(p) means that from the
+      apply to the actual future.  So F(p) → <*>F(p) means that from the
       standpoint of the current instant, if at some instant in the future
       p then there is some future timeline such that, at some instant in
       the future, p.  Or simply, the actual future is a possible future.
@@ -4298,10 +4456,15 @@ Ockhamist Branches of Temporal Logic
       immortality.  In every possible future where you die before you get
       to 100, humans will not have achieved immortality when you die, and
       never will in any future timeline.
-         [*](¬U(you live)(you are 100) -> (¬<*>F((you are dead) ∧ (there
+         [*](-U(you live)(you are 100) → (-<*>F((you are dead) ∧ (there
              exists some human)(G(that human will live))))
 
+
+
+
+===========================
 Epistemic & Doxastic Logics
+===========================
    Knowledge is justified true belief.  Epistemic logic is the logic of
    knowledge.  Alethic Modal Logic is about Truth.  Doxastic Logic, the
    logic of belief.
@@ -4312,85 +4475,85 @@ Epistemic & Doxastic Logics
 
    Semantics
       Epistemic Accessibility Relation
-      ER(i)(j)(s)  =df Ap:Aq:((K(s)(p)i ∧ qj) -> ¬((p -> -q) ∨ (q -> -p)))
+      ER(i)(j)(s)  =df Ap:Aq:((K(s)(p)i ∧ qj) → -((p → -q) ∨ (q → -p)))
 
       Doxastic Accessibility Relation
-      DR(i)(j)(s)  =df Ap:Aq:((B(s)(p)i ∧ qj) -> ¬((p -> -q) ∨ (q -> -p)))
+      DR(i)(j)(s)  =df Ap:Aq:((B(s)(p)i ∧ qj) → -((p → -q) ∨ (q → -p)))
 
       agent s believes p in world i
-      B(s)(p)i  =df  Aw:Dr(i)(w)(s) -> pw)   (BelDef in Proofs)
+      B(s)(p)i  =df  Aw:Dr(i)(w)(s) → pw)   (BelDef in Proofs)
 
       agent s knows that p in world i
-      K(s)(p)i  =df  Aw:(ER(i)(w)(s) -> pw)  (KnwDef in Proofs)
+      K(s)(p)i  =df  Aw:(ER(i)(w)(s) → pw)  (KnwDef in Proofs)
 
 Axiom K (Doxastic & Epistemic)
-   Alethic (Axiom K):      □(A -> B) -> (□A -> □B)
-   Deontic (Axiom K):      OB(p -> q) -> (OB(p) -> OB(q))
-   Temporal (Axiom KG):    G(p -> g) -> (G(p) -> G(q))
-   Temporal (Axiom KH):    H(p -> q) -> (H(p) -> H(q))
-   Epistemic (Axiom K):    K(s)(p -> q) -> (K(s)(p) -> K(s)(q))
-   Doxastic (Axiom K):     B(s)(p -> q) -> (B(s)(p) -> B(s)(q))
+   Alethic (Axiom K):      □ (A → B) → (□ A → □ B)
+   Deontic (Axiom K):      OB(p → q) → (OB(p) → OB(q))
+   Temporal (Axiom KG):    G(p → g) → (G(p) → G(q))
+   Temporal (Axiom KH):    H(p → q) → (H(p) → H(q))
+   Epistemic (Axiom K):    K(s)(p → q) → (K(s)(p) → K(s)(q))
+   Doxastic (Axiom K):     B(s)(p → q) → (B(s)(p) → B(s)(q))
 
 Axiom D (Doxastic & Epistemic)
-   Alethic (Axiom D):      □A -> ◇A
-   Deontic (Axiom D):      OB(p) -> PE(p)
-   Temporal (No End):      G(p) -> F(p)
-   Temporal (No Begin):    H(p) -> P(p)
-   Epistemic (Axiom D):    K(s)(p) -> ¬K(s)(-p)
-   Doxastic (Axiom D):     B(s)(p) -> ¬B(s)(-p)
-            The ¬K(s)(¬P) is akin to ¬◇¬P, but Epist,Doxas don't have
+   Alethic (Axiom D):      □ A → ◇ A
+   Deontic (Axiom D):      OB(p) → PE(p)
+   Temporal (No End):      G(p) → F(p)
+   Temporal (No Begin):    H(p) → P(p)
+   Epistemic (Axiom D):    K(s)(p) → -K(s)(-p)
+   Doxastic (Axiom D):     B(s)(p) → -B(s)(-p)
+            The -K(s)(-P) is akin to -◇ -P, but Epist,Doxas don't have
             a weak operator.
 
 Axiom T (Doxastic & Epistemic)
-   Alethic (Axtiom T):     □A -> A
-   Deontic (Axiom T):      OB(p) -> p
-   Temporal (Axiom TG):    G(p) -> p
-   Temporal (Axiom TH):    H(p) -> p
-   Epistemic (Axiom T):    K(s)(p) -> p
-   Doxastic (Axiom T):     B(s)(p) -> p
+   Alethic (Axtiom T):     □ A → A
+   Deontic (Axiom T):      OB(p) → p
+   Temporal (Axiom TG):    G(p) → p
+   Temporal (Axiom TH):    H(p) → p
+   Epistemic (Axiom T):    K(s)(p) → p
+   Doxastic (Axiom T):     B(s)(p) → p
 
-   Alethic:                A -> ◇A
-   Deontic:                p -> PE(p)
-   Temporal:               p -> F(p)
-   Temporal:               p -> P(p)
+   Alethic:                A → ◇ A
+   Deontic:                p → PE(p)
+   Temporal:               p → F(p)
+   Temporal:               p → P(p)
 
 Axiom 4 (Doxastic & Epistemic)
-   Alethic (4):            □A -> □□A
-   Temporal (4):           G(p) -> G(G(p))
-   Epistemic (4):          K(s)(p) -> K(s)(K(s)(p))
-   Doxastic (4):           B(s)(p) -> B(s)(B(s)(p))
+   Alethic (4):            □ A → □ □ A
+   Temporal (4):           G(p) → G(G(p))
+   Epistemic (4):          K(s)(p) → K(s)(K(s)(p))
+   Doxastic (4):           B(s)(p) → B(s)(B(s)(p))
 
 Axiom 5 (Doxastic & Epistemic)
-   Alethic (5):            ◇A -> □◇A
-   Epistemic (5):          ¬K(s)(p) -> K(s)(¬K(s)(p))
-   Doxastic (5):           ¬B(s)(p) -> B(s)(¬B(s)(p))
+   Alethic (5):            ◇ A → □ ◇ A
+   Epistemic (5):          -K(s)(p) → K(s)(-K(s)(p))
+   Doxastic (5):           -B(s)(p) → B(s)(-B(s)(p))
       These are too strong.
 
    Corollary
-      Epistemic:           K(s)(p) ∨ K(s)(¬K(s)(p))
-      Doxastic:            B(s)(p) ∨ B(s)(¬B(s)(p))
+      Epistemic:           K(s)(p) ∨ K(s)(-K(s)(p))
+      Doxastic:            B(s)(p) ∨ B(s)(-B(s)(p))
 
 Axiom 4.2 (Doxastic & Epistemic)
-   Epistemic (4.2):        ¬K(s)(¬K(s)(p)) -> K(s)(¬K(s)(-p))
-   Doxastic (4.2):         ¬B(s)(¬B(s)(p)) -> B(s)(¬B(s)(-p))
+   Epistemic (4.2):        -K(s)(-K(s)(p)) → K(s)(-K(s)(-p))
+   Doxastic (4.2):         -B(s)(-B(s)(p)) → B(s)(-B(s)(-p))
       These are too strong.
 
    Corollary
-      Epistemic:           K(s)(¬K(s)(p)) ∨ K(s)(¬K(s)(-p))
-      Doxastic:            B(s)(¬B(s)(p)) ∨ B(s)(¬B(s)(¬P))
+      Epistemic:           K(s)(-K(s)(p)) ∨ K(s)(-K(s)(-p))
+      Doxastic:            B(s)(-B(s)(p)) ∨ B(s)(-B(s)(-P))
 
 Axiom 4.3 (Doxastic & Epistemic)
-   Epistemic (4.3):        K(s)(K(s)(p) -> K(s)(q)) ∨ K(s)(K(s)(q) -> K(s)(p))
-   Doxastic (4.3):         B(s)(B(s)(p) -> B(s)(q)) ∨ B(s)(B(s)(q) -> B(s)(p))
+   Epistemic (4.3):        K(s)(K(s)(p) → K(s)(q)) ∨ K(s)(K(s)(q) → K(s)(p))
+   Doxastic (4.3):         B(s)(B(s)(p) → B(s)(q)) ∨ B(s)(B(s)(q) → B(s)(p))
       These are too strong.
 
    Corollary
-      Epistemic:           K(s)(¬K(s)(p) ∨ K(s)(q)) ∨ K(s)(¬K(s)(q) ∨ K(s)(p))
-      Doxastic:            B(s)(¬B(s)(p) ∨ B(s)(q)) ∨ B(s)(¬B(s)(q) ∨ B(s)(p))
+      Epistemic:           K(s)(-K(s)(p) ∨ K(s)(q)) ∨ K(s)(-K(s)(q) ∨ K(s)(p))
+      Doxastic:            B(s)(-B(s)(p) ∨ B(s)(q)) ∨ B(s)(-B(s)(q) ∨ B(s)(p))
 
 Axiom 4.4 (Doxastic & Epistemic)
-   Epistemic (4.4):        p -> (¬K(s)(¬K(s)(p)) -> K(s)(p))
-   Doxastic (4.4):         p -> (¬B(s)(¬B(s)(p)) -> B(s)(p))
+   Epistemic (4.4):        p → (-K(s)(-K(s)(p)) → K(s)(p))
+   Doxastic (4.4):         p → (-B(s)(-B(s)(p)) → B(s)(p))
       These are too strong.
 
 
@@ -4418,11 +4581,11 @@ Q     Y    C    C    Y    C
 
 Are Obligations Eternal?
 
-   Ap:(OB(p) -> A(OB(p)))
+   Ap:(OB(p) → A(OB(p)))
 
 If not, are any obligations eternal?
 
-   Ep:(OB(p) -> A(Ob(p)))
+   Ep:(OB(p) → A(Ob(p)))
 
 Agential Deontic Logic
    Definitions
@@ -4433,9 +4596,9 @@ Agential Deontic Logic
       PV(p),  someone is passive in regards to, p
 
       RO(p)  =df  BA(-p)
-      NR(p)  =df  ¬BA(-p)
-      NB(p)  =df  ¬BA(p)
-      PV(p)  =df  ¬BA(p) ∧ BA(-p)
+      NR(p)  =df  -BA(-p)
+      NB(p)  =df  -BA(p)
+      PV(p)  =df  -BA(p) ∧ BA(-p)
 
    Square of Opposition
       BA        RO
@@ -4444,12 +4607,14 @@ Agential Deontic Logic
       NR        NB
 
    Axioms
-      Axiom T:             BA(p) -> p
-      Conjunction Axiom:   BA(p ∧ q) -> (BA(p) ∧ BA(q))
-      Tautology Axiom:     ¬BA( TAUT )
+      Axiom T:             BA(p) → p
+      Conjunction Axiom:   BA(p ∧ q) → (BA(p) ∧ BA(q))
+      Tautology Axiom:     -BA( TAUT )
 
    OB(BA(p))
-   ¬OB(BA(p))
+   -OB(BA(p))
+
+
 
 
 
@@ -4460,53 +4625,53 @@ Primitive   1. N (names) is a type
 Types
             2. S (sentences) is a type      
 
-Derivative  3. if X and Y are types, then (X -> Y) (functors)
+Derivative  3. if X and Y are types, then (X → Y) (functors)
 Types
 
             4. if X and Y are types, then (X X Y)  (products)
                                # This carrot ∧ is pointing to a cross
 
-          The (X -> Y) expression above isnt' an if then statement.
+          The (X → Y) expression above isnt' an if then statement.
 
 A functor is a kind of function, see here:
 
    A functor       combines  phrases    to     a phrase
    of type           with    of type  produce  of type
    --------------  --------  -------  -------  --------
-   (X -> Y)                     X                  Y
+   (X → Y)                     X                  Y
 
-   ((X X Y) -> Z)            X and Y               Z
+   ((X X Y) → Z)            X and Y               Z
 
 Examples of Derivative-Types
-   N -> N  (1-place operator)
-   S -> S  (1-place operator)
-   N -> S  (1-place predicator)
-   S -> N  (1-place disconnecotr)
+   N → N  (1-place operator)
+   S → S  (1-place operator)
+   N → S  (1-place predicator)
+   S → N  (1-place disconnecotr)
 
-So for example the N -> N operator is something like adding Dr in front of
-So for example the N -> N operator is something like adding Dr in front of
-So for example the N -> N operator is something like adding Dr in front of
+So for example the N → N operator is something like adding Dr in front of
+So for example the N → N operator is something like adding Dr in front of
+So for example the N → N operator is something like adding Dr in front of
 a person's name resulting in another name.  The second one takes a sentence,
 adds something resulting in a new sentence, etc.
 
 More examples
-So for example the N -> N operator is something like adding Dr in front of
+So for example the N → N operator is something like adding Dr in front of
 a person's name resulting in another name.  The second one takes a sentence,
 adds something resulting in a new sentence, etc.
 
 More examples
-   (N X N) -> N  (2-place operator)   <-- takes two names, outputs a name
-   (S X S) -> S  (2-place operator)
-   (N X N) -> S  (2-place predicator)
-   (S X S) -> N  (2-place subnector)
+   (N X N) → N  (2-place operator)   <-- takes two names, outputs a name
+   (S X S) → S  (2-place operator)
+   (N X N) → S  (2-place predicator)
+   (S X S) → N  (2-place subnector)
 
-   N -> (N -> S)                 transitive verb    (2 place verb)
-   N -> (N -> (N -> S))          di-transitive verb (3 place verb)
-   N -> (N -> (N -> (N -> S)))   tri-transitive verb ...
+   N → (N → S)                 transitive verb    (2 place verb)
+   N → (N → (N → S))          di-transitive verb (3 place verb)
+   N → (N → (N → (N → S)))   tri-transitive verb ...
    etc.
 
-   N -> S                1st Order Predicate
-   (N -> S) -> S         2nd Order Predicate
-   ((N -> S) -> S) -> S  3rd Order Predicate
+   N → S                1st Order Predicate
+   (N → S) → S         2nd Order Predicate
+   ((N → S) → S) → S  3rd Order Predicate
    etc.
 

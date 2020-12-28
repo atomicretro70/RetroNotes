@@ -24,7 +24,7 @@
 ######                                                                  ######
 ######                     AtomicRetro@outlook.com                      ######
 ######                                                                  ######
-######                     Revision:  20.10.05                          ######
+######                     Revision:  20.12.26                          ######
 ######                                                                  ######
 ######                                                                  ######
 ######                                                                  ######
@@ -79,19 +79,18 @@ Contents
    Inference: The Distribution Test
 
 
+=======
+Preface
+=======
+
+   Who this book is for
+   Organization of the book
+   Contributions & Book Updates
+
+
 ============
 Introduction
 ============
-
-   At its core logic is about *meaning*.  Yes it's about argumentation and
-   inference, but none of that can happen without meaning.  Logic studies
-   those systems whose meaning can be defined with mathematical prcision.
-   It's only through this deep level of understanding of meaning that one
-   can have certainty in logical relationships of statements and parts of
-   statements.  "Propositional Logic", the logic of truth-functions requires
-   an understanding of valuations and how truth-functions operate upon them.
-   Aristotelian and Predicate Logic require models in set theory.  Modal
-   logics requires relationships between possible worlds.
 
 
 -----------------------
@@ -100,11 +99,11 @@ Preliminary Definitions
 
    TRUTH-VALUE
 
-      Any member of the set { true, false }.
+      any member of the set { true, false }.
 
    PROPOSITION
 
-      The concept that a true or false statement denotes; many different
+      the concept that a true or false statement denotes; many different
       statements can denote the same proposition. 
 
    ARGUMENT
@@ -119,23 +118,23 @@ Preliminary Definitions
 
    DEDUCTIVE ARGUMENT
 
-      An argument whose conclusion cannot be false when all the premises
+      an argument whose conclusion cannot be false when all the premises
       are true.
 
    VALID ARGUMENT
 
-      A deductive argument which is genuinely deductive in the sense
+      a deductive argument which is genuinely deductive in the sense
       defined above.
 
    INVALID ARGUMENT
 
-      An INVALID ARGUMENT is an argument claimed to be deductive but contains
+      an INVALID ARGUMENT is an argument claimed to be deductive but contains
       reasoning errors, or missing premises, or incorrect applications of
       inference rules, and so on; any argument that is not really deductive.
 
    COUNTEREXAMPLE
 
-      A clearly invalid argument having the same structure as an argument
+      a clearly invalid argument having the same structure as an argument
       claimed to be valid.
 
 
@@ -209,10 +208,205 @@ Alternative Notation
 Semantics
 ---------
 
-   The meanings of each of the eight forms seem intuitive.  However, there
-   are many nuances that if not understood can lead to invalid arguments.
-   So, we need to define some notions more precisely before we can construct
-   good arguments.
+Translation Hints
+=================
+
+   The following translations should server as illustrations from English to
+   Standard Form
+
+
+   Noun-less Predicates Terms
+      English    No dogs are nocturnal.
+      Standard   No dog is a nocturnal animals.
+
+      English    Some cars are fast.
+      Standard   Some car is a fast cars.
+
+      English    All athletes are healthy.
+      English    All athletes is healthy people.
+
+   Singular Terms
+      English    Boo did not catch the ball.
+      Standard   All dogs identical to Boo is dogs who didn't catch the ball.
+
+      English    Tweety bird sang a song.
+      Standard   All birds identical to Tweety bird is birds who sang a song.
+
+      English    I love olives.
+      Standard   All persons identical to myself is persons who love olives.
+
+   Other Verbs
+      English    All puppies love to play.
+      Standard   All puppies is dogs who love to play.
+
+      English    No cats fly.
+      Standard   No cats is animals that fly.
+
+      English    Some animals migrate with the seasons.
+      Standard   Some animals is animals that migrate with the seasons.
+
+      English    Some churchgoers don't believe in gods.
+      Standard   Some churchgoers is people who don't believe in gods.
+
+   Other Explicit Quantifiers
+      English    He glitters when he walks.
+      Standard   All times he walks are times when he glitters.
+
+      English    Not all birds are swimmers.
+      Standard   Some birds are animals that don't swim.
+
+      English    Sarah sometimes doesn't study.
+      Standard   Sometimes is times Sarah doesn't study.
+
+      English    Whoever works hard will succeed.
+      Standard   All who work hard is persons who will succeed.
+
+      English    There are places in the universe light can't escape.
+      Standard   Some places in the universe is places light can't escape.
+
+      English    Not one drop of water is ice.
+      Standard   No drops of water is ice.
+
+      English    Judges always wear robes in court.
+      Standard   All times judges go to work is times they wear robes
+
+      English    Not many storms include hail.
+      Standard   Some storms are not storms that include hail.
+
+      English    Any number divisible by two is even.
+      Standard   All numbers divisible by two is even numbers.
+
+      English    All cats can't fly.
+      Standard   No cat is cats who can fly.
+
+      English    All teens aren't rebellious.
+      Standard   Some teens is not rebellious people.
+
+   Implicit Quantifiers
+      English    Grapes are vine fruits.
+      Standard   All grapes is fruits that grow on vines.
+
+      English    A fisherman fishes.
+      Standard   Some fishermen is people who fish.
+
+      English    An apple tree is deciduous.
+      Standard   All apple trees is deciduous trees.
+
+      English    There are dust devils on Mars.
+      Standard   Some dust devils are dust devils on Mars.
+
+      English    Fish are not mammals.
+      Standard   No fish is mammals.
+
+      English    Bears we spotted in the next town over.
+      Standard   Some bears are animals spotted in the next town over.
+
+   Conditional Statements
+      English    If it's a cat, then it's a mammal.
+      Standard   All cats is mammals.
+
+      English    If it's a fish, then it's not a mammal.
+      Standard   No fish are mammals.
+
+      English    It's not a cat, provided it's not a mammal.
+      Standard   All cats is mammals.
+
+      English    If an animal has feathers, then it's not a cat.
+      Standard   No animal with feathers is a cat.
+
+      English    If it produces milk, then it's not a mammal.
+      Standard   No milk-producing animal is non-mammal. 
+
+      English    Boat sinkings result in coral reefs.
+      Standard   All boat sinkings are things that result in coral reefs.
+
+      English    Being caviar is sufficient for it to be expensive.
+      Standard   All foods that's caviar is expensive food.
+      
+      English    A glass will shatter if it falls to the ground.
+      Standard   All glasses that fall to the ground are things that shatter.
+
+   'only', 'the only', 'none but', 'none except', 'exclusively'
+      English    Only teachers attended the meeting.
+      Standard   All people who attended the meeting is teachers.
+
+      English    None but store patrons are allowed to use the parking lot.
+      Standard   All persons allowed to use the parking lot is store patrons.
+
+      English    No one except computers can calculate that quickly.
+      Standard   All things that calculate that quickly is computers.
+
+      English    Those seats are exclusively for VIPs.
+      Standard   All VIPs is people who use those seats.
+
+      English    Grass is the only thing that will grow here.
+      Standard   All things that will grow here is grass.
+
+      English    The only pieces in this museum are paintings.
+      Standard   All pieces in this museum is paintings.
+
+      English    Termites are the only pests who did all this destruction.
+      Standard   All pests who did all this damage is termites.
+
+   'all but', 'all except', 'except'
+      English    All but the immunocompromised ought receive the vaccine.
+      Standard   All non-immunocompromised persons ought to receive the
+                 vaccine and no immunocompromised persons is persons who
+                 ought receive the vaccine.
+
+      English    Except for peanut products, she can eat anything.
+      Standard   All non-peanut products are things she can eat and,
+                 no peanut products is things that she can eat.
+
+Translations from Aristotelian Logic
+====================================
+
+   Studying translations *from* AL can provide valuable insight.
+
+   A Form Propositions
+      The following are all ways to say, "All S is P."
+         Every (each, any) S is P.
+         Whoever is S is P.
+         S's are P's.
+         Those who are S are P.
+         If a person is S, then he or she is P.
+         If you are S, then you are P.
+         No one is S unless he or she is P.
+         No one is S without being P.
+         A thing isn't S unless it's B.
+         It's false that some S is not P.
+
+      Some forms reverse the terms:
+         Only P's are S's.
+         None but P's are S's.
+
+   E Form Propositions
+      The following are all ways to say, "No S is P."
+         A's aren't B's.
+         Every (each, any) A is non-B.
+         Whoever is A isn't B.
+         If a person is A, then he or she isn't B.
+         If you're A, then you aren't B.
+         No one that's A is B.
+         There isn't a single A that's B.
+         Not any A is B.
+         It's false that there's an A that's B.
+         It's false that some A is B.
+
+   I Form Propositions
+      The following are all ways to say, "Some S is P."
+         S's are sometimes P's.
+         One or more S's are P's.
+         There are S's that are P's.
+         It's false that no S is P.
+
+   O Form Propositions
+      The following are all ways to say, "Some S is not P."
+         One or more S's aren't P's.
+         There are S's that aren't P's.
+         Not all S's are P's.
+         It's false that all S is P.
+
 
 Quality and Quantity
 ====================
@@ -223,17 +417,15 @@ Quality and Quantity
    QUANTIFIER 'all' and 'no', the PARTICULAR QUANTIFIER 'some', or the
    SINGULAR QUANTIFIER (no quantifying word present).
 
-   Tradition holds that the designations (A,E,I,O) come from the vowels
-   in the Latin words affirmo (affirmative), and nego (negative).
-
 Terms
 =====
 
    CATEGORICAL TERMS are symbolized by capital letters and denote
-   categories, groups or sets of objects.
+   categories, groups or sets of objects.  E.g. the set of all cats, or
+   the set of all counting numbers, etc.
 
    SINGULAR TERMS are represented by lower case letters and denote
-   individual persons or objects.
+   individual persons or objects.  E.g. Sally, that book on the table, etc.
 
    In any of the standard form propositions, the first term is called the
    SUBJECT TERM; while the second term is the PREDICATE TERM.
@@ -256,29 +448,28 @@ Distribution
 
    Memory Aid:  Universals distribute subjects, negatives distribute
    predicates.  Notice that this means that 'No' (being both universal
-   and negative) distributes both.
+   and negative) distributes both terms of an E form.
 
 Existential Import
 ==================
 
    EXISTENTIAL IMPORT (EI) is the presumption that the *subject* term
-   of a standard form proposition has at least one member.
+   of a standard form proposition actually has at least one member.
 
 INTERPRETATIONS
 ===============
 
-   There are multiple INTERPRETATIONS of the proposition forms.  These
-   interpretations vary in which forms they assign EI to.  The two most
-   widely used interpretations are described next.
+   There are multiple INTERPRETATIONS (ways to read) the proposition forms.
+   These interpretations vary only in which forms they assign EI to.  The two
+   most widely used interpretations are described next.
 
    Traditional Interpretation
 
-   Under the TRADITIONAL INTERPRETATION, EI is assigned to all forms, but
-   that subject terms of universals only have EI if a member actually exists.
+   Under the TRADITIONAL INTERPRETATION, EI is assigned to all forms.
    However, the universals are conditional upon the subject terms actually
-   existing (* indicates distributed terms).  This can cause problems when
-   the subject term is empty, so the EI assigned to the universals is taken
-   as a PRESUMPTION OF EXISTENTIAL IMPORT.
+   existing.  This can cause problems when the subject term is empty,
+   so universals under the traditional interpretation PRESUME EXISTENTIAL
+   IMPORT (* indicates distributed terms).
 
                                      Quality  
                      +------------------+-----------------------+
@@ -292,14 +483,14 @@ INTERPRETATIONS
       t |            |     s is y.      |     x is not *y.      | < ExistImp
       y +------------+------------------+-----------------------+
 
-   Modern Interpretation (introduced by George Boole)
-
       Example
 
-      All dogs are mammals.    Implies dogs exist.
-      No cats are dogs.        Implies cat's exist.
+         All dogs are mammals.    Implies dogs exist.
+         No cats are dogs.        Implies cat's exist.
 
-   Under the MODERN INTERPRETATION EI is denied only to the universals.
+   Modern Interpretation (introduced by George Boole)
+
+   Under the MODERN INTERPRETATION EI is denied to the universals.
 
                                      Quality  
                      +------------------+-----------------------+
@@ -315,11 +506,11 @@ INTERPRETATIONS
 
       Example:  Under the Modern Interpretation the I form says,
 
-      Some C is M.   Claims some cat (who happens to be a mammal) exists.
+         Some C is M.   Claims some cat exists.
 
    A forms lack EI, making no claim that any subject term exists.
 
-      All C is M.    Only claims that if cats exist, then they're mammals.
+         All C is M.    Only claims that if cats exist, then they're mammals.
 
    This can lead to some surprising results.  One would expect the following
    argument to be valid, but while it is under the traditional interpretation
@@ -336,10 +527,10 @@ INTERPRETATIONS
 Venn Diagrams
 =============
 
-   VENN DIAGRAMS are visual tool useful for analyzing the semantics of
-   Aristotelian propositions and inferences.
+   VENN DIAGRAMS are visual tool consisting of overlapping circles useful for
+   analyzing the semantics of Aristotelian propositions and inferences.
 
-   There are two kinds of Venn diagrams we will be studying: two-term diagrams,
+   There are two kinds of Venn diagrams we will study: two-term diagrams,
    and three-term diagrams.  They look like the below.
 
    Each rectangle represents an Aristotelian term.  The entire diagram
@@ -361,17 +552,17 @@ Venn Diagrams
                                            |           |P
                                            +-----------+
 
+Standard Forms
+--------------
 
-   We use Venn diagrams by placing various marks in the various regions.  A
-   shaded region denotes that it has no members, while an X denotes at least
-   one member in the region.  An (X) denotes that we are *presuming* that a
+   We use Venn diagrams by placing marks in the various regions.  A shaded
+   region denotes that it has no members, while an X denotes at least one
+   member in the region.  An (X) denotes that we are *presuming* that a
    region has at least one member.  This mark is only used for universals
    under the traditional interpretation.  Finally, a region left unmarked
    denotes we know nothing about that region.  In most cases, we will
    be laying out diagrams for the modern and traditional interpretations
    side-by-side.
-
-   Standard Forms
 
          Modern Interpretation        Traditional Interpretation
 
@@ -421,18 +612,20 @@ Venn Diagrams
               |       |P                   |       |P
               +-------+                    +-------+
 
-   "It's false that..."
+"It's false that..."
+--------------------
 
-    The rules for representing standard form propositions prefixed with,
+    The rules for representing a standard form proposition R prefixed with,
     'It's false that' are straight forward:
 
-      1.   Construct a Venn diagram as if there were no 'It's false that'.
+      1.  Construct a Venn diagram for R.
 
-      2.   Begin a second blank diagram.
+      2.  Begin a second blank diagram for 'It's false that, R'.
 
-      3.   Referring back to the first diagram, in any subject term region:
-           swap 'X' with shading '/' and vice-versa;
-           swap '(X)' with unmarked ' ' and vice-versa.
+      3.  In the second diagram by referring back to the first, add marks such
+          that for any subject term region:
+               swap 'X'   with '/' (shading)  and vice-versa;
+               swap '(X)' with ' ' (unmarked) and vice-versa.
 
       Modern Interpretation        Traditional Interpretation
 
@@ -522,7 +715,8 @@ Venn Diagrams
               |       |P                   |       |P
               +-------+                    +-------+
 
-   Complemented Terms
+Complemented Terms
+------------------
 
       A COMPLEMENTED TERM is a term prefixed by 'non-'.  A Complement denotes
       areas outside the term's rectangle.  It is sometimes easier to think
@@ -696,12 +890,16 @@ Venn Diagrams
               |     X |P                   |     X |P
               +-------+                    +-------+
 
-   Testing Arguments for Validity
+Testing Arguments for Validity
+==============================
 
-      Venn diagrams can test an argument's validity.  The process is: under
-      each interpretation mark the diagram according to the premises just as
-      we did above, and if valid, we should be able to read the conclusion
-      from the marked diagram without making additional marks.
+Single Premise Arguments
+------------------------
+
+   Venn diagrams can test an argument's validity.  The process is: under
+   each interpretation mark the diagram according to the premises just as
+   we did above, and if valid, we should be able to read the conclusion
+   from the marked diagram without making additional marks.
 
       Modern Interpretation        Traditional Interpretation
 
@@ -787,38 +985,38 @@ Venn Diagrams
               +-------+                    +-------+
           Valid                        Valid
 
-   Arguments with Two Premises
+Two-Premise Arguments
+---------------------
 
-      A SYLLOGISM is a deductive argument in AL that has two premises, one
-      conclusion, and three terms among them.  No two of the statements
-      should contain the same two terms.  Each of the conclusion's terms
-      should appear in exactly one premise.  The third term is called the
-      MIDDLE TERM (which
-      we will be denoting 'M') appears once in each of the two premises.
+   A SYLLOGISM is a deductive argument in AL that has two premises, one
+   conclusion, and three terms among them.  No two of the statements should
+   contain the same two terms.  Each of the conclusion's terms should appear
+   in exactly one premise.  The third term is called the MIDDLE TERM (which
+   we will denote 'M') appears once in each of the two premises.
 
-      The process of validation is similar to before; on the diagram, mark
-      the premises.  If the argument is valid, the conclusion can be read
-      off the diagram without making additional marks.  The marking process,
-      however, is more complicated.
+   The process of validation is similar to before; on the diagram, mark
+   the premises.  If the argument is valid, the conclusion can be read
+   off the diagram without making additional marks.  The marking process,
+   however, is more complicated.
 
-      1.  Mark universal premises, then mark particulars.
+   1.  Mark universal premises, then mark particulars.
 
-      2.  When shading the if rectangle for the unmentioned term bisects
-          the mentioned area, both sides of the bisection must be shaded.
+   2.  When shading if the region for the mark is divided shade all
+       divided regions.
 
-      3.  The area in which an X goes is always bisected; place the X in
-          any of the two bisected areas if it is unshaded.
+   3.  If the area in which an 'X' goes is bisected; place an 'X' in both
+       regions.
 
-      If the conclusion displays on the completed diagram, it is valid under
-      both interpretations.  If it is invalid, we can still test to see
-      if it is valid under the traditional interpretation.
+   If the conclusion displays on the completed diagram, it is valid under
+   both interpretations.  If it is invalid, we can still test to see
+   if it is valid under the traditional interpretation.
 
-      4.  If there is a rectangle that's completely shaded '/' except for one
-          region, place a '(X)' in that region.
+   4.  If there is a rectangle that's completely shaded '/' except for one
+       region, place a '(X)' in that region.
 
-      If the conclusion displays on the modified diagram *and* the region
-      marked '(X)' actually contains one member in the real world, the form
-      is valid under the traditional interpretation.
+   If the conclusion displays on the modified diagram *and* the region
+   marked '(X)' actually contains one member in the real world, the form
+   is valid under the traditional interpretation.
 
       Example
 
@@ -1195,205 +1393,6 @@ Venn Diagrams
               +-----------+                +-----------+
           Invalid                      Invalid
 
-Translation Hints
-=================
-
-   The following translations should server as illustrations from English to
-   Standard Form
-
-
-   Noun-less Predicates Terms
-      English    No dogs are nocturnal.
-      Standard   No dog is a nocturnal animals.
-
-      English    Some cars are fast.
-      Standard   Some car is a fast cars.
-
-      English    All athletes are healthy.
-      English    All athletes is healthy people.
-
-   Singular Terms
-      English    Boo did not catch the ball.
-      Standard   All dogs identical to Boo is dogs who didn't catch the ball.
-
-      English    Tweety bird sang a song.
-      Standard   All birds identical to Tweety bird is birds who sang a song.
-
-      English    I love olives.
-      Standard   All persons identical to myself is persons who love olives.
-
-   Other Verbs
-      English    All puppies love to play.
-      Standard   All puppies is dogs who love to play.
-
-      English    No cats fly.
-      Standard   No cats is animals that fly.
-
-      English    Some animals migrate with the seasons.
-      Standard   Some animals is animals that migrate with the seasons.
-
-      English    Some churchgoers don't believe in gods.
-      Standard   Some churchgoers is people who don't believe in gods.
-
-   Other Explicit Quantifiers
-      English    He glitters when he walks.
-      Standard   All times he walks are times when he glitters.
-
-      English    Not all birds are swimmers.
-      Standard   Some birds are animals that don't swim.
-
-      English    Sarah sometimes doesn't study.
-      Standard   Sometimes is times Sarah doesn't study.
-
-      English    Whoever works hard will succeed.
-      Standard   All who work hard is persons who will succeed.
-
-      English    There are places in the universe light can't escape.
-      Standard   Some places in the universe is places light can't escape.
-
-      English    Not one drop of water is ice.
-      Standard   No drops of water is ice.
-
-      English    Judges always wear robes in court.
-      Standard   All times judges go to work is times they wear robes
-
-      English    Not many storms include hail.
-      Standard   Some storms are not storms that include hail.
-
-      English    Any number divisible by two is even.
-      Standard   All numbers divisible by two is even numbers.
-
-      English    All cats can't fly.
-      Standard   No cat is cats who can fly.
-
-      English    All teens aren't rebellious.
-      Standard   Some teens is not rebellious people.
-
-   Implicit Quantifiers
-      English    Grapes are vine fruits.
-      Standard   All grapes is fruits that grow on vines.
-
-      English    A fisherman fishes.
-      Standard   Some fishermen is people who fish.
-
-      English    An apple tree is deciduous.
-      Standard   All apple trees is deciduous trees.
-
-      English    There are dust devils on Mars.
-      Standard   Some dust devils are dust devils on Mars.
-
-      English    Fish are not mammals.
-      Standard   No fish is mammals.
-
-      English    Bears we spotted in the next town over.
-      Standard   Some bears are animals spotted in the next town over.
-
-   Conditional Statements
-      English    If it's a cat, then it's a mammal.
-      Standard   All cats is mammals.
-
-      English    If it's a fish, then it's not a mammal.
-      Standard   No fish are mammals.
-
-      English    It's not a cat, provided it's not a mammal.
-      Standard   All cats is mammals.
-
-      English    If an animal has feathers, then it's not a cat.
-      Standard   No animal with feathers is a cat.
-
-      English    If it produces milk, then it's not a mammal.
-      Standard   No milk-producing animal is non-mammal. 
-
-      English    Boat sinkings result in coral reefs.
-      Standard   All boat sinkings are things that result in coral reefs.
-
-      English    Being caviar is sufficient for it to be expensive.
-      Standard   All foods that's caviar is expensive food.
-      
-      English    A glass will shatter if it falls to the ground.
-      Standard   All glasses that fall to the ground are things that shatter.
-
-   'only', 'the only', 'none but', 'none except', 'exclusively'
-      English    Only teachers attended the meeting.
-      Standard   All people who attended the meeting is teachers.
-
-      English    None but store patrons are allowed to use the parking lot.
-      Standard   All persons allowed to use the parking lot is store patrons.
-
-      English    No one except computers can calculate that quickly.
-      Standard   All things that calculate that quickly is computers.
-
-      English    Those seats are exclusively for VIPs.
-      Standard   All VIPs is people who use those seats.
-
-      English    Grass is the only thing that will grow here.
-      Standard   All things that will grow here is grass.
-
-      English    The only pieces in this museum are paintings.
-      Standard   All pieces in this museum is paintings.
-
-      English    Termites are the only pests who did all this destruction.
-      Standard   All pests who did all this damage is termites.
-
-   'all but', 'all except', 'except'
-      English    All but the immunocompromised ought receive the vaccine.
-      Standard   All non-immunocompromised persons ought to receive the
-                 vaccine and no immunocompromised persons is persons who
-                 ought receive the vaccine.
-
-      English    Except for peanut products, she can eat anything.
-      Standard   All non-peanut products are things she can eat and,
-                 no peanut products is things that she can eat.
-
-Translations from Aristotelian Logic
-====================================
-
-   Studying translations *from* AL can provide valuable insight.
-
-   A Form Propositions
-      The following are all ways to say, "All S is P."
-         Every (each, any) S is P.
-         Whoever is S is P.
-         S's are P's.
-         Those who are S are P.
-         If a person is S, then he or she is P.
-         If you are S, then you are P.
-         No one is S unless he or she is P.
-         No one is S without being P.
-         A thing isn't S unless it's B.
-         It's false that some S is not P.
-
-      Some forms reverse the terms:
-         Only P's are S's.
-         None but P's are S's.
-
-   E Form Propositions
-      The following are all ways to say, "No S is P."
-         A's aren't B's.
-         Every (each, any) A is non-B.
-         Whoever is A isn't B.
-         If a person is A, then he or she isn't B.
-         If you're A, then you aren't B.
-         No one that's A is B.
-         There isn't a single A that's B.
-         Not any A is B.
-         It's false that there's an A that's B.
-         It's false that some A is B.
-
-   I Form Propositions
-      The following are all ways to say, "Some S is P."
-         S's are sometimes P's.
-         One or more S's are P's.
-         There are S's that are P's.
-         It's false that no S is P.
-
-   O Form Propositions
-      The following are all ways to say, "Some S is not P."
-         One or more S's aren't P's.
-         There are S's that aren't P's.
-         Not all S's are P's.
-         It's false that all S is P.
-
 
 ------------------------------
 Inference: Immediate Inference
@@ -1463,8 +1462,7 @@ The Square of Opposition
           +---+---+   |                +---+---+   |
               |       |P                   |       |P
               +-------+                    +-------+
-
-         3.  QED
+          Valid                        Valid
 
          -----------------------------------------------------
 
@@ -1481,7 +1479,6 @@ The Square of Opposition
           +---+---+   |                +---+---+   |
               |       |P                   |       |P
               +-------+                    +-------+
-          Invalid                      Valid
 
          2.  From, it's false that some S is not P, prove, some S is P.
 
@@ -1493,8 +1490,6 @@ The Square of Opposition
               |       |P                   |       |P
               +-------+                    +-------+
           Invalid                      Valid
-
-         3.  QED
 
       Example Using The Square
 
@@ -1513,7 +1508,8 @@ The Square of Opposition
 Transformation Inferences
 =========================
 
-   CONVERSION (E, I Forms Only)
+CONVERSION (E, I Forms Only)
+----------------------------
 
       Conversions infer conclusions with the same truth value as the
       premise.
@@ -1538,7 +1534,8 @@ Transformation Inferences
            +-------+                    +-------+
       valid in both interps        valid in both interps
 
-   OBVERSION (A, E, I, O Forms)
+OBVERSION (A, E, I, O Forms)
+----------------------------
 
       Obversions infer conclusions with the same truth value as the
       premise.
@@ -1576,7 +1573,8 @@ Transformation Inferences
            +-------+                    +-------+
        Valid in both interps        valid in both interps
 
-   CONTRAPOSITION (A, O Forms Only)
+CONTRAPOSITION (A, O Forms Only)
+--------------------------------
 
       Contrapositives infer conclusions with the same truth value as the
       premise.
@@ -1629,8 +1627,8 @@ A syllogism is deductive a argument having two premises and one conclusion.
 Standard Form Categorical Syllogism
 ===================================
 
-   A CATEGORICAL SYLLOGISM is a deductive argument in AL consisting of two
-   premises, one conclusion, and three terms, each being an A,E,I or O form.
+   A CATEGORICAL SYLLOGISM is a deductive argument in AL consisting of three
+   categorical statements, two of which are premises.
 
    Categorical syllogisms have one term occurring once in each premise
    called the MIDDLE TERM.  The other two terms occur in the conclusion.
@@ -1660,23 +1658,22 @@ Standard Form Categorical Syllogism
       Conclusion         S   P       S   P       S   P       S   P
       =============     ========    ========    ========    ========
 
-   Each standard form categorical syllogism is designated as follows:
+   Each standard form categorical syllogism is uniquely designated as follows:
 
          <figure> - <mood>
 
-      Examples
+   Examples
 
-      1-AAA           2-OEI                3-EAI            4-AEI
+         1-AAA           2-OEI                3-EAI            4-AEI
  
-      All M is P.     Some P is not M.     No M is P.       All P is M.
-      All S is M.     No S is M.           All M is S.      No M is S.
-    ∴ All S is P.   ∴ Some S is P.       ∴ Some S is P.   ∴ Some S is P.
+         All M is P.     Some P is not M.     No M is P.       All P is M.
+         All S is M.     No S is M.           All M is S.      No M is S.
+       ∴ All S is P.   ∴ Some S is P.       ∴ Some S is P.   ∴ Some S is P.
 
 Syllogistic Inference By Form
-============================
+=============================
 
-   The following 15 forms are valid under both interpretations (rows are
-   insignificant; just four alphabetical lists).
+   The following 15 syllogism forms are valid under both interpretations.
 
       ========    ========    ========    ========
       Figure-1    Figure-2    Figure-3    Figure-4
@@ -1714,20 +1711,20 @@ Syllogistic Inference By Rules
    The following rules are sufficient to determine if a syllogism is valid.
 
    Distribution Rules
-   1.   The middle term must be distributed exactly once.
+   1.  The middle term must be distributed exactly once.
 
-   2.   A term distributed in the conclusion must be distributed in the
-        premise.
+   2.  A term distributed in the conclusion must be distributed in the
+       premise.
 
    Quality Rules
-   3.   Two negative premises is invalid.
+   3.  Two negative premises is invalid.
 
-   4.   If a premise is negative, the conclusion must be negative; if the
-        conclusion is negative, one premise must be negative.
+   4.  If a premise is negative, the conclusion must be negative; if the
+       conclusion is negative, one premise must be negative.
 
    Modern Rules (Modern Interpretation Only)
-   5.   A particular conclusion cannot be inferred from two universal
-        premises.
+   5.  A particular conclusion cannot be inferred from two universal
+       premises.
 
 Reducing Terms
 ==============
@@ -1756,19 +1753,18 @@ Inference: Enthymemes
 Inference: Sorites
 ------------------
 
-
    A SORITES (Greek for 'heap') is a list of categorical syllogisms where
    the intermediate conclusions are omitted.  It's actually quite like
    having multiple enthymemes where just the conclusions are missing.
 
       @@@example from Hurley, p 307.
-         All bloodhounds are dogs.
-         All dogs are mammals.
-         No fish are mammals.
-       ∴ No fish are bloodhounds.
+         All houses are buildings
+         All buildings are man-made
+         No tulips are man-made
+       ∴ No tulips are houses.
 
    Here we can see that the first two premises have the conclusion that
-   all tradesmen are tradespersons.  Now take that as a premise along with
+   all houses are man-made.  Now take that as a premise along with
    the third premise above, and we get the stated conclusion.  The
    intermediate arguments are testable with Venn diagrams.
 
@@ -1779,9 +1775,9 @@ Inference: The Distribution Test
 
    @@@ This section cannot be allowed in any public distribution
    This test is a remarkably simple way to determine if any AL inference
-   is valid.  It is quite a recent discovery by Gensler.  It works
-   for any categorical argument with any number of premises, including
-   sorites, provided each proposition is one of the eight standard forms.
+   is valid.  It is quite a recent discovery by Gensler.  It works for any
+   AL argument with any number of premises, including sorites, provided each
+   proposition is one of the eight standard forms.
 
    Procedure
    1.  Mark all distributed terms in every premise.
