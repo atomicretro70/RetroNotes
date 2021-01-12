@@ -93,7 +93,7 @@ CONTENTS
 Preface
 =======
 
-   I wrote this book for anyone who needs a reference in logic.
+   I wrote these books for anyone who needs a reference in logic.
    The concepts are presented concisely but clearly with all necessary
    detail.  Nevertheless, the information density is higher than would
    be found in a textbook.
@@ -444,7 +444,7 @@ Language
 
    LEXEME
 
-      the smallest semantic unit of a language, often called words
+      the smallest semantic unit of a language, often called a word
 
    FORMAL LANGUAGE
 
@@ -1514,7 +1514,7 @@ Primitive Inference Rules
 
    Conditional Introduction (→ I)    From a subproof with hypothesis Φ
       Conditional Proof (CP)         and ending Ψ, close the subproof,
-                                     then infer Ψ → Φ.
+                                     then infer Φ → Ψ.
 
    Biconditional Elimination (↔ E)   From Φ ↔ Ψ, infer Φ → Ψ,
                                      or infer Ψ → Φ.
@@ -1526,9 +1526,9 @@ Primitive Inference Rules
                                      infer Θ(Φ/Ψ).
    ================================  =========================================
 
-   Diagrams are another way to describe these rules.  The horizontal line
-   denotes 'infer', and the vertical line denotes a subproof.  Some rules
-   have multiple forms.
+   These rules are sometimes represented in diagrams.  Horizontal lines
+   denote 'infer', vertical lines denotes subproofs.  Some rules have
+   multiple forms.
 
       +-------------------------------+-------------------------------+
       | ============================= | ============================= |

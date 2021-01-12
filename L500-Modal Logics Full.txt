@@ -65,6 +65,8 @@ Contents
       Inferrential Systems
       Non-Hisorical Modal Systems
       Kripke Semantics
+      Leibnizian Semantics (World Theory)
+      System L
       Modal Truth-Trees
       Fitch Natural Deduction
    Deontic Modal Logic
@@ -467,6 +469,7 @@ Negation Derivations
    08.   Q              3-7 -I
    QED
 
+
 Conditional Derivations
 -----------------------
 
@@ -481,6 +484,7 @@ Conditional Derivations
    07.   |   ⊥          5,6 EFQ
    08.   -P             3-7 -I
    QED
+
 
 Conjunction Derivations
 -----------------------
@@ -517,6 +521,7 @@ Conjunction Derivations
    08.   -(P → -Q)      3-7 -I
    09.   P ∧ Q          8 Def ∧
    QED
+
 
 Disjunction Derivations
 -----------------------
@@ -567,6 +572,7 @@ Disjunction Derivations
    10.   |   ⊥                  5,9 →E
    11.   Q ∨ P                  3-10 -I
    QED
+
 
 Biconditional Derivations
 -------------------------
@@ -888,8 +894,7 @@ Alethic Inferential Systems
    - System M is commonly used.
    - A consequence of System M is □ (P → ◇ P)
 
-   Composition of Systems
-
+   Combinations
    5    = 4 + B
 
    System D  = System K + D
@@ -937,8 +942,8 @@ Non-Historical Modal Systems
    A G-System axiom is any axiom achieved by exponentiating the modal
    operators in the formula G as follows
 
-                           j   k       m   n
-         G(j,k,m,n)  =df  ◇   □   P → □   ◇  P
+                       j   k       m   n
+      G(j,k,m,n)      ◇   □   P → □   ◇  P
 
    The exponents work as expected in that they simply name the number of
    occurrences of the base symbol.
@@ -966,6 +971,435 @@ Non-Historical Modal Systems
    System X2
        K           □ (P → Q) → (□ P → □ Q)
        G(2,1,2,1)  ◇ ◇ □ P → □ □ ◇ P
+
+===================================
+Leibnizian Semantics (World Theory)
+===================================
+
+Notation
+   World Index Notation
+   [P/i]  =df  P (is true) at/in world i. (where i is any positive integer)
+
+Leibniz Proposed,
+   to be necessary is to be true in/at every possible world
+Which we might write semi-formally as,
+   Principle L:  □ P  ↔  ∀i(World(i) → [P/i])
+   or,           □ P  ↔  ∀i[P/i]
+
+Multiple □ 
+   for A string of boxes    □ ...□ P ↔ □ P
+
+   □ □ P ↔ □ P   is a theorem in Leibniz' system
+
+Axioms of Leibnizian Semantics/World Theory
+   wt(0)     P            ↔  P/0
+   wt(-)     [-P/i]       ↔  -[P/i]
+   wt(→)     [(P → Q)/i]  ↔  ([P/i] → [Q/i])
+   wt(∧)     [(P ∧ Q)/i]  ↔  ([P/i] ∧ [Q/i])
+   wt(V)     [(P ∨ Q)/i]  ↔  ([P/i] ∨ [Q/i])
+   wt(↔)     [(P ↔ Q)/i]  ↔  ([P/i] ↔ [Q/i])
+   wt(□ )    [□ P/i]      ↔  ∀j[P/j]
+   Wt(◇ )    [◇ P/i]      ↔  ∃j[P/j]
+   wt(∀)     [∀xP/i]      ↔  ∀x[P/i]
+   wt(∃)     [∃xP/i]      ↔  ∃x[P/i]
+   wt(/)     [[P/i]/j]    ↔  [P/i]
+
+Theorems
+   t1:     □ P → P
+   t2:     □ (P → Q) → (□ P → □ Q)
+   t3:     -◇ P ↔ □ -P
+   t4:     -□ P ↔ ◇ -P
+   t5:     □ P ↔ □ □ P
+   t6:     ∀i∀j([□ P/i] → [□ P/j])
+   t7:     ∀i∀j([◇ P/i] → [◇ P/j])
+
+
+==============================
+System L (Purely Modal System)
+==============================
+
+System L is a purely modal logic which corresponds closely to World Theory.
+'/i' denotes 'at world i'.   No index, or i=0 indicates the current world.
+
+   +----------------------+----------------------+
+   | ==================== | ==================== |
+   | ->E                  | ∨ E                  |
+   | ==================== | ==================== |
+   |   A → C     /i       |   A ∨ B     /i       |
+   |   A         /i       |   -A        /i       |
+   |  -------             |  -------             |
+   |   C         /i       |   B         /i       |
+   |                      |                      |
+   | ==================== | ==================== |
+   | CD                   | ID                   |
+   | ==================== | ==================== |
+   | | A         /i       | | A         /i       |
+   | | ...                | | ...                |
+   | | C         /i       | | ⊥         /i       |
+   | ------               | ---------            |
+   | A → C       /i       | -A          /i       |
+   |                      |                      |
+   | ==================== | ==================== |
+   | ⊥ E                  | ⊥ I                  |
+   | ==================== | ==================== |
+   |   ⊥         /i       |   P         /i       |
+   |  ----                |   -P        /i       |
+   |   P         /j       |  -----               |
+   |                      |   ⊥         /j       |
+   |                      |                      |
+   | ==================== |                      |
+   | ⊥ R (Repetition)     |                      |
+   | ==================== |                      |
+   |   ⊥         /i       |                      |
+   |  ----                |                      |
+   |   ⊥         /j       |                      |
+   |                      |                      |
+   | ==================== | ==================== |
+   |  □ E                 | □ D (Derivation)     |
+   | ==================== | ==================== |
+   |   □ P       /i       | |□          /i       |
+   |  -----               | | ...                |
+   |   P         /j       | | P         /k (new) |
+   |                      | -------              |
+   |                      |  □ P        /i       |
+   |                      |                      |
+   | ==================== | ==================== |
+   | ◇ E                  | ◇ I                  |
+   | ==================== | ==================== |
+   | ◇ P         /i       |  P          /i       |
+   | ----                 | ---                  |
+   | P           /j (new) | ◇ P         /j       |
+   |                      |                      |
+   | ==================== | ==================== |
+   | MN (Modal Negation)  | MN (Modal Negation)  |
+   | ==================== | ==================== |
+   | - □ P                | - ◇ P                |
+   | ------               | ------               |
+   | ◇ - P                | □ - P                |
+   |                      |                      |
+   | ==================== | ==================== |
+   | - □ E                | - ◇ E                |
+   | ==================== | ==================== |
+   | - □ P       /i       | - ◇ P       /i       |
+   | ------               | ------               |
+   | - P         /k (new) | - P         /j       |
+   |                      |                      |
+   | ==================== | ==================== |
+   | Def -<               | Def >-<              |
+   | ==================== | ==================== |
+   |  P -< Q              | P >-< Q              |
+   | ----------           | --------             |
+   | □ (P → Q)            | □ (P <-> Q)          |
+
+
+
+  
+
+
+
+Proposition world index notation
+
+    P/i      =df  P is true in world i.
+                  where i is 0,1,2...
+
+Counter-Models in System L
+--------------------------
+   Here we develop a system to prove a sequent invalid.
+
+   General Ideas about Invalidity (definitions)
+
+   d1.   Let L be a formal language.
+         'a *valuation* on L'
+            =df  a function that assigns truth-value to every formula in L
+
+   d2.   Let L be a formal language.
+         'a *truth-value* semantics of L'
+            =df  a set ∨ of valuations on L.  The set ∨ is the set of
+                 admissible valuations for that semantics.
+
+   d3.   Let L and ∨ be as before.  Let P1,...,Pn ⊢ C be an argument
+         in L.  Then P1,...,Pn ⊢ C is '*valid* relative to ∨'
+            iff there is no v in ∨ such that
+                v(p1)=v(P2)=...=v(Pn)=T and v(C) = F.
+
+   d4.   Let L,V and P1,...,Pn ⊢ C be as before.  Let v be a valuation
+         in V. Then v is
+         'v is a *counter-model* to P1,...,Pn ⊢ C'
+            ↔  v(P1)=v(P2)=...v(pn)=T and v(C)=F
+
+   Valuations in TFL
+
+   d5.   Let L be TFL.  Let v be a valuation on L.  
+         'v is admissible'
+            =df  v satisfies the following conditions
+
+         1.  v(-P)    = T    iff   v(P) = F
+         2.  v(P ∧ Q) = T    iff   v(P) = T and v(Q) = T
+         3.  v(P ∨ Q) = T    iff   v(P) = T and/or v(Q) = T
+         4.  v(P → Q) = T    iff   v(P) = F or v(Q) = T
+         5.  v(P ↔ Q) = T    iff   v(P) = v(Q)
+
+   Valuations in Indexed TF Logic
+
+   d6.   Let L be TFL, S the set of wffs in L,
+             I be a non-empty set of indices,
+             v be a function from (S X I = (TFL + Indices)) into {F,T}.
+         'v is an *admissible I-valuation* on L'
+            =df  it satisfies the following conditions for every
+                 element i of I (where we write v(P/i))
+
+         1.  v(-P/i)    = T  iff   v(P/i) = F
+         2.  v(P∧Q/i)   = T  iff   v(P/i) = T and v(Q/i) = T
+         3.  v(PVQ/i)   = T  iff   v(P/i) = T and/or v(Q/i) = T
+         4.  v(P → Q/i) = T  iff   v(P/i) = F or v(Q/i) = F
+         5.  v(P ↔ Q/i) = T  iff   v(P/i) = v(Q/i)
+
+   d7.   Let L,S,and I be as in d6; let v be a valuation on S.
+         'v is an *admissible valuation* on L'
+            =df  There is an admissible I-indexed valuation w, and index i,
+                 such that for any P in S, v(P)=w(P/i).
+
+   These conditions can be made somewhat more intuitive by rewritting them
+   in accordance with the following definitions.
+
+   d8.   'P is true at i according to v'   =df  'v(P/i)=T'
+
+   d9.   'P is false at i according to v'  =df  'v(P/i)=F'
+
+   If the valuation is understood, then we drop the expression
+   'according to v'.  This allows us to employ the following abbrevs.
+
+      T/i  =df  true at i according to v
+      F/i  =df  false at i according to v
+
+   Rewrite the semantic conditions (d6) as follows.  Note also that we
+   abbrev, since we don't refer to truth-valuse, we use 'T' instead of
+   'True', and 'F' instead of 'False'
+
+         1.  -P is T/i    = T  iff   P is F/i
+         2.  P ∧ Q is T/i = T  iff   P is T/i and Q is T/i
+         3.  P V Q is T/i = T  iff   P is T/i and/or Q is T/i
+         4.  P → Q is T/i = T  iff   P is F/i or Q is F/i)
+         5.  P ↔ Q is T/i = T  iff   A,B are T/i or A,B are F/i
+
+   Notice that these closely parallel the axioms of World Theory that
+   pertain to the TF operators.  To show the parallel, one first notes
+   that 'P is F/i' is equivalent to 'it is not the case that A is T/i'.
+
+   Valuations in System L
+
+   This system builds on top of TFL.  Here we redefin the valuation function
+   to accomodate System L, starting with d6 and adding four more rules
+   as below
+
+   d10.  Let L be System L (Modal TFL), S the set of wffs in L,
+             I be a non-empty set of indices,
+             v be, an I-indexed valutaion on L is by definition a function
+             from (S X I = (Modal TFL + Indices)) into {F,T} subject to the
+             following conditions on every element i of I.
+
+         1. v(-P/i)    = T   iff   v(P/i) = F
+         2. v(P∧Q/i)   = T   iff   v(P/i) = T and v(Q/i) = T
+         3. v(PVQ/i)   = T   iff   v(P/i) = T and/or v(Q/i) = T
+         4. v(P→ Q/i)  = T   iff   v(P/i) = F or v(Q/i) = F
+         5. v(P ↔ Q/i) = T   iff   v(P/i) = v(Q/i)
+         6. v(□ P/i)   = T   iff   v(P/j) = T, for every j in I
+         7. v(◇ P/i)   = T   iff   v(P/j) = T, for at least one j in I
+         8. v(P-<Q/i)  = T   iff   v(P/j) = F or v(Q/i) = F, for every j in I
+         9. v(P>-<Q/i) = T   iff   v(P/j) = v(Q/j), for every j in I
+
+   d11.  Let L,S be as before, P1,...,Pn ⊢ C can be an argument in L.  Then
+         a counter-model to P1,...,Pn ⊢ C is any indexed valuation v on L
+         and index i such that
+            v(P1/i)=v(P2/i)=...=v(Pn/i)=T, and v(C/i)=F
+
+Counter Models in System L
+
+   We do this using the reverse truth-table method.  If we use suspect P is
+   an invalid argument form, so we want to construct a counter-model to it,
+   which means that we need to find an indexed-valuation that makes the
+   premises true and the conclusion false.
+
+   1.  Start by writing the sequent, in a column to the left write 0 for
+       indexical world 0 (the actual world).  We can add indices for worlds
+       by adding rows with the index under the first column.
+       Hint: spacing things out a little can decrease confunsion & errors
+
+   2.  Under the conclusion's primary operator write F (for false), and
+       under each premise's primary operator write T (for true).
+
+   So now you can start to see what we're doing:  setting each premise to
+   true, and the conclusion to false; which is the definition of an invalid
+   argument.
+
+   3.  Work the connectives backwards to how you normally work truth-tables.
+       Some values will have to be ? (unknown).
+
+   Example
+      Let's evaluate □ (P ∨ Q) ⊢ (□ P ∨ □ Q)
+
+      1. Write it out.
+
+            □  ( P ∨ Q ) ⊢ ( □  P ∨ □  Q )
+         0 
+
+      2. Write F under conclusion & 3 write T under each premise.
+
+            □  ( P ∨ Q ) ⊢ ( □  P ∨ □  Q )
+         0  T                     F
+
+      3. Next we apply the truth conditions to index 0 wherever we can.
+         First, since □ (P ∨ Q) is T/0, (P ∨ Q) is T/0.  Since (□ P ∨ □ Q)
+         is F/0, □ P is F/0, and □ Q is F/0.
+
+            □  ( P ∨ Q ) ⊢ ( □  P ∨ □  Q )
+         0  T      T         F    F F
+
+      4. Next since □ P is F/p, P must be F at *some* index.  So we 'create'
+         a new index, labeled '1', at which P is F.  Similarly, □ Q is F/0,
+         so Q must be F at some index.  We create a new index '2', at which
+         Q is F.  Notice if a wff occurs twice on a line, its truth-value is
+         written twice.
+
+            □  ( P ∨ Q ) ⊢ ( □  P ∨ □  Q )
+         0  T      T         F    F F
+         1       F              F
+         2           F                 F
+
+      5. But since □ (P ∨ Q) is T/0, (P ∨ Q) must be T/1 and T/2. The former
+         is necessary so T in all world indices.
+
+            □  ( P ∨ Q ) ⊢ ( □  P ∨ □  Q )
+         0  T      T         F    F F
+         1       F T            F
+         2         T F                 F
+
+      6. Applying the truth-function for ∨.
+
+            □  ( P ∨ Q ) ⊢ ( □  P ∨ □  Q )
+         0  T      T         F    F F
+         1       F T T          F      T
+         2       T T F          T      F
+
+      7. That the table can be completed in a manner that is consistent with
+         the semantic rules.   Here's one way to do this.
+   
+            □  ( P ∨ Q ) ⊢ ( □  P ∨ □  Q )
+         0  T    T T F       F  T F F  F
+         1  T    F T T       F  F F T  T
+         2  T    T T F       F  T F F  F
+
+      8. By way of concluding this section, we observe that the above table
+         can be replaced by a smaller one that consolidates indices 0 and 2.
+
+            □  ( P ∨ Q ) ⊢ ( □  P ∨ □  Q )
+         0  T    T T F       F  T F F  F
+         1  T    F T T       F  F F T  T
+
+         From the first paragraph of this section: "...we need to find an
+         indexed-valuation that makes the premises true and the conclusion
+         false.  We've succeeded in doing this and we actually found two
+         valuations on which the sequent is invalid.
+
+Rules for Constructing Counter-Models in L
+
+   Reminder:  The TF rules of indexed TFL
+   (presented shorly after d9 - definition 9 - above)
+
+         1. -P is T/i    = T   iff   P is F/i
+         2. P ∧ Q is T/i = T   iff   P is T/i and Q is T/i
+         3. P V Q is T/i = T   iff   P is T/i and/or Q is T/i
+         4. P → Q is T/i = T   iff   P is F/i or Q is F/i)
+         5. P ↔ Q is T/i = T   iff   P,Q are T/i or P,Q are F/i
+
+   Modal Rules
+
+      ◇ E:  If ◇ P is T/i, then P is T/j (new index).
+
+            See this?         Do this:
+
+                 ◇ P               ◇ P
+            i    T            i    T
+                              j      T    <- create new world index j
+
+      □ E:  If □ P is T/i, then P is T/j (j is any index accessible to i).
+            This discharges a rule at ever existing accessible world.
+
+            See this?         Do this:
+
+                 □ P               □  P
+            i    T            i    T
+                              j       T    <- any existing world j
+                                              accessible to i
+
+      -□ E: If □ P is F/i, then P is F/j (new index).
+
+            See this?         Do this:
+
+                 □ P               □  P
+            i    F            i    F
+                              j       F    <- create new world index j
+
+       -◇ E: If ◇ P is F/i, then P is F/j (j is any index accessible to i).
+            This discharges a rule at ever existing accessible world.
+
+            See this?         Do this:
+
+                 ◇ P               ◇  P
+            i    F            i    F
+                              j    F  F    <- any existing world j
+                                              accessible to i
+
+Strict Operator Rules
+
+From the following definitions for the strict operators, we can expand any
+strict operator to a modal-conditional wff.  Then continue analyzing
+accordingly.
+
+   (P -< Q)   =df  □ (P → Q)     (called 'strict conditional')
+   (P >-< Q)  =df  □ (P ↔ Q)     (called 'strict biconditional')
+
+Relation Between Derivations & Counter-Models in System L
+
+   Notice that the rules in the last section for constructing counter-models
+   are identical to the rules for constructing derivations.  Consider our
+   earlier example.
+
+      □ (P ∨ Q) ⊢ (□ P ∨ □ Q)
+
+   Let's construct a partial derivation.  Notice we go immediately into an
+   indirection derivation.   This corresponds to the first step in
+   construcing a counter-model.
+
+      01.   □ (P ∨ Q)              /0    Pr
+      02.   ~: (□ P ∨ □ Q)          /0    ID
+      03.      ~(□ P ∨ □ Q)         /0    As
+      04.      ~: ⊥               /*
+      05.         -□ P             /0    3 SL
+      06.         -□ Q             /0    3 SL
+      07.         (P ∨ Q)         /0    1 □ E
+      08.         -P              /1    5 -□ E
+      09.         -Q              /2    6 -□ E
+      10.         (P ∨ Q)         /1    1 □ E
+      11.         (P ∨ Q)         /2    1 □ E
+      12.         P               /1    8,10 DS
+      13.         Q               /2    9,11 DS
+
+   We've discharged all the rules.  Since we haven't reached a contradiction
+   the argument is invalid.
+
+   The partial derivation above provides a blueprint fro constructing a
+   counter-model to the argument.  According to the blueprint, there are
+   three indices: 0,1,2; furthermore,
+
+      (P ∨ Q) is T/0       line 7
+      P is T/1             line 12
+      Q is F/1             line 9
+      P is F/2             line 8
+      Q is T/2             line 13
+
+   Any truth assignment to P and Q at 0 consistent with this completes
+   the counter-model.
 
 
 ================
@@ -1011,12 +1445,12 @@ Kripke Semantics
 
    Kinds of Accessibility Relations
 
+   serial              Ser(R)    =df ∀x∃yxRy
    Reflexive           Ref(R)    =df ∀x(∃y(xRy ∨ yRx) → xRx)
-   Completely Reflex   CRef(R)   =df ∀x(xRx)
+   Completely Reflex   C-Ref(R)  =df ∀x(xRx)
+   Irreflexive         Irref(R)  =df -∃x(xRx)
    Transitive          Trans(R)  =df ∀x∀y∀z((xRy ∧ yRz) → xRz)
    Symmetric           Sym(R)    =df ∀x∀y(xRy → yRx)
-   serial              Ser(R)    =df ∀x∃yxRy
-   Irreflexive         Irref(R)  =df -∃x(xRx)
    Euclidean           Euc(R)    =df ∀x∀y∀z((xRy ∧ xR) → yRz)
    Incestual           Incest(R) =df ∀x∀y∀z((xRy ∧ xRz) → ∃w(yRw ∧ zRw))
    Asymmetric          Asym(R)   =df ∀x∀y(xRy → -(yRx))
@@ -1041,6 +1475,95 @@ Kripke Semantics
    Bounded             Bound(R)  =df UBound(R) ∧ LBound(R)
    Dense               Dense(R)  =df ∀x∀z((xRz ∧ -x=z)
                                          → ∃y(-x=y ∧ -y=z ∧ xRy ∧ yRz))
+
+K-Model
+
+   A K-model is a triple <W,R,a>, where
+
+   - W is a set of different contexts of evaluations, w,v,u,w',... These
+     might be different possible worlds, or moments of time, or states
+     of belief (depending upon the modality).
+
+   - R is a relation (the accessibility relation) defined over the members
+     of W.  We write wRv to mean that this relation holds between w and v
+     (or that v is accessible from w).
+
+   - a is a function, definable in terms of W and R that assigns exactly
+     one member of the set {T,F} to each wff of modal truth-functional logic
+     for each member of W.  Subject to further restrictions.
+
+K-Model Truth Assignment
+
+   aw(A) is the name of the truth-value that a assigns to A for world w.
+
+   To count as a K-model, the a of a given model must obey the following
+   restrictions for each world w in W:
+
+      For any atomic formula P, aw(P)=T or F depending on the nature of w.
+
+         aw(⊥) = F
+
+
+                        | T   if aw(P)=F or aw(Q)=T
+         aw(P → Q)   = -+
+                        | F   otherwise
+
+
+      Combined with our definitions for the remaining TF operators yields,
+
+
+                        | T   if aw(P) = F
+         aw(-P)      = -+
+                        | F   if aw(P) = T
+
+
+                        | T   if aw(P) = T and aw(B) = T
+         aw(P ∧ Q)   = -+
+                        | F   otherwise
+
+
+                        | T   if aw(P) = T or aw(B) = T
+         aw(P ∨ Q)   = -+
+                        | F   otherwise
+
+
+                        | T   if aw(P) = aw(Q)
+         aw(P ↔ Q)   = -+
+                        | F   otherwise
+
+
+      Lastly the modal operators
+
+
+                        | T   if av(P) = T for every v in W such that wRv
+         aw(□ P)     = -+
+                        | F   otherwise
+
+
+                        | T   if av(P) = T for some v in W such that wRv
+         aw(◇ P)     = -+
+                        | F   otherwise
+
+
+K-Model Definitions
+
+   An argument P1, P2, ..., Pn ⊢ C is K-VALID iff there is no K-model,
+   <W,R,a>, and world w in W, for which aw(P1)=T and aw(P2)=T and ... and
+   aw(Pn)=T, but aw(C)=T.
+
+   An argument P1, P2, ..., Pn ⊢ C is said to have a K-COUNTEREXAMPLE
+   iff there exists a K-model <W,R,a> and world w in W, for which
+   aw(P1)=T and aw(P2)=T and ... and aw(Pn)=T, but as aw(C)=F.
+
+   A statement P is K-VALID iff for every K-model <W,R,a> and world
+   w in W, for which aw(P)=T.
+
+   K-SATISFIABILITY, K-EQUIVALENCE, etc. can be defined similarly.
+
+   We write P1, P2, ..., Pn |=K C to mean that the argument
+   P1, P2, ..., Pn ⊢ C is K-valid.
+
+   We write |=K P to assert that the wff P is K-VALID (K-logically true).
 
 -----------------
 Modal Truth-Trees
@@ -1089,7 +1612,7 @@ Modal Truth-Trees
            |         |   P   |         |         |  ...  |         |
            |         +-------+         |         +-------+         |
            |                           |                           |
-           | ========================= | ========================= |          
+           | ========================= | ========================= |           
            |          ◇ Rule           |         -◇ Rule           |
            | ========================= | ========================= |
            |         +-------+w        |         +-------+w        |
@@ -1332,20 +1855,17 @@ Soundness & Completeness
    shouldn't be able to derive.
 
 
----------------------------
-Natural Deduction (□ Based)
----------------------------
-
-   Modal inference can be carried out by a set of natural deduction inference
-   rules instead of the typical axiom schemata.  Here are two such systems.
+-----------------------
+Fitch Natural Deduction
+-----------------------
 
 System K
 ========
    
    System K can alternatively be defined in Fitch thus:
 
-      A BOXED SUBPROOF is a subproof that begins with □ instead of
-      a hypothesis.  Informally, the □  header indicates that every line in
+      A BOXED SUBPROOF is a subproof with no hypothesis but rather simply the
+      operator □ .  Informally, the □  header indicates that every line in
       the subproof is shown to be necessarily true.
 
       We can't bring statements into boxed subproofs using Reit.
@@ -1359,6 +1879,8 @@ System K
       The Distribution axiom above is a theorem in this system.
 
       Using boxed subproofs it's possible to derive □ P for any tautology P.
+
+
 
    This modal calculus is constructed upon alethic modal logic above.  We will
    modify two inference rules and add two new ones.
@@ -1394,8 +1916,6 @@ System K
       |  -------    -------           |  ---    ---------             |
       |   |   P      |□               |   P      |   ...   Subproof   |
       |                               |          |   P     not boxed  |
-      |  P is a                       |                               |
-      |  hypothesis                   |                               |
       |                               |                               |
       | ============================= | ============================= |
       |  □ E                          |  □ I                          |
@@ -1408,481 +1928,417 @@ System K
       |                               |                               |
       +-------------------------------+-------------------------------+
 
-Beyond System K
+Genzler Modal Calculus
+----------------------
+Genzler calculus is unable to model system K.  The simplest Gensler model
+is system T/M.
 
-   We can add the usual axiom schimata to obtain the remaining systems
-   B,S4, S5, ...
+Galactic Travel (a rewording of the accessibility relation)
 
-Proofs
-------
+   World Prefixes (Indexes)
+      Gensler uses the concept of World Prefixes. These are strings of the
+      form 'Wn', where n is some integer and the entire string is the name of
+      some possible world.
 
-   Modal Distribution (MDist)  ⊢K  □ (P → Q) → (□ P → □ Q)
-   Proof
-   01.   |   □ (P → Q)               A
-   02.   |   |   □ P                 H (for → I)
-   03.   |   |   □ (P → Q)           1 RE
-   04.   |   |   |□                  H (for □ I
-   05.   |   |   |   P               2 □ E
-   06.   |   |   |   P → Q           3 □ E
-   07.   |   |   |   Q               5,6 → E
-   08.   |   |   □ Q                 4-7 □ I
-   09.   |   □ P → □ Q               2-8 → I
-   10.   □ (P → Q) → (□ P → □ Q)     1-9 → I
-   QED
+      Use 'W0' for the actual world.
 
-      ⊢K  □ (P → (Q → P))
-   Proof
-   01.   |□                          H (for □ I)
-   02.   |   |   P                   H (for → I)
-   03.   |   |   |   Q               H (for → I)
-   04.   |   |   |   P               2 RE
-   05.   |   |   Q → P               3-4 → I
-   06.   |   P → (Q → P)             2-5 → I
-   07.   □ (P → (Q → P))             1-6 □ I
-   QED
+   Travel Tickets
+      Travel Tickets are just a more intuitive notion to grasp than the
+      accessiblity relation.  However, the concepts are actually identical
+      and therefore interchangeable.  Gensler uses the concept of a travel
+      ticket written, 'Wn=>Wm' to indicate that we have a ticket to travel
+      from one world 'Wn' to another world 'Wm'.
 
-      Rule of Necessitation (NEC)   if ⊢K P then ⊢K □ P
-      Modal Distribution (MDist)    ⊢K □ (P → Q) → (□ P → □ Q)
+   The ◇ E inference rule
+      According to Gensler the inference rule for ◇ Elim is simple and
+      uncontroversial.  From ◇ P at world i, we use ◇ Elim to enter any new
+      (previously unvisited) world, and so we obtain P at world j.  In other
+      words we can "drop diamond" into a new world index.  So, if we start
+      with ◇ P at world 0, we can ◇ E producing P at world 1.
 
-      These two rules are equivalent to: □ I and □ E.
+      ◇ E also gives us a travel ticket W0=>W1.
 
-   -◇    -◇ P  ⊢K  □ -P
-   Proof
-   01.   -◇ P                        A
-   02.   --□ -P                      1 DEF◇ 
-   03.   □ -P                        2 -E
-   QED
+      Travel tickets are then by □ E to drop into worlds.  The particular
+      system determines how we are allowed to use travel tickets to perform
+      □ E
 
-   -□    -□ P  ⊢K  ◇ -P
-   Proof
-   01.   -□ P                        A
-   02.   |   □ --P                   H (-E)
-   03.   |   |□                      H (for □ I)
-   04.   |   |   --P                 2 □ E
-   05.   |   |   P                   4 -E
-   06.   |   □ P                     3-5 □ I
-   07.   |   -□ P                    1 RE
-   08.   |   ⊥                       6,7 EFQ
-   09.   --◇ -P                      2-8 -I
-   10.   ◇ -P                        9 -E
-   QED
+   Systems
 
-   ◇ DIST   ⊢K  □ (P → Q) → (◇ P → ◇ Q)
-   Proof
-   01.   |   □ (P → Q)               A
-   02.   |   |   □ -Q                H (for → I)
-   03.   |   |   □ (P → Q)           1 RE
-   04.   |   |   |□                  H (for □ I)
-   05.   |   |   |   -Q              2 □ E
-   06.   |   |   |   P → Q           3 □ E
-   07.   |   |   |   -P              5,6 MT
-   08.   |   |   □ -P                4-7 □ I
-   09.   |   □ -Q → □ -P             2-8 → I
-   10.   |   -□ -P → -□ -Q           9 TRANS
-   11.   |   ◇ P → ◇ Q               10 DEF ◇ 
-   12.   □ (P → Q) → (◇ P → ◇ Q)     1-11 → I
-   QED
-
-   ◇ E     ◇ P, (□  (P ⊢ Q))  ⊢K  ◇ Q
-   Schematic Proof
-   i.   ◇ P
-   j.   |□                           H (for □ I)
-   k.   |   |   P                    H (for → I)
-   ...
-   l.   |   |   Q
-   l+1. |   P → Q                    k-l → I
-   l+2. □ (P → Q)                    j-l+1 □ I
-   l+3. □ (P → Q) → (◇ P → ◇ Q)      ◇ DIST
-   l+4. ◇ P → ◇ Q                    l+2,l+3 → E
-   l+5. ◇ Q                          i,l+4 → E
-   QED
-
-   This proof form is very common, so it's worth while to introduce further
-   abbreviation, with a WORLD-SUBPROOF.  In such a case we introduce a boxed
-   subproof and a wff in one step.
-
-      (□ ,P ⊢K ... )
-   Schematic Proof
-   i.   |□ ,P
-   ...
-   j.   |
-   QED
-
-   We shall generalize further.
-
-      (A,B,C ⊢K D)  ⊢K  A → (B → (C → D))
-   Schematic Proof
-   i.   |   A,B,C
-   ...
-   j.   |   D
-   j+1. A → (B → (C → D))            i-j →I
-   QED
-
-   Schematic Proof
-   i.   |   P
-   j.   |   |   Q
-   k.   |   |   |   R
-   ...
-   l.   |   |   |   S
-   l+1. |   |   R → S                k-l →I
-   l+2. |   Q → (R → S)              j-l+1 →I
-   l+3  P → (Q → (R → S))            i-l+2 →I
-   QED
-
-   Alternatively, the hypotheses can be placed on separate lines so they can be
-   easily cited in later steps.
-
-   Schematic Proof
-   i.   |   P
-   i+1. |   Q
-   i+2. |   R
-   ...
-   j.   |   S
-   j+1. P → (Q → (R → S))         i-j+1 →I
-   QED
-
-   ◇ &Dist  ⊢K  ◇ (P ∧ Q) → (◇ P ∧ ◇ Q)
-   Proof
-   01.   |   ◇ (P ∧ Q)                H (for ◇ E)
-   02.   |   |□ ,P ∧ Q                H (for □ I)
-   03.   |   |   P                   2 ∧E
-   04.   |   ◇ P                      1,2-3 ◇ I
-   05.   |   |□ ,P ∧ Q                H (for □ I)
-   06.   |   |   Q                   5 ∧E
-   07.   |   ◇ Q                      5-6 ◇ I
-   08.   |   ◇ P ∧ ◇ Q                 4,7 ∧I
-   09.   ◇ (P ∧ Q) → (◇ P ∧ ◇ Q)       1-8 →I
-   QED
-
-      ⊢K   (□ P ∧ ◇ Q) → ◇ (P ∧ Q)
-   Proof
-   01.   |   □ P ∧ ◇ Q                 H (for →I)
-   02.   |   □ P                      1 ∧E
-   03.   |   ◇ Q                      1 ∧E
-   04.   |   |□ ,Q                    H (for ◇ E)
-   05.   |   |   P                   2 □ E
-   06.   |   |   P ∧ Q               4,5 ∧I
-   07.   |   ◇ (P ∧ Q)                3,4-6 ◇ E
-   08.   (□ P ∧ ◇ Q) → ◇ (P ∧ Q)       1-7 →I
-   QED
-
-      ⊢K   ◇ (P ∧ Q) → (◇ P ∧ ◇ Q)
-   Proof
-   01.   |   ◇ (P ∧ Q)                H (for →I)
-   02.   |   |□ ,P ∧ Q                H (for ◇ E)
-   03.   |   |   P                   2 ∧E
-   04.   |   ◇ P                      1,2-3 ◇ E
-   05.   |   |□ ,P ∧ Q                H (for ◇ E)
-   06.   |   |   Q                   5 ∧E
-   07.   |   ◇ Q                      1,5-6 ◇ E
-   08.   |   ◇ P ∧ ◇ Q                 4,7 ∧I
-   09.   ◇ (P ∧ Q) → (◇ P ∧ ◇ Q)       1-8 →I
-   QED
-
-   ◇ I (Dual of M):   ⊢T   P → ◇ P
-   Proof
-   01.   |   P                       H (for →I)
-   02.   |   □ -P → -P               Ax M
-   03.   |   --P                     1 DN
-   04.   |   -□ -P                    2,3 MT
-   05.   |   ◇ P                      4 DEF◇ 
-   06.   P → ◇ P                     1-5 →I
-   QED
-
-   -◇ I:   □ -P  ⊢  -◇ P
-   Proof
-   01.   □ -P                         A
-   02.   |   ◇ P                      H (for -I)
-   03.   |   -□ -P                    2 DEF◇ 
-   04.   |   □ -P                     1 RE
-   05.   |   ⊥                       3,4 EFQ
-   06.   -◇ P                         2-5 -I
-   QED
-
-   -□ I:   ◇ -P  ⊢  -□ P
-   Proof
-   01.   ◇ -A                         A
-   02.   |   □ A                      H (for -I)
-   03.   |   |□                       H (for □ I)
-   04.   |   |   A                   2 □ E
-   05.   |   |   --A                 4 DN
-   06.   |   □ --A                    3-5 □ I
-   07.   |   ◇ -A                     1 RE
-   08.   |   -□ --A                   7 DEF◇ 
-   09.   |   ⊥                       6,8 EFQ
-   10.   -□ A                         2-9 -I
-   QED
-
-   B' (Dual of B):  ⊢B  ◇ □ P → P
-   Proof
-   01.   |   ◇ □ P,-P                  H
-   02.   |   -P → □ ◇ -P              Ax B
-   03.   |   □ ◇ -P                    1,2 →E
-   04.   |   |□                       H (for □ I)
-   05.   |   |   ◇ -P                 3 □ E
-   06.   |   |   -□ P                 5 DUAL
-   07.   |   □ -□ P                    4-6 □ I
-   08.   |   -◇ □ P                    7 DUAL
-   09.   |   ⊥                       1a,8 EFQ
-   10.   ◇ □ P → P                    1-9 →I, -I
-   QED
-
-   4' (Dual of 4):  ⊢S4  ◇ ◇ P → ◇ P
-   Proof
-   01.   |   ◇ ◇ P, -◇ P                H (for →I,-I)
-   02.   |   □ -P                     1b DUAL
-   03.   |   □ -P → □ □ -P             Ax 4
-   04.   |   □ □ -P                    2,3 →E
-   05.   |   |□                       H (for □ I)
-   06.   |   |   □ -P                 4 □ E
-   07.   |   |   --□ -P               6 DN
-   08.   |   □ --□ -P                  5-7 □ I
-   09.   |   □ -◇ A                    8 DEF◇ 
-   10.   |   -□ -◇ P                   1a DEF◇ 
-   11.   |   ⊥                       9,10 EFQ
-   12.   ◇ ◇ P → ◇ P                   1-11 →I,-I
-   QED
-
-   Steps 2-6 demonstrate that from □ P one can infer □ P into a subproof
-   without losing the □ .
-
-   S4 = System T + 4' as an axiom schema.
-
-   5' (Dual of 5):  ⊢S5  ◇ □ P → □ P
-   Proof
-   01.   |   ◇ □ P, -□ P               H (for →I,-I)
-   02.   |   ◇ -P                    1 DUAL
-   03.   |   ◇ -P → □ ◇ -P            Ax 5
-   04.   |   □ ◇ -A                   2,3 →E
-   05.   |   |□                      H (for □ I)
-   06.   |   |   ◇ -P                4 □ E
-   07.   |   |   -□ P                6 -□ I
-   08.   |   □ -□ P                   5-7 □ I
-   09.   |   -□ -□ P                  1a DEF◇ 
-   10.   |   ⊥                      8,9 EFQ
-   11.   ◇ □ P → □ P                  1-10 →I,-I
-   QED
-
-   Steps 2-6 demonstrate that from ◇ P one can infer ◇ P into a subproof
-   without losing the ◇ .
-
-      ⊢S5  P → □ ◇ P
-   Proof
-   01.   P → ◇ P                    ◇ I
-   02.   ◇ P → □ ◇ P                  Ax 5
-   03.   P → □ ◇ P                   1,2 HS
-   QED
-
-      ⊢S5  □ P → □ □ P
-   Proof
-   01.   □ P → □ ◇ □ P                 Ax B
-   02.   |□                          H (for □ I)
-   03.   |   ◇ □ P → □ P              5'
-   04.   □ (◇ □ P → □ P)               2-3 □ I
-   05.   □ (◇ □ P → □ P) → (□ ◇ □ P → □ □ P)  MDist
-   06.   □ ◇ □ P → □ □ P                4,5 →E
-   07.   □ P → □ □ P                  1,6 HS
-   QED
-
-      ⊢S4  □ P ↔ □ □ P
-      ⊢S4  ◇ P ↔ ◇ ◇ P
-
-   But also,
-
-      ⊢S4  □ P ↔ □ □ □ P
-   Proof
-   01.   □ P → □ □ P                   Ax 4
-   02.   □ □ P → □ □ □ P                 Ax 4
-   03.   □ P → □ □ □ P                  1,2 HS
-   04.   □ □ □ P → □ □ P                 Ax M
-   05.   □ □ P → □ P                   Ax M
-   06.   □ □ □ P → □ P                  4,5 HS
-   07.   □ P ↔ □ □ □ P                 3,6 ↔I
-   QED
-
-      ⊢S4  ◇ P ↔ ◇ ◇ ◇ P
-
-      ⊢S4  □ (P → □ □ Q) ↔ □ (P → □ Q)`
-   01.   |   □ (P → □ □ Q)
-   02.   |   |□                       H (for □ I)
-   03.   |   |   P → □ □ Q            1 □ E
-   04.   |   |   □ □ Q → □ Q           Ax M
-   05.   |   |   P → □ Q             3,4 HS
-   06.   |   □ (P → □ Q)              2-5 □ I
-   07.   □ (P → □ □ Q) → □ (P → □ Q)   1-6 →I
-   08.   |   □ (P → □ Q)              H (for →I)
-   09.   |   |□                       H (for □ I)
-   10.   |   |   P → □ Q             8 □ E
-   11.   |   |   □ Q → □ □ Q           Ax 4
-   12.   |   |   P → □ □ Q            10,11 HS
-   13.   |   □ (P → □ □ P)             9-12 □ I
-   14.   □ (P → □ Q) → □ (P → □ □ Q)   8-13 →I
-   15.   □ (P → □ □ Q) ↔ □ (P → □ Q)  1-6 →I
-   QED
-
-      ⊢S5  □ ◇ ◇ □ P ↔ □ P
-   Proof
-   01.   |   □ ◇ ◇ □ P                   H (for →I)
-   02.   |   ◇ ◇ □ P                    1 Ax M
-   03.   |   ◇ □ P                     2 Ax 4'
-   04.   |   □ P                      3 Ax 5'
-   05.   □ ◇ ◇ □ P → □ P                 1-4 →I
-   06.   |   □ P                      H (for →I)
-   07.   |   ◇ □ P                     6 ◇ I
-   08.   |   ◇ ◇ □ A                    7 ◇ I
-   09.   |   □ ◇ ◇ □ P                   8 Ax 5
-   10.   □ P → □ ◇ ◇ □ P                 6-9 →I
-   11.   □ ◇ ◇ □ P ↔ □ P                5,10 ↔I
-   QED
-
-      ⊢S5 ◇ (□ ◇ P ∧ ◇ □ Q) ↔ ◇ (◇ A ∧ □ B)
-   Proof
-   01.   |   ◇ (□ ◇ P ∧ ◇ □ Q)            H (for →I)
-   02.   |   |□ ,□ ◇ P ∧ ◇ □ Q            H (for ◇ E)
-   03.   |   |   □ ◇ P                 2 ∧E
-   04.   |   |   ◇ □ B                 2 ∧E
-   05.   |   |   ◇ P                  3 Ax M
-   06.   |   |   □ B                  4 Ax 5'
-   07.   |   |   ◇ P ∧ □ Q             5,6 ∧I
-   08.   |   ◇ (◇ P ∧ □ Q)              1,2-7 ◇ E
-   09.   ◇ (□ ◇ P ∧ ◇ □ Q) → ◇ (◇ P ∧ □ Q)  1-8 →I
-   10.   |   ◇ (◇ P ∧ □ Q)              H (for →I)
-   11.   |   |□ ,◇ A ∧ □ B              H (for ◇ E)
-   12.   |   |   ◇ P                  11 ∧E
-   13.   |   |   □ B                  11 ∧E
-   14.   |   |   □ ◇ P                 12 Ax 5
-   15.   |   |   ◇ □ Q                 13 ◇ E
-   16.   |   |   □ ◇ P ∧ ◇ □ Q           14,15 ∧I
-   17.   |   ◇ (□ ◇ P ∧ ◇ □ Q)            10,11-16 ◇ E
-   18.   ◇ (◇ P ∧ □ Q) → ◇ (□ ◇ P ∧ ◇ □ Q)  10-17 →I
-   19.   ◇ (□ ◇ P ∧ ◇ □ Q) ↔ ◇ (◇ P ∧ □ Q) 9,18 ↔I
-   QED
-
----------------------------
-Natural Deduction (◇ Based)
----------------------------
-
-   In this formulation ◇ is the primitive modal operator.
-
-   World Index
-      A WORLD INDEX is an expression of the form '/n' (where n is in 0,1,2...).
-      Write 'P  /i' to state that proposition P is true at world i.
-      The actual world is denoted /0, though it's often implied.
-
-   Bridge (AKA Accessibility Relation)
-      A BRIDGE, '/n=>/m', denotes a way to travel from world '/n'
-      to world '/m'.
-
-The Deductive Systems
-=====================
-
-   Definition of □ (Def □ )
-         □ P  =df  - ◇ - P
-
-   Necessitation Rule (NR)
-      If ⊢ P (P is a theorem or axiom), infer □ P into any world.
-
-   ◇ Elimination Inference Rule (◇ E)
-      From ◇ P at world /i, infer P at world /j (where j is new).  The diamond
-      "pays for the construction of" a new bridge /i=>/j.
-
-   □ Elimination Inference Rule (□ E)
-      □ E may only cross bridges according to the system used.
-
-      ======  =============================================================
-      System  □ E Rule
-      ======  =============================================================
-      K       Need a bridge /1=>/2 first to infer from □ P in /1 to P in /2.
-
-      M/T     Like K, but every world has a bridge to itself. (K + reflexive)
-
-      B       Like M, but bridges are bidirectional. (M + symmetric)
-
-      S4      Like M, but can cross a series of bridges. (M + transitive)
-
-      S5      □ Elim into any world at all. (M + symmetric + transitive)
-      ======  =============================================================
-
-   Diagrams
-
-         +--------------------------+--------------------------+
-         | ======================== | ======================== |
-         | ◇ E                      | □ E (K)                  |
-         | ======================== | ======================== |
-         |  ◇ P    /i               |  □ P    /i               |
-         | -----------              |  [/i=>/j]                |
-         |  P      /j (j is new)    | -----------              |
-         |                          |  P      /j  (j != i)     |
-         |                          |                          |
-         | ======================== | ======================== |
-         | □ E (M)                  | □ E (B)                  |
-         | ======================== | ======================== |
-         |  □ P    /i               |  □ P    /i    □ P    /j  |
-         |  [/i=>/j]                |  [/i=>/j]     [/i=>/j]   |
-         | -----------              | -----------  ----------- |
-         |  P      /j               |  P      /j    P      /i  |
-         |                          |                          |
-         | ======================== | ======================== |
-         | □ E (S4)                 | □ E (S5)                 |
-         | ======================== | ======================== |
-         | □ P     /i               |  □ P    /i               |
-         | [/j=>/k]                 | -----------              |
-         | [/k=>/l]                 |  P      /j (any j)       |
-         | ...                      |                          |
-         | [/n=>/m]                 |                          |
-         | ----------               |                          |
-         | P      /m                |                          |
-         |                          |                          |
-         +--------------------------+--------------------------+
-
-   Proof Construction
-
-      Procedure
-      1.  Assume the premises and hypothesize the negated conclusion.
-      2.  Use inference rules to move □ and ◇ to the front of the wff.
-      3.  Use ◇ E to spend diamonds to build bridges.
-      4.  Use □ E to spend boxes and traverse bridges according to the
-          system we are using.
-
-Proofs
-------
-
-Dual ⊢ M  - □ P ↔ ◇ - P
-     ⊢ M  - ◇ P ↔ □ - P
-   Proof
-   01.   |   - □ P                       H (for → I)
-   02.   |   - - ◇ - P                   1 Def □
-   03.   |   ◇ - P                       2 -E
-   04.   - □ P → ◇ - P                   1-3 → I
-   05.   |   ◇ - P                       H (for → I)
-   06.   |   |   □ P                     H (for -I)
-   07.   |   |   - ◇ - P                 6 Def □
-   08.   |   |   ⊥                       5,7 ⊥ I
-   09.   |   - □ P                       6-8 -I
-   10.   ◇ - P → - □ P                   6-9 → I
-   11.   - □ P ↔ ◇ - P                   4,10 ↔ I
-   QED
+      □ E rule is determined by which system we wish to use.
 
 
-Modal Distribution (MDIST) ⊢ M  □ (P → Q) → ( □ P → □ Q)
-   Proof
-   01.   |   □ (P → Q)                   H (for → I)
-   02.   |   |   □ P                     H (for → I)
-   03.   |   |   □ (P → Q)               1 RE
-   04.   |   |   |   - □ Q               H (for -I)
-   05.   |   |   |   ◇ - Q               4 Dual
-   06.   |   |   |   □ P                 2 RE
-   07.   |   |   |   □ (P → Q)           3 RE
-   08.   |   |   |   - Q           /1    5 ◇ E          new bridge /0 => /1
-   09.   |   |   |   P             /1    6 □ E (Sys M)
-   10.   |   |   |   P → Q         /1    7 □ E (Sys M)
-   11.   |   |   |   - P           /1    8,10 → E
-   12.   |   |   |   ⊥             /1    9,11 ⊥ I
-   13.   |   |   -- □ Q                  4-12 -I
-   14.   |   |   □ Q                     13 -E
-   15.   |   □ P → □ Q                   2-14 → I
-   16.   □ (P → Q) → ( □ P → □ Q)        1-15 → I
-   QED
+   System T/M - We need a ticket w1 => w2 first,
+                for a □ Elim to go from w1 to w2.
+
+   System B   - Like System T, but tickets work in both directions
+                (symmetry)
+
+   System S4  - Like System T, but we can jump a series of connecting tickets
+                (transitive)
+
+   System s5  - □ Elim into any world
+                (symmetry + transitive)
+
+□ Elim   □ P/n,Wn=>Wm     ⊢  P/m    (use travel ticket according to system)
+□ Intro  ( P/n ⊢ Q/n)     ⊢  □ Q    (this rule is not needed)
+◇ Elim   ◇ P/n            ⊢  P/m & Travel Ticket Wn=>Wm (m is a new world)
+◇ Intro  P/n              ⊢  ◇ P/n  (this rule is not needed)
+
+
+
+Modal Distribution (MDist)  ⊢K  □ (P → Q) → (□ P → □ Q)
+Proof
+01.   |   □ (P → Q)               A
+02.   |   |   □ P                 H (for → I)
+03.   |   |   □ (P → Q)           1 RE
+04.   |   |   |□                  H (for □ I
+05.   |   |   |   P               2 □ E
+06.   |   |   |   P → Q           3 □ E
+07.   |   |   |   Q               5,6 → E
+08.   |   |   □ Q                 4-7 □ I
+09.   |   □ P → □ Q               2-8 → I
+10.   □ (P → Q) → (□ P → □ Q)     1-9 → I
+QED
+
+   ⊢K  □ (P → (Q → P))
+Proof
+01.   |□                          H (for □ I)
+02.   |   |   P                   H (for → I)
+03.   |   |   |   Q               H (for → I)
+04.   |   |   |   P               2 RE
+05.   |   |   Q → P               3-4 → I
+06.   |   P → (Q → P)             2-5 → I
+07.   □ (P → (Q → P))             1-6 □ I
+QED
+
+   Rule of Necessitation (NEC)   if ⊢K P then ⊢K □ P
+   Modal Distribution (MDist)    ⊢K □ (P → Q) → (□ P → □ Q)
+
+These two rules are equivalent to: □ I and □ E.
+
+Some derived rules
+
+-◇    -◇ P  ⊢K  □ -P
+Proof
+01.   -◇ P                        A
+02.   --□ -P                      1 DEF◇ 
+03.   □ -P                        2 -E
+QED
+
+-□    -□ P  ⊢K  ◇ -P
+Proof
+01.   -□ P                        A
+02.   |   □ --P                   H (-E)
+03.   |   |□                      H (for □ I)
+04.   |   |   --P                 2 □ E
+05.   |   |   P                   4 -E
+06.   |   □ P                     3-5 □ I
+07.   |   -□ P                    1 RE
+08.   |   ⊥                       6,7 EFQ
+09.   --◇ -P                      2-8 -I
+10.   ◇ -P                        9 -E
+QED
+
+◇ DIST   ⊢K  □ (P → Q) → (◇ P → ◇ Q)
+Proof
+01.   |   □ (P → Q)               A
+02.   |   |   □ -Q                H (for → I)
+03.   |   |   □ (P → Q)           1 RE
+04.   |   |   |□                  H (for □ I)
+05.   |   |   |   -Q              2 □ E
+06.   |   |   |   P → Q           3 □ E
+07.   |   |   |   -P              5,6 MT
+08.   |   |   □ -P                4-7 □ I
+09.   |   □ -Q → □ -P             2-8 → I
+10.   |   -□ -P → -□ -Q           9 TRANS
+11.   |   ◇ P → ◇ Q               10 DEF ◇ 
+12.   □ (P → Q) → (◇ P → ◇ Q)     1-11 → I
+QED
+
+◇ E     ◇ P, (□  (P ⊢ Q))  ⊢K  ◇ Q
+Schematic Proof
+i.   ◇ P
+j.   |□                           H (for □ I)
+k.   |   |   P                    H (for → I)
+...
+l.   |   |   Q
+l+1. |   P → Q                    k-l → I
+l+2. □ (P → Q)                    j-l+1 □ I
+l+3. □ (P → Q) → (◇ P → ◇ Q)      ◇ DIST
+l+4. ◇ P → ◇ Q                    l+2,l+3 → E
+l+5. ◇ Q                          i,l+4 → E
+QED
+
+This proof form is very common, so it's worth while to introduce further
+abbreviation, with a WORLD-SUBPROOF.  In such a case we introduce a boxed
+subproof and a wff in one step.
+
+   (□ ,P ⊢K ... )
+Schematic Proof
+i.   |□ ,P
+...
+j.   |
+QED
+
+We shall generalize further.
+
+   (A,B,C ⊢K D)  ⊢K  A → (B → (C → D))
+Schematic Proof
+i.   |   A,B,C
+...
+j.   |   D
+j+1. A → (B → (C → D))            i-j →I
+QED
+
+Schematic Proof
+i.   |   P
+j.   |   |   Q
+k.   |   |   |   R
+...
+l.   |   |   |   S
+l+1. |   |   R → S                k-l →I
+l+2. |   Q → (R → S)              j-l+1 →I
+l+3  P → (Q → (R → S))            i-l+2 →I
+QED
+
+Alternatively, the hypotheses can be placed on separate lines so they can be
+easily cited in later steps.
+
+Sehcmatic Proof
+i.   |   P
+i+1. |   Q
+i+2. |   R
+...
+j.   |   S
+j+1. P → (Q → (R → S))         i-j+1 →I
+QED
+
+◇ &Dist  ⊢K  ◇ (P ∧ Q) → (◇ P ∧ ◇ Q)
+Proof
+01.   |   ◇ (P ∧ Q)                H (for ◇ E)
+02.   |   |□ ,P ∧ Q                H (for □ I)
+03.   |   |   P                   2 ∧E
+04.   |   ◇ P                      1,2-3 ◇ I
+05.   |   |□ ,P ∧ Q                H (for □ I)
+06.   |   |   Q                   5 ∧E
+07.   |   ◇ Q                      5-6 ◇ I
+08.   |   ◇ P ∧ ◇ Q                 4,7 ∧I
+09.   ◇ (P ∧ Q) → (◇ P ∧ ◇ Q)       1-8 →I
+QED
+
+   ⊢K   (□ P ∧ ◇ Q) → ◇ (P ∧ Q)
+Proof
+01.   |   □ P ∧ ◇ Q                 H (for →I)
+02.   |   □ P                      1 ∧E
+03.   |   ◇ Q                      1 ∧E
+04.   |   |□ ,Q                    H (for ◇ E)
+05.   |   |   P                   2 □ E
+06.   |   |   P ∧ Q               4,5 ∧I
+07.   |   ◇ (P ∧ Q)                3,4-6 ◇ E
+08.   (□ P ∧ ◇ Q) → ◇ (P ∧ Q)       1-7 →I
+QED
+
+
+
+
+
+
+
+
+
+   ⊢K   ◇ (P ∧ Q) → (◇ P ∧ ◇ Q)
+Proof
+01.   |   ◇ (P ∧ Q)                H (for →I)
+02.   |   |□ ,P ∧ Q                H (for ◇ E)
+03.   |   |   P                   2 ∧E
+04.   |   ◇ P                      1,2-3 ◇ E
+05.   |   |□ ,P ∧ Q                H (for ◇ E)
+06.   |   |   Q                   5 ∧E
+07.   |   ◇ Q                      1,5-6 ◇ E
+08.   |   ◇ P ∧ ◇ Q                 4,7 ∧I
+09.   ◇ (P ∧ Q) → (◇ P ∧ ◇ Q)       1-8 →I
+QED
+
+◇ I (Dual of M):   ⊢T   P → ◇ P
+Proof
+01.   |   P                       H (for →I)
+02.   |   □ -P → -P               Ax M
+03.   |   --P                     1 DN
+04.   |   -□ -P                    2,3 MT
+05.   |   ◇ P                      4 DEF◇ 
+06.   P → ◇ P                     1-5 →I
+QED
+
+-◇ I:   □ -P  ⊢  -◇ P
+Proof
+01.   □ -P                         A
+02.   |   ◇ P                      H (for -I)
+03.   |   -□ -P                    2 DEF◇ 
+04.   |   □ -P                     1 RE
+05.   |   ⊥                       3,4 EFQ
+06.   -◇ P                         2-5 -I
+QED
+
+-□ I:   ◇ -P  ⊢  -□ P
+Proof
+01.   ◇ -A                         A
+02.   |   □ A                      H (for -I)
+03.   |   |□                       H (for □ I)
+04.   |   |   A                   2 □ E
+05.   |   |   --A                 4 DN
+06.   |   □ --A                    3-5 □ I
+07.   |   ◇ -A                     1 RE
+08.   |   -□ --A                   7 DEF◇ 
+09.   |   ⊥                       6,8 EFQ
+10.   -□ A                         2-9 -I
+QED
+
+B' (Dual of B):  ⊢B  ◇ □ P → P
+Proof
+01.   |   ◇ □ P,-P                  H
+02.   |   -P → □ ◇ -P              Ax B
+03.   |   □ ◇ -P                    1,2 →E
+04.   |   |□                       H (for □ I)
+05.   |   |   ◇ -P                 3 □ E
+06.   |   |   -□ P                 5 DUAL
+07.   |   □ -□ P                    4-6 □ I
+08.   |   -◇ □ P                    7 DUAL
+09.   |   ⊥                       1a,8 EFQ
+10.   ◇ □ P → P                    1-9 →I, -I
+QED
+
+4' (Dual of 4):  ⊢S4  ◇ ◇ P → ◇ P
+Proof
+01.   |   ◇ ◇ P, -◇ P                H (for →I,-I)
+02.   |   □ -P                     1b DUAL
+03.   |   □ -P → □ □ -P             Ax 4
+04.   |   □ □ -P                    2,3 →E
+05.   |   |□                       H (for □ I)
+06.   |   |   □ -P                 4 □ E
+07.   |   |   --□ -P               6 DN
+08.   |   □ --□ -P                  5-7 □ I
+09.   |   □ -◇ A                    8 DEF◇ 
+10.   |   -□ -◇ P                   1a DEF◇ 
+11.   |   ⊥                       9,10 EFQ
+12.   ◇ ◇ P → ◇ P                   1-11 →I,-I
+QED
+
+Steps 2-6 demonstrate that from □ P one can infer □ P into a subproof
+without losing the □ .
+
+S4 = System T + 4' as an axiom schema.
+
+5' (Dual of 5):  ⊢S5  ◇ □ P → □ P
+Proof
+01.   |   ◇ □ P, -□ P               H (for →I,-I)
+02.   |   ◇ -P                    1 DUAL
+03.   |   ◇ -P → □ ◇ -P            Ax 5
+04.   |   □ ◇ -A                   2,3 →E
+05.   |   |□                      H (for □ I)
+06.   |   |   ◇ -P                4 □ E
+07.   |   |   -□ P                6 -□ I
+08.   |   □ -□ P                   5-7 □ I
+09.   |   -□ -□ P                  1a DEF◇ 
+10.   |   ⊥                      8,9 EFQ
+11.   ◇ □ P → □ P                  1-10 →I,-I
+QED
+
+Steps 2-6 demonstrate that from ◇ P one can infer ◇ P into a subproof
+without losing the ◇ .
+
+   ⊢S5  P → □ ◇ P
+Proof
+01.   P → ◇ P                    ◇ I
+02.   ◇ P → □ ◇ P                  Ax 5
+03.   P → □ ◇ P                   1,2 HS
+QED
+
+   ⊢S5  □ P → □ □ P
+Proof
+01.   □ P → □ ◇ □ P                 Ax B
+02.   |□                          H (for □ I)
+03.   |   ◇ □ P → □ P              5'
+04.   □ (◇ □ P → □ P)               2-3 □ I
+05.   □ (◇ □ P → □ P) → (□ ◇ □ P → □ □ P)  MDist
+06.   □ ◇ □ P → □ □ P                4,5 →E
+07.   □ P → □ □ P                  1,6 HS
+QED
+
+   ⊢S4  □ P ↔ □ □ P
+   ⊢S4  ◇ P ↔ ◇ ◇ P
+
+But also,
+
+   ⊢S4  □ P ↔ □ □ □ P
+Proof
+01.   □ P → □ □ P                   Ax 4
+02.   □ □ P → □ □ □ P                 Ax 4
+03.   □ P → □ □ □ P                  1,2 HS
+04.   □ □ □ P → □ □ P                 Ax M
+05.   □ □ P → □ P                   Ax M
+06.   □ □ □ P → □ P                  4,5 HS
+07.   □ P ↔ □ □ □ P                 3,6 ↔I
+QED
+
+   ⊢S4  ◇ P ↔ ◇ ◇ ◇ P
+
+   ⊢S4  □ (P → □ □ Q) ↔ □ (P → □ Q)`
+01.   |   □ (P → □ □ Q)
+02.   |   |□                       H (for □ I)
+03.   |   |   P → □ □ Q            1 □ E
+04.   |   |   □ □ Q → □ Q           Ax M
+05.   |   |   P → □ Q             3,4 HS
+06.   |   □ (P → □ Q)              2-5 □ I
+07.   □ (P → □ □ Q) → □ (P → □ Q)   1-6 →I
+08.   |   □ (P → □ Q)              H (for →I)
+09.   |   |□                       H (for □ I)
+10.   |   |   P → □ Q             8 □ E
+11.   |   |   □ Q → □ □ Q           Ax 4
+12.   |   |   P → □ □ Q            10,11 HS
+13.   |   □ (P → □ □ P)             9-12 □ I
+14.   □ (P → □ Q) → □ (P → □ □ Q)   8-13 →I
+15.   □ (P → □ □ Q) ↔ □ (P → □ Q)  1-6 →I
+QED
+
+   ⊢S5  □ ◇ ◇ □ P ↔ □ P
+Proof
+01.   |   □ ◇ ◇ □ P                   H (for →I)
+02.   |   ◇ ◇ □ P                    1 Ax M
+03.   |   ◇ □ P                     2 Ax 4'
+04.   |   □ P                      3 Ax 5'
+05.   □ ◇ ◇ □ P → □ P                 1-4 →I
+06.   |   □ P                      H (for →I)
+07.   |   ◇ □ P                     6 ◇ I
+08.   |   ◇ ◇ □ A                    7 ◇ I
+09.   |   □ ◇ ◇ □ P                   8 Ax 5
+10.   □ P → □ ◇ ◇ □ P                 6-9 →I
+11.   □ ◇ ◇ □ P ↔ □ P                5,10 ↔I
+QED
+
+   ⊢S5 ◇ (□ ◇ P ∧ ◇ □ Q) ↔ ◇ (◇ A ∧ □ B)
+Proof
+01.   |   ◇ (□ ◇ P ∧ ◇ □ Q)            H (for →I)
+02.   |   |□ ,□ ◇ P ∧ ◇ □ Q            H (for ◇ E)
+03.   |   |   □ ◇ P                 2 ∧E
+04.   |   |   ◇ □ B                 2 ∧E
+05.   |   |   ◇ P                  3 Ax M
+06.   |   |   □ B                  4 Ax 5'
+07.   |   |   ◇ P ∧ □ Q             5,6 ∧I
+08.   |   ◇ (◇ P ∧ □ Q)              1,2-7 ◇ E
+09.   ◇ (□ ◇ P ∧ ◇ □ Q) → ◇ (◇ P ∧ □ Q)  1-8 →I
+10.   |   ◇ (◇ P ∧ □ Q)              H (for →I)
+11.   |   |□ ,◇ A ∧ □ B              H (for ◇ E)
+12.   |   |   ◇ P                  11 ∧E
+13.   |   |   □ B                  11 ∧E
+14.   |   |   □ ◇ P                 12 Ax 5
+15.   |   |   ◇ □ Q                 13 ◇ E
+16.   |   |   □ ◇ P ∧ ◇ □ Q           14,15 ∧I
+17.   |   ◇ (□ ◇ P ∧ ◇ □ Q)            10,11-16 ◇ E
+18.   ◇ (◇ P ∧ □ Q) → ◇ (□ ◇ P ∧ ◇ □ Q)  10-17 →I
+19.   ◇ (□ ◇ P ∧ ◇ □ Q) ↔ ◇ (◇ P ∧ □ Q) 9,18 ↔I
+QED
+
+
 
 
 =============
@@ -2284,7 +2740,7 @@ Deontic Reductionism
       Reduction
          Anderson and Kanger independently discovered methods that they
          claimed could reduce Deontic Logic to Modal Logic using a single
-         axiom and propositional constant instead of several axioms and
+         axiom and propositional constant instead of several asioms and
          a new predicate (namely OB).
       Kanger (System Kd)
          Uses a propositional constant 'd' which means all normative
