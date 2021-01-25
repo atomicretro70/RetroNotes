@@ -108,7 +108,7 @@ Preface
    the lexemes and the grammar.  Next is a study of the language's semantics
    with formal descriptions of the lexemes and the sentences.  The chapter
    rounds out with an investigation into inference, introducing a modern
-   style calculus based on the logic of Frederick Fitch.
+   deductive calculus.
 
    Most of the remaining chapters follow the same pattern of language,
    semantics, calculus, with some supplementary sections here and there.
@@ -513,7 +513,7 @@ Alternative Notation
          Conjunction    &  *
          Disjunction    +
          Conditional    ⊃
-         Biconditional  =
+         Biconditional  =  ⇔  ≡
          Association    [...]  {...}
 
 Syntax Trees
@@ -1341,9 +1341,9 @@ Truth-Tree Study of A Sequent
          =============   ==========================
 
 
-------------------------------------
-Propositional Calculus (Fitch Style)
-------------------------------------
+----------------------
+Propositional Calculus
+----------------------
 
 Formal Proofs
 =============
@@ -1391,7 +1391,7 @@ Direct Proofs
             04.   Q                3 Conjunction Elimination
             QED
 
-   In a Fitch style proof, it is customary to begin the proof by listing the
+   It is customary to begin the proof by listing the
    premises, which is what we do in steps 1 and 2.  Notice that the
    justification for those two steps are 'ASSUMPTION', which is another word
    for 'premise'.  Step 3 makes use of steps 1 and 2, and so the justification
@@ -1408,7 +1408,7 @@ Direct Proofs
    there are two inference rules: one called an 'introduction' rule, the other
    called an 'elimination' rule; which are abbreviated 'I' and 'E'
    respectively.  The Conditional Elimination rule used above in step
-   3 is abbreviated '→E'.  Similarly, the Conjunction Elimination rule
+   3 is abbreviated '→ E'.  Similarly, the Conjunction Elimination rule
    used in step 4 is abbreviated '∧E'.
 
    A DIRECT PROOF is any formal proof that has no indented steps.
@@ -1477,8 +1477,7 @@ Primitive Inference Rules
 
    Here are the basic inference rules.  Some of them have multiple names,
    and the abbreviation for each name is in parentheses.  Use any name
-   according to preference.  To maintain a Fitch-style, use the 'introduction'
-   and 'elimination' names when available.
+   according to preference.
 
    ================================  =========================================
    Name (Abbreviation)               Rule
@@ -1625,6 +1624,7 @@ Derived Inference Rules
    Absorption (Abs)                  P → Q  ⊢  P → (P ∧ Q)
    Constructive Dilemma (CD)         P ∨ Q, P → R, Q → S  ⊢  R ∨ S
    Destructive Dilemma (DD)          P → Q, R → S, -Q ∨ -S  ⊢  -P ∨ -Q
+   Bidirectional Dilemma (BD)        P → Q, R → S, P ∨ -S  ⊢  Q ∨ -R
    Disjunctive Syllogism (DS)        P ∨ Q, -P  ⊢  Q
    Disjunctive Syllogism (DS)        P ∨ Q, -Q  ⊢  P
    Theorem (THM)                     [ ⊢ P ]  ⊢  P
@@ -1654,14 +1654,15 @@ Equivalences
    Name (Abbreviation)               Sequent
    ================================  =========================================
    Double Negation (DN)              ⊢  P ↔ --P
-   Tautology (TAUT)                  ⊢  P ↔ (P ∧ P)
-   Tautology (TAUT)                  ⊢  P ↔ (P ∨ P)
+   Idempotence (IDEM)                ⊢  P ↔ (P ∧ P)
+   Idempotence (IDEM)                ⊢  P ↔ (P ∨ P)
    Transposition (TRANS)             ⊢  (P → Q) ↔ (-Q → -P)
    Material Implication (MI)         ⊢  (P → Q) ↔ (-P ∨ Q)
    Association (ASSOC)               ⊢  (P ∧ (Q ∧ R)) ↔ ((P ∧ Q) ∧ R)
    Association (ASSOC)               ⊢  (P ∨ (Q ∨ R)) ↔ ((P ∨ Q) ∨ R)
    Commutation (COM)                 ⊢  (P ∧ Q) ↔ (Q ∧ P)
    Commutation (COM)                 ⊢  (P ∨ Q) ↔ (Q ∨ P)
+   Commutation (COM)                 ⊢  (P ↔ Q) ↔ (Q ↔ P)
    Exportation (EXP)                 ⊢  ((P ∧ Q) → R) ↔ (P → (Q → R))
    Distribution (DIST)               ⊢  (P ∧ (Q ∨ R)) ↔ ((P ∧ Q) ∨ (P ∧ R))
    Distribution (DIST)               ⊢  (P ∨ (Q ∧ R)) ↔ ((P ∨ Q) ∧ (P ∨ R))
@@ -1729,7 +1730,7 @@ Defining ⊥ Into Propositional Logic/Calculus
 ============================================
 
 
-   Some Fitch implementations use ⊥ (the CONTRADICTION SYMBOL) tedium and
+   Some calculi implementations use ⊥ (the CONTRADICTION SYMBOL) tedium and
    improve the readability of proofs.  Applications of -I are often preceded
    by ∧I, but the resulting conjunction can be quite long.  Since EFQ infers
    any wff from two contradictory propositions; we can always infer 'P ∧ -P'
@@ -2511,9 +2512,9 @@ Truth-Tree Assessment of a Sequent
          1+ open paths   Invalid w/ counterexamples
          =============   ============================
 
---------------------------------------------------
-First-Order Predicate Calculus (FOC - Fitch Style)
---------------------------------------------------
+------------------------------------
+First-Order Predicate Calculus (FOC)
+------------------------------------
 
 Primitive Inference Rules
 =========================
@@ -2576,7 +2577,7 @@ Derived Inference Rules
    Name/Alternate Names              Sequent
    ================================  =========================================
    Dual                              ⊢  -∀xΦ ↔ ∃x-Φ
-                                     ⊢  -∃xΦ ↔ ∀x-Φ 
+   Dual                              ⊢  -∃xΦ ↔ ∀x-Φ 
    ================================  =========================================
 
 Proofs of Non-Consequence
@@ -2844,9 +2845,9 @@ Truth Trees
             +--------------------------+--------------------------+
 
 
-------------------------------------
-Identity Calculus (IC - Fitch Style)
-------------------------------------
+----------------------
+Identity Calculus (IC)
+----------------------
 
    Identity Calculus combined with FOC is called FOC=.
 
@@ -2859,7 +2860,7 @@ Primitive Inference Rules
    Identity Elimination (=E)         From α=β or β=α, and P(α), infer P(β/α).
 
    Identity Introduction (=I)        Introduce α=α (for any constant α)
-                                     as a new line in the proof.
+                                     at any step.
    ================================  =========================================
 
    These rules can also be described in diagrams.
@@ -3350,15 +3351,15 @@ Inductive Inference
 Axiomatic and Natural Deduction
 ===============================
 
-   The Fitch-style calculi presented thus far are known as NATURAL DEDUCTION
-   systems, which consist only of inference rules.  These natural
-   deduction systems are more intuitive and more closely resemble how one
-   reasons informally.  An AXIOMATIC DEDUCTION system, in contrast, consists
-   of a minimal set of inference rules, often just one, and one or more
-   axiom schemata.  All instances of the schemata are axioms of the logic.
-   Axiomatic deduction systems are usually simpler than Fitch in that they
-   have fewer parts, but they are also more complicated and cumbersome to use
-   and entirely dissimilar to how one reasons informally.  Given all this, the
+   The calculi presented thus far are known as NATURAL DEDUCTION systems,
+   which consist only of inference rules.  These natural deduction systems are
+   more intuitive and more closely resemble how one reasons informally.  An
+   AXIOMATIC DEDUCTION system, in contrast, consists of a minimal set of
+   inference rules, often just one, and one or more axiom schemata.  All
+   instances of the schemata are axioms of the logic.  Axiomatic deduction
+   systems are usually simpler than Natural Deduction in that they have fewer
+   parts, but they are also more complicated and cumbersome to use and
+   entirely dissimilar to how one reasons informally.  Given all this, the
    one significant similarity is that both kinds of systems count the same
    forms as valid.
 
@@ -3698,9 +3699,9 @@ Truth-Tree Analysis
          =============   ============================
 
 
-=====================================
-Appendix B: Combined Logic & Calculus
-=====================================
+==========================
+Appendix B: Combined Logic
+==========================
 
 
 ------------------
@@ -3853,7 +3854,7 @@ Primitive Inference Rules & Other Justifications
    Identity Elimination (=E)         From α=β, and Φ(α) infer Φ(β/α).
 
    Identity Introduction (=I)        Introduce α=α (for any constant α)
-                                     as a new line in the proof.
+                                     at any step.
 
    --------------------------------  -----------------------------------------
 
@@ -3970,12 +3971,11 @@ Derived Inference Rules
    Absorption (Abs)                  P → Q  ⊢  P → (P ∧ Q)
    Constructive Dilemma (CD)         P ∨ Q, P → R, Q → S  ⊢  R ∨ S
    Destructive Dilemma (DD)          P → Q, R → S, -Q ∨ -S ⊢ -P ∨ -Q
+   Bidirectional Dilemma (BD)        P → Q, R → S, P ∨ -S  ⊢  Q ∨ -R
    Disjunctive Syllogism (DS)        P ∨ Q, -P  ⊢  Q
    Disjunctive Syllogism (DS)        P ∨ Q, -Q  ⊢  P
    Theorem (THM)                     [ ⊢ P ]  ⊢  P
-
    --------------------------------  -----------------------------------------
-
    ⊥ Introduction (⊥ I)              P, -P  ⊢  ⊥
    ⊥ Elimination (⊥ E)               (P ⊢ ⊥)  ⊢  -P
    ================================  =========================================
@@ -3987,14 +3987,15 @@ Derived Equivalences
    Name/Alternate Names              Sequent
    ================================  =========================================
    Double Negation (DN)              ⊢  P ↔ --P
-   Tautology (TAUT)                  ⊢  P ↔ (P ∧ P)
-   Tautology (TAUT)                  ⊢  P ↔ (P ∨ P)
+   Idempotence (IDEM)                ⊢  P ↔ (P ∧ P)
+   Idempotence (IDEM)                ⊢  P ↔ (P ∨ P)
    Transposition (TRANS)             ⊢  (P → Q) ↔ (-Q → -P)
    Material Implication (MI)         ⊢  (P → Q) ↔ (-P ∨ Q)
    Association (ASSOC)               ⊢  (P ∧ (Q ∧ R)) ↔ ((P ∧ Q) ∧ R)
    Association (ASSOC)               ⊢  (P ∨ (Q ∨ R)) ↔ ((P ∨ Q) ∨ R)
    Commutation (COM)                 ⊢  (P ∧ Q) ↔ (Q ∧ P)
    Commutation (COM)                 ⊢  (P ∨ Q) ↔ (Q ∨ P)
+   Commutation (COM)                 ⊢  (P ↔ Q) ↔ (Q ↔ P)
    Exportation (EXP)                 ⊢  ((P ∧ Q) → R) ↔ (P → (Q → R))
    Distribution (DIST)               ⊢  (P ∧ (Q ∨ R)) ↔ ((P ∧ Q) ∨ (P ∧ R))
    Distribution (DIST)               ⊢  (P ∨ (Q ∧ R)) ↔ ((P ∨ Q) ∧ (P ∨ R))
@@ -4003,9 +4004,9 @@ Derived Equivalences
    Material Equivalence (ME)         ⊢  (P ↔ Q) ↔ ((P → Q) ∧ (Q → P))
    Material Equivalence (ME)         ⊢  (P ↔ Q) ↔ ((P ∧ Q) ∨ (-P ∧ -Q))
    Dual                              ⊢  -∀x-Φ ↔ ∃xΦ
-                                     ⊢  -∀xΦ ↔ ∃x-Φ
-                                     ⊢  ∀x-Φ ↔ -∃xΦ
-                                     ⊢  ∀xΦ ↔ -∃x-Φ
+   Dual                              ⊢  -∀xΦ ↔ ∃x-Φ
+   Dual                              ⊢  ∀x-Φ ↔ -∃xΦ
+   Dual                              ⊢  ∀xΦ ↔ -∃x-Φ
    ================================  =========================================
 
 
@@ -4029,12 +4030,12 @@ Important Derived Rules
 
    ⊥ Elimination (⊥ E):   (P ⊢ ⊥)  ⊢  -P
    Schematic Proof
-    i.   |   P                    H (for →I)
+    i.   |   P                    H (for → I)
     ...  |   ...                  ...
     j.   |   ⊥
-    k.   P → ⊥                    i - j →I
+    k.   P → ⊥                    i - j → I
     k+1. |   P                    H (for -I)
-    k+2. |   ⊥                    k,k+1 →E
+    k+2. |   ⊥                    k,k+1 → E
     k+3. |   P ∧ -P               k+2 DEF ⊥
     k+4. -P                       k+1 - k+3 -I
     QED
@@ -4064,7 +4065,7 @@ The Remaining Basic Derived Rules
    01.   P → Q                    A
    02.   -Q                       A
    03.   |   P                    H (for -I)
-   04.   |   Q                    1,3 →E
+   04.   |   Q                    1,3 → E
    05.   |   ⊥                    2,4 ⊥ I
    06.   -P                       3-5 ⊥ E
    QED
@@ -4074,18 +4075,18 @@ The Remaining Basic Derived Rules
    01.   P → Q                    A
    02.   Q → R                    A
    03.   |   P                    H (for R)
-   04.   |   Q                    1,3 →E
-   05.   |   R                    2,4 →E
-   06.   P → R                    3-5 →I
+   04.   |   Q                    1,3 → E
+   05.   |   R                    2,4 → E
+   06.   P → R                    3-5 → I
    QED
 
    Absorption (ABS):  P → Q  ⊢  P → (P ∧ Q)
    Proof
    01.   P → Q                    A
    02.   |   P                    H (for P ∧ Q)
-   03.   |   Q                    1,2 →E
+   03.   |   Q                    1,2 → E
    04.   |   P ∧ Q                2,3 ∧I
-   05.   P → (P ∧ Q)              2-4 →I
+   05.   P → (P ∧ Q)              2-4 → I
    QED
 
    Constructive Dilemma (CD):   P ∨ Q, P → R, Q → S  ⊢  R ∨ S
@@ -4093,14 +4094,14 @@ The Remaining Basic Derived Rules
    01.   P ∨ Q                    A
    02.   P → R                    A
    03.   Q → S                    A
-   04.   |   P                    H (for →I)
-   05.   |   R                    2,4 →E
+   04.   |   P                    H (for → I)
+   05.   |   R                    2,4 → E
    06.   |   R ∨ S                5 ∨I
-   07.   P → (R ∨ S)              4-6 →I
-   08.   |   Q                    H (for →I)
-   09.   |   S                    3,8 →E
+   07.   P → (R ∨ S)              4-6 → I
+   08.   |   Q                    H (for → I)
+   09.   |   S                    3,8 → E
    10.   |   R ∨ S                9 ∨I
-   11.   Q → (R ∨ S)              9-12 →I
+   11.   Q → (R ∨ S)              9-12 → I
    12.   R ∨ S                    1,7,11 ∨E
    QED
 
@@ -4109,27 +4110,43 @@ The Remaining Basic Derived Rules
    01.   P → Q                    A
    02.   R → S                    A
    03.   -Q ∨ -S                  A
-   04.   |   -Q                   H (for →I)
+   04.   |   -Q                   H (for → I)
    05.   |   -P                   1,4 MT
    06.   |   -P ∨ -R              5 ∨I
-   07.   -Q → (-P ∨ -R)           4-6 →I
-   08.   |   -S                   H (for →I)
+   07.   -Q → (-P ∨ -R)           4-6 → I
+   08.   |   -S                   H (for → I)
    09.   |   -R                   2,8 MT
    10.   |   -P ∨ -R              9 ∨I
-   11.   -S → (-P ∨ -R)           8-10 →I
+   11.   -S → (-P ∨ -R)           8-10 → I
    12.   -P ∨ -R                  3,7,11 ∨E
+   QED
+
+   Bidirectional Dilemma (BD)        P → Q, R → S, P ∨ -S  ⊢  Q ∨ -R
+   Proof
+   01.   P → Q                    A
+   02.   R → S                    A
+   03.   P ∨ -S                   A
+   04.   |   P                    H (for → I)
+   05.   |   Q                    1,4 → E
+   06.   |   Q ∨ -R               5 ∨ I
+   07.   P → (Q ∨ -R)             4-6 → I
+   08.   |   -S                   H (for → I)
+   09.   |   -R                   2,8 MT
+   10.   |   Q ∨ -R               9 ∨I
+   11.   -S → (Q ∨ -R)            8-10 → I
+   12.   Q ∨ -R                   3,7,11 ∨E
    QED
 
    Disjunctive Syllogism (DS):  P ∨ Q, -P  ⊢  Q
    Proof
    01.   P ∨ Q                    A
    02.   -P                       A
-   03.   |   P                    H (for →I)
+   03.   |   P                    H (for → I)
    04.   |   Q                    2,3 EFQ
-   05.   P → Q                    3-4 →I
-   06.   |   Q                    H (for →I)
+   05.   P → Q                    3-4 → I
+   06.   |   Q                    H (for → I)
    07.   |   Q                    6 RE
-   08.   Q → Q                    6-7 →I
+   08.   Q → Q                    6-7 → I
    09.   Q                        1,5,8 ∨E
    QED
 
@@ -4137,12 +4154,12 @@ The Remaining Basic Derived Rules
    Proof
    01.   P ∨ Q                    A
    02.   -Q                       A
-   03.   |   P                    H (for →I)
+   03.   |   P                    H (for → I)
    04.   |   P                    3 RE
-   05.   P → P                    3-4 →I
-   06.   |   Q                    H (for →I)
+   05.   P → P                    3-4 → I
+   06.   |   Q                    H (for → I)
    07.   |   P                    2,6 EFQ
-   08.   Q → P                    6-7 →I
+   08.   Q → P                    6-7 → I
    09.   P                        1,5,8 ∨E
    QED
 
@@ -4151,66 +4168,66 @@ Important Derived Equivalences
 
    Double Negation (DN):   ⊢  P ↔ --P
    Proof
-   01.   |   P                    H (for →I)
+   01.   |   P                    H (for → I)
    02.   |   |   -P               H (for -I)
    03.   |   |   ⊥                1,2 ⊥ I
    04.   |   --P                  2-3 -I
-   05.   P → --P                  1-4 →I
-   06.   |   --P                  H (for →I)
+   05.   P → --P                  1-4 → I
+   06.   |   --P                  H (for → I)
    07.   |   P                    6 -E
-   08.   --P → P                  6,7 →I
-   09.   P ↔ --P                  5,8 ↔I
+   08.   --P → P                  6,7 → I
+   09.   P ↔ --P                  5,8 ↔ I
    QED
 
-   Tautology (TAUT):   ⊢  P ↔ (P ∧ P)
+   Idempotence (IDEM):   ⊢  P ↔ (P ∧ P)
    Poof
-   01.   |   P                    H (for →I)
+   01.   |   P                    H (for → I)
    02.   |   P ∧ P                1,1 ∧I
-   03.   P → (P ∧ P)              2-3 →I
-   04.   |   P ∧ P                H (for →I)
+   03.   P → (P ∧ P)              2-3 → I
+   04.   |   P ∧ P                H (for → I)
    05.   |   P                    4 ∧E
-   06.   (P ∧ P) → P              4-5 →I
-   07.   P ↔ (P ∧ P)              3,6 ↔I
+   06.   (P ∧ P) → P              4-5 → I
+   07.   P ↔ (P ∧ P)              3,6 ↔ I
    QED
 
-   Tautology (TAUT):   ⊢  P ↔ (P ∨ P)
+   Idempotence (IDEM):   ⊢  P ↔ (P ∨ P)
    Proof
-   01.   |   P                    H (for →I)
+   01.   |   P                    H (for → I)
    02.   |   P ∨ P                1 ∨I
-   03.   P → (P ∨ P)              1-2 →I
-   04.   |   P ∨ P                H (for →I)
-   05.   |   |   P                H (for →I)
+   03.   P → (P ∨ P)              1-2 → I
+   04.   |   P ∨ P                H (for → I)
+   05.   |   |   P                H (for → I)
    06.   |   |   P                5 RE
-   07.   |   P → P                5-6 →I
+   07.   |   P → P                5-6 → I
    08.   |   P → P                7 RE
    09.   |   P                    4,7,8 ∨E
-   10.   (P ∨ P) → P              4-9 →I
-   11.   P ↔ (P ∨ P)              3,10 ↔I
+   10.   (P ∨ P) → P              4-9 → I
+   11.   P ↔ (P ∨ P)              3,10 ↔ I
    QED
 
    Transposition (TRANS):  ⊢  (P → Q) ↔ (-Q → -P)
    Proof
-   01.   |   P → Q                H (for →I)
-   02.   |   |   -Q               H (for →I)
+   01.   |   P → Q                H (for → I)
+   02.   |   |   -Q               H (for → I)
    03.   |   |   -P               1,2 MT
-   04.   |   -Q → -P              2-3 →I
+   04.   |   -Q → -P              2-3 → I
    05.   (P → Q) → (-Q → -P) 1-4 →I
-   06.   |   -Q → -P              H (for →I)
-   07.   |   |   P                H (for →I)
+   06.   |   -Q → -P              H (for → I)
+   07.   |   |   P                H (for → I)
    08.   |   |   --P              7 DN
    09.   |   |   --Q              6,8 MT
    10.   |   |   Q                9 -E
-   11.   |   P → Q                7-10 →I
-   12.   (-Q → -P) → (P → Q)      6-11 →I
-   13.   (P → Q) ↔ (-Q → -P)      5,12 ↔I
+   11.   |   P → Q                7-10 → I
+   12.   (-Q → -P) → (P → Q)      6-11 → I
+   13.   (P → Q) ↔ (-Q → -P)      5,12 ↔ I
    QED
 
    Material Implication (MI):   ⊢  (P → Q) ↔ (-P ∨ Q)
    Proof
-   01.   |   P → Q                H (for →I)
+   01.   |   P → Q                H (for → I)
    02.   |   |   -(-P ∨ Q)        H (for -I)
    03.   |   |   |   P            H (for -I)
-   04.   |   |   |   Q            1,3 →E
+   04.   |   |   |   Q            1,3 → E
    05.   |   |   |   -P ∨ Q       4 ∨I
    06.   |   |   |   ⊥            2,5 ⊥ I
    07.   |   |   -P               3-6 ⊥ E
@@ -4218,14 +4235,14 @@ Important Derived Equivalences
    09.   |   |   ⊥                2,8 ⊥ I
    10.   |   --(-P ∨ Q)           2-9 ⊥ E
    11.   |   -P ∨ Q               10 -E
-   12.   (P → Q) → (-P ∨ Q)       1-11 →I
-   13.   |   -P ∨ Q               H (for →I)
+   12.   (P → Q) → (-P ∨ Q)       1-11 → I
+   13.   |   -P ∨ Q               H (for → I)
    14.   |   |   P                H (for -I)
    15.   |   |   --P              14 DN
    16.   |   |   Q                13,15 DS
-   17.   |   P → Q                14-16 →I
-   18.   (-P ∨ Q) → (P → Q)       13-17 →I
-   19.   (P → Q) ↔ (-P ∨ Q)       12,18 ↔I
+   17.   |   P → Q                14-16 → I
+   18.   (-P ∨ Q) → (P → Q)       13-17 → I
+   19.   (P → Q) ↔ (-P ∨ Q)       12,18 ↔ I
    QED
 
    Association (ASSOC):   ⊢  (P ∧ (Q ∧ R)) ↔ ((P ∧ Q) ∧ R)
@@ -4238,186 +4255,201 @@ Important Derived Equivalences
    06.   |   P ∧ Q                               2,4 ∧I
    07.   |   (P ∧ Q) ∧ R                         5,6 ∧I
    08.   (P ∧ (Q ∧ R)) → ((P ∧ Q) ∧ R)           1-7 →I
-   09.   |   (P ∧ Q) ∧ R                         H (for →I)
+   09.   |   (P ∧ Q) ∧ R                         H (for → I)
    10.   |   P ∧ Q                               9 ∧E
    11.   |   R                                   9 ∧E
    12.   |   P                                   10 ∧E
    13.   |   Q                                   10 ∧E
    14.   |   Q ∧ R                               11,13 ∧I
    15.   |   P ∧ (Q ∧ R)                         12,14 ∧I
-   16.   ((P ∧ Q) ∧ R) → (P ∧ (Q ∧ R))           9-15 →I
-   17.   (P ∧ (Q ∧ R)) ↔ ((P ∧ Q) ∧ R)           8,16 ↔I
+   16.   ((P ∧ Q) ∧ R) → (P ∧ (Q ∧ R))           9-15 → I
+   17.   (P ∧ (Q ∧ R)) ↔ ((P ∧ Q) ∧ R)           8,16 ↔ I
    QED
 
    Association (ASSOC):   ⊢  (P ∨ (Q ∨ R)) ↔ ((P ∨ Q) ∨ R)
    Proof
-   01.   |   P ∨ (Q ∨ R)                         H (for →I)
-   02.   |   |   P                               H (for →I)
+   01.   |   P ∨ (Q ∨ R)                         H (for → I)
+   02.   |   |   P                               H (for → I)
    03.   |   |   P ∨ Q                           2 ∨I
    04.   |   |   (P ∨ Q) ∨ R                     3 ∨I
-   05.   |   P → ((P ∨ Q) ∨ R)                   2-4 →I
-   06.   |   |   Q ∨ R                           H (for →I)
-   07.   |   |   |   Q                           H (for →I)
+   05.   |   P → ((P ∨ Q) ∨ R)                   2-4 → I
+   06.   |   |   Q ∨ R                           H (for → I)
+   07.   |   |   |   Q                           H (for → I)
    08.   |   |   |   P ∨ Q                       7 ∨I
    09.   |   |   |   (P ∨ Q) ∨ R                 8 ∨I
-   10.   |   |   Q → ((P ∨ Q) ∨ R)               7-9 →I
-   11.   |   |   |   R                           H (for →I)
+   10.   |   |   Q → ((P ∨ Q) ∨ R)               7-9 → I
+   11.   |   |   |   R                           H (for → I)
    12.   |   |   |   (P ∨ Q) ∨ R                 11 ∨I
-   13.   |   |   R → ((P ∨ Q) ∨ R)               11-12 →I
+   13.   |   |   R → ((P ∨ Q) ∨ R)               11-12 → I
    14.   |   |   (P ∨ Q) ∨ R                     6,10,13 ∨E
-   15.   |   (Q ∨ R) → ((P ∨ Q) ∨ R)             6-14 →I
+   15.   |   (Q ∨ R) → ((P ∨ Q) ∨ R)             6-14 → I
    16.   |   (P ∨ Q) ∨ R                         1,5,15 ∨E
-   17.   (P ∨ (Q ∨ R)) → ((P ∨ Q) ∨ R)           1-16 →I
-   18.   |   (P ∨ Q) ∨ R                         H (for →I)
-   19.   |   |   P ∨ Q                           H (for →I)
-   20.   |   |   |   P                           H (for →I)
+   17.   (P ∨ (Q ∨ R)) → ((P ∨ Q) ∨ R)           1-16 → I
+   18.   |   (P ∨ Q) ∨ R                         H (for → I)
+   19.   |   |   P ∨ Q                           H (for → I)
+   20.   |   |   |   P                           H (for → I)
    21.   |   |   |   P ∨ (Q ∨ R)                 20 ∨I
-   22.   |   |   P → (P ∨ (Q ∨ R))               20-21 →I
-   23.   |   |   |   Q                           H (for →I)
+   22.   |   |   P → (P ∨ (Q ∨ R))               20-21 → I
+   23.   |   |   |   Q                           H (for → I)
    24.   |   |   |   Q ∨ R                       23 ∨I
    25.   |   |   |   P ∨ (Q ∨ R)                 14 ∨I
-   26.   |   |   Q → (P ∨ (Q ∨ R))               23-25 →I
+   26.   |   |   Q → (P ∨ (Q ∨ R))               23-25 → I
    27.   |   |   P ∨ (Q ∨ R)                     19,22,26 ∨E
-   28.   |   (P ∨ Q) → (P ∨ (Q ∨ R))             19-27 →I
-   29.   |   |   R                               H (for →I)
+   28.   |   (P ∨ Q) → (P ∨ (Q ∨ R))             19-27 → I
+   29.   |   |   R                               H (for → I)
    30.   |   |   Q ∨ R                           29 ∨I
    31.   |   |   P ∨ (Q ∨ R)                     30 ∨I
    32.   |   R → (P ∨ (Q ∨ R))                   29-31
    33.   |   P ∨ (Q ∨ R)                         13,28,32 ∨E
-   34.   ((P ∨ Q) ∨ R) → (P ∨ (Q ∨ R))           18-33 →I
-   35.   (P ∨ (Q ∨ R)) ↔ ((P ∨ Q) ∨ R)           17,34 ↔I
+   34.   ((P ∨ Q) ∨ R) → (P ∨ (Q ∨ R))           18-33 → I
+   35.   (P ∨ (Q ∨ R)) ↔ ((P ∨ Q) ∨ R)           17,34 ↔ I
    QED
 
    Commutation (COM):   ⊢  (P ∧ Q) ↔ (Q ∧ P)
    Proof
-   01.   |   P ∧ Q                               H (for →I)
+   01.   |   P ∧ Q                               H (for → I)
    02.   |   P                                   1 ∧E
    03.   |   Q                                   1 ∧E
    04.   |   Q ∧ P                               2,3 ∧I
-   05.   (P ∧ Q) → (Q ∧ P)                       1-4 →I
-   06.   |   Q ∧ P                               H (for →I)
+   05.   (P ∧ Q) → (Q ∧ P)                       1-4 → I
+   06.   |   Q ∧ P                               H (for → I)
    07.   |   Q                                   ∧E
    08.   |   P                                   ∧E
    09.   |   P ∧ Q                               ∧I
-   10.   (Q ∧ P) → (P ∧ Q)                       6-9 →I
-   11.   (P ∧ Q) ↔ (Q ∧ P)                       5,10 ↔I
+   10.   (Q ∧ P) → (P ∧ Q)                       6-9 → I
+   11.   (P ∧ Q) ↔ (Q ∧ P)                       5,10 ↔ I
    QED
 
    Commutation (COM):   ⊢  (P ∨ Q) ↔ (Q ∨ P)
    Proof
-   01.   |   P ∨ Q                               H (for →I)
-   02.   |   |   P                               H (for →I)
+   01.   |   P ∨ Q                               H (for → I)
+   02.   |   |   P                               H (for → I)
    03.   |   |   Q ∨ P                           2 ∨I
-   04.   |   P → (Q ∨ P)                         2-4 →I
-   05.   |   |   Q                               H (for →I)
+   04.   |   P → (Q ∨ P)                         2-4 → I
+   05.   |   |   Q                               H (for → I)
    06.   |   |   Q ∨ P                           5 ∨I
-   07.   |   Q → (Q ∨ P)                         5-6 →I
+   07.   |   Q → (Q ∨ P)                         5-6 → I
    08.   |   Q ∨ P                               1,4,7 ∨E
-   09.   (P ∨ Q) → (Q ∨ P)                       1-8 →I
-   10.   |   Q ∨ P                               H (for →I)
-   11.   |   |   Q                               H (for →I)
+   09.   (P ∨ Q) → (Q ∨ P)                       1-8 → I
+   10.   |   Q ∨ P                               H (for → I)
+   11.   |   |   Q                               H (for → I)
    12.   |   |   P ∨ Q                           11 ∨I
-   13.   |   Q → (P ∨ Q)                         11-12 →I
-   14.   |   |   P                               H (for →I)
+   13.   |   Q → (P ∨ Q)                         11-12 → I
+   14.   |   |   P                               H (for → I)
    15.   |   |   P ∨ Q                           14 ∨I
-   16.   |   P → (P ∨ Q)                         14-15 →I
+   16.   |   P → (P ∨ Q)                         14-15 → I
    17.   |   P ∨ Q                               10,13,16 ∨E
-   18.   (Q ∨ P) → (P ∨ Q)                       10-17 →I
-   19.   (P ∨ Q) ↔ (Q ∨ P)                       9,18 ↔I
+   18.   (Q ∨ P) → (P ∨ Q)                       10-17 → I
+   19.   (P ∨ Q) ↔ (Q ∨ P)                       9,18 ↔ I
+   QED
+
+   Commutation (COM):   ⊢  (P ↔ Q) ↔ (Q ↔ P)
+   Proof
+   01.   |   P ↔ Q                               H (for → I)
+   02.   |   P → Q                               1 ↔ E
+   03.   |   Q → P                               1 ↔ E
+   04.   |   Q ↔ P                               2,3 ↔ I
+   05.   (P ↔ Q) → (Q ↔ P)                       1-10 → I
+   06.   |   Q ↔ P                               H (for → I)
+   07.   |   Q → P                               6 ↔ E
+   08.   |   P → Q                               6 ↔ E
+   09.   |   P ↔ Q                               7,8 ↔ I
+   10.   (Q ↔ P) → (P ↔ Q)                       6-9 → I
+   11.   (P ↔ Q) ↔ (Q ↔ P)                       5,10 ↔ I
    QED
 
    Exportation (EXP):   ⊢  ((P ∧ Q) → R) ↔ (P → (Q → R))
    Proof
-   01.   |   (P ∧ Q) → R                         H (for →I)
-   02.   |   |   P                               H (for →I)
-   03.   |   |   |   Q                           H (for →I)
+   01.   |   (P ∧ Q) → R                         H (for → I)
+   02.   |   |   P                               H (for → I)
+   03.   |   |   |   Q                           H (for → I)
    04.   |   |   |   P ∧ Q                       2,3 ∧I
-   05.   |   |   |   R                           1,4 →E
-   06.   |   |   Q → R                           3-5 →I
-   07.   |   P → (Q → R)                         2-6 →I
-   08.   ((P ∧ Q) → R) → (P → (Q → R))           1-7 →I
-   09.   |   P → (Q → R)                         H (for →I)
-   10.   |   |   P ∧ Q                           H (for →I)
+   05.   |   |   |   R                           1,4 → E
+   06.   |   |   Q → R                           3-5 → I
+   07.   |   P → (Q → R)                         2-6 → I
+   08.   ((P ∧ Q) → R) → (P → (Q → R))           1-7 → I
+   09.   |   P → (Q → R)                         H (for → I)
+   10.   |   |   P ∧ Q                           H (for → I)
    11.   |   |   P                               13 ∧E
-   12.   |   |   Q → R                           9,11 →E
+   12.   |   |   Q → R                           9,11 → E
    13.   |   |   Q                               10 ∧E
-   14.   |   |   R                               12,13 →E
-   15.   |   (P ∧ Q) → R                         10-14 →I
-   16.   (P → (Q → R)) → ((P ∧ Q) → R)           9-15 →I
-   17.   ((P ∧ Q) → R) ↔ (P → (Q → R))           8,16 ↔I
+   14.   |   |   R                               12,13 → E
+   15.   |   (P ∧ Q) → R                         10-14 → I
+   16.   (P → (Q → R)) → ((P ∧ Q) → R)           9-15 → I
+   17.   ((P ∧ Q) → R) ↔ (P → (Q → R))           8,16 ↔ I
    QED
 
    Distribution (DIST):   ⊢  (P ∧ (Q ∨ R)) ↔ ((P ∧ Q) ∨ (P ∧ R))
    Proof
-   01.   |   P ∧ (Q ∨ R)                         H (for →I)
+   01.   |   P ∧ (Q ∨ R)                         H (for → I)
    02.   |   P                                   1 ∧E
    03.   |   Q ∨ R                               1 ∧E
-   04.   |   |   Q                               H (for →I)
+   04.   |   |   Q                               H (for → I)
    05.   |   |   P ∧ Q                           2,4 ∧I
    06.   |   |   (P ∧ Q) ∨ (P ∧ R)               5 ∨I
-   07.   |   Q → ((P ∧ Q) ∨ (P ∧ R))             4-6 →I
-   08.   |   |   R                               H (for →I)
+   07.   |   Q → ((P ∧ Q) ∨ (P ∧ R))             4-6 → I
+   08.   |   |   R                               H (for → I)
    09.   |   |   P ∧ R                           2,8 ∧I
    10.   |   |   (P ∧ Q) ∨ (P ∧ R)               9 ∨I
-   11.   |   R → ((P ∧ Q) ∨ (P ∧ R))             8-10 →I
+   11.   |   R → ((P ∧ Q) ∨ (P ∧ R))             8-10 → I
    12.   |   (P ∧ Q) ∨ (P ∧ R)                   3,7,11 ∨E
-   13.   (P ∧ (Q ∨ R)) → ((P ∧ Q) ∨ (P ∧ R))     1-12 →I
-   14.   |   (P ∧ Q) ∨ (P ∧ R)                   H (for →I)
-   15.   |   |   P ∧ Q                           H (for →I)
+   13.   (P ∧ (Q ∨ R)) → ((P ∧ Q) ∨ (P ∧ R))     1-12 → I
+   14.   |   (P ∧ Q) ∨ (P ∧ R)                   H (for → I)
+   15.   |   |   P ∧ Q                           H (for → I)
    16.   |   |   P                               15 ∧E
    17.   |   |   Q                               15 ∧E
    18.   |   |   Q ∨ R                           17 ∨I
    19.   |   |   P ∧ (Q ∨ R)                     17,18 ∧I
-   20.   |   (P ∧ Q) → (P ∧ (Q ∨ R))             15-18 →I
-   21.   |   |   P ∧ R                           H (for →I)
+   20.   |   (P ∧ Q) → (P ∧ (Q ∨ R))             15-18 → I
+   21.   |   |   P ∧ R                           H (for → I)
    22.   |   |   P                               21 ∧E
    23.   |   |   R                               21 ∧E
    24.   |   |   Q ∨ R                           23 ∨I
    25.   |   |   P ∧ (Q ∨ R)                     24 ∧I
-   26.   |   (P ∧ R) → (P ∧ (Q ∨ R))             21-25 →I
+   26.   |   (P ∧ R) → (P ∧ (Q ∨ R))             21-25 → I
    27.   |   P ∧ (Q ∨ R)                         14,20,26 ∨E
-   28.   ((P ∧ Q) ∨ (P ∧ R)) → (P ∧ (Q ∨ R))     14-27 →I
-   29.   (P ∧ (Q ∨ R)) ↔ ((P ∧ Q) ∨ (P ∧ R))     13,28 ↔I
+   28.   ((P ∧ Q) ∨ (P ∧ R)) → (P ∧ (Q ∨ R))     14-27 → I
+   29.   (P ∧ (Q ∨ R)) ↔ ((P ∧ Q) ∨ (P ∧ R))     13,28 ↔ I
    QED
 
    Distribution (DIST):   ⊢  (P ∨ (Q ∧ R)) ↔ ((P ∨ Q) ∧ (P ∨ R))
    Proof
-   01.   |   P ∨ (Q ∧ R)                         H (for →I)
-   02.   |   |   P                               H (for →I)
+   01.   |   P ∨ (Q ∧ R)                         H (for → I)
+   02.   |   |   P                               H (for → I)
    03.   |   |   P ∨ Q                           2 ∨I
    04.   |   |   P ∨ R                           2 ∨I
    05.   |   |   (P ∨ Q) ∧ (P ∨ R)               3,4 ∧I
-   06.   |   P → ((P ∨ Q) ∧ (P ∨ R))             2-5 →I
-   07.   |   |   Q ∧ R                           H (for →I)
+   06.   |   P → ((P ∨ Q) ∧ (P ∨ R))             2-5 → I
+   07.   |   |   Q ∧ R                           H (for → I)
    08.   |   |   Q                               7 ∧E
    09.   |   |   R                               7 ∧E
    10.   |   |   P ∨ Q                           8 ∨I
    11.   |   |   P ∨ R                           9 ∨I
    12.   |   |   (P ∨ Q) ∧ (P ∨ R)               10,11 ∧I
-   13.   |   (Q ∧ R) → ((P ∨ Q) ∧ (P ∨ R))       7-12 →I
+   13.   |   (Q ∧ R) → ((P ∨ Q) ∧ (P ∨ R))       7-12 → I
    14.   |   (P ∨ Q) ∧ (P ∨ R)                   1,6,13 ∨E
-   15.   (P ∨ (Q ∧ R)) → ((P ∨ Q) ∧ (P ∨ R))     1-14 →I
-   16.   |   (P ∨ Q) ∧ (P ∨ R)                   H (for →I)
+   15.   (P ∨ (Q ∧ R)) → ((P ∨ Q) ∧ (P ∨ R))     1-14 → I
+   16.   |   (P ∨ Q) ∧ (P ∨ R)                   H (for → I)
    17.   |   P ∨ Q                               18 ∧E
    18.   |   P ∨ R                               16 ∧E
-   19.   |   |   P                               H (for →I)
+   19.   |   |   P                               H (for → I)
    20.   |   |   P ∨ (Q ∧ R)                     19 ∨I
-   21.   |   P → (P ∨ (Q ∧ R))                   19-20 →I
-   22.   |   |   Q                               H (for →I)
-   23.   |   |   |   R                           H (for →I)
+   21.   |   P → (P ∨ (Q ∧ R))                   19-20 → I
+   22.   |   |   Q                               H (for → I)
+   23.   |   |   |   R                           H (for → I)
    24.   |   |   |   Q ∧ R                       22,23 ∧I
    25.   |   |   |   P ∨ (Q ∧ R)                 24 ∨I
-   26.   |   |   R → (P ∨ (Q ∧ R))               23-25 →I
+   26.   |   |   R → (P ∨ (Q ∧ R))               23-25 → I
    27.   |   |   P ∨ (Q ∧ R)                     28,21,26 ∨E
-   28.   |   Q → (P ∨ (Q ∧ R))                   22-26 →I
+   28.   |   Q → (P ∨ (Q ∧ R))                   22-26 → I
    29.   |   P ∨ (Q ∧ R)                         17,21,28 ∨E
-   30.   ((P ∨ Q) ∧ (P ∨ R)) → (P ∨ (Q ∧ R))     16-29 →I
-   31.   (P ∨ (Q ∧ R)) ↔ ((P ∨ Q) ∧ (P ∨ R))     15,30 ↔I
+   30.   ((P ∨ Q) ∧ (P ∨ R)) → (P ∨ (Q ∧ R))     16-29 → I
+   31.   (P ∨ (Q ∧ R)) ↔ ((P ∨ Q) ∧ (P ∨ R))     15,30 ↔ I
    QED
 
    DeMorgan's law (DM): ⊢  -(P ∧ Q) ↔ (-P ∨ -Q)
    Proof
-   01.   |   -(P ∧ Q)                            H (for →I)
+   01.   |   -(P ∧ Q)                            H (for → I)
    02.   |   |   -(-P ∨ -Q)                      H (for -I)
    03.   |   |   |   -P                          H (for -I)
    04.   |   |   |   -P ∨ -Q                     3 ∨I
@@ -4433,8 +4465,8 @@ Important Derived Equivalences
    14.   |   |   ⊥                               1,13 ⊥ I
    15.   |   --(-P ∨ -Q)                         2-14 ⊥ E
    16.   |   -P ∨ -Q                             15 -E
-   17.   -(P ∧ Q) → (-P ∨ -Q)                    1-16 →I
-   18.   |   -P ∨ -Q                             H (for →I)
+   17.   -(P ∧ Q) → (-P ∨ -Q)                    1-16 → I
+   18.   |   -P ∨ -Q                             H (for → I)
    19.   |   |   P ∧ Q                           H (for -I)
    20.   |   |   P                               19 ∧E
    21.   |   |   Q                               19 ∧E
@@ -4442,13 +4474,13 @@ Important Derived Equivalences
    23.   |   |   -Q                              18,22 DS
    24.   |   |   ⊥                               21,23 ⊥ I
    25.   |   -(P ∧ Q)                            19-24 ⊥ E
-   26.   (-P ∨ -Q) → -(P ∧ Q)                    18-25 →I
-   27.   -(P ∧ Q) ↔ (-P ∨ -Q)                    17,26 ↔I
+   26.   (-P ∨ -Q) → -(P ∧ Q)                    18-25 → I
+   27.   -(P ∧ Q) ↔ (-P ∨ -Q)                    17,26 ↔ I
    QED
 
    DeMorgan's law (DM)  ⊢  -(P ∨ Q) ↔ (-P ∧ -Q)
    Proof
-   01.   |   -(P ∨ Q)                            H (for →I)
+   01.   |   -(P ∨ Q)                            H (for → I)
    02.   |   |   -(-P ∧ -Q)                      H (for -I)
    03.   |   |   |   P                           H (for -I)
    04.   |   |   |   P ∨ Q                       3 ∨I
@@ -4461,80 +4493,80 @@ Important Derived Equivalences
    11.   |   |   -P ∧ -Q                         6,10 ∧I
    12.   |   |   ⊥                               2,11 ⊥ I
    13.   |   -P ∧ -Q                             2-12 ⊥ E
-   14.   -(P ∨ Q) → (-P ∧ -Q)                    1-13 →I
-   15.   |   -P ∧ -Q                             H (for →I)
+   14.   -(P ∨ Q) → (-P ∧ -Q)                    1-13 → I
+   15.   |   -P ∧ -Q                             H (for → I)
    16.   |   |   P ∨ Q                           H (for -I)
    17.   |   |   -P                              15 ∧E
    18.   |   |   -Q                              15 ∧E
    19.   |   |   Q                               16,18 DS
    20.   |   |   ⊥                               18,19 ⊥ I
    21.   |   -(P ∨ Q)                            16-20 ⊥ E
-   22.   (-P ∧ -Q) → -(P ∨ Q)                    15-21 →I
-   23.   -(P ∨ Q) ↔ (-P ∧ -Q)                    14,22 ↔I
+   22.   (-P ∧ -Q) → -(P ∨ Q)                    15-21 → I
+   23.   -(P ∨ Q) ↔ (-P ∧ -Q)                    14,22 ↔ I
    QED
 
    Material Equivalence (ME):  ⊢  (P ↔ Q) ↔ ((P → Q) ∧ (Q → P))
    Proof
-   01.   |   P ↔ Q                              H (for →I)
+   01.   |   P ↔ Q                              H (for → I)
    02.   |   P → Q                              1 ↔E
    03.   |   Q → P                              1 ↔E
    04.   |   (P → Q) ∧ (Q → P)                  2,3 ∧I
-   05.   (P ↔ Q) → ((P → Q) ∧ (Q → P))          1-4 →I
-   06.   |   (P → Q) ∧ (Q → P)                  H (for →I)
+   05.   (P ↔ Q) → ((P → Q) ∧ (Q → P))          1-4 → I
+   06.   |   (P → Q) ∧ (Q → P)                  H (for → I)
    07.   |   P → Q                              6 ∧E
    08.   |   Q → P                              6 ∧E
-   09.   |   P ↔ Q                              7,8 ↔I
-   10.   ((P → Q) ∧ (Q → P)) → (P ↔ Q)          6-9 →I
-   11.   (P ↔ Q) ↔ ((P → Q) ∧ (Q → P))          5,10 ↔I
+   09.   |   P ↔ Q                              7,8 ↔ I
+   10.   ((P → Q) ∧ (Q → P)) → (P ↔ Q)          6-9 → I
+   11.   (P ↔ Q) ↔ ((P → Q) ∧ (Q → P))          5,10 ↔ I
    QED
 
    Material Equivalence (ME):  ⊢  (P ↔ Q) ↔ ((P ∧ Q) ∨ (-P ∧ -Q))
    Proof
-   01.   |   P ↔ Q                               H (for →I)
-   02.   |   P → Q                               1 ↔E
-   03.   |   Q → P                               1 ↔E
+   01.   |   P ↔ Q                               H (for → I)
+   02.   |   P → Q                               1 ↔ E
+   03.   |   Q → P                               1 ↔ E
    04.   |   |   -((P ∧ Q) ∨ (-P ∧ -Q))          H (for -I)
    05.   |   |   -(P ∧ Q) ∧ -(-P ∧ -Q)           4 DM
    06.   |   |   -(P ∧ Q)                        5 ∧E
    07.   |   |   -(-P ∧ -Q)                      5 ∧E
    08.   |   |   -P ∨ -Q                         6 DM
    09.   |   |   P ∨ Q                           7 DM
-   10.   |   |   |   -P                          H (for →I)
+   10.   |   |   |   -P                          H (for → I)
    11.   |   |   |   -Q                          2,10 MT
    12.   |   |   |   P                           9,10 DS
    13.   |   |   |   ⊥                           10,11 ⊥ I
-   14.   |   |   -P → ⊥                          10-13 →I
-   15.   |   |   |   -Q                          H (for →I)
+   14.   |   |   -P → ⊥                          10-13 → I
+   15.   |   |   |   -Q                          H (for → I)
    16.   |   |   |   -P                          2,15 MT
    17.   |   |   |   P                           9,15 DS
    18.   |   |   |   ⊥                           16,17 ⊥ I
-   19.   |   |   -Q → ⊥                          15-18 →I
+   19.   |   |   -Q → ⊥                          15-18 → I
    20.   |   |   ⊥                               8,14,19 ∨E
    21.   |   (P ∧ Q) ∨ (-P ∧ -Q)                 4-20 ⊥ E
-   22.   (P ↔ Q) → ((P ∧ Q) ∨ (-P ∧ -Q))         1-21 →I
-   23.   |   (P ∧ Q) ∨ (-P ∧ -Q)                 H (for →I)
-   24.   |   |   P ∧ Q                           H (for →I)
-   25.   |   |   |   P                           H (for →I)
+   22.   (P ↔ Q) → ((P ∧ Q) ∨ (-P ∧ -Q))         1-21 → I
+   23.   |   (P ∧ Q) ∨ (-P ∧ -Q)                 H (for → I)
+   24.   |   |   P ∧ Q                           H (for → I)
+   25.   |   |   |   P                           H (for → I)
    26.   |   |   |   Q                           24 ∧E
-   27.   |   |   P → Q                           25-26 →I
-   28.   |   |   |   Q                           H (for →I)
+   27.   |   |   P → Q                           25-26 → I
+   28.   |   |   |   Q                           H (for → I)
    29.   |   |   |   P                           24 ∧E
-   30.   |   |   Q → P                           28-29 →I
-   31.   |   |   P ↔ Q                           27,30 ↔I
-   32.   |   (P ∧ Q) → (P ↔ Q)                   24-31 →I
-   33.   |   |   -P ∧ -Q                         H (for →I)
-   34.   |   |   |   -P                          H (for →I)
+   30.   |   |   Q → P                           28-29 → I
+   31.   |   |   P ↔ Q                           27,30 ↔ I
+   32.   |   (P ∧ Q) → (P ↔ Q)                   24-31 → I
+   33.   |   |   -P ∧ -Q                         H (for → I)
+   34.   |   |   |   -P                          H (for → I)
    35.   |   |   |   -Q                          33 ∧E
-   36.   |   |   -P → -Q                         34-35 →I
+   36.   |   |   -P → -Q                         34-35 → I
    37.   |   |   Q → P                           36 TRANS
-   38.   |   |   |   -Q                          H (for →I)
+   38.   |   |   |   -Q                          H (for → I)
    39.   |   |   |   -P                          33 ∧E
-   40.   |   |   -Q → -P                         37-38 →I
+   40.   |   |   -Q → -P                         37-38 → I
    41.   |   |   P → Q                           40 TRANS
-   42.   |   |   P ↔ Q                           37,41 ↔I
-   43.   |   (-P ∧ -Q) → (P ↔ Q)                 33-42 →I
-   44.   ((P ∧ Q) ∨ (-P ∧ -Q)) → (P ↔ Q)         23-44 →I
-   45.   (P ↔ Q) ↔ ((P ∧ Q) ∨ (-P ∧ -Q))         22,44 ↔I
+   42.   |   |   P ↔ Q                           37,41 ↔ I
+   43.   |   (-P ∧ -Q) → (P ↔ Q)                 33-42 → I
+   44.   ((P ∧ Q) ∨ (-P ∧ -Q)) → (P ↔ Q)         23-44 → I
+   45.   (P ↔ Q) ↔ ((P ∧ Q) ∨ (-P ∧ -Q))         22,44 ↔ I
    QED
 
 

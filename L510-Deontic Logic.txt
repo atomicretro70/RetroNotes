@@ -1,0 +1,891 @@
+##############################################################################
+##############################################################################
+##############################################################################
+##############################################################################
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######          ##############################################          ######
+######          ##############################################          ######
+######          ###                                        ###          ######
+######          ###              Retro Notes               ###          ######
+######          ###                                        ###          ######
+######          ###              Modal Logics              ###          ######
+######          ###                                        ###          ######
+######          ##############################################          ######
+######          ##############################################          ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+######                     AtomicRetro@outlook.com                      ######
+######                                                                  ######
+######                     Revision:  20.10.05                          ######
+######                                                                  ######
+######                                                                  ######
+######                                                                  ######
+##############################################################################
+##############################################################################
+##############################################################################
+##############################################################################
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+
+==============================
+To View This Document Properly
+==============================
+* Best if viewed in VIM using with settings
+     :set columns=80
+     :set encoding=utf-8
+
+* This document must be viewed with a mono-spaced font to enjoy the layout,
+  tables and diagrams.
+
+* This document must be viewed in an editor that can display unicode utf-8.
+
+
+========
+Contents
+========
+   Truth-Functional Logic
+      Language
+      Semantics
+      Calculus
+      Proofs
+   Alethic Modal Logic
+      Intro
+      Language
+      Semantics
+      Translation Hints
+      Inferrential Systems
+      Non-Hisorical Modal Systems
+      Kripke Semantics
+      Leibnizian Semantics (World Theory)
+      System L
+      Modal Truth-Trees
+      Fitch Natural Deduction
+   Deontic Modal Logic
+      Language
+      Semantics
+      Inferrential Systems
+      Standard Deontic Logic (SDL)
+      Deontic Reductionism
+      Common Sense Deontic Logic
+   Temporal Modal Logic
+      The Logic of Time
+      Language
+      Semantics
+      Inferrential Systems
+   Doxastic & Epistemic Modal Logics
+      Language
+      Semantics
+      Inferrential Systems
+   Relating the Systems
+   FOL=
+   Modal FOL=
+   Free Logic (FL=)
+      Modal extensions of FL=
+
+   Appendix A: TFL Proofs
+
+
+=============
+Deontic Logic
+=============
+
+Language
+========
+
+   Lexemes
+      OB(p), it is obligtory that, p.
+      IM(q), it is impermissible that, q.
+      PE(r), it is permissible that, r.
+      OM(s), it is omissible (not required) that, s.
+      OP(t), it is optional that, t.
+
+   Definitions (DeD)
+      - Any one of the first four lexemes above is sufficient to define all
+        of the remaining 5 operations.  We will define them in terms of OB.
+      IM(p) =df OB(-p)
+      PE(p) =df -OB(-p)
+      OM(p) =df -OB(p)
+      OP(p) =df -OB(p) ∧ -OB(-p)
+
+Semantics
+=========
+
+   Trifold Classification
+      Table:
+
+          OB
+
+          PE  OP  OM
+
+                  IM
+
+      - Items along the long diagonal are mutually exclusive.
+      - OB must also be PE and nothing else.
+      - PE can be OP, OB or OM and while it can be OP and OM it can't be
+        OB and either OP or OM.
+         PE
+         ------
+         OB  OP  IM
+             ------
+                 OM
+
+      -  OB, OP, IM are mutually exclusive.
+      -  for any propositions p,q If referring to the table
+         some p is above or below some q above the we can say both
+         p is q, and q is p.
+
+   Deontic Square
+
+      OB---contrary----IM
+      | \             / |
+      |   \         /   |
+      |     \     /     |
+   sub|       \ /       |sub
+      | contradictories |
+   alt|       / \       |alt
+      |     /     \     |
+      |   /         \   |
+      | /             \ |
+      PE--subcontrary--OM
+
+      - contradictory (cross through the middle)
+           means: They have opposite truth values.
+           -(OB(p) ↔ OM(p))
+           -(IM(p) ↔ PE(p))
+      - contrary (across the top)
+           means: At least one is false (can't both be true)
+           -OB(p) ∨ -IM(p)
+      - subcontrary (across the bottom)
+           means: At least one is true (can't both be false)
+           PE(p) ∨ OM(p)
+      - subalt/subalternation (down the sides)
+           means: Truth flows downward, Falsehood flows upward
+           Or, the Top term implies the lower term
+           OB(p) → PE(p)
+           IM(p) → OM(p)
+
+   Deontic Hexagon
+
+               OB---contrary----IM
+             / | \             / | \
+           /   |   \         /   |   \
+         /     |     \     /     |     \
+       /    sub|       \ /       |sub    \
+     OP        | contradictories |        OP-
+       \    alt|       / \       |alt    /
+         \     |     /     \     |     /
+           \   |   /         \   |   /
+             \ | /             \ | /
+               PE--subcontrary--OM
+
+      - OB, IM  are contraries (at least one is false)
+           -OB(p) ∨ -IM(p)
+      - OB, OP- are contraries
+           -OB(p) ∨ -OP(-p)
+      - OB, OP  are contraries
+           -OB(p) v -OP(p)
+      - IM, OP  are contraries
+           -IM(p) v -OP(p)
+      - IM, OP- are contraries
+           -IM(p) ∨ -OP(-p)
+      - OB, PE  are subalternates
+           OB(p) → PE(p)
+      - OP, PE  are subalternates
+           OP(p) → PE(p)
+      - OP, OM  are subalternates
+           OP(p) → OM(p)
+      - IM, OM  are subalternates
+           IM(p) → OM(p)
+      - OP-, OM are subalternates
+           OP(-p) → OM(p)
+      - PE, OM  are subcontraries
+           PE(p) v OM(p)
+      - OP, OP- are equivalent
+           OP(p) ↔ OP(-p)
+ 
+   Isomorphisms
+      Deontic  Alethic
+      -------  -------
+      OB(p)    □ p
+      PE(p)    ◇ p
+      IM(p)    -◇ p
+      OM(p)    -□ p
+      OP(p)    ◇ P ∧ ◇ -P  (contingent)
+
+      Deontic                     Alethic
+      -------                     -------
+      PE(p) =df -OB(-p)           ◇ p =df -□ -p
+      IM(p) =df OB(p)             impossible p =df □ -p
+      OM(p) =df -OB(p)            -□ p =df -□ p
+      OP(p) =df -OB(p) ∧ -OB(-p)  contingent p =df -□ p ∧ -□ -p
+
+      - The alethic operations fit in the Hexagon
+      
+      Differences
+      - There are some alethic modal logic axioms, such as axiom T,
+        that make sense in alethic modal logic but not in deontic.
+      - Axiom T (T or M)
+        □ A → A
+        Yet it wouldn't make sense to say that anything that is OB is true,
+        since clearly there are things that are OB but aren't done.
+
+   Deontic Equivalence Axiom
+      Equivalence Axiom (DEA)
+         (p ↔ q) → (OB(p) ↔ OB(q))
+
+   Tautology and Contradiction Notation
+      lexemes
+         T     =df  all tautologies or all logical truths
+         ⊥   =df  all logical contradictions
+
+      Ex
+         □ T     all logical truths are necessary
+         -◇ ⊥  it's not the case that it's possible that all contradictions
+                 are the case
+
+   Omissibility of Contradictions Axiom (OmA)
+      -OB(⊥) also OM(⊥)
+         If something is ⊥, no deontic system can requires that it's OB
+
+   Type os Deontic Contradictions
+      OM         DNC (Deontic non-Contradiction)
+      --------   -------------------------------
+      -OB(⊥)     -(OB(p) ∧ OB(-p))
+
+      These are not interderivable 
+      
+      Omissibility
+         -OB(⊥)
+         means: can't make someone do something that's a contradiction.
+
+      Deontic non-contradiction (DNC)
+         -(OB(p) ∧ OB(-p))
+         means: can't obligate both p and -p.
+
+         - The key differences between these two is in the scope of OB.
+         - While the Omissibility Rules is rarely contested, there is a great
+           deal of debate around DNC.
+
+
+
+
+
+Standard Deontic Logic (SDL)
+   - The goal here is the have a Deontic logic which is an isomorphism to
+     alethic modal logic.
+   - Most commonly used and referenced version of Deontic Logic that you will
+     find.
+   - All it's going to do is take the Axioms we've explored so far and put
+     them in a format that makes them isomorphically related to the axioms
+     of Alethic Modal Logic
+
+   Definitions
+      Definition of Permissible (PEDef)
+         PE(p)  =df  -OB(-p)
+
+   Axioms
+      Axiom K (K)
+         Alethic:  □ (A → B) → (□ A → □ B)
+         Deontic:  OB(p → q) → (OB(p) → OB(q)) 
+
+      Axiom D (D)
+         Alethic:  □ A → ◇ A
+         Deontic:  OB(p) → -OB(-p)   or by definition,
+                   OB(p) → PE(p)
+
+         Corollary
+            IM(p) → -OB(p)
+
+      Necessitation Rule (NR)
+         Alethic:  if ⊢ A then □ A      for all axioms and theorems A
+         Deontic:  if ⊢ p then OB(p)    for all axioms ans theorems p
+
+         - It can be used with D to prove OmA (Omissibility of
+           Contradictions Axiom).
+         - According to this rule it's not just illogical to have
+           p and -p, it's morally wrong.  It's OB(-(p ∧ -p)).
+         - Demonstrating that the liar paradox breaks the LEM is not just
+           annoying it's ethically impermissible.
+
+         - Nec doesn't seem to really work right in Deontic logic and it
+           may be better to go without it.  The problem here is that it
+           sort of breaks the isomorphism with alethic logic, which is
+           what SDL (Standard Deontic logic) may be better off doing.
+
+Augmented Standard Deontic Logic
+   The idea here is to extend SDL (Standard Deontic Logic).  So
+   Everything below is in addition to SDL.
+
+   Axioms
+      Double Obligation Axiom (DOA)
+         Deontic:  OB(OB(p) → p)
+         - corollary
+              OB(OB(p))→ OB(p)
+           Similar to Axiom 4
+              □ A → □ □ A
+
+   Notes
+   - This axiom is contentius.
+   - It ought to be the case that if it ought to be the case you don't
+     steal, then you don't steal.
+   - It should be the case that if we are obligated to do x that we do x.
+   corollary
+   - If it's obligatory that it is obligatory that we don't lie, then it is
+     obligatory that we don't lie.
+   - It ought to be the case that it ought to be the case that x implies
+     that it ought to be the case that x.
+      
+   - what it does is simplifying a stirng of OB down to one OB
+       
+Semantics of Deontic Logic
+
+   Semantics of Deontic Logic
+      The Acceptability Relation in Deontic Sematics
+         The Acceptability Relation (DADef - Deontic Acceptability Definition)
+         Ai:Aj:(Aij ↔ Ap:(OB(p)i → pj))
+         - For any worlds i,j, j is acceptable to i if and only if for all
+           propositions p, if p is obligatory in i then p is the case in j.
+         - Where i and j are worlds, p is a proposition and xw means x is true
+           in a given world w.  We will call this Deontic Acceptability
+           Relation.
+         - In other worlds, for all worlds i and j, j is acceptable to i
+           if and only if for all propositions p, if p is obligatory in i,
+           p is true in j.
+         - So imagine that world i is some world where the only thing that is
+           obligatory is that you do not kill.  And world j where no one ever
+           kills bears the acceptability relation i.
+
+         Deontic Acceptance Seriality (DAS)
+         A^i =df All world that bear the acceptability relation to i.
+         - There must be at least one A^i world since ought implies can  It
+           should be possible for us to fulfill all our obligations.  In other
+           words Ai:Ej:Aij (for all i there exists some j where j bears the
+           acceptability relation to i.
+
+   Semantics of Standard Deontic Logic
+      Kripke Semantics
+         OB(p)
+         - There are no world that bear the acceptability to i and p is false.
+         - All worlds that bear the acceptability relation to i are also
+           worlds where p is true.
+         - It is obligatory that p in i can be understood in terms of an
+           Aristotelian categorical logic universal affirmative statement.
+         - All A^i worlds are also worlds where p is true (since by definition
+           an A^i world is a worlds where all obligations in i are true).
+         PE(p)
+         - If it is permissible that p at i, that means that there is at
+           least one world in which p is true, that bears the acceptability
+           relation to i.  In other worlds, there is at least one world where
+           all the obligations of world i are fulfilled and p is true.
+         IM(p)
+         - If it is impermissible that p at i, that means that there is no
+           possible world in which all of the obligation in i are true and
+           p is true, and there is at least one world where all of the
+           obligations in i are true.
+         OM(p)
+         - If it is omissible that p at i, then there is some A^i world where
+           all of the obligations in world i are true, but p is false.
+      Example
+         It is obligatory that no one lies.
+         - If it is obligatory that no one lies in world i, that means that
+           there can be no world in which all of the obligations of world i
+           hold true, and yet there are people that lie.  And there exists
+           one world where all of the obligations of i hold true and no one
+           lies.
+         It's permissible to swear.
+         - If it is permissible to swear in world i, then that means that
+           there is at least one world where someone swears and all of the
+           obligations of world i are fulfilled.
+         It's impermissible to rape.
+         - If it's impermissible to rape in world i, then there is no world
+           in which all of the obligations in i are fulfilled and a rape is
+           committed.  There is also at least one world where all of the
+           obligations in i are fulfilled.
+         It's omissible to eat oats.
+         - If it is omissible to eat oats in world i, then there is some world
+           where all of the obligations of i are true, but no one eats oats.
+      Relating to Categorical Logic
+         OB(p)i: All worlds where all obligations of i are fulfilled are 
+            worlds where p is true.
+            Correlates to an A.
+         PE(p)i: There exists a world where all obligations of i are
+            fulfilled and p is true.
+            Corresponds to an I.
+         IM(p)i: No worlds where all obligations of i are fulfilled  are
+            worlds where p is true.
+            Corresponds to an E.
+         OM(p)i: There exists a world were all obligations of i are
+            fulfilled p is not true.
+            Corresponds to an O.
+
+   Semantics of Augmented Deontic Logic
+      - Recall that Augmented Deontic Logic includes the DOA (Double Obligation
+        Axiom):
+           OB(OB(p) → p)
+        corollary:
+           OB(OB(p)) → OB(p)
+      - This axiom doesn't hold for the semantics of Standard Deontic Logic.
+      Semantics
+         Imagine 3 possible worlds
+
+            i    j    k
+
+         with relations:
+         - Aij, j is acceptable to i
+           meaning: all obligations in i are true in j.
+         - Ajk, k is acceptable to j
+           meaning: all obligations in j are true in k.
+         
+         - We're going to try to create a counterexample.
+           So, in world i we're going to deny DOA.
+            -OB(OB(p) → p) in world i
+            therefore
+            OB-(OB(p) → p) in world i
+         - But because of our relation, everything in i is true in some j.
+           So,
+                 -(OB(p) → p) in world j
+              ∴ -(-OB(p) v p) in world j
+              ∴ OB(p) ∧ -p    where it's -p in world j
+           The result may be surprising but it's not a contradiction.
+           Often obligations aren't fulfilled in a world.
+         - So finally, there exists some world k where
+           where:
+                 p
+
+         - Since we can provide a counterexample, where DOA is not the case
+           that means that adding DOA would create a different situation
+           where this would be disallowed.  It would require that for a world
+           to be acceptable to i, it must be acceptable to itself.
+
+         - So the DOA requires that for a world to be acceptable to i,
+           it must be acceptable to itself.
+         - So world j cannot exist because, by the final result above
+           (namely OB(p) ∧ -p), because there could be no world where
+           it's obligatory that p and p was not done, which would be
+           considered acceptable to world i.
+
+         As a consequence of these last points we're going to define a new
+         acceptability relation A+.
+
+      A+ Acceptability relation (A+)
+         Recall that the acceptability relation is defined as:
+                 Ai:Aj:(Aij ↔ Ap:( OB(p)i           → pj))
+         We're going to make a new acceptability relation called A+
+                 Ai:Aj:(Aij ↔ Ap:((OB(p)i ∨ OB(p)j) → pj)
+             World i bears the acceptability relation to world j, if and only
+             if for all propositions p, p being obligatory in i or j implies
+             that it is true in j.
+
+Deontic Reductionism
+   The goal here is to try to reduce deontic logic down to Alethic Modal
+   Logic System K.
+
+   Andersonian Kangerian Reduction
+      Reduction
+         Anderson and Kanger independently discovered methods that they
+         claimed could reduce Deontic Logic to Modal Logic using a single
+         axiom and propositional constant instead of several asioms and
+         a new predicate (namely OB).
+      Kanger (System Kd)
+         Uses a propositional constant 'd' which means all normative
+         demands are met.  Kanger will replace all of the axioms of our
+         deontic system with one simple axiom ◇ d (it's possible that all
+         normative demands are met) and the standard modal axioms for
+         System K.  We'll call this system Kd.
+      Anderson
+         Did the same but used a constant 's' instead of 'd' which means
+         some normative demand has been violated.  It should be clear
+         that this is identical to -d, and we could take for an equivalent
+         axiom to ◇ d either ◇ -s or -□ s.
+      Notes
+         - This system may seem to reduce SDL to alethic system K.  But we'll
+           show that this isn't the case.
+
+   System Kd (Kandger's Deontic Logic)
+      System Kd is System K + Axiom d, where axiom d states that d is
+      possible.
+
+      System K (K)
+         Definitions
+            Definition of Possibility (Def◇ )
+               ◇ A  =df  -□ -A
+
+         Axioms
+            Necessitation Rule (Nec)
+               if A is an axiom or theorem of K then □ A is too.
+            Distribution Axiom (MDist)
+               □ (A → B) → (□ A → □ B)
+
+      System Kd
+         Uses all of the above plus the following axiom.
+
+         Axiom d (d)
+            ◇ d, it is possible that all normative demands, or obligations
+                 are met.
+
+      We can use this system to derive many of the theorems of SDL (Standard
+      Deontic Logic).
+
+      Notes
+         - Modal System K is generally non-controversial, and it seems that
+           the claim that there is at least oen possible world in which all
+           of the normative demands (obligations) are met exists does not
+           seem to be too problematic.
+         - The claim is that this sysem is equivalent to SDL.  But we'll
+           show that this isn't the case.
+
+      Definitions in System Kd (KdD)
+         Kd can sufficiently represent all of the deontic terms that we
+         have learned in terms of d and □  (and ◇  which can be defined
+         in terms of □ ).  All of these will be referred to as KdD in
+         proofs.
+
+         OB(p)  =df  □ (d → p)
+
+         PE(p)  =df  ◇ (d ∧ p)
+
+         IM(p)  =df  □ (p → -d)
+
+         OM(p)  =df  ◇ (d ∧ -p)
+
+      Examples
+         - Let's say:  'it's obligatory that you always wash your hands
+           before dinner.'
+              OB(w)
+           So by definition,
+              □ (d → w)
+           In all possible worlds where all obligations are fulfilled, you
+           always wash your hands before dinner.
+         - Let's say, 'Killing is omissible.'
+              OM(k)
+           Then by definition:
+              ◇ (d ∧ -k)
+           'There exists some possible world in which both all obligations
+           are fulfilled and no one is killed.'
+
+   System Ks (Anderson's Deontic Logic)
+      Uses a propositional constant 's', which means 'some deontic demand
+      has been violated.  This could be defined in terms of Kd as s=-d.
+      This system includes instead, all of K and Anderson's axioms,
+      which is equivalent to Kanger's axiom.
+
+      System K (K)
+         Necessitation Rule (NR)
+            if A is an axiom or theorem of K then □ A is too.
+         Distribution Axiom (MDist)
+            □ (A → B) → (□ A → □ B)
+         Definition of Possibility (Def◇ )
+            ◇ A =df -□ -A
+
+      Anderson's Axom (Axiom s)
+         -□ s     it is not the case that, it's necessary that, s.
+
+      Definitions
+         The definitions are basically all the same as those in syste Kd.
+         For example.
+
+         OB(p)  =df  □ (-p → s)
+            etc.
+
+      Notes
+         - Both Systems Kd and Ks will prove to be more powerful than
+           SDL (Standard Deontic Logic) and cannot be reduced to it.
+
+   System KTd (KMd)
+      Here we assume all of system Kd and add System T (or System M).
+
+      Axioms
+         Axiom M (Axiom T)
+            Alethic:  □ A → A
+            Deontic:  OB(A) → A
+
+            - corollary
+              A → ◇ A
+              A → PE(A)
+
+      Recall System T (System M) where necessity implies truth.  System T
+      is System K with Axiom M (or Axiom T).
+
+   Why Deontic Reduction Fails
+
+      Why Kd and Ks are not actually reducible to SDL.
+
+      - While a deontic version of T (OB(p) → p) might be too strong, it
+        seems that a logical system is hard to create without the alethic
+        version.  Most systems of alethic modality require that if something
+        is in all possible worlds it is in the actual worl, and if
+        something is in the actual world it is possible.
+
+      
+      While Axiom T (Axiom M) seems important to most alethic systems, it
+      does not seem to be a desired property to a deontic system.
+
+      Notes
+      - The problem is that while adding the alethic version of T to
+        SDL will not create any significant changes, (and it will not
+        cause it to turn into the augmented version) adding T to Kd
+        will create significant changes and it will allow our
+        augmented version of deontic logic including the DOA (Double
+        Obligation Axiom) to be able to be deduced.
+      - What this means is that either the advocate of Kangerian and
+        Andersonian reduction my deny that something that is necessary
+        is true in the actual world (which seems to me a difficult
+        position to defend considering our understanding of alethic
+        modality) or give up on reduction.
+      - This does not mean that these fail as deontic systems as a
+        whole, merely that they are not reductions of SDL at least
+        when axiom M (T) is include in our system.  They can still
+        stand as separate systems on their own, but it seems to me that
+        their position as reductions of SDL is debunked.
+      - This doesn't mean that reductionist systems fail on their own.
+        They can still stand as systems on their own. or still deny
+        Axiom M (T) and still claim to be a reduction. 
+
+Semantics
+   Modal Accessibility Definition relation (MADef)
+      Ai:Aj:(ARij ↔ Ap:(Pi → ◇ pj))
+      Where,
+         i and j are worlds
+         p is a proposition
+         xw means x is true in a given world w
+      So, for all worlds i and j, j is accessible to i if and only if for
+      all propositions p, if p is true in i, p is possible in j.
+
+      - There's an ambiguity.  Depending on exactly how we construe modality
+        (as logical or nomic (of obligation)) it may be the case that all
+        worlds are accessible to all other worlds.
+
+      Definitions
+         AR^i  =df  all worlds that bear the accessibility relation to i.
+
+         - Just as A^i represented all of the worlds that were acceptable
+           to i, AR^i represents all of the worlds that are accessible
+           to i, as noted above, this could also be all possible worlds.
+
+   Reductionist Deontic Semantics
+      The semantics for Reductionist Deontic Logic will look somewhat
+      similar to the semantics for Standard Deontic Logic.  Both can be
+      visualized in terms of categorical logic.  We will replace  A^i
+      with AR^i and add in all worls in which d is satisfied.
+
+Common Sense Deontic Logic
+   Focusing down on optional actions
+      Predicates
+         MA(p)     Maximal    p is included in the set of things that are the
+                              most you can do.  MA (you get tested to see
+                              if your kidneys are a match) would mean that
+                              getting tested to see if your kidneys are a
+                              match is part of the most that you can do.
+         MI(p)     Minimal    p is included in the set of things that are the
+                              least you can do.  MI (Saying you are very
+                              sorry to hear that) would mean that saying
+                              you are sorry to hear that is part of the
+                              least that you could do.
+         BC(p)     beyond     p is included in the set of things that
+                   the call   represent going beyond the call of duty (it is
+                              not included in the minimal route).  BC
+                              (Offering to provide help with the situation)
+                              would mean that offering to provide help is
+                              going beyond the call of duty.  It is more
+                              than the least that you could do.
+         PS(p)     Permissibly p is included in the course of action that is
+                   Suboptimal  permissible, but not maximal (not included in
+                               the maximal route).  PS (Not offering to be
+                               tested to see if you could donate) would
+                               mean that not offering to see if you could
+                               donate would be permissible, but suboptimal,
+                               less than the most you could do.
+         IN(p)     Indifferent It's indifferent that p (there is not a moral
+                               obligation one way or another).  IN (you tie
+                               your shoe during the conversation) means that
+                               it is morally indifferent that you do or do
+                               no tie your shoe during the conversation.
+         SI(p)     Significant SI(p) means that it is morally significant
+                               that p.  SI (offering to help the person would
+                               mean that it is morally significant whether or
+                               not you help the person.
+      Definitions
+         These six terms can be defined in terms of three of them and the
+         terms that we already have.
+
+            BC(p)  =df  PE(p) ∧ MI(-p)
+            PS(p)  =df  PE(p) ∧ MA(-p)
+            SI(p)  =df  -IN(p)
+
+
+      Venn Diagram
+         Look at it in terms of a Venn Diagram.
+
+
+         PE(p)
+         +-------------------+
+         |                   |     OM(p)
+         |  OB(p)  +---------+---------+
+         |         |         |         |
+         |         |  OP(p)  |         |
+         |         |         |         |
+         +---------+---------+  IM(p)  |
+                   |                   |
+                   +-------------------+
+
+         PE(p) is the circle on the left.
+         OM(p) is the circle on the right.
+         OB(p) is PE(p) minus the part common with OM(p).
+         IM(p) is OM(p) miuns the part common with PE(p).
+         OP(p) is the part common between PE(p) and OM(p).
+
+         Zoom into OP(p).
+
+         +-------------------------+
+         |  OP(P)                  |
+         |                         |
+         |   +------------------+  |
+         |   |  IN(P)           |  |
+         |   |                  |  |
+         |   |   +-----------+  |  |
+         |   |   |  SI(p)    |  |  |
+         |   |   +-----------+  |  |
+         |   +------------------+  |
+         +-------------------------+
+
+
+         Soom into SI(p)
+
+            The diagram is two pairs of boxes: a horizontal pair, and a
+            vertical pair.
+
+
+         SI(p)
+
+         +---------------------------------------------------------+
+         |         +-------------------------+                     |
+         |         |         MA(-p)          |                     |
+         |         |         PS(p)           |         -MA(p) ∧    |
+         |         |                         |             -MA(-p) |
+         | +-------+------------+------------+-------+             |
+         | |       |            |            |       | -MI(p) ∧    |
+         | |       |  MI(-p)    |   MI(p)    |       |     -MI(-p) |
+         | |       |  MA(-p)    |   MA(-p)   |       |             |
+         | |MI(-p) |            |            | MI(p) |             |
+         | |BC(p)  |            |            | BC(-p)|             |
+         | |       +------------+------------+       |             |
+         | |       |            |            |       |             |
+         | |       |            |            |       |             |
+         | |       |  MI(-p)    |   MI(p)    |       |             |
+         | |       |  MA(p)     |   MA(p)    |       |             |
+         | |       |            |            |       |             |
+         | +-------+------------+------------+-------+             |
+         |         |          MA(p)          |                     |
+         |         |          PS(p)          |                     |
+         |         |                         |                     |
+         |         +-------------------------+                     |
+         +---------------------------------------------------------+
+
+         - The area around the outermost box is the area SI(p) from the prior
+           diagram.  It's that innermost box.
+
+
+
+
+
+Very controversial.  All formulations seem to have issues.
+
+Notions
+
+   O:P,     It's obligatory that P
+   P:P,     It's permissible that P
+
+Definitions
+
+   (Def P)   P:P  =df  -O:-P         (It's permissible that P)
+   (Def F)   F:P  =df  O:-P          (It's forbidden that P)
+
+
+System D
+--------
+
+   Inference Rules
+
+      +-------------------------------+-------------------------------+
+      | ============================= | ============================= |
+      |  O:E                          |  O:I                          |
+      | ============================= | ============================= |
+      |   OR                          |   |□                          |
+      |  ---------                    |   |   ...                     |
+      |   |□                          |   |   R                       |
+      |   |   ...                     |  ---------                    |
+      |   |   R                       |   OR                          |
+      |                               |                               |
+      +-------------------------------+-------------------------------+
+
+   Axioms
+
+      D.   O:R → P:R
+
+   Other Possible Axioms
+
+      OO.  O:R ↔ OO:R         (biconditional version of axiom 4)
+      OP.  P:R ↔ OP:R         (biconditional version of axiom 5)
+      OM.  O:(O:R → R)
+
+   Since S4 and S5 include axiom M, which is stronger than
+   (axiom OM) + (axiom D).
+
+
+   Issues
+
+      All theorems (tautologies) are obligatory and their negations
+      are forbidden.
+
+         ⊢D  F⊥                 (contradiction is forbidden)
+         ⊢D  O:(R → R)
+
+      But these seem odd.
+
+         ⊢D  P:R → P:(R ∨ S)     (provable with K alone)
+
+         Example
+
+         H,   you hug
+         S,   you spit
+
+         P:H  ⊢  P:(H ∨ S)
+
+      Which seems to produce, It's permissible that you either hug or spit.
+      But this seems to imply
+
+         P:H ∧ P:S
+
+      Similarly,
+
+         ⊢D  OR → O:(R ∨ S)
+
+      Suppose, I ought to hug.  Does this imply I ought to hug or spit?
+
+         NonCon  ⊢D  -(O:R ∧ O:-R)
+
+      Chisholm's Paradox
+
+      D cannot adequately capture conditional obligations.
+
+         1. O:G           Obligatorily Sadie goes.
+         2. O:(G → T)    Obligatorily if Sadie goes, she talks.
+         3. -G → O:-T    If Sadie doesn't go, she ought not talks.
+         4. -G            Sadie doesn't go.
+
+      Which derives a contradiction.   
+
+      Another odd thoerem in D
+
+         ⊢D  OR → O:(-R → S)
+
+
