@@ -661,7 +661,7 @@ Translation Hints
    | ================================= | ================================= |
    | P ∨ Q                             | -(P ∨ Q)                          |
    | ================================= | ================================= |
-   | either P or Q                     | neither P nor Q                   |
+   | P or Q (or both)                  | neither P nor Q                   |
    | P except if/when Q                | P nor Q (in computing)            |
    | P except on condition that Q      |                                   |
    | P unless Q                        |                                   |
@@ -687,7 +687,7 @@ Translation Hints
    | P ↔ Q                             | P ↔ -Q                            |
    | ================================= | ================================= |
    | P if and only if (iff) Q          | P xor Q (in computing)            |
-   | P just if Q                       | P (exclusive) or Q                |
+   | P just if Q                       | either P or Q (but not both)      |
    | P just in case Q                  | P unless also Q                   |
    | P exactly if/when Q               | P unless Q                        |
    | P but only if Q                   | either P or Q                     |

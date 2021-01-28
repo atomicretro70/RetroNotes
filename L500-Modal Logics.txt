@@ -442,7 +442,7 @@ Negation Derivations
    new kinds of reasoning with subproofs.
 
    -I:   ( P  ⊢  ⊥ )  ⊢  -P
-   Scematic Proof
+   Schematic Proof
     i.    |   P         H (for -I)
           |   ...
     j.    |   ⊥
@@ -451,7 +451,7 @@ Negation Derivations
    QED
 
    -I:   ( -P  ⊢  ⊥ )  ⊢  P
-   Scematic Proof
+   Schematic Proof
     i.    |   -P        H (for -I)
           |   ...
     j.    |   ⊥
@@ -712,47 +712,55 @@ Semantics
 Translation Hints
 =================
 
-   ============  ======================================================
-   Form          Translations
-   ============  ======================================================
-   P             P
-                 it's true that P
-                 it's the case that, P
-                 P is true in the actual world
-   ------------  ------------------------------------------------------
-   ◇ P           it's possible that P
-                 P is logically possible (not self-contradictory)
-                 P is true in some possible world
-                 P is consistent
-                 P could be true
-   ------------  ------------------------------------------------------
-   □ P           it's necessary that P
-                 P is logically necessary (self-contradictory to deny)
-                 P is true in all possible worlds
-                 P must be true
-                 P has to be true
-   ------------  ------------------------------------------------------
-   -◇ P          P is not possible
-   ------------  ------------------------------------------------------
-   □ -P          P has to be false
-   ------------  ------------------------------------------------------
-   □ (P → Q)     P entails Q
-                 P strictly implies Q
-   ------------  ------------------------------------------------------
-   ◇ (P ∧ Q)     P is logically consistent with Q
-                 P is logically compatible with Q
-                 It's possible that, P and Q
-   ------------  ------------------------------------------------------
-   -◇ (P ∧ Q)    P is logically inconsistent with Q
-   ------------  ------------------------------------------------------
-   (◇ P ∧ ◇ -P)  P is a contingent statement
-   ------------  ------------------------------------------------------
-   (P ∧ ◇ -P)    P is a contingent truth
-                 P happens to be the case, but could have been not P
-   ============  ======================================================
-
-Ambiguous Conditionals
-======================
+   +-----------------------------------------------------------------------+
+   | =================================   ================================= |
+   | P                                 |                                   |
+   | ================================= | ================================= |
+   | P                                 |                                   |
+   | it's true that, P                 |                                   |
+   | it's the case that, P             |                                   |
+   | P is true in the actual world     |                                   |
+   |                                   |                                   |
+   | ================================= | ================================= |
+   | ◇ P                               | □ P                               |
+   | ================================= | ================================= |
+   | it's possible that, P             | it's necessary that, P            |
+   | P is logically possible           | P is logically necessary          |
+   |      (not self-contradictory)     |      (self-contradictory to deny) |
+   | P is true in some possible world  | P is true in all possible worlds  |
+   | P is consistent                   | P must be true                    |
+   | P could be true                   | P has to be true                  |
+   |                                   |                                   |
+   | ================================= | ================================= |
+   | - ◇ P                             | □ - P                             |
+   | ================================= | ================================= |
+   | P is not possible                 | Necessarilly not P                |
+   | P is impossible                   | P has to be true                  |
+   |                                   |                                   |
+   | ================================= | ================================= |
+   | ◇ (P ∧ Q)                         | - ◇ (P ∧ Q)                       |
+   | ================================= | ================================= |
+   | P is logically consistent with Q  | P is logically inconsistent       |
+   | P is logically compatible with Q  |      with Q                       |
+   | it's possible that, P and Q       |                                   |
+   |                                   |                                   |
+   | ================================= | ================================= |
+   | (◇ P ∧ ◇ -P)                      | (P ∧ ◇ -P)                        |
+   | ================================= | ================================= |
+   | P is a contingent statement       | P is a contingent truth           |
+   |                                   | P happens to be the case, but     |
+   |                                   |      could have been not P        |
+   |                                   |                                   |
+   | ================================= | ================================= |
+   | □ (P → Q)                         |                                   |
+   | ================================= | ================================= |
+   | P entails Q                       |                                   |
+   | P strictly implies Q              |                                   |
+   |                                   |                                   |
+   +-----------------------------------------------------------------------+
+   
+Ambiguous Conditionals (Chisholm's Paradox)
+===========================================
 
    "Necessarily, if P then Q."                        (unambiguous)
 
@@ -776,6 +784,8 @@ Ambiguous Conditionals
             (P → □ -Q)
             □ (P → -Q)
 
+   Chisholm's paradox is the deontic version of these two ambiguous
+   conditionals.
 
 Modal Square Of Opposition
 ==========================
@@ -863,18 +873,21 @@ Rules, Definitions and Axiom Schemata
    Various combinations of the following rules are taken to form the various
    inferrential systems of alethic modal logic.
 
+   (Def ◇) Definition of ◇ 
+         ◇ P =df -□ -P
+
    (NR) Necessitation Rule
          if ⊢ P then □ P
 
-   (MDist) Modal Distribution
+   (K) Axiom Schema K (Kripke - Modal Distribution)
          □ (P → Q) → (□ P → □ Q)
-
-   (Def ◇) Definition of ◇ 
-         ◇ P =df -□ -P
 
    (D) Axiom Schema D
          □ P → ◇ P
          Corollary: P → ◇ P
+
+   (M)/(T) Axiom Schema M/T (Modality)
+         □ P → P
 
    (B) Axiom Schema B (L.E.J.Brouwer)
          P → □ ◇ P
@@ -898,14 +911,14 @@ Alethic Inferential Systems
          Rule/Axiom  System
                      K   D   M   B   S4   S5
          ==========  =======================
-         NR          *   *   *   *   *    *
-         MDist       *   *   *   *   *    *
-         Def ◇       *   *   *   *   *    *
-         D               *   .   .   .    .
-         M/T                 *   *   *    *
-         B                       *        .
-         4                           *    .
-         5                                *
+         (Def ◇)     *   *   *   *   *    *
+         (NR)        *   *   *   *   *    *
+         (K)         *   *   *   *   *    *
+         (D)             *   .   .   .    .
+         (M)                 *   *   *    *
+         (B)                     *        .
+         (4)                         *    .
+         (5)                              *
          ==========  =======================
 
    * means the rule is part of the system
@@ -919,14 +932,13 @@ Alethic Inferential Systems
 
    Composition of Systems
 
-   5    = 4 + B
-
-   System D  = System K + D
-   System M  = System K + M
-   System B  = System K + M + B
-   System S4 = System K + M + 4
-   System S5 = System K + M + 5
-             = System K + M + 4 + B
+   System K  = (Def ◇) + (NR) + (K)
+   System D  = System K + (D)
+   System M  = System K + (M)
+   System B  = System K + (M) + (B)
+   System S4 = System K + (M) + (4)
+   System S5 = System K + (M) + (5)              ( (5) = (4) + (B) )
+             = System K + (M) + (4) + (B)
 
 
 Controversey over S4 and S5
@@ -935,7 +947,7 @@ Controversey over S4 and S5
       other modal system.  Yet people feel that s5 says and infers things
       that people don't usually want as part of their alethic system.
    S4 is much less controversial.
-   Perhaps instead of Ax 5, (◇ P → □ ◇ P), we want □ (◇ P → ◇ P)
+   Perhaps instead of Ax (5), (◇ P → □ ◇ P), we want □ (◇ P → ◇ P)
       Remember these are ambiguous: □ (P → Q), (P → □ Q)
 
 ================
@@ -961,10 +973,10 @@ Kripke Semantics
    Transitivity
       If wxRwy and wyRwz then wxRwz.   (□ P can traverse multiple worlds)
 
-   System M/T = K + refl                     □ A → A (axiom M/T) = K + M
-   System B   = K + refl + symmetry          A → □ ◇ A (axiom B)
-   System S4  = K + refl + trans             □ A → □ □ A (axiom 4)
-   System S5  = K + refl + symmetry + trans  ◇ A → □ ◇ A (axiom 5)
+   System M/T = K + refl                      □ A → A (axiom M/T) = K + M
+   System B   = K + refl + symmetry           A → □ ◇ A (axiom B)
+   System S4  = K + refl + trans              □ A → □ □ A (axiom 4)
+   System S5  = K + refl + symmetry + trans   ◇ A → □ ◇ A (axiom 5)
 
    In S5 every world has access to every other world.
 
@@ -1006,7 +1018,10 @@ Natural Deduction (□ Based)
 ---------------------------
 
    Modal inference can be carried out by a set of natural deduction inference
-   rules instead of the typical axiom schemata.  Here are two such systems.
+   rules instead of the typical axiom schemata above.  This section presents a
+   formulation of modal deduction which takes □ as primitive.  The next
+   section presents an alternate formulation which takes ◇ as primitive.
+   In both of these formulations (K) is a theorem.
 
 System K
 ========
@@ -1019,18 +1034,16 @@ System K
 
       We can't bring statements into boxed subproofs using Reit.
 
-      □ ∃  If a line of the form □ P is not closed in the enclosing subproof
-            one may infer P within the boxed subproof.
-
-      □ I:  If P is derived within a boxed subproof, the boxed subproof may
-            be closed and one may infer □ P outside of the subproof.
-
-      The Distribution axiom above is a theorem in this system.
-
       Using boxed subproofs it's possible to derive □ P for any tautology P.
 
+
    This modal calculus is constructed upon alethic modal logic above.  We will
-   modify two inference rules and add two new ones.
+   start with Alethic Modal logic and for the calculus we include the
+   definition of ◇ , the Necessitation Rule (NR), we then modify two inference
+   rules and add two new ones.
+
+   This formulation takes ◇ to be prmitive.  The calculi on top of Alethic
+   Modal logic are defined by the following rules.
 
    ================================  =========================================
    Name/Alternate Names              Sequent
@@ -1045,6 +1058,11 @@ System K
                                      provided the nested subproof is not a
                                      boxed subproof.
 
+   Definition of ◇ (Def ◇)           ◇ P  =df  - □ - P
+
+   Necessitation Rule (NR)           if ⊢ P (P is a theorem or axiom), infer
+                                     □ P into any world.
+
    Necessitation Elimination (□ E)   From □ P, infer P into any immediately
                                      nested boxed subproof.
 
@@ -1057,7 +1075,7 @@ System K
 
       +-------------------------------+-------------------------------+
       | ============================= | ============================= |
-      |  H                            |  RE                           |
+      | H                             | RE                            |
       | ============================= | ============================= |
       |                               |   P      P                    |
       |  -------    -------           |  ---    ---------             |
@@ -1067,7 +1085,14 @@ System K
       |  hypothesis                   |                               |
       |                               |                               |
       | ============================= | ============================= |
-      |  □ E                          |  □ I                          |
+      | Def ◇                         | NR                            |
+      | ============================= | ============================= |
+      |                               | [ ⊢ P ]                       |
+      | -----------------             | -------                       |
+      | [◇ P =df - □ - P]             | □ P       /i   (any i)        |
+      |                               |                               |
+      | ============================= | ============================= |
+      | □ E                           | □ I                           |
       | ============================= | ============================= |
       |   □ P                         |   |□                          |
       |  ---------                    |   |   ...                     |
@@ -1080,12 +1105,12 @@ System K
 Beyond System K
 
    We can add the usual axiom schimata to obtain the remaining systems
-   B,S4, S5, ...
+   M, B,S4, S5, ...
 
 Proofs
 ------
 
-   Modal Distribution (MDist)  ⊢K  □ (P → Q) → (□ P → □ Q)
+   Modal Distribution (K)  ⊢K  □ (P → Q) → (□ P → □ Q)
    Proof
    01.   |   □ (P → Q)               A
    02.   |   |   □ P                 H (for → I)
@@ -1111,7 +1136,7 @@ Proofs
    QED
 
       Rule of Necessitation (NEC)   if ⊢K P then ⊢K □ P
-      Modal Distribution (MDist)    ⊢K □ (P → Q) → (□ P → □ Q)
+      Modal Distribution (K)    ⊢K □ (P → Q) → (□ P → □ Q)
 
       These two rules are equivalent to: □ I and □ E.
 
@@ -1341,7 +1366,7 @@ Proofs
    02.   |□                            H (for □ I)
    03.   |   ◇ □ P → □ P               5'
    04.   □ (◇ □ P → □ P)               2-3 □ I
-   05.   □ (◇ □ P → □ P) → (□ ◇ □ P → □ □ P)  MDist
+   05.   □ (◇ □ P → □ P) → (□ ◇ □ P → □ □ P)  K
    06.   □ ◇ □ P → □ □ P               4,5 → E
    07.   □ P → □ □ P                   1,6 HS
    QED
@@ -1438,21 +1463,68 @@ Natural Deduction (◇ Based)
 The Deductive Systems
 =====================
 
-   Each system consists of the definition of □ , Necessitation Rule, ◇ E
-   and one of the □ E Rules.  MDist is entailed in such a system.
+   This formulation takes ◇ to be prmitive.  The calculi on top of Alethic
+   Modal logic are defined by the following rules.
 
-   Definition of □ (Def □ )
-         □ P  =df  - ◇ - P
+   ================================  =========================================
+   Name/Alternate Names              Sequent
+   ================================  =========================================
+   Hypothesis (H for □ I)            Introduce a hypothesis at any step
+                                     provided it begins a new subproof.  The
+                                     hypothesis can be '□ ' introducing
+                                     a BOXED SUBPROOF.
 
-   Necessitation Rule (NR)
-      If ⊢ P (P is a theorem or axiom), infer □ P into any world.
+   Reiterate (RE)                    From P, infer P into the same subproof,
+                                     or into an immediately nested subproof
+                                     provided the nested subproof is not a
+                                     boxed subproof.
 
-   ◇ Elimination Inference Rule (◇ E)
-      From ◇ P at world /i, infer P at world /j (where j is new).  The diamond
-      "pays for the construction of" a new bridge /i=>/j.
+   Definition of ◇ (Def ◇)           □ P  =df  - ◇ - P
 
-   □ Elimination Inference Rule (□ E)
-      □ E may only cross bridges according to the system used.
+   Necessitation Rule (NR)           if ⊢ P (P is a theorem or axiom), infer
+                                     □ P into any world.
+
+   ◇ Elimination (◇ E)               From ◇ P at world /i, infer P at world /j
+                                     (where j is new).  The diamond "pays for
+                                     the construction of" a new bridge /i=>/j.
+
+   □ Elimination (□ E)               □ E may only cross bridges according to
+   ================================  =========================================
+
+   These rules are sometimes represented in diagrams.  The horizontal bar
+   denotes 'infer', vertical lines denote subproofs.
+
+      +-------------------------------+-------------------------------+
+      | ============================= | ============================= |
+      | H                             | RE                            |
+      | ============================= | ============================= |
+      |                               |   P      P                    |
+      |  -------    -------           |  ---    ---------             |
+      |   |   P      |□               |   P      |   ...   Subproof   |
+      |                               |          |   P     not boxed  |
+      |  P is a                       |                               |
+      |  hypothesis                   |                               |
+      |                               |                               |
+      | ============================= | ============================= |
+      | Def ◇                         | NR                            |
+      | ============================= | ============================= |
+      |                               | [ ⊢ P ]                       |
+      | -----------------             | -------                       |
+      | [◇ P =df - □ - P]             | □ P       /i   (any i)        |
+      |                               |                               |
+      | ============================= | ============================= |
+      | ◇ E                           | □ E                           |
+      | ============================= | ============================= |
+      | ◇ P      /i                   | □ P       /i                  | 
+      | ---------                     | [/i=>/j]                      |
+      | P        /j   (j is new)      | ----------                    |
+      |           (creates a bridge   | P         /j                  |
+      |               /i=>/j)         |                               |
+      |                               |                               |
+      +-------------------------------+-------------------------------+
+
+   □ Elimination (□ E)
+      The precise application of □ E varies according to the system used.
 
       ======  =============================================================
       System  □ E Rule
@@ -1472,7 +1544,7 @@ The Deductive Systems
 
          +----------------------------+----------------------------+
          | ========================== | ========================== |
-         | ◇ E                        | □ E (K)                    |
+         | ◇ E                        | □ E (System K)             |
          | ========================== | ========================== |
          |  ◇ P    /i                 |  □ P    /i                 |
          | -----------                |  [/i=>/j]                  |
@@ -1480,7 +1552,7 @@ The Deductive Systems
          |                            |  P      /j                 |
          |                            |                            |
          | ========================== | ========================== |
-         | □ E (M)                    | □ E (B)                    |
+         | □ E (System M)             | □ E (System B)             |
          | ========================== | ========================== |
          |  For every world /i,       |  □ P    /i    □ P    /j    |
          |  There is a bridge         |  [/i=>/j]     [/i=>/j]     |
@@ -1488,7 +1560,7 @@ The Deductive Systems
          |                            |  P      /j    P      /i    |
          |                            |                            |
          | ========================== | ========================== |
-         | □ E (S4)                   | □ E (S5)                   |
+         | □ E (System S4)            | □ E (System S5)            |
          | ========================== | ========================== |
          |  For every series of       |  Every world has a bridge  |
          |  bridges /i=>/j, /j=>/k    |  to every other world.     |
@@ -1503,8 +1575,8 @@ The Deductive Systems
       1.  Assume the premises and hypothesize the negated conclusion.
       2.  Use inference rules to move □ and ◇ to the front of the wff.
       3.  Use ◇ E to spend diamonds to build bridges.
-      4.  Use □ E to spend boxes and traverse bridges according to the
-          system we are using.
+      4.  Use □ E to spend boxes to traverse existing bridges according to
+          the system we are using.
 
 Proofs
 ------
@@ -1536,8 +1608,8 @@ Modal Distribution (MDIST) ⊢ K  □ (P → Q) → ( □ P → □ Q)
    07.   |   |   |   □ P                 2 RE
    08.   |   |   |   □ (P → Q)           3 RE
    09.   |   |   |   - Q           /1    6 ◇ E          new bridge /0 => /1
-   10.   |   |   |   P             /1    7 □ E (Sys M)
-   11.   |   |   |   P → Q         /1    8 □ E (Sys M)
+   10.   |   |   |   P             /1    7 □ E (Sys K)
+   11.   |   |   |   P → Q         /1    8 □ E (Sys K)
    12.   |   |   |   - P           /1    9,11 → E
    13.   |   |   |   ⊥             /1    10,12 ⊥ I
    14.   |   |   -- □ Q                  4-13 -I
@@ -1556,9 +1628,9 @@ Diamond Distribution (◇ Dist)  ⊢ K  □ (P → Q) → (◇ P → ◇ Q)
    06.   |   |   |   □ - Q               5 DN
    07.   |   |   |   ◇ P                 2 RE
    08.   |   |   |   □ (P → Q)           3 RE
-   09.   |   |   |   P             /1    7 ◇ E
-   10.   |   |   |   -Q            /1    6 □ E
-   11.   |   |   |   P → Q         /1    8 □ E
+   09.   |   |   |   P             /1    7 ◇ E          new bridge /0 => /1
+   10.   |   |   |   -Q            /1    6 □ E (Sys K)
+   11.   |   |   |   P → Q         /1    8 □ E (Sys K)
    12.   |   |   |   -P            /1    10,11 MT
    13.   |   |   |   ⊥             /1    9,12 ⊥ I
    14.   |   |   -- ◇ Q                  4-13 -I
@@ -1602,7 +1674,7 @@ Modal Truth-Trees
 
            +---------------------------+---------------------------+         
            | ========================= | ========================= |
-           |           □ Rule          |          -□ Rule          |
+           |          □ Rule           |          -□ Rule          |
            | ========================= | ========================= |
            |         +-------+w        |         +-------+w        |
            |         |  □ P  |         |         | *-□ P |         |
@@ -1615,7 +1687,7 @@ Modal Truth-Trees
            |         +-------+         |         +-------+         |
            |                           |                           |
            | ========================= | ========================= |          
-           |          ◇ Rule           |         -◇ Rule           |
+           |          ◇ Rule           |          -◇ Rule          |
            | ========================= | ========================= |
            |         +-------+w        |         +-------+w        |
            |         | *◇ P  |         |         |  -◇ P |         |
@@ -2087,7 +2159,7 @@ Deontic Reductionism
          Axioms
             Necessitation Rule (Nec)
                if A is an axiom or theorem of K then □ A is too.
-            Distribution Axiom (MDist)
+            Distribution Axiom ((K))
                □ (A → B) → (□ A → □ B)
 
       System Kd
@@ -2146,7 +2218,7 @@ Deontic Reductionism
       System K (K)
          Necessitation Rule (NR)
             if A is an axiom or theorem of K then □ A is too.
-         Distribution Axiom (MDist)
+         Distribution Axiom ((K))
             □ (A → B) → (□ A → □ B)
          Definition of Possibility (Def◇ )
             ◇ A =df -□ -A
@@ -2281,9 +2353,9 @@ System Kt (Minimal Temporal Logic)
          Temporal:            H(p)   =df  -P(-p)
                               G(p)   =df  -F(-p)
       Axioms
-         Modal Distribution Axiom (MDist)
-            Alethic (MDist):  □ (A → B) → (□ A → □ B)
-            Deontic (MDist):  OB(p → q) → (OB(p) → OB(q))
+         Modal Distribution Axiom ((K))
+            Alethic ((K)):  □ (A → B) → (□ A → □ B)
+            Deontic ((K)):  OB(p → q) → (OB(p) → OB(q))
             Temporal (KG):    G(p → q) → (G(p) → G(q))
             Temporal (KH):    H(p → q) → (H(p) → H(q))
 
@@ -2479,7 +2551,7 @@ Principles  |                             Natural  Intege  Rational  Reals
 ----------    ---  -------  ----  ------  -------  ------  --------  --------
 Def H,G       *    *        *     *       *        *       *         *
 NR            *    *        *     *       *        *       *         *
-MDist                                             
+(K)                                             
 - KG          *    *        *     *       *        *       *         *
 - KH          *    *        *     *       *        *       *         *
 GP,HF         *    *        *     *       *        *       *         *
@@ -2597,8 +2669,8 @@ LTL (Linear Time Logic)
    Axioms
       Modal Distribution
          Alethic:          □ (p → q) → (□ p → □ q)
-         LTL (KG,MDist):   G(p → q) → (G(p) → G(q))
-         LTL (KX,MDist):   X(p → q) → (X(p) → X(q))
+         LTL (KG,(K)):   G(p → q) → (G(p) → G(q))
+         LTL (KX,(K)):   X(p → q) → (X(p) → X(q))
 
       Necessitation Rule
          LTL (NR):         if ⊢ p then A(p)
@@ -2839,7 +2911,7 @@ Problem with Kx:
 
 Problem with Kx:
 
-   MDist entails that knowledge is closed under implication, ie. that whenever
+   (K) entails that knowledge is closed under implication, ie. that whenever
    we know a conditional and know it's antecedent, we know its consequent.
 
          K:(P → Q)   then   K:P → K:Q
@@ -2910,7 +2982,7 @@ Philosophical Concerns
 
    Problem 2
 
-   The MDist schema entails that knowledge is closed under implication,
+   The (K) schema entails that knowledge is closed under implication,
    i.e., that whenever we know a conditional and know its anteedent, we
    know its consequent.
 
