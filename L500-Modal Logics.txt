@@ -52,42 +52,41 @@ To View This Document Properly
 ========
 Contents
 ========
-   ### These notes can only be used by myself ###
 
+   Contents
+   Preface
+   Introduction
    Truth-Functional Logic
       Language
       Semantics
-      Calculus
+      Truth-Functional Calculus
       Proofs
    Alethic Modal Logic
-      Intro
       Language
       Semantics
-      Inferrential Systems
-      Kripke Semantics
-      Natural Deduction (□ Based)
-      Natural Deduction (◇ Based)
+      Alethic Deduction (Axiomatic)
+      Alethic Deduction (□ Based Natural Deduction)
+      Alethic Deduction (◇ Based Natural Deduction)
+      Alethic Deduction (Non-Historical Systems)
       Modal Truth-Trees
-      Non-Hisorical Modal Systems
    Deontic Modal Logic
       Language
       Semantics
-      Inferrential Systems
-      Standard Deontic Logic (SDL)
+      Deontic Deduction (Standard Deontic Logic)
+      Deontic Deduction (Augmented Standarad Deontic Logic)
       Deontic Reductionism
-      Common Sense Deontic Logic
    Temporal Modal Logic
-      The Logic of Time
       Language
       Semantics
-      Inferrential Systems
+      Inferential Systems
    Doxastic & Epistemic Modal Logics
       Language
       Semantics
-      Inferrential Systems
+      Inferential Systems
    Relating the Systems
    FOL=
    Modal FOL=
+   Higher-Order Logics
    Free Logic (FL=)
       Modal extensions of FL=
 
@@ -134,7 +133,7 @@ Introduction
    At its core logic is about *meaning*.  Yes, it's about argumentation and
    inference, but none of that can happen without regard to meaning.  Logic
    studies those systems whose meaning can be defined with mathematical
-   prcision.  It's only through this deep level of understanding of meaning
+   precision.  It's only through this deep level of understanding of meaning
    that one can have certainty in logical relationships of statements and
    parts of statements.  "Propositional Logic", the logic of truth-functions
    requires an understanding of valuations and how truth-functions operate
@@ -142,14 +141,19 @@ Introduction
    in set theory.  Modal logics requires understanding relationships between
    possible worlds.
 
+   Is Logic Descriptive or Prescriptive?
+
+   This is a central concern in the philosophy of logic.  Many complaints
+   come from the fact that logic doesn't reflect natural language common
+   sensical reasoning.
+
 
 ======================
 Truth-Functional Logic
 ======================
 
-   Here we'll introduce an austere Fitch-Style Logic & Calculus from Garson
-   which we'll call Garson-Fitch.  The system has just two operators, but
-   a more robust system can be derived from it.
+   Here we'll introduce an austere Fitch-Style Logic & Calculus.  The system
+   has just two operators, but a more robust system can be derived from it.
 
 
 --------
@@ -209,9 +213,9 @@ Valuation Function
                      false if P is true and Q is false
 
 
------------------------------------------------
-Truth-Functional Calculus (Garson-Fitch System)
------------------------------------------------
+-------------------------
+Truth-Functional Calculus
+-------------------------
 
 Regarding Notation
 ==================
@@ -279,7 +283,7 @@ Primitive Inference Rules
       |   Φ → Ψ                       |   |   Φ                       |
       |   Φ                           |   |   ...                     |
       |  ---------                    |   |   Ψ                       |
-      |   Ψ   (all in one subproof)   |  ---------                    |
+      |   Ψ                           |  ---------                    |
       |                               |   Φ → Ψ                       |
       |                               |                               |
       | ============================= | ============================= |
@@ -330,10 +334,10 @@ Derived Inference Rules
 
    Deriving Fitch
 
-   Additional Fitch style inference rules are listed here.
-   The order of these rules is important since later rules depend upon
-   earlier rules having been proven.  All of the important derived rules,
-   theorems and equivalences are easier to prove if we first prove these.
+   Additional Fitch style inference rules are listed here.  The order of these
+   rules is important since later rules depend upon earlier rules having been
+   proven.  All of the important derived rules, theorems and equivalences are
+   easier to prove if we first prove these.
 
    ================================  =========================================
    Name                              Sequent
@@ -348,9 +352,9 @@ Derived Inference Rules
       ∧I                             P, Q  ⊢  P ∧ Q
 
    Disjunction Rules
-      VE                             P ∨ Q, P → R, Q → R  ⊢  R
-      VI                             P  ⊢  P ∨ Q
-      VI                             P  ⊢  Q ∨ P
+      ∨E                             P ∨ Q, P → R, Q → R  ⊢  R
+      ∨I                             P  ⊢  P ∨ Q
+      ∨I                             P  ⊢  Q ∨ P
 
    Biconditional Rules
       ↔ E                            P ↔ Q  ⊢  P → Q
@@ -424,16 +428,16 @@ Equivalences
    Equivalences can be used to swap instances of one side of the equivalence
    in wffs, with the corresponding instances of the other side.  This handy
    inference rule isn't going to be valid once we add Modal Logic.  So we're
-   not not permitting it at all.
+   not permitting it at all.
 
    @@@ It may be possible to still use these provided the thing being
    rewritten is not the main operator under □  or ◇ .  Must test this
    more to be sure.  The course forbids it altogether.
 
 
-=================================
-Proofs Of The Derived Fitch Rules
-=================================
+------
+Proofs
+------
 
 Negation Derivations
 --------------------
@@ -460,7 +464,7 @@ Negation Derivations
     j+3.  P             j+2 -E
    QED
 
-   DN:   P |- --P
+   DN:   ⊢  P ↔ --P
    Proof
    01.   |   P          H (for → I)
    02.   |   |   -P     H (for -I)
@@ -479,7 +483,7 @@ Negation Derivations
    Proof
    01.   P              A
    02.   -P             A
-   03.   |   -Q         H (for ⊥)
+   03.   |   -Q         H (for -I)
    04.   |   P          1 RE
    05.   |   -P         2 RE
    06.   |   P → ⊥      5 Def -
@@ -498,7 +502,7 @@ Conditional Derivations
    04.   |   P → Q      1 RE
    05.   |   -Q         2 RE
    06.   |   Q          3,4 → E
-   07.   |   ⊥          5,6 EFQ
+   07.   |   ⊥          5,6 ⊥ EFQ
    08.   -P             3-7 -I
    QED
 
@@ -530,7 +534,7 @@ Conjunction Derivations
    08.   |   |   --P              7 DN
    09.   |   |   Q → -P           6 RE
    10.   |   |   -Q               8,9 MT
-   11.   |   P -> -Q              7-11 → I)
+   11.   |   P -> -Q              7-11 → I
    12.   |   -(P → -Q)            2 RE
    13.   |   ⊥                    11,12 EFQ
    14.   --P                      3-13 -I
@@ -553,7 +557,7 @@ Conjunction Derivations
 Disjunction Derivations
 -----------------------
 
-   VE/Poof by Cases (PBC):   P ∨ Q, P → R, Q → R  ⊢  R
+   ∨E/Poof by Cases (PBC):   P ∨ Q, P → R, Q → R  ⊢  R
    Proof
    01.   P ∨ Q                    A
    02.   P → R                    A
@@ -570,25 +574,25 @@ Disjunction Derivations
    13.   R                        5-12 -I
    QED
 
-   VI:   P  ⊢  P ∨ Q
+   ∨I:   P  ⊢  P ∨ Q
    Proof
    01.   P                        A
    02.   |   -(P ∨ Q)             H (for -I)
    03.   |   -(-P → Q)            2 Def ∨
    04.   |   (-P → Q) → ⊥         3 Def -
    05.   |   P                    1 RE
-   06.   |   |   -P               H (for Q)
+   06.   |   |   -P               H (for → I)
    07.   |   |   P                5 RE
    08.   |   |   Q                6,7 EFQ
    09.   |   -P → Q               6-8 → I
-   10.   |   ⊥                    4,9 → E
+   10.   |   ⊥                    2,9 EFQ
    11.   P ∨ Q                    2-10 -I
    QED
 
-   VI:   P  ⊢  Q ∨ P
+   ∨I:   P  ⊢  Q ∨ P
    Proof
    01.   P                        A
-   02.   P ∨ Q                    1 VI
+   02.   P ∨ Q                    1 ∨I
    03.   |   -(Q ∨ P)             H (for -I)
    04.   |   -(-Q → P)            3 Def ∨
    05.   |   (-Q → P) → ⊥         4 Def -
@@ -596,7 +600,7 @@ Disjunction Derivations
    07.   |   |   -Q               H (for → I)
    08.   |   |   P                6 RE
    09.   |   -Q → P               7-8 → I
-   10.   |   ⊥                    5,9 → E
+   10.   |   ⊥                    4,9 EFQ
    11.   Q ∨ P                    3-10 -I
    QED
 
@@ -605,16 +609,16 @@ Biconditional Derivations
 
    ↔ ∃   P ↔ Q  ⊢  P → Q
    Proof
-   01.   P ↔ Q                   A
-   02.   (P → Q) ∧ (Q → P)       1 Def ↔
-   03.   P → Q                   2 ∧E
+   01.   P ↔ Q                    A
+   02.   (P → Q) ∧ (Q → P)        1 Def ↔
+   03.   P → Q                    2 ∧E
    QED
 
    ↔ ∃   P ↔ Q  ⊢  Q → P
    Proof
-   01.   P ↔ Q                   A
-   02.   (P → Q) ∧ (Q → P)       1 Def ↔
-   03.   Q → P                   2 ∧E
+   01.   P ↔ Q                    A
+   02.   (P → Q) ∧ (Q → P)        1 Def ↔
+   03.   Q → P                    2 ∧E
    QED
 
    ↔ I:   P → Q, Q → P  ⊢  P ↔ Q
@@ -758,9 +762,9 @@ Translation Hints
    | P strictly implies Q              |                                   |
    |                                   |                                   |
    +-----------------------------------------------------------------------+
-   
-Ambiguous Conditionals (Chisholm's Paradox)
-===========================================
+
+Ambiguous Conditionals
+======================
 
    "Necessarily, if P then Q."                        (unambiguous)
 
@@ -784,11 +788,14 @@ Ambiguous Conditionals (Chisholm's Paradox)
             (P → □ -Q)
             □ (P → -Q)
 
-   Chisholm's paradox is the deontic version of these two ambiguous
-   conditionals.
+   This is the alethic version of Chisholm's paradox (which is
+   expressed in deontic logic).
 
 Modal Square Of Opposition
 ==========================
+
+   The modal square has the same relationships found in Aristotle's
+   square.
 
      □ P-----------□ -P
        | \       / |
@@ -798,35 +805,35 @@ Modal Square Of Opposition
        | /       \ |
      ◇ P-----------◇ -P
 
+   CONTRADICTORY forms (diagonals) have opposite truth values.
+
+   CONTRARY forms (the two top forms) can't both the true.
+
+   SUBCONTRARY forms (the two bottom forms) can't both be false.
+
+   SUBALTERNATE forms (the left or right side) are like conditionals.  If
+   the form on top is true then the form on the bottom is true.
+
 Extension & Intension
 =====================
 
    Extensional Contexts
 
-   The EXTENSION of a sentence is its truth-value, the extension of a
+   The EXTENSION of a proposition is its truth-value, the extension of a
    predicate is the class of things to which it applies, and the
    extension of a constant object symbol is what the symbol denotes (its
    bearer).
 
-   In classical logics, starting from a given statement, it is
-   always possible to infer what results from replacing a subexpression
-   in that statement with one with the same extension.  So,
+   In classical logics, starting from a given statement, it is always possible
+   to infer what results from replacing a subexpression in that statement with
+   one with the same extension.  So,
 
-      TFL   From '...P...' (wff containing P), and P ↔ Q, one can
-            always infer '...Q...'
+      TFL   From R(P) and P ↔ Q, we can always infer R(Q/P)
 
-      FOL=  From '...F...' (wff containing F), and ∀x(Fx ↔ Gx) one can
-            always infer '...G...'
+      FOL=  From R(F) and ∀x(Fx ↔ Gx), we can always infer R(G/F)
 
-      Ident From '...a...' (wff containing a), and a=b one can
-            always infer '...b...'
-
-
-      TFL   From R(P) and P ↔ Q, infer R(Q/P)
-
-      FOL=  From R(F) and ∀x(Fx ↔ Gx), infer R(G/F)
-
-      Ident From R(a) and a=b, infer R(b/a)
+      Ident From R(a) and a=b, we can always infer R(b/a)
+                  (Ident=Identity Logic)
 
    Intensional Contexts
 
@@ -859,105 +866,13 @@ Extension & Intension
    Because the modal operators create intensional contexts they are called
    INTENSIONAL OPERATORS.
 
-
---------------------
-Inferrential Systems
---------------------
-
-The exact rules of inference for alethic logic are controversial.  We
-shall examine some well known systems.
-
-Rules, Definitions and Axiom Schemata
-=====================================
-
-   Various combinations of the following rules are taken to form the various
-   inferrential systems of alethic modal logic.
-
-   (Def ◇) Definition of ◇ 
-         ◇ P =df -□ -P
-
-   (NR) Necessitation Rule
-         if ⊢ P then □ P
-
-   (K) Axiom Schema K (Kripke - Modal Distribution)
-         □ (P → Q) → (□ P → □ Q)
-
-   (D) Axiom Schema D
-         □ P → ◇ P
-         Corollary: P → ◇ P
-
-   (M)/(T) Axiom Schema M/T (Modality)
-         □ P → P
-
-   (B) Axiom Schema B (L.E.J.Brouwer)
-         P → □ ◇ P
-         Corollary: ◇ □ P → P (contentious)
-
-   (4) Axiom Schema 4 (C.I.Lewis' Modal Axiom 4)
-         □ P → □ □ P
-         Corollary: ◇ ◇ P → ◇ P
-
-   (5) Axiom Schema 5 (C.I.Lewis' Modal Axiom 5)
-         ◇ P → □ ◇ P
-         Corollary: ◇ □ P → □ P (contentious)
-
-Alethic Inferential Systems
-===========================
-
-   The following table describes each system according to the rules it has.
-   A proof is always constructed entirely in a single system.
-
-         ==========  =======================
-         Rule/Axiom  System
-                     K   D   M   B   S4   S5
-         ==========  =======================
-         (Def ◇)     *   *   *   *   *    *
-         (NR)        *   *   *   *   *    *
-         (K)         *   *   *   *   *    *
-         (D)             *   .   .   .    .
-         (M)                 *   *   *    *
-         (B)                     *        .
-         (4)                         *    .
-         (5)                              *
-         ==========  =======================
-
-   * means the rule is part of the system
-   . means the rule is entailed in the *'d rule below
-
-   Notes
-   - System K is weakest (proves the fewest theorems); s5 is strongest.
-   - System D is most often used in Deontic logic over alethic.
-   - System M is commonly used.
-   - A consequence of System M is □ (P → ◇ P)
-
-   Composition of Systems
-
-   System K  = (Def ◇) + (NR) + (K)
-   System D  = System K + (D)
-   System M  = System K + (M)
-   System B  = System K + (M) + (B)
-   System S4 = System K + (M) + (4)
-   System S5 = System K + (M) + (5)              ( (5) = (4) + (B) )
-             = System K + (M) + (4) + (B)
-
-
-Controversey over S4 and S5
-===========================
-   S5 is used for the modal ontological arguments which don't work in any
-      other modal system.  Yet people feel that s5 says and infers things
-      that people don't usually want as part of their alethic system.
-   S4 is much less controversial.
-   Perhaps instead of Ax (5), (◇ P → □ ◇ P), we want □ (◇ P → ◇ P)
-      Remember these are ambiguous: □ (P → Q), (P → □ Q)
-
-================
 Kripke Semantics
 ================
 
-   Kripke defined a new semantic concept called an accessability relation
-   between two worlds.
+   Kripke semantics describe the semantics of possible worlds.  Kripke defined
+   a new semantic concept called an accessibility relation between two worlds.
 
-      The accessability relation
+      The accessibility relation
          wxRwy     means world wx can access world wy, 
                    where x,y are possible worlds.
 
@@ -968,7 +883,7 @@ Kripke Semantics
       If exists wx then wxRwx.   (Allows □ P to assert P in the current world)
 
    Symmetry
-      If wxRwy then wyRwx.       (Every accessability arrow is double ended)
+      If wxRwy then wyRwx.       (Every accessibility arrow is double ended)
 
    Transitivity
       If wxRwy and wyRwz then wxRwz.   (□ P can traverse multiple worlds)
@@ -1013,40 +928,139 @@ Kripke Semantics
    Dense               Dense(R)  =df ∀x∀z((xRz ∧ -x=z)
                                          → ∃y(-x=y ∧ -y=z ∧ xRy ∧ yRz))
 
----------------------------
-Natural Deduction (□ Based)
----------------------------
 
-   Modal inference can be carried out by a set of natural deduction inference
-   rules instead of the typical axiom schemata above.  This section presents a
-   formulation of modal deduction which takes □ as primitive.  The next
-   section presents an alternate formulation which takes ◇ as primitive.
-   In both of these formulations (K) is a theorem.
+-----------------------------
+Alethic Deduction (Axiomatic)
+-----------------------------
+
+The exact combination of rules of inference for alethic logic is
+controversial.  We shall examine some well known rules and systems.
+
+Rules, Definitions and Axiom Schemata
+=====================================
+
+   Various combinations of the following rules are taken to form various
+   inferential systems of alethic modal logic.
+
+   (Def ◇) Definition of ◇ 
+         ◇ P =df -□ -P
+
+   (NR) Necessitation Rule
+         if ⊢ P then infer □ P
+
+   (K) Axiom Schema K (Kripke - Modal Distribution)
+         □ (P → Q) → (□ P → □ Q)
+
+   (D) Axiom Schema D
+         □ P → ◇ P
+         Corollary: P → ◇ P
+
+   (M)/(T) Axiom Schema M/T (Modality)
+         □ P → P
+
+   (B) Axiom Schema B (L.E.J.Brouwer)
+         P → □ ◇ P
+         Corollary: ◇ □ P → P (contentious)
+
+   (4) Axiom Schema 4 (C.I.Lewis' Modal Axiom 4)
+         □ P → □ □ P
+         Corollary: ◇ ◇ P → ◇ P
+
+   (G) Axiom Schema G
+         ◇ □ P → □ ◇ P
+
+   (Lin) Axiom of liniarity
+         □ (□ P → Q) ∨ □ (□ Q → P )
+
+   (5) Axiom Schema 5 (C.I.Lewis' Modal Axiom 5)
+         ◇ P → □ ◇ P
+         Corollary: ◇ □ P → □ P (contentious)
+
+Alethic Inferential Systems
+===========================
+
+   The following table describes each system according to the rules it has.
+   A proof is always constructed entirely in a single system.
+
+         ==========  ===================================
+         Rule/Axiom  System
+                     K   D   M   B   S4   S4.2  S4.3  S5
+         ==========  ===================================
+         (Def ◇)     *   *   *   *   *     *     *    *
+         (NR)        *   *   *   *   *     *     *    *
+         (K)         *   *   *   *   *     *     *    *
+         (D)             *   .   .   .     .          .
+         (M)                 *   *   *     *          *
+         (B)                     *         .     .    .
+         (4)                         *     *     *    .
+         (G)                               *
+         (Lin)                                   *
+         (5)                                          *
+         ==========  ===================================
+
+         * means the rule is part of the system
+         . means the rule is entailed in the *'d rule below
+
+   Notes
+   - System K is weakest (proves the fewest theorems); s5 is strongest.
+   - System D is most often used in Deontic logic.
+   - System M is commonly used.
+
+   Composition of Systems
+
+   System K    = (Def ◇) + (NR) + (K)
+   System D    = System K + (D)
+   System M    = System K + (M)
+   System B    = System K + (M) + (B)
+   System S4   = System K + (M) + (4)
+   System S5   = System K + (M) + (5)              ( (5) = (4) + (B) )
+               = System K + (M) + (4) + (B)
+
+   System S4.2 = System K + (M) + (4) + (g)
+   System S4.3 = System K + (4) + (Lin)
+
+Controversy over S4 and S5
+==========================
+   S5 is used for the modal ontological arguments which don't work in any
+      other modal system.  Yet people feel that s5 says and infers things
+      that people don't usually want as part of their alethic system.
+   S4 is much less controversial.
+   Perhaps instead of Ax (5), (◇ P → □ ◇ P), we want □ (◇ P → ◇ P)
+      Remember these are ambiguous: □ (P → Q), (P → □ Q)
+
+
+---------------------------------------------
+Alethic Deduction (□ Based Natural Deduction)
+---------------------------------------------
+
+   The alethic modal logic above is axiom-based.  Alternatively to using
+   axiom schemata we can add new inference rules to our Truth-Functional
+   Calculus.  This section presents a formulation of modal natural deduction
+   which takes □ as primitive.  The next section presents yet another
+   formulation which takes ◇ as primitive.  In each of these two natural
+   deduction formulations axiom schema (K) is a theorem.
 
 System K
 ========
    
-   System K can alternatively be defined in Fitch thus:
+   We will start with Truth-Functional Logic and Calculus above, add a
+   clause to the grammar to accommodate the alethic modal operators ◇ and
+   □ , then build our inference rules on top of that to produce a system
+   equivalent to System K.
 
-      A BOXED SUBPROOF is a subproof that begins with □ instead of
-      a hypothesis.  Informally, the □  header indicates that every line in
-      the subproof is shown to be necessarily true.
+   A BOXED SUBPROOF is a subproof that begins with □ *instead* of
+   a hypothesis.  Informally, the □  header indicates that every line within
+   the subproof is necessarily true.
 
-      We can't bring statements into boxed subproofs using Reit.
-
-      Using boxed subproofs it's possible to derive □ P for any tautology P.
-
-
-   This modal calculus is constructed upon alethic modal logic above.  We will
-   start with Alethic Modal logic and for the calculus we include the
-   definition of ◇ , the Necessitation Rule (NR), we then modify two inference
-   rules and add two new ones.
-
-   This formulation takes ◇ to be prmitive.  The calculi on top of Alethic
-   Modal logic are defined by the following rules.
+   The calculi on top of Alethic Modal logic are defined by the following
+   rules.  Notice that two old rules H and RE are redefined here, while
+   three new principles are added.  All remaining rules such as those of
+   Truth-Functional Calculus must occur entirely within a given world.  In
+   this formulation axiom K and the necessitation rule follow naturally as
+   theorems.
 
    ================================  =========================================
-   Name/Alternate Names              Sequent
+   Name/Alternate Names              Rule   
    ================================  =========================================
    Hypothesis (H for □ I)            Introduce a hypothesis at any step
                                      provided it begins a new subproof.  The
@@ -1057,11 +1071,8 @@ System K
                                      or into an immediately nested subproof
                                      provided the nested subproof is not a
                                      boxed subproof.
-
+   --------------------------------  -----------------------------------------
    Definition of ◇ (Def ◇)           ◇ P  =df  - □ - P
-
-   Necessitation Rule (NR)           if ⊢ P (P is a theorem or axiom), infer
-                                     □ P into any world.
 
    Necessitation Elimination (□ E)   From □ P, infer P into any immediately
                                      nested boxed subproof.
@@ -1085,11 +1096,11 @@ System K
       |  hypothesis                   |                               |
       |                               |                               |
       | ============================= | ============================= |
-      | Def ◇                         | NR                            |
+      | Def ◇                         |                               |
       | ============================= | ============================= |
-      |                               | [ ⊢ P ]                       |
-      | -----------------             | -------                       |
-      | [◇ P =df - □ - P]             | □ P       /i   (any i)        |
+      |                               |                               |
+      | -----------------             |                               |
+      | [◇ P =df - □ - P]             |                               |
       |                               |                               |
       | ============================= | ============================= |
       | □ E                           | □ I                           |
@@ -1103,138 +1114,106 @@ System K
       +-------------------------------+-------------------------------+
 
 Beyond System K
+===============
 
-   We can add the usual axiom schimata to obtain the remaining systems
+   We can add the usual axiom schemata to obtain the remaining systems
    M, B,S4, S5, ...
 
 Proofs
-------
+======
+
+   In this formulation axiom K and the necessitation rule are theorems in
+   System K.
 
    Modal Distribution (K)  ⊢K  □ (P → Q) → (□ P → □ Q)
    Proof
-   01.   |   □ (P → Q)               A
-   02.   |   |   □ P                 H (for → I)
-   03.   |   |   □ (P → Q)           1 RE
-   04.   |   |   |□                  H (for □ I
-   05.   |   |   |   P               2 □ E
-   06.   |   |   |   P → Q           3 □ E
-   07.   |   |   |   Q               5,6 → E
-   08.   |   |   □ Q                 4-7 □ I
-   09.   |   □ P → □ Q               2-8 → I
-   10.   □ (P → Q) → (□ P → □ Q)     1-9 → I
+   01.   |   □ (P → Q)                 A
+   02.   |   |   □ P                   H (for → I)
+   03.   |   |   □ (P → Q)             1 RE
+   04.   |   |   |□                    H (for □ I
+   05.   |   |   |   P                 2 □ E
+   06.   |   |   |   P → Q             3 □ E
+   07.   |   |   |   Q                 5,6 → E
+   08.   |   |   □ Q                   4-7 □ I
+   09.   |   □ P → □ Q                 2-8 → I
+   10.   □ (P → Q) → (□ P → □ Q)       1-9 → I
+   QED
+
+   Theorems and axioms can be embedded within a blocked subproof to derive the
+   necessitation rule (NR).
+
+   Proof
+   01.   |□                            H (for □ I)
+   02.   |   P ∨ -P                    A PL Theorem
+   03.   □ (P ∨ -P)                    1-2 □ I
    QED
 
       ⊢K  □ (P → (Q → P))
    Proof
-   01.   |□                          H (for □ I)
-   02.   |   |   P                   H (for → I)
-   03.   |   |   |   Q               H (for → I)
-   04.   |   |   |   P               2 RE
-   05.   |   |   Q → P               3-4 → I
-   06.   |   P → (Q → P)             2-5 → I
-   07.   □ (P → (Q → P))             1-6 □ I
+   01.   |□                            H (for □ I)
+   02.   |   |   P                     H (for → I)
+   03.   |   |   |   Q                 H (for → I)
+   04.   |   |   |   P                 2 RE
+   05.   |   |   Q → P                 3-4 → I
+   06.   |   P → (Q → P)               2-5 → I
+   07.   □ (P → (Q → P))               1-6 □ I
    QED
-
-      Rule of Necessitation (NEC)   if ⊢K P then ⊢K □ P
-      Modal Distribution (K)    ⊢K □ (P → Q) → (□ P → □ Q)
-
-      These two rules are equivalent to: □ I and □ E.
 
    -□    -□ P  ⊢K  ◇ -P
    Proof
-   01.   -□ P                        A
-   02.   |   □ --P                   H (-E)
-   03.   |   |□                      H (for □ I)
-   04.   |   |   --P                 2 □ E
-   05.   |   |   P                   4 -E
-   06.   |   □ P                     3-5 □ I
-   07.   |   -□ P                    1 RE
-   08.   |   ⊥                       6,7 EFQ
-   09.   --◇ -P                      2-8 -I
-   10.   ◇ -P                        9 -E
+   01.   -□ P                          A
+   02.   - □ - - P                     1 DN
+   03.   ◇ - P                         2 Def ◇
+   QED
+
+   -◇    -◇ P  ⊢ K  □ -P
+   Proof
+   01.   - ◇ P                         A
+   02.   - - □ - P                     1 Def ◇
+   03.   □ - P                         2 -E
    QED
 
    ◇ DIST   ⊢K  □ (P → Q) → (◇ P → ◇ Q)
    Proof
-   01.   |   □ (P → Q)               A
-   02.   |   |   □ -Q                H (for → I)
-   03.   |   |   □ (P → Q)           1 RE
-   04.   |   |   |□                  H (for □ I)
-   05.   |   |   |   -Q              2 □ E
-   06.   |   |   |   P → Q           3 □ E
-   07.   |   |   |   -P              5,6 MT
-   08.   |   |   □ -P                4-7 □ I
-   09.   |   □ -Q → □ -P             2-8 → I
-   10.   |   -□ -P → -□ -Q           9 TRANS
-   11.   |   ◇ P → ◇ Q               10 DEF ◇ 
-   12.   □ (P → Q) → (◇ P → ◇ Q)     1-11 → I
+   01.   |   □ (P → Q)                 A
+   02.   |   |   □ -Q                  H (for → I)
+   03.   |   |   □ (P → Q)             1 RE
+   04.   |   |   |□                    H (for □ I)
+   05.   |   |   |   -Q                2 □ E
+   06.   |   |   |   P → Q             3 □ E
+   07.   |   |   |   -P                5,6 MT
+   08.   |   |   □ -P                  4-7 □ I
+   09.   |   □ -Q → □ -P               2-8 → I
+   10.   |   -□ -P → -□ -Q             9 TRANS
+   11.   |   ◇ P → ◇ Q                 10 DEF ◇ 
+   12.   □ (P → Q) → (◇ P → ◇ Q)       1-11 → I
    QED
 
-   ◇ E     ◇ P, (□  (P ⊢ Q))  ⊢K  ◇ Q
+   The following schematic result is so important I'll call it ◇ Introduction.
+   From ◇ P, show in a boxed subproof from P that Q, close both subproofs
+   and infer ◇ Q.
+
+   ◇ I     ◇ P, (□  (P ⊢ Q))  ⊢K  ◇ Q
    Schematic Proof
    i.   ◇ P
-   j.   |□                           H (for □ I)
-   k.   |   |   P                    H (for → I)
+   j.   |□                             H (for □ I)
+   k.   |   |   P                      H (for → I)
    ...
    l.   |   |   Q
-   l+1. |   P → Q                    k-l → I
-   l+2. □ (P → Q)                    j-l+1 □ I
-   l+3. □ (P → Q) → (◇ P → ◇ Q)      ◇ DIST
-   l+4. ◇ P → ◇ Q                    l+2,l+3 → E
-   l+5. ◇ Q                          i,l+4 → E
-   QED
-
-   This proof form is very common, so it's worth while to introduce further
-   abbreviation, with a WORLD-SUBPROOF.  In such a case we introduce a boxed
-   subproof and a wff in one step.
-
-      (□ ,P ⊢K ... )
-   Schematic Proof
-   i.   |□ ,P
-   ...
-   j.   |
-   QED
-
-   We shall generalize further.
-
-      (A,B,C ⊢K D)  ⊢K  A → (B → (C → D))
-   Schematic Proof
-   i.   |   A,B,C
-   ...
-   j.   |   D
-   j+1. A → (B → (C → D))              i-j → I
-   QED
-
-   Schematic Proof
-   i.   |   P
-   j.   |   |   Q
-   k.   |   |   |   R
-   ...
-   l.   |   |   |   S
-   l+1. |   |   R → S                  k-l → I
-   l+2. |   Q → (R → S)                j-l+1 → I
-   l+3  P → (Q → (R → S))              i-l+2 → I
-   QED
-
-   Alternatively, the hypotheses can be placed on separate lines so they can
-   be easily cited in later steps.
-
-   Schematic Proof
-   i.   |   P
-   i+1. |   Q
-   i+2. |   R
-   ...
-   j.   |   S
-   j+1. P → (Q → (R → S))              i-j+1 → I
+   l+1. |   P → Q                      k-l → I
+   l+2. □ (P → Q)                      j-l+1 □ I
+   l+3. □ (P → Q) → (◇ P → ◇ Q)        l+2 ◇ DIST
+   l+4. ◇ P → ◇ Q                      l+2,l+3 → E
+   l+5. ◇ Q                            i,l+4 → E
    QED
 
    ◇ &Dist  ⊢K  ◇ (P ∧ Q) → (◇ P ∧ ◇ Q)
    Proof
-   01.   |   ◇ (P ∧ Q)                 H (for ◇ E)
-   02.   |   |□ ,P ∧ Q                 H (for □ I)
+   01.   |   ◇ (P ∧ Q)                 H (for → I)
+   02.   |   |□ ,P ∧ Q                 H (for ◇ I)
    03.   |   |   P                     2 ∧E
    04.   |   ◇ P                       1,2-3 ◇ I
-   05.   |   |□ ,P ∧ Q                 H (for □ I)
+   05.   |   |□ ,P ∧ Q                 H (for ◇ I)
    06.   |   |   Q                     5 ∧E
    07.   |   ◇ Q                       5-6 ◇ I
    08.   |   ◇ P ∧ ◇ Q                 4,7 ∧I
@@ -1246,27 +1225,27 @@ Proofs
    01.   |   □ P ∧ ◇ Q                 H (for → I)
    02.   |   □ P                       1 ∧E
    03.   |   ◇ Q                       1 ∧E
-   04.   |   |□ ,Q                     H (for ◇ E)
+   04.   |   |□ ,Q                     H (for ◇ I)
    05.   |   |   P                     2 □ E
    06.   |   |   P ∧ Q                 4,5 ∧I
-   07.   |   ◇ (P ∧ Q)                 3,4-6 ◇ E
+   07.   |   ◇ (P ∧ Q)                 3,4-6 ◇ I
    08.   (□ P ∧ ◇ Q) → ◇ (P ∧ Q)       1-7 → I
    QED
 
       ⊢K   ◇ (P ∧ Q) → (◇ P ∧ ◇ Q)
    Proof
    01.   |   ◇ (P ∧ Q)                 H (for → I)
-   02.   |   |□ ,P ∧ Q                 H (for ◇ E)
+   02.   |   |□ ,P ∧ Q                 H (for ◇ I)
    03.   |   |   P                     2 ∧E
-   04.   |   ◇ P                       1,2-3 ◇ E
-   05.   |   |□ ,P ∧ Q                 H (for ◇ E)
+   04.   |   ◇ P                       1,2-3 ◇ I
+   05.   |   |□ ,P ∧ Q                 H (for ◇ I)
    06.   |   |   Q                     5 ∧E
-   07.   |   ◇ Q                       1,5-6 ◇ E
+   07.   |   ◇ Q                       1,5-6 ◇ I
    08.   |   ◇ P ∧ ◇ Q                 4,7 ∧I
    09.   ◇ (P ∧ Q) → (◇ P ∧ ◇ Q)       1-8 → I
    QED
 
-   ◇ I (Dual of M):   ⊢T   P → ◇ P
+   M' (Dual of M):   ⊢   P → ◇ P
    Proof
    01.   |   P                         H (for → I)
    02.   |   □ -P → -P                 Ax M
@@ -1276,58 +1255,41 @@ Proofs
    06.   P → ◇ P                       1-5 → I
    QED
 
-   -◇ I:   □ -P  ⊢K  -◇ P
-   Proof
-   01.   □ -P                          A
-   02.   |   ◇ P                       H (for -I)
-   03.   |   -□ -P                     2 DEF◇ 
-   04.   |   □ -P                      1 RE
-   05.   |   ⊥                         3,4 EFQ
-   06.   -◇ P                          2-5 -I
-   QED
-
-   -□ I:   ◇ -P  ⊢K  -□ P
-   Proof
-   01.   ◇ -A                          A
-   02.   |   □ A                       H (for -I)
-   03.   |   |□                        H (for □ I)
-   04.   |   |   A                     2 □ E
-   05.   |   |   --A                   4 DN
-   06.   |   □ --A                     3-5 □ I
-   07.   |   ◇ -A                      1 RE
-   08.   |   -□ --A                    7 DEF◇ 
-   09.   |   ⊥                         6,8 EFQ
-   10.   -□ A                          2-9 -I
-   QED
-
    B' (Dual of B):  ⊢B  ◇ □ P → P
    Proof
-   01.   |   ◇ □ P,-P                  H
-   02.   |   -P → □ ◇ -P               Ax B
-   03.   |   □ ◇ -P                    1,2 → E
-   04.   |   |□                        H (for □ I)
-   05.   |   |   ◇ -P                  3 □ E
-   06.   |   |   -□ P                  5 DUAL
-   07.   |   □ -□ P                    4-6 □ I
-   08.   |   -◇ □ P                    7 DUAL
-   09.   |   ⊥                         1a,8 EFQ
-   10.   ◇ □ P → P                     1-9 → I, -I
+   01.   |   ◇ □ P                     H (for → I)
+   02.   |   |   -P                    H (for -I)
+   03.   |   |   -P → □ ◇ -P           Ax B
+   04.   |   |   □ ◇ -P                1,2 → E
+   05.   |   |   | □                   H (for □ I)
+   06.   |   |   |   ◇ -P              4 □ E
+   07.   |   |   |   -□ P              6 DUAL
+   08.   |   |   □ -□ P                5-7 □ I
+   09.   |   |   -◇ □ P                8 DUAL
+   10.   |   |   ⊥                     1,9 EFQ
+   11.   |   --P                       2-10 -I
+   12.   |   P                         11 -E
+   13.   ◇ □ P → P                     1-12 → I
    QED
 
    4' (Dual of 4):  ⊢S4  ◇ ◇ P → ◇ P
    Proof
-   01.   |   ◇ ◇ P, -◇ P               H (for → I,-I)
-   02.   |   □ -P                      1b DUAL
-   03.   |   □ -P → □ □ -P             Ax 4
-   04.   |   □ □ -P                    2,3 → E
-   05.   |   |□                        H (for □ I)
-   06.   |   |   □ -P                  4 □ E
-   07.   |   |   --□ -P                6 DN
-   08.   |   □ --□ -P                  5-7 □ I
-   09.   |   □ -◇ A                    8 DEF◇ 
-   10.   |   -□ -◇ P                   1a DEF◇ 
-   11.   |   ⊥                         9,10 EFQ
-   12.   ◇ ◇ P → ◇ P                   1-11 → I,-I
+   01.   |   ◇ ◇ P                     H (for → I)
+   02.   |   |   -◇ P                  H (for -I)
+   03.   |   |   □ -P                  2 DUAL
+   04.   |   |   □ -P → □ □ -P         Ax 4
+   05.   |   |   □ □ -P                3,4 → E
+   06.   |   |   |□                    H (for □ I)
+   07.   |   |   |   □ -P              5 □ E
+   08.   |   |   |   --□ -P            7 DN
+   09.   |   |   □ --□ -P              6-8 □ I
+   10.   |   |   □ -◇ A                9 DEF◇ 
+   11.   |   |   ◇ ◇ P                 1 RE
+   12.   |   |   -□ -◇ P               11 DEF◇ 
+   13.   |   |   ⊥                     10,12 EFQ
+   14.   |   --◇ P                     2-13 -I
+   15.   |   ◇ P                       14 -E
+   16.   ◇ ◇ P → ◇ P                   1-15 → I
    QED
 
    Steps 2-6 demonstrate that from □ P one can infer □ P into a boxed subproof
@@ -1337,20 +1299,24 @@ Proofs
 
    5' (Dual of 5):  ⊢S5  ◇ □ P → □ P
    Proof
-   01.   |   ◇ □ P, -□ P               H (for → I,-I)
-   02.   |   ◇ -P                      1 DUAL
-   03.   |   ◇ -P → □ ◇ -P             Ax 5
-   04.   |   □ ◇ -A                    2,3 → E
-   05.   |   |□                        H (for □ I)
-   06.   |   |   ◇ -P                  4 □ E
-   07.   |   |   -□ P                  6 -□ I
-   08.   |   □ -□ P                    5-7 □ I
-   09.   |   -□ -□ P                   1a DEF◇ 
-   10.   |   ⊥                         8,9 EFQ
-   11.   ◇ □ P → □ P                   1-10 → I,-I
+   01.   |   ◇ □ P                     H (for → I)
+   02.   |   |   -□ P                  H (for -I)
+   03.   |   |   ◇ -P                  2 DUAL
+   04.   |   |   ◇ -P → □ ◇ -P         Ax 5
+   05.   |   |   □ ◇ -A                3,4 → E
+   06.   |   |   |□                    H (for □ I)
+   07.   |   |   |   ◇ -P              5 □ E
+   08.   |   |   |   -□ P              7 -□ I
+   09.   |   |   □ -□ P                6-8 □ I
+   10.   |   |   ◇ □ P                 1 RE
+   11.   |   |   -□ -□ P               10 DEF◇ 
+   12.   |   |   ⊥                     9,11 EFQ
+   13.   |   -- □ P                    2-12 -I
+   14.   |   □ P                       13 -E
+   15.   ◇ □ P → □ P                   1-15 → I
    QED
 
-   Steps 2-6 demonstrate that from ◇ P one can infer ◇ P into a boxed subproof
+   Steps 3-7 demonstrate that from ◇ P one can infer ◇ P into a boxed subproof
    without losing the ◇ .
 
       ⊢S5  P → □ ◇ P
@@ -1445,40 +1411,37 @@ Proofs
    19.   ◇ (□ ◇ P ∧ ◇ □ Q) ↔ ◇ (◇ P ∧ □ Q) 9,18 ↔ I
    QED
 
----------------------------
-Natural Deduction (◇ Based)
----------------------------
 
-   In this formulation ◇ is the primitive modal operator.
+---------------------------------------------
+Alethic Deduction (◇ Based Natural Deduction)
+---------------------------------------------
+
+   In this formulation ◇ is the primitive modal operator.  An advantage to
+   this formulation is that it's much easier to see how the various systems
+   we've looked at so far relate.  In particular this system closely mirrors
+   the accessibility relation of Kripke's world semantics.
 
    World Index
       A WORLD INDEX is an expression of the form '/n' (where n is in 0,1,2...).
       Write 'P  /i' to state that proposition P is true at world i.
-      The actual world is denoted /0, though it's often implied.
+      The actual world is denoted /0, though it's usually implied.
 
    Bridge (AKA Accessibility Relation)
       A BRIDGE, '/n=>/m', denotes a way to travel from world '/n'
       to world '/m'.
 
-The Deductive Systems
-=====================
+System K
+========
 
-   This formulation takes ◇ to be prmitive.  The calculi on top of Alethic
-   Modal logic are defined by the following rules.
+   This formulation takes ◇ to be primitive.  The calculi on top of Alethic
+   Modal logic are defined by the following rules.  This system consists
+   of the rules of Truth-Functional Calculus, plus some modified and new
+   rules below.  All rules that don't include world indexes such as those of
+   Truth-Functional Calculus, must occur entirely within a single world index.
 
    ================================  =========================================
-   Name/Alternate Names              Sequent
+   Name/Alternate Names              Rule   
    ================================  =========================================
-   Hypothesis (H for □ I)            Introduce a hypothesis at any step
-                                     provided it begins a new subproof.  The
-                                     hypothesis can be '□ ' introducing
-                                     a BOXED SUBPROOF.
-
-   Reiterate (RE)                    From P, infer P into the same subproof,
-                                     or into an immediately nested subproof
-                                     provided the nested subproof is not a
-                                     boxed subproof.
-
    Definition of ◇ (Def ◇)           □ P  =df  - ◇ - P
 
    Necessitation Rule (NR)           if ⊢ P (P is a theorem or axiom), infer
@@ -1496,16 +1459,6 @@ The Deductive Systems
 
       +-------------------------------+-------------------------------+
       | ============================= | ============================= |
-      | H                             | RE                            |
-      | ============================= | ============================= |
-      |                               |   P      P                    |
-      |  -------    -------           |  ---    ---------             |
-      |   |   P      |□               |   P      |   ...   Subproof   |
-      |                               |          |   P     not boxed  |
-      |  P is a                       |                               |
-      |  hypothesis                   |                               |
-      |                               |                               |
-      | ============================= | ============================= |
       | Def ◇                         | NR                            |
       | ============================= | ============================= |
       |                               | [ ⊢ P ]                       |
@@ -1522,6 +1475,9 @@ The Deductive Systems
       |               /i=>/j)         |                               |
       |                               |                               |
       +-------------------------------+-------------------------------+
+
+Beyond System K
+===============
 
    □ Elimination (□ E)
       The precise application of □ E varies according to the system used.
@@ -1549,7 +1505,8 @@ The Deductive Systems
          |  ◇ P    /i                 |  □ P    /i                 |
          | -----------                |  [/i=>/j]                  |
          |  P      /j (j is new)      | -----------                |
-         |                            |  P      /j                 |
+         |        (creates a bridge   |  P      /j                 |
+         |            /i=>/j)         |                            |
          |                            |                            |
          | ========================== | ========================== |
          | □ E (System M)             | □ E (System B)             |
@@ -1564,12 +1521,13 @@ The Deductive Systems
          | ========================== | ========================== |
          |  For every series of       |  Every world has a bridge  |
          |  bridges /i=>/j, /j=>/k    |  to every other world.     |
-         |  there is a bridge         |                            |
+         |  there is a bridge         |  (both B and s4)           |
          |  /i=>/k                    |                            |
          |                            |                            |
          +----------------------------+----------------------------+
 
-   Proof Construction
+Proof Construction
+==================
 
       Procedure
       1.  Assume the premises and hypothesize the negated conclusion.
@@ -1581,63 +1539,223 @@ The Deductive Systems
 Proofs
 ------
 
-Dual ⊢ M  - □ P ↔ ◇ - P
-     ⊢ M  - ◇ P ↔ □ - P
+Dual ⊢ K  - □ P ↔ ◇ - P
+     ⊢ K  - ◇ P ↔ □ - P
    Proof
-   01.   |   - □ P                       H (for → I)
-   02.   |   - - ◇ - P                   1 Def □
-   03.   |   ◇ - P                       2 -E
-   04.   - □ P → ◇ - P                   1-3 → I
-   05.   |   ◇ - P                       H (for → I)
-   06.   |   |   □ P                     H (for -I)
-   07.   |   |   - ◇ - P                 6 Def □
-   08.   |   |   ⊥                       5,7 ⊥ I
-   09.   |   - □ P                       6-8 -I
-   10.   ◇ - P → - □ P                   6-9 → I
-   11.   - □ P ↔ ◇ - P                   4,10 ↔ I
+   01.   |   - □ P                     H (for → I)
+   02.   |   - - ◇ - P                 1 Def □
+   03.   |   ◇ - P                     2 -E
+   04.   - □ P → ◇ - P                 1-3 → I
+   05.   |   ◇ - P                     H (for → I)
+   06.   |   |   □ P                   H (for -I)
+   07.   |   |   - ◇ - P               6 Def □
+   08.   |   |   ⊥                     5,7 ⊥ I
+   09.   |   - □ P                     6-8 -I
+   10.   ◇ - P → - □ P                 6-9 → I
+   11.   - □ P ↔ ◇ - P                 4,10 ↔ I
    QED
 
 Modal Distribution (MDIST) ⊢ K  □ (P → Q) → ( □ P → □ Q)
    Proof
-   01.   |   □ (P → Q)                   H (for → I)
-   02.   |   |   □ P                     H (for → I)
-   03.   |   |   □ (P → Q)               1 RE
-   04.   |   |   |   - □ Q               H (for -I)
-   05.   |   |   |   - □ --Q             4 DN
-   06.   |   |   |   ◇ - Q               5 Dual
-   07.   |   |   |   □ P                 2 RE
-   08.   |   |   |   □ (P → Q)           3 RE
-   09.   |   |   |   - Q           /1    6 ◇ E          new bridge /0 => /1
-   10.   |   |   |   P             /1    7 □ E (Sys K)
-   11.   |   |   |   P → Q         /1    8 □ E (Sys K)
-   12.   |   |   |   - P           /1    9,11 → E
-   13.   |   |   |   ⊥             /1    10,12 ⊥ I
-   14.   |   |   -- □ Q                  4-13 -I
-   15.   |   |   □ Q                     14 -E
-   16.   |   □ P → □ Q                   2-15 → I
-   17.   □ (P → Q) → (□ P → □ Q)         1-16 → I
+   01.   |   □ (P → Q)                 H (for → I)
+   02.   |   |   □ P                   H (for → I)
+   03.   |   |   □ (P → Q)             1 RE
+   04.   |   |   |   - □ Q             H (for -I)
+   05.   |   |   |   - □ --Q           4 DN
+   06.   |   |   |   ◇ - Q             5 Dual
+   07.   |   |   |   □ P               2 RE
+   08.   |   |   |   □ (P → Q)         3 RE
+   09.   |   |   |   - Q         /1    6 ◇ E          new bridge /0 => /1
+   10.   |   |   |   P           /1    7 □ E (Sys K)
+   11.   |   |   |   P → Q       /1    8 □ E (Sys K)
+   12.   |   |   |   - P         /1    9,11 → E
+   13.   |   |   |   ⊥           /1    10,12 ⊥ I
+   14.   |   |   -- □ Q                4-13 -I
+   15.   |   |   □ Q                   14 -E
+   16.   |   □ P → □ Q                 2-15 → I
+   17.   □ (P → Q) → (□ P → □ Q)       1-16 → I
    QED
 
 Diamond Distribution (◇ Dist)  ⊢ K  □ (P → Q) → (◇ P → ◇ Q) 
    Proof
-   01.   |   □ (P → Q)                   H (for → I)
-   02.   |   |   ◇ P                     H (for → I)
-   03.   |   |   □ (P → Q)               1 RE
-   04.   |   |   |   - ◇ Q               H (for -I)
-   05.   |   |   |   - - □ - Q           4 Def ◇
-   06.   |   |   |   □ - Q               5 DN
-   07.   |   |   |   ◇ P                 2 RE
-   08.   |   |   |   □ (P → Q)           3 RE
-   09.   |   |   |   P             /1    7 ◇ E          new bridge /0 => /1
-   10.   |   |   |   -Q            /1    6 □ E (Sys K)
-   11.   |   |   |   P → Q         /1    8 □ E (Sys K)
-   12.   |   |   |   -P            /1    10,11 MT
-   13.   |   |   |   ⊥             /1    9,12 ⊥ I
-   14.   |   |   -- ◇ Q                  4-13 -I
-   15.   |   |   ◇ Q                     14 -E
-   16.   |   ◇ P → ◇ Q                   2-15 → I
-   17.   □ (P → Q) → (◇ P → ◇ Q)         1-16 → I
+   01.   |   □ (P → Q)                 H (for → I)
+   02.   |   |   ◇ P                   H (for → I)
+   03.   |   |   □ (P → Q)             1 RE
+   04.   |   |   |   - ◇ Q             H (for -I)
+   05.   |   |   |   - ◇ - - Q         4 DN
+   06.   |   |   |   □ - Q             5 Def □ 
+   07.   |   |   |   ◇ P               2 RE
+   08.   |   |   |   □ (P → Q)         3 RE
+   09.   |   |   |   P           /1    7 ◇ E          new bridge /0 => /1
+   10.   |   |   |   -Q          /1    6 □ E (Sys K)
+   11.   |   |   |   P → Q       /1    8 □ E (Sys K)
+   12.   |   |   |   -P          /1    10,11 MT
+   13.   |   |   |   ⊥           /1    9,12 ⊥ I
+   14.   |   |   -- ◇ Q                4-13 -I
+   15.   |   |   ◇ Q                   14 -E
+   16.   |   ◇ P → ◇ Q                 2-15 → I
+   17.   □ (P → Q) → (◇ P → ◇ Q)       1-16 → I
    QED
+
+Dist ◇ ∧    ⊢ K   ◇ (P ∧ Q) → (◇ P ∧ ◇ Q)
+   Proof
+   01.   ◇ (P ∧ Q)                     H (for ->I)
+   02.   |   - ◇ P                     H (for -I)
+   03.   |   - ◇ - - P                 2 DN
+   04.   |   □ - P                     3 Def □
+   05.   |   ◇ (P ∧ Q)                 1 RE
+   06.   |   P ∧ Q               /1    5 ◇ E      new bridge /0=>/1
+   07.   |   -P                  /1    4 □ E (Sys K)
+   08.   |   P                   /1    6 ^E
+   09.   |   ⊥                   /1    7,8 EFQ
+   10.   ◇ P                           2-9 -I
+   11.   |   - ◇ Q                     H (for -I)
+   12.   |   - ◇ - - Q                 11 DN
+   13.   |   □ - Q                     12 Def □
+   14.   |   ◇ (P ∧ Q)                 1 RE
+   15.   |   P ∧ Q               /2    14 ◇ E     new bridge /0=>/2
+   16.   |   -Q                  /2    13 □ E (Sys K)
+   17.   |   Q                   /2    15 ∧ E
+   18.   |   ⊥                   /2    16,17 EFQ
+   19.   ◇ Q                           11-18 -I
+   20.   ◇ P ∧ ◇ Q                     10,19 ∧ I
+   QED
+
+Thm ◇ B-00   ⊢ K   (□ P ∧ ◇ Q) → ◇ (P ∧ Q)
+   Proof
+   01.   |   □ P ∧ ◇ Q                 H (for → I)
+   02.   |   |   - ◇ (P ∧ Q)           H (for -I)
+   03.   |   |   - ◇ - - (P ∧ Q)       2 DN
+   04.   |   |   □ - (P ∧ Q)           3 Def □
+   05.   |   |   □ P ∧ ◇ Q             1 RE
+   06.   |   |   □ P                   5 ∧ E
+   07.   |   |   ◇ Q                   5 ∧ E
+   08.   |   |   □ (-P ∨ -Q)           4 DM
+   09.   |   |   Q               /1    7 ◇ E      new bridge /0=>/1
+   10.   |   |   P               /1    6 □ E (Sys K)
+   11.   |   |   -P ∨ -Q         /1    8 □ E (Sys K)
+   12.   |   |   --Q             /1    9 DN
+   13.   |   |   -P              /1    11,12 DS
+   14.   |   |   ⊥               /1    10,13 EFQ
+   15.   |   ◇ (P ∧ Q)                 2-14 -I
+   16.   (□ P ∧ ◇ Q) → ◇ (P ∧ Q)       1-15 → I
+   QED
+
+Thm ◇ B-01   ⊢ M   P → ◇ P
+   Proof
+   01.   |   P                         H (for → I)
+   02.   |   |   - ◇ P                 H (for -I)
+   03.   |   |   - ◇ - - P             2 DN
+   04.   |   |   □ - P                 3 Def □
+   05.   |   |   - P                   4 (Sys M)
+   06.   |   |   P                     1 RE
+   07.   |   |   ⊥                     5,6 EFQ
+   08.   |   ◇ P                       2-7 -I
+   09.   P → ◇ P                       1-8 → I
+   QED
+
+Thm ◇ B-02   ⊢ M   □ P → P
+   Proof
+   01.   |   □ P                       H (for → I)
+   02.   |   |   -P                    H (for -I)
+   03.   |   |   □ P                   1 RE
+   04.   |   |   P                     3 (Sys M)  /0=>/0
+   05.   |   |   ⊥                     2,4 EFQ
+   06.   |   P                         2-5 -I
+   07.   □ P → P                       1-6 → I
+   QED
+
+Thm ◇ B-03   ⊢ M   □ P → ◇ P
+   Proof
+   01.   □ P → P                       Thm ◇ B-02
+   02.   P → ◇ P                       Thm ◇ B-01
+   03.   □ P → ◇ P                     1,2 HS
+   QED
+
+Thm ◇ B-04   ⊢ s4  □ P → □ □ P
+   Proof
+   01.   |   □ P             H (for → I)
+   02.   |   |   - □ □ P     H (for -I)
+   03.   |   |   ◇ ◇ - P     2 Dual
+   04.   |   |   -P     /2   3 ◇ E     new bridges /0=>/1, /1=>/2
+   05.   |   |   P      /2   1 (Sys s4)
+   06.   |   |   ⊥      /2   4,5 EFQ
+   07.   |   □ □ P           2-6 -I
+   08.   □ P → □ □ P         1-7 → I
+   QED
+
+Thm ◇ B-05   □ (P → Q), □ P   ⊢   □ Q
+   Proof
+   01.   □ (P → Q)           A
+   02.   □ P                 A
+   03.   |   - □ Q           H (for -I)
+   04.   |   - □ - - Q       3 DN
+   05.   |   ◇ - Q           4 Def ◇
+   06.   |   □ (P → Q)       1 RE
+   07.   |   □ P             2 RE
+   08.   |   - Q        /1   5 ◇ E    new bridge /0=>/1
+   09.   |   P → Q      /1   6 □ E (Sys K)
+   10.   |   P          /1   7 □ E (Sys K)
+   11.   |   Q          /1   9,10 → E
+   12.   |   ⊥          /1   8,11 EFQ
+   13.   □ Q                 3-12 -I
+   QED 
+
+
+------------------------------------------
+Alethic Deduction (Non-Historical Systems)
+------------------------------------------
+
+   Neo-Systems
+
+   A neosystem is any combination of the basic rules not covered by the
+   one of the systems above.
+
+   KB     k,b rules
+   K4     k,4 rules
+   K5     k,5 rules
+   KDB    k,d,b rules
+   KD4    k,d,4 rules
+   KD5    k,d,5 rules
+   K45    k,4,5 rules
+   KD45   k,d,4,5 rules
+   KB4    k,b,4 rules
+
+   G-Systems
+
+   A G-System axiom is any axiom achieved by exponentiating the modal
+   operators in the formula G as follows
+
+                           j   k       m   n
+         G(j,k,m,n)  =df  ◇   □   P → □   ◇  P
+
+   The exponents work as expected in that they simply name the number of
+   occurrences of the base symbol.
+
+   A G-system is a modal logic that contains the K-thesis as well as
+   finitely many theses of the form G(j,k,m,n).  Nearly every thesis we
+   have considered can be written using G-notation
+
+      axiom    G-notation     Dual
+      -----    ----------     ----------
+       g       G(1,1,1,1)
+       D       G(0,1,0,1)
+       T       G(0,1,0,0)     G(0,0,1,0)
+       B       G(1,1,0,0)     G(0,0,1,1)
+       4       G(0,1,2,0)     G(2,0,0,1)
+       4.2     G(0,2,3,0)     G(3,0,0,2)
+       4.3     G(0,3,4,0)     G(4,0,0,3)
+       ...
+       5       G(1,1,1,0)     G(1,0,1,1)
+
+   System X1
+       K           □ (P → Q) → (□ P → □ Q)
+       G(0,1,1,1)  □ P → □ ◇ P
+
+   System X2
+       K           □ (P → Q) → (□ P → □ Q)
+       G(2,1,2,1)  ◇ ◇ □ P → □ □ ◇ P
+
 
 -----------------
 Modal Truth-Trees
@@ -1817,84 +1935,15 @@ K-Model Truth-Trees
       is not world accessible from w0 where Q is true.  Since the premises
       are all true but the conclusion is false, the form is invalid.
 
-----------------------------
-Non-Historical Modal Systems
-----------------------------
 
-   (L) Linear Axiom Schema
-
-   This axiom is sometimes incorporated into modal logics.
-         □ (□ A → B) ∨ □ (□ B → A)    (L - linear)
-   
-   Neo-Systems
-
-   A neosystem is any combination of the basic rules not covered by the
-   one of the systems above.
-
-   KB     k,b rules
-   K4     k,4 rules
-   K5     k,5 rules
-   KDB    k,d,b rules
-   KD4    k,d,4 rules
-   KD5    k,d,5 rules
-   K45    k,4,5 rules
-   KD45   k,d,4,5 rules
-   KB4    k,b,4 rules
-
-   G-Systems
-
-   A G-System axiom is any axiom achieved by exponentiating the modal
-   operators in the formula G as follows
-
-                           j   k       m   n
-         G(j,k,m,n)  =df  ◇   □   P → □   ◇  P
-
-   The exponents work as expected in that they simply name the number of
-   occurrences of the base symbol.
-
-   A G-system is a modal logic that contains the K-thesis as well as
-   finitely many theses of the form G(j,k,m,n).  Nearly every thesis we
-   have considered can be written using G-notation
-
-      axiom    G-notation     Dual
-      -----    ----------     ----
-       g       G(1,1,1,1)
-       D       G(0,1,0,1)
-       T       G(0,1,0,0)     G(0,0,1,0)
-       B       G(1,1,0,0)     G(0,0,1,1)
-       4       G(0,1,2,0)     G(2,0,0,1)
-       4.2     G(0,2,3,0)     G(3,0,0,2)
-       4.3     G(0,3,4,0)     G(4,0,0,3)
-       ...
-       5       G(1,1,1,0)     G(1,0,1,1)
-
-   System X1
-       K           □ (A → B) → (□ A → □ B)
-       G(0,1,1,1)  □ A → □ ◇ A
-
-   System X2
-       K           □ (P → Q) → (□ P → □ Q)
-       G(2,1,2,1)  ◇ ◇ □ P → □ □ ◇ P
+===================
+Deontic Modal Logic
+===================
 
 
-=============
-Deontic Logic
-=============
-
-
-----------------------------
-Standard Deontic Logic (SDL)
-----------------------------
-
-   - The goal is to have a Deontic logic which is an isomorphism to alethic
-     modal logic.
-   - Most commonly used and referenced version of Deontic Logic that you will
-     find.
-   - All it's going to do is take the Axioms we've explored so far and put
-     them in a format that makes them isomorphically related to the axioms
-     of Alethic Modal Logic
-
+--------
 Language
+--------
 
    Lexemes
 
@@ -1905,107 +1954,21 @@ Language
       Definition of Permissible (PEDef)
          Pp  =df  -O-p
 
-   Axioms
-      Axiom K (K)
-         Alethic:  □ (A → B) → (□ A → □ B)
-         Deontic:  O(p → q) → (Op → Oq) 
 
-      Axiom D (D)
-         Alethic:  □ A → ◇ A
-         Deontic:  Op → -O-p   or by definition,
-                   Op → Pp
-
-         Corollary
-            -PP → -OP
-
-      Necessitation Rule (NR)
-         Alethic:  if ⊢ A then □ A      for all axioms and theorems A
-         Deontic:  if ⊢ p then Op       for all axioms and theorems p
-
-         - It can be used with D to prove OmA (Omissibility of
-           Contradictions Axiom).
-         - According to this rule it's not just illogical to have
-           p and -p, it's morally wrong.  It's O(-(p ∧ -p)).
-         - Demonstrating that the liar paradox breaks the LEM is not just
-           annoying it's ethically impermissible.
-         - Nec doesn't seem to really work right in Deontic logic and it
-           may be better to go without it.  The problem here is that it
-           sort of breaks the isomorphism with alethic logic, which is
-           what SDL (Standard Deontic logic) may be better off doing.
-
-   Philosophical Concerns
-
-      a. All tautologies are obligatory, and contradictions forbidden.
-
-         It seems odd that one would be obligated to bring about something
-         which cannot be false.
-
-      b. If something is permitted, then either it or anything else is
-         permitted.
-
-         ⊢ D PA → P(A ∨ B)
-         ⊢ D OA → O(A ∨ B)
-
-      c. We have the following theorem: one cannot have conflicting
-         obligations.
-
-         (NonCon) ⊢ D -(OP ^ O-P)
-
-         Yet it seems possible to have conflicting obligations in the
-         actual world.
-
-      d. (chisholm's paradox) D cannot adequately capture conditional
-         obligation.
-
-         "It ought to be that if P then Q" is ambiguous
-
-             O(P → Q), or
-             P → OQ
-
-         @@@ Gensler stresses this point for alethic as well.
-
---------------------------------
-Augmented Standard Deontic Logic
---------------------------------
-   The idea here is to extend SDL (Standard Deontic Logic).  So
-   Everything below is in addition to SDL.
-
-   Axioms
-      Double Obligation Axiom (DOA)
-         Deontic:  OB(OB(p) → p)
-         - corollary
-              OB(OB(p))→ OB(p)
-           Similar to Axiom 4
-              □ A → □ □ A
-
-   Notes
-   - This axiom is contentius.
-   - It ought to be the case that if it ought to be the case you don't
-     steal, then you don't steal.
-   - It should be the case that if we are obligated to do x that we do x.
-   corollary
-   - If it's obligatory that it is obligatory that we don't lie, then it is
-     obligatory that we don't lie.
-   - It ought to be the case that it ought to be the case that x implies
-     that it ought to be the case that x.
-      
-   - what it does is simplifying a stirng of OB down to one OB
-       
-
---------------------------
-Semantics of Deontic Logic
---------------------------
+---------
+Semantics
+---------
 
    Semantics of Deontic Logic
-      The Acceptability Relation in Deontic Sematics
+      The Acceptability Relation in Deontic Semantics
          The Acceptability Relation (DADef - Deontic Acceptability Definition)
-         Ai:Aj:(Aij ↔ Ap:(OB(p)/i → p/j))
+         ∀i∀j(Aij ↔ ∀p(OB(p)/i → p/j))
          - For any worlds i,j, j is acceptable to i if and only if for all
            propositions p, if p is obligatory in i then p is the case in j.
          - Where i and j are worlds, p is a proposition and xw means x is true
            in a given world w.  We will call this Deontic Acceptability
            Relation.
-         - In other worlds, for all worlds i and j, j is acceptable to i
+         - In other words, for all worlds i and j, j is acceptable to i
            if and only if for all propositions p, if p is obligatory in i,
            p is true in j.
          - So imagine that world i is some world where the only thing that is
@@ -2120,6 +2083,114 @@ Semantics of Deontic Logic
              that it is true in j.
 
 
+------------------------------------------
+Deontic Deduction (Standard Deontic Logic)
+------------------------------------------
+
+   - The goal is to have a Deontic logic which is an isomorphism to alethic
+     modal logic.
+   - Most commonly used and referenced version of Deontic Logic that you will
+     find.
+   - All it's going to do is take the Axioms we've explored so far and put
+     them in a format that makes them isomorphically related to the axioms
+     of Alethic Modal Logic
+
+   Axioms
+      Axiom K (K)
+         Alethic:  □ (A → B) → (□ A → □ B)
+         Deontic:  O(p → q) → (Op → Oq) 
+
+      Axiom D (D)
+         Alethic:  □ A → ◇ A
+         Deontic:  Op → -O-p   or by definition,
+                   Op → Pp
+
+         Corollary
+            -PP → -OP
+
+      Necessitation Rule (NR)
+         Alethic:  if ⊢ A then □ A      for all axioms and theorems A
+         Deontic:  if ⊢ p then Op       for all axioms and theorems p
+
+         - It can be used with D to prove OmA (Omissibility of
+           Contradictions Axiom).
+         - According to this rule it's not just illogical to have
+           p and -p, it's morally wrong.  It's O(-(p ∧ -p)).
+         - Demonstrating that the liar paradox breaks the LEM is not just
+           annoying it's ethically impermissible.
+         - Nec doesn't seem to really work right in Deontic logic and it
+           may be better to go without it.  The problem here is that it
+           sort of breaks the isomorphism with alethic logic, which is
+           what SDL (Standard Deontic logic) may be better off doing.
+
+   Philosophical Concerns
+
+      a. All tautologies are obligatory, and contradictions forbidden.
+
+         It seems odd that one would be obligated to bring about something
+         which cannot be false.
+
+      b. If something is permitted, then either it or anything else is
+         permitted.
+
+         ⊢ D PA → P(A ∨ B)
+         ⊢ D OA → O(A ∨ B)
+
+      c. We have the following theorem: one cannot have conflicting
+         obligations.
+
+         (NonCon) ⊢ D -(OP ^ O-P)
+
+         Yet it seems possible to have conflicting obligations in the
+         actual world.
+
+      d. (Chisholm's paradox) SDL cannot adequately capture conditional
+         obligation.
+
+         "It ought to be that if P then Q" is ambiguous
+
+             O(P → Q), or
+             P → OQ
+
+         @@@ Gensler stresses this point for alethic as well.
+
+
+----------------------------------------------------
+Deontic Deduction (Augmented Standard Deontic Logic)
+----------------------------------------------------
+
+   The idea here is to extend SDL (Standard Deontic Logic).  So
+   Everything below is in addition to SDL.
+
+   Axioms
+      Double Obligation Axiom (DOA)
+         Deontic:  OB(OB(p) → p)
+         - corollary
+              OB(OB(p))→ OB(p)
+           Similar to Axiom 4
+              □ A → □ □ A
+
+   Notes
+   - This axiom is contentious.
+   - It ought to be the case that if it ought to be the case you don't
+     steal, then you don't steal.
+   - It should be the case that if we are obligated to do x that we do x.
+   corollary
+   - If it's obligatory that it is obligatory that we don't lie, then it is
+     obligatory that we don't lie.
+   - It ought to be the case that it ought to be the case that x implies
+     that it ought to be the case that x.
+      
+   - what it does is simplifying a string of OB down to one OB
+       
+
+---------------------------------
+Deontic Deduction (Other Systems)
+---------------------------------
+
+   Some othe popular forulations add additional principles governing
+   iterated deontic operators.
+
 --------------------
 Deontic Reductionism
 --------------------
@@ -2174,10 +2245,10 @@ Deontic Reductionism
 
       Notes
          - Modal System K is generally non-controversial, and it seems that
-           the claim that there is at least oen possible world in which all
+           the claim that there is at least one possible world in which all
            of the normative demands (obligations) are met exists does not
            seem to be too problematic.
-         - The claim is that this sysem is equivalent to SDL.  But we'll
+         - The claim is that this system is equivalent to SDL.  But we'll
            show that this isn't the case.
 
       Definitions in System Kd (KdD)
@@ -2227,7 +2298,7 @@ Deontic Reductionism
          -□ s     it is not the case that, it's necessary that, s.
 
       Definitions
-         The definitions are basically all the same as those in syste Kd.
+         The definitions are basically all the same as those in system Kd.
          For example.
 
          OB(p)  =df  □ (-p → s)
@@ -2259,7 +2330,7 @@ Deontic Reductionism
       - While a deontic version of T (OB(p) → p) might be too strong, it
         seems that a logical system is hard to create without the alethic
         version.  Most systems of alethic modality require that if something
-        is in all possible worlds it is in the actual worl, and if
+        is in all possible worlds it is in the actual world, and if
         something is in the actual world it is possible.
 
       
@@ -2312,7 +2383,7 @@ Semantics
       The semantics for Reductionist Deontic Logic will look somewhat
       similar to the semantics for Standard Deontic Logic.  Both can be
       visualized in terms of categorical logic.  We will replace  A^i
-      with AR^i and add in all worls in which d is satisfied.
+      with AR^i and add in all worlds in which d is satisfied.
 
 
 ====================
@@ -2618,7 +2689,7 @@ Since and Until Operators
 
       - There are two ways to conceive of since and until, either as strict,
         where precedence is defined as irreflexive, or as general where
-        precedence is deinfine as reflexive.  We will use U and S to refer
+        precedence is defined as reflexive.  We will use U and S to refer
         to the general versions and Us and Ss to refer to the strict versions.
 
 Axioms of Since & Until
@@ -2647,7 +2718,7 @@ Axioms of Since & Until
       S(p)(q)  =df  q ∨ (p ∧ Ss(p)(q))
 
    p is true generally until q is the same as either q is the case now (and
-   it is vacuously true) or p is the case and will be structly true until q
+   it is vacuously true) or p is the case and will be strictly true until q
    is the case.  The same applies to since.
 
 LTL (Linear Time Logic)
@@ -2706,7 +2777,7 @@ Ockhamist Branches of Temporal Logic
    Grammar
       Often branching temporal logic uses ◇  and □  to denote "there exists
       some future timeline" and "for all future timelines" respectively.
-      So that we don't confuese these with our alethic operators, we'll
+      So that we don't confuse these with our alethic operators, we'll
       use <*> to denote "there exists some future timeline" and [*] to
       denote "for all future timelines".
 
@@ -2714,7 +2785,7 @@ Ockhamist Branches of Temporal Logic
                 <*>p       There exists some future timeline where, p
                            For some future timeline, p
 
-      To be clear, that menas that [*]p means that from the stand point of
+      To be clear, that means that [*]p means that from the stand point of
       this instant, for all future timelines, p.  Similarly, <*>P means from
       the standpoint of this instant, there exists some future timeline such
       that, p. [*](I will eat ice cream tomorrow) means that from the
@@ -2822,11 +2893,11 @@ Axiom D (Doxastic & Epistemic)
    Temporal (No Begin):    H(p) → P(p)
    Epistemic (Axiom D):    K(s)(p) → -K(s)(-p)
    Doxastic (Axiom D):     B(s)(p) → -B(s)(-p)
-            The -K(s)(-P) is akin to -◇ -P, but Epist,Doxas don't have
-            a weak operator.
+            The -K(s)(-P) is akin to -◇ -P, but Epistemic, and Doxastic don't
+            have a weak operator.
 
 Axiom T (Doxastic & Epistemic)
-   Alethic (Axtiom T):     □ A → A
+   Alethic (Axiom T):      □ A → A
    Deontic (Axiom T):      OB(p) → p
    Temporal (Axiom TG):    G(p) → p
    Temporal (Axiom TH):    H(p) → p
@@ -2937,7 +3008,7 @@ Problem with Kx:
    Ordinarily it seems odd that if one knows something, they have knowledge
    that they know it.
 
-Reinterpreation of Kx:
+Reinterpretation of Kx:
 
    One could take Kx:P to mean, x is in a position to know P.
    (Not quite the same as saying ◇ K:P)
@@ -2949,7 +3020,7 @@ Problem with Bx:
    Similar notions about Bx: such as, all tautologies are believed, and belief
    is closed under implication, are even more worrisome.
 
-   One natural formulaxion of doxastic logic would be KD4.
+   One natural formulation of doxastic logic would be KD4.
 
          D-B.       B:P → C:P
          BB.        B:P → BB:P
@@ -2961,7 +3032,7 @@ Problem with Bx:
 Reinterpretation of Bx:
 
    These issues seem less of a problem if we take Bx:P to mean,
-   x ought to beieve p, or x is committed to the truth of P.
+   x ought to believe p, or x is committed to the truth of P.
 
 Other Accepted but Disputed Principles
 
@@ -2983,7 +3054,7 @@ Philosophical Concerns
    Problem 2
 
    The (K) schema entails that knowledge is closed under implication,
-   i.e., that whenever we know a conditional and know its anteedent, we
+   i.e., that whenever we know a conditional and know its antecedent, we
    know its consequent.
 
    Problem 3
@@ -2995,7 +3066,7 @@ Philosophical Concerns
    One might take K:P to mean 'is in the position to know to know P, not
    that one actually does know that P.'
 
-   One might alternatively take B:P to mena 'you ought to believe P', or
+   One might alternatively take B:P to mean 'you ought to believe P', or
    that 'your beliefs make you committed to the truth of P.'
 
 
@@ -3034,7 +3105,7 @@ Grammar (Rules for wffs)
    Notes
 
    - To aid readability of a wffs we adopt the convention that if a wff
-     that begins with '(', we will drop the outter-most pair of parenthesis.
+     that begins with '(', we will drop the outer-most pair of parenthesis.
 
    - We'll often use letters from the end of the alphabet (x, y and z), like
      pseudo variables to serve as place-holders for arbitrary object symbols.
@@ -3057,18 +3128,18 @@ Definitions
 
 Definite Descriptors
 
-   A DEFINITE DESCRIPTOR is a lot like a singula term is Aristotelian Logic.
+   A DEFINITE DESCRIPTOR is a lot like a singular term is Aristotelian Logic.
    We can define the concept upon thing we already have.
 
       ix:Px,   the x such that Px.
 
-      ix:Kx    The king of france
+      ix:Kx    The king of France
 
    A definite descriptor expression denotes an object symbol.  So it's not
-   a wff or an atomic formula.  We need to make it an argument of a predicat
+   a wff or an atomic formula.  We need to make it an argument of a predicate
    (as with any other object symbol) to have a wff.
 
-      Qix:Kx   The kind of france is married to the queen.
+      Qix:Kx   The king of France is married to the queen.
 
    We can define this general statement in terms of ∃x and A:.
 
@@ -3142,7 +3213,7 @@ Inference Rules for Quantifiers
       |                               |                               |
       +-------------------------------+-------------------------------+
 
-Deriving a Rhobust Fitch
+Deriving a Robust Fitch
 
    ================================  =========================================
    Name/Alternate Names              Sequent
@@ -3228,7 +3299,7 @@ QED
 
 =Symmetry (=Sym):   a=c  ⊢  c=a
 =Commutation (=COM)
-   let Ixy, be a dummy identity predcate
+   let Ixy, be a dummy identity predicate
 Proof
 01.   a=c                    A
 02.   a=a                    =I
@@ -3238,7 +3309,7 @@ Proof
 QED
 
 =Transitivity (=Trans):  a=c, c=e  ⊢  a=e
-   let Ixy, be a dummy identity predcate
+   let Ixy, be a dummy identity predicate
 Proof
 01.   a=c                    A
 02.   c=e                    A
@@ -3309,9 +3380,12 @@ Example First-Order Modal Forms
 
          Simple Necessity
          ∀x(Px → □ Qx)   All bachelors are inherently unmarriable.
+                         All bachelors has the essential proprerty of
+                             being unmarriable.
 
-         Condityional Necessity
-         □ ∀x(Px → Qx)   It's necessarily true that all bachelores are unmarried.
+         Conditional Necessity
+         □ ∀x(Px → Qx)   It's necessarily true that all bachelors are
+                         unmarried.
 
          But translate something like, "All P's are necessarily Q's" into
          both forms
@@ -3410,9 +3484,9 @@ Primitive Inference Rules
    ================================  =========================================
    Name/Alternate Names              Rule
    ================================  =========================================
-   Universal Elimination (A:E)       from ∀xPx infer E!c → Pc.
+   Universal Elimination (∀ E)       from ∀xPx infer E!c → Pc.
 
-   Universal Introduction (A:I)      from E!c → Pc infer ∀xPx, provided
+   Universal Introduction (∀ I)      from E!c → Pc infer ∀xPx, provided
                                      c is not active in P or in the proof.
    ================================  =========================================
 
