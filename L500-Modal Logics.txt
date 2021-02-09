@@ -64,10 +64,11 @@ Contents
    Alethic Modal Logic
       Language
       Semantics
-      Alethic Deduction (Axiomatic)
-      Alethic Deduction (□ Based Natural Deduction)
-      Alethic Deduction (◇ Based Natural Deduction)
-      Alethic Deduction (Non-Historical Systems)
+      Alethic Deduction - Axiomatic
+      Alethic Deduction - □ Based Natural Deduction
+      Alethic Deduction - ◇ Based Natural Deduction
+      Alethic Deduction - Relative Modalities
+      Alethic Deduction - Non-Historical Systems
       Modal Truth-Trees
    Deontic Modal Logic
       Language
@@ -261,6 +262,7 @@ Primitive Inference Rules
 
    Equivalence Substitution (EQ)     From [ Φ ↔ Ψ ], and Θ(Φ), infer Θ(Ψ/Φ);
                                      or from [ Φ ↔ Ψ ] and Θ(Ψ), infer Θ(Φ/Ψ).
+                                     !!! Not allowed in modal logic !!!
    ================================  =========================================
 
    Note: Apart from RE we can only appeal to lines in the current subproof.
@@ -294,6 +296,9 @@ Primitive Inference Rules
       |   Φ  (all in one subproof)    |  -------------  ------------- |
       |                               |   Θ(Ψ/Φ)         Θ(Φ/Ψ)       |
       |                               |                               |
+      |                               | !!! Not allowed in            |
+      |                               |     modal logic !!!           |
+      |                               |                               |
       | ============================= | ============================= |
       |  RE                           |  Ax                           |
       | ============================= | ============================= |
@@ -307,6 +312,10 @@ Primitive Inference Rules
       |  subproof)  subproof)         |                               |
       |                               |                               |
       +-------------------------------+-------------------------------+
+
+   Equivalence Substitution (EQ) is permitted in Truth-Functional logic.
+   It's *not* permitted in Modal Logic because EQ conflicts with the use of
+   the intensional modal operators.
 
 Other Justifications
 ====================
@@ -431,8 +440,7 @@ Equivalences
    not permitting it at all.
 
    @@@ It may be possible to still use these provided the thing being
-   rewritten is not the main operator under □  or ◇ .  Must test this
-   more to be sure.  The course forbids it altogether.
+   rewritten is not the main operator under □  or ◇ .
 
 
 ------
@@ -607,14 +615,14 @@ Disjunction Derivations
 Biconditional Derivations
 -------------------------
 
-   ↔ ∃   P ↔ Q  ⊢  P → Q
+   ↔ E:   P ↔ Q  ⊢  P → Q
    Proof
    01.   P ↔ Q                    A
    02.   (P → Q) ∧ (Q → P)        1 Def ↔
    03.   P → Q                    2 ∧E
    QED
 
-   ↔ ∃   P ↔ Q  ⊢  Q → P
+   ↔ E:   P ↔ Q  ⊢  Q → P
    Proof
    01.   P ↔ Q                    A
    02.   (P → Q) ∧ (Q → P)        1 Def ↔
@@ -853,8 +861,7 @@ Extension & Intension
          □ (8>7)                          is true but,
          □ (number of planets>7)          is false
 
-   Operators that generate such contexts are called intensional contexts.
-   Both □ and ◇ are examples of intensional operators.
+   INTENSIONAL OPERATORS (such as □ and ◇ ) generate INTENSIONAL CONTEXTS.
 
    @@@It seems that we may be able to permit extension substitutions as
    described above provided they aren't performed on the top-level wff
@@ -930,8 +937,15 @@ Kripke Semantics
 
 
 -----------------------------
-Alethic Deduction (Axiomatic)
+Alethic Deduction - Axiomatic
 -----------------------------
+
+This and several sections to follow present different alethic modal deduction
+formulations.  These formulations are equivalent in that they prove all the
+same arguments.  They are presented here to illustrate some of the various
+formulations.  The first formulation is an axiomatic formulation and is
+widely regarded as the definitive system.  The remaining formulations
+illustrate natural deduction formulations.
 
 The exact combination of rules of inference for alethic logic is
 controversial.  We shall examine some well known rules and systems.
@@ -951,30 +965,20 @@ Rules, Definitions and Axiom Schemata
    (K) Axiom Schema K (Kripke - Modal Distribution)
          □ (P → Q) → (□ P → □ Q)
 
-   (D) Axiom Schema D
+   (D) Axiom Schema D (Deontic)
          □ P → ◇ P
-         Corollary: P → ◇ P
 
    (M)/(T) Axiom Schema M/T (Modality)
          □ P → P
 
    (B) Axiom Schema B (L.E.J.Brouwer)
          P → □ ◇ P
-         Corollary: ◇ □ P → P (contentious)
 
    (4) Axiom Schema 4 (C.I.Lewis' Modal Axiom 4)
          □ P → □ □ P
-         Corollary: ◇ ◇ P → ◇ P
-
-   (G) Axiom Schema G
-         ◇ □ P → □ ◇ P
-
-   (Lin) Axiom of liniarity
-         □ (□ P → Q) ∨ □ (□ Q → P )
 
    (5) Axiom Schema 5 (C.I.Lewis' Modal Axiom 5)
          ◇ P → □ ◇ P
-         Corollary: ◇ □ P → □ P (contentious)
 
 Alethic Inferential Systems
 ===========================
@@ -982,27 +986,25 @@ Alethic Inferential Systems
    The following table describes each system according to the rules it has.
    A proof is always constructed entirely in a single system.
 
-         ==========  ===================================
+         ==========  =======================
          Rule/Axiom  System
-                     K   D   M   B   S4   S4.2  S4.3  S5
-         ==========  ===================================
-         (Def ◇)     *   *   *   *   *     *     *    *
-         (NR)        *   *   *   *   *     *     *    *
-         (K)         *   *   *   *   *     *     *    *
-         (D)             *   .   .   .     .          .
-         (M)                 *   *   *     *          *
-         (B)                     *         .     .    .
-         (4)                         *     *     *    .
-         (G)                               *
-         (Lin)                                   *
-         (5)                                          *
-         ==========  ===================================
-
-         * means the rule is part of the system
-         . means the rule is entailed in the *'d rule below
+                     K   D   M   B   S4   S5
+         ==========  =======================
+         (Def ◇)     *   *   *   *   *    *
+         (NR)        *   *   *   *   *    *
+         (K)         *   *   *   *   *    *
+         (D)             *                             
+         (M)                 *   *   *    *
+         (B)                     *                      
+         (4)                         *    
+         (5)                              *
+         ==========  =======================
 
    Notes
-   - System K is weakest (proves the fewest theorems); s5 is strongest.
+
+   - System K is weakest possible system (proves the fewest theorems);
+     S5 is strongest possible system; in between are an infinite number of
+     systems.
    - System D is most often used in Deontic logic.
    - System M is commonly used.
 
@@ -1010,35 +1012,24 @@ Alethic Inferential Systems
 
    System K    = (Def ◇) + (NR) + (K)
    System D    = System K + (D)
-   System M    = System K + (M)
+   System M    = System K + (M)                    ( (M) entails (D) )
    System B    = System K + (M) + (B)
    System S4   = System K + (M) + (4)
    System S5   = System K + (M) + (5)              ( (5) = (4) + (B) )
                = System K + (M) + (4) + (B)
 
-   System S4.2 = System K + (M) + (4) + (g)
-   System S4.3 = System K + (4) + (Lin)
-
 Controversy over S4 and S5
 ==========================
+
    S5 is used for the modal ontological arguments which don't work in any
-      other modal system.  Yet people feel that s5 says and infers things
-      that people don't usually want as part of their alethic system.
-   S4 is much less controversial.
-   Perhaps instead of Ax (5), (◇ P → □ ◇ P), we want □ (◇ P → ◇ P)
-      Remember these are ambiguous: □ (P → Q), (P → □ Q)
+   other modal system.  Yet people feel that s5 says and infers things
+   that people don't usually want as part of their alethic system.  S4 is
+   much less controversial.
 
 
 ---------------------------------------------
-Alethic Deduction (□ Based Natural Deduction)
+Alethic Deduction - □ Based Natural Deduction
 ---------------------------------------------
-
-   The alethic modal logic above is axiom-based.  Alternatively to using
-   axiom schemata we can add new inference rules to our Truth-Functional
-   Calculus.  This section presents a formulation of modal natural deduction
-   which takes □ as primitive.  The next section presents yet another
-   formulation which takes ◇ as primitive.  In each of these two natural
-   deduction formulations axiom schema (K) is a theorem.
 
 System K
 ========
@@ -1071,6 +1062,9 @@ System K
                                      or into an immediately nested subproof
                                      provided the nested subproof is not a
                                      boxed subproof.
+
+   Equivalence Substitution (EQ)     Not a rule of inference in this
+                                     formulation of modal alethic calculus
    --------------------------------  -----------------------------------------
    Definition of ◇ (Def ◇)           ◇ P  =df  - □ - P
 
@@ -1146,31 +1140,6 @@ Proofs
    01.   |□                            H (for □ I)
    02.   |   P ∨ -P                    A PL Theorem
    03.   □ (P ∨ -P)                    1-2 □ I
-   QED
-
-      ⊢K  □ (P → (Q → P))
-   Proof
-   01.   |□                            H (for □ I)
-   02.   |   |   P                     H (for → I)
-   03.   |   |   |   Q                 H (for → I)
-   04.   |   |   |   P                 2 RE
-   05.   |   |   Q → P                 3-4 → I
-   06.   |   P → (Q → P)               2-5 → I
-   07.   □ (P → (Q → P))               1-6 □ I
-   QED
-
-   -□    -□ P  ⊢K  ◇ -P
-   Proof
-   01.   -□ P                          A
-   02.   - □ - - P                     1 DN
-   03.   ◇ - P                         2 Def ◇
-   QED
-
-   -◇    -◇ P  ⊢ K  □ -P
-   Proof
-   01.   - ◇ P                         A
-   02.   - - □ - P                     1 Def ◇
-   03.   □ - P                         2 -E
    QED
 
    ◇ DIST   ⊢K  □ (P → Q) → (◇ P → ◇ Q)
@@ -1295,8 +1264,6 @@ Proofs
    Steps 2-6 demonstrate that from □ P one can infer □ P into a boxed subproof
    without losing the □ .
 
-   S4 = System T + 4' as an axiom schema.
-
    5' (Dual of 5):  ⊢S5  ◇ □ P → □ P
    Proof
    01.   |   ◇ □ P                     H (for → I)
@@ -1413,7 +1380,7 @@ Proofs
 
 
 ---------------------------------------------
-Alethic Deduction (◇ Based Natural Deduction)
+Alethic Deduction - ◇ Based Natural Deduction
 ---------------------------------------------
 
    In this formulation ◇ is the primitive modal operator.  An advantage to
@@ -1442,6 +1409,9 @@ System K
    ================================  =========================================
    Name/Alternate Names              Rule   
    ================================  =========================================
+   Equivalence Substitution (EQ)     Not a rule of inference in this
+                                     formulation of modal alethic calculus
+   --------------------------------  -----------------------------------------
    Definition of ◇ (Def ◇)           □ P  =df  - ◇ - P
 
    Necessitation Rule (NR)           if ⊢ P (P is a theorem or axiom), infer
@@ -1703,10 +1673,10 @@ Thm ◇ B-05   □ (P → Q), □ P   ⊢   □ Q
 
 
 ---------------------------------------
-Alethic Deduction (Relative Modalities)
+Alethic Deduction - Relative Modalities
 ---------------------------------------
 
-   In a system with relative modalities world indexes document branching.
+   In a system with relative modalities world indexes constitute paths.
 
                              /0
                             /  \
@@ -1729,6 +1699,11 @@ Alethic Deduction (Relative Modalities)
          |  A      /i+m (new)          |  | A      /i+m              |
          |                             | -----                       |
          |                             |  □ A      /i                |
+         |                             |                             |
+         | =========================== |                             |
+         | EQ (Equivalence Subst)      |                             |
+         | =========================== |                             |
+         | !! not allowed !!           |                             |
          |                             |                             |
          +-----------------------------+-----------------------------+
 
@@ -1782,8 +1757,6 @@ Alethic Deduction (Relative Modalities)
    An OLD INDEX is when the index occurs in at least one line that is neither
    boxed nor cancelled otherwise it's a NEW INDEX.
 
-
-
 □ (P → Q), □ P  ⊢  □ Q
    Proof
    01.   □ (P → Q)           A
@@ -1825,7 +1798,7 @@ Alethic Deduction (Relative Modalities)
 
 
 ------------------------------------------
-Alethic Deduction (Non-Historical Systems)
+Alethic Deduction - Non-Historical Systems
 ------------------------------------------
 
    Neo-Systems
@@ -1833,19 +1806,14 @@ Alethic Deduction (Non-Historical Systems)
    A neosystem is any combination of the basic rules not covered by the
    one of the systems above.
 
-   KB     k,b rules
-   K4     k,4 rules
-   K5     k,5 rules
-   KDB    k,d,b rules
-   KD4    k,d,4 rules
-   KD5    k,d,5 rules
-   K45    k,4,5 rules
-   KD45   k,d,4,5 rules
-   KB4    k,b,4 rules
+         K4     k,4 rules
+         KDB    k,d,b rules
+         KB4    k,b,4 rules
+         ...
 
    G-Systems
 
-   A G-System axiom is any axiom achieved by exponentiating the modal
+   A GENERAL AXIOM G is any axiom achieved by exponentiating the modal
    operators in the formula G as follows
 
                            j   k       m   n
@@ -1860,9 +1828,9 @@ Alethic Deduction (Non-Historical Systems)
 
       axiom    G-notation     Dual
       -----    ----------     ----------
-       g       G(1,1,1,1)
+       G       G(1,1,1,1)
        D       G(0,1,0,1)
-       T       G(0,1,0,0)     G(0,0,1,0)
+       M       G(0,1,0,0)     G(0,0,1,0)
        B       G(1,1,0,0)     G(0,0,1,1)
        4       G(0,1,2,0)     G(2,0,0,1)
        4.2     G(0,2,3,0)     G(3,0,0,2)
@@ -3596,10 +3564,10 @@ QED
 Free Logic (FL=)
 ================
 
-FREE LOGICS are logics in which not all const object symbols denote objects.
-Therefore it's necessary to introduce notation for existence.
+FREE LOGICS are logics in which not all constant object symbols denote
+objects.  Therefore it's necessary to introduce notation for existence.
 
-         E!c  =df  ∃xx=c    (where c is any const object symbol)
+         E!c  =df  ∃xx=c    (where c is any constant object symbol)
 
 Primitive Inference Rules
 
@@ -3608,8 +3576,13 @@ Primitive Inference Rules
    ================================  =========================================
    Universal Elimination (∀ E)       from ∀xPx infer E!c → Pc.
 
-   Universal Introduction (∀ I)      from E!c → Pc infer ∀xPx, provided
-                                     c is not active in P or in the proof.
+   Universal Introduction (∀ I)      Where no premises or undischarged
+                                     hypotheses of the subproof contain the
+                                     constant c, from E!c → Pc infer ∀xPx,
+                                     provided c doesn't occur in ∀ x Px and 
+                                     c doesn't already occur in Pc within the
+                                     scope of a quantifier binding the
+                                     variable x.
    ================================  =========================================
 
 Identity
@@ -3621,11 +3594,11 @@ Derived Rules
    ================================  =========================================
    Name/Alternate Names              Rule
    ================================  =========================================
-   Existential Elimination (∃E)     From E!c → Pc infer ∀xPx, provided
-                                     c is not active in P, or in the proof.
-                                     ∃xPx, ( E!c ∧ Pc ⊢ B ) ⊢ B
+   Existential Elimination (∃E)      From ∃xP(x), and subproof with
+                                     hypothesis E!c ∧ P(c) where c is new and
+                                     conclusion Q, infer Q.
 
-   Existential Introduction (∃I)    From E!c ∧ Pc infer ∃xPx.
+   Existential Introduction (∃I)     From E!c ∧ P(c) infer ∃xP(x/c).
    ================================  =========================================
    
 
