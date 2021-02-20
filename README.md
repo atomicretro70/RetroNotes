@@ -1,5 +1,5 @@
 # RetroNotes
-Notes on some of my favorite study topics.  All notes are in plain text and ought to be viewed with a mono-spaced font.
+Notes from some of my favorite study topics.  All notes are in plain text and ought to be viewed with a mono-spaced font.
 
 The following are a list of Retro Notes currently in development.
 
