@@ -845,15 +845,15 @@ Extension & Intension
 
    Intensional Contexts
 
-   However the INTENSION of a sentence is the thought or proposition it
-   expresses, the intension of a predicate is the property, concept or
-   idea it represents, and the intension of an object symbol is its meaning,
-   sense or the individual concept it used to pick out its bearer.
+   The INTENSION of a sentence is the thought or proposition it expresses, the
+   intension of a predicate is the property, concept or idea it represents,
+   and the intension of an object symbol is its meaning, sense or the
+   individual concept it used to pick out its bearer.
 
-   When it comes to an operator like □, replacing an expression with
-   another having the same extension can result in different truth values.
-   These are called intensional contexts, since in these contexts, intension
-   matters, not just extension.  So,
+   When it comes to an operator like □ , replacing an expression with another
+   having the same extension can result in different truth values.  These are
+   called intensional contexts, since in these contexts, intension matters,
+   not just extension.  So,
 
          □ (2+2=4)                        is true but,
          □ (Mercury is the first planet)  is false
@@ -868,20 +868,16 @@ Extension & Intension
    that is the argument of a modal operator.  It may still be ok to do
    internally.
 
-   Intensional Operators
-
-   Because the modal operators create intensional contexts they are called
-   INTENSIONAL OPERATORS.
 
 Kripke Semantics
 ================
 
-   Kripke semantics describe the semantics of possible worlds.  Kripke defined
-   a new semantic concept called an accessibility relation between two worlds.
+   Kripke semantics describe a way to understand possible worlds.  Kripke
+   defined a new semantic concept called an accessibility relation between two
+   worlds.
 
       The accessibility relation
          wxRwy     means world wx can access world wy, 
-                   where x,y are possible worlds.
 
    You can think of the accessibility relation as an arrow pointing from wx to
    wy indicating its direction.
@@ -943,9 +939,9 @@ Alethic Deduction - Axiomatic
 This and several sections to follow present different alethic modal deduction
 formulations.  These formulations are equivalent in that they prove all the
 same arguments.  They are presented here to illustrate some of the various
-formulations.  The first formulation is an axiomatic formulation and is
-widely regarded as the definitive system.  The remaining formulations
-illustrate natural deduction formulations.
+formulations.  The first formulation is an axiomatic formulation and is widely
+regarded as the definitive system.  The remaining sections introduce various
+natural deduction formulations.
 
 The exact combination of rules of inference for alethic logic is
 controversial.  We shall examine some well known rules and systems.
@@ -1002,8 +998,8 @@ Alethic Inferential Systems
 
    Notes
 
-   - System K is weakest possible system (proves the fewest theorems);
-     S5 is strongest possible system; in between are an infinite number of
+   - System K is weakest possible system (proves the fewest things);
+     S5 is strongest possible system; between are an infinite number of
      systems.
    - System D is most often used in Deontic logic.
    - System M is commonly used.
@@ -1044,11 +1040,10 @@ System K
    the subproof is necessarily true.
 
    The calculi on top of Alethic Modal logic are defined by the following
-   rules.  Notice that two old rules H and RE are redefined here, while
-   three new principles are added.  All remaining rules such as those of
-   Truth-Functional Calculus must occur entirely within a given world.  In
-   this formulation axiom K and the necessitation rule follow naturally as
-   theorems.
+   rules.  Notice that some old rules are redefined here while new principles
+   are added.  All remaining rules such as those of Truth-Functional Calculus
+   must occur entirely within a given world.  In this formulation axiom K and
+   the necessitation rule follow naturally as theorems.
 
    ================================  =========================================
    Name/Alternate Names              Rule   
@@ -1111,7 +1106,7 @@ Beyond System K
 ===============
 
    We can add the usual axiom schemata to obtain the remaining systems
-   M, B,S4, S5, ...
+   M, B, S4, and S5.
 
 Proofs
 ======
@@ -1468,33 +1463,33 @@ Beyond System K
 
    Diagrams
 
-         +----------------------------+----------------------------+
-         | ========================== | ========================== |
-         | ◇ E                        | □ E (System K)             |
-         | ========================== | ========================== |
-         |  ◇ P    /i                 |  □ P    /i                 |
-         | -----------                |  [/i=>/j]                  |
-         |  P      /j (j is new)      | -----------                |
-         |        (creates a bridge   |  P      /j                 |
-         |            /i=>/j)         |                            |
-         |                            |                            |
-         | ========================== | ========================== |
-         | □ E (System M)             | □ E (System B)             |
-         | ========================== | ========================== |
-         |  For every world /i,       |  □ P    /i    □ P    /j    |
-         |  There is a bridge         |  [/i=>/j]     [/i=>/j]     |
-         |  /i=>/i                    | -----------  -----------   |
-         |                            |  P      /j    P      /i    |
-         |                            |                            |
-         | ========================== | ========================== |
-         | □ E (System S4)            | □ E (System S5)            |
-         | ========================== | ========================== |
-         |  For every series of       |  Every world has a bridge  |
-         |  bridges /i=>/j, /j=>/k    |  to every other world.     |
-         |  there is a bridge         |  (both B and s4)           |
-         |  /i=>/k                    |                            |
-         |                            |                            |
-         +----------------------------+----------------------------+
+      +-------------------------------+-------------------------------+
+      | ============================= | ============================= |
+      | ◇ E                           | □ E (System K)                |
+      | ============================= | ============================= |
+      |  ◇ P    /i                    |  □ P    /i                    |
+      | -----------                   |  [/i=>/j]                     |
+      |  P      /j (j is new)         | -----------                   |
+      |        (creates a bridge      |  P      /j                    |
+      |            /i=>/j)            |                               |
+      |                               |                               |
+      | ============================= | ============================= |
+      | □ E (System M)                | □ E (System B)                |
+      | ============================= | ============================= |
+      |  For every world /i,          |  □ P    /i    □ P    /j       |
+      |  There is a bridge            |  [/i=>/j]     [/i=>/j]        |
+      |  /i=>/i                       | -----------  -----------      |
+      |                               |  P      /j    P      /i       |
+      |                               |                               |
+      | ============================= | ============================= |
+      | □ E (System S4)               | □ E (System S5)               |
+      | ============================= | ============================= |
+      |  For every series of          |  Every world has a bridge     |
+      |  bridges /i=>/j, /j=>/k       |  to every other world.        |
+      |  there is a bridge            |  (both B and s4)              |
+      |  /i=>/k                       |                               |
+      |                               |                               |
+      +-------------------------------+-------------------------------+
 
 Proof Construction
 ==================
@@ -1690,69 +1685,69 @@ Alethic Deduction - Relative Modalities
    Expressions of the form /i+m indicate that a digit m must be appended
    to the world index /i forming a new composite world index.
 
-         +-----------------------------+-----------------------------+
-         | =========================== | =========================== |
-         | ◇ E (All Systems)           | □ I (All Systems)           |
-         | =========================== | =========================== |
-         |  ◇ A    /i                  |  |        /i+m (new)        |
-         | -----                       |  | ...                      |
-         |  A      /i+m (new)          |  | A      /i+m              |
-         |                             | -----                       |
-         |                             |  □ A      /i                |
-         |                             |                             |
-         | =========================== |                             |
-         | EQ (Equivalence Subst)      |                             |
-         | =========================== |                             |
-         | !! not allowed !!           |                             |
-         |                             |                             |
-         +-----------------------------+-----------------------------+
+      +-------------------------------+-------------------------------+
+      | ============================= | ============================= |
+      | ◇ E (All Systems)             | □ I (All Systems)             |
+      | ============================= | ============================= |
+      |  ◇ A    /i                    |  |        /i+m (new)          |
+      | -----                         |  | ...                        |
+      |  A      /i+m (new)            |  | A      /i+m                |
+      |                               | -----                         |
+      |                               |  □ A      /i                  |
+      |                               |                               |
+      | ============================= |                               |
+      | EQ (Equivalence Subst)        |                               |
+      | ============================= |                               |
+      | !! not allowed !!             |                               |
+      |                               |                               |
+      +-------------------------------+-------------------------------+
 
    The □ E and ◇ I vary according to the system in use
 
-         +-----------------------------+-----------------------------+
-         | =========================== | =========================== |
-         | □ E (System K)              | ◇ I (System K)              |
-         | =========================== | =========================== |
-         |  □ A    /i                  |  A        /i+m (old)        |
-         | -----                       | -----                       |
-         |  A      /i+m (old)          |  ◇ A      /i                |
-         |                             |                             |
-         | =========================== | =========================== |
-         | □ E (System D)              | ◇ I (System D)              |
-         | =========================== | =========================== |
-         |  □ A    /i                  |  A        /i+m (new)        |
-         | -----                       | -----                       |
-         |  A      /i+m (new)          |  ◇ A      /i                |
-         |                             |                             |
-         | =========================== | =========================== |
-         | □ E (System M)              | ◇ I (System M)              |
-         | =========================== | =========================== |
-         |  □ A    /i                  |  A        /i                |
-         | -----                       | -----                       |
-         |  A      /i                  |  ◇ A      /i                |
-         |                             |                             |
-         | =========================== | =========================== |
-         | □ E (System B)              | ◇ I (System B)              |
-         | =========================== | =========================== |
-         |  □ A    /i+m (old)          |  A        /i                |
-         | -----                       | -----                       |
-         |  A      /i                  |  ◇ A      /i+m (old)        |
-         |                             |                             |
-         | =========================== | =========================== |
-         | □ E (System s4)             |  ◇ I (System s4)            |
-         | =========================== | =========================== |
-         |  □ A    /i                  |  A        /i+m+n (old)      |
-         | -----                       | -----                       |
-         |  A      /i+m+n (old)        |  ◇ A      /i                |
-         |                             |                             |
-         | =========================== | =========================== |
-         | □ E (System s5)             |  ◇ I (System s5)            |
-         | =========================== | =========================== |
-         |  □ A    /i+m (old)          |  A        /i+m (old)        |
-         | -----                       | -----                       |
-         |  A      /i+n (old)          |  ◇ A      /i+n (old)        |
-         |                             |                             |
-         +-----------------------------+-----------------------------+
+      +-------------------------------+-------------------------------+
+      | ============================= | ============================= |
+      | □ E (System K)                | ◇ I (System K)                |
+      | ============================= | ============================= |
+      |  □ A    /i                    |  A        /i+m (old)          |
+      | -----                         | -----                         |
+      |  A      /i+m (old)            |  ◇ A      /i                  |
+      |                               |                               |
+      | ============================= | ============================= |
+      | □ E (System D)                | ◇ I (System D)                |
+      | ============================= | ============================= |
+      |  □ A    /i                    |  A        /i+m (new)          |
+      | -----                         | -----                         |
+      |  A      /i+m (new)            |  ◇ A      /i                  |
+      |                               |                               |
+      | ============================= | ============================= |
+      | □ E (System M)                | ◇ I (System M)                |
+      | ============================= | ============================= |
+      |  □ A    /i                    |  A        /i                  |
+      | -----                         | -----                         |
+      |  A      /i                    |  ◇ A      /i                  |
+      |                               |                               |
+      | ============================= | ============================= |
+      | □ E (System B)                | ◇ I (System B)                |
+      | ============================= | ============================= |
+      |  □ A    /i+m (old)            |  A        /i                  |
+      | -----                         | -----                         |
+      |  A      /i                    |  ◇ A      /i+m (old)          |
+      |                               |                               |
+      | ============================= | ============================= |
+      | □ E (System s4)               |  ◇ I (System s4)              |
+      | ============================= | ============================= |
+      |  □ A    /i                    |  A        /i+m+n (old)        |
+      | -----                         | -----                         |
+      |  A      /i+m+n (old)          |  ◇ A      /i                  |
+      |                               |                               |
+      | ============================= | ============================= |
+      | □ E (System s5)               |  ◇ I (System s5)              |
+      | ============================= | ============================= |
+      |  □ A    /i+m (old)            |  A        /i+m (old)          |
+      | -----                         | -----                         |
+      |  A      /i+n (old)            |  ◇ A      /i+n (old)          |
+      |                               |                               |
+      +-------------------------------+-------------------------------+
 
    An OLD INDEX is when the index occurs in at least one line that is neither
    boxed nor cancelled otherwise it's a NEW INDEX.
@@ -1880,35 +1875,35 @@ Modal Truth-Trees
 
    Tree Formation Rules Diagrams
 
-           +---------------------------+---------------------------+         
-           | ========================= | ========================= |
-           |          □ Rule           |          -□ Rule          |
-           | ========================= | ========================= |
-           |         +-------+w        |         +-------+w        |
-           |         |  □ P  |         |         | *-□ P |         |
-           |         +-------+         |         +-------+         |
-           |             |             |             |             |
-           |             V             |             V             |
-           |         +-------+v  every |         +-------+v  v is  |
-           |         |  ...  |   v     |         |  -P   |   new   |
-           |         |   P   |         |         |  ...  |         |
-           |         +-------+         |         +-------+         |
-           |                           |                           |
-           | ========================= | ========================= |          
-           |          ◇ Rule           |          -◇ Rule          |
-           | ========================= | ========================= |
-           |         +-------+w        |         +-------+w        |
-           |         | *◇ P  |         |         |  -◇ P |         |
-           |         +-------+         |         +-------+         |
-           |             |             |             |             |
-           |             V             |             V             |
-           |         +-------+v  v is  |         +-------+v  every |
-           |         |   P   |   new   |         |  ...  |   v     |
-           |         |  ...  |         |         |  -P   |         |
-           |         +-------+         |         +-------+         |
-           |                           |                           |
-           |                           |                           |
-           +---------------------------+---------------------------+
+      +-------------------------------+-------------------------------+         
+      | ============================= | ============================= |
+      |          □ Rule               |          -□ Rule              |
+      | ============================= | ============================= |
+      |         +-------+w            |         +-------+w            |
+      |         |  □ P  |             |         | *-□ P |             |
+      |         +-------+             |         +-------+             |
+      |             |                 |             |                 |
+      |             V                 |             V                 |
+      |         +-------+v  every     |         +-------+v  v is      |
+      |         |  ...  |   v         |         |  -P   |   new       |
+      |         |   P   |             |         |  ...  |             |
+      |         +-------+             |         +-------+             |
+      |                               |                               |
+      | ============================= | ============================= |          
+      |          ◇ Rule               |          -◇ Rule              |
+      | ============================= | ============================= |
+      |         +-------+w            |         +-------+w            |
+      |         | *◇ P  |             |         |  -◇ P |             |
+      |         +-------+             |         +-------+             |
+      |             |                 |             |                 |
+      |             V                 |             V                 |
+      |         +-------+v  v is      |         +-------+v  every     |
+      |         |   P   |   new       |         |  ...  |   v         |
+      |         |  ...  |             |         |  -P   |             |
+      |         +-------+             |         +-------+             |
+      |                               |                               |
+      |                               |                               |
+      +-------------------------------+-------------------------------+
 
       Notice -□  converts to ◇ -, and that -◇  is defined to convert to □ -.
       Thus, it's possible to regard there as being only two rules, and it's
@@ -2049,78 +2044,178 @@ Language
 Semantics
 ---------
 
-   Semantics of Deontic Logic
-      The Acceptability Relation in Deontic Semantics
-         The Acceptability Relation (DADef - Deontic Acceptability Definition)
+   The Deontic Acceptability Definition (DADef)
+
          ∀i∀j(Aij ↔ ∀p(OB(p)/i → p/j))
-         - For any worlds i,j, j is acceptable to i if and only if for all
-           propositions p, if p is obligatory in i then p is the case in j.
-         - Where i and j are worlds, p is a proposition and xw means x is true
-           in a given world w.  We will call this Deontic Acceptability
-           Relation.
-         - In other words, for all worlds i and j, j is acceptable to i
-           if and only if for all propositions p, if p is obligatory in i,
-           p is true in j.
-         - So imagine that world i is some world where the only thing that is
-           obligatory is that you do not kill.  And world j where no one ever
-           kills bears the acceptability relation i.
 
-         Deontic Acceptance Seriality (DAS)
-         A^i =df All world that bear the acceptability relation to i.
-         - There must be at least one A^i world since ought implies can  It
-           should be possible for us to fulfill all our obligations.  In other
-           words Ai:Ej:Aij (for all i there exists some j where j bears the
-           acceptability relation to i.
+   Which reads for any worlds i,j, j is acceptable to i if and only if for all
+   propositions p, if p is obligatory in i then p is the case in j.
 
-   Semantics of Standard Deontic Logic
-      Kripke Semantics
-         OB(p)
-         - There are no world that bear the acceptability to i and p is false.
-         - All worlds that bear the acceptability relation to i are also
-           worlds where p is true.
-         - It is obligatory that p in i can be understood in terms of an
-           Aristotelian categorical logic universal affirmative statement.
-         - All A^i worlds are also worlds where p is true (since by definition
-           an A^i world is a worlds where all obligations in i are true).
-         PE(p)
-         - If it is permissible that p at i, that means that there is at
-           least one world in which p is true, that bears the acceptability
-           relation to i.  In other worlds, there is at least one world where
-           all the obligations of world i are fulfilled and p is true.
-      Example
+   So imagine that world i is some world where the only thing that is
+   obligatory is that you do not kill.  And world j where no one ever kills
+   bears the acceptability relation i.
+
+   Deontic Acceptance Seriality (DAS)
+
+         A^i  =df  All worlds that bear the acceptability relation to i.
+
+   There must be at least one A^i world since ought implies can It should
+   be possible for us to fulfill all our obligations.  In other words ∀i∃jAij
+   (for all i there exists some j where j bears the acceptability relation
+   to i).
+
+
+------------------------------------------
+Deontic Deduction (Standard Deontic Logic)
+------------------------------------------
+
+Axiom Schemata
+==============
+
+   The goal is to have a Deontic logic which is an isomorphism to alethic
+   modal logic.  It's the most commonly used and referenced version of Deontic
+   Logic.
+
+      Axiom Schema K (K)
+         Alethic:  □ (P → Q) → (□ P → □ Q)
+         Deontic:  O(P → Q) → (OP → OQ) 
+
+      Axiom Schema D (D)
+         Alethic:  □ P → ◇ P
+         Deontic:  OP → PP
+
+      Necessitation Rule (NR)
+         Alethic:  if ⊢ P then □ P      for all axioms and theorems P
+         Deontic:  if ⊢ P then OP       for all axioms and theorems P
+
+      Notes
+
+      - According to this rule it's not just illogical to have
+        P and -P, it's morally wrong.  It's O(-(P ∧ -P)).
+      - Nec doesn't seem to really work right in Deontic logic and it
+        may be better to go without it.  The problem here is that it
+        sort of breaks the isomorphism with alethic logic, which is
+        what SDL (Standard Deontic logic) may be better off doing.
+
+Philosophical Concerns
+======================
+
+   a. All tautologies are obligatory, and contradictions forbidden.
+
+      It seems odd that one would be obligated to bring about something
+      which cannot be false.
+
+   b. If something is permitted, then either it or anything else is permitted.
+
+         ⊢ D PA → P(P ∨ Q)
+         ⊢ D OA → O(P ∨ Q)
+
+   c. We have the following theorem: one cannot have conflicting obligations.
+
+         (NonCon) ⊢ D -(OP ^ O-P)
+
+         Yet it seems possible to have conflicting obligations in the
+         actual world.
+
+   d. (Chisholm's paradox) SDL cannot adequately capture conditional
+      obligation.
+
+         "It ought to be that if P then Q" is ambiguous
+
+         O(P → Q), or
+         P → OQ
+
+Semantics of Standard Deontic Logic
+===================================
+
+   Kripke Semantics
+
+   ... for OP
+   
+   All worlds that bear the acceptability relation to i are also worlds where
+   p is true.  That is, there are no worlds that bear the acceptability to i
+   where p is false.
+
+   It is obligatory that p in i can be understood in terms of an Aristotelian
+   categorical logic universal affirmative statement.
+
+   All A^i worlds are also worlds where p is true (since by definition an A^i
+   world is a worlds where all obligations in i are true).
+
+   ... for PP
+
+   If it is permissible that p at i, that means that there is at least one
+   world in which p is true, that bears the acceptability relation to i.  In
+   other worlds, there is at least one world where all the obligations of
+   world i are fulfilled and p is true.
+
+   Examples
+
          It is obligatory that no one lies.
-         - If it is obligatory that no one lies in world i, that means that
-           there can be no world in which all of the obligations of world i
-           hold true, and yet there are people that lie.  And there exists
-           one world where all of the obligations of i hold true and no one
-           lies.
-         It's permissible to swear.
-         - If it is permissible to swear in world i, then that means that
-           there is at least one world where someone swears and all of the
-           obligations of world i are fulfilled.
-         It's impermissible to rape.
-         - If it's impermissible to rape in world i, then there is no world
-           in which all of the obligations in i are fulfilled and a rape is
-           committed.  There is also at least one world where all of the
-           obligations in i are fulfilled.
-         It's omissible to eat oats.
-         - If it is omissible to eat oats in world i, then there is some world
-           where all of the obligations of i are true, but no one eats oats.
-      Relating to Categorical Logic
-         OB(p)i: All worlds where all obligations of i are fulfilled are 
-            worlds where p is true.
-            Correlates to an A.
-         PE(p)i: There exists a world where all obligations of i are
-            fulfilled and p is true.
-            Corresponds to an I.
 
-   Semantics of Augmented Deontic Logic
-      - Recall that Augmented Deontic Logic includes the DOA (Double Obligation
-        Axiom):
+   If it is obligatory that no one lies in world i, that means that there can
+   be no world in which all of the obligations of world i hold true, and yet
+   there are people that lie.  And there exists one world where all of the
+   obligations of i hold true and no one lies.
+
+         It's permissible to swear.
+
+   If it is permissible to swear in world i, then that means that there is at
+   least one world where someone swears and all of the obligations of world
+   i are fulfilled.
+
+         It's impermissible to rape.
+
+   If it's impermissible to rape in world i, then there is no world in which
+   all of the obligations in i are fulfilled and a rape is committed.  There
+   is also at least one world where all of the obligations in i are fulfilled.
+
+         It's omissible to eat oats.
+
+   If it is omissible to eat oats in world i, then there is some world where
+   all of the obligations of i are true, but no one eats oats.
+
+   Relating to Categorical Logic
+
+         OP/i
+
+            All worlds where all obligations of i are fulfilled are worlds
+            where P is true.  Correlates to an aristotelian A form.
+
+         PP/i
+
+            There exists a world where all obligations of i are fulfilled and
+            P is true.  Corresponds to an aristotelian I form.
+
+
+----------------------------------------------------
+Deontic Deduction (Augmented Standard Deontic Logic)
+----------------------------------------------------
+
+   The idea here is to extend SDL (Standard Deontic Logic).  So everything
+   below is in addition to SDL.
+
+   Axioms
+      Double Obligation Axiom (DOA)
+         Alethic:  □ (□ P → P)
+         Deontic:  O(OP → P)
+
+   Notes
+
+   - This axiom schema is contentious.
+       
+
+Semantics of Augmented Deontic Logic
+====================================
+
+      - Recall that Augmented Deontic Logic includes the DOA (Double
+        Obligation Axiom):
            OB(OB(p) → p)
         corollary:
            OB(OB(p)) → OB(p)
-      - This axiom doesn't hold for the semantics of Standard Deontic Logic.
+      - The Double Obligation axiom doesn't hold for the semantics of Standard
+        Deontic Logic.
+
       Semantics
          Imagine 3 possible worlds
 
@@ -2165,114 +2260,13 @@ Semantics
 
       A+ Acceptability relation (A+)
          Recall that the acceptability relation is defined as:
-                 Ai:Aj:(Aij ↔ Ap:( OB(p)i           → pj))
+                 Ai:Aj:(Aij ↔ Ap:( OB(p)/i           → p/j))
          We're going to make a new acceptability relation called A+
-                 Ai:Aj:(Aij ↔ Ap:((OB(p)i ∨ OB(p)j) → pj)
+                 Ai:Aj:(Aij ↔ Ap:((OB(p)/i ∨ OB(p)/j) → p/j)
              World i bears the acceptability relation to world j, if and only
              if for all propositions p, p being obligatory in i or j implies
              that it is true in j.
 
-
-------------------------------------------
-Deontic Deduction (Standard Deontic Logic)
-------------------------------------------
-
-   - The goal is to have a Deontic logic which is an isomorphism to alethic
-     modal logic.
-   - Most commonly used and referenced version of Deontic Logic that you will
-     find.
-   - All it's going to do is take the Axioms we've explored so far and put
-     them in a format that makes them isomorphically related to the axioms
-     of Alethic Modal Logic
-
-   Axioms
-      Axiom K (K)
-         Alethic:  □ (A → B) → (□ A → □ B)
-         Deontic:  O(p → q) → (Op → Oq) 
-
-      Axiom D (D)
-         Alethic:  □ A → ◇ A
-         Deontic:  Op → -O-p   or by definition,
-                   Op → Pp
-
-         Corollary
-            -PP → -OP
-
-      Necessitation Rule (NR)
-         Alethic:  if ⊢ A then □ A      for all axioms and theorems A
-         Deontic:  if ⊢ p then Op       for all axioms and theorems p
-
-         - It can be used with D to prove OmA (Omissibility of
-           Contradictions Axiom).
-         - According to this rule it's not just illogical to have
-           p and -p, it's morally wrong.  It's O(-(p ∧ -p)).
-         - Demonstrating that the liar paradox breaks the LEM is not just
-           annoying it's ethically impermissible.
-         - Nec doesn't seem to really work right in Deontic logic and it
-           may be better to go without it.  The problem here is that it
-           sort of breaks the isomorphism with alethic logic, which is
-           what SDL (Standard Deontic logic) may be better off doing.
-
-   Philosophical Concerns
-
-      a. All tautologies are obligatory, and contradictions forbidden.
-
-         It seems odd that one would be obligated to bring about something
-         which cannot be false.
-
-      b. If something is permitted, then either it or anything else is
-         permitted.
-
-         ⊢ D PA → P(A ∨ B)
-         ⊢ D OA → O(A ∨ B)
-
-      c. We have the following theorem: one cannot have conflicting
-         obligations.
-
-         (NonCon) ⊢ D -(OP ^ O-P)
-
-         Yet it seems possible to have conflicting obligations in the
-         actual world.
-
-      d. (Chisholm's paradox) SDL cannot adequately capture conditional
-         obligation.
-
-         "It ought to be that if P then Q" is ambiguous
-
-             O(P → Q), or
-             P → OQ
-
-         @@@ Gensler stresses this point for alethic as well.
-
-
-----------------------------------------------------
-Deontic Deduction (Augmented Standard Deontic Logic)
-----------------------------------------------------
-
-   The idea here is to extend SDL (Standard Deontic Logic).  So
-   Everything below is in addition to SDL.
-
-   Axioms
-      Double Obligation Axiom (DOA)
-         Deontic:  OB(OB(p) → p)
-         - corollary
-              OB(OB(p))→ OB(p)
-           Similar to Axiom 4
-              □ A → □ □ A
-
-   Notes
-   - This axiom is contentious.
-   - It ought to be the case that if it ought to be the case you don't
-     steal, then you don't steal.
-   - It should be the case that if we are obligated to do x that we do x.
-   corollary
-   - If it's obligatory that it is obligatory that we don't lie, then it is
-     obligatory that we don't lie.
-   - It ought to be the case that it ought to be the case that x implies
-     that it ought to be the case that x.
-      
-   - what it does is simplifying a string of OB down to one OB
-       
 
 ---------------------------------
 Deontic Deduction (Other Systems)
@@ -2480,104 +2474,75 @@ Semantics
 Temporal Modal Logic
 ====================
 
-Comparing Alethic & Temporal logic
-   Temporal, alethic and deontic are isomorphically similar.
+   Temporal logic is isomorphically similar to alethic and deontic logics.
 
    Operators
-      Strong Operators:  □   OB  H  G
-      Weak Operators:    ◇   PE  P  F
 
-   Table
+      Strong Operators:  □   O  H  G
+      Weak Operators:    ◇   P  P  F
 
-      Alethic      Deontic      Temporal
-                                Past         Future
-      -----------  -----------  -----------  -----------
-      □ p          OB(p)        H(p)         G(p)
-      ◇ p          PE(p)        P(p)         F(p)
-      □ p =df      OB(p) =df    H(p) =df     G(p) =df
-         -◇ -p        -PE(-p)      -P(-p)       -F(-p)
+      HP,  It has always been the case that, P.
+      PP,  It was at some time, P.
 
-   Change of Temporal Quantifier (CTQ)
-      Definitions
-         H(p)  =df  -P(-p)
-         G(p)  =df  -F(-p)
+      GP,  It's going to always be the case that, P.
+      FP,  At some time in the future, P.
 
 System Kt (Minimal Temporal Logic)
-   System Kt is an isomorphism to alethic modal logic's System K.  'K' from
-   Saul Kripke.  't' for temporal.  System Kt does not include the precedence
-   operator.  System Kt does not assume transitive, reflexive or dense.
 
-   System K (First Principals from Alethic System K)
-      Definitions
-         Alethic:             □ p    =df  -◇ -p
-         Deontic:             OB(p)  =df  -PE(-p)
-         Temporal:            H(p)   =df  -P(-p)
-                              G(p)   =df  -F(-p)
-      Axioms
-         Modal Distribution Axiom ((K))
-            Alethic ((K)):  □ (A → B) → (□ A → □ B)
-            Deontic ((K)):  OB(p → q) → (OB(p) → OB(q))
-            Temporal (KG):    G(p → q) → (G(p) → G(q))
-            Temporal (KH):    H(p → q) → (H(p) → H(q))
+   System Kt is an isomorphism to alethic modal logic's System K.
 
-            if it had always been the case that, d implies m, then it has always
-            been the case that d implies it has always been the case that m.
+   Definitions
+      Alethic:             □ P  =df  - ◇ - P
+      Deontic:             OP   =df  - P - P
+      Temporal:            HP   =df  - P - P
+                           GP   =df  - F - P
 
-         Necessitation Rule (NR)
-            Alethic:          if ⊢ A then □ A
-            Deontic:          if ⊢ p then OB(p)
-            Temporal (TNR):   if ⊢ p then A(p)
-               if A,p are axioms or theorems ...
+   Axiom Schema (K)
+      Alethic (K):         □ (P → Q) → (□ P → □ Q)
+      Deontic (K):         O(P → Q) → (OP → OQ)
+      Temporal (KG):       G(P → Q) → (GP → GQ)
+      Temporal (KH):       H(P → Q) → (HP → HQ)
 
-   System Kt Axioms
-      System Kt is all of the System K principles above plus the following
-      axioms.  (These axioms relate the past to the future.)
-         Axiom GP (TAGP):  p → GP(p)
-         Axiom HF (TAHF):  p → HF(p)
+   Necessitation Rule (NR)
+      Alethic:             if ⊢ P then □ P
+      Deontic:             if ⊢ P then OP
+      Temporal (TNR):      if ⊢ P then AP
+                           if ⊢ P then HP
+                           if ⊢ P then GP
+
+   System Kt Axiom Schemata
+      Axiom GP (TAGP):     P → GPP
+      Axiom HF (TAHF):     P → HFP
 
 System K4t (Transitive Temporal Logic)
+
    Similar to Alethic System K4, which adds axiom s4 to system K.  K4t assumes
    that precedence is transitive, but the axiom is framed in terms of tense
    operators.
 
-   Axioms
-      All of the first principals of System Kt, plus the following:
+   All of the first principals of System Kt, plus the following:
 
-      Axiom 4
-         Alethic (4,s4):   □ A → □ □ A
-         Temporal          G(p) → G(G(p))
-           (Kt4 or TA4):   H(p) → H(H(p))
-
-      Corollary to Axiom 4
-         Alethic:          ◇ ◇ A → ◇ A
-         Temporal:         F(F(p)) → F(p)
-                           P(P(p)) → P(p)
-
-   Notes
-      Notice how G(G(p)) is two applications of G (which are defined using
-         precedence time operator).  So, G(G(p)) is two applications of the
-         precedence operator.
+   Axiom Schema 4
+      Alethic (4):         □ P → □ □ P
+      Temporal             GP → GGP
+        (Kt4 or TA4):      HP → HHP
 
 System S4t (Reflexive Temporal Logic)
+
    So far we have been assuming that precedence is irreflexive.  However some
    temporal logics are reflexive due to the inclusion of an axiom equivalent
    to the modal alethic Axiom T (or M).  Here we'll look at S4t which
    includes all of K4 plus Axiom T (or M).
 
    Axioms
-      All of the first principals of system K4t, plus the following:
 
-      Axiom T (T,M)
-         Alethic (T,M):    □ A → A
-         Deontic (T,M):    OB(p) → p
-         Temporal (TAT):   G(p) → p
-                           H(p) → p
+   All of the first principals of system K4t, plus the following:
 
-      Corollary to Axiom T
-         Alethic:          A → ◇ A
-         Deontic:          p → PE(p)
-         Temporal:         p → F(p)
-                           p → P(p)
+   Axiom Schema T (M)
+      Alethic (M):         □ P → P
+      Deontic (M):         OP → P
+      Temporal (TAT):      GP → P
+                           HP → P
 
    Notes
       - These axioms and corollaries seem a little fishy to me.  I'm not sure
@@ -2587,6 +2552,7 @@ System S4t (Reflexive Temporal Logic)
         assume reflexivity of precedence.
 
 System Lt (Linear Temporal)
+
    So far our logic has been assuming that our model is linear.  Linear
    functions effectively the same as connectedness by claiming that there's
    only one non-branching timeline.  Like Axioms GP and HF it mixes past
@@ -2600,6 +2566,7 @@ System Lt (Linear Temporal)
          Temporal (TAL):   (F(P(p)) ∨ P(F(p))) → E(p)
 
 System Nt (Well Ordered Temporal Logic)  Natural Numbers
+
    This logic is going to include everything from L, but add on three new
    axioms: No End, Forward Induction (implies backwards discreteness),
    and Well Ordering.  None of these principles is new (discussed WRT
