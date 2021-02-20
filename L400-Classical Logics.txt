@@ -361,7 +361,7 @@ Set Operations
    UNION ( ∪ ) 
 
       The union of two sets is the set of all things contained in both
-      of those sets.
+      of those sets combined.
 
          R ∪ C
          = { x | x is red } ∪ { x | x is a car }
@@ -514,7 +514,6 @@ Alternative Notation
          Disjunction    +
          Conditional    ⊃
          Biconditional  =  ⇔  ≡
-         Association    [...]  {...}
 
 Syntax Trees
 ============
@@ -2972,7 +2971,7 @@ Function Symbol Denotation
          |         |         |   /     |
          |    d ---+---------+--/      |
          |         |         |         |
-         |         |         |    u    |   (u has no mapping to it)
+         |         |         |    u    |   (u is not mapped)
          |         |         |         |
          +---------+         +---------+
 
@@ -3147,14 +3146,15 @@ Functions in Proofs
 Definite Descriptors
 ====================
 
-   In his *The Principles of Mathematics* Bertrand Russell introduced a
-   concept called a Definite Descriptor.  A definite descriptor, is
+   Bertrand Russell introduced a new notation for when there's exactly one
+   object that has property P (e.g. The ball in my hand, God, the king, etc.).
+   He called this notion a DEFINITE DESCRIPTOR.  A definite descriptor, is
    any noun phrase of the form "the x such that Px" which he wrote as
    as ℩xPx (℩ is an inverted Greek lower case letter iota).  Despite
    looking like a quantified wff, a definite descriptor names a particular
-   object in the universe of discourse.  Like functions, descriptors don't
-   add anything new to FOL=; the FOL= concepts covered so far can already
-   express the same ideas.
+   object in the universe of discourse.  Like functions, descriptors don't add
+   anything new to FOL=; the FOL= concepts covered so far can already express
+   the same ideas.
 
          B(℩xPx)    =df    ∃x(∀y(Py ↔ y=x) ∧ Bx)
                     =df    ∃x(Ax ∧ ∀y(Ay → y=x) ∧ Bx)
@@ -3162,6 +3162,15 @@ Definite Descriptors
          B(℩xKx), the king of France is bald.
                   the x such that x is the king of France is Bald
          =∃x(Kx ∧ ∀y(Ky → y=x) ∧ Bx)
+
+
+--------
+Concerns
+--------
+
+   What's the truth-value of a definite descriptor if it doesn't denote?  This
+   is the question that plagues descriptors.  Russell was certain that such
+   a proposition is false, but many philosophers aren't so sure.
 
 
 ====================================
@@ -3252,6 +3261,7 @@ Second-Order Calculus (SOC)
    if a quantifier reigns over an object it must only be replaced
    by a constant object.
 
+
 --------
 Concerns
 --------
@@ -3262,6 +3272,7 @@ Concerns
    the premises to the conclusion.  Nevertheless, SOC is still sound.
    There is no way to derive a proof to a formula that doesn't follow from
    the premises.  So, it can still be useful despite not being complete.
+
 
 ======================
 Mathematical Induction
