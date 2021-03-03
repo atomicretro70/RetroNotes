@@ -1,0 +1,274 @@
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+Pascal's wager
+   Either god exists or doesn't exit.            G ∨ -G
+   If god exists and you believe he exists,      (G ∧ BG) → Happiness
+      then you get an eternity of happiness.
+   If god exists and you don't believe,          (G ∧ -BG) → Hell
+      then you go to hell.
+   If god doesn't exist, you've invested         -G → I???
+      a little time but no great loss
+      compared to eternity of happiness
+      or eternity of torture.
+   Therefore, it's better to assume god exists.  ???
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+Definitional Ontological Argument
+   God is a being which has every perfection.    ∀x(Px → Hgx)        A
+      (All perfections are had by God)
+   Existence is a perfection.                    Pe                  A
+   /. God exists.                                /. Hge              → E
+         SEP, Ontological Argument
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+Modal Ontological Argument (From SEP, Ontological Argument)
+   It's possible that God exists                 ◇ G                 A
+   God is not a contingent being                 -(◇ G ∧ ◇ -G)       A
+                                                 - ◇ G ∨ - ◇ - G     DM
+                                                 - ◇ G ∨ □ G         Def □
+   Therefore god necessarilly exists             /. □ G              DS
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+   Counter-Example
+   It's possible that no god exists.             ◇ - G               A
+                                                 - □ G
+   God is not a contingent being                 -(◇ G ∧ ◇ -G)       A
+                                                 - ◇ G ∨ - ◇ - G     DM
+                                                 - ◇ G ∨ □ G         Def □ 
+   Hence, it's not possible that God exists.     - ◇ G               DS
+                                                 □ - G
+   Hence, God does not exist.                    /. - G
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+   Counter-Example 2
+   Either 2+2=5 or God exists.          Either 2+2=5 or God doesn't exist.
+   Not 2+2=5                            Not 2+2=5
+   Therefore, God exists.               Therefore, God doesn't exist.
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+Kalam cosmological argument
+       (From SEP, Ontological Argument;
+        From Just the Arguments)
+   Everything that began to exist has a cause    ∀x(Bx → Cx)         A
+   The universe began to exist                   Bu                  A
+   Therefore the universe has a cause            /. Cu               → E
+      - Original Kalam
+
+   No scientific explanation can provide         ∀x(Nx → Ixu)        A
+      a causal account of the origin of          -Icu                A
+      the universe, since such are part          /. -Nc              MT
+      of the universe.
+   Therefore, the cause must be personal         Nc ∨ Pc             A
+       - William Craig's addition                /. Pc               DS
+
+   Where,
+       Bx,   x began to exist
+       Cx,   x has a cause
+       Nx,   x is a natural cause/explanation
+       Px,   x is a personal cause/explanation
+       Ixy,  x is inside of y
+       c,    the cause of the universe
+       u,    the universe
+
+       If we can't apply natural scientific laws to account for the origin
+       of the universe how can we assert the first premise ∀x(Bx → Cx)?
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+The argument from morality
+   If God does not exist objective moral         -G → -M             A
+      values don't exist either.
+   Objective moral values exist.                 M                   A
+   /.  God exists.                               /. G                MT
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+The teleological argument
+   Things in nature (or nature itself)           ∃x(Nx ∧ Dx)         A
+      are design-like                            |  [c] Nc ∧ Dc      H
+   Design-like properties are not producible     |  Dc               ∧E
+      by natural means.                          |  ∃xDx             ∃I
+   /.  Some things in nature are products        /. ∃xDx             ∃E
+       of intentional design.
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+   The universe is orderly (like a watch         U                   A
+      that follows complex laws).
+   Most orderly things we've examined have       M                   A
+      intelligent designers.
+   We've examined a large and varied group of    W                   A
+      orderly things.
+   If most orderly things we've examined have    (M ∧ W) → P         A
+      intelligent designers and we've examined
+      a large and varied group of orderly
+      things, then probably most orderly things
+      have intelligent designers.
+   If the universe is orderly and probably most  (U ∧ P) → D         A
+      orderly things have intelligent designers,
+      then the universe probably has an
+      intelligent designer.
+   /.  The universe probably has an intelligent  /. D                → E
+       designer.
+          Gensler, Exercise 7.1b problem #4
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+Transcendental Argument
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+Pragmatic argument
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+   The belief in God gives practical             ∀x(Bx → Px)         A
+      life benefits.
+   All beliefs that give practical life          ∀x(Px → Jx)         A
+      benefits are pragmatically
+      justifiable.
+   /.  The belief in God is pragmatically        /. ∀x(Bx → Jx)      HS
+       justifiable.
+     - William James, Gensler Exercise 2.3a problem #9
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+The Problem of Evil
+   If God doesn't want to prevent evil,          -W → -G             A
+      then he isn't all good.
+   If God isn't able to prevent evil,            -A → -P             A
+      then he isn't all powerful.
+   Either God doesn't want to prevent evil,      -W ∨ -A             A
+      or he isn't able.
+   /.  Either God isn't all powerful,            /. -G ∨ -P          CD
+       or he isn't all good.
+         Gensler, Exercise 7.1b problem # 5
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+   Is God willing to prevent evil, but not able?  Then he is not omnipotent.
+   Is he able, but not willing?  Then he is malevolent.
+   Is he both able and willing?  Then whence cometh evil?
+   Is he neither able nor willing?  Then why call him God?
+       - Epicurus
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+   Free Will Defense (Alvin Plantinga)
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+   Euthyphro Dilemma
+   Does God say things because they are good
+   Or are things Good because God says so?
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+
+syllogistic
+
+   The belief that there's a God is unnecessarey to explain our experience.
+   All beliefs unnecessary to explain our experience ought to be rejected.
+   /. The belief that there's a God ought to be rejeced.
+        - Aquinas, Gensler Exercise 2.3a problem # 8
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+Propositional
+
+   If we had an absolute proof of God's          P → I               A
+      existence, then our will would be
+      irresistibly attracted to do right.
+   If our will were irresistibly attracted       I → -F              A
+      to do right, then we'd have
+      no free will.
+   /.  If we have free will, then we have        /. F → -P           HS,TRANS
+       no absolute proof of God's existence.
+        - Kant, Gensler 7.1b, problem # 2
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+   If Genesis gives the literal facts,           L → B               A
+      then birds were created before humans
+      (Genesis 1:20-26)
+   If Genesis gives the literal facts,           L → -B              A
+      then birds weren't created before humans.
+      (2:5-20)
+   /.  Gensis doesn't give the literal facts.    /. -L
+          - Textual argument, Gensler 7.1b, problem #6
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+   If the world had a beginning in time and      (B ∧ -P) → C        A
+      it didn't just pop into existence
+      without any cause, then the world was
+      caused by God.
+   If the world was caused by God,               C → G               A
+      then there is a God.
+   There is not God.
+   /. Either the world had no beginning          /. -B ∨ P
+      in time, or it just popped into
+      existence without any cause.
+           - J. L. Mackie, Gensler 7.1b, problem #8
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+   Closed systems tend toward greater entropy    G                   A
+      (a more randomly uniform distribution of
+      energy - 2nd law of thermodynamics).
+   If closed systems tend toward greater entropy (G ∧ E) → C         A
+      and the world has existed through endless
+      time, then the world would have achieved
+      almost complete entropy (for example,
+      everything would be about the same
+      temperature).
+   The world has not achieved almost complete    -C                  A
+      entropy,
+   If the world hasn't existed through endless   -E → B              A
+      time, then the world had a
+      beginning in time.
+   /.  The world had a beginning in time.        /. B
+           - William Craig, James Moreland, Gensler 7.1b, problem #9
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+   If time stretches back infinitely,            I → -R              A
+      then today wouldn't have beeen reached.
+   If today wouldn't have been reached,          -R → -T             A
+      then today wouldn't exist.
+   Today exists.                                 T                   A
+   If time doesn't stretch back infinitely,      -I → F              A
+      then there was a first moment of time.
+   /.  There was a first moment of time.         /. F
+             Gensler 7.1b, poroblem #10
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+Fitch's Knowability Paradox
+
+   It's known there are unknown things therefore all facts are known.
+
+   01.   |   K(P ∧ -KP)         H (for -I)
+   02.   |   KP ∧ K-KP          1 Axiom: K(P ∧ Q) → (KP ∧ KQ)
+   03.   |   KP                 2 ∧ E
+   04.   |   K-KP               2 ∧ E
+   05.   |   -KP                4 Axiom: KP → P
+   06.   |   ⊥                  3,4 ⊥ I
+   07.   -K(P ∧ -KP)            1-6 -I
+   08.   -◇ K(P ∧ -KP)          7 Axiom: -P → -◇ P
+   09.   |   P ∧ -KP            H (for -I)
+   10.   |   ◇ K(P ∧ -KP)       9 Axiom: P → ◇ KP
+   11.   |   ⊥                  8,10 ⊥ I
+   12.   -(P ∧ -KP)             9-11 -I
+   13.   -P ∨ KP                12 DM
+   14.   P → KP                 13 MI
+   QED
+
+   The problem is with the axiom presented on line 8.
+
+
