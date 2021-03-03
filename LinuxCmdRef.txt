@@ -311,6 +311,7 @@ sudo apt search <str>        search for all available apps containging string
 sudo apt-cache policy <app>  show info about available version of <app>
 sudo add-apt-repository      add a sw repository to search. follow with
                              'sudo apt update'
+apt list --installed         list all installed packages
 
 upgrade the OS
    sudo apt update

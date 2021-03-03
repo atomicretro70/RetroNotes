@@ -1354,17 +1354,6 @@ Direct Proofs
 
       a non-circular, unambiguous, deductive argument.
 
-   CALCULUS (aka FORMAL DEDUCTIVE SYSTEM)
-
-      a set of rules that describe truth-preserving inferences for a given
-      formal language.
-
-   FORMAL PROOF (aka DERIVATION)
-
-      Given a sequent P1, P2, ...  ⊢  C; a FORMAL PROOF is a list
-      of the steps inferred from the premises to derive C using the rules
-      of a calculus.
-
    QED
    
       It is customary (though not necessary) to conclude the proof with the 
@@ -1373,6 +1362,17 @@ Direct Proofs
       successfully.  I will also precede the proof with the word 'Proof'
       so the two surround the proof and serve similar roles to a pair
       of braces or a begin/end pair such as in programming.
+
+   CALCULUS (aka FORMAL DEDUCTIVE SYSTEM)
+
+      a set of rules that describe valid inferences for a given
+      formal language.
+
+   FORMAL PROOF (FORMAL DERIVATION)
+
+      Given a sequent P1, P2, ...  ⊢  C; a FORMAL PROOF is a list
+      of the steps inferred from the premises to derive C using the rules
+      of a calculus.
 
    A TWO-COLUMN PROOF is a formal proof laid out in a list-like fashion in
    two parallel columns such that the first column contains a line number
