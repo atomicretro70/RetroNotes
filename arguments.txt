@@ -32,10 +32,10 @@ Modal Ontological Argument (From SEP, Ontological Argument)
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
 
-   Counter-Example
+Modal Counter-Example (From SEP, Ontological Argument)
    It's possible that no god exists.             ◇ - G               A
                                                  - □ G
-   God is not a contingent being                 -(◇ G ∧ ◇ -G)       A
+   God is not a contingent being                 -(◇ G ∧ ◇ - G)      A
                                                  - ◇ G ∨ - ◇ - G     DM
                                                  - ◇ G ∨ □ G         Def □ 
    Hence, it's not possible that God exists.     - ◇ G               DS
@@ -44,7 +44,7 @@ Modal Ontological Argument (From SEP, Ontological Argument)
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
 
-   Counter-Example 2
+Modal Counter-Example (From SEP, Ontological Argument)
    Either 2+2=5 or God exists.          Either 2+2=5 or God doesn't exist.
    Not 2+2=5                            Not 2+2=5
    Therefore, God exists.               Therefore, God doesn't exist.
@@ -269,6 +269,45 @@ Fitch's Knowability Paradox
    14.   P → KP                 13 MI
    QED
 
-   The problem is with the axiom presented on line 8.
+   The problem is with the axiom presented on line 8.  Just because something
+   is not known (line 7) doesn't mean it's unknowable.
 
 
+Mxy,   x moves y into some new state f.
+Px,    x is potentially some new state f.
+Ax,    x is actually some new state f.
+
+01.   ∀x∀y(Mxy → Px)                   P2
+02.   ∀x∀y(Mxy → Ay)                   P3
+03.   |[a]                             H (for ∀ I)
+04.   |   |   Maa                      P1
+05.   |   |   Maa → Pa                 1 ∀ E
+06.   |   |   Maa → Aa                 2 ∀ E
+07.   |   |   Pa                       4,5 → E
+08.   |   |   Aa                       4,6 → E
+09.   |   |   Pa ∧ Aa                  7,8 ∧ I
+10.   |   Maa → (Pa ∧ Aa)              4-9 → I
+11.   ∀x(Mxx → (Px ∧ Ax))              C1
+12.   ∀x-(Px ∧ Ax)                     P4
+13.   |[a]                             H (for ∀ I)
+14.   |   Maa → (Pa ∧ Aa)              11 ∀ E
+15.   |   -(Pa ∧ Aa)                   12 ∀ E
+16.   |   -Maa                         14,15 MT
+17.   ∀x-Mxx                           C2
+18.   ∀x(-Mxx → ∀ y:(Mxy → -y=x))      P5
+19.   |[a]                             H (for ∀ I)
+20.   |   -Maa                         17 ∀ E
+21.   |   -Maa → ∀ y:(May → -y=a)      18 ∀ E
+22.   |   ∀ y:(May → -y=a)             20,21 → E
+23.   ∀x∀y(Mxy → -y=x)                 C3
+
+I, there's an infinite regress of causes
+P, there's a prime mover
+M, there's motion
+
+I → -P                               P6
+-P → -M                              P7
+M                                    From first argument
+P                                    C4
+
+P is God                             C5
