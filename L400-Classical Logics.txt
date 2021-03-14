@@ -218,8 +218,8 @@ Formal Definitions
 Definition Schemata
 ===================
 
-   We can introduce a DEFINITION SCHEMA, a "family" of definitions all having
-   the same structure, with the help of place-holders, which we denote using
+   A DEFINITION SCHEMA is a "family" of definitions all having the same
+   structure.  A schema includes place-holders, which we denote using
    letters towards the end of the alphabet: u,v,w,x,y,z, across which values
    are substituted uniformly to obtain a definition.
 
@@ -249,8 +249,8 @@ The Laws of Logic
 -----------------
 
    The simplest logic has just two discrete truth-values: True and False;
-   which are complements:  false =df not true.  From this binary relation,
-   it is possible to construct the following logical principles.
+   which are complements of eachother:  false =df not true.  From this binary
+   relation, it is possible to construct the following logical principles.
 
    LAW OF NON-CONTRADICTION (LNC)
 
@@ -421,9 +421,9 @@ Set Properties
 
    DENUMERABLE
 
-      A set is DENUMERABLE if and only if there is a 1:1 correspondence between
-      it and the set of natural numbers.  Hence, the cardinality of the set
-      is infinite.
+      A set is DENUMERABLE if and only if there is a 1:1 correspondence
+      between it and the set of natural numbers.  Hence, the cardinality of
+      the set is infinite.
 
 
 ===================
@@ -498,13 +498,14 @@ Grammar
      meaning that wffs can nest within other wffs to any depth.
      While P ∧ Q is a wff, so is (-(P ∨ Q) → R).
 
-   - To aid readability, we adopt the convention that if a top-level wff
+   - To aid readability, we adopt the convention that if a wff
      begins with '(', we will drop the outermost pair of parentheses,
      doing so never introduces ambiguity to the formula.
 
    - In practice, it is common to use PRIME marks ('), or numerical
      subscripts (we use postscripts) after a proposition symbol
-     to increase the number of available symbols.
+     to increase the number of available symbols.  E.g. P and P' are
+     distinct atomic formulas.
 
 Alternative Notation
 --------------------
@@ -604,7 +605,7 @@ Syntax Trees
 Substitution Instance
 =====================
 
-   A SUBSTITUTION INSTANCE of an *original* wff has the same structure
+   A SUBSTITUTION INSTANCE of a wff has the same structure
    as the original but where *new* wffs uniformly replace proposition
    symbols in the original.  'Instance of' relationships do not have
    to be symmetrical and usually are not.  P being an instance of Q,
@@ -724,10 +725,10 @@ Conversational Implicature
          Alice drove home and went to bed.
          If Alice drove home, then she went to bed.
 
-   Again the use of 'then' in 'if/then' denotes a temporal relationship;
-   it cannot be translated into a propositional logic conditional.  Consider
-   what happens by negating the first rewritten example and seeing what
-   we derive after applying a few logical equivalences.
+   Again the use of 'then' in these 'if/then' examples denotes a temporal
+   relationship; it cannot be translated into a propositional logic
+   conditional.  Consider what happens by negating the first rewritten example
+   and seeing what we derive after applying a few logical equivalences.
 
          K → F,      if you keep up the good work, then you'll go far.
 
@@ -885,27 +886,26 @@ Truth-Functional Completeness
 -----------------------------
 
    TRUTH-FUNCTIONAL COMPLETENESS describes any set of truth-functional
-   operators from which all other truth-functions are definable.
+   operators from which all other truth-functions can be defined.
    Propositional logic's set of primitive operators -, ∧, ∨, → and ↔
    is truth-functionally complete.  But so too is negation with any other
    single operator.  Some authors have defined new operators that are
    truth-functionally complete by themselves.  An example is the
-   SHEFFER STROKE symbol '(P|Q)', whose valuation function is equivalent
-   to how our valuation function would apply to the form -(P ∧ Q).
-   However, any logic constructed upon just one operator is cumbersome
-   to use.
+   SHEFFER STROKE symbol '(P|Q)', whose valuation function is logically
+   equivalent to the form -(P ∧ Q).  However, any logic constructed upon
+   just one operator is cumbersome to use.
 
    For example, observe in the two examples that the columns under the
    main operators (highlighted with '*') under each wff have the same
    value in the same valuation.
 
-          P Q | (P | Q) | -(P ∧ Q)     R S | R → S | - R ∨ S
-         ==========================    ========================
-          F F |  F T F  | T F F F      F F | F T F | T F T F
-          F T |  F T T  | T F F T      F T | F T T | T F T T
-          T F |  T T F  | T T F F      T F | T F F | F T F F
-          T T |  T F T  | F T T T      T T | T T T | F T T T
-                   *      *                    *     *
+          P Q | (P | Q) | -(P ∧ Q)
+         ==========================
+          F F |  F T F  | T F F F
+          F T |  F T T  | T F F T
+          T F |  T T F  | T T F F
+          T T |  T F T  | F T T T
+                   *      *
 
 Truth-Table Study of A Set of WFFs
 ----------------------------------
@@ -918,25 +918,25 @@ Truth-Table Study of A Set of WFFs
       A set of wffs is CONSISTENT if there is at least one valuation (row)
       of the table on which every formula has T under its main operator.
 
-   LOGICALLY EQUIVALENT PAIR OF FORMULAS
-
-      A pair of wffs is LOGICALLY EQUIVALENT if for every valuation (row)
-      of the table, both wffs have the same value under their main
-      operators.  Notice that for the truth table above for the Sheffer
-      stroke, we've shown that it's logically equivalent to -(P ∧ Q).
-
    INCONSISTENT SET OF FORMULAS
 
       A set of wffs is INCONSISTENT if there is no valuation (row)
       on which all formulas have T under their main operators.
 
-          R S | R → S | - R ∨ S
-         =======================
-          F F | F T F | T F T F
-          F T | F T T | T F T T
-          T F | T F F | F T F F
-          T T | T T T | F T T T
-                  *         *
+   LOGICALLY EQUIVALENT PAIR OF FORMULAS
+
+      A pair of wffs is LOGICALLY EQUIVALENT if for every valuation (row)
+      of the table, both wffs have the same value under their main
+      operators.  Notice that each of the following pairs of formulas
+      is logically equivalent.
+
+          P Q | (P | Q) | -(P ∧ Q)     R S | R → S | - R ∨ S
+         ==========================    ========================
+          F F |  F T F  | T F F F      F F | F T F | T F T F
+          F T |  F T T  | T F F T      F T | F T T | T F T T
+          T F |  T T F  | T T F F      T F | T F F | F T F F
+          T T |  T F T  | F T T T      T T | T T T | F T T T
+                   *      *                    *         *
 
 Truth-Table Study of A Sequent
 ------------------------------
@@ -1270,9 +1270,9 @@ Truth-Trees
            | ========================= | ========================= |
            |        * Φ ↔ Ψ            |       * -(Φ ↔ Ψ)          |
            |         ---------         |        -----------        |
-           |          /     \          |           /     \         |
-           |         Φ      -Φ         |          Φ       -Φ       |
-           |         Ψ      -Ψ         |         -Ψ        Ψ       |
+           |          /     \          |          /     \          |
+           |         Φ      -Φ         |         Φ       -Φ        |
+           |         Ψ      -Ψ         |        -Ψ        Ψ        |
            |                           |                           |
            +---------------------------+---------------------------+
 
@@ -1361,7 +1361,7 @@ Direct Proofs
       which signals to the reader that the proof has been completed
       successfully.  I will also precede the proof with the word 'Proof'
       so the two surround the proof and serve similar roles to a pair
-      of braces or a begin/end pair such as in programming.
+      of braces in programming.
 
    CALCULUS (aka FORMAL DEDUCTIVE SYSTEM)
 
@@ -1390,17 +1390,17 @@ Direct Proofs
             04.   Q                3 Conjunction Elimination
             QED
 
-   It is customary to begin the proof by listing the
-   premises, which is what we do in steps 1 and 2.  Notice that the
-   justification for those two steps are 'ASSUMPTION', which is another word
-   for 'premise'.  Step 3 makes use of steps 1 and 2, and so the justification
-   begins by citing those steps by writing '1,2'.  'Conditional Elimination'
-   is the name of the inference rule applied to steps 1 and 2 to reach step 3.
-   For now, do not worry about what that means; just understand the structure
-   of the proof.  Step 4 applies a rule called 'Conjunction Elimination'
-   to step 3, resulting in the wff 'Q'.  Since Q is the conclusion form
-   of the sequent, it is the thing we were trying to attain.  So the proof
-   has completed successfully, which is why the proof is closed with 'QED'.
+   It is customary to begin the proof by listing the premises, which is what
+   we do in steps 1 and 2.  Notice that the justification for those two steps
+   is 'ASSUMPTION', which is another word for 'premise'.  Step 3 makes use of
+   steps 1 and 2, and so the justification begins by citing those steps by
+   writing '1,2'.  'Conditional Elimination' is the name of the inference rule
+   applied to steps 1 and 2 to reach step 3.  For now, do not worry about what
+   that means; just understand the structure of the proof.  Step 4 applies a
+   rule called 'Conjunction Elimination' to step 3, resulting in the wff 'Q'.
+   Since Q is the conclusion form of the sequent, it is the thing we were
+   trying to attain.  So the proof has completed successfully, which is why
+   the proof is closed with 'QED'.
 
    Usually, people abbreviate the names of the inference rules within a proof.
    Assumptions are abbreviated as 'A'.  For each truth-functional operator,
@@ -1729,12 +1729,12 @@ Defining ⊥ Into Propositional Logic/Calculus
 ============================================
 
 
-   Some calculi implementations use ⊥ (the CONTRADICTION SYMBOL) tedium and
-   improve the readability of proofs.  Applications of -I are often preceded
-   by ∧I, but the resulting conjunction can be quite long.  Since EFQ infers
-   any wff from two contradictory propositions; we can always infer 'P ∧ -P'
-   instead of a long conjunction.  But the following definition is even
-   briefer.
+   Some calculi implementations use ⊥ (the CONTRADICTION SYMBOL) to cut down
+   on tedium and improve the readability of proofs.  Applications of -I are
+   often preceded by ∧I, but the resulting conjunction can be quite long.
+   Since EFQ infers any wff from two contradictory propositions; we can always
+   infer 'P ∧ -P' instead of a long conjunction.  But the following definition
+   is even briefer.
 
          ⊥  =df  P ∧ -P
 
@@ -1867,9 +1867,9 @@ Refuting Dilemmas
    are false.
 
 
-====================
+===============
 Predicate Logic
-====================
+===============
 
 Predicate logic introduces a way to analyze proposition symbols down into
 more basic components.
@@ -1989,7 +1989,7 @@ Relations
          and Charlie and Charlie isn't between Alice and Bob.
 
    Any number of places is acceptable, including 0.  0-place predicates are
-   just proposition symbols.
+   functionally similar to proposition symbols.
 
          0-Place Predicates
          R,        it's raining
@@ -2010,7 +2010,7 @@ Translation Hints
               | R,    It's raining.                           |
               |                                               |
               | ============================================= |
-              | 1-Place (Monadic) Predicates (Properties)     |
+              | 1-Place Predicates (Properties)               |
               | ============================================= |
               | Px,   x is P, x in set P                      |
               |                                               |
@@ -2020,7 +2020,7 @@ Translation Hints
               | En,   n is an even number.                    |
               |                                               |
               | ============================================= |
-              | 2-Place (Diadic) Predicates (Relations)       |
+              | 2-Place Predicates (Relations)                |
               | ============================================= |
               | Pxy,  x,y are related through P               |
               |                                               |
@@ -2030,7 +2030,7 @@ Translation Hints
               | Los,  one is less than six.                   |
               |                                               |
               | ============================================= |
-              | 3-Place (Triadic) Predicates (Relations)      |
+              | 3-Place Predicates (Relations)                |
               | ============================================= |
               | Pxyz,  x,y,z are related through P            |
               |                                               |
@@ -2071,7 +2071,7 @@ Predicate Calculus
 
          Ama → Amg, -Amg  ⊢  -Ama
 
-   Here 'Ama' and 'Amg' are separate atomic formulas.
+   Here 'Ama' and 'Amg' are distinct atomic formulas.
 
 
 ===========================
@@ -2082,10 +2082,10 @@ First-Order Predicate Logic
    the expression of, among other things, the Aristotelian proposition
    forms which denote relations among sets.
 
-         A:  All P is Q.
-         E:  No P is Q.
-         I:  Some P is Q.
-         O:  Some P is not Q.
+         All P is Q.
+         No P is Q.
+         Some P is Q.
+         Some P is not Q.
 
    FOL brings in quantifiers, which denote quantities, and variable object
    symbols which denote arbitrary objects.
@@ -2095,7 +2095,7 @@ First-Order Predicate Logic
 Regarding Notation
 ------------------
 
-   In the current chapter there are some notations that you should
+   In the current chapter there is some notation that you should
    be aware of.
 
    A capital Greek letter (Φ, Ψ, Θ, Δ, etc.) denotes any arbitrary formula,
@@ -2216,7 +2216,7 @@ Existential Import
    in the universe of discourse.
 
          ∃xSx      There exists some object in our universe that
-                   it likes to swim.
+                   likes to swim.
 
    ∀x lacks existential import.  It makes no claim that something actually
    exists in the universe of discourse.
@@ -2256,11 +2256,11 @@ Single Quantifiers
 
    A universal quantifier is nearly always paired with the conditional.
 
-         ∀x(Cx → Mx),   For each object x in our universe,
+         ∀x(Cx → Mx),    For each object x in our universe,
                            if x is a cat then x is a mammal.
                          = all cats are mammals.
 
-         ∀x(Cx → -Sx),  For each object x in our universe,
+         ∀x(Cx → -Sx),   For each object x in our universe,
                            if x is a cat then x doesn't like to swim.
                          = no cats like to swim.
 
@@ -2277,7 +2277,7 @@ Single Quantifiers
    However, this notion of ∀ with →, and ∃ with ∧, isn't arbitrary.
    They are complementary forms.
 
-         -∀x(Cx → -Sx)   It's false that all cats don't like to swim.
+         -∀x(Cx → -Sx)   It's false that no cats like to swim.
 
    Applying some equivalences to this wff we should get a new formula
    that means the same thing.
@@ -2286,21 +2286,21 @@ Single Quantifiers
          ∃x-(-Cx ∨ -Sx)  By material implication
          ∃x(--Cx ∧ --Sx) DeMorgan's
          ∃x(Cx ∧ Sx)     Double Negation
+                         = Some cats like to swim.
 
-   So the conclusion reads, some cats like to swim.  Notice that we
-   started with ∀ and →, and just by applying equivalences ended with
-   ∃ and ∧.  So ∃ with ∧ follows naturally from the occurrence of ∀ with
-   →; they are complementary forms.
+   Notice that we started with ∀ and →, and just by applying equivalences
+   ended with ∃ and ∧.  So ∃ with ∧ follows naturally from the occurrence
+   of ∀ with →; they are complementary forms.
 
 Multiple Quantifiers
 ====================
 
-   Just as with many other features of FOL, quantifiers can be recursively
-   combined.  When the same quantifier is repeated, the order of the
-   quantifiers doesn't change the meaning of the wff.
+   Just as with many other features of FOL, quantifiers can be nested.
+   When the same quantifier is repeated, the order of the quantifiers
+   doesn't change the meaning of the wff.
 
-         ∀x∀yLxy         Everyone loves everyone including themselves.
-         ∀y∀xLxy         Everyone loves everyone including themselves.
+         ∀x∀yLxy         Everyone loves everyone (including themselves).
+         ∀y∀xLxy         Everyone loves everyone (including themselves).
 
          ∃x∃yLxy         Someone loves someone (perhaps themselves).
          ∃y∃xLxy         Someone loves someone (perhaps themselves).
@@ -2401,7 +2401,7 @@ English Quantification
 Any/Anybody/Anyone/Anything/Anywhere
 ------------------------------------
 
-   Any has different meanings depending upon how it's used.  It can indicate
+   'Any' has different meanings depending upon how it's used.  It can indicate
    either quantifier.  Generally, try to rephrase the proposition
    so it doesn't use 'any'.
 
@@ -2427,7 +2427,7 @@ Truth-Trees
 
    Construction of Truth-trees in FOL is similar to how they are constructed
    in predicate logic with the addition of a few extra rules for handling
-   the quantifiers.
+   quantifiers.
 
    ====  =====================================================================  
    Name  Rule
@@ -2737,7 +2737,7 @@ Translation Hints
    One of the powers of identity is that it allows us to say things
    about the number of members in a set P without using numbers.  Recall
    |P| is the cardinality of a set P, which equals the number of members
-   A contains.
+   P contains.
 
            ========  ===============================================
            Quantity  Proposition
@@ -2762,7 +2762,7 @@ Properties of Relations
 =======================
 
    The identity predicate enables further discussion of 2-place predicates
-   (sometimes called binary relations).  Binary relations can have
+   (sometimes called BINARY RELATIONS).  Binary relations can have
    interesting properties that can impart logical meaning upon those
    relations.  Understanding these relations can go a long way in teaching
    the student of logic how to translate sentences into FOL=.
@@ -2903,8 +2903,8 @@ Function Logic (FL)
    Function logic is constructed in FOL=.  It provides another way
    to analyze atomic formulas.  FL however, doesn't add any new power
    to the logic, it just adds new ways to say things FOL= can already say.
-   It assigns valid/invalid to all the same forms.  For this reason when
-   working with functions we're still in FOL=.
+   It assigns valid/invalid to all the same argument forms.  For this reason
+   when working with functions we're still in FOL=.
 
 
 --------

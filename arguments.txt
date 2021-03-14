@@ -15,8 +15,12 @@ Pascal's wager
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
 
 Definitional Ontological Argument
+   Px,   x is a perfection
+   Hxy,  x has property y
+   g,    god
+   e,    existence
+
    God is a being which has every perfection.    ∀x(Px → Hgx)        A
-      (All perfections are had by God)
    Existence is a perfection.                    Pe                  A
    /. God exists.                                /. Hge              → E
          SEP, Ontological Argument
@@ -24,11 +28,16 @@ Definitional Ontological Argument
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
 
 Modal Ontological Argument (From SEP, Ontological Argument)
+   G,   god exists
+
    It's possible that God exists                 ◇ G                 A
    God is not a contingent being                 -(◇ G ∧ ◇ -G)       A
                                                  - ◇ G ∨ - ◇ - G     DM
                                                  - ◇ G ∨ □ G         Def □
    Therefore god necessarilly exists             /. □ G              DS
+
+   (This argument uses modal system K. We would need modal system M were
+    we to conclude G from □ G)
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
 
@@ -39,8 +48,7 @@ Modal Counter-Example (From SEP, Ontological Argument)
                                                  - ◇ G ∨ - ◇ - G     DM
                                                  - ◇ G ∨ □ G         Def □ 
    Hence, it's not possible that God exists.     - ◇ G               DS
-                                                 □ - G
-   Hence, God does not exist.                    /. - G
+   Therefore god necessarilly doesn't exist      □ - G
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
 
@@ -48,6 +56,9 @@ Modal Counter-Example (From SEP, Ontological Argument)
    Either 2+2=5 or God exists.          Either 2+2=5 or God doesn't exist.
    Not 2+2=5                            Not 2+2=5
    Therefore, God exists.               Therefore, God doesn't exist.
+
+   (This examples demonstrate how the Modal Ontological Argument looks
+    pre-arranged to reach the desired conclusion).
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
 
@@ -69,7 +80,7 @@ Kalam cosmological argument
    Where,
        Bx,   x began to exist
        Cx,   x has a cause
-       Nx,   x is a natural cause/explanation
+       Nx,   x is a natural (scientific) cause/explanation
        Px,   x is a personal cause/explanation
        Ixy,  x is inside of y
        c,    the cause of the universe
@@ -77,6 +88,11 @@ Kalam cosmological argument
 
        If we can't apply natural scientific laws to account for the origin
        of the universe how can we assert the first premise ∀x(Bx → Cx)?
+
+   (William Craig's extension seems directly translatable into first-order
+    logic, but when I try to do so I can't make the argument work.  Hence,
+    I've taken some liberties to make it work.  I wonder if I've come
+    close to his intention.)
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
 
@@ -272,6 +288,9 @@ Fitch's Knowability Paradox
    The problem is with the axiom presented on line 8.  Just because something
    is not known (line 7) doesn't mean it's unknowable.
 
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+   Just the Arguments, The First Way - Argument from Motion
 
 Mxy,   x moves y into some new state f.
 Px,    x is potentially some new state f.
@@ -311,3 +330,4 @@ M                                    From first argument
 P                                    C4
 
 P is God                             C5
+

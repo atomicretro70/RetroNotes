@@ -914,8 +914,8 @@ Kripke Semantics
    Weakly Connected    WCon(R)   =df ∀x∀y(-x=y → (xRy ∨ yRx))
    Non-Convergent      N-Con(R)  =df ∀x∀y∀z(((xRz ∧ yRz) ∧ -x=y) → xRy ∨ yRx)
    Non-Divergent       N-Div(R)  =df ∀x∀y∀z((xRy ∧ xRz ∧ -y=z) → (yRz ∨ zRy))
-   Equiv Relation      Equ(R)    =df CRef(R) ∧ Tran(R) ∧ Sym(R)
-   Quasi-Ordering      QOrd(R)   =df CRef(R) ∧ Tran(R)
+   Equiv Relation      Equ(R)    =df CRef(R) ∧ Trans(R) ∧ Sym(R)
+   Quasi-Ordering      QOrd(R)   =df CRef(R) ∧ Trans(R)
    Partial Ordering    POrd(R)   =df QOrd(R) ∧ Anti(R)
    Refl Linear Order   RLOrd(R)  =df POrd(R) ∧ SCon(R)
    Irrefl Linear Ord   ILOrd(R)  =df Asym(R) ∧ Trans(R) ∧ W-Con(R)
@@ -1687,9 +1687,9 @@ Alethic Deduction - Relative Modalities
       | ============================= | ============================= |
       | ◇ E (All Systems)             | □ I (All Systems)             |
       | ============================= | ============================= |
-      |  ◇ P    /i                    |  |        /i+m (new)          |
+      |  ◇ P    /i                    |  |        /i+m (m is new)     |
       | -----                         |  | ...                        |
-      |  P      /i+m (new)            |  | P      /i+m                |
+      |  P      /i+m (m is new)       |  | P      /i+m                |
       |                               | -----                         |
       |                               |  □ P      /i                  |
       |                               |                               |
@@ -1706,16 +1706,16 @@ Alethic Deduction - Relative Modalities
       | ============================= | ============================= |
       | □ E (System K)                | ◇ I (System K)                |
       | ============================= | ============================= |
-      |  □ P    /i                    |  P        /i+m (old)          |
+      |  □ P    /i                    |  P        /i+m (m is old)     |
       | -----                         | -----                         |
-      |  P      /i+m (old)            |  ◇ P      /i                  |
+      |  P      /i+m (m is old)       |  ◇ P      /i                  |
       |                               |                               |
       | ============================= | ============================= |
       | □ E (System D)                | ◇ I (System D)                |
       | ============================= | ============================= |
-      |  □ P    /i                    |  P        /i+m (new)          |
+      |  □ P    /i                    |  P        /i+m (m is new)     |
       | -----                         | -----                         |
-      |  P      /i+m (new)            |  ◇ P      /i                  |
+      |  P      /i+m (m is new)       |  ◇ P      /i                  |
       |                               |                               |
       | ============================= | ============================= |
       | □ E (System M)                | ◇ I (System M)                |
@@ -1727,23 +1727,23 @@ Alethic Deduction - Relative Modalities
       | ============================= | ============================= |
       | □ E (System B)                | ◇ I (System B)                |
       | ============================= | ============================= |
-      |  □ P    /i+m (old)            |  P        /i                  |
+      |  □ P    /i+m (m is old)       |  P        /i                  |
       | -----                         | -----                         |
-      |  P      /i                    |  ◇ P      /i+m (old)          |
+      |  P      /i                    |  ◇ P      /i+m (m is old)     |
       |                               |                               |
       | ============================= | ============================= |
       | □ E (System s4)               |  ◇ I (System s4)              |
       | ============================= | ============================= |
-      |  □ P    /i                    |  P        /i+m+n (old)        |
+      |  □ P    /i                    |  P        /i+m+n (m is old)   |
       | -----                         | -----                         |
-      |  P      /i+m+n (old)          |  ◇ P      /i                  |
+      |  P      /i+m+n (m is old)     |  ◇ P      /i                  |
       |                               |                               |
       | ============================= | ============================= |
       | □ E (System s5)               |  ◇ I (System s5)              |
       | ============================= | ============================= |
-      |  □ P    /i+m (old)            |  P        /i+m (old)          |
+      |  □ P    /i+m (m is old)       |  P        /i+m (m is old)     |
       | -----                         | -----                         |
-      |  P      /i+n (old)            |  ◇ P      /i+n (old)          |
+      |  P      /i+n (m is old)       |  ◇ P      /i+n (m is old)     |
       |                               |                               |
       +-------------------------------+-------------------------------+
 

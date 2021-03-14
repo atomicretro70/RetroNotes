@@ -281,6 +281,8 @@ varname=<val>       set a variable to a value (can't have spaces)
 env ...             print or set environment variables
 alias <name>=<val>  create an alias for a value (usually a long command)
 
+time <command>      Time how long a command takes to complete
+
 ||||| Command Line Apps ||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 cal                 display a calendar for the current month
