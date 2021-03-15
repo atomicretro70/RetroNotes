@@ -219,9 +219,9 @@ Definition Schemata
 ===================
 
    A DEFINITION SCHEMA is a "family" of definitions all having the same
-   structure.  A schema includes place-holders, which we denote using
-   letters towards the end of the alphabet: u,v,w,x,y,z, across which values
-   are substituted uniformly to obtain a definition.
+   structure.  A schema includes place-holders denoted by letters towards
+   the end of the alphabet: u,v,w,x,y,z, across which values are substituted
+   uniformly to obtain a definition.
 
    Example: formal definition of the 'probability of X given that Y'.
 
@@ -230,11 +230,11 @@ Definition Schemata
                         P(Y)
 
    Whenever we see an instance of P(X|Y), the definition informs us that
-   it is interchangeable with and so can be replaced by its corresponding
+   it is interchangeable with and so can be replaced by the corresponding
    right-hand side, replacing values for X, and Y uniformly.  The reverse
    operation is also entailed in the definition.
 
-   So the question, what is the probability that we slip given that
+   So the question, what is the probability that Sally slips given that
    it is icy, yields the following definition.
 
                       P(S ∧ I)
@@ -498,14 +498,12 @@ Grammar
      meaning that wffs can nest within other wffs to any depth.
      While P ∧ Q is a wff, so is (-(P ∨ Q) → R).
 
-   - To aid readability, we adopt the convention that if a wff
-     begins with '(', we will drop the outermost pair of parentheses,
-     doing so never introduces ambiguity to the formula.
+   - To aid readability, I adopt the convention that if a wff begins with
+     '(', I will drop the outermost pair of parentheses.
 
    - In practice, it is common to use PRIME marks ('), or numerical
-     subscripts (we use postscripts) after a proposition symbol
-     to increase the number of available symbols.  E.g. P and P' are
-     distinct atomic formulas.
+     subscripts after a proposition symbol to increase the number of
+     available symbols.  E.g. P, P' and P₂ are distinct atomic formulas.
 
 Alternative Notation
 --------------------
@@ -561,8 +559,8 @@ Tree Graphs
    is at the top.   The rest of the tree descends from the root—placing
    the childless LEAVES all at the bottom.  Traversing a series of nodes
    via their joining edges down to a leaf is called a PATH
-   (e.g., parent&child > node > leaf4).  As we descend a path children
-   split into BRANCHES.
+   (e.g., parent&child > node > leaf4).  Descending a path sees children
+   splitting into BRANCHES.
 
                              Root 
                              /  \
@@ -728,7 +726,7 @@ Conversational Implicature
    Again the use of 'then' in these 'if/then' examples denotes a temporal
    relationship; it cannot be translated into a propositional logic
    conditional.  Consider what happens by negating the first rewritten example
-   and seeing what we derive after applying a few logical equivalences.
+   and seeing what is derived after applying a few logical equivalences.
 
          K → F,      if you keep up the good work, then you'll go far.
 
@@ -788,7 +786,7 @@ Truth-Table Construction
        formulas themselves.
 
    2.  Under the list of proposition symbols list all possible combinations
-       of T and F for those symbols.  Usually, we start with a row of all
+       of T and F for those symbols.  The table starts with a row of all
        F and end with all T, or vice versa, according to preference.
        The values for the intermediate rows are attained as if counting
        in binary.
@@ -806,12 +804,12 @@ Truth-Table Construction
 
    The study will only need to consider the columns under each wffs' main
    operator, so it is convenient to highlight the completed column somehow.
-   Here we place an '*' at the bottom of those columns.
+   Here I place an '*' at the bottom of those columns.
 
 Truth-Table Study of The Truth-Functions
 ----------------------------------------
 
-   The valuations for our primitive truth-functions are illustrated in the
+   The valuations for the primitive truth-functions are illustrated in the
    following truth-tables.
 
           P   | - P
@@ -1000,7 +998,7 @@ Truth-Tables ("Fast Method")
    There is a faster way to construct a truth-table, though it is not
    as visually satisfying. Instead, it implements a search algorithm
    to find only those valuations on which a formula is T (or F).  It has
-   the advantage over a full truth-table in that we do not have the problem
+   the advantage over a full truth-table in that we escape the problem
    of potentially huge tables due to a large number of proposition symbols.
 
    Procedure
@@ -1019,8 +1017,8 @@ Truth-Tables ("Fast Method")
        a proposition symbol, place that value under all other occurrences
        of that symbol in each of the wffs under study.
 
-   4.  The search is successful if you encounter a contradiction or if the
-       valuation we sought is now readable off the table.  This is the set
+   4.  The search is successful upon finding a contradiction or if the
+       valuation sought is now readable off the table.  This is the set
        of values found for the proposition symbols that makes the main
        operator T (or F).
 
@@ -1059,16 +1057,16 @@ Fast truth-table Study of A Single WFF
              Q=F       Q=T or F            Q=T         Q=T
                                                        R=F
 
-   Notice in the second example we couldn't find a value for Q.  However,
+   Notice in the second example a value for Q was not found.  However,
    upon closer examination it should become apparent that's because Q's value
    doesn't matter; both T and F for Q make the formula T.  So there are two
    valuations on which the formula is T.  In both P is T, but Q is T in one
    and F in the other.
 
    To test if a wff is contingent the process must be performed once with
-   T under the main operator, and once with F.  The wff is contingent
-   if and only if we find at least one valuation of the proposition symbols
-   that makes the main operator T, and at least one valuation of the
+   T under the main operator, and once with F.  The wff is contingent if
+   and only if at least one valuation of the proposition symbols that makes
+   the main operator T is found, and at least one valuation of the
    proposition symbols that make the main operator F.
 
 Fast Truth-Table Study of A Set of WFFs
@@ -1103,7 +1101,7 @@ Fast Truth-Table Study of A Set of WFFs
 Fast Truth-Table Study of A Sequent
 -----------------------------------
 
-   To test a sequent, we test if it is invalid by setting each premise's
+   To test a sequent, test if it is invalid by setting each premise's
    main operator to T and the conclusion's to F.  Then work backwards exactly
    as for a set of wffs.  If no contradiction is obtained, it is indeed
    possible for the premises to be T and the conclusion F, as initially
@@ -1165,7 +1163,7 @@ Truth-Trees
    Truth-Trees
 
    Given a set of wffs, a TRUTH-TREE is an exhaustive search for ways
-   in which all the wffs can be true.  The nodes of our tree will each
+   in which all the wffs can be true.  The nodes of the tree will each
    have a list of one or more wffs.  A CLOSED PATH is any path that's
    terminated by '⊥'.  So, an OPEN PATH is any path that's not closed.
 
@@ -1321,11 +1319,11 @@ Truth-Tree Study of A Set of Wffs
 Truth-Tree Study of A Sequent
 -----------------------------
 
-   To test an argument form for validity using a truth-tree, we construct
+   To test an argument form for validity using a truth-tree, construct
    a list consisting of the argument's premises and negated conclusion.
    Construct the tree as usual.
 
-   When the tree is complete, we can assess the results.  If all paths
+   When the tree is complete, assess the results.  If all paths
    are closed with a ⊥ then the argument form is valid.
 
    Any open paths of a finished tree for an argument form show all the
@@ -1380,7 +1378,7 @@ Direct Proofs
    a justification for writing that proposition.  The justification
    is the name of an inference rule, preceded by citations.  The citations
    are a set of any line numbers of the premises to which that rule was
-   applied.  For our purposes, all propositions will take the form of wffs.
+   applied.  All propositions in the formal proof take the form of wffs.
 
             P → (Q ∧ R), P  ⊢  Q
             Proof
@@ -1390,16 +1388,16 @@ Direct Proofs
             04.   Q                3 Conjunction Elimination
             QED
 
-   It is customary to begin the proof by listing the premises, which is what
-   we do in steps 1 and 2.  Notice that the justification for those two steps
+   It is customary to begin the proof by listing the premises seen here in
+   steps 1 and 2.  Notice that the justification for those two steps
    is 'ASSUMPTION', which is another word for 'premise'.  Step 3 makes use of
    steps 1 and 2, and so the justification begins by citing those steps by
    writing '1,2'.  'Conditional Elimination' is the name of the inference rule
    applied to steps 1 and 2 to reach step 3.  For now, do not worry about what
    that means; just understand the structure of the proof.  Step 4 applies a
    rule called 'Conjunction Elimination' to step 3, resulting in the wff 'Q'.
-   Since Q is the conclusion form of the sequent, it is the thing we were
-   trying to attain.  So the proof has completed successfully, which is why
+   Since Q is the conclusion form of the sequent and the justified formula
+   on step 4, trying to attain. the proof has completed successfully.  Hence,
    the proof is closed with 'QED'.
 
    Usually, people abbreviate the names of the inference rules within a proof.
@@ -1417,11 +1415,10 @@ Hypothetical Subordinate Proofs
 
    A HYPOTHETICAL SUBORDINATE PROOF or SUBPROOF is a proof nested within
    another proof.  It is analogous to nesting blocks of code in a computer
-   program, and similarly, we can nest subproofs to any depth.  We indent
+   program, and similarly, subproofs can be nested to any depth.  Indent
    subproof from the surrounding proof and draw a vertical line just to the
    right of the wffs to signal that something is a subproof.  The first line
    of a subproof is the proposition called the HYPOTHESIS.
-   It is a proposition we plan to test in the subproof.
 
             P → Q, -Q  ⊢  -P
             Proof
@@ -1448,9 +1445,9 @@ Hypothetical Subordinate Proofs
    conclusion form of the sequent, so the proof completed successfully
    hence the 'QED'.
 
-   Note to be able to write QED, we must not only successfully derive
-   the sequent's conclusion form, but also it must occur within the main
-   proof's sequence, not within a subproof.  That is, all subproofs must
+   Note to be able to write QED, not only must the sequent's conclusion be
+   successfully derived, but also it must occur within the main proof's
+   sequence, not within a subproof.  That is, all successful subproofs must
    be closed.
 
 Regarding Notation
@@ -1611,7 +1608,7 @@ Derived Inference Rules
 
    Use any proved sequent as a new inference rule.  If a sequent is proved
    valid, then all instances of the sequent are also valid.  The following
-   are traditionally important rules derivable in our system.
+   are traditionally important derived rules.
 
    ================================  =========================================
    Name (Abbreviation)               Sequent
@@ -1634,9 +1631,9 @@ Theorems
 
    A theorem of propositional calculus is a derived rule which has no premises
    or undischarged hypotheses.  Theorems are the tautologies of propositional
-   logic.  A sequent for a theorem Φ has the form below.  A theorem of our
-   calculus is provable by starting its proof with a hypothesis or with
-   a previously proved theorem.
+   logic.  A sequent for a theorem Φ has the form below.  A theorem is
+   provable by starting its proof with a hypothesis or with a previously
+   proved theorem.
 
          ⊢ Φ
 
@@ -1644,8 +1641,7 @@ Equivalences
 ============
 
    An equivalence is a theorem whose main operator is a biconditional.
-   The following are traditionally important equivalences derivable
-   in our system.
+   The following are traditionally important equivalences.
 
          ⊢ Φ ↔ Ψ
 
@@ -1680,9 +1676,8 @@ Consequence and Non-Consequence
    PROOF OF CONSEQUENCE
 
       Any proof that demonstrates that some wff C is derivable by applying
-      a series of inference rules.  It is the kind of proof we have been
-      discussing all along.  The example proofs presented so far are all
-      proofs of consequence.
+      a series of inference rules.  The example proofs presented so far are
+      all proofs of consequence.
 
    PROOF OF NON-CONSEQUENCE (aka REFUTATION PROOF)
 
@@ -1694,8 +1689,8 @@ Consequence and Non-Consequence
    then begin a subproof by hypothesizing the negation of the conclusion.
    Proceed by attempting to reduce everything to atomic and negated atomic
    formulas.  Proceed until no additional rules can be applied.  Since
-   we never reach the conclusion the proof is uncompleted, so we do not
-   write QED at the bottom.
+   the conclusion is never reached the proof is uncompleted, so it's not
+   terminated with QED.
 
          Example
 
@@ -1720,9 +1715,9 @@ Consequence and Non-Consequence
           T T | T T T | F T  |  F T
                   *     *       *
 
-   The highlighted row is our counterexample (all true premises but
+   The highlighted row is the counterexample (all true premises but
    false conclusion).  On that row P and Q have the same truth-values as
-   our proof determined.
+   in the proof of non-consequence.
 
 
 Defining ⊥ Into Propositional Logic/Calculus
@@ -1732,13 +1727,13 @@ Defining ⊥ Into Propositional Logic/Calculus
    Some calculi implementations use ⊥ (the CONTRADICTION SYMBOL) to cut down
    on tedium and improve the readability of proofs.  Applications of -I are
    often preceded by ∧I, but the resulting conjunction can be quite long.
-   Since EFQ infers any wff from two contradictory propositions; we can always
-   infer 'P ∧ -P' instead of a long conjunction.  But the following definition
-   is even briefer.
+   Since EFQ infers any wff from two contradictory propositions; one can
+   always infer 'P ∧ -P' instead of a long conjunction.  But the following
+   definition is even briefer.
 
          ⊥  =df  P ∧ -P
 
-   From which we derive new inference rules.
+   The following new inference rules facilitate its use.
   
    ================================  =========================================
    Name (Abbreviation)               Sequent
@@ -1829,9 +1824,9 @@ The Unnatural Conditional
          -(-K ∨ F)     Material Implication
          K ∧ -F        DeMorgan's
 
-   Studying the conclusion, we determine that it says, "you keep up the good
-   work and you don't go far."  Does this sound like the negation of the
-   original unnegated conditional?  Many say it does not.
+   The conclusion says, "you keep up the good work and you don't go far."
+   Does this sound like the negation of the original unnegated conditional?
+   Many say it does not.
 
 Relevance
 =========
@@ -1847,8 +1842,8 @@ Relevance
    conclusions found by FOC= always do conform to the definition of a valid
    deductive argument.  If one asserts that Φ is true, then referring back
    to the valuation function v for disjunction shows that no matter what value
-   of Ψ we introduce, Φ ∨ Ψ will still be true simply because Φ is true.
-   While for H, it does not matter what we hypothesize.  If some hypothesis
+   of Ψ is introduced, Φ ∨ Ψ will still be true simply because Φ is true.
+   While for H, it does not matter what is hypothesized.  If some hypothesis
    Θ is inconsistent with the premises Θ will be negated after the subproof
    is closed.  However, if Θ is not inconsistent with the premises, then by
    definition, it is consistent relevant or not, and who is to say what
@@ -1920,13 +1915,13 @@ Model
    Roughly, a MODEL is a limited representation of some state of affairs
    expressed using set theory.  Since a set theory model can be a mathematical
    representation of something about the actual world, we can for our current
-   purposes, informally regard the actual world as our model.
+   purposes, informally regard the actual world as the model.
   
 The Dictionary
 ==============
 
    It is helpful to create a dictionary before constructing an atomic formula.
-   When we investigate a new situation with logic, we want to clarify
+   When investigating a new situation with logic, a dictionary clarifies
    the meanings of the atomic formulas and the meanings of their components.
    A dictionary lists the symbols and what they denote in the current universe
    of discourse.  By convention, letters towards the end of the alphabet
@@ -1946,8 +1941,8 @@ Properties
          b,   Bob              Kx,   x is brunette
          c,   Charlie          Sx,   x is scaled
 
-   By substituting one of the object symbols in place of a place-holder
-   in a predicate definition, we construct an atomic formula.
+   Construct an atomic formula by substituting one of the object symbols in
+   place of a place-holder in a predicate definition.
 
          Ba,  Alice is blond.
          Kb,  Bob is brunette.
@@ -2184,14 +2179,14 @@ Quantifiers & Variables
    and then a sub-wff.  The quantifier is said to BIND the variable, or the
    variable is BOUND to the quantifier.
 
-         ∀xΦ       For every object x in our universe of discourse,
+         ∀xΦ       For every object x in the universe of discourse,
                    Φ holds.
 
-         ∃xΦ       There exists at least one object x in our universe
+         ∃xΦ       There exists at least one object x in the universe
                    of discourse such that, Φ holds.
 
-   Once the variable is bound, it can be used within the wff.  In our FOL
-   implementation a variable in a wff is always bound provided formation
+   Once the variable is bound, it can be used within the wff.  In this
+   formulateion of FOL a variable in a wff is always bound provided formation
    rules are applied correctly.
 
          Dictionary
@@ -2203,10 +2198,10 @@ Quantifiers & Variables
          Sx,   x likes to swim
          Lxy,  x loves y
 
-         ∀xCx,     For each x in our universe, x is a cat.
+         ∀xCx,     For each x in the universe of discourse, x is a cat.
                    = Everything is a cat.
 
-         ∃xDx,     There exists x in our universe such that, x is a dog.
+         ∃xDx,     There exists x in the universe such that, x is a dog.
                    = Some (one or more) dogs exist.
 
 Existential Import
@@ -2215,13 +2210,13 @@ Existential Import
    ∃xΦ has existential import.  It asserts that at least one thing exists
    in the universe of discourse.
 
-         ∃xSx      There exists some object in our universe that
+         ∃xSx      There exists some object in the universe  of discourse that
                    likes to swim.
 
    ∀x lacks existential import.  It makes no claim that something actually
    exists in the universe of discourse.
 
-         ∀xSx      Everything in our universe (if anything exists
+         ∀xSx      Everything in the universe of discourse (if anything exists
                    at all) likes to swim.
 
 Scope
@@ -2246,8 +2241,8 @@ Free Variables
    bound by a quantifier.  Our implementation of FOL does not allow
    free variables provided the formation rules are applied correctly.
    However, some implementations do allow free variables.  Be aware that
-   a free variable does not denote anything; while a variable bound
-   by ∀ denotes *any* arbitrary object in our universe, and a variable
+   a free variable does not denote anything.  While a variable bound
+   by ∀ denotes *any* arbitrary object in the universe.  A variable
    bound by ∃ denotes at least one object in our universe though
    we may not know which.
 
@@ -2256,21 +2251,21 @@ Single Quantifiers
 
    A universal quantifier is nearly always paired with the conditional.
 
-         ∀x(Cx → Mx),    For each object x in our universe,
+         ∀x(Cx → Mx),    For each object x in the universe,
                            if x is a cat then x is a mammal.
                          = all cats are mammals.
 
-         ∀x(Cx → -Sx),   For each object x in our universe,
+         ∀x(Cx → -Sx),   For each object x in the universe,
                            if x is a cat then x doesn't like to swim.
                          = no cats like to swim.
 
    An existential quantifier is nearly always paired with conjunction.
 
-         ∃x(Dx ∧ Mx),    There's at least one object x in our universe
+         ∃x(Dx ∧ Mx),    There's at least one object x in the universe
                            such that, x is a dog and x is a mammal.
                          = Some dogs are mammals.
 
-         ∃x(Dx ∧ Sx),    There's at least one object x in our universe
+         ∃x(Dx ∧ Sx),    There's at least one object x in the universe
                            such that, x is a dog and x likes to swim.
                          = Some dogs like to swim.
 
@@ -2279,7 +2274,7 @@ Single Quantifiers
 
          -∀x(Cx → -Sx)   It's false that no cats like to swim.
 
-   Applying some equivalences to this wff we should get a new formula
+   Applying some equivalences to this wff results in a new formula
    that means the same thing.
 
          ∃x-(Cx → -Sx)   -∀ is equivalent to ∃- 
@@ -2290,7 +2285,7 @@ Single Quantifiers
 
    Notice that we started with ∀ and →, and just by applying equivalences
    ended with ∃ and ∧.  So ∃ with ∧ follows naturally from the occurrence
-   of ∀ with →; they are complementary forms.
+   of ∀ with →.  The reverse is also true.  They are complementary forms.
 
 Multiple Quantifiers
 ====================
@@ -2635,10 +2630,10 @@ Proofs of Non-Consequence
                 -Pa      -Qa   -Pa       -Qa
                                           ⊥  
 
-      In the first open branch we read P=F, Q=?; in the second open branch
-      P=F, Q=F; and in the third open branch P=F, Q=T.  So there are two
-      counterexamples: P=F, Q=F; and P=F, Q=T.  Which is consistent with the
-      proof of non-consequence.
+      The first open branch says Pa=F, Qa=?; in the second open branch
+      Pa=F, Qa=F; and in the third open branch Pa=F, Qa=T.  So there are two
+      counterexamples: Pa=F, Qa=F; and Pa=F, Qa=T.  These results are
+      consistent with the proof of non-consequence.
 
 ------------------------------------------
 Proofs of Some Aristotelian Argument Forms
@@ -2683,7 +2678,7 @@ Proofs of Some Aristotelian Argument Forms
 Identity Logic (IL and FOL=)
 ============================
 
-   Identity Logic is the logic of the identity predicate '=', which we define
+   Identity Logic is the logic of the identity predicate '=', which I define
    here in the context of FOL.  The combined system is called First-Order
    Predicate Logic with Identity (FOL=).
 
@@ -2816,7 +2811,7 @@ Truth Trees
 
    Truth trees in FOL= are nearly identical to those in FOL; identity
    is just a predicate though with some special standing in FOL=.  Therefore,
-   we introduce two new tree rules.
+   I introduce two new tree rules.
 
    ====  =====================================================================  
    Name  Rule
@@ -2904,7 +2899,7 @@ Function Logic (FL)
    to analyze atomic formulas.  FL however, doesn't add any new power
    to the logic, it just adds new ways to say things FOL= can already say.
    It assigns valid/invalid to all the same argument forms.  For this reason
-   when working with functions we're still in FOL=.
+   when working with functions we're still working in FOL=.
 
 
 --------
@@ -2955,7 +2950,7 @@ Function Symbol Denotation
    A FUNCTION maps one set of objects (called a DOMAIN SET) onto another set
    of objects (called a RANGE SET); each domain object maps to exactly one
    range set object though multiple domain objects can map to the same range
-   object.  For any function expression f(x), we read it as "f of x."  There
+   object.  Any function expression f(x) is read as "f of x."  There
    are various ways to define function mappings, but for FOL= often,
    it is necessary to exhaustively list all the mappings along with
    the defined predicate and object symbols describing the state of affairs.
@@ -3007,7 +3002,7 @@ Inverse Functions
 =================
 
    An INVERSE FUNCTION is a function that reverses the mapping of another
-   function; a function must be bijective to have an inverse.  If our
+   function; a function must be bijective to have an inverse.  If the
    universe is the set of all integers, the successor s(x) function always
    denotes the integer *after* x and is bijective.  So, its inverse
    function is predecessor p(x), which of course denotes the integer
@@ -3306,17 +3301,17 @@ Inductive Definitions
               (P ∧ Q), (P ∨ Q), (P → Q), (P ↔ Q);
          4.   Nothing else is a wff.
 
-   Clause 1 establishes our base case: any atomic formula is a wff.
+   Clause 1 establishes the base case: any atomic formula is a wff.
 
-   Clause 4, our final clause, excludes anything that cannot be constructed
+   Clause 4, the final clause, excludes anything that cannot be constructed
    by these clauses.
 
    Clauses 2 & 3 tell us how to generate all the intermediate members
    of the set.
 
    There are a few sets for which we do not need an inductive definition.
-   For example, the inductive proof alone is often all we need to reason
-   about integers.
+   For example, the inductive proof alone is often all that's needed to
+   reason about integers.
 
 Zero and The Successor Function
 ===============================
@@ -3337,12 +3332,12 @@ Inductive Inference
 
    Mathematical induction is infers a proof that all members
    of the set enumerated by the inductive definition have some property P.
-   Once we have the definition, an INDUCTIVE INFERENCE proceeds in two
+   Off the definition, an INDUCTIVE INFERENCE proceeds in two
    steps:  the BASE case and the inductive case.  The BASE CASE of the
    proof requires that we prove that the members denoted by the base clause
    of the inductive definition have property P.  The INDUCTIVE CASE
    is a hypothetical proof.  The method is to prove the conditional that
-   for any x in our universe, if x has the property P, then the successor
+   for any x in the universe, if x has the property P, then the successor
    of x also has property P.  All of these pieces put together are adequate
    to conclude that all members of the set have property P.
 
@@ -3428,9 +3423,9 @@ Formal Theories
 
    Since any interesting theory has a large number (usually infinite number)
    of propositions, it would be impractical to uncover all those truths.
-   We attempt to tackle this problem with a set of first principles we
-   can reason about to uncover the rest of the theory.  In this way the
-   first principles combined with logical reasoning we say GENERATES theorems.
+   We attempt to tackle this problem with a set of first principles from which
+   can be reasoned the rest of the theory.  In this way the
+   first principles combined with logical reasoning GENERATES theorems.
    It is easy to construct a theory that OVER GENERATES, proves too many
    things, i.e. theorems that are not true of the model; or UNDER GENERATES,
    does not prove all of the true things that there are to say
@@ -4585,8 +4580,8 @@ Important Derived Equivalences
 Appendix D: UTF-8 Character Codes
 =================================
 
-   Symbol                                              hex code
-   ==================================================  ========
+   Symbol                                              code point
+   ==================================================  ==========
    Logical Symbols
 
    ∴            therefore                              2234
@@ -4600,8 +4595,8 @@ Appendix D: UTF-8 Character Codes
    ∀            universal quantifier                   2200
    ∃            existential quantifier                 2203
    ℩            definite descriptor (inverted iota)    2129
-   ▫            box                                    25AB
-   ⋄            diamond                                22C4
+   □            box                                    25A1
+   ◇            diamond                                25C7
    ▪            solid box                              25AA
    ♦            solid diamond                          2666
    T            tautology, valid wff                   22A4
@@ -4645,6 +4640,9 @@ Appendix D: UTF-8 Character Codes
 
    ═            double horizontal                      2550
    ║            double vertical                        2551
+
+   *vim trick:  command :as or ga displays the code point for the character
+                under the cursor
 
 
 ==============================
