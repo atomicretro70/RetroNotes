@@ -244,6 +244,7 @@ Definition Schemata
    If a definiens is replaced by its abbreviation it's called PACKING, while
    UNPACKING is replacing an abbreviation with its definiens.
 
+
 -----------------
 The Laws of Logic
 -----------------
@@ -360,7 +361,7 @@ Set Operations
 
    UNION ( ∪ ) 
 
-      The union of two sets is the set of all things contained in both
+      The UNION of two sets is the set of all things contained in both
       of those sets combined.
 
          R ∪ C
@@ -369,7 +370,7 @@ Set Operations
 
    INTERSECTION ( ∩ )
 
-      The intersection of two sets is the set of all things common to those
+      The INTERSECTION of two sets is the set of all things common to those
       two sets.
 
          R ∩ C
@@ -382,7 +383,7 @@ Set Operations
 
    COMPLEMENT ( ' )
 
-      The complement of a set is the set of all things *not* in the set.
+      The COMPLEMENT of a set is the set of all things *not* in the set.
 
          C' = { x | x is not a car }
          C'' = C
@@ -494,9 +495,9 @@ Grammar
 
    Notes
 
-   - Notice that the formation rules for wffs are recursive,
-     meaning that wffs can nest within other wffs to any depth.
-     While P ∧ Q is a wff, so is (-(P ∨ Q) → R).
+   - Notice that the formation rules for wffs are recursive, meaning that
+     wffs can nest within other wffs to any depth.  While P ∧ Q is a wff,
+     so is (-(P ∨ Q) → R).
 
    - To aid readability, I adopt the convention that if a wff begins with
      '(', I will drop the outermost pair of parentheses.
@@ -556,7 +557,7 @@ Tree Graphs
    or VERTEXES.  A node that has an edge above it is CHILD, and conversely,
    a node that has an edge below it is called a PARENT.  Tree graphs are
    inverted from their counterparts in nature.  Thus the ROOT of a tree graph
-   is at the top.   The rest of the tree descends from the root—placing
+   is at the top.   The rest of the tree descends from the root-placing
    the childless LEAVES all at the bottom.  Traversing a series of nodes
    via their joining edges down to a leaf is called a PATH
    (e.g., parent&child > node > leaf4).  Descending a path sees children
@@ -603,19 +604,18 @@ Syntax Trees
 Substitution Instance
 =====================
 
-   A SUBSTITUTION INSTANCE of a wff has the same structure
-   as the original but where *new* wffs uniformly replace proposition
-   symbols in the original.  'Instance of' relationships do not have
-   to be symmetrical and usually are not.  P being an instance of Q,
-   does not imply that Q is an instance of P.
+   A SUBSTITUTION INSTANCE of a wff has the same structure as the original
+   but where *new* wffs uniformly replace proposition symbols in the original.
+   'Instance of' relationships do not have to be symmetrical and usually are
+   not.  P being an instance of Q, does not imply that Q is an instance of P.
 
    =============  =====   =======   ===========   ====================
-   Original Form  P ∧ Q | P  ∧ Q  | P       ∧ Q | P  → (P  ∧ Q       )
+   Original Form  P ∧ Q | P  ∧ Q  | P ∧ Q       | P  → (P  ∧ Q       )
    =============  =====   =======   ===========   ====================
-   Substitutions  P=R   | P=-S    | P=(C ∧ D)   | P=-H
-                  Q=S   | Q=Z     | Q=D         | Q=(-S ∨ M)
+   Substitutions  P=R   | P=-S    | P=D         | P=-H
+                  Q=S   | Q=Z     | Q=(C → D)   | Q=(-S ∨ M)
    -------------  ----- | ------- | ----------- | --------------------
-   Instance       R ∧ S | -S ∧ Z  | (C ∧ D) ∧ D | -H → (-H ∧ (-S ∨ M))
+   Instance       R ∧ S | -S ∧ Z  | D ∧ (C → D) | -H → (-H ∧ (-S ∨ M))
    =============  =====   =======   ===========   ====================
 
 
@@ -768,6 +768,9 @@ Sequents
    '⊢' is a TURNSTILE.  It's part of the metalanguage, not a part of
    propositional logic.
 
+   An ARGUMENT FORM is another name for a sequent.  Formal logic studies
+   argument forms.
+
 TRUTH-TABLES
 ============
 
@@ -798,11 +801,10 @@ Truth-Table Construction
    4.  In a given row under the first formula, starting from the innermost
        parentheses and working outwards, evaluate each of the expressions
        according to the valuation function, v.  Continue until a T or F can
-       be placed under the top-level (outermost) operator on every row.
-       Repeat this valuation procedure below each wff and each row
-       in the table.
+       be placed under the top-level operator on every row.  Repeat this
+       valuation procedure below each wff and each row in the table.
 
-   The study will only need to consider the columns under each wffs' main
+   The study will only need to consider the columns under each formula's main
    operator, so it is convenient to highlight the completed column somehow.
    Here I place an '*' at the bottom of those columns.
 
@@ -851,7 +853,7 @@ Truth-Table Study of A Single WFF
    CONTRADICTION
 
       A kind of inconsistent formula that's structured as the conjunction
-      of a wff with its negation; i.e. any instance of 'Φ ∧ -Φ'.
+      of a wff and its negation; i.e. any instance of 'Φ ∧ -Φ'.
 
    CONSISTENT WFF
 
@@ -888,10 +890,10 @@ Truth-Functional Completeness
    Propositional logic's set of primitive operators -, ∧, ∨, → and ↔
    is truth-functionally complete.  But so too is negation with any other
    single operator.  Some authors have defined new operators that are
-   truth-functionally complete by themselves.  An example is the
-   SHEFFER STROKE symbol '(P|Q)', whose valuation function is logically
-   equivalent to the form -(P ∧ Q).  However, any logic constructed upon
-   just one operator is cumbersome to use.
+   singularly truth-functionally complete.  An example is the SHEFFER STROKE
+   symbol '(P|Q)', whose valuation function is logically equivalent to the
+   form -(P ∧ Q).  However, any logic constructed upon just one operator
+   is cumbersome to use.
 
    For example, observe in the two examples that the columns under the
    main operators (highlighted with '*') under each wff have the same
@@ -973,8 +975,8 @@ Truth-Table Study of A Sequent
           T T |   T   |  F    |  F T
                   *      *       *
 
-   We have discovered a row on which the premises are all T, but the conclusion
-   is F, so the argument form is invalid.
+   We have discovered a row on which the premises are all T, but the
+   conclusion is F, so the argument form is invalid.
 
    The results for an inconsistent set of premises may seem counter-intuitive.
 
@@ -996,19 +998,19 @@ Truth-Tables ("Fast Method")
 ============================
 
    There is a faster way to construct a truth-table, though it is not
-   as visually satisfying. Instead, it implements a search algorithm
+   as visually satisfying.  Instead, it implements a search algorithm
    to find only those valuations on which a formula is T (or F).  It has
    the advantage over a full truth-table in that we escape the problem
    of potentially huge tables due to a large number of proposition symbols.
 
    Procedure
 
-   1.  Write down in a horizontal list the wff, set of wffs, or sequent under
-       study.  Write T or F (depending on what you are trying to find - see
-       Truth-Table Study of Single WFFs above) below the main operator of each
-       formula.
+   1.  Write down in a horizontal list of the wff, set of wffs, or sequent
+       under study.  Write T or F (depending on what you are trying to find -
+       see Truth-Table Study of Single WFFs above) below the main operator of
+       each formula.
 
-   2.  Now work backward from the outermost operator down to the innermost
+   2.  Now work backwards from the main operator down to the innermost
        parentheses.  Evaluate as many sub-expressions as possible, continuing
        until it is not possible to do anything else - some sub-wffs may
        go undetermined.
@@ -1067,7 +1069,7 @@ Fast truth-table Study of A Single WFF
    T under the main operator, and once with F.  The wff is contingent if
    and only if at least one valuation of the proposition symbols that makes
    the main operator T is found, and at least one valuation of the
-   proposition symbols that make the main operator F.
+   proposition symbols that make the main operator F is found.
 
 Fast Truth-Table Study of A Set of WFFs
 ---------------------------------------
@@ -1089,7 +1091,7 @@ Fast Truth-Table Study of A Set of WFFs
    
          3.  P ∧ Q    -(- P ∨ - Q)             P ∧ Q    - P ∨ - Q
              T T T    T F   F F                T T T    F T T F T
-                                               *   *
+                                               *   *        
          4.  P ∧ Q    -(- P ∨ - Q)             inconsistent
              T T T    T F T F F T
              *   *        *     *
@@ -1126,7 +1128,7 @@ Fast Truth-Table Study of A Sequent
    The search succeeded in finding a set of values that make all the
    premises T and the conclusion F.  So the argument is invalid.
 
-   Example  Test the argument form for validity
+   Example  Test the sequent for validity
 
          1.  P → (Q ∨ R), Q → S, P  ⊢  - R → S
                T            T    T         F
@@ -1142,7 +1144,7 @@ Fast Truth-Table Study of A Sequent
 
          5.  P → (Q ∨ R), Q → S, P  ⊢  - R → S
              T T  F T F   F T F  T     T F F F
-                  *
+                    ?
 
    We've discovered a contradiction.  The highlighted disjunction can't be
    T if both Q and R are F.  Therefore, the form is valid.
@@ -1153,19 +1155,19 @@ Truth-Trees
    Decidability
 
    If there is an algorithm for determining whether an argument form
-   expressible in a formal system such as propositional logic is valid, then
-   that system is DECIDABLE.  Truth-tables and fast truth-tables both
-   constitute such algorithms.  Therefore, the logic is decidable.  However,
-   those methods can become impractical when the set of proposition symbols
-   starts to grow.  Truth-trees provide a more efficient algorithm for
-   performing the same tasks.
+   expressible in a propositional logic is valid, then that system is
+   DECIDABLE.  Truth-tables and fast truth-tables both constitute such
+   algorithms.  Therefore, the logic is decidable.  However, those methods
+   can become impractical when the set of proposition symbols starts to grow.
+   Truth-trees provide a more efficient algorithm for performing the same
+   tasks.
 
    Truth-Trees
 
    Given a set of wffs, a TRUTH-TREE is an exhaustive search for ways
-   in which all the wffs can be true.  The nodes of the tree will each
-   have a list of one or more wffs.  A CLOSED PATH is any path that's
-   terminated by '⊥'.  So, an OPEN PATH is any path that's not closed.
+   in which all the wffs can be true.  The nodes of the tree will each have
+   a list of one or more wffs.  A CLOSED PATH is any path that's terminated
+   by '⊥'.  So, an OPEN PATH is any path that's not so terminated.
 
    Procedure
 
@@ -1173,7 +1175,8 @@ Truth-Trees
        the root of the tree, so place it at the top of the page.
 
    2.  Repeatedly apply the following rules in any order.  The tree
-       is completed when no additional rules can be applied.
+       is completed when all paths are closed or no additional rules can
+       be applied.
 
    Note that while the order rules are applied does not matter, to keep the
    tree smaller, at each step, always apply all non-branching rules before
@@ -1228,7 +1231,7 @@ Truth-Trees
          Φ and -Ψ, and at the end of the second write both -Φ and Ψ.
    ====  =====================================================================
 
-   These rules can also be described in diagrams.
+   These rules can also be expressed in diagrams.
 
            +---------------------------+---------------------------+         
            | ========================= | ========================= |
@@ -1287,7 +1290,7 @@ Truth-Tree Study of A Single WFF
    wff is inconsistent.  If it contains one or more open paths, the wff
    is consistent.  If it contains two or more open paths, then the wff is
    either tautological or contingent.  To find out which construct a second
-   tree for the negation of the original wff.  A wff is tautological if and
+   tree for the negation of the original wff.  The wff is tautological if and
    only if its negation is inconsistent.  Otherwise, it is contingent.
 
          =============   ==========================   ===========
@@ -1301,7 +1304,7 @@ Truth-Tree Study of A Single WFF
 Truth-Tree Study of A Set of Wffs
 ---------------------------------
 
-   To test a set of wffs using a truth-tree, list vertically the wffs forming
+   To test a set of wffs using a truth-tree, list vertically the wffs to form
    the root.  Then conduct the search process by applying the above rules
    in any order.
 
@@ -1324,7 +1327,7 @@ Truth-Tree Study of A Sequent
    Construct the tree as usual.
 
    When the tree is complete, assess the results.  If all paths
-   are closed with a ⊥ then the argument form is valid.
+   are closed then the argument form is valid.
 
    Any open paths of a finished tree for an argument form show all the
    counterexamples to that form.  Where a negated proposition symbol
@@ -1336,6 +1339,49 @@ Truth-Tree Study of A Sequent
          0  open paths   valid
          1+ open paths   Invalid w/ counterexamples
          =============   ==========================
+
+   Example
+
+   Let's test the argument P → Q, -Q ⊢ -P.  Begin by listing the assumptions
+   and negated conclusion.
+
+                             P → Q
+                             - Q
+                             - - P
+
+   We can either apply the → rule or the -- rule.  The former is a
+   branching rule so we'll apply the non-branching --rule first.
+
+                             P → Q
+                             - Q
+                           * - - P
+                             P
+
+   Next apply the → rule
+
+                           * P → Q
+                             - Q
+                           * - - P
+                             P
+                           /       \
+                         /           \
+                       - P             Q
+
+   Notice P and -P on the first branch, also notice -Q and Q on the second
+   branch.  According to the - rule we need to close these branches.
+
+                           * P → Q
+                             - Q
+                           * - - P
+                             P
+                           /       \
+                         /           \
+                       - P             Q
+                        ⊥              ⊥
+
+   Since all paths are closed no more rules can be applied.  Therefore the
+   tree is completed.  The table above says that since there are 0 open paths
+   the argument is valid.
 
 
 ----------------------
@@ -1397,8 +1443,8 @@ Direct Proofs
    that means; just understand the structure of the proof.  Step 4 applies a
    rule called 'Conjunction Elimination' to step 3, resulting in the wff 'Q'.
    Since Q is the conclusion form of the sequent and the justified formula
-   on step 4, trying to attain. the proof has completed successfully.  Hence,
-   the proof is closed with 'QED'.
+   on step 4. the proof has completed successfully.  Hence, the proof is
+   closed with 'QED'.
 
    Usually, people abbreviate the names of the inference rules within a proof.
    Assumptions are abbreviated as 'A'.  For each truth-functional operator,
@@ -1417,8 +1463,8 @@ Hypothetical Subordinate Proofs
    another proof.  It is analogous to nesting blocks of code in a computer
    program, and similarly, subproofs can be nested to any depth.  Indent
    subproof from the surrounding proof and draw a vertical line just to the
-   right of the wffs to signal that something is a subproof.  The first line
-   of a subproof is the proposition called the HYPOTHESIS.
+   right of the wffs to signal that something is a subproof.  The first wff
+   of a subproof is called the HYPOTHESIS.
 
             P → Q, -Q  ⊢  -P
             Proof
@@ -1440,7 +1486,7 @@ Hypothetical Subordinate Proofs
    5 ends the subproof, and line 6 returns our attention to the enclosing
    proof, the main proof.  Recall that the goal of the hypothetical subproof
    was to perform -I; which is now performed on line 6.  Notice the citation
-   is a range of steps '3-5', which is the entire subproof.  Which says that
+   is a range of steps '3-5', which is the entire subproof.  This says that
    the subproof justifies applying the -I rule to obtain -P, which is the
    conclusion form of the sequent, so the proof completed successfully
    hence the 'QED'.
@@ -1471,7 +1517,7 @@ Regarding Notation
 Primitive Inference Rules
 =========================
 
-   Here are the basic inference rules.  Some of them have multiple names,
+   Following are the basic inference rules.  Some of them have multiple names,
    and the abbreviation for each name is in parentheses.  Use any name
    according to preference.
 
@@ -1496,7 +1542,7 @@ Primitive Inference Rules
       Simplification (Simp)
 
    Conjunction Introduction (∧I)     From Φ and Ψ, infer Φ ∧ Ψ,
-                                     or infer Ψ ∧ Φ.
+      Conjunction (Conj)             or infer Ψ ∧ Φ.
 
    Disjunction Elimination (∨E)      From Φ ∨ Ψ, Φ → Θ and Ψ → Θ, infer Θ.
       Proof by Cases (PBC)
@@ -1521,7 +1567,7 @@ Primitive Inference Rules
                                      infer Θ(Φ/Ψ).
    ================================  =========================================
 
-   These rules are sometimes represented in diagrams.  Horizontal lines
+   These rules are sometimes expressed in diagrams.  Horizontal lines
    denote 'infer', vertical lines denotes subproofs.  Some rules have
    multiple forms.
 
@@ -1601,14 +1647,14 @@ Other Justifications
 
    Notice that in the rules the definition is in brackets '[' and ']'.
    Brackets indicate that the definition needs to exist but doesn't need
-   to appear in the proof to be applied.
+   to appear in the proof.
 
 Derived Inference Rules
 =======================
 
    Use any proved sequent as a new inference rule.  If a sequent is proved
    valid, then all instances of the sequent are also valid.  The following
-   are traditionally important derived rules.
+   are important derived rules.
 
    ================================  =========================================
    Name (Abbreviation)               Sequent
@@ -1629,11 +1675,13 @@ Derived Inference Rules
 Theorems
 ========
 
-   A theorem of propositional calculus is a derived rule which has no premises
-   or undischarged hypotheses.  Theorems are the tautologies of propositional
-   logic.  A sequent for a theorem Φ has the form below.  A theorem is
-   provable by starting its proof with a hypothesis or with a previously
-   proved theorem.
+   A theorem is an unconditionally true proposition.  For a sequent
+   P1,P2,... ⊢ C the conclusion is true conditionally upon the truth
+   of the assumptions.  Hence, a theorem being unconditionally true, simply
+   has no assumptions or undischaraged hypotheses.  Theorems are the
+   tautologies of propositional logic.  A sequent for a theorem Φ has the
+   form below.  Such is provable by starting its proof with a hypothesis or
+   with a previously proved theorem.
 
          ⊢ Φ
 
@@ -1641,7 +1689,7 @@ Equivalences
 ============
 
    An equivalence is a theorem whose main operator is a biconditional.
-   The following are traditionally important equivalences.
+   The following are important equivalences.
 
          ⊢ Φ ↔ Ψ
 
@@ -1682,8 +1730,7 @@ Consequence and Non-Consequence
    PROOF OF NON-CONSEQUENCE (aka REFUTATION PROOF)
 
       A demonstration that some wff C is *not* derivable, by any number
-      of applications of inference rules.  The completed proof lists
-      the counterexamples.
+      of applications of inference rules.
 
    Construct a proof of non-consequence by first listing the premises,
    then begin a subproof by hypothesizing the negation of the conclusion.
@@ -1703,9 +1750,9 @@ Consequence and Non-Consequence
    Once finished, the valuations are readable directly off the proof.
    The above proof tells us that the counterexamples are where P is false
    (due to occurring negated in step 2), and Q is true (due to occurring
-   unnegated in step 3).  We can verify this with a truth-table. 
-   If a proposition symbol doesn't appear negated or unnegated, then
-   it is truth-value does not matter.
+   unnegated in step 3).  If a proposition symbol doesn't appear negated
+   or unnegated, then it is truth-value does not matter.  We can verify
+   this counterexample with a truth-table. 
 
           P Q | P → Q , - P  ⊢  - Q
          ============================
@@ -1717,14 +1764,13 @@ Consequence and Non-Consequence
 
    The highlighted row is the counterexample (all true premises but
    false conclusion).  On that row P and Q have the same truth-values as
-   in the proof of non-consequence.
+   determined by the proof of non-consequence.
 
 
 Defining ⊥ Into Propositional Logic/Calculus
 ============================================
 
-
-   Some calculi implementations use ⊥ (the CONTRADICTION SYMBOL) to cut down
+   Some calculus implementations use ⊥ (the CONTRADICTION SYMBOL) to cut down
    on tedium and improve the readability of proofs.  Applications of -I are
    often preceded by ∧I, but the resulting conjunction can be quite long.
    Since EFQ infers any wff from two contradictory propositions; one can
@@ -1745,45 +1791,33 @@ Defining ⊥ Into Propositional Logic/Calculus
 Derivation Strategies
 =====================
 
-   Below is an outline of a proof strategy.  It's a recursive procedure
-   driven chiefly by the conclusion form.
-
-   Begin the main proof by listing the premises one per line.  Then
-   hypothesize the unnegated or negated conclusion form, use direct proof
-   to attempt to reduce everything to atomic and negated atomic formulas.
-   If you encounter a contradiction use ⊥ I (or ∧I) to derive the
-   contradiction, then use ⊥ E (or -I), and finally if necessary use
-   -E to remove extra pairs of negations out front.  If you can't derive
-   a contradiction you probably have a counterexample.  Prove your work
-   by testing the counterexample truth-values in the original sequent.
-
-   Intermediately apply the following procedure recursively
-   for each subproof,
-
-   Procedure
+   There's no foolproof algorithm that can be followed which will derive
+   a proof every time.  However there are some rules of thumb to assist in
+   the task.
 
    1.  (Conclusion) If the conclusion has one of these forms,
 
-         Φ ∧ Ψ       derive each conjunct, apply ∧I
+         Φ ∧ Ψ       try to derive each conjunct, then apply ∧I;
 
-         Φ ∨ Ψ       derive one disjunct, apply ∨I
+         Φ ∨ Ψ       try to derive one disjunct, then apply ∨I;
 
-         Φ → Ψ       hypothesize Φ derive Ψ, close the subproof, apply → I
+         Φ → Ψ       hypothesize Φ, try to derive Ψ, close the subproof,
+                     then apply → I;
 
-         Φ ↔ Ψ       derive Φ → Ψ, derive Ψ → Φ, apply ↔ I
+         Φ ↔ Ψ       try to derive Φ → Ψ, and derive Ψ → Φ, then apply ↔ I;
 
    2.  (Premise) If a premise has the following form
 
-         Φ ∨ Ψ       derive two conditionals Φ → Θ and Ψ → Θ to obtain the
-                     needed conclusion Θ
+         Φ ∨ Ψ       try to derive two conditionals Φ → Θ and Ψ → Θ to obtain
+                     the needed conclusion Θ using ∨ E;
 
-   3.  (Reductio) Next try one of these taking WFF as the desired conclusion,
+   3.  (Reductio) If the conclusion has one of these forms,
 
-         - WFF       hypothesize WFF (unnegated), derive ⊥ or derive
-                     a contradiction, lastly perform -I or ⊥ E
+         - Φ         hypothesize Φ (unnegated), try to derive ⊥ or derive
+                     a contradiction, lastly apply -I or ⊥ E;
 
-         WFF         hypothesize -WFF, derive ⊥ or contradiction, then
-                     perform -I and finally -E
+         Φ           hypothesize -Φ, try to derive ⊥ or contradiction, then
+                     apply -I and finally -E.
 
 
 --------
@@ -1798,7 +1832,7 @@ Semantic Soundness & Completeness of Propositional Calculus
    derive a wff that's not a logical consequence of those premises.
 
    A calculus is SEMANTICALLY COMPLETE if and only if a given conclusion Φ
-   logically follows from a set of premises, and there exists at least one
+   logically follows from a set of premises, then there exists at least one
    proof of Φ that has a finite number of steps.
 
    Propositional calculus is semantically sound and semantically complete.
@@ -1836,7 +1870,7 @@ Relevance
    whatever into the proof relevant or not.   Their particular concern
    is that this exposes a severe problem of the calculus.  Some have
    gone so far as to introduce new systems of logic in attempts to remove
-   such rules.
+   or "fix" such rules.
 
    The classical perspective is that these issues do not matter because the
    conclusions found by FOC= always do conform to the definition of a valid
@@ -1922,11 +1956,11 @@ The Dictionary
 
    It is helpful to create a dictionary before constructing an atomic formula.
    When investigating a new situation with logic, a dictionary clarifies
-   the meanings of the atomic formulas and the meanings of their components.
-   A dictionary lists the symbols and what they denote in the current universe
-   of discourse.  By convention, letters towards the end of the alphabet
-   (u,v,w,x,y,z) may serve as placeholders, allowing us to define
-   a predicate's meaning more clearly.
+   the meanings of the predicate and constant symbols.  A dictionary lists
+   the symbols and what they denote in the current universe of discourse.
+   By convention, letters towards the end of the alphabet (u,v,w,x,y,z) may
+   serve as placeholders, allowing us to define a predicate's meaning more
+   clearly.
 
 Properties
 ----------
@@ -1936,13 +1970,13 @@ Properties
 
          Dictionary
          ----------------
-         Object Symbols        1-Place Predicates
+         Object Symbols        Predicates
          a,   Alice            Bx,   x is blond
          b,   Bob              Kx,   x is brunette
          c,   Charlie          Sx,   x is scaled
 
-   Construct an atomic formula by substituting one of the object symbols in
-   place of a place-holder in a predicate definition.
+   Construct an atomic formula by substituting object symbols in place
+   of place-holders in a predicate definition.
 
          Ba,  Alice is blond.
          Kb,  Bob is brunette.
@@ -1983,8 +2017,8 @@ Relations
          If Bob is between Alice and Charlie then, Alice isn't between Bob
          and Charlie and Charlie isn't between Alice and Bob.
 
-   Any number of places is acceptable, including 0.  0-place predicates are
-   functionally similar to proposition symbols.
+   Any arity is acceptable for a predicate including 0.  0-place predicates
+   are functionally equavalent to proposition symbols.
 
          0-Place Predicates
          R,        it's raining
@@ -2054,7 +2088,7 @@ Predicate Calculus
 ------------------
 
    The calculus for constructing proofs in predicate logic is largely
-   unmodified and from propositional calculus.  The primary difference
+   unmodified from propositional calculus.  The primary difference
    is in the definition of an atomic formula.
 
          Dictionary
@@ -2090,8 +2124,7 @@ First-Order Predicate Logic
 Regarding Notation
 ------------------
 
-   In the current chapter there is some notation that you should
-   be aware of.
+   The following notations are used in the formal descriptions that follow.
 
    A capital Greek letter (Φ, Ψ, Θ, Δ, etc.) denotes any arbitrary formula,
    and a lower case Greek letter (α, β, δ, etc.) denotes any arbitrary
@@ -2144,7 +2177,7 @@ Grammar
    3.  if Φ,Ψ are wffs, then so are (Φ ∧ Ψ), (Φ ∨ Ψ), (Φ → Ψ), (Φ ↔ Ψ);
    4.  if Φ(α) (α is a constant object in a wff Ψ) is a wff,
        then ∀xΦ(x/α) and ∃xΦ(x/α) are wffs (where x is some new
-       variable in Φ);
+       variable not already in Φ);
    5.  Nothing else is a wff.
 
 
@@ -2179,11 +2212,10 @@ Quantifiers & Variables
    and then a sub-wff.  The quantifier is said to BIND the variable, or the
    variable is BOUND to the quantifier.
 
-         ∀xΦ       For every object x in the universe of discourse,
-                   Φ holds.
+         ∀xΦ       For every object x in the universe of discourse, Φ.
 
          ∃xΦ       There exists at least one object x in the universe
-                   of discourse such that, Φ holds.
+                   of discourse such that, Φ.
 
    Once the variable is bound, it can be used within the wff.  In this
    formulateion of FOL a variable in a wff is always bound provided formation
@@ -2238,7 +2270,7 @@ Free Variables
 --------------
 
    A FREE VARIABLE is a variable that appears within a wff but is not
-   bound by a quantifier.  Our implementation of FOL does not allow
+   bound by a quantifier.  This formulation of FOL does not allow
    free variables provided the formation rules are applied correctly.
    However, some implementations do allow free variables.  Be aware that
    a free variable does not denote anything.  While a variable bound
@@ -2270,7 +2302,7 @@ Single Quantifiers
                          = Some dogs like to swim.
 
    However, this notion of ∀ with →, and ∃ with ∧, isn't arbitrary.
-   They are complementary forms.
+   They are complementary forms.  Consider the following form:
 
          -∀x(Cx → -Sx)   It's false that no cats like to swim.
 
@@ -2315,7 +2347,7 @@ The Aristotelian Forms
 
    Any interpretation of the Aristotelian forms can be represented in FOL.
 
-   The TRADITIONAL INTERPRETATION assigns existential import to all forms.
+   The TRADITIONAL INTERPRETATION grants existential import to all forms.
    The singular forms always denote particular objects in the universe
    so always have existential import.
 
@@ -2331,7 +2363,8 @@ The Aristotelian Forms
       t |            | c=e                  | -c=e                   | < EI
       y +------------+----------------------+------------------------+
 
-   The MODERN INTERPRETATION denies existential import to the universals.
+   The MODERN INTERPRETATION denies existential import to the universals,
+   but grants it to particulars,
 
                                     Quality  
                      +----------------------+------------------------+
@@ -2345,7 +2378,8 @@ The Aristotelian Forms
       t |            | c=e                  | -c=e                   | < EI
       y +------------+----------------------+------------------------+
 
-   An alternative interpretation might assign EI to the affirmatives.
+   An alternative interpretation might grant EI to the affirmatives, but
+   deny it to the negatives.
 
                                     Quality  
                      +----------------------+------------------------+
@@ -2362,7 +2396,7 @@ The Aristotelian Forms
                        ^^^^
                         EI
 
-   Another interpretation might assign EI to the negatives.
+   Another interpretation might grant EI only to the negatives.
 
                                     Quality  
                      +----------------------+------------------------+
@@ -2396,7 +2430,7 @@ English Quantification
 Any/Anybody/Anyone/Anything/Anywhere
 ------------------------------------
 
-   'Any' has different meanings depending upon how it's used.  It can indicate
+   'Any' has different meanings depending upon how it's used.  It can denote
    either quantifier.  Generally, try to rephrase the proposition
    so it doesn't use 'any'.
 
@@ -2413,7 +2447,7 @@ Validity / Valid Formula
    A VALIDITY or VALID FORMULA, like a tautology, is true in all cases,
    however the term is more broad.  Tautology only refers to something being
    true in all cases in virtue of truth-functions.  While 'validity' refers
-   to all expressions of this nature.  The following is a valid wff in FOL.
+   to all expressions of this sort.  The following is a valid wff in FOL.
 
          ∀x-Px  ↔  -∃xPx,    where P is an arbitrary predicate.
 
@@ -2422,7 +2456,7 @@ Truth-Trees
 
    Construction of Truth-trees in FOL is similar to how they are constructed
    in predicate logic with the addition of a few extra rules for handling
-   quantifiers.
+   the quantifiers and their negated forms.
 
    ====  =====================================================================  
    Name  Rule
@@ -2446,7 +2480,7 @@ Truth-Trees
          starred wff.
    ====  =====================================================================
 
-   These rules are often described with diagrams instead of words.
+   These rules are often expressed with diagrams instead of words.
 
             +--------------------------+--------------------------+
             | ======================== | ======================== |
@@ -2514,9 +2548,10 @@ Primitive Inference Rules
 =========================
 
    Let α represent any constant symbol, and x represent any variable.
-   A boxed constant [α] introduces a *new* constant into a subproof, which
-   subsequently goes out of scope when the subproof closes (just like
-   a local variable in a computer program) meaning once the subproof
+   A boxed constant [α] introduces a *new* constant into a subproof (one
+   that doesn't already appear in any open line of the proof).  A boxed
+   constant subsequently goes out of scope when the subproof closes (just
+   like a local variable in a computer program) meaning once the subproof
    is ended that occurrence of α is no longer accessible.
 
    ================================  =========================================
@@ -2543,7 +2578,7 @@ Primitive Inference Rules
       | ============================= | ============================= |
       |  ∀E                           |  ∀I                           |
       | ============================= | ============================= |
-      |   ∀xΦ                         |   |[α]        (new α)         |
+      |   ∀xΦ                         |   |[α]        (α is new)      |
       |  --------                     |   |   ...                     |
       |   Φ(α/x)  (any α)             |   |   Ψ(α)                    |
       |                               |  -----------                  |
@@ -2553,7 +2588,7 @@ Primitive Inference Rules
       |  ∃E                           |  ∃I                           |
       | ============================= | ============================= |
       |   ∃xΦ(x)                      |   Φ(α)                        |
-      |   |[α] Φ(α//x)     (new α)    |  ----------                   |
+      |   |[α] Φ(α//x)     (α is new) |  ----------                   |
       |   |   ...                     |   ∃xΦ(x/α)                    |
       |   |   Ψ                       |                               |
       |  --------------               |                               |
@@ -2630,10 +2665,10 @@ Proofs of Non-Consequence
                 -Pa      -Qa   -Pa       -Qa
                                           ⊥  
 
-      The first open branch says Pa=F, Qa=?; in the second open branch
-      Pa=F, Qa=F; and in the third open branch Pa=F, Qa=T.  So there are two
+      The first open path says Pa=F, Qa=?; in the second open path
+      Pa=F, Qa=F; and in the third open path Pa=F, Qa=T.  So there are two
       counterexamples: Pa=F, Qa=F; and Pa=F, Qa=T.  These results are
-      consistent with the proof of non-consequence.
+      consistent with the proof of non-consequence above.
 
 ------------------------------------------
 Proofs of Some Aristotelian Argument Forms
@@ -2764,7 +2799,7 @@ Properties of Relations
 
       Let,
          R,        be any binary relation
-         x,y,z,    be any object symbols
+         x,y,z,    be any variable symbols
          a,b,c,    be any constant symbols
 
     ================  ================================  =================
@@ -2825,7 +2860,7 @@ Truth Trees
    -=    Close any path on which -α=α occurs by placing ⊥ at the bottom.
    ====  =====================================================================
 
-   These rules are often described with diagrams instead of words.
+   These rules are often expressed with diagrams instead of words.
 
             +--------------------------+--------------------------+
             | ======================== | ======================== |
@@ -2857,7 +2892,7 @@ Primitive Inference Rules
                                      at any step.
    ================================  =========================================
 
-   These rules can also be described in diagrams.
+   These rules can also be expressed in diagrams.
 
       +-------------------------------+-------------------------------+
       | ============================= | ============================= |
@@ -2878,16 +2913,16 @@ Concerns
 Identity Peculiarities
 ======================
 
-   We can't be certain that just because SOL classifies a string as
+   We can't be certain that just because FOL= classifies a string as
    well-formed that the string is therefore sensical.  FOL= classifies
    the following expressions as wffs though they're nonsensical:
 
-         ∀x-x=α
+         ∀x-x=α    where α is some constant symbol
          -∀xx=x
 
    Their existential duals are just as problematic.
 
-         -∃xx=α 
+         -∃xx=α    where α is some constant symbol
          ∃x-x=x
 
 
@@ -3077,7 +3112,7 @@ Translation Hints
    Composed Functions
 
          m(x),     the mother of x.
-         m(m(x)),  the mother of the mother of x.  (x's grandmother)
+         m(m(x)),  the mother of the mother of x.  (x's maternal grandmother)
 
          0,        zero
          s(0),     1 (the successor of zero).
@@ -3087,11 +3122,11 @@ Translation Hints
    Non-Functions
 
          None of the following is a function, because none is guaranteed to
-         always map any object to exactly one object.
+         always map to exactly one object.
 
-         d(m),     the daughters of Mike.
-         b(x),     the brothers of x.
-         s(h),     the shingles of my house.
+         d(m),     the daughter of Mike.
+         b(x),     the brother of x.
+         s(h),     the shingle of my house.
 
          If in the universe of discourse objects do map to unique objects
          then they may be functions within the universe even if they
@@ -3156,7 +3191,7 @@ Definite Descriptors
 
          B(℩xKx), the king of France is bald.
                   the x such that x is the king of France is Bald
-         =∃x(Kx ∧ ∀y(Ky → y=x) ∧ Bx)
+                  = ∃x(Kx ∧ ∀y(Ky → y=x) ∧ Bx)
 
 
 --------
@@ -3165,7 +3200,7 @@ Concerns
 
    What's the truth-value of a definite descriptor if it doesn't denote?  This
    is the question that plagues descriptors.  Russell was certain that such
-   a proposition is false, but many philosophers aren't so sure.
+   a proposition is false, but many philosophers aren't convinced.
 
 
 ====================================
@@ -4597,8 +4632,8 @@ Appendix D: UTF-8 Character Codes
    ℩            definite descriptor (inverted iota)    2129
    □            box                                    25A1
    ◇            diamond                                25C7
-   ▪            solid box                              25AA
-   ♦            solid diamond                          2666
+   ■            solid box                              25A0
+   ◆            solid diamond                          25C6
    T            tautology, valid wff                   22A4
    ⊥            contradiction (inverted T)             22A5
    ⊢            entails (turnstile)                    22A2
