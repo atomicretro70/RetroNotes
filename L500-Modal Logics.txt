@@ -182,12 +182,12 @@ Grammar
 
    Notes
 
-   - To aid readability of wffs we adopt the convention that if a wff
-     that begins with '(', we will drop the outer-most pair of parenthesis.
+   - To aid readability of wffs I adopt the convention that if a wff
+     that begins with '(', I will drop the outer-most pair of parenthesis.
 
    - In practice it's common to use tick marks or numerical subscripts
-     (we use postscripts) after the proposition symbol to increase to
-     infinity the number of available symbols.
+     (we use postscripts) after the proposition symbol to increase
+     the number of available symbols.
 
 Definitions
 -----------
@@ -266,8 +266,8 @@ Primitive Inference Rules
 
    Note: Apart from RE we can only appeal to lines in the current subproof.
 
-   These rules are sometimes represented in diagrams.  Horizontal lines
-   denote 'infer', vertical lines denote subproofs.  Some rules have
+   These rules are sometimes represented expressed in diagrams.  Horizontal
+   lines denote 'infer', vertical lines denote subproofs.  Some rules have
    multiple forms.
 
       +-------------------------------+-------------------------------+
@@ -429,11 +429,11 @@ Equivalences
 
    Equivalence Theorem Substitution
 
-   This handy device is a problem for modal logic.
-   Equivalences can be used to swap instances of one side of the equivalence
-   in wffs, with the corresponding instances of the other side.  This handy
-   inference rule isn't going to be valid once we add Modal Logic.  So we're
-   not permitting it at all.
+   This handy device is a problem for modal logic.  Equivalences can be used
+   to swap instances of one side of the equivalence in wffs, with the
+   corresponding instances of the other side.  This handy inference rule
+   isn't going to be valid once we add Modal Logic.  So we're not permitting
+   it at all.
 
    @@@ It may be possible to still use these provided the thing being
    rewritten is not the main operator under □  or ◇ .
@@ -868,11 +868,11 @@ Extension & Intension
 Kripke Semantics
 ================
 
-   Kripke semantics describe a way to understand possible worlds.  Kripke
-   defined a new semantic concept called an accessibility relation between two
-   worlds.
+   Kripke semantics describes a way to understand possible worlds.  Kripke
+   defined a new semantic concept called an ACCESSIBILITY RELATION (AR)
+   between two worlds.
 
-      The accessibility relation
+      The accessibility relation (AR)
          wxRwy     means world wx can access world wy, 
 
    You can think of the accessibility relation as an arrow pointing from wx to
@@ -885,7 +885,7 @@ Kripke Semantics
       If wxRwy then wyRwx.       (Every accessibility arrow is double ended)
 
    Transitivity
-      If wxRwy and wyRwz then wxRwz.   (□ P can traverse multiple worlds)
+      If wxRwy and wyRwz then wxRwz.   (□ P can traverse multiple ARs)
 
    System M/T = K + refl                      □ A → A (axiom M/T) = K + M
    System B   = K + refl + symmetry           A → □ ◇ A (axiom B)
@@ -935,9 +935,9 @@ Alethic Deduction - Axiomatic
 This and several sections to follow present different alethic modal deduction
 formulations.  These formulations are equivalent in that they prove all the
 same arguments.  They are presented here to illustrate some of the various
-formulations.  The first formulation is an axiomatic formulation and is widely
-regarded as the definitive system.  The remaining sections introduce various
-natural deduction formulations.
+ways modal deduction can be formulated.  The first formulation is an axiomatic
+formulation and is widely regarded as the definitive system.  The remaining
+sections introduce various natural deduction formulations.
 
 The exact combination of rules of inference for alethic logic is
 controversial.  We shall examine some well known rules and systems.
@@ -1010,14 +1010,6 @@ Alethic Inferential Systems
    System S5   = System K + (M) + (5)              ( (5) = (4) + (B) )
                = System K + (M) + (4) + (B)
 
-Controversy over S4 and S5
-==========================
-
-   S5 is used for the modal ontological arguments which don't work in any
-   other modal system.  Yet people feel that s5 says and infers things
-   that people don't usually want as part of their alethic system.  S4 is
-   much less controversial.
-
 
 ---------------------------------------------
 Alethic Deduction - □ Based Natural Deduction
@@ -1031,7 +1023,7 @@ System K
    □ , then build our inference rules on top of that to produce a system
    equivalent to System K.
 
-   A BOXED SUBPROOF is a subproof that begins with □ *instead* of
+   A BOXED SUBPROOF is a subproof that begins with □  *instead* of
    a hypothesis.  Informally, the □  header indicates that every line within
    the subproof is necessarily true.
 
@@ -1073,12 +1065,13 @@ System K
       | ============================= | ============================= |
       | H                             | RE                            |
       | ============================= | ============================= |
-      |                               |   P      P                    |
-      |  -------    -------           |  ---    ---------             |
-      |   |   P      |□               |   P      |   ...   Subproof   |
-      |                               |          |   P     not boxed  |
+      |                               |   P         P                 |
+      |  -------    -------           |  ---       ---------          |
+      |   |   P      |□               |   P         |   ...           |
+      |                               |             |   P             |
       |  P is a                       |                               |
-      |  hypothesis                   |                               |
+      |  hypothesis                   |  (same     (Immediately nested|
+      |                               |  subproof) not boxed subproof)|
       |                               |                               |
       | ============================= | ============================= |
       | Def ◇                         |                               |

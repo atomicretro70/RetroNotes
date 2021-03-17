@@ -3207,7 +3207,7 @@ Concerns
 Second-Order Quantified Logic (SOL=)
 ====================================
 
-   Second order logic adds new quantifiers and new variables that reign
+   Second-order logic adds new quantifiers and new variables that reign
    over predicates.
 
          ∀x∃VVx    Every object has some (1 or more) property.
@@ -3262,7 +3262,7 @@ Semantics
 ---------
 
    The quantifiers of FOL are here OVERLOADED, redefined so that they
-   accept other kinds of arguments.  In this case, they are overloaded
+   accept another kind of argument.  In this case, they are overloaded
    to accept variable object symbols as their first argument and they
    accept variable predicate symbols.  They are read the same way
    and mean nearly the same as their FOL counterparts.  The variable
@@ -3327,8 +3327,8 @@ Inductive Definitions
    case elements of the set.
 
    The formation rules for all of the classical logics are examples
-   of inductive definitions.  For illustration, here are the formation rules
-   for propositional logic.
+   of inductive definitions.  For illustration, here again are the formation
+   rules for propositional logic.
 
          1.   Every atomic formula is a wff;
          2.   If P is a wff, then so is -P;
@@ -3365,16 +3365,16 @@ Zero and The Successor Function
 Inductive Inference
 ===================
 
-   Mathematical induction is infers a proof that all members
-   of the set enumerated by the inductive definition have some property P.
-   Off the definition, an INDUCTIVE INFERENCE proceeds in two
-   steps:  the BASE case and the inductive case.  The BASE CASE of the
-   proof requires that we prove that the members denoted by the base clause
-   of the inductive definition have property P.  The INDUCTIVE CASE
-   is a hypothetical proof.  The method is to prove the conditional that
-   for any x in the universe, if x has the property P, then the successor
-   of x also has property P.  All of these pieces put together are adequate
-   to conclude that all members of the set have property P.
+   Mathematical induction infers a proof that all members of the set
+   enumerated by the inductive definition have some property P.  From the
+   definition, an INDUCTIVE INFERENCE proceeds in two steps:  the BASE
+   case and the inductive case.  The BASE CASE of the proof requires that
+   we prove that the members denoted by the base clause of the inductive
+   definition have property P.  The INDUCTIVE CASE is a hypothetical proof.
+   The method is to prove the conditional that for any x in the universe,
+   if x has the property P, then the successor of x also has property P.
+   All of these pieces put together are adequate to conclude that all
+   members of the set have property P.
 
    The inferential step of Mathematical Induction is expressible over the
    natural numbers as an axiom in second-order logic, an axiom schema in
@@ -3430,7 +3430,7 @@ Axiomatic and Natural Deduction
        |                                                              |
        |    (P ∧ Q)     =df  -(P → -Q)                                |
        |    (P ∨ Q)     =df  -P → Q                                   |
-       |    (P ↔ Q)   =df  ((P → Q) ∧ (Q → P))                        |
+       |    (P ↔ Q)     =df  ((P → Q) ∧ (Q → P))                      |
        |                                                              |
        | Inference Rule                                               |
        |                                                              |
@@ -3459,12 +3459,11 @@ Formal Theories
    Since any interesting theory has a large number (usually infinite number)
    of propositions, it would be impractical to uncover all those truths.
    We attempt to tackle this problem with a set of first principles from which
-   can be reasoned the rest of the theory.  In this way the
-   first principles combined with logical reasoning GENERATES theorems.
-   It is easy to construct a theory that OVER GENERATES, proves too many
-   things, i.e. theorems that are not true of the model; or UNDER GENERATES,
-   does not prove all of the true things that there are to say
-   about the model.
+   can be reasoned the rest of the theory.  In this way the first principles
+   combined with logical reasoning GENERATES theorems.  It is easy to
+   construct a theory that OVER GENERATES, proves too many things, i.e.
+   theorems that are not true of the model; or UNDER GENERATES, does not
+   prove all of the true things that there are to say about the model.
 
    The FIRST PRINCIPLES of a theory are those things from which the rest
    of the theory may be derived; they include but may not be limited to
@@ -3503,8 +3502,8 @@ Formal Theories
    from what it is claimed to follow from.
 
    A CONJECTURE is any proposition that cannot be proved as a theorem in any
-   known theory but is still taken as a true principle due to its usefulness or
-   apparent wisdom.  The well known Occam's razor is sometimes called
+   known theory but is still taken as a true principle due to its usefulness
+   or apparent wisdom.  The well known Occam's razor is sometimes called
    a conjecture.  Einstein took Galileo's equivalence principle, a conjecture,
    and promoted it to an axiom of his theory of relativity.
 
@@ -3533,14 +3532,14 @@ Theory of Taller-Than
 Formal Arithmetic
 =================
 
-Formal arithmetic is a theory about arithmetic of whole numbers (non neg
-integers).
+Formal arithmetic is a theory about arithmetic of natural numbers (non-
+negative integers).
 
    Dictionary
          0,    constant object symbol zero.
          sx,   function, the successor of x.
-         +     to signify addition
-         *     to signify multiplication.
+         +,    to signify addition
+         *,    to signify multiplication.
 
    Axioms
          A1.   ∀x-0=sx
