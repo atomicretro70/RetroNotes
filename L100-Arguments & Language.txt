@@ -78,9 +78,8 @@ Introduction
 History
 -------
 
-   Logic has a very long history.  An ancient Greek philosopher named
-   Aristotle (384 - 322 BCE) who lived in Athens, perhaps the best known
-   of Plato's students from the Academy, gave us the first formal logical
+   Logic has a very long history.  The ancient Greek philosopher Aristotle
+   (384 - 322 BCE) who lived in Athens, gave us the first formal logical
    system today called Categorical Logic.  His logic is complete, it proves
    everything that it can within the bounds of the logic; and it's sound,
    if used properly it can't be coerced to prove something that doesn't
@@ -148,9 +147,7 @@ Identification
 LOGIC
 =====
 
-   (General)  The science that studies and evaluates arguments.
-   (Specific) a formal language for expressing propositions along with a
-              formal deductive system.
+   The science that studies and evaluates arguments.
 
 
 Proposition
