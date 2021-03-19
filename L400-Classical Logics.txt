@@ -223,7 +223,7 @@ Definition Schemata
    the end of the alphabet: u,v,w,x,y,z, across which values are substituted
    uniformly to obtain a definition.
 
-   Example: formal definition of the 'probability of X given that Y'.
+   Example: definition schema of the 'probability of X given that Y'.
 
                       P(X ∧ Y)
          P(X|Y)  =df  --------
@@ -769,7 +769,7 @@ Sequents
    propositional logic.
 
    An ARGUMENT FORM is another name for a sequent.  Formal logic studies
-   argument forms.
+   argument forms (reasoning patterns).
 
 TRUTH-TABLES
 ============
@@ -882,6 +882,37 @@ Truth-Table Study of A Single WFF
          2+       0        tautology or validity
          =======  =======  ==========================
 
+Truth-Table Study of A Set of WFFs
+----------------------------------
+
+   A truth-table study of a set of wffs can give us insight into the
+   relationships between those formulas.
+
+   CONSISTENT SET OF FORMULAS
+
+      A set of wffs is CONSISTENT if there is at least one valuation (row)
+      of the table on which every formula has T under its main operator.
+
+   INCONSISTENT SET OF FORMULAS
+
+      A set of wffs is INCONSISTENT if there is no valuation (row)
+      on which all formulas have T under their main operators.
+
+   LOGICALLY EQUIVALENT PAIR OF FORMULAS
+
+      A pair of wffs is LOGICALLY EQUIVALENT if for every valuation (row)
+      of the table, both wffs have the same value under their main
+      operators.  Notice that each of the following pair of formulas
+      is logically equivalent.
+
+          R S | R → S | - R ∨ S
+          ========================
+          F F | F T F | T F T F
+          F T | F T T | T F T T
+          T F | T F F | F T F F
+          T T | T T T | F T T T
+                  *         *
+
 Truth-Functional Completeness
 -----------------------------
 
@@ -906,37 +937,6 @@ Truth-Functional Completeness
           T F |  T T F  | T T F F
           T T |  T F T  | F T T T
                    *      *
-
-Truth-Table Study of A Set of WFFs
-----------------------------------
-
-   A truth-table study of a set of wffs can give us insight into the
-   relationships between those formulas.
-
-   CONSISTENT SET OF FORMULAS
-
-      A set of wffs is CONSISTENT if there is at least one valuation (row)
-      of the table on which every formula has T under its main operator.
-
-   INCONSISTENT SET OF FORMULAS
-
-      A set of wffs is INCONSISTENT if there is no valuation (row)
-      on which all formulas have T under their main operators.
-
-   LOGICALLY EQUIVALENT PAIR OF FORMULAS
-
-      A pair of wffs is LOGICALLY EQUIVALENT if for every valuation (row)
-      of the table, both wffs have the same value under their main
-      operators.  Notice that each of the following pairs of formulas
-      is logically equivalent.
-
-          P Q | (P | Q) | -(P ∧ Q)     R S | R → S | - R ∨ S
-         ==========================    ========================
-          F F |  F T F  | T F F F      F F | F T F | T F T F
-          F T |  F T T  | T F F T      F T | F T T | T F T T
-          T F |  T T F  | T T F F      T F | T F F | F T F F
-          T T |  T F T  | F T T T      T T | T T T | F T T T
-                   *      *                    *         *
 
 Truth-Table Study of A Sequent
 ------------------------------
