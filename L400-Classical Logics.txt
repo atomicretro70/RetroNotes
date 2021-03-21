@@ -913,31 +913,6 @@ Truth-Table Study of A Set of WFFs
           T T | T T T | F T T T
                   *         *
 
-Truth-Functional Completeness
------------------------------
-
-   TRUTH-FUNCTIONAL COMPLETENESS describes any set of truth-functional
-   operators from which all other truth-functions can be defined.
-   Propositional logic's set of primitive operators -, ∧, ∨, → and ↔
-   is truth-functionally complete.  But so too is negation with any other
-   single operator.  Some authors have defined new operators that are
-   singularly truth-functionally complete.  An example is the SHEFFER STROKE
-   symbol '(P|Q)', whose valuation function is logically equivalent to the
-   form -(P ∧ Q).  However, any logic constructed upon just one operator
-   is cumbersome to use.
-
-   For example, observe in the two examples that the columns under the
-   main operators (highlighted with '*') under each wff have the same
-   value in the same valuation.
-
-          P Q | (P | Q) | -(P ∧ Q)
-         ==========================
-          F F |  F T F  | T F F F
-          F T |  F T T  | T F F T
-          T F |  T T F  | T T F F
-          T T |  T F T  | F T T T
-                   *      *
-
 Truth-Table Study of A Sequent
 ------------------------------
 
@@ -993,6 +968,31 @@ Truth-Table Study of A Sequent
 
    A disadvantage of truth-tables is that they grow exponentially.  A set
    of wffs with n proposition symbols will have 2^n rows.
+
+Truth-Functional Completeness
+-----------------------------
+
+   TRUTH-FUNCTIONAL COMPLETENESS describes any set of truth-functional
+   operators from which all other truth-functions can be defined.
+   Propositional logic's set of primitive operators -, ∧, ∨, → and ↔
+   is truth-functionally complete.  But so too is negation with any other
+   single operator.  Some authors have defined new operators that are
+   singularly truth-functionally complete.  An example is the SHEFFER STROKE
+   symbol '(P|Q)', whose valuation function is logically equivalent to the
+   form -(P ∧ Q).  However, any logic constructed upon just one operator
+   is cumbersome to use.
+
+   For example, observe in the two examples that the columns under the
+   main operators (highlighted with '*') under each wff have the same
+   value in the same valuation.
+
+          P Q | (P | Q) | -(P ∧ Q)
+         ==========================
+          F F |  F T F  | T F F F
+          F T |  F T T  | T F F T
+          T F |  T T F  | T T F F
+          T T |  T F T  | F T T T
+                   *      *
 
 Truth-Tables ("Fast Method")
 ============================
