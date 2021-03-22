@@ -37,7 +37,7 @@
 ==============================
 To View This Document Properly
 ==============================
-   * Best if viewed in VIM using with settings
+   * Best viewed in VIM using with settings
          :set columns=80
          :set encoding=utf-8
 
@@ -737,10 +737,11 @@ Conversational Implicature
 Valuation Function
 ==================
 
-   A TRUTH-FUNCTION operates upon true/false values.  The semantics
-   of the truth-functions are formally described by a function v called
-   a VALUATION FUNCTION, which encapsulates all there is to say about
-   the meanings of propositional logic's truth-functional operators.
+   A TRUTH-FUNCTION is any of our five operations.  These functions operate
+   upon true/false values.  The semantics of the truth-functions are formally
+   described by a function v called a VALUATION FUNCTION. v encapsulates all
+   there is to say about the meanings of propositional logic's
+   truth-functional operators.
 
    Here is the valuation function for propositional logic,
 
