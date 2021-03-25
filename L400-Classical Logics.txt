@@ -115,9 +115,9 @@ Preface
    Each chapter describes a different system within classical logic covering:
    Predicate Logic, First-Order Quantified Logic (FOL), Identity Logic and
    FOL=, Function Logic (FL), Russell's Theory of Definite Descriptors,
-   Second-Order Quantification Logic (SOL), and lastly, Mathematical
-   Induction.  The book closes with mentions of Axiomatic Deductive Systems,
-   then Formal Theories and their Axioms.
+   Second-Order Quantified Logic (SOL), and lastly, Mathematical Induction.
+   The book closes with mentions of Axiomatic Deductive Systems, then Formal
+   Theories and their Axioms.
 
    The notation selected for this book may vary slightly from that of other
    books.  However, the symbol set was selected to reflect aesthetic
@@ -180,6 +180,10 @@ Preliminary Definitions
 
       a deductive argument which is genuinely deductive in the sense
       defined above.
+
+   SOUND ARGUMENT
+
+      a valid argument whose premises are all true.
 
    INVALID ARGUMENT
 
