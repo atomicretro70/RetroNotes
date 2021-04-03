@@ -1467,10 +1467,10 @@ Beyond System K
       | ============================= | ============================= |
       | □ E (System M)                | □ E (System B)                |
       | ============================= | ============================= |
-      |  For every world /i,          |  □ P    /i    □ P    /j       |
-      |  There is a bridge            |  [/i=>/j]     [/i=>/j]        |
-      |  /i=>/i                       | -----------  -----------      |
-      |                               |  P      /j    P      /i       |
+      |  For every world /i,          |  For every bridge /i=>/j      |
+      |  There is a bridge            |  there is a bridge /j=>/i     |
+      |  /i=>/i                       |  in addition to the rule for  |
+      |                               |  System M.                    |
       |                               |                               |
       | ============================= | ============================= |
       | □ E (System S4)               | □ E (System S5)               |
@@ -1478,7 +1478,9 @@ Beyond System K
       |  For every series of          |  Every world has a bridge     |
       |  bridges /i=>/j, /j=>/k       |  to every other world.        |
       |  there is a bridge            |  (both B and s4)              |
-      |  /i=>/k                       |                               |
+      |  /i=>/k                       |  in addition to the rule for  |
+      |  in addition to the rule for  |  System M.                    |
+      |  System M.                    |                               |
       |                               |                               |
       +-------------------------------+-------------------------------+
 
@@ -1662,7 +1664,7 @@ Thm ◇ B-05   □ (P → Q), □ P   ⊢   □ Q
 Alethic Deduction - Relative Modalities
 ---------------------------------------
 
-   In a system with relative modalities world indexes constitute paths.
+   In a system with relative modalities world indexes constitute tree paths.
 
                              /0
                             /  \

@@ -121,8 +121,8 @@ Preface
 
    The notation selected for this book may vary slightly from that of other
    books.  However, the symbol set was selected to reflect aesthetic
-   principles.  The logical operator symbols consist of well-defined straight
-   lines in symmetrical arrangements to reflect the similarly well-defined
+   principles.  The logical operator symbols consist of straight line
+   segments in symmetrical arrangements to reflect the well-defined
    rigid logical operations.  Parentheses, used for grouping just as in math,
    can be thought of as representing nested bubbles.  Both of these are in
    stark contrast to the large round or curvy letters used to denote more

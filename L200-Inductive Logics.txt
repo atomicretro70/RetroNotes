@@ -195,7 +195,7 @@ resemble the past.
 
 Inductive Generalization
 
-      n% of s thus-far-observed F are G. (s = s ample size)
+      n% of s thus-far-observed F are G. (s = sample size)
       ∴ About n% of all F are G.
 
 Scientific Induction (Weaker conclusion)

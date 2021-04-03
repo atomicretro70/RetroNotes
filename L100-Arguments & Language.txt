@@ -402,7 +402,7 @@ Representation
 ==============
 
    In an INFORMAL ARGUMENT the propositions are expressed in a natural
-   such as English or some other spoken language.
+   language such as English or some other spoken language.
    
    In a FORMAL ARGUMENT the propostions are expressed in a symbol language
    and focus only upon structure without regard to meaning.
@@ -434,7 +434,8 @@ Inferrential Method
    Deduction
 
    A DEDUCTIVE ARGUMENT is an argument who's conclusion cannot be false when
-   all the premises are true.
+   all the premises are true.  The deductive argument's conclusion follows
+   necessarilly from the premises.
 
    Induction
 
@@ -478,6 +479,14 @@ Assessment
    in the sense defined above.
 
    A COGENT ARGUMENT is a strong argument with all true premises.
+
+         =========  =========  =========================================
+         Deduction  Induction  Condition
+         =========  =========  =========================================
+         invalid    weak       argument contains reasoning errors
+         valid      strong     argument contains no reasoning errors
+         sound      cogent     no reasoning errors and all true premises
+         =========  =========  =========================================
 
 
 ----------
@@ -558,7 +567,7 @@ Debates
      premise that has been left unexpressed by the other party.
 
    - Starting point rule:  A party may not falsely present a premise
-     as an accepted starting poin nor deny a premise representing an
+     as an accepted starting point nor deny a premise representing an
      accepted starting point.
 
    - Argument scheme rule:  A party may not regard a standpoint
@@ -886,7 +895,7 @@ Requirements (For Acceptability)
 
    - shall if needed indicate the context to which the definiens pertains.
 
-   - shall not be either too broad or too narrow.
+   - shall be neither too broad nor too narrow.
 
    - shall not use ambiguous, obscure, figurative or poorly understood
      language.
