@@ -254,7 +254,7 @@ The Laws of Logic
 -----------------
 
    The simplest logic has just two discrete truth-values: True and False;
-   which are complements of eachother:  false =df not true.  From this binary
+   which are complements of each other:  false =df not true.  From this binary
    relation, it is possible to construct the following logical principles.
 
    LAW OF NON-CONTRADICTION (LNC)
@@ -1448,7 +1448,7 @@ Direct Proofs
    that means; just understand the structure of the proof.  Step 4 applies a
    rule called 'Conjunction Elimination' to step 3, resulting in the wff 'Q'.
    Since Q is the conclusion form of the sequent and the justified formula
-   on step 4. the proof has completed successfully.  Hence, the proof is
+   on step 4. The proof has completed successfully.  Hence, the proof is
    closed with 'QED'.
 
    Usually, people abbreviate the names of the inference rules within a proof.
@@ -1677,13 +1677,17 @@ Derived Inference Rules
    Theorem (THM)                     [ ⊢ P ]  ⊢  P
    ================================  =========================================
 
+   Notice the sequent for Ex Falso Quodlibet.  The sequent says that anything
+   follows from a contradiction.  Consequently this is also known as the
+   PRINCIPLE OF EXPLOSION.
+
 Theorems
 ========
 
    A theorem is an unconditionally true proposition.  For a sequent
    P1,P2,... ⊢ C the conclusion is true conditionally upon the truth
    of the assumptions.  Hence, a theorem being unconditionally true, simply
-   has no assumptions or undischaraged hypotheses.  Theorems are the
+   has no assumptions or undischarged hypotheses.  Theorems are the
    tautologies of propositional logic.  A sequent for a theorem Φ has the
    form below.  Such is provable by starting its proof with a hypothesis or
    with a previously proved theorem.
@@ -2023,7 +2027,7 @@ Relations
          and Charlie and Charlie isn't between Alice and Bob.
 
    Any arity is acceptable for a predicate including 0.  0-place predicates
-   are functionally equavalent to proposition symbols.
+   are functionally equivalent to proposition symbols.
 
          0-Place Predicates
          R,        it's raining
@@ -2223,7 +2227,7 @@ Quantifiers & Variables
                    of discourse such that, Φ.
 
    Once the variable is bound, it can be used within the wff.  In this
-   formulateion of FOL a variable in a wff is always bound provided formation
+   formulation of FOL a variable in a wff is always bound provided formation
    rules are applied correctly.
 
          Dictionary
@@ -2838,7 +2842,7 @@ Properties of Relations
     Irreflexive(R)    =df ∀x-Rxx                        x<y
                                                         Left(x,y)
 
-    nonreflexive(R)   =df -( Reflexive(R) ∨
+    Nonreflexive(R)   =df -( Reflexive(R) ∨
                               Irreflexive(R) )
 
     Equivalent(R)     =df Reflexive(R) ∧                Congruent(x,y)
@@ -4690,33 +4694,31 @@ Appendix E: The Greek Alphabet
 
    The Greek Alphabet
 
-      Upper              Lower
-
-   Sym   Name         Sym   Name
-   -------------     ------------------
-   Α     ALPHA        α     alpha
-   Β     BETA         β     beta
-   Γ     GAMMA        γ     gamma
-   Δ     DELTA        δ     delta
-   Ε     EPSILON      ε     epsilon
-   Ζ     ZETA         ζ     zeta
-   Η     ETA          η     eta
-   Θ     THETA        θ     theta
-   Ι     IOTA         ι     iota
-   Κ     KAPPA        κ     kappa
-   Λ     LAMBDA       λ     lambda
-   Μ     MU           μ     mu
-   Ν     NU           ν     nu
-   Ξ     XI           χ     xi
-   Ο     OMICRON      ο     omicron
-   Π     PI           π     pi
-   Ρ     RHO          ρ     rho
-   Σ     SIGMA        σ     sigma
-   Τ     TAU          τ     tau
-   Υ     UPSILON      υ     upsilon
-   Φ     PHI          φ     phi
-   Χ     CHI          χ     chi
-   Ψ     PSI          ψ     psi
-   Ω     OMEGA        ω     omega
+   Name     Upper  Lower
+   -------  -----  -----
+   ALPHA    Α      α
+   BETA     Β      β
+   GAMMA    Γ      γ
+   DELTA    Δ      δ
+   EPSILON  Ε      ε
+   ZETA     Ζ      ζ
+   ETA      Η      η
+   THETA    Θ      θ
+   IOTA     Ι      ι
+   KAPPA    Κ      κ
+   LAMBDA   Λ      λ
+   MU       Μ      μ
+   NU       Ν      ν
+   XI       Ξ      χ
+   OMICRON  Ο      ο
+   PI       Π      π
+   RHO      Ρ      ρ
+   SIGMA    Σ      σ
+   TAU      Τ      τ
+   UPSILON  Υ      υ
+   PHI      Φ      φ
+   CHI      Χ      χ
+   PSI      Ψ      ψ
+   OMEGA    Ω      ω
 
 
