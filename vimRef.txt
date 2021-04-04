@@ -59,7 +59,7 @@ To View This Document Properly
                            <ESC>     the escape key
                            <CR>      the enter or carriage return key
                            <leader>  default is backslash key
-                           <super>   the windoww key
+                           <super>   the windows key
                            <TAB>     the tab key
 
                            Some User Variables
@@ -89,7 +89,7 @@ To View This Document Properly
                            ex command.
    n or - (in column 1)    Most of the movement and editing commands are
                            preceded by  either 'n' or '-'.  The n indicates
-                           an integer n > 1 (default is 1).  The '-' indicates
+                           an integer n > 0 (default is 1).  The '-' indicates
                            that the command ignores a preceding number.
    ^<char>                 '^' such as ^I or ^[ denotes keychord involving
                            control.  By holding the control key while
@@ -97,7 +97,7 @@ To View This Document Properly
                            follows the ^.  If char is an alpha it will
                            always be written as a capital letter, however
                            holding shift is not necessary.
-   (...)                   a the line preceding an ex command contains a
+   (...)                   the line preceding an ex command contains a
                            a list of ex commands in parentheses those are
                            just alternate forms of the command.  In the
                            command itself on th eline below the shortest
