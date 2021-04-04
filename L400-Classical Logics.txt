@@ -37,6 +37,7 @@
 ==============================
 To View This Document Properly
 ==============================
+
    * Best viewed in VIM using with settings
          :set columns=80
          :set encoding=utf-8
