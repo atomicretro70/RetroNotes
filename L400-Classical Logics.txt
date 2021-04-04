@@ -1680,7 +1680,7 @@ Derived Inference Rules
 
    Notice the sequent for Ex Falso Quodlibet.  The sequent says that anything
    follows from a contradiction.  Consequently this is also known as the
-   PRINCIPLE OF EXPLOSION.
+   PRINCIPLE OF LOGICAL EXPLOSION.
 
 Theorems
 ========
@@ -1725,7 +1725,7 @@ Equivalences
    Material Equivalence (ME)         ⊢  (P ↔ Q) ↔ ((P ∧ Q) ∨ (-P ∧ -Q))
    ================================  =========================================
 
-   Appendix C contains the proofs of all of these derived forms, theorems and
+   Appendix C contains the proofs of all of the derived forms, theorems and
    equivalences.
 
 Consequence and Non-Consequence
