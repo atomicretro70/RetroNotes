@@ -176,7 +176,7 @@ Grammar
 
    An ATOMIC FORMULA is either ⊥ or any proposition symbol.
 
-   1.  every atomic formula is a wff;
+   1.  Every atomic formula is a wff;
    2.  if Φ,Ψ  are wffs, then (Φ → Ψ) is a wff;
    3.  nothing else is a wff.
 
