@@ -34,7 +34,8 @@ Modal Ontological Argument (From SEP, Ontological Argument)
    God is not a contingent being                 -(◇ G ∧ ◇ - G)      A
                                                  - ◇ G ∨ - ◇ - G     DM
    Hence, it's not possible that no God exists   - ◇ - G             DS
-   Therefore got necessarilly exists             □ G                 Def ◇
+                                                 - - □ - - G         Def ◇
+   Therefore god necessarilly exists             □ G                 DN
 
    (This argument uses modal system K. We would need modal system M were
     we to conclude G from □ G)
@@ -229,7 +230,7 @@ Propositional
       caused by God.
    If the world was caused by God,               C → G               A
       then there is a God.
-   There is not God.
+   There is no God.                              -G                  A
    /. Either the world had no beginning          -B ∨ P
       in time, or it just popped into
       existence without any cause.

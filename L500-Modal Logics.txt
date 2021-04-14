@@ -266,8 +266,8 @@ Primitive Inference Rules
 
    Note: Apart from RE we can only appeal to lines in the current subproof.
 
-   These rules are sometimes represented expressed in diagrams.  Horizontal
-   lines denote 'infer', vertical lines denote subproofs.  Some rules have
+   These rules are sometimes expressed in diagrams.  Horizontal lines denote
+   'infer', vertical lines denote subproofs.  Some rules have
    multiple forms.
 
       +-------------------------------+-------------------------------+
@@ -661,20 +661,6 @@ Alethic Modal Logic
    Alethic modal logic studies the concepts of 'it's necessary that, P'
    symbolized □ P, and 'it's possible that, P' symbolized ◇ P.
 
-   Kinds of Necesssity
-
-   1. logical necessity: a true statement in virtue of logic alone.
-
-   2. metaphysical necessity: true in virtue of the structure of reality.
-      Eg. Contradictions are necessarily false.
-
-   3. lawful/nomological/causal/scientific/physical necessity:
-      true in virtue of the laws of nature.  (eg. the speed of light).
-         nomological =df  relating to or denoting certain principles, such as
-                          laws of nature, that are neither logically
-                          necessary nor theoretically explicable, but are
-                          simply taken as true.
-
 
 --------
 Language
@@ -717,6 +703,21 @@ Definitions
 Semantics
 ---------
 
+Kinds of Necesssity
+===================
+
+   1. logical necessity: a true statement in virtue of logic alone.
+
+   2. metaphysical necessity: true in virtue of the structure of reality.
+      Eg. Contradictions are necessarily false.
+
+   3. lawful/nomological/causal/scientific/physical necessity:
+      true in virtue of the laws of nature.  (eg. the speed of light).
+         nomological =df  relating to or denoting certain principles, such as
+                          laws of nature, that are neither logically
+                          necessary nor theoretically explicable, but are
+                          simply taken as true.
+
 Translation Hints
 =================
 
@@ -740,10 +741,10 @@ Translation Hints
    | P could be true                   | P has to be true                  |
    |                                   |                                   |
    | ================================= | ================================= |
-   | - ◇ P                             | □ - P                             |
+   | - ◇ P                             | - □ P                             |
    | ================================= | ================================= |
-   | P is not possible                 | Necessarilly not P                |
-   | P is impossible                   | P has to be true                  |
+   | P is not possible                 | P is not necessary                |
+   | P is impossible                   | P is unnecessary                  |
    |                                   |                                   |
    | ================================= | ================================= |
    | ◇ (P ∧ Q)                         | - ◇ (P ∧ Q)                       |
@@ -757,7 +758,7 @@ Translation Hints
    | ================================= | ================================= |
    | P is a contingent statement       | P is a contingent truth           |
    |                                   | P happens to be the case, but     |
-   |                                   |      could have been not P        |
+   |                                   |      could have been false        |
    |                                   |                                   |
    | ================================= | ================================= |
    | □ (P → Q)                         |                                   |
@@ -864,7 +865,6 @@ Extension & Intension
    that is the argument of a modal operator.  It may still be ok to do
    internally.
 
-
 Kripke Semantics
 ================
 
@@ -924,8 +924,8 @@ Kripke Semantics
    Upper-Bounded       UBound(R) =df ∀x∀y((∃z(xRz) ∧ ∃z(yRz)) → ∃z(xRz ∧ yRz))
    Lower-Bounded       LBound(R) =df ∀x∀y((∃z(zRx) ∧ ∃z(zRy)) → ∃z(zRx ∧ zRy))
    Bounded             Bound(R)  =df UBound(R) ∧ LBound(R)
-   Dense               Dense(R)  =df ∀x∀z((xRz ∧ -x=z)
-                                         → ∃y(-x=y ∧ -y=z ∧ xRy ∧ yRz))
+   Dense               Dense(R)  =df ∀x∀z( (xRz ∧ -x=z)
+                                           → ∃y(-x=y ∧ -y=z ∧ xRy ∧ yRz) )
 
 
 -----------------------------
@@ -954,7 +954,7 @@ Rules, Definitions and Axiom Schemata
    (NR) Necessitation Rule
          if ⊢ P then infer □ P
 
-   (K) Axiom Schema K (Kripke - Modal Distribution)
+   (K) Axiom Schema K (Kripke, Modal Distribution)
          □ (P → Q) → (□ P → □ Q)
 
    (D) Axiom Schema D (Deontic)
@@ -978,19 +978,18 @@ Alethic Inferential Systems
    The following table describes each system according to the rules it has.
    A proof is always constructed entirely in a single system.
 
-         ==========  =======================
+         ==========  ===================
          Rule/Axiom  System
-                     K   D   M   B   S4   S5
-         ==========  =======================
-         (Def ◇)     *   *   *   *   *    *
-         (NR)        *   *   *   *   *    *
-         (K)         *   *   *   *   *    *
-         (D)             *                             
-         (M)                 *   *   *    *
-         (B)                     *                      
-         (4)                         *    
-         (5)                              *
-         ==========  =======================
+                     K   M   B   S4   S5
+         ==========  ===================
+         (Def ◇)     *   *   *   *    *
+         (NR)        *   *   *   *    *
+         (K)         *   *   *   *    *
+         (M)             *   *   *    *
+         (B)                 *                      
+         (4)                     *    
+         (5)                          *
+         ==========  ===================
 
    Notes
 
@@ -1003,8 +1002,7 @@ Alethic Inferential Systems
    Composition of Systems
 
    System K    = (Def ◇) + (NR) + (K)
-   System D    = System K + (D)
-   System M    = System K + (M)                    ( (M) entails (D) )
+   System M    = System K + (M)
    System B    = System K + (M) + (B)
    System S4   = System K + (M) + (4)
    System S5   = System K + (M) + (5)              ( (5) = (4) + (B) )
@@ -1066,17 +1064,17 @@ System K
       | H                             | RE                            |
       | ============================= | ============================= |
       |                               |   P         P                 |
-      |  -------    -------           |  ---       ---------          |
-      |   |   P      |□               |   P         |   ...           |
+      |  -------      -------         |  ---       ---------          |
+      |   |   P        |□             |   P         |   ...           |
       |                               |             |   P             |
       |  P is a                       |                               |
       |  hypothesis                   |  (same     (Immediately nested|
       |                               |  subproof) not boxed subproof)|
       |                               |                               |
       | ============================= | ============================= |
-      | Def ◇                         |                               |
+      | Def ◇                         | Equivalence Subst (EQ)        |
       | ============================= | ============================= |
-      |                               |                               |
+      |                               | !!! Not Allowed !!!           |
       | -----------------             |                               |
       | [◇ P =df - □ - P]             |                               |
       |                               |                               |
@@ -1160,17 +1158,19 @@ Proofs
    l+5. ◇ Q                            i,l+4 → E
    QED
 
-   ◇ &Dist  ⊢K  ◇ (P ∧ Q) → (◇ P ∧ ◇ Q)
+   ◇ ∧Dist  ⊢K  ◇ (P ∧ Q) → (◇ P ∧ ◇ Q)
    Proof
    01.   |   ◇ (P ∧ Q)                 H (for → I)
-   02.   |   |□ ,P ∧ Q                 H (for ◇ I)
-   03.   |   |   P                     2 ∧E
-   04.   |   ◇ P                       1,2-3 ◇ I
-   05.   |   |□ ,P ∧ Q                 H (for ◇ I)
-   06.   |   |   Q                     5 ∧E
-   07.   |   ◇ Q                       5-6 ◇ I
-   08.   |   ◇ P ∧ ◇ Q                 4,7 ∧I
-   09.   ◇ (P ∧ Q) → (◇ P ∧ ◇ Q)       1-8 → I
+   02.   |   |□                        H (for ◇ I)
+   03.   |   |   |   P ∧ Q             H
+   04.   |   |   |   P                 3 ∧E
+   05.   |   ◇ P                       1,2-4 ◇ I
+   06.   |   |□                        H (for ◇ I)
+   07.   |   |   |   P ∧ Q             H
+   08.   |   |   |   Q                 7 ∧E
+   09.   |   ◇ Q                       1,6-8 ◇ I
+   10.   |   ◇ P ∧ ◇ Q                 5,9 ∧I
+   11.   ◇ (P ∧ Q) → (◇ P ∧ ◇ Q)       1-10 → I
    QED
 
       ⊢K   (□ P ∧ ◇ Q) → ◇ (P ∧ Q)
@@ -1178,24 +1178,12 @@ Proofs
    01.   |   □ P ∧ ◇ Q                 H (for → I)
    02.   |   □ P                       1 ∧E
    03.   |   ◇ Q                       1 ∧E
-   04.   |   |□ ,Q                     H (for ◇ I)
-   05.   |   |   P                     2 □ E
-   06.   |   |   P ∧ Q                 4,5 ∧I
-   07.   |   ◇ (P ∧ Q)                 3,4-6 ◇ I
-   08.   (□ P ∧ ◇ Q) → ◇ (P ∧ Q)       1-7 → I
-   QED
-
-      ⊢K   ◇ (P ∧ Q) → (◇ P ∧ ◇ Q)
-   Proof
-   01.   |   ◇ (P ∧ Q)                 H (for → I)
-   02.   |   |□ ,P ∧ Q                 H (for ◇ I)
-   03.   |   |   P                     2 ∧E
-   04.   |   ◇ P                       1,2-3 ◇ I
-   05.   |   |□ ,P ∧ Q                 H (for ◇ I)
-   06.   |   |   Q                     5 ∧E
-   07.   |   ◇ Q                       1,5-6 ◇ I
-   08.   |   ◇ P ∧ ◇ Q                 4,7 ∧I
-   09.   ◇ (P ∧ Q) → (◇ P ∧ ◇ Q)       1-8 → I
+   04.   |   |□                        H (for ◇ I)
+   05.   |   |   |   Q                 H
+   06.   |   |   |   P                 2 □ E
+   07.   |   |   |   P ∧ Q             5,6 ∧I
+   08.   |   ◇ (P ∧ Q)                 3,4-7 ◇ I
+   09.   (□ P ∧ ◇ Q) → ◇ (P ∧ Q)       1-8 → I
    QED
 
    M' (Dual of M):   ⊢   P → ◇ P
@@ -1232,17 +1220,14 @@ Proofs
    03.   |   |   □ -P                  2 DUAL
    04.   |   |   □ -P → □ □ -P         Ax 4
    05.   |   |   □ □ -P                3,4 → E
-   06.   |   |   |□                    H (for □ I)
-   07.   |   |   |   □ -P              5 □ E
-   08.   |   |   |   --□ -P            7 DN
-   09.   |   |   □ --□ -P              6-8 □ I
-   10.   |   |   □ -◇ A                9 DEF◇ 
-   11.   |   |   ◇ ◇ P                 1 RE
-   12.   |   |   -□ -◇ P               11 DEF◇ 
-   13.   |   |   ⊥                     10,12 EFQ
-   14.   |   --◇ P                     2-13 -I
-   15.   |   ◇ P                       14 -E
-   16.   ◇ ◇ P → ◇ P                   1-15 → I
+   06.   |   |   □ --□ -P              5 DN
+   07.   |   |   □ -◇ P                6 DEF◇ 
+   08.   |   |   ◇ ◇ P                 1 RE
+   09.   |   |   -□ -◇ P               8 DEF◇ 
+   10.   |   |   ⊥                     7,9 EFQ
+   11.   |   --◇ P                     2-10 -I
+   12.   |   ◇ P                       11 -E
+   13.   ◇ ◇ P → ◇ P                   1-12 → I
    QED
 
    Steps 2-6 demonstrate that from □ P one can infer □ P into a boxed subproof
@@ -1257,33 +1242,26 @@ Proofs
    05.   |   |   □ ◇ -A                3,4 → E
    06.   |   |   |□                    H (for □ I)
    07.   |   |   |   ◇ -P              5 □ E
-   08.   |   |   |   -□ P              7 -□ I
+   08.   |   |   |   -□ P              7 DUAL
    09.   |   |   □ -□ P                6-8 □ I
    10.   |   |   ◇ □ P                 1 RE
    11.   |   |   -□ -□ P               10 DEF◇ 
    12.   |   |   ⊥                     9,11 EFQ
-   13.   |   -- □ P                    2-12 -I
+   13.   |   --□ P                     2-12 -I
    14.   |   □ P                       13 -E
    15.   ◇ □ P → □ P                   1-15 → I
    QED
 
    Steps 3-7 demonstrate that from ◇ P one can infer ◇ P into a boxed subproof
-   without losing the ◇ .
-
-      ⊢S5  P → □ ◇ P
-   Proof
-   01.   P → ◇ P                       ◇ I
-   02.   ◇ P → □ ◇ P                   Ax 5
-   03.   P → □ ◇ P                     1,2 HS
-   QED
+   without losing the ◇  provided we are in system S5.
 
       ⊢S5  □ P → □ □ P
    Proof
    01.   □ P → □ ◇ □ P                 Ax B
    02.   |□                            H (for □ I)
-   03.   |   ◇ □ P → □ P               5'
+   03.   |   ◇ □ P → □ P               Theorem 5'
    04.   □ (◇ □ P → □ P)               2-3 □ I
-   05.   □ (◇ □ P → □ P) → (□ ◇ □ P → □ □ P)  K
+   05.   □ (◇ □ P → □ P) → (□ ◇ □ P → □ □ P)  Ax K
    06.   □ ◇ □ P → □ □ P               4,5 → E
    07.   □ P → □ □ P                   1,6 HS
    QED
@@ -1328,8 +1306,8 @@ Proofs
    Proof
    01.   |   □ ◇ ◇ □ P                 H (for → I)
    02.   |   ◇ ◇ □ P                   1 Ax M
-   03.   |   ◇ □ P                     2 Ax 4'
-   04.   |   □ P                       3 Ax 5'
+   03.   |   ◇ □ P                     2 Theorem 4'
+   04.   |   □ P                       3 Theorem 5'
    05.   □ ◇ ◇ □ P → □ P               1-4 → I
    06.   |   □ P                       H (for → I)
    07.   |   ◇ □ P                     6 ◇ I
@@ -1342,24 +1320,26 @@ Proofs
       ⊢S5 ◇ (□ ◇ P ∧ ◇ □ Q) ↔ ◇ (◇ A ∧ □ B)
    Proof
    01.   |   ◇ (□ ◇ P ∧ ◇ □ Q)         H (for → I)
-   02.   |   |□ ,□ ◇ P ∧ ◇ □ Q         H (for ◇ E)
-   03.   |   |   □ ◇ P                 2 ∧E
-   04.   |   |   ◇ □ B                 2 ∧E
-   05.   |   |   ◇ P                   3 Ax M
-   06.   |   |   □ B                   4 Ax 5'
-   07.   |   |   ◇ P ∧ □ Q             5,6 ∧I
-   08.   |   ◇ (◇ P ∧ □ Q)             1,2-7 ◇ E
-   09.   ◇ (□ ◇ P ∧ ◇ □ Q) → ◇ (◇ P ∧ □ Q)  1-8 → I
-   10.   |   ◇ (◇ P ∧ □ Q)             H (for → I)
-   11.   |   |□ ,◇ A ∧ □ B             H (for ◇ E)
-   12.   |   |   ◇ P                   11 ∧E
-   13.   |   |   □ B                   11 ∧E
-   14.   |   |   □ ◇ P                 12 Ax 5
-   15.   |   |   ◇ □ Q                 13 ◇ E
-   16.   |   |   □ ◇ P ∧ ◇ □ Q         14,15 ∧I
-   17.   |   ◇ (□ ◇ P ∧ ◇ □ Q)         10,11-16 ◇ E
-   18.   ◇ (◇ P ∧ □ Q) → ◇ (□ ◇ P ∧ ◇ □ Q)  10-17 → I
-   19.   ◇ (□ ◇ P ∧ ◇ □ Q) ↔ ◇ (◇ P ∧ □ Q) 9,18 ↔ I
+   02.   |   |□                        H (for ◇ I)
+   03.   |   |   |   □ ◇ P ∧ ◇ □ Q     H
+   04.   |   |   |   □ ◇ P             3 ∧E
+   05.   |   |   |   ◇ □ Q             3 ∧E
+   06.   |   |   |   ◇ P               4 Ax M
+   07.   |   |   |   □ Q               5 Theorem 5'
+   08.   |   |   |   ◇ P ∧ □ Q         6,7 ∧I
+   09.   |   ◇ (◇ P ∧ □ Q)             1,2-8 ◇ I
+   10.   ◇ (□ ◇ P ∧ ◇ □ Q) → ◇ (◇ P ∧ □ Q)  1-9 → I
+   11.   |   ◇ (◇ P ∧ □ Q)             H (for → I)
+   12.   |   |□                        H (for ◇ I)
+   13.   |   |   |   ◇ P ∧ □ Q         H
+   14.   |   |   |   ◇ P               13 ∧E
+   15.   |   |   |   □ Q               13 ∧E
+   16.   |   |   |   □ ◇ P             14 Ax 5
+   17.   |   |   |   ◇ □ Q             15 ◇ E
+   18.   |   |   |   □ ◇ P ∧ ◇ □ Q     16,17 ∧I
+   19.   |   ◇ (□ ◇ P ∧ ◇ □ Q)         11,12-18 ◇ I
+   20.   ◇ (◇ P ∧ □ Q) → ◇ (□ ◇ P ∧ ◇ □ Q)  11-19 → I
+   21.   ◇ (□ ◇ P ∧ ◇ □ Q) ↔ ◇ (◇ P ∧ □ Q)  10,20 ↔ I
    QED
 
 
@@ -1373,9 +1353,10 @@ Alethic Deduction - ◇ Based Natural Deduction
    the accessibility relation of Kripke's world semantics.
 
    World Index
-      A WORLD INDEX is an expression of the form '/n' (where n is in 0,1,2...).
-      Write 'P  /i' to state that proposition P is true at world i.
-      The actual world is denoted /0, though it's usually implied.
+      A WORLD INDEX is an expression of the form '/n' (where
+      n is in {0,1,2...}).  Write 'P  /i' to state that proposition P
+      is true at world i.  The actual world is denoted /0, though it's
+      usually implied.
 
    Bridge (AKA Accessibility Relation)
       A BRIDGE, '/n=>/m', denotes a way to travel from world '/n'
@@ -1408,12 +1389,20 @@ System K
                                      the construction of" a new bridge /i=>/j.
 
    □ Elimination (□ E)               □ E may only cross bridges according to
+                                     the system being used.
    ================================  =========================================
 
    These rules are sometimes represented in diagrams.  The horizontal bar
    denotes 'infer', vertical lines denote subproofs.
 
       +-------------------------------+-------------------------------+
+      | ============================= | ============================= |
+      | Equivalence Subst (EQ)        | Reiterate (RE)                |
+      | ============================= | ============================= |
+      | !!! Not Allowed !!!           | P                             |
+      |                               | ---                           |
+      |                               | P                             |
+      |                               |                               |
       | ============================= | ============================= |
       | Def ◇                         | NR                            |
       | ============================= | ============================= |

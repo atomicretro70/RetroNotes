@@ -501,7 +501,7 @@ Grammar
    Notes
 
    - Notice that the formation rules for wffs are recursive, meaning that
-     wffs can nest within other wffs to any depth.  While P ∧ Q is a wff,
+     wffs can nest within other wffs to any depth.  While (P ∧ Q) is a wff,
      so is (-(P ∨ Q) → R).
 
    - To aid readability, I adopt the convention that if a wff begins with
@@ -537,11 +537,11 @@ Truth-Function Anatomy
           ∨      or        DISJUNCTION    P ∨ Q    P,Q are DISJUNCTS
           →      if/then   CONDITIONAL    P → Q    P is the ANTECEDENT,
                                                     Q is the CONSEQUENT
-          ↔      just if   BICONDITIONAL  P ↔ Q    Operands
+          ↔      just if   BICONDITIONAL  P ↔ Q    P,Q are operands
          ======  ========  =============  =======  ====================
 
-   ARITY is the number of subordinates an operation requires.  For example,
-   negation has an arity of one because it has one subordinate, while
+   ARITY is the number of operands an operation requires.  For example,
+   negation has an arity of one because it has one operand, while
    conjunction has two.  The table below lists some common arities and some
    different names by which they go.
 
@@ -574,15 +574,15 @@ Tree Graphs
                         leaf1    parent&Child 
                                  /          \
                                 /            \
-                             child           node 
-                             /   \           /   \
-                            /     \         /     \
-                         leaf2   leaf3   leaf4   leaf5
+                             child          node 
+                             /   \          /   \
+                            /     \        /     \
+                         leaf2   leaf3  leaf4   leaf5
 
 Syntax Trees
 ------------
 
-   Wff's can be diagrammed into a recursive tree structure in which
+   A Wff can be diagrammed into a recursive tree structure in which
    operators are parent nodes and atomic and non-atomic subordinate wff's
    are the child nodes.  The number of children an operator node has is equal
    to the arity of that operator.
@@ -2667,9 +2667,9 @@ Proofs of Non-Consequence
                         ∀x-(Px ∧ Qx)
                      *  Pa → Qa
                      *  -(Pa ∧ Qa)
-                          /     \
-                        /         \
-                     -Pa             Qa
+                          /      \
+                        /          \
+                     -Pa            Qa
                     /   \          /   \
                   /       \      /       \
                 -Pa      -Qa   -Pa       -Qa
