@@ -707,6 +707,7 @@ Kinds of Necesssity
 ===================
 
    1. logical necessity: a true statement in virtue of logic alone.
+      i.e. tautologies and validities.
 
    2. metaphysical necessity: true in virtue of the structure of reality.
       Eg. Contradictions are necessarily false.
@@ -749,9 +750,9 @@ Translation Hints
    | ================================= | ================================= |
    | ◇ (P ∧ Q)                         | - ◇ (P ∧ Q)                       |
    | ================================= | ================================= |
-   | P is logically consistent with Q  | P is logically inconsistent       |
+   | It's possible that both P and Q   | P is logically inconsistent       |
    | P is logically compatible with Q  |      with Q                       |
-   | it's possible that, P and Q       |                                   |
+   | P is logically consistent with Q  |                                   |
    |                                   |                                   |
    | ================================= | ================================= |
    | (◇ P ∧ ◇ -P)                      | (P ∧ ◇ -P)                        |
@@ -835,10 +836,9 @@ Extension & Intension
 
       TFL   From R(P) and P ↔ Q, we can always infer R(Q/P)
 
-      FOL=  From R(F) and ∀x(Fx ↔ Gx), we can always infer R(G/F)
+      FOL   From R(F) and ∀x(Fx ↔ Gx), we can always infer R(G/F)
 
-      Ident From R(a) and a=b, we can always infer R(b/a)
-                  (Ident=Identity Logic)
+      FOL=  From R(a) and a=b, we can always infer R(b/a)
 
    Intensional Contexts
 

@@ -155,6 +155,19 @@ Pragmatic argument
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
 
 The Problem of Evil
+   Is God willing to prevent evil, but not able?
+      Then he is not omnipotent.
+   Is he able, but not willing?
+      Then he is malevolent.
+   Is he both able and willing?
+      Then whence cometh evil?
+   Is he neither able nor willing?
+      Then why call him God?
+       - Epicurus
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+
+The Problem of Evil
    If God doesn't want to prevent evil,          -W → -G             A
       then he isn't all good.
    If God isn't able to prevent evil,            -A → -P             A
@@ -164,14 +177,6 @@ The Problem of Evil
    /.  Either God isn't all powerful,            -G ∨ -P             CD
        or he isn't all good.
          Gensler, Exercise 7.1b problem # 5
-
-....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
-
-   Is God willing to prevent evil, but not able?  Then he is not omnipotent.
-   Is he able, but not willing?  Then he is malevolent.
-   Is he both able and willing?  Then whence cometh evil?
-   Is he neither able nor willing?  Then why call him God?
-       - Epicurus
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
 
