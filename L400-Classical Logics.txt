@@ -3511,11 +3511,11 @@ Formal Theories
    or another theorem; i.e., the corollary is only a few reasoning steps away
    from what it is claimed to follow from.
 
-   A CONJECTURE is any proposition that cannot be proved as a theorem in any
-   known theory but is still taken as a true principle due to its usefulness
-   or apparent wisdom.  The well known Occam's razor is sometimes called
-   a conjecture.  Einstein took Galileo's equivalence principle, a conjecture,
-   and promoted it to an axiom of his theory of relativity.
+   A CONJECTURE is any proposition that has not been proved as a theorem
+   in any known theory but is still taken as a true principle due to its
+   usefulness or apparent wisdom.  The well known Occam's razor is sometimes
+   called a conjecture.  Einstein took Galileo's equivalence principle,
+   a conjecture, and promoted it to an axiom of his theory of relativity.
 
 
 ================

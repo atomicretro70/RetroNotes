@@ -1,0 +1,209 @@
+
+ORR Fallacy Theory
+
+   The ORR Theory of fallacies is built upon the premise that an argument is
+   an engineered system.  Engineered systems are composed of Objects with
+   Roles which satisfy certain Requirements.  If an argument doesn't satisfy
+   all requirements then the argument is fallacious.
+
+   The following table describes the objects that compose an argument.
+
+   ===========================================================================
+   Object                     |Role
+   ===========================================================================
+             |Proposition     |Premise                  
+             |                |   +-------------------------------------------
+   Data      |                |   |as Definition
+             |                +---+-------------------------------------------
+             |                |Conclusion
+             +----------------+-----------------------------------------------
+             |Proposition Set |The set of premises
+   ===========================================================================
+   Operation |                |Inference
+             |                |   +-------------------------------------------
+             |                |   |Deduction
+             |                |   |   +---------------------------------------
+             |                |   |   |Aristotelean
+             |                |   |   |   +-----------------------------------
+             |                |   |   |   |Immediate Inference
+             |                |   |   |   +-----------------------------------
+             |                |   |   |   |Syllogism
+             |                |   |   +---+-----------------------------------
+             |                |   |   |Formal Logic
+             |                |   +---+---------------------------------------
+             |                |   |Induction
+             |                |   |   +---------------------------------------
+             |                |   |   |Populations & Samples
+             |                |   |   |   +-----------------------------------
+             |                |   |   |   |Statistical Syllogism
+             |                |   |   |   +-----------------------------------
+             |                |   |   |   |Statistical Generalization
+             |                |   |   +---+-----------------------------------
+             |                |   |   |Analogy            
+             |                |   |   +---+-----------------------------------
+             |                |   |   |Cause & Effect
+             |                |   |   +---------------------------------------
+             |                |   |   |Statistical Prediction
+             |                |   +---+---------------------------------------
+             |                |   |of Structure
+   ===========================================================================
+
+Extending the table right the roles have associated requirements.
+
+   ===========================================================================
+   Role                         |Requirements (shall...)
+   ===========================================================================
+   Premise                      |be relevant to the conclusion
+                                +---------------------------------------------
+                                |be fundamental (don't restate concl.)
+                                +---------------------------------------------
+                                |be agreed/accepted by audience
+      +-------------------------+---------------------------------------------
+      |as Definition            |state only essential attribs of the species
+      |                         +---------------------------------------------
+      |                         |not be circular
+      |                         +---------------------------------------------
+      |                         |have appropriate scope
+      |                         +---------------------------------------------
+      |                         |be internally consistent
+      |                         +---------------------------------------------
+      |                         |match the vagueness of the definiens
+      |                         +---------------------------------------------
+      |                         |not be negative if can be positive
+      |                         +---------------------------------------------
+      |                         |match the emotional tone of the definiens
+   ---+-------------------------+---------------------------------------------
+   Conclusion                   |follow necessarilly/probably
+   -----------------------------+---------------------------------------------
+   The set of premises          |be consistent
+                                +---------------------------------------------
+                                |not have unstated premises
+   ===========================================================================
+   Inference                    |maintain consistent semantics
+                                +---------------------------------------------
+                                |be clear
+      +-------------------------+---------------------------------------------
+      |Deduction                |instantiate valid inference
+      |   +---------------------+---------------------------------------------
+      |   |Aristotelean         |
+      |   |   +-----------------+---------------------------------------------
+      |   |   |Immediate Inf.   |
+      |   |   +-----------------+---------------------------------------------
+      |   |   |Syllogism        |have middle term distributed at least once
+      |   |   |                 +---------------------------------------------
+      |   |   |                 |have dist conclusion term dist in the premise
+      |   |   |                 +---------------------------------------------
+      |   |   |                 |not have two negative premises
+      |   |   |                 +---------------------------------------------
+      |   |   |                 |have negative premise iff negative conclusion
+      |   |   |                 +---------------------------------------------
+      |   |   |                 |have univ concl if both premises are univ
+      |   +---+-----------------+---------------------------------------------
+      |   |Classical Formal     |
+      +---+---------------------+---------------------------------------------
+      |Induction                |instantiate strong inference
+      |   +---------------------+---------------------------------------------
+      |   |Populations & Samples|
+      |   |   +-----------------+---------------------------------------------
+      |   |   |Statistical Syl. |
+      |   |   +-----------------+---------------------------------------------
+      |   |   |Statistical Gen. |have large & varied sample population
+      |   +---+-----------------+---------------------------------------------
+      |   |Analogy              |possess relevance to the similarities
+      |   |                     +---------------------------------------------
+      |   |                     |have a large number of similarities
+      |   |                     +---------------------------------------------
+      |   |                     |consider nature of disanalogy
+      |   |                     +---------------------------------------------
+      |   |                     |possess diversity among the primary analogues
+      |   |                     +---------------------------------------------
+      |   |                     |consider specificity of the conclusion
+      |   |                     +---------------------------------------------
+      |   |                     |consider number of primary analogues
+      |   +---+-----------------+---------------------------------------------
+      |   |Cause & Effect       |exist as cause & effect relation
+      |   +---------------------+---------------------------------------------
+      |   |Statistical Predic.  |not be independant events
+      |---+---------------------+---------------------------------------------
+      |of Structure             |be valid composition/division inference
+   ===========================================================================
+
+Entending the table once more right we can add associated fallacies.
+
+   ===========================================================================
+   Requirements (shall...)                      |Example Fallacies
+   ===========================================================================
+   be relevant to the conclusion                |Relevance
+                                                |Non Sequitur
+                                                |loaded language
+                                                |
+   ---------------------------------------------+-----------------------------
+   be fundamental (don't restate concl.)        |Petitio Principii
+   ---------------------------------------------+-----------------------------
+   be agreed/accepted by audience               |Factual
+                                                |Listener Doubt
+                                                |False Dichotomy
+   ---------------------------------------------+-----------------------------
+   state only essential attribs of the species  |
+   ---------------------------------------------+-----------------------------
+   not be circular                              |Circular Definition
+   ---------------------------------------------+-----------------------------
+   have appropriate scope                       |Too Broad/Narrow
+   ---------------------------------------------+-----------------------------
+   be internally consistent                     |Conflicting Conditions
+   ---------------------------------------------+-----------------------------
+   match the vagueness of the definiens         |Failure to Elucidate
+   ---------------------------------------------+-----------------------------
+   not be negative if can be positive           |
+   ---------------------------------------------+-----------------------------
+   match the emotional tone of the definiens    |
+   ---------------------------------------------+-----------------------------
+   follow necessarilly/probably                 |Non Sequitur
+                                                |Slothful Induction
+                                                |Ignoratio Elenchi
+   ---------------------------------------------+-----------------------------
+   be consistent                                |Inconsistent
+   ---------------------------------------------+-----------------------------
+   not have unstated premises                   |Suppressed Evidence
+   ===========================================================================
+   maintain consistent semantics                |Equivocation
+                                                |Vagueness
+   ---------------------------------------------+-----------------------------
+   be clear                                     |Listener Doubt
+   ---------------------------------------------+-----------------------------
+   instantiate valid inference                  |Deductive
+   ---------------------------------------------+-----------------------------
+   have middle term distributed at least once   |Undistributed Middle
+   ---------------------------------------------+-----------------------------
+   have dist conclusion term dist in the premise|Illicit Major/Minor
+   ---------------------------------------------+-----------------------------
+   not have two negative premises               |Exclusive Premises
+   ---------------------------------------------+-----------------------------
+   have negative premise iff negative conclusion|Illicit Affirmative/Negative
+   ---------------------------------------------+-----------------------------
+   have univ concl if both premises are univ    |Existential
+   ---------------------------------------------+-----------------------------
+   instantiate strong inference                 |Non Sequitur
+   ---------------------------------------------+-----------------------------
+   have large & varied sample population        |Hasty Generalization
+   ---------------------------------------------+-----------------------------
+   possess relevance to the similarities        |Faulty Analogy
+   ---------------------------------------------+-----------------------------
+   have a large number of similarities          |Faulty Analogy
+   ---------------------------------------------+-----------------------------
+   consider nature of disanalogy                |Faulty Analogy
+   ---------------------------------------------+-----------------------------
+   possess diversity among the primary analogues|Faulty Analogy
+   ---------------------------------------------+-----------------------------
+   consider specificity of the conclusion       |Faulty Analogy
+   ---------------------------------------------+-----------------------------
+   consider number of primary analogues         |Faulty Analogy
+   ---------------------------------------------+-----------------------------
+   exist as cause & effect relation             |False Cause
+   ---------------------------------------------+-----------------------------
+   not be independant events                    |Gambler's Fallacy
+   ---------------------------------------------+-----------------------------
+   be valid composition/division inference      |Composition/Division
+   ===========================================================================
+
+
