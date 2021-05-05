@@ -333,7 +333,8 @@ Other Justifications
 Derived Inference Rules
 =======================
 
-   Once proven a sequent may be used as a new inference rule.  If a sequent
+   Once proven a sequent may be used as a new inference rule.  Every instance
+   of a valid inference rule is a valid deduction.  If a sequent
    is proven valid, then all instances of the sequent are also valid.  This
    property allows us to derive additional Fitch-style inference rules.
 
@@ -451,48 +452,48 @@ Negation Derivations
 
    -I:   ( P  ⊢  ⊥ )  ⊢  -P
    Schematic Proof
-    i.    |   P         H (for -I)
+    i.    |   P                        H (for -I)
           |   ...
     j.    |   ⊥
-    j+1.  P → ⊥         i-j → I
-    j+2.  -P            j+1 Def -
+    j+1.  P → ⊥                        i-j → I
+    j+2.  -P                           j+1 Def -
    QED
 
    -I:   ( -P  ⊢  ⊥ )  ⊢  P
    Schematic Proof
-    i.    |   -P        H (for -I)
+    i.    |   -P                       H (for -I)
           |   ...
     j.    |   ⊥
-    j+1.  -P → ⊥        i-j → I
-    j+2.  --P           j+1 Def -
-    j+3.  P             j+2 -E
+    j+1.  -P → ⊥                       i-j → I
+    j+2.  --P                          j+1 Def -
+    j+3.  P                            j+2 -E
    QED
 
    DN:   ⊢  P ↔ --P
    Proof
-   01.   |   P          H (for → I)
-   02.   |   |   -P     H (for -I)
-   03.   |   |   P → ⊥  2 Def -
-   04.   |   |   P      1 RE
-   05.   |   |   ⊥      3,4 → E
-   06.   |   --P        2-5 -I
-   07.   P → --P        1-6 → I
-   08.   |   --P        H (for → I)
-   09.   |   P          8 -E
-   10.   --P → P        8-9 → I
-   11.   P ↔ --P        7,10 ↔ I
+   01.   |   P                         H (for → I)
+   02.   |   |   -P                    H (for -I)
+   03.   |   |   P → ⊥                 2 Def -
+   04.   |   |   P                     1 RE
+   05.   |   |   ⊥                     3,4 → E
+   06.   |   --P                       2-5 -I
+   07.   P → --P                       1-6 → I
+   08.   |   --P                       H (for → I)
+   09.   |   P                         8 -E
+   10.   --P → P                       8-9 → I
+   11.   P ↔ --P                       7,10 ↔ I
    QED
 
    Ex Falso Quodlibet (EFQ):   P, -P  ⊢  Q
    Proof
-   01.   P              A
-   02.   -P             A
-   03.   |   -Q         H (for -I)
-   04.   |   P          1 RE
-   05.   |   -P         2 RE
-   06.   |   P → ⊥      5 Def -
-   07.   |   ⊥          4,6 → E
-   08.   Q              3-7 -I
+   01.   P                             A
+   02.   -P                            A
+   03.   |   -Q                        H (for -I)
+   04.   |   P                         1 RE
+   05.   |   -P                        2 RE
+   06.   |   P → ⊥                     5 Def -
+   07.   |   ⊥                         4,6 → E
+   08.   Q                             3-7 -I
    QED
 
 Conditional Derivations
@@ -500,62 +501,62 @@ Conditional Derivations
 
    Modus Tollens (MT):   P → Q, -Q  ⊢  -P
    Proof
-   01.   P → Q          A
-   02.   -Q             A
-   03.   |   P          H (for -I)
-   04.   |   P → Q      1 RE
-   05.   |   -Q         2 RE
-   06.   |   Q          3,4 → E
-   07.   |   ⊥          5,6 ⊥ EFQ
-   08.   -P             3-7 -I
+   01.   P → Q                         A
+   02.   -Q                            A
+   03.   |   P                         H (for -I)
+   04.   |   P → Q                     1 RE
+   05.   |   -Q                        2 RE
+   06.   |   Q                         3,4 → E
+   07.   |   ⊥                         5,6 ⊥ EFQ
+   08.   -P                            3-7 -I
    QED
 
 Conjunction Derivations
 -----------------------
 
-   ∧∃   P ∧ Q  ⊢  Q
+   ∧E   P ∧ Q  ⊢  Q
    Proof
-   01.   P ∧ Q          A
-   02.   -(P → -Q)      1 def ∧
-   03.   |   -Q         H (for -I)
-   04.   |   |   P      H (for → I)
-   05.   |   |   -Q     3 RE
-   06.   |   P → -Q     4-5 → I
-   07.   |   -(P → -Q)  2 RE
-   08.   |   ⊥          6,7 EFQ
-   09.   Q              3-8 -I
+   01.   P ∧ Q                         A
+   02.   -(P → -Q)                     1 def ∧
+   03.   |   -Q                        H (for -I)
+   04.   |   |   P                     H (for → I)
+   05.   |   |   -Q                    3 RE
+   06.   |   P → -Q                    4-5 → I
+   07.   |   -(P → -Q)                 2 RE
+   08.   |   ⊥                         6,7 EFQ
+   09.   Q                             3-8 -I
    QED
 
-   ∧∃   P ∧ Q  ⊢  P
+   ∧E   P ∧ Q  ⊢  P
    Proof
-   01.   P ∧ Q                    A
-   02.   -(P → -Q)                1 Def ∧
-   03.   |   -P                   H (for -I)
-   04.   |   |   Q                H (for → I)
-   05.   |   |   -P               3 RE
-   06.   |   Q →  -P              4-5 ->I
-   07.   |   |   P                H (for → I)
-   08.   |   |   --P              7 DN
-   09.   |   |   Q → -P           6 RE
-   10.   |   |   -Q               8,9 MT
-   11.   |   P -> -Q              7-11 → I
-   12.   |   -(P → -Q)            2 RE
-   13.   |   ⊥                    11,12 EFQ
-   14.   --P                      3-13 -I
-   15.   P                        14 -E
+   01.   P ∧ Q                         A
+   02.   -(P → -Q)                     1 Def ∧
+   03.   |   -P                        H (for -I)
+   04.   |   |   Q                     H (for → I)
+   05.   |   |   -P                    3 RE
+   06.   |   Q →  -P                   4-5 ->I
+   07.   |   |   P                     H (for → I)
+   08.   |   |   --P                   7 DN
+   09.   |   |   Q → -P                6 RE
+   10.   |   |   -Q                    8,9 MT
+   11.   |   P -> -Q                   7-11 → I
+   12.   |   -(P → -Q)                 2 RE
+   13.   |   ⊥                         11,12 EFQ
+   14.   --P                           3-13 -I
+   15.   P                             14 -E
    QED
 
    ∧I:   P, Q  ⊢  P ∧ Q
    Proof
-   01.   P                        A
-   02.   Q                        A
-   03.   |   P → -Q               H (for -I)
-   04.   |   P                    1 RE
-   05.   |   Q                    2 RE
-   06.   |   -Q                   3,4 → E
-   07.   |   ⊥                    5,6 EFQ
-   08.   -(P → -Q)                3-7 -I
-   09.   P ∧ Q                    8 Def ∧
+   01.   P                             A
+   02.   Q                             A
+   03.   |   P → -Q                    H (for -I)
+   04.   |   P                         1 RE
+   05.   |   Q                         2 RE
+   06.   |   -Q                        3,4 → E
+   07.   |   ⊥                         5,6 EFQ
+   08.   -(P → -Q)                     3-7 -I
+   09.   P ∧ Q                         8 Def ∧
    QED
 
 Disjunction Derivations
@@ -563,49 +564,49 @@ Disjunction Derivations
 
    ∨E/Poof by Cases (PBC):   P ∨ Q, P → R, Q → R  ⊢  R
    Proof
-   01.   P ∨ Q                    A
-   02.   P → R                    A
-   03.   Q → R                    A
-   04.   -P → Q                   1 def ∨
-   05.   |   -R                   H (for -I)
-   06.   |   P → R                2 RE
-   07.   |   Q → R                3 RE
-   08.   |   -P → Q               4 RE
-   09.   |   -P                   5,6 MT
-   10.   |   -Q                   5,7 MT
-   11.   |   Q                    8,9 → E
-   12.   |   ⊥                    10,11 EFQ
-   13.   R                        5-12 -I
+   01.   P ∨ Q                         A
+   02.   P → R                         A
+   03.   Q → R                         A
+   04.   -P → Q                        1 def ∨
+   05.   |   -R                        H (for -I)
+   06.   |   P → R                     2 RE
+   07.   |   Q → R                     3 RE
+   08.   |   -P → Q                    4 RE
+   09.   |   -P                        5,6 MT
+   10.   |   -Q                        5,7 MT
+   11.   |   Q                         8,9 → E
+   12.   |   ⊥                         10,11 EFQ
+   13.   R                             5-12 -I
    QED
 
    ∨I:   P  ⊢  P ∨ Q
    Proof
-   01.   P                        A
-   02.   |   -(P ∨ Q)             H (for -I)
-   03.   |   -(-P → Q)            2 Def ∨
-   04.   |   (-P → Q) → ⊥         3 Def -
-   05.   |   P                    1 RE
-   06.   |   |   -P               H (for → I)
-   07.   |   |   P                5 RE
-   08.   |   |   Q                6,7 EFQ
-   09.   |   -P → Q               6-8 → I
-   10.   |   ⊥                    2,9 EFQ
-   11.   P ∨ Q                    2-10 -I
+   01.   P                             A
+   02.   |   -(P ∨ Q)                  H (for -I)
+   03.   |   -(-P → Q)                 2 Def ∨
+   04.   |   (-P → Q) → ⊥              3 Def -
+   05.   |   P                         1 RE
+   06.   |   |   -P                    H (for → I)
+   07.   |   |   P                     5 RE
+   08.   |   |   Q                     6,7 EFQ
+   09.   |   -P → Q                    6-8 → I
+   10.   |   ⊥                         2,9 EFQ
+   11.   P ∨ Q                         2-10 -I
    QED
 
    ∨I:   P  ⊢  Q ∨ P
    Proof
-   01.   P                        A
-   02.   P ∨ Q                    1 ∨I
-   03.   |   -(Q ∨ P)             H (for -I)
-   04.   |   -(-Q → P)            3 Def ∨
-   05.   |   (-Q → P) → ⊥         4 Def -
-   06.   |   P                    1 RE
-   07.   |   |   -Q               H (for → I)
-   08.   |   |   P                6 RE
-   09.   |   -Q → P               7-8 → I
-   10.   |   ⊥                    4,9 EFQ
-   11.   Q ∨ P                    3-10 -I
+   01.   P                             A
+   02.   P ∨ Q                         1 ∨I
+   03.   |   -(Q ∨ P)                  H (for -I)
+   04.   |   -(-Q → P)                 3 Def ∨
+   05.   |   (-Q → P) → ⊥              4 Def -
+   06.   |   P                         1 RE
+   07.   |   |   -Q                    H (for → I)
+   08.   |   |   P                     6 RE
+   09.   |   -Q → P                    7-8 → I
+   10.   |   ⊥                         4,9 EFQ
+   11.   Q ∨ P                         3-10 -I
    QED
 
 Biconditional Derivations
@@ -613,44 +614,44 @@ Biconditional Derivations
 
    ↔ E:   P ↔ Q  ⊢  P → Q
    Proof
-   01.   P ↔ Q                    A
-   02.   (P → Q) ∧ (Q → P)        1 Def ↔
-   03.   P → Q                    2 ∧E
+   01.   P ↔ Q                         A
+   02.   (P → Q) ∧ (Q → P)             1 Def ↔
+   03.   P → Q                         2 ∧E
    QED
 
    ↔ E:   P ↔ Q  ⊢  Q → P
    Proof
-   01.   P ↔ Q                    A
-   02.   (P → Q) ∧ (Q → P)        1 Def ↔
-   03.   Q → P                    2 ∧E
+   01.   P ↔ Q                         A
+   02.   (P → Q) ∧ (Q → P)             1 Def ↔
+   03.   Q → P                         2 ∧E
    QED
 
    ↔ I:   P → Q, Q → P  ⊢  P ↔ Q
    Proof
-   01.   P → Q                            A
-   02.   Q → P                            A
-   04.   |   -(P ↔ Q)                     H (for -I)
-   05.   |   -((P → Q) ∧ (Q → P))         4 Def ↔
-   06.   |   ((P → Q) ∧ (Q → P)) → ⊥      5 Def -
-   07.   |   P → Q                        1 RE
-   08.   |   Q → P                        2 RE
-   09.   |   (P → Q) ∧ (Q → P)            7,8 ∧I
-   10.   |   ⊥                            6,9 → E
-   11.   P ↔ Q                            4-10 -I
+   01.   P → Q                         A
+   02.   Q → P                         A
+   04.   |   -(P ↔ Q)                  H (for -I)
+   05.   |   -((P → Q) ∧ (Q → P))      4 Def ↔
+   06.   |   ((P → Q) ∧ (Q → P)) → ⊥   5 Def -
+   07.   |   P → Q                     1 RE
+   08.   |   Q → P                     2 RE
+   09.   |   (P → Q) ∧ (Q → P)         7,8 ∧I
+   10.   |   ⊥                         6,9 → E
+   11.   P ↔ Q                         4-10 -I
    QED
 
    ↔ I:   P → Q, Q → P  ⊢  Q ↔ P
    Proof
-   01.   P → Q                            A
-   02.   Q → P                            A
-   03.   |   -(Q ↔ P)                     H (for -I)
-   04.   |   (Q ↔ P) → ⊥                  3 Def -
-   05.   |   ((Q → P) ∧ (P → Q)) → ⊥      4 Def ↔
-   06.   |   Q → P                        2 RE
-   07.   |   P → Q                        1 RE
-   08.   |   (Q → P) ∧ (P → Q)            6,7 ∧I
-   09.   |   ⊥                            5,8 → I
-   10.   Q ↔ P                            3-9 ↔ I
+   01.   P → Q                         A
+   02.   Q → P                         A
+   03.   |   -(Q ↔ P)                  H (for -I)
+   04.   |   (Q ↔ P) → ⊥               3 Def -
+   05.   |   ((Q → P) ∧ (P → Q)) → ⊥   4 Def ↔
+   06.   |   Q → P                     2 RE
+   07.   |   P → Q                     1 RE
+   08.   |   (Q → P) ∧ (P → Q)         6,7 ∧I
+   09.   |   ⊥                         5,8 → I
+   10.   Q ↔ P                         3-9 ↔ I
    QED
 
 
@@ -996,7 +997,6 @@ Alethic Inferential Systems
    - System K is weakest possible system (proves the fewest things);
      S5 is strongest possible system; between are an infinite number of
      systems.
-   - System D is most often used in Deontic logic.
    - System M is commonly used.
 
    Composition of Systems
@@ -1098,8 +1098,8 @@ Beyond System K
 Proofs
 ======
 
-   In this formulation axiom K and the necessitation rule are theorems in
-   System K.
+   In this formulation axiom K and the necessitation rule are theorems
+   in System K.
 
    Modal Distribution (K)  ⊢K  □ (P → Q) → (□ P → □ Q)
    Proof
@@ -1115,8 +1115,8 @@ Proofs
    10.   □ (P → Q) → (□ P → □ Q)       1-9 → I
    QED
 
-   Theorems and axioms can be embedded within a blocked subproof to derive the
-   necessitation rule (NR).
+   Theorems and axioms can be embedded within a blocked subproof to derive
+   the necessitation rule (NR).
 
    Proof
    01.   |□                            H (for □ I)
@@ -1173,7 +1173,7 @@ Proofs
    11.   ◇ (P ∧ Q) → (◇ P ∧ ◇ Q)       1-10 → I
    QED
 
-      ⊢K   (□ P ∧ ◇ Q) → ◇ (P ∧ Q)
+   ⊢K   (□ P ∧ ◇ Q) → ◇ (P ∧ Q)
    Proof
    01.   |   □ P ∧ ◇ Q                 H (for → I)
    02.   |   □ P                       1 ∧E
@@ -1285,6 +1285,7 @@ Proofs
       ⊢S4  ◇ P ↔ ◇ ◇ ◇ P
 
       ⊢S4  □ (P → □ □ Q) ↔ □ (P → □ Q)`
+   Proof
    01.   |   □ (P → □ □ Q)
    02.   |   |□                        H (for □ I)
    03.   |   |   P → □ □ Q             1 □ E
@@ -1379,7 +1380,7 @@ System K
    Equivalence Substitution (EQ)     Not a rule of inference in this
                                      formulation of modal alethic calculus
    --------------------------------  -----------------------------------------
-   Definition of ◇ (Def ◇)           □ P  =df  - ◇ - P
+   Definition of □ (Def □ )          □ P  =df  - ◇ - P
 
    Necessitation Rule (NR)           if ⊢ P (P is a theorem or axiom), infer
                                      □ P into any world.
@@ -1404,11 +1405,11 @@ System K
       |                               | P                             |
       |                               |                               |
       | ============================= | ============================= |
-      | Def ◇                         | NR                            |
+      | Def □                         | NR                            |
       | ============================= | ============================= |
       |                               | [ ⊢ P ]                       |
       | -----------------             | -------                       |
-      | [◇ P =df - □ - P]             | □ P       /i   (any i)        |
+      | [□ P =df - ◇ - P]             | □ P       /i   (any i)        |
       |                               |                               |
       | ============================= | ============================= |
       | ◇ E                           | □ E                           |
@@ -1458,8 +1459,9 @@ Beyond System K
       | ============================= | ============================= |
       |  For every world /i,          |  For every bridge /i=>/j      |
       |  There is a bridge            |  there is a bridge /j=>/i     |
-      |  /i=>/i                       |  in addition to the rule for  |
-      |                               |  System M.                    |
+      |  /i=>/i                       |  in addition to the rules for |
+      |  in addition to the rule for  |  Systems K and M.             |
+      |  System K.                    |                               |
       |                               |                               |
       | ============================= | ============================= |
       | □ E (System S4)               | □ E (System S5)               |
@@ -1467,9 +1469,9 @@ Beyond System K
       |  For every series of          |  Every world has a bridge     |
       |  bridges /i=>/j, /j=>/k       |  to every other world.        |
       |  there is a bridge            |  (both B and s4)              |
-      |  /i=>/k                       |  in addition to the rule for  |
-      |  in addition to the rule for  |  System M.                    |
-      |  System M.                    |                               |
+      |  /i=>/k                       |  in addition to the rules for |
+      |  in addition to the rules for |  Systems K and M.             |
+      |  Systems K and M.             |                               |
       |                               |                               |
       +-------------------------------+-------------------------------+
 
@@ -1486,8 +1488,8 @@ Proof Construction
 Proofs
 ------
 
-Dual ⊢ K  - □ P ↔ ◇ - P
-     ⊢ K  - ◇ P ↔ □ - P
+   Dual ⊢ K  - □ P ↔ ◇ - P
+        ⊢ K  - ◇ P ↔ □ - P
    Proof
    01.   |   - □ P                     H (for → I)
    02.   |   - - ◇ - P                 1 Def □
@@ -1502,7 +1504,7 @@ Dual ⊢ K  - □ P ↔ ◇ - P
    11.   - □ P ↔ ◇ - P                 4,10 ↔ I
    QED
 
-Modal Distribution (MDIST) ⊢ K  □ (P → Q) → ( □ P → □ Q)
+   Modal Distribution (MDIST) ⊢ K  □ (P → Q) → (□ P → □ Q)
    Proof
    01.   |   □ (P → Q)                 H (for → I)
    02.   |   |   □ P                   H (for → I)
@@ -1523,7 +1525,7 @@ Modal Distribution (MDIST) ⊢ K  □ (P → Q) → ( □ P → □ Q)
    17.   □ (P → Q) → (□ P → □ Q)       1-16 → I
    QED
 
-Diamond Distribution (◇ Dist)  ⊢ K  □ (P → Q) → (◇ P → ◇ Q) 
+   Diamond Distribution (◇ Dist)  ⊢ K  □ (P → Q) → (◇ P → ◇ Q) 
    Proof
    01.   |   □ (P → Q)                 H (for → I)
    02.   |   |   ◇ P                   H (for → I)
@@ -1544,7 +1546,7 @@ Diamond Distribution (◇ Dist)  ⊢ K  □ (P → Q) → (◇ P → ◇ Q)
    17.   □ (P → Q) → (◇ P → ◇ Q)       1-16 → I
    QED
 
-Dist ◇ ∧    ⊢ K   ◇ (P ∧ Q) → (◇ P ∧ ◇ Q)
+   Dist ◇ ∧    ⊢ K   ◇ (P ∧ Q) → (◇ P ∧ ◇ Q)
    Proof
    01.   ◇ (P ∧ Q)                     H (for ->I)
    02.   |   - ◇ P                     H (for -I)
@@ -1568,7 +1570,7 @@ Dist ◇ ∧    ⊢ K   ◇ (P ∧ Q) → (◇ P ∧ ◇ Q)
    20.   ◇ P ∧ ◇ Q                     10,19 ∧ I
    QED
 
-Thm ◇ B-00   ⊢ K   (□ P ∧ ◇ Q) → ◇ (P ∧ Q)
+   Thm ◇ B-00   ⊢ K   (□ P ∧ ◇ Q) → ◇ (P ∧ Q)
    Proof
    01.   |   □ P ∧ ◇ Q                 H (for → I)
    02.   |   |   - ◇ (P ∧ Q)           H (for -I)
@@ -1588,7 +1590,7 @@ Thm ◇ B-00   ⊢ K   (□ P ∧ ◇ Q) → ◇ (P ∧ Q)
    16.   (□ P ∧ ◇ Q) → ◇ (P ∧ Q)       1-15 → I
    QED
 
-Thm ◇ B-01   ⊢ M   P → ◇ P
+   Thm ◇ B-01   ⊢ M   P → ◇ P
    Proof
    01.   |   P                         H (for → I)
    02.   |   |   - ◇ P                 H (for -I)
@@ -1601,7 +1603,7 @@ Thm ◇ B-01   ⊢ M   P → ◇ P
    09.   P → ◇ P                       1-8 → I
    QED
 
-Thm ◇ B-02   ⊢ M   □ P → P
+   Thm ◇ B-02   ⊢ M   □ P → P
    Proof
    01.   |   □ P                       H (for → I)
    02.   |   |   -P                    H (for -I)
@@ -1612,40 +1614,44 @@ Thm ◇ B-02   ⊢ M   □ P → P
    07.   □ P → P                       1-6 → I
    QED
 
-Thm ◇ B-03   ⊢ M   □ P → ◇ P
+   Thm ◇ B-03   ⊢ M   □ P → ◇ P
    Proof
    01.   □ P → P                       Thm ◇ B-02
    02.   P → ◇ P                       Thm ◇ B-01
    03.   □ P → ◇ P                     1,2 HS
    QED
 
-Thm ◇ B-04   ⊢ s4  □ P → □ □ P
+   Thm ◇ B-04   ⊢ s4  □ P → □ □ P
    Proof
-   01.   |   □ P             H (for → I)
-   02.   |   |   - □ □ P     H (for -I)
-   03.   |   |   ◇ ◇ - P     2 Dual
-   04.   |   |   -P     /2   3 ◇ E     new bridges /0=>/1, /1=>/2
-   05.   |   |   P      /2   1 (Sys s4)
-   06.   |   |   ⊥      /2   4,5 EFQ
-   07.   |   □ □ P           2-6 -I
-   08.   □ P → □ □ P         1-7 → I
+   01.   |   □ P                       H (for → I)
+   02.   |   |   - □ □ P               H (for -I)
+   03.   |   |   ◇ ◇ - P               2 Dual
+   04.   |   |   -P              /2    3 ◇ E     new bridges /0=>/1, /1=>/2
+   05.   |   |   P               /2    1 (Sys s4)
+   06.   |   |   ⊥               /2    4,5 EFQ
+   07.   |   □ □ P                     2-6 -I
+   08.   □ P → □ □ P                   1-7 → I
    QED
 
-Thm ◇ B-05   □ (P → Q), □ P   ⊢   □ Q
+   Thm ◇ B-05   □ (P → Q), □ P   ⊢   □ Q
    Proof
-   01.   □ (P → Q)           A
-   02.   □ P                 A
-   03.   |   - □ Q           H (for -I)
-   04.   |   - □ - - Q       3 DN
-   05.   |   ◇ - Q           4 Def ◇
-   06.   |   □ (P → Q)       1 RE
-   07.   |   □ P             2 RE
-   08.   |   - Q        /1   5 ◇ E    new bridge /0=>/1
-   09.   |   P → Q      /1   6 □ E (Sys K)
-   10.   |   P          /1   7 □ E (Sys K)
-   11.   |   Q          /1   9,10 → E
-   12.   |   ⊥          /1   8,11 EFQ
-   13.   □ Q                 3-12 -I
+   01.   □ (P → Q)                     A
+   02.   □ P                           A
+   03.   □ (P → Q) → (□ P → □ Q)       MDist
+   04.   □ P → □ Q                     1,3 → E
+   05.   □ Q                           2,4 → E
+
+   03.   |   - □ Q                     H (for -I)
+   04.   |   - □ - - Q                 3 DN
+   05.   |   ◇ - Q                     4 Def ◇
+   06.   |   □ (P → Q)                 1 RE
+   07.   |   □ P                       2 RE
+   08.   |   - Q                 /1    5 ◇ E    new bridge /0=>/1
+   09.   |   P → Q               /1    6 □ E (Sys K)
+   10.   |   P                   /1    7 □ E (Sys K)
+   11.   |   Q                   /1    9,10 → E
+   12.   |   ⊥                   /1    8,11 EFQ
+   13.   □ Q                           3-12 -I
    QED 
 
 
@@ -1669,6 +1675,20 @@ Alethic Deduction - Relative Modalities
 
       +-------------------------------+-------------------------------+
       | ============================= | ============================= |
+      | Equivalence Subst (EQ)        | Reiterate (RE)                |
+      | ============================= | ============================= |
+      | !!! Not Allowed !!!           | P                             |
+      |                               | ---                           |
+      |                               | P                             |
+      |                               |                               |
+      | ============================= | ============================= |
+      | Def ◇                         | NR                            |
+      | ============================= | ============================= |
+      |                               | [ ⊢ P ]                       |
+      | -----------------             | -------                       |
+      | [◇ P =df - □ - P]             | □ P       /i   (any i)        |
+      |                               |                               |
+      | ============================= | ============================= |
       | ◇ E (All Systems)             | □ I (All Systems)             |
       | ============================= | ============================= |
       |  ◇ P    /i                    |  |        /i+m (m is new)     |
@@ -1676,11 +1696,6 @@ Alethic Deduction - Relative Modalities
       |  P      /i+m (m is new)       |  | P      /i+m                |
       |                               | -----                         |
       |                               |  □ P      /i                  |
-      |                               |                               |
-      | ============================= |                               |
-      | EQ (Equivalence Subst)        |                               |
-      | ============================= |                               |
-      | !! not allowed !!             |                               |
       |                               |                               |
       +-------------------------------+-------------------------------+
 
@@ -1734,43 +1749,43 @@ Alethic Deduction - Relative Modalities
    An OLD INDEX is when the index occurs in at least one line that is neither
    boxed nor cancelled otherwise it's a NEW INDEX.
 
-□ (P → Q), □ P  ⊢  □ Q
+   □ (P → Q), □ P  ⊢  □ Q
    Proof
-   01.   □ (P → Q)           A
-   02.   □ P                 A
-   03.   |              /01  H (for □ I)
-   04.   |   □ (P → Q)       1 RE
-   05.   |   □ P             2 RE
-   06.   |   P → Q      /01  4 □ E (/0=>/01)
-   07.   |   P          /01  5 □ E (/0=>/01)
-   08.   |   Q          /01  6,7 → E
-   09.   □ Q                 3-8 □ I
+   01.   □ (P → Q)                     A
+   02.   □ P                           A
+   03.   |                       /01   H (for □ I)
+   04.   |   □ (P → Q)                 1 RE
+   05.   |   □ P                       2 RE
+   06.   |   P → Q               /01   4 □ E (/0=>/01)
+   07.   |   P                   /01   5 □ E (/0=>/01)
+   08.   |   Q                   /01   6,7 → E
+   09.   □ Q                           3-8 □ I
    QED
 
-□ (P → Q), ◇ P  ⊢  ◇ Q
+   □ (P → Q), ◇ P  ⊢  ◇ Q
    Proof
-   01.   □ (P → Q)      /0   A
-   02.   ◇ P            /0   A
-   03.   P              /01  2 ◇ E
-   04.   P → Q          /01  □ E
-   05.   Q              /01  3,4 → E
-   06.   ◇ Q            /0   5 ◇ I
+   01.   □ (P → Q)               /0    A
+   02.   ◇ P                     /0    A
+   03.   P                       /01   2 ◇ E
+   04.   P → Q                   /01   □ E
+   05.   Q                       /01   3,4 → E
+   06.   ◇ Q                     /0    5 ◇ I
    QED
 
-□ (□ P → □ (P → Q)), □ □ P  ⊢  □ □ Q
+   □ (□ P → □ (P → Q)), □ □ P  ⊢  □ □ Q
    Proof
-   01.   □ (□ P → □ (P → Q))           /0   A
-   02.   □ □ P                         /0   A
-   03.   |                             /01  H (for □ I)
-   04.   |   □ (□ P → □ (P → Q))       /0   1 RE
-   05.   |   □ □ P                     /0   2 RE
-   06.   |   □ P → □ (P → Q)           /01  4 □ E
-   07.   |   □ P                       /01  5 □ E
-   08.   |   □ (P → Q)                 /01  6,7 → E
+   01.   □ (□ P → □ (P → Q))     /0    A
+   02.   □ □ P                   /0    A
+   03.   |                       /01   H (for □ I)
+   04.   |   □ (□ P → □ (P → Q)) /0    1 RE
+   05.   |   □ □ P               /0    2 RE
+   06.   |   □ P → □ (P → Q)     /01   4 □ E
+   07.   |   □ P                 /01   5 □ E
+   08.   |   □ (P → Q)           /01   6,7 → E
    09.   |   □ (P → Q) → (□ P → □ Q)   /01  Axiom (K)
-   10.   |   □ P → □ Q                 /01  8,9 → E
-   11.   |   □ Q                       /01  7,10 → E
-   12.   □ □ Q                         /01  3-11 □ I
+   10.   |   □ P → □ Q           /01   8,9 → E
+   11.   |   □ Q                 /01   7,10 → E
+   12.   □ □ Q                   /01   3-11 □ I
    QED
 
 
@@ -1965,7 +1980,7 @@ K-Model Truth-Trees
                |               |
                V               V
          +---------+w1     +---------+w2
-         |    -P   |       |   -Q    |
+         |   -P    |       |   -Q    |
          |* P ∧ Q  |       |* P ∧ Q  |
          |    P    |       |    P    |
          |    Q    |       |    Q    |
@@ -2146,7 +2161,7 @@ Semantics of Standard Deontic Logic
    least one world where someone swears and all of the obligations of world
    i are fulfilled.
 
-         It's impermissible to rape.
+         It's impermissible to kill.
 
    If it's impermissible to rape in world i, then there is no world in which
    all of the obligations in i are fulfilled and a rape is committed.  There
