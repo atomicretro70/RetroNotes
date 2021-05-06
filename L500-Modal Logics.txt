@@ -695,7 +695,6 @@ Definitions
          Def ∧:    (P ∧ Q)    =df  -(P → -Q)
          Def ∨:    (P ∨ Q)    =df  (-P → Q)
          Def ↔:    (P ↔ Q)    =df  ((P → Q) ∧ (Q → P))
-         Def ◇:    ◇ P        =df  -□ -P
          Def -<:   (P -< Q)   =df  □ (P → Q)
          Def >-<:  (P >-< Q)  =df  (P -< Q) ∧ (Q -< P)
 
@@ -708,15 +707,15 @@ Kinds of Necesssity
 ===================
 
    1. logical necessity: a true statement in virtue of logic alone.
-      i.e. tautologies and validities.
+      ie. tautologies and validities.
 
    2. metaphysical necessity: true in virtue of the structure of reality.
-      Eg. Contradictions are necessarily false.
+      eg. Contradictions are necessarily false.
 
    3. lawful/nomological/causal/scientific/physical necessity:
       true in virtue of the laws of nature.  (eg. the speed of light).
-         nomological =df  relating to or denoting certain principles, such as
-                          laws of nature, that are neither logically
+         nomological =df  relating to or denoting certain principles, such
+                          as laws of nature, that are neither logically
                           necessary nor theoretically explicable, but are
                           simply taken as true.
 
@@ -958,9 +957,6 @@ Rules, Definitions and Axiom Schemata
    (K) Axiom Schema K (Kripke, Modal Distribution)
          □ (P → Q) → (□ P → □ Q)
 
-   (D) Axiom Schema D (Deontic)
-         □ P → ◇ P
-
    (M)/(T) Axiom Schema M/T (Modality)
          □ P → P
 
@@ -1053,7 +1049,7 @@ System K
                                      nested boxed subproof.
 
    Necessitation Introduction (□ I)  From a boxed subproof ending in P,
-                                     infer □ P.
+                                     close the subproof and infer □ P.
    ================================  =========================================
 
    These rules are sometimes represented in diagrams.  The horizontal bar
@@ -1067,8 +1063,8 @@ System K
       |  -------      -------         |  ---       ---------          |
       |   |   P        |□             |   P         |   ...           |
       |                               |             |   P             |
-      |  P is a                       |                               |
-      |  hypothesis                   |  (same     (Immediately nested|
+      |  (P is a                      |                               |
+      |  hypothesis)                  |  (same     (Immediately nested|
       |                               |  subproof) not boxed subproof)|
       |                               |                               |
       | ============================= | ============================= |
@@ -1115,8 +1111,8 @@ Proofs
    10.   □ (P → Q) → (□ P → □ Q)       1-9 → I
    QED
 
-   Theorems and axioms can be embedded within a blocked subproof to derive
-   the necessitation rule (NR).
+   Theorems and axioms can be embedded within a blocked subproof to perform
+   the same job as the necessitation rule (NR).
 
    Proof
    01.   |□                            H (for □ I)
@@ -1284,7 +1280,7 @@ Proofs
 
       ⊢S4  ◇ P ↔ ◇ ◇ ◇ P
 
-      ⊢S4  □ (P → □ □ Q) ↔ □ (P → □ Q)`
+      ⊢S4  □ (P → □ □ Q) ↔ □ (P → □ Q)
    Proof
    01.   |   □ (P → □ □ Q)
    02.   |   |□                        H (for □ I)
@@ -1640,7 +1636,11 @@ Proofs
    03.   □ (P → Q) → (□ P → □ Q)       MDist
    04.   □ P → □ Q                     1,3 → E
    05.   □ Q                           2,4 → E
+   QED
 
+   Proof
+   01.   □ (P → Q)                     A
+   02.   □ P                           A
    03.   |   - □ Q                     H (for -I)
    04.   |   - □ - - Q                 3 DN
    05.   |   ◇ - Q                     4 Def ◇
