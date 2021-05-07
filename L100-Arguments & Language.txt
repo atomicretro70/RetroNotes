@@ -52,6 +52,7 @@ To View This Document Properly
 =======================================
 Contents
 =======================================
+
 Arguments
    Identification
    Expression of Arguments
@@ -163,23 +164,23 @@ Proposition
       ===========================================================  ===========
       Statement                                                    Proposition
       ===========================================================  ===========
-      The sky is blue.                                               Yes
-      Alice is taller than Bob.                                      Yes
-      The cat is black and the dob is brown.                         Yes
-      Who is standing over there?                                    No
-      If the cat is a mammal then the cat is a vertebret.            Yes
-      Yessss!                                                        No
-      Charlie ran all the way to the store.                          Yes
-      He is my father.                                               Yes
-      That's the man who is my father.                               Yes
-      Li estas mia patro.                                            Yes
+      The sky is blue.                                             Yes
+      Alice is taller than Bob.                                    Yes
+      The cat is black and the dog is brown.                       Yes
+      Who is standing over there?                                  No
+      If the cat is a mammal then the cat is a vertebrate.         Yes
+      Yessss!                                                      No
+      Charlie ran all the way to the store.                        Yes
+      That one is my father.                                       Yes
+      That's the man who is my father.                             Yes
+      Tiu estas mia patro.                                         Yes
       ===========================================================  ===========
 
    The final three examples all express the same proposition.
 
-   In mathamatics we assign values as numbers.  There are an infinite number
+   In mathematics we assign values as numbers.  There are an infinite number
    of values or numbers we can use.  In logic we assign values of truth
-   to propositions.  Sice we're dealing with deduction we only have two
+   to propositions.  Since we're dealing with deduction we only have two
    possible values: true and false, which we call TRUTH-VALUES.
 
 Argument
@@ -188,19 +189,19 @@ Argument
    An ARGUMENT is a set of propositions; where one is intended as a
    CONCLUSION, a sort of finding; the rest, the PREMISES, are claimed to prove
    or provide some evidence for the conclusion.  The following are examples
-   of arguments and non-arguments.  the symbol '∴' is read as 'therefore'.
+   of arguments and non-arguments.  The symbol '∴' is read as 'therefore'.
 
-      Example Argument
+      Example Arguments
 
          All men are mortal.              All cats are mammals.
-         Socrates is a man.               All mammals are vertebrets.
-       ∴ Socrates is mortal.            ∴ All cats are vertibrets.
+         Socrates is a man.               All mammals are vertebrates.
+       ∴ Socrates is mortal.            ∴ All cats are vertebrates.
 
          5% of A's are B's.               Bob voted.
          Alice is A.                    ∴ Bob voted or Cheryl voted.
        ∴ Alice probably isn't B.
 
-      Examples Non-Arguments
+      Example Non-Arguments
 
          If she goes to the spa then      With what sense do you detect
          she will be able to relax.       the presence of her spirit?
@@ -216,7 +217,7 @@ Argument
 Indicator Words
 ===============
 
-   An INDICATOR WORD introduces (precedes) premises or conclusions, signalig
+   An INDICATOR WORD introduces (precedes) premises or conclusions signaling
    the presence of an argument.  However, premises and conclusions don't
    always have them, and some arguments don't contain any.  The following
    are examples of premise and conclusion indicators.
@@ -260,7 +261,7 @@ Kinds of Discourse
    It can be helpful to be aware of the kinds of discourse when trying
    to pick out an argument.
 
-   Simple Noninferrential Passage
+   Simple Noninferential Passage
 
    A SIMPLE NONINFERENTIAL PASSAGE is a passage that's easily distinguished
    from an argument.
@@ -271,7 +272,7 @@ Kinds of Discourse
 
          Caution! Wet Floor.
 
-         Be aware that the gas pedal can be sensative in this care.
+         Be aware that the gas pedal can be sensitive in this car.
 
       Piece of Advice
 
@@ -285,7 +286,7 @@ Kinds of Discourse
 
          Example
 
-         I believe in the first ammendment.
+         I believe in the first amendment.
 
          We believe X the greatest TV show ever created.
 
@@ -365,7 +366,7 @@ Kinds of Discourse
 
       Qualities
 
-         Parsimony/Occam's Razon
+         Parsimony/Occam's Razor
 
          Given two explanations that work equally well, the simpler one
          is more likely to be correct than the more complex one.
@@ -404,7 +405,7 @@ Representation
    In an INFORMAL ARGUMENT the propositions are expressed in a natural
    language such as English or some other spoken language.
    
-   In a FORMAL ARGUMENT the propostions are expressed in a symbol language
+   In a FORMAL ARGUMENT the propositions are expressed in a symbol language
    and focus only upon structure without regard to meaning.
 
       Formal arguments stem from the fact that English contains many
@@ -428,14 +429,14 @@ Representation
    and systems of inference that capture structures, patterns or forms of
    reasoning without regard to meaning.
 
-Inferrential Method
-===================
+Inferential Method
+==================
 
    Deduction
 
    A DEDUCTIVE ARGUMENT is an argument who's conclusion cannot be false when
    all the premises are true.  The deductive argument's conclusion follows
-   necessarilly from the premises.
+   necessarily from the premises.
 
    Induction
 
@@ -447,10 +448,12 @@ Inferrential Method
    Abduction
 
    Another term of ABDUCTION is reasoning to the best explanation.
+   Abdunctions aren't true arguments.
 
    Reduction
 
-   REDUCTION is reasoning by divide and conquor.
+   REDUCTION is reasoning by divide and conquer.  Reductions aren't
+   necessarily arguments.
 
 
 ----------
@@ -458,7 +461,7 @@ Assessment
 ----------
 
    An INVALID ARGUMENT is an argument claimed to be deductive but contains
-   rasoning errors, or missing premises.
+   reasoning errors, or missing premises.
 
    A VALID ARGUMENT is a deductive argument which is genuinely deductive in
    the sense defined above.
@@ -521,7 +524,7 @@ Fallacy
 =======
 
    A FALLACY is an error in reasoning.  Fallacies can
-   be orgainized into the following broad categories.
+   be organized into the following broad categories.
 
          Fallacies of Arguments
             Unacceptable Premises
@@ -548,12 +551,12 @@ Debates
 =======
 
    Debates usually involve many rules.  Here are some of the sorts of
-   things one ought to remember for debate etiquet.
+   things one ought to remember for debate etiquette.
 
    - Freedom rule:  Parties must not prevent each other from advancing
      standpoints or from casting doubt on standpoints.
 
-   - Burden of proof rule:  A party that advances a standppoint is obliged
+   - Burden of proof rule:  A party that advances a standpoint is obliged
      to defend it if asked by the other party to do so.
 
    - Standpoint rule:  A Party's attack on a standpoint must relate to the
@@ -605,7 +608,7 @@ Identification
 Kinds of Statements
 ===================
 
-   COGNATIVE
+   COGNITIVE
 
       The use of language to communicate information.  This includes both
       assertions and inquiries.
@@ -693,7 +696,7 @@ Lexical
    A LEXICAL DEFINITION is a dictionary definition.  It's used for general
    purposes.
 
-Stupulative
+Stipulative
 
    A STIPULATIVE DEFINITION is defining a new word or new meaning to a word
    intended only for use within the current discussion.
@@ -847,7 +850,7 @@ Intensional Meaning
          the other when the two are rubbed together.
 
          A subject has 'brain activity' if and only
-         if an eletroencephalograph shows oscillations when attached
+         if an electroencephalograph shows oscillations when attached
          to the subject's head.
 
    Genus and Difference
@@ -866,9 +869,9 @@ Interchange Test
 ================
 
    The simplest assessment one can perform on a definition is to test whether
-   or not an occrrence of the defindum can be swapped out for the definiens,
-   or vice versa.  An ideal definitions is such that each side of the
-   definition is a drop-in replacement for the other.
+   or not an occurrence of the definiendum can be swapped out for the
+   definiens, or vice versa.  An ideal definitions is such that each side
+   of the definition is a drop-in replacement for the other.
 
 Requirements (For Acceptability)
 ================================
