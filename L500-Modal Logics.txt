@@ -769,6 +769,35 @@ Translation Hints
    |                                   |                                   |
    +-----------------------------------------------------------------------+
 
+Strict Conditional
+==================
+
+   Propositional logic appears to have a flaw.  For many philosophers
+   conditionals don't always make intuitive sense; especially when they
+   are negated.
+
+         K → F,        If you keep up the good work, then you'll go far.
+
+         -(K → F),     It's false that if you keep up the work, you'll go far.
+         -(-K ∨ F),    Material Implication
+         K ∧ -F,       DeMorgan's
+                       You keep up the good work and you don't go far.
+
+   C.I.Lewis felt this conclusion didin't make sense for a negated
+   conditional.  His goal in creating alethic modal logic was to find
+   a way to *fix* the conditional.  Observe what happens when we use the
+   strict conditional instead of the propositional logic conditional.
+
+         □ (K → F),    Necessarily if you keep up the work, you'll go far.
+
+         -□ (K → F)
+         -□ --(K → F)  Double Negative
+         ◇ -(K → F)    Definition of ◇ (◇ P =df -□ -P)
+         ◇ -(-K ∨ F)   Material Implication
+         ◇ (K ∧ -F)    DeMorgan's
+                       It's possible you keep up the good work and don't
+                          go far.
+
 Ambiguous Conditionals
 ======================
 
@@ -1226,8 +1255,8 @@ Proofs
    13.   ◇ ◇ P → ◇ P                   1-12 → I
    QED
 
-   Steps 2-6 demonstrate that from □ P one can infer □ P into a boxed subproof
-   without losing the □ .
+   Steps 2-6 demonstrate that from □ P one can infer □ P into a boxed
+   subproof without losing the □ .
 
    5' (Dual of 5):  ⊢S5  ◇ □ P → □ P
    Proof
@@ -1248,8 +1277,8 @@ Proofs
    15.   ◇ □ P → □ P                   1-15 → I
    QED
 
-   Steps 3-7 demonstrate that from ◇ P one can infer ◇ P into a boxed subproof
-   without losing the ◇  provided we are in system S5.
+   Steps 3-7 demonstrate that from ◇ P one can infer ◇ P into a boxed
+   subproof without losing the ◇  provided we are in system S5.
 
       ⊢S5  □ P → □ □ P
    Proof
@@ -2122,8 +2151,8 @@ Philosophical Concerns
          O(P → Q), or
          P → OQ
 
-Semantics of Standard Deontic Logic
-===================================
+Semantics of Standard Deontic Logic (SDL)
+=========================================
 
    Kripke Semantics
 
@@ -2148,26 +2177,26 @@ Semantics of Standard Deontic Logic
 
    Examples
 
-         It is obligatory that no one lies.
+         It is obligatory that no one lies.  (O-L)
 
    If it is obligatory that no one lies in world i, that means that there can
    be no world in which all of the obligations of world i hold true, and yet
    there are people that lie.  And there exists one world where all of the
    obligations of i hold true and no one lies.
 
-         It's permissible to swear.
+         It's permissible to swear.   (PS)
 
    If it is permissible to swear in world i, then that means that there is at
    least one world where someone swears and all of the obligations of world
    i are fulfilled.
 
-         It's impermissible to kill.
+         It's impermissible to kill.  (-PK)
 
    If it's impermissible to rape in world i, then there is no world in which
    all of the obligations in i are fulfilled and a rape is committed.  There
    is also at least one world where all of the obligations in i are fulfilled.
 
-         It's omissible to eat oats.
+         It's omissible to eat oats.  (P-E)
 
    If it is omissible to eat oats in world i, then there is some world where
    all of the obligations of i are true, but no one eats oats.

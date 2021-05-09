@@ -730,14 +730,7 @@ Conversational Implicature
 
    Again the use of 'then' in these 'if/then' examples denotes a temporal
    relationship; it cannot be translated into a propositional logic
-   conditional.  Consider what happens by negating the first rewritten example
-   and seeing what is derived after applying a few logical equivalences.
-
-         K → F,      if you keep up the good work, then you'll go far.
-
-         -(K → F),   it's false that if you keep up the work, you'll go far
-         -(-K ∨ F)
-         K ∧ -F,     You keep up the good work, and you don't go far.
+   conditional.
 
 Valuation Function
 ==================
@@ -1860,11 +1853,11 @@ The Unnatural Conditional
    logical system.  Moreover, the propositional logic conditional can
    produce some surprising results.  Let us revisit a previous example.
 
-         K → F         if you keep up the good work then you'll go far.
+         K → F         If you keep up the good work then you'll go far.
 
    Now let's consider what happens if we take it's negation.
 
-         -(K → F)      it's false that if you keep up the work you'll go far
+         -(K → F)      It's false that if you keep up the work you'll go far.
          -(-K ∨ F)     Material Implication
          K ∧ -F        DeMorgan's
 
