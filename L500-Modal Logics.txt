@@ -226,7 +226,7 @@ Regarding Notation
    'Φ(Θ/Ψ)' denotes the result of replacing one or more occurrences of Ψ in Φ
    with Θ.  Θ/Ψ is read, "Θ replaced one or more occurrences of Ψ".
 
-   'Φ (Θ//Ψ)' like above but indicates replacing all occurrences of Ψ in Φ
+   'Φ(Θ//Ψ)' like above but indicates replacing all occurrences of Ψ in Φ
    with Θ.  Θ//Ψ is read, "Θ replaced all occurrences of Ψ".
 
    '( Φ ⊢ Ψ )' denotes a subproof with hypothesis Φ concluding with Ψ.
@@ -507,7 +507,7 @@ Conditional Derivations
    04.   |   P → Q                     1 RE
    05.   |   -Q                        2 RE
    06.   |   Q                         3,4 → E
-   07.   |   ⊥                         5,6 ⊥ EFQ
+   07.   |   ⊥                         5,6 EFQ
    08.   -P                            3-7 -I
    QED
 
@@ -698,6 +698,8 @@ Definitions
          Def -<:   (P -< Q)   =df  □ (P → Q)
          Def >-<:  (P >-< Q)  =df  (P -< Q) ∧ (Q -< P)
 
+   The symbols '-<' and '>-<' are called strict conditional and strict
+   biconditional respectively.
 
 ---------
 Semantics
@@ -785,18 +787,23 @@ Strict Conditional
 
    C.I.Lewis felt this conclusion didin't make sense for a negated
    conditional.  His goal in creating alethic modal logic was to find
-   a way to *fix* the conditional.  Observe what happens when we use the
-   strict conditional instead of the propositional logic conditional.
+   a way to *fix* the conditional.  For Lewis all if/then statements
+   ought to be translated as strict conditionals.  Observe what happens
+   when we use the strict conditional instead of the propositional logic
+   conditional.
 
-         □ (K → F),    Necessarily if you keep up the work, you'll go far.
+         (K -< F)      If you keep up the good work, you'll go far.
 
-         -□ (K → F)
-         -□ --(K → F)  Double Negative
+         -(K -< F)
+         -□ (K → F)    Definition of -<
+         -□ --(K → F)  Double Negation
          ◇ -(K → F)    Definition of ◇ (◇ P =df -□ -P)
          ◇ -(-K ∨ F)   Material Implication
          ◇ (K ∧ -F)    DeMorgan's
                        It's possible you keep up the good work and don't
                           go far.
+
+   The conclusion is similar to before but is prefixed by ◇.
 
 Ambiguous Conditionals
 ======================
@@ -871,10 +878,10 @@ Extension & Intension
 
    Intensional Contexts
 
-   The INTENSION of a sentence is the thought or proposition it expresses, the
-   intension of a predicate is the property, concept or idea it represents,
-   and the intension of an object symbol is its meaning, sense or the
-   individual concept it used to pick out its bearer.
+   The INTENSION of a sentence is the thought or proposition it expresses,
+   the intension of a predicate is the property, concept or idea it
+   represents, and the intension of an object symbol is its meaning,
+   sense or the individual concept it used to pick out its bearer.
 
    When it comes to an operator like □ , replacing an expression with another
    having the same extension can result in different truth values.  These are
@@ -890,7 +897,7 @@ Extension & Intension
    INTENSIONAL OPERATORS (such as □ and ◇ ) generate INTENSIONAL CONTEXTS.
 
    @@@It seems that we may be able to permit extension substitutions as
-   described above provided they aren't performed on the top-level wff
+   described above provided they are not performed on the top-level wff
    that is the argument of a modal operator.  It may still be ok to do
    internally.
 
@@ -914,7 +921,7 @@ Kripke Semantics
       If wxRwy then wyRwx.       (Every accessibility arrow is double ended)
 
    Transitivity
-      If wxRwy and wyRwz then wxRwz.   (□ P can traverse multiple ARs)
+      If wxRwy and wyRwz then wxRwz.   (□ P can traverse a series of ARs)
 
    System M/T = K + refl                      □ A → A (axiom M/T) = K + M
    System B   = K + refl + symmetry           A → □ ◇ A (axiom B)
@@ -1485,7 +1492,7 @@ Beyond System K
       |  For every world /i,          |  For every bridge /i=>/j      |
       |  There is a bridge            |  there is a bridge /j=>/i     |
       |  /i=>/i                       |  in addition to the rules for |
-      |  in addition to the rule for  |  Systems K and M.             |
+      |  in addition to the rule for  |  System M.                    |
       |  System K.                    |                               |
       |                               |                               |
       | ============================= | ============================= |
@@ -1494,9 +1501,9 @@ Beyond System K
       |  For every series of          |  Every world has a bridge     |
       |  bridges /i=>/j, /j=>/k       |  to every other world.        |
       |  there is a bridge            |  (both B and s4)              |
-      |  /i=>/k                       |  in addition to the rules for |
-      |  in addition to the rules for |  Systems K and M.             |
-      |  Systems K and M.             |                               |
+      |  /i=>/k                       |                               |
+      |  in addition to the rules for |                               |
+      |  System M.                    |                               |
       |                               |                               |
       +-------------------------------+-------------------------------+
 
@@ -1523,7 +1530,7 @@ Proofs
    05.   |   ◇ - P                     H (for → I)
    06.   |   |   □ P                   H (for -I)
    07.   |   |   - ◇ - P               6 Def □
-   08.   |   |   ⊥                     5,7 ⊥ I
+   08.   |   |   ⊥                     5,7 EFQ
    09.   |   - □ P                     6-8 -I
    10.   ◇ - P → - □ P                 6-9 → I
    11.   - □ P ↔ ◇ - P                 4,10 ↔ I
@@ -1542,8 +1549,8 @@ Proofs
    09.   |   |   |   - Q         /1    6 ◇ E          new bridge /0 => /1
    10.   |   |   |   P           /1    7 □ E (Sys K)
    11.   |   |   |   P → Q       /1    8 □ E (Sys K)
-   12.   |   |   |   - P         /1    9,11 → E
-   13.   |   |   |   ⊥           /1    10,12 ⊥ I
+   12.   |   |   |   Q           /1    10,11 → E
+   13.   |   |   |   ⊥           /1    9,12 EFQ
    14.   |   |   -- □ Q                4-13 -I
    15.   |   |   □ Q                   14 -E
    16.   |   □ P → □ Q                 2-15 → I
@@ -1563,8 +1570,8 @@ Proofs
    09.   |   |   |   P           /1    7 ◇ E          new bridge /0 => /1
    10.   |   |   |   -Q          /1    6 □ E (Sys K)
    11.   |   |   |   P → Q       /1    8 □ E (Sys K)
-   12.   |   |   |   -P          /1    10,11 MT
-   13.   |   |   |   ⊥           /1    9,12 ⊥ I
+   12.   |   |   |   Q           /1    9,11 → E
+   13.   |   |   |   ⊥           /1    10,12 EFQ
    14.   |   |   -- ◇ Q                4-13 -I
    15.   |   |   ◇ Q                   14 -E
    16.   |   ◇ P → ◇ Q                 2-15 → I
@@ -2228,7 +2235,7 @@ Deontic Deduction (Augmented Standard Deontic Logic)
 
    Notes
 
-   - This axiom schema is contentious.
+   - This axiom schema (DOA) is contentious.
        
 
 Semantics of Augmented Deontic Logic
@@ -2338,9 +2345,9 @@ Deontic Reductionism
                ◇ A  =df  -□ -A
 
          Axioms
-            Necessitation Rule (Nec)
+            Necessitation Rule (NR)
                if A is an axiom or theorem of K then □ A is too.
-            Distribution Axiom ((K))
+            Distribution Axiom (K)
                □ (A → B) → (□ A → □ B)
 
       System Kd
