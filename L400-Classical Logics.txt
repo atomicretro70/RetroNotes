@@ -514,11 +514,11 @@ Grammar
 Alternative Notation
 --------------------
 
-         Negation       ￢ ～
-         Conjunction    &  *
-         Disjunction    +
-         Conditional    ⊃
-         Biconditional  =  ⇔  ≡
+         Negation       -  ￢ ～
+         Conjunction    ∧  &  *
+         Disjunction    ∨  +
+         Conditional    →  ⊃
+         Biconditional  ↔  =  ⇔  ≡
 
 Syntax Trees
 ============

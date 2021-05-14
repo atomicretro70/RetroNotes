@@ -1467,7 +1467,7 @@ Beyond System K
 
       M/T     Like K, but every world has a bridge to itself. (K + reflexive)
 
-      B       Like M, but bridges are bidirectional. (M + symmetric)
+      B       Like M, but all bridges are bidirectional. (M + symmetric)
 
       S4      Like M, but can cross a series of bridges. (M + transitive)
 
@@ -1492,7 +1492,7 @@ Beyond System K
       |  For every world /i,          |  For every bridge /i=>/j      |
       |  There is a bridge            |  there is a bridge /j=>/i     |
       |  /i=>/i                       |  in addition to the rules for |
-      |  in addition to the rule for  |  System M.                    |
+      |  in addition to the rules for |  System M.                    |
       |  System K.                    |                               |
       |                               |                               |
       | ============================= | ============================= |
