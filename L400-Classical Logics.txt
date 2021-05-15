@@ -242,9 +242,9 @@ Definition Schemata
    So the question, what is the probability that Sally slips given that
    it is icy, yields the following definition.
 
-                      P(S ∧ I)
-         P(S|I)  =df  --------
-                        P(I)
+                           P(Slip ∧ Ice)
+         P(Slip|Ice)  =df  -------------
+                              P(Ice)
 
    If a definiens is replaced by its abbreviation it's called PACKING, while
    UNPACKING is replacing an abbreviation with its definiens.
@@ -511,15 +511,6 @@ Grammar
      subscripts after a proposition symbol to increase the number of
      available symbols.  E.g. P, P' and P₂ are distinct atomic formulas.
 
-Alternative Notation
---------------------
-
-         Negation       -  ￢ ～
-         Conjunction    ∧  &  *
-         Disjunction    ∨  +
-         Conditional    →  ⊃
-         Biconditional  ↔  =  ⇔  ≡
-
 Syntax Trees
 ============
 
@@ -604,7 +595,7 @@ Syntax Trees
                                             R
 
    The operator at the root of the tree is called the MAIN OPERATOR or
-   TOP-LEVEL Operator.  In the example the main operator is negation.
+   TOP-LEVEL OPERATOR.  In the example the main operator is negation.
 
 Substitution Instance
 =====================
@@ -622,6 +613,18 @@ Substitution Instance
    -------------  ----- | ------- | ----------- | --------------------
    Instance       R ∧ S | -S ∧ Z  | D ∧ (C → D) | -H → (-H ∧ (-S ∨ M))
    =============  =====   =======   ===========   ====================
+
+Alternative Notation
+====================
+
+   Different authors adopt different notations for the logical
+   symbols.  The following are common alternative symbols.
+
+         Negation       -  ￢ ～
+         Conjunction    ∧  &  *
+         Disjunction    ∨  +
+         Conditional    →  ⊃
+         Biconditional  ↔  =  ⇔  ≡
 
 
 ---------
@@ -993,8 +996,8 @@ Truth-Functional Completeness
           T T |  T F T  | F T T T
                    *      *
 
-Truth-Tables ("Fast Method")
-============================
+FAST TRUTH-TABLES
+=================
 
    There is a faster way to construct a truth-table, though it is not
    as visually satisfying.  Instead, it implements a search algorithm
@@ -1533,9 +1536,8 @@ Primitive Inference Rules
    Negation Elimination (-E)         From --Φ, infer Φ.
 
    Negation Introduction (-I)        From a subproof with hypothesis Φ
-      Reductio Ad Absurdum (RAA)     ending in (Ψ ∧ -Ψ), close the subproof,
-      Proof By Contradiction (PBC)   and infer -Φ.
-      Indirect Proof (IP)
+                                     ending in (Ψ ∧ -Ψ), close the subproof,
+                                     and infer -Φ.
 
    Conjunction Elimination (∧E)      From Φ ∧ Ψ, infer Φ, or infer Ψ.
       Simplification (Simp)
@@ -1645,7 +1647,7 @@ Other Justifications
    ================================  =========================================
 
    Notice that in the rules the definition is in brackets '[' and ']'.
-   Brackets indicate that the definition needs to exist but doesn't need
+   Brackets indicate that the definition must exist but doesn't need
    to appear in the proof.
 
 Derived Inference Rules
@@ -1718,6 +1720,12 @@ Equivalences
    Material Equivalence (ME)         ⊢  (P ↔ Q) ↔ ((P ∧ Q) ∨ (-P ∧ -Q))
    ================================  =========================================
 
+   As a consequence of the association theorems many authors allow chains
+   of ∧ or ∨ to any length to be written without parentheses.
+
+         (((P ∧ Q) ∧ R) ∧ S)              (P ∧ Q ∧ R ∧ S)
+         ((P ∨ Q) ∨ (R ∨ S))              (P ∨ Q ∨ R ∨ S)
+
    Appendix C contains the proofs of all of the derived forms, theorems and
    equivalences.
 
@@ -1754,7 +1762,7 @@ Consequence and Non-Consequence
    The above proof tells us that the counterexamples are where P is false
    (due to occurring negated in step 2), and Q is true (due to occurring
    unnegated in step 3).  If a proposition symbol doesn't appear negated
-   or unnegated, then it is truth-value does not matter.  We can verify
+   or unnegated, then its truth-value does not matter.  We can verify
    this counterexample with a truth-table. 
 
           P Q | P → Q , - P  ⊢  - Q
@@ -1773,12 +1781,12 @@ Consequence and Non-Consequence
 Defining ⊥ Into Propositional Logic/Calculus
 ============================================
 
-   Some calculus implementations use ⊥ (the CONTRADICTION SYMBOL) to cut down
-   on tedium and improve the readability of proofs.  Applications of -I are
-   often preceded by ∧I, but the resulting conjunction can be quite long.
-   Since EFQ infers any wff from two contradictory propositions; one can
-   always infer 'P ∧ -P' instead of a long conjunction.  But the following
-   definition is even briefer.
+   Some calculus implementations use ⊥ (the FALSE SYMBOL or the CONTRADICTION
+   SYMBOL) to cut down on tedium and improve the readability of proofs.
+   Applications of -I are often preceded by ∧I, but the resulting conjunction
+   can be quite long.  Since EFQ infers any wff from two contradictory
+   propositions; one can always infer 'P ∧ -P' instead of a long conjunction.
+   But the following definition makes things even briefer.
 
          ⊥  =df  P ∧ -P
 
@@ -1788,7 +1796,8 @@ Defining ⊥ Into Propositional Logic/Calculus
    Name (Abbreviation)               Sequent
    ================================  =========================================
    ⊥ Introduction (⊥ I)              P, -P  ⊢  ⊥
-   ⊥ Elimination (⊥ E)               (P ⊢ ⊥)  ⊢  -P
+   ⊥ Elimination (⊥ E)               (  P ⊢ ⊥ )  ⊢  -P
+   ⊥ Elimination (⊥ E)               ( -P ⊢ ⊥ )  ⊢   P
    ================================  =========================================
 
 Derivation Strategies
@@ -1796,7 +1805,7 @@ Derivation Strategies
 
    There's no foolproof algorithm that can be followed which will derive
    a proof every time.  However there are some rules of thumb to assist in
-   the task.
+   the task of proof construction.
 
    1.  (Conclusion) If the conclusion has one of these forms,
 
@@ -1816,11 +1825,10 @@ Derivation Strategies
 
    3.  (Reductio) If the conclusion has one of these forms,
 
-         - Φ         hypothesize Φ (unnegated), try to derive ⊥ or derive
-                     a contradiction, lastly apply -I or ⊥ E;
+         - Φ         hypothesize Φ (unnegated), try to derive ⊥ then
+                     apply ⊥ E;
 
-         Φ           hypothesize -Φ, try to derive ⊥ or contradiction, then
-                     apply -I and finally -E.
+         Φ           hypothesize -Φ, try to derive ⊥ then apply ⊥ E.
 
 
 --------
@@ -1839,7 +1847,7 @@ Semantic Soundness & Completeness of Propositional Calculus
    proof of Φ that has a finite number of steps.
 
    Propositional calculus is semantically sound and semantically complete.
-   We do not prove these theorems here, but it is handy to know of them.
+   We do not prove these theorems here, but it is useful to know of them.
    The calculus derives all and only valid conclusions from any given set
    of premises.
 
@@ -1872,7 +1880,7 @@ Relevance
    and H because they provide a way for an arguer to introduce any statement
    whatever into the proof relevant or not.   Their particular concern
    is that this exposes a severe problem of the calculus.  Some have
-   gone so far as to introduce new systems of logic in attempts to remove
+   gone so far as to propose new systems of logic in attempts to remove
    or "fix" such rules.
 
    The classical perspective is that these issues do not matter because the
@@ -1883,7 +1891,7 @@ Relevance
    While for H, it does not matter what is hypothesized.  If some hypothesis
    Θ is inconsistent with the premises Θ will be negated after the subproof
    is closed.  However, if Θ is not inconsistent with the premises, then by
-   definition, it is consistent relevant or not, and who is to say what
+   -I, it is consistent relevant or not, and who is to say what
    is and is not relevant.  Classical logic regards these as arguments
    adequate to justify the inclusion and current formulation of these rules.
 
@@ -1933,7 +1941,7 @@ Grammar
    object symbols.
 
    An ATOMIC FORMULA consists of a Predicate symbol followed by zero
-   or more constant object Symbols.
+   or more constant object symbols.
 
    Formation Rules for wffs
    1.  Every atomic formula is a wff;
@@ -2097,29 +2105,29 @@ Predicate Calculus
          Dictionary
          ----------
          Constants            Predicates
-         m,    Merlin         Axy,   x abandons y
-         a,    Arthur
-         g,    Guinevere
+         g,    Gandalf        Axy,   x abandons y
+         f,    Frodo
+         s,    Sam
 
-         Ama → Amg, -Amg  ⊢  -Ama
+         Agf → Ags, -Ags  ⊢  -Agf
 
-   Here 'Ama' and 'Amg' are distinct atomic formulas.
+   Here 'Agf' and 'Ags' are distinct atomic formulas.
 
 
 ===========================
 First-Order Predicate Logic
 ===========================
 
-   FOL introduces new concepts which build upon predicate logic enabling
-   the expression of, among other things, the Aristotelian proposition
-   forms which denote relations among sets.
+   First-Order Predicate Logic (FOL) introduces new concepts which build upon
+   predicate logic enabling the expression of, among other things, the
+   Aristotelian proposition forms which denote relations among sets.
 
          All P is Q.
          No P is Q.
          Some P is Q.
          Some P is not Q.
 
-   FOL brings in quantifiers, which denote quantities, and variable object
+   FOL introduces quantifiers, which denote quantities, and variable object
    symbols which denote arbitrary objects.
 
 
@@ -2178,15 +2186,48 @@ Grammar
    1.  Every atomic formula is a wff;
    2.  if Φ is a wff, then so is -Φ;
    3.  if Φ,Ψ are wffs, then so are (Φ ∧ Ψ), (Φ ∨ Ψ), (Φ → Ψ), (Φ ↔ Ψ);
-   4.  if Φ(α) (α is a constant object in a wff Ψ) is a wff,
+   4.  if Φ(α) (α is a constant object in a wff Φ) is a wff,
        then ∀xΦ(x/α) and ∃xΦ(x/α) are wffs (where x is some new
        variable not already in Φ);
    5.  Nothing else is a wff.
 
+   Notes:
+   - Different variables don't necessarilly designate different objects.
+   - Choice of variables makes no difference to meaning.
+   - The same variable used with two different quantifiers does not
+     necessarily designate the same object in each case.
+   - Many English sentences which mix universal and existential
+     quantifiers are ambiguous.
 
 ---------
 Semantics
 ---------
+
+Valuation Function
+==================
+
+   The valuation for the truth-functional operators remains unchanged from
+   those of propositional logic.  Atomic symbols and quantified expressions
+   will now receive values that reflext correspondence to the model.
+
+         1)  If Φ consists of a single proposition symbol, then its truth
+             value iw the one specified directly by the model.
+         2)  If Φ consists of a predicate symbol followed by a single
+             constant object symbol, then Φ is assigned the valud T
+             if the objected designated by the constant symbol is a member
+             of the class designated by the predicte symbol; otherwise
+             Φ is assigned the value F.
+         3)  if Φ consists of a predicate symbol followed by two or more
+             constant object symbols, then Φ is assigned the value T
+             if the objects designated by the constant object symbols
+             stand in the relation designated by the predicate symbol;
+             otherwise Φ is assigned the value F.
+         4)  A universal quantification ∀βΦ(β) (where β is a variable)
+             is true in a model M if for every constant object symbol
+             α in M Φ(α/β) is true; otherwise ∀βΦ(β) is false.
+         5)  An existential quantification ∃βΦ(β) (where β is a variable)
+             is true in a model M if for some constant object symbol
+             α in M Φ(α/β) is true; otherwise ∃βΦ(β) is false.
 
 Predicates & Constants
 ======================
@@ -2199,7 +2240,7 @@ Predicates & Constants
          -----------------------------------
          Px,    x has some property P, x in set P, x is P.
          Pxy,   x has some relation P to y
-         Bxyz,  x has some relation P to y and z.
+         Pxyz,  x has some relation P to y and z.
 
          Proof (where x,y,z are variables)
          01.   ∀x(Mx → Vx)        A
@@ -2300,9 +2341,9 @@ Single Quantifiers
                            such that, x is a dog and x is a mammal.
                          = Some dogs are mammals.
 
-         ∃x(Dx ∧ Sx),    There's at least one object x in the universe
-                           such that, x is a dog and x likes to swim.
-                         = Some dogs like to swim.
+         ∃x(Dx ∧ -Sx),   There's at least one object x in the universe
+                           such that, x is a dog and x doesn't like to swim.
+                         = Some dogs don't like to swim.
 
    However, this notion of ∀ with →, and ∃ with ∧, isn't arbitrary.
    They are complementary forms.  Consider the following form:
@@ -2602,8 +2643,9 @@ Primitive Inference Rules
 Derived Inference Rules
 =======================
 
-   Once a sequent is proved it may be used as a new inference rule.  The
-   following are important derived rules in FOC:
+   Once a sequent is proved it may be used as a new inference rule; since
+   every instance of a valid form is valid.  The following are important
+   derived rules in FOC:
 
    ================================  =========================================
    Name/Alternate Names              Sequent
@@ -3289,10 +3331,10 @@ Second-Order Calculus (SOC)
    The four quantifier inference rules from FOL are expanded to these
    two new quantifiers in more-or-less the same way as they are usable
    for variable object symbols.  However, variable types must not
-   be confused with one another.  If a quantifier reigns over a predicate
-   variable, it must be replaced only by a predicate constant, and
-   if a quantifier reigns over an object it must only be replaced
-   by a constant object.
+   be confused with one another.  If a quantifier binds a predicate
+   variable, it must be replaced only by a constant predicate symbol, and
+   if a quantifier binds an object variable it must only be replaced
+   by a constant object symbol.
 
 
 --------
@@ -3325,7 +3367,7 @@ Inductive Definitions
    clauses.  The first clause is the BASE CLAUSE.  It identifies the most
    basic elements of the set and is non-recursive.  The FINAL CLAUSE states
    that if something is not constructed via the prior clauses then it is not
-   a member of the set and is also non-recursive.  The INDUCTIVE CLAUSES
+   a member of the set.  It too is non-recursive.  The INDUCTIVE CLAUSES
    (intermediate clauses) tell us how to *recursively* generate all non-base
    case elements of the set.
 
@@ -3396,16 +3438,16 @@ Axiomatic and Natural Deduction
 ===============================
 
    The calculi presented thus far are known as NATURAL DEDUCTION systems,
-   which consist only of inference rules.  These natural deduction systems are
-   more intuitive and more closely resemble how one reasons informally.  An
-   AXIOMATIC DEDUCTION system, in contrast, consists of a minimal set of
-   inference rules, often just one, and one or more axiom schemata.  All
-   instances of the schemata are axioms of the logic.  Axiomatic deduction
-   systems are usually simpler than Natural Deduction in that they have fewer
-   parts, but they are also more complicated and cumbersome to use and
-   entirely dissimilar to how one reasons informally.  Given all this, the
-   one significant similarity is that both kinds of systems count the same
-   forms as valid.
+   which consist only of inference rules.  These natural deduction systems
+   are more intuitive and more closely parallels how one reasons informally.
+   An AXIOMATIC DEDUCTION system, in contrast, consists of a minimal set
+   of inference rules, often just one, and one or more axiom schemata.
+   All instances of the schemata are axioms of the logic.  Axiomatic
+   deduction systems are usually simpler than Natural Deduction in that
+   they have fewer parts, but they are also more complicated and cumbersome
+   to use and entirely non-parallel to how one reasons informally.  Given
+   all this, the one significant similarity is that both kinds of systems
+   count the same forms as valid.
 
        +--------------------------------------------------------------+
        | ============================================================ |
@@ -3478,7 +3520,7 @@ Formal Theories
    Properties of Relations in the chapter on Identity Logic.
 
    POSTULATE is a synonym for axiom; another synonym is LAW.  Some theorists
-   uses these terms as categories in which to group different kinds of axioms,
+   use these terms as categories in which to group different kinds of axioms,
    others pick just one of the terms to use.  However, from the perspective
    of logic they are all the same thing.  Postulate, law, and axiom all mean
    the same thing.
@@ -3606,8 +3648,6 @@ Appendix A: Combined Truth-Tree Rules & Analysis
          starred wff into two branches, at the end of the first write both
          Φ and -Ψ, and at the end of the second write both -Φ and Ψ.
 
-   ----  ---------------------------------------------------------------------
-
    ∀     If ∀xΦ(x) appears on an open path, and α occurs in some wff on
          that path, write Φ(α//x) (the result of replacing each occurrence
          of x in Φ with α) at the bottom of the path.  If no wff containing
@@ -3625,8 +3665,6 @@ Appendix A: Combined Truth-Tree Rules & Analysis
    -∃    If -∃xΦ(x) appears on an open path, star it and write ∀x-Φ(x)
          at the bottom of every open path that contains the newly
          starred wff.
-
-   ----  ---------------------------------------------------------------------
 
    =     If α=β appears on an open path along with either Φ(α) or Φ(β)
          unstarred, write at the bottom of the path any wff not already
@@ -3839,9 +3877,8 @@ Primitive Inference Rules & Other Justifications
    Negation Elimination (-E)         From --Φ, infer Φ.
 
    Negation Introduction (-I)        From a subproof with hypothesis Φ
-      Reductio ad absurdum (RAA)     ending in (Ψ ∧ -Ψ), close the subproof,
-      Proof by Contradiction (PBC)   and infer -Φ.
-      Indirect Proof (IP)
+                                     ending in (Ψ ∧ -Ψ), close the subproof,
+                                     and infer -Φ.
 
    Conjunction Elimination (∧E)      From Φ ∧ Ψ, infer Φ, or infer Ψ.
       Simplification (Simp)
@@ -4007,6 +4044,10 @@ Derived Inference Rules
    ================================  =========================================
    Name/Alternate Names              Sequent
    ================================  =========================================
+   ⊥ Introduction (⊥ I)              P, -P  ⊢  ⊥
+   ⊥ Elimination (⊥ E)               (  P ⊢ ⊥ )  ⊢  -P
+                                     ( -P ⊢ ⊥ )  ⊢   P
+   --------------------------------  -----------------------------------------
    Reiterate (RE)                    P  ⊢  P
    Falso Quodlibet (EFQ)             P, -P  ⊢  Q    (Q is any wff whatever)
    Modus Tollens (MT)                P → Q, -Q  ⊢  -P
@@ -4018,9 +4059,6 @@ Derived Inference Rules
    Disjunctive Syllogism (DS)        P ∨ Q, -P  ⊢  Q
    Disjunctive Syllogism (DS)        P ∨ Q, -Q  ⊢  P
    Theorem (THM)                     [ ⊢ P ]  ⊢  P
-   --------------------------------  -----------------------------------------
-   ⊥ Introduction (⊥ I)              P, -P  ⊢  ⊥
-   ⊥ Elimination (⊥ E)               (P ⊢ ⊥)  ⊢  -P
    ================================  =========================================
 
 Derived Equivalences
@@ -4053,9 +4091,9 @@ Derived Equivalences
    ================================  =========================================
 
 
-==================================
-Appendix C: Proof of Derived Forms
-==================================
+===================================
+Appendix C: Proofs of Derived Forms
+===================================
 
 Important Derived Rules
 =======================
@@ -4071,17 +4109,29 @@ Important Derived Rules
    04.   ⊥                        3 DEF ⊥
    QED
 
-   ⊥ Elimination (⊥ E):   (P ⊢ ⊥)  ⊢  -P
+   ⊥ Elimination (⊥ E):   ( P ⊢ ⊥ )  ⊢  -P
    Schematic Proof
-    i.   |   P                    H (for → I)
-    ...  |   ...                  ...
-    j.   |   ⊥
-    k.   P → ⊥                    i - j → I
-    k+1. |   P                    H (for -I)
-    k+2. |   ⊥                    k,k+1 → E
-    k+3. |   P ∧ -P               k+2 DEF ⊥
-    k+4. -P                       k+1 - k+3 -I
-    QED
+   i.   |   P                     H (for → I)
+   ...  |   ...                   ...
+   j.   |   ⊥
+   j+1. P → ⊥                     i - j → I
+   j+2. |   P                     H (for -I)
+   j+3. |   ⊥                     j+1,j+2 → E
+   j+4. |   P ∧ -P                j+3 DEF ⊥
+   j+5. -P                        j+2 - j+4 -I
+   QED
+
+   ⊥ Elimination (⊥ E):   ( -P ⊢ ⊥ )  ⊢   P
+   i.   |   -P                    H (for → I)
+   ...  |   ...                   ...
+   j.   |   ⊥
+   j+1. -P → ⊥                    i - j → I
+   j+2. |   -P                    H (for -I)
+   j+3. |   ⊥                     j+1,j+2 → E
+   j+4. |   P ∧ -P                j+3 DEF ⊥
+   j+5. --P                       j+2 - j+4 -I
+   j+6. P                         j+5 -E
+   QED
 
 The Remaining Basic Derived Rules
 ---------------------------------
@@ -4099,8 +4149,7 @@ The Remaining Basic Derived Rules
    02.   -P                       A
    03.   |   -Q                   H (for -I)
    04.   |   P ∧ -P               1,2 ∧I
-   05.   --Q                      3-4 -I
-   06.   Q                        5 -E
+   05.   Q                        3-4 -I
    QED
 
    Modus Tollens (MT):   P → Q, -Q  ⊢  -P
@@ -4214,7 +4263,7 @@ Important Derived Equivalences
    01.   |   P                    H (for → I)
    02.   |   |   -P               H (for -I)
    03.   |   |   ⊥                1,2 ⊥ I
-   04.   |   --P                  2-3 -I
+   04.   |   --P                  2-3 ⊥ E
    05.   P → --P                  1-4 → I
    06.   |   --P                  H (for → I)
    07.   |   P                    6 -E
@@ -4497,28 +4546,25 @@ Important Derived Equivalences
    03.   |   |   |   -P                          H (for -I)
    04.   |   |   |   -P ∨ -Q                     3 ∨I
    05.   |   |   |   ⊥                           2,4 ⊥ I
-   06.   |   |   --P                             3-5 ⊥ E
-   07.   |   |   P                               6 -E
-   08.   |   |   |   -Q                          H (for -I)
-   09.   |   |   |   -P ∨ -Q                     8 ∨I
-   10.   |   |   |   ⊥                           2,9 ⊥ I
-   11.   |   |   --Q                             9-10 ⊥ E
-   12.   |   |   Q                               11 -E
-   13.   |   |   P ∧ Q                           7,12 ∧I
-   14.   |   |   ⊥                               1,13 ⊥ I
-   15.   |   --(-P ∨ -Q)                         2-14 ⊥ E
-   16.   |   -P ∨ -Q                             15 -E
-   17.   -(P ∧ Q) → (-P ∨ -Q)                    1-16 → I
-   18.   |   -P ∨ -Q                             H (for → I)
-   19.   |   |   P ∧ Q                           H (for -I)
-   20.   |   |   P                               19 ∧E
-   21.   |   |   Q                               19 ∧E
-   22.   |   |   --P                             20 DN
-   23.   |   |   -Q                              18,22 DS
-   24.   |   |   ⊥                               21,23 ⊥ I
-   25.   |   -(P ∧ Q)                            19-24 ⊥ E
-   26.   (-P ∨ -Q) → -(P ∧ Q)                    18-25 → I
-   27.   -(P ∧ Q) ↔ (-P ∨ -Q)                    17,26 ↔ I
+   06.   |   |   P                               3-5 ⊥ E
+   07.   |   |   |   -Q                          H (for -I)
+   08.   |   |   |   -P ∨ -Q                     7 ∨I
+   09.   |   |   |   ⊥                           2,9 ⊥ I
+   10.   |   |   Q                               7-9 ⊥ E
+   11.   |   |   P ∧ Q                           6,10 ∧I
+   12.   |   |   ⊥                               1,11 ⊥ I
+   13.   |   -P ∨ -Q                             2-12 ⊥ E
+   14.   -(P ∧ Q) → (-P ∨ -Q)                    1-13 → I
+   15.   |   -P ∨ -Q                             H (for → I)
+   16.   |   |   P ∧ Q                           H (for -I)
+   17.   |   |   P                               16 ∧E
+   18.   |   |   Q                               16 ∧E
+   19.   |   |   --P                             17 DN
+   20.   |   |   -Q                              15,19 DS
+   21.   |   |   ⊥                               18,20 ⊥ I
+   22.   |   -(P ∧ Q)                            16-21 ⊥ E
+   23.   (-P ∨ -Q) → -(P ∧ Q)                    15-22 → I
+   24.   -(P ∧ Q) ↔ (-P ∨ -Q)                    14,23 ↔ I
    QED
 
    DeMorgan's law (DM)  ⊢  -(P ∨ Q) ↔ (-P ∧ -Q)
@@ -4608,7 +4654,7 @@ Important Derived Equivalences
    41.   |   |   P → Q                           40 TRANS
    42.   |   |   P ↔ Q                           37,41 ↔ I
    43.   |   (-P ∧ -Q) → (P ↔ Q)                 33-42 → I
-   44.   ((P ∧ Q) ∨ (-P ∧ -Q)) → (P ↔ Q)         23-44 → I
+   44.   ((P ∧ Q) ∨ (-P ∧ -Q)) → (P ↔ Q)         23-43 → I
    45.   (P ↔ Q) ↔ ((P ∧ Q) ∨ (-P ∧ -Q))         22,44 ↔ I
    QED
 
@@ -4637,7 +4683,7 @@ Appendix D: UTF-8 Character Codes
    ■            solid box                              25A0
    ◆            solid diamond                          25C6
    T            tautology, valid wff                   22A4
-   ⊥            contradiction (inverted T)             22A5
+   ⊥            falsity, contradiction                 22A5
    ⊢            entails (turnstile)                    22A2
    ⊬            doesn't entail                         22AC
    ⊨            satisfies                              22A8

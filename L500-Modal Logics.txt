@@ -659,8 +659,9 @@ Biconditional Derivations
 Alethic Modal Logic
 ===================
 
-   Alethic modal logic studies the concepts of 'it's necessary that, P'
-   symbolized □ P, and 'it's possible that, P' symbolized ◇ P.
+   Alethic modal logic studies the logical relationships between the terms
+   'it's necessary that, P' symbolized □ P, and 'it's possible that, P'
+   symbolized ◇ P.
 
 
 --------
@@ -778,23 +779,22 @@ Strict Conditional
    conditionals don't always make intuitive sense; especially when they
    are negated.
 
-         K → F,        If you keep up the good work, then you'll go far.
+         K → F         If you keep up the good work, then you'll go far.
 
-         -(K → F),     It's false that if you keep up the work, you'll go far.
-         -(-K ∨ F),    Material Implication
-         K ∧ -F,       DeMorgan's
+         -(K → F)      It's false that if you keep up the work, you'll go far.
+         -(-K ∨ F)     Material Implication
+         K ∧ -F        DeMorgan's
                        You keep up the good work and you don't go far.
 
-   C.I.Lewis felt this conclusion didin't make sense for a negated
-   conditional.  His goal in creating alethic modal logic was to find
-   a way to *fix* the conditional.  For Lewis all if/then statements
-   ought to be translated as strict conditionals.  Observe what happens
-   when we use the strict conditional instead of the propositional logic
-   conditional.
+   C.I.Lewis felt this result is wrong for the negated conditional.  His goal
+   in creating alethic modal logic was to find a way to *fix* the conditional.
+   For Lewis all if/then statements ought to be translated as strict
+   conditionals.  Observe what happens when we use the strict conditional
+   instead of the propositional logic conditional.
 
          (K -< F)      If you keep up the good work, you'll go far.
 
-         -(K -< F)
+         -(K -< F)     Negated
          -□ (K → F)    Definition of -<
          -□ --(K → F)  Double Negation
          ◇ -(K → F)    Definition of ◇ (◇ P =df -□ -P)
@@ -803,7 +803,9 @@ Strict Conditional
                        It's possible you keep up the good work and don't
                           go far.
 
-   The conclusion is similar to before but is prefixed by ◇.
+   The result is similar to before but is prefixed by ◇.  However,
+   if this were the correct representation for a conditional then all
+   conditionals would be true in all possible worlds.
 
 Ambiguous Conditionals
 ======================
@@ -864,7 +866,7 @@ Extension & Intension
    The EXTENSION of a proposition is its truth-value, the extension of a
    predicate is the class of things to which it applies, and the
    extension of a constant object symbol is what the symbol denotes (its
-   bearer).
+   bearer).  EXTENSIONAL OPERATORS generate EXTENSIONAL CONTEXTS.
 
    In classical logics, starting from a given statement, it is always possible
    to infer what results from replacing a subexpression in that statement with
@@ -1048,10 +1050,9 @@ Alethic Deduction - □ Based Natural Deduction
 System K
 ========
    
-   We will start with Truth-Functional Logic and Calculus above, add a
-   clause to the grammar to accommodate the alethic modal operators ◇ and
-   □ , then build our inference rules on top of that to produce a system
-   equivalent to System K.
+   We will start with the language for Alethic Modal Logic above, then
+   build our inference rules on top of that to produce a system equivalent
+   to System K.
 
    A BOXED SUBPROOF is a subproof that begins with □  *instead* of
    a hypothesis.  Informally, the □  header indicates that every line within
@@ -1218,7 +1219,7 @@ Proofs
    09.   (□ P ∧ ◇ Q) → ◇ (P ∧ Q)       1-8 → I
    QED
 
-   M' (Dual of M):   ⊢   P → ◇ P
+   M' (Dual of M):   ⊢M   P → ◇ P
    Proof
    01.   |   P                         H (for → I)
    02.   |   □ -P → -P                 Ax M
@@ -1233,7 +1234,7 @@ Proofs
    01.   |   ◇ □ P                     H (for → I)
    02.   |   |   -P                    H (for -I)
    03.   |   |   -P → □ ◇ -P           Ax B
-   04.   |   |   □ ◇ -P                1,2 → E
+   04.   |   |   □ ◇ -P                2,3 → E
    05.   |   |   | □                   H (for □ I)
    06.   |   |   |   ◇ -P              4 □ E
    07.   |   |   |   -□ P              6 DUAL
@@ -1262,16 +1263,13 @@ Proofs
    13.   ◇ ◇ P → ◇ P                   1-12 → I
    QED
 
-   Steps 2-6 demonstrate that from □ P one can infer □ P into a boxed
-   subproof without losing the □ .
-
    5' (Dual of 5):  ⊢S5  ◇ □ P → □ P
    Proof
    01.   |   ◇ □ P                     H (for → I)
    02.   |   |   -□ P                  H (for -I)
    03.   |   |   ◇ -P                  2 DUAL
    04.   |   |   ◇ -P → □ ◇ -P         Ax 5
-   05.   |   |   □ ◇ -A                3,4 → E
+   05.   |   |   □ ◇ -P                3,4 → E
    06.   |   |   |□                    H (for □ I)
    07.   |   |   |   ◇ -P              5 □ E
    08.   |   |   |   -□ P              7 DUAL
@@ -1332,7 +1330,7 @@ Proofs
    12.   |   |   P → □ □ Q             10,11 HS
    13.   |   □ (P → □ □ P)             9-12 □ I
    14.   □ (P → □ Q) → □ (P → □ □ Q)   8-13 → I
-   15.   □ (P → □ □ Q) ↔ □ (P → □ Q)   1-6 → I
+   15.   □ (P → □ □ Q) ↔ □ (P → □ Q)   7,14 ↔ I
    QED
 
       ⊢S5  □ ◇ ◇ □ P ↔ □ P
@@ -1344,13 +1342,13 @@ Proofs
    05.   □ ◇ ◇ □ P → □ P               1-4 → I
    06.   |   □ P                       H (for → I)
    07.   |   ◇ □ P                     6 ◇ I
-   08.   |   ◇ ◇ □ A                   7 ◇ I
+   08.   |   ◇ ◇ □ P                   7 ◇ I
    09.   |   □ ◇ ◇ □ P                 8 Ax 5
    10.   □ P → □ ◇ ◇ □ P               6-9 → I
    11.   □ ◇ ◇ □ P ↔ □ P               5,10 ↔ I
    QED
 
-      ⊢S5 ◇ (□ ◇ P ∧ ◇ □ Q) ↔ ◇ (◇ A ∧ □ B)
+      ⊢S5 ◇ (□ ◇ P ∧ ◇ □ Q) ↔ ◇ (◇ P ∧ □ Q)
    Proof
    01.   |   ◇ (□ ◇ P ∧ ◇ □ Q)         H (for → I)
    02.   |   |□                        H (for ◇ I)
@@ -1412,17 +1410,17 @@ System K
    Equivalence Substitution (EQ)     Not a rule of inference in this
                                      formulation of modal alethic calculus
    --------------------------------  -----------------------------------------
-   Definition of □ (Def □ )          □ P  =df  - ◇ - P
+   Definition of □ (Def□ )           □ P  =df  - ◇ - P
 
-   Necessitation Rule (NR)           if ⊢ P (P is a theorem or axiom), infer
-                                     □ P into any world.
+   Necessitation Rule (NR)           if [ ⊢ P ] (P is a theorem or axiom),
+                                     infer □ P into any world.
 
    ◇ Elimination (◇ E)               From ◇ P at world /i, infer P at world /j
                                      (where j is new).  The diamond "pays for
                                      the construction of" a new bridge /i=>/j.
 
-   □ Elimination (□ E)               □ E may only cross bridges according to
-                                     the system being used.
+   □ Elimination (□ E)               From □ P at /i and [ /i=>/j ] infer
+                                     P at /j.
    ================================  =========================================
 
    These rules are sometimes represented in diagrams.  The horizontal bar
@@ -1441,15 +1439,15 @@ System K
       | ============================= | ============================= |
       |                               | [ ⊢ P ]                       |
       | -----------------             | -------                       |
-      | [□ P =df - ◇ - P]             | □ P       /i   (any i)        |
+      | [□ P =df - ◇ - P]             | □ P      /i   (any i)         |
       |                               |                               |
       | ============================= | ============================= |
-      | ◇ E                           | □ E                           |
+      | ◇ E (All Systems)             | □ E (System K)                |
       | ============================= | ============================= |
-      | ◇ P      /i                   | □ P       /i                  | 
-      | ---------                     | [/i=>/j]                      |
+      | ◇ P      /i                   | □ P      /i                   | 
+      | ---------                     | [ /i=>/j ]                    |
       | P        /j   (j is new)      | ----------                    |
-      |           (creates a bridge   | P         /j                  |
+      |           (creates a bridge   | P        /j                   |
       |               /i=>/j)         |                               |
       |                               |                               |
       +-------------------------------+-------------------------------+
@@ -1520,7 +1518,7 @@ Proof Construction
 Proofs
 ------
 
-   Dual ⊢ K  - □ P ↔ ◇ - P
+   DUAL ⊢ K  - □ P ↔ ◇ - P
         ⊢ K  - ◇ P ↔ □ - P
    Proof
    01.   |   - □ P                     H (for → I)
@@ -1528,12 +1526,10 @@ Proofs
    03.   |   ◇ - P                     2 -E
    04.   - □ P → ◇ - P                 1-3 → I
    05.   |   ◇ - P                     H (for → I)
-   06.   |   |   □ P                   H (for -I)
-   07.   |   |   - ◇ - P               6 Def □
-   08.   |   |   ⊥                     5,7 EFQ
-   09.   |   - □ P                     6-8 -I
-   10.   ◇ - P → - □ P                 6-9 → I
-   11.   - □ P ↔ ◇ - P                 4,10 ↔ I
+   06.   |   -- ◇ - P                  5 DN
+   07.   |   - □ P                     6 Def □
+   08.   ◇ - P → - □ P                 6-7 → I
+   09.   - □ P ↔ ◇ - P                 4,8 ↔ I
    QED
 
    Modal Distribution (MDIST) ⊢ K  □ (P → Q) → (□ P → □ Q)
@@ -1542,19 +1538,18 @@ Proofs
    02.   |   |   □ P                   H (for → I)
    03.   |   |   □ (P → Q)             1 RE
    04.   |   |   |   - □ Q             H (for -I)
-   05.   |   |   |   - □ --Q           4 DN
-   06.   |   |   |   ◇ - Q             5 Dual
-   07.   |   |   |   □ P               2 RE
-   08.   |   |   |   □ (P → Q)         3 RE
-   09.   |   |   |   - Q         /1    6 ◇ E          new bridge /0 => /1
-   10.   |   |   |   P           /1    7 □ E (Sys K)
-   11.   |   |   |   P → Q       /1    8 □ E (Sys K)
-   12.   |   |   |   Q           /1    10,11 → E
-   13.   |   |   |   ⊥           /1    9,12 EFQ
-   14.   |   |   -- □ Q                4-13 -I
-   15.   |   |   □ Q                   14 -E
-   16.   |   □ P → □ Q                 2-15 → I
-   17.   □ (P → Q) → (□ P → □ Q)       1-16 → I
+   05.   |   |   |   ◇ - Q             4 DUAL
+   06.   |   |   |   □ P               2 RE
+   07.   |   |   |   □ (P → Q)         3 RE
+   08.   |   |   |   - Q         /1    5 ◇ E          new bridge /0 => /1
+   09.   |   |   |   P           /1    6 □ E (Sys K)
+   10.   |   |   |   P → Q       /1    7 □ E (Sys K)
+   11.   |   |   |   Q           /1    9,10 → E
+   12.   |   |   |   ⊥           /1    8,11 EFQ
+   13.   |   |   -- □ Q                4-12 -I
+   14.   |   |   □ Q                   13 -E
+   15.   |   □ P → □ Q                 2-14 → I
+   16.   □ (P → Q) → (□ P → □ Q)       1-15 → I
    QED
 
    Diamond Distribution (◇ Dist)  ⊢ K  □ (P → Q) → (◇ P → ◇ Q) 
@@ -1563,76 +1558,70 @@ Proofs
    02.   |   |   ◇ P                   H (for → I)
    03.   |   |   □ (P → Q)             1 RE
    04.   |   |   |   - ◇ Q             H (for -I)
-   05.   |   |   |   - ◇ - - Q         4 DN
-   06.   |   |   |   □ - Q             5 Def □ 
-   07.   |   |   |   ◇ P               2 RE
-   08.   |   |   |   □ (P → Q)         3 RE
-   09.   |   |   |   P           /1    7 ◇ E          new bridge /0 => /1
-   10.   |   |   |   -Q          /1    6 □ E (Sys K)
-   11.   |   |   |   P → Q       /1    8 □ E (Sys K)
-   12.   |   |   |   Q           /1    9,11 → E
-   13.   |   |   |   ⊥           /1    10,12 EFQ
-   14.   |   |   -- ◇ Q                4-13 -I
-   15.   |   |   ◇ Q                   14 -E
-   16.   |   ◇ P → ◇ Q                 2-15 → I
-   17.   □ (P → Q) → (◇ P → ◇ Q)       1-16 → I
+   05.   |   |   |   □ - Q             4 DUAL
+   06.   |   |   |   ◇ P               2 RE
+   07.   |   |   |   □ (P → Q)         3 RE
+   08.   |   |   |   P           /1    6 ◇ E          new bridge /0 => /1
+   09.   |   |   |   -Q          /1    5 □ E (Sys K)
+   10.   |   |   |   P → Q       /1    7 □ E (Sys K)
+   11.   |   |   |   Q           /1    8,10 → E
+   12.   |   |   |   ⊥           /1    9,11 EFQ
+   13.   |   |   ◇ Q                   4-12 -E
+   14.   |   ◇ P → ◇ Q                 2-13 → I
+   15.   □ (P → Q) → (◇ P → ◇ Q)       1-14 → I
    QED
 
    Dist ◇ ∧    ⊢ K   ◇ (P ∧ Q) → (◇ P ∧ ◇ Q)
    Proof
    01.   ◇ (P ∧ Q)                     H (for ->I)
    02.   |   - ◇ P                     H (for -I)
-   03.   |   - ◇ - - P                 2 DN
-   04.   |   □ - P                     3 Def □
-   05.   |   ◇ (P ∧ Q)                 1 RE
-   06.   |   P ∧ Q               /1    5 ◇ E      new bridge /0=>/1
-   07.   |   -P                  /1    4 □ E (Sys K)
-   08.   |   P                   /1    6 ^E
-   09.   |   ⊥                   /1    7,8 EFQ
-   10.   ◇ P                           2-9 -I
-   11.   |   - ◇ Q                     H (for -I)
-   12.   |   - ◇ - - Q                 11 DN
-   13.   |   □ - Q                     12 Def □
-   14.   |   ◇ (P ∧ Q)                 1 RE
-   15.   |   P ∧ Q               /2    14 ◇ E     new bridge /0=>/2
-   16.   |   -Q                  /2    13 □ E (Sys K)
-   17.   |   Q                   /2    15 ∧ E
-   18.   |   ⊥                   /2    16,17 EFQ
-   19.   ◇ Q                           11-18 -I
-   20.   ◇ P ∧ ◇ Q                     10,19 ∧ I
+   03.   |   □ - P                     2 DUAL
+   04.   |   ◇ (P ∧ Q)                 1 RE
+   05.   |   P ∧ Q               /1    4 ◇ E      new bridge /0=>/1
+   06.   |   -P                  /1    3 □ E (Sys K)
+   07.   |   P                   /1    5 ^E
+   08.   |   ⊥                   /1    6,7 EFQ
+   09.   ◇ P                           2-8 -I
+   10.   |   - ◇ Q                     H (for -I)
+   11.   |   □ - Q                     12 DUAL
+   12.   |   ◇ (P ∧ Q)                 1 RE
+   13.   |   P ∧ Q               /2    12 ◇ E     new bridge /0=>/2
+   14.   |   -Q                  /2    11 □ E (Sys K)
+   15.   |   Q                   /2    13 ∧ E
+   16.   |   ⊥                   /2    14,15 EFQ
+   17.   ◇ Q                           10-16 -I
+   18.   ◇ P ∧ ◇ Q                     9,17 ∧ I
    QED
 
    Thm ◇ B-00   ⊢ K   (□ P ∧ ◇ Q) → ◇ (P ∧ Q)
    Proof
    01.   |   □ P ∧ ◇ Q                 H (for → I)
    02.   |   |   - ◇ (P ∧ Q)           H (for -I)
-   03.   |   |   - ◇ - - (P ∧ Q)       2 DN
-   04.   |   |   □ - (P ∧ Q)           3 Def □
-   05.   |   |   □ P ∧ ◇ Q             1 RE
-   06.   |   |   □ P                   5 ∧ E
-   07.   |   |   ◇ Q                   5 ∧ E
-   08.   |   |   □ (-P ∨ -Q)           4 DM
-   09.   |   |   Q               /1    7 ◇ E      new bridge /0=>/1
-   10.   |   |   P               /1    6 □ E (Sys K)
-   11.   |   |   -P ∨ -Q         /1    8 □ E (Sys K)
-   12.   |   |   --Q             /1    9 DN
-   13.   |   |   -P              /1    11,12 DS
-   14.   |   |   ⊥               /1    10,13 EFQ
-   15.   |   ◇ (P ∧ Q)                 2-14 -I
-   16.   (□ P ∧ ◇ Q) → ◇ (P ∧ Q)       1-15 → I
+   03.   |   |   □ - (P ∧ Q)           2 DUAL
+   04.   |   |   □ P ∧ ◇ Q             1 RE
+   05.   |   |   □ P                   4 ∧ E
+   06.   |   |   ◇ Q                   4 ∧ E
+   07.   |   |   □ (-P ∨ -Q)           3 DM
+   08.   |   |   Q               /1    6 ◇ E      new bridge /0=>/1
+   09.   |   |   P               /1    5 □ E (Sys K)
+   10.   |   |   -P ∨ -Q         /1    7 □ E (Sys K)
+   11.   |   |   --Q             /1    8 DN
+   12.   |   |   -P              /1    10,11 DS
+   13.   |   |   ⊥               /1    9,12 EFQ
+   14.   |   ◇ (P ∧ Q)                 2-13 -I
+   15.   (□ P ∧ ◇ Q) → ◇ (P ∧ Q)       1-14 → I
    QED
 
    Thm ◇ B-01   ⊢ M   P → ◇ P
    Proof
    01.   |   P                         H (for → I)
    02.   |   |   - ◇ P                 H (for -I)
-   03.   |   |   - ◇ - - P             2 DN
-   04.   |   |   □ - P                 3 Def □
-   05.   |   |   - P                   4 (Sys M)
-   06.   |   |   P                     1 RE
-   07.   |   |   ⊥                     5,6 EFQ
-   08.   |   ◇ P                       2-7 -I
-   09.   P → ◇ P                       1-8 → I
+   03.   |   |   □ - P                 2 DUAL
+   04.   |   |   - P                   3 (Sys M)
+   05.   |   |   P                     1 RE
+   06.   |   |   ⊥                     4,5 EFQ
+   07.   |   ◇ P                       2-6 -I
+   08.   P → ◇ P                       1-7 → I
    QED
 
    Thm ◇ B-02   ⊢ M   □ P → P
@@ -1673,22 +1662,6 @@ Proofs
    04.   □ P → □ Q                     1,3 → E
    05.   □ Q                           2,4 → E
    QED
-
-   Proof
-   01.   □ (P → Q)                     A
-   02.   □ P                           A
-   03.   |   - □ Q                     H (for -I)
-   04.   |   - □ - - Q                 3 DN
-   05.   |   ◇ - Q                     4 Def ◇
-   06.   |   □ (P → Q)                 1 RE
-   07.   |   □ P                       2 RE
-   08.   |   - Q                 /1    5 ◇ E    new bridge /0=>/1
-   09.   |   P → Q               /1    6 □ E (Sys K)
-   10.   |   P                   /1    7 □ E (Sys K)
-   11.   |   Q                   /1    9,10 → E
-   12.   |   ⊥                   /1    8,11 EFQ
-   13.   □ Q                           3-12 -I
-   QED 
 
 
 ---------------------------------------
