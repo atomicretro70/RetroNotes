@@ -245,8 +245,6 @@ Primitive Inference Rules
    Hypothesis (H)                    Introduce a hypothesis at any step
                                      provided it begins a new subproof.
 
-   Axiom (Ax)                        Introduce an axiom at any step.
-
    Conditional Elimination (→ E)     From Φ → Ψ and Φ, infer Ψ; all within
       Modus Ponens (MP)              the same subproof.
 
@@ -262,6 +260,8 @@ Primitive Inference Rules
 
    Equivalence Substitution (EQ)     From [ Φ ↔ Ψ ], and Θ(Φ), infer Θ(Ψ/Φ);
                                      or from [ Φ ↔ Ψ ] and Θ(Ψ), infer Θ(Φ/Ψ).
+
+   Axiom (Ax)                        Introduce an axiom at any step.
    ================================  =========================================
 
    Note: Apart from RE we can only appeal to lines in the current subproof.
@@ -349,8 +349,7 @@ Derived Inference Rules
    Name                              Sequent
    ================================  =========================================
    Negation Rules
-      -I                             ( P   ⊢  ⊥ )  ⊢  -P
-      -I                             ( -P  ⊢  ⊥ )  ⊢  P
+      -I                             ( P   ⊢  (Q ∧ -Q) )  ⊢  -P
 
    Conjunction Rules
       ∧E                             P ∧ Q  ⊢  Q
@@ -450,25 +449,6 @@ Negation Derivations
    These rules must be proven schematically because they describe
    new kinds of reasoning with subproofs.
 
-   -I:   ( P  ⊢  ⊥ )  ⊢  -P
-   Schematic Proof
-    i.    |   P                        H (for -I)
-          |   ...
-    j.    |   ⊥
-    j+1.  P → ⊥                        i-j → I
-    j+2.  -P                           j+1 Def -
-   QED
-
-   -I:   ( -P  ⊢  ⊥ )  ⊢  P
-   Schematic Proof
-    i.    |   -P                       H (for -I)
-          |   ...
-    j.    |   ⊥
-    j+1.  -P → ⊥                       i-j → I
-    j+2.  --P                          j+1 Def -
-    j+3.  P                            j+2 -E
-   QED
-
    DN:   ⊢  P ↔ --P
    Proof
    01.   |   P                         H (for → I)
@@ -484,6 +464,31 @@ Negation Derivations
    11.   P ↔ --P                       7,10 ↔ I
    QED
 
+   → ⊥ :  ⊢  (P ∧ -P) → ⊥
+   01.   |   P ∧ -P                    H (for → I)
+   02.   |   -(P → --P)                1 Def ∧
+   03.   |   (P → --P) → ⊥             2 Def -
+   04.   |   (P → P) → ⊥               3 DN
+   05.   |   |   P                     H (for → I)
+   06.   |   |   P                     5 RE
+   07.   |   P → P                     5-6 → I
+   08.   |   ⊥                         4,7 → E
+   09.   (P ∧ -P) → ⊥                  1-8 → I
+
+   -I:   ( P  ⊢  (Q ∧ -Q) )  ⊢  -P
+   Schematic Proof
+    i.    |   P                        H (for -I)
+          |   ...
+    j.    |   (Q ∧ -Q)                 ∧ I
+    j+1.  P → (Q ∧ -Q)                 i-j → I
+    j+2.  |   P                        H
+    j+3.  |   Q ∧ -Q                   j+1,j+2 → E
+    j+4.  |   (Q ∧ -Q) → ⊥             → ⊥
+    j+5.  |   ⊥                        j+3,j+4 → E
+    j+6.  P → ⊥                        j+2 - j+5 → I
+    j+7.  -P                           j+6 Def -
+   QED
+
    Ex Falso Quodlibet (EFQ):   P, -P  ⊢  Q
    Proof
    01.   P                             A
@@ -494,6 +499,25 @@ Negation Derivations
    06.   |   P → ⊥                     5 Def -
    07.   |   ⊥                         4,6 → E
    08.   Q                             3-7 -I
+   QED
+
+   ⊥ E:  ( P  ⊢  ⊥ )  ⊢  -P
+   Schematic Proof
+    i.   |   P                         H
+    ...  |   ...
+    j.   |   ⊥
+    j+1. P → ⊥                         i - j → I
+    j+2. -P                            j+1 Def -
+   QED
+
+   ⊥ E:  ( -P  ⊢  ⊥ )  ⊢  P
+   Schematic Proof
+    i.    |   -P                       H
+          |   ...
+    j.    |   ⊥
+    j+1.  -P → ⊥                       i-j → I
+    j+2.  --P                          j+1 Def -
+    j+3.  P                            j+2 -E
    QED
 
 Conditional Derivations

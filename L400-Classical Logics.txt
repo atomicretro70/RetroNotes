@@ -3872,8 +3872,6 @@ Primitive Inference Rules & Other Justifications
    Hypothesis (H)                    Introduce a hypothesis at any step
                                      provided it begins a new subproof.
 
-   Axiom (Ax)                        Introduce an axiom at any step.
-
    Negation Elimination (-E)         From --Φ, infer Φ.
 
    Negation Introduction (-I)        From a subproof with hypothesis Φ
@@ -3907,6 +3905,8 @@ Primitive Inference Rules & Other Justifications
    Equivalence Substitution (EQ)     From [ Φ ↔ Ψ ], and Θ(Φ), infer Θ(Ψ/Φ);
                                      or from [ Φ ↔ Ψ ] and Θ(Ψ),
                                      infer Θ(Φ/Ψ).
+
+   Axiom (Ax)                        Introduce an axiom at any step.
 
    --------------------------------  -----------------------------------------
 
@@ -4084,6 +4084,7 @@ Derived Equivalences
    DeMorgan's law (DM)               ⊢  -(P ∨ Q) ↔ (-P ∧ -Q)
    Material Equivalence (ME)         ⊢  (P ↔ Q) ↔ ((P → Q) ∧ (Q → P))
    Material Equivalence (ME)         ⊢  (P ↔ Q) ↔ ((P ∧ Q) ∨ (-P ∧ -Q))
+   --------------------------------  -----------------------------------------
    Dual                              ⊢  -∀x-Φ ↔ ∃xΦ
    Dual                              ⊢  -∀xΦ ↔ ∃x-Φ
    Dual                              ⊢  ∀x-Φ ↔ -∃xΦ
