@@ -209,7 +209,7 @@ Valuation Function
 
    The valuation function v for our minimal TFL is defined as follows:
 
-         v(⊥)      = false
+         v(⊥ )     = false
          v(P → Q)  = true  if P is false or Q is true;
                      false if P is true and Q is false
 
@@ -221,12 +221,12 @@ Truth-Functional Calculus
 Regarding Notation
 ==================
 
-   'Φ(Ψ)' denotes a wff Φ contains one or more occurrences of a sub-wff Ψ.
+   'Φ(Ψ )' denotes a wff Φ contains one or more occurrences of a sub-wff Ψ.
 
-   'Φ(Θ/Ψ)' denotes the result of replacing one or more occurrences of Ψ in Φ
-   with Θ.  Θ/Ψ is read, "Θ replaced one or more occurrences of Ψ".
+   'Φ(Θ/Ψ )' denotes the result of replacing one or more occurrences of Ψ in
+   Φ with Θ.  Θ/Ψ is read, "Θ replaced one or more occurrences of Ψ".
 
-   'Φ(Θ//Ψ)' like above but indicates replacing all occurrences of Ψ in Φ
+   'Φ(Θ//Ψ )' like above but indicates replacing all occurrences of Ψ in Φ
    with Θ.  Θ//Ψ is read, "Θ replaced all occurrences of Ψ".
 
    '( Φ ⊢ Ψ )' denotes a subproof with hypothesis Φ concluding with Ψ.
@@ -349,7 +349,7 @@ Derived Inference Rules
    Name                              Sequent
    ================================  =========================================
    Negation Rules
-      -I                             ( P   ⊢  (Q ∧ -Q) )  ⊢  -P
+      -I                             ( P  ⊢  (Q ∧ -Q) )  ⊢  -P
 
    Conjunction Rules
       ∧E                             P ∧ Q  ⊢  Q
@@ -365,7 +365,6 @@ Derived Inference Rules
       ↔ E                            P ↔ Q  ⊢  P → Q
       ↔ E                            P ↔ Q  ⊢  Q → P
       ↔ I                            P → Q, Q → P  ⊢  P ↔ Q
-      ↔ I                            P → Q, Q → P  ⊢  Q ↔ P
    ================================  =========================================
 
    Other Important Derived Rules
@@ -409,6 +408,7 @@ Equivalences
    Name (Abbreviation)               Sequent
    ================================  =========================================
    Double Negation (DN)              ⊢  P ↔ --P
+   Falsity Equivalence (FE)          ⊢  ⊥ ↔ (P ∧ -P)
    Idempotence (IDEM)                ⊢  P ↔ (P ∧ P)
    Idempotence (IDEM)                ⊢  P ↔ (P ∨ P)
    Transposition (TRANS)             ⊢  (P → Q) ↔ (-Q → -P)
@@ -449,65 +449,13 @@ Negation Derivations
    These rules must be proven schematically because they describe
    new kinds of reasoning with subproofs.
 
-   DN:   ⊢  P ↔ --P
-   Proof
-   01.   |   P                         H (for → I)
-   02.   |   |   -P                    H (for -I)
-   03.   |   |   P → ⊥                 2 Def -
-   04.   |   |   P                     1 RE
-   05.   |   |   ⊥                     3,4 → E
-   06.   |   --P                       2-5 -I
-   07.   P → --P                       1-6 → I
-   08.   |   --P                       H (for → I)
-   09.   |   P                         8 -E
-   10.   --P → P                       8-9 → I
-   11.   P ↔ --P                       7,10 ↔ I
-   QED
-
-   → ⊥ :  ⊢  (P ∧ -P) → ⊥
-   01.   |   P ∧ -P                    H (for → I)
-   02.   |   -(P → --P)                1 Def ∧
-   03.   |   (P → --P) → ⊥             2 Def -
-   04.   |   (P → P) → ⊥               3 DN
-   05.   |   |   P                     H (for → I)
-   06.   |   |   P                     5 RE
-   07.   |   P → P                     5-6 → I
-   08.   |   ⊥                         4,7 → E
-   09.   (P ∧ -P) → ⊥                  1-8 → I
-
-   -I:   ( P  ⊢  (Q ∧ -Q) )  ⊢  -P
-   Schematic Proof
-    i.    |   P                        H (for -I)
-          |   ...
-    j.    |   (Q ∧ -Q)                 ∧ I
-    j+1.  P → (Q ∧ -Q)                 i-j → I
-    j+2.  |   P                        H
-    j+3.  |   Q ∧ -Q                   j+1,j+2 → E
-    j+4.  |   (Q ∧ -Q) → ⊥             → ⊥
-    j+5.  |   ⊥                        j+3,j+4 → E
-    j+6.  P → ⊥                        j+2 - j+5 → I
-    j+7.  -P                           j+6 Def -
-   QED
-
-   Ex Falso Quodlibet (EFQ):   P, -P  ⊢  Q
-   Proof
-   01.   P                             A
-   02.   -P                            A
-   03.   |   -Q                        H (for -I)
-   04.   |   P                         1 RE
-   05.   |   -P                        2 RE
-   06.   |   P → ⊥                     5 Def -
-   07.   |   ⊥                         4,6 → E
-   08.   Q                             3-7 -I
-   QED
-
    ⊥ E:  ( P  ⊢  ⊥ )  ⊢  -P
    Schematic Proof
-    i.   |   P                         H
-    ...  |   ...
-    j.   |   ⊥
-    j+1. P → ⊥                         i - j → I
-    j+2. -P                            j+1 Def -
+    i.    |   P                        H
+    ...   |   ...
+    j.    |   ⊥
+    j+1.  P → ⊥                        i - j → I
+    j+2.  -P                           j+1 Def -
    QED
 
    ⊥ E:  ( -P  ⊢  ⊥ )  ⊢  P
@@ -520,6 +468,66 @@ Negation Derivations
     j+3.  P                            j+2 -E
    QED
 
+Lemmas (For Proving the rest of the inference rules)
+----------------------------------------------------
+
+   Reverse -E Lemma (R-E):   ⊢  P → --P
+   Proof
+   01.   |   P                         H (for → I)
+   02.   |   |   -P                    H (for ⊥ E)
+   03.   |   |   P → ⊥                 2 Def -
+   04.   |   |   P                     1 RE
+   05.   |   |   ⊥                     3,4 → E
+   06.   |   --P                       2-5 ⊥ E
+   07.   P → --P                       1-6 → I
+   QED
+
+   → ⊥ Lemma:  ⊢  (P ∧ -P) → ⊥
+   01.   |   P ∧ -P                    H (for → I)
+   02.   |   -(P → --P)                1 Def ∧
+   03.   |   (P → --P) → ⊥             2 Def -
+   04.   |   |   P                     H (for → I)
+   05.   |   |   --P                   4 R-E Lemma
+   06.   |   P → --P                   4-5 → I
+   07.   |   ⊥                         3,6 → E
+   08.   (P ∧ -P) → ⊥                  1-7 → I
+   QED
+
+Negation Introduction
+---------------------
+
+   -I:   ( P  ⊢  (Q ∧ -Q) )  ⊢  -P
+   Schematic Proof
+    i.    |   P                        H (for -I)
+          |   ...
+    j.    |   (Q ∧ -Q)
+    j+1.  P → (Q ∧ -Q)                 i-j → I
+    j+2.  |   P                        H
+    j+3.  |   P → (Q ∧ -Q)             j+1 RE
+    j+4.  |   Q ∧ -Q                   j+2,j+3 → E
+    j+5.  |   (Q ∧ -Q) → ⊥             → ⊥ Lemma
+    j+6.  |   ⊥                        j+4,j+5 → E
+    j+7   -P                           j+2 - j+6 ⊥ E
+   QED
+
+Ex Falso Quodlibet
+------------------
+
+   Ex Falso Quodlibet (EFQ):   P, -P  ⊢  Q
+   Proof
+   01.   P                             A
+   02.   -P                            A
+   03.   |   -Q                        H (for ⊥ E)
+   04.   |   P                         1 RE
+   05.   |   -P                        2 RE
+   06.   |   P → ⊥                     5 Def -
+   07.   |   ⊥                         4,6 → E
+   08.   Q                             3-7 ⊥ E
+   QED
+
+   It's handy to note that the conclusion of an EFQ application can
+   be ⊥ .  In such cases the rule may also be refered to as ⊥ I .
+
 Conditional Derivations
 -----------------------
 
@@ -527,12 +535,12 @@ Conditional Derivations
    Proof
    01.   P → Q                         A
    02.   -Q                            A
-   03.   |   P                         H (for -I)
+   03.   |   P                         H (for ⊥ E)
    04.   |   P → Q                     1 RE
-   05.   |   -Q                        2 RE
-   06.   |   Q                         3,4 → E
-   07.   |   ⊥                         5,6 EFQ
-   08.   -P                            3-7 -I
+   05.   |   Q                         3,4 → E
+   06.   |   -Q                        2 RE
+   07.   |   ⊥                         5,6 ⊥ I
+   08.   -P                            3-7 ⊥ E
    QED
 
 Conjunction Derivations
@@ -542,44 +550,43 @@ Conjunction Derivations
    Proof
    01.   P ∧ Q                         A
    02.   -(P → -Q)                     1 def ∧
-   03.   |   -Q                        H (for -I)
+   03.   |   -Q                        H (for ⊥ E)
    04.   |   |   P                     H (for → I)
    05.   |   |   -Q                    3 RE
    06.   |   P → -Q                    4-5 → I
    07.   |   -(P → -Q)                 2 RE
-   08.   |   ⊥                         6,7 EFQ
-   09.   Q                             3-8 -I
+   08.   |   ⊥                         6,7 ⊥ I
+   09.   Q                             3-8 ⊥ E
    QED
 
    ∧E   P ∧ Q  ⊢  P
    Proof
    01.   P ∧ Q                         A
    02.   -(P → -Q)                     1 Def ∧
-   03.   |   -P                        H (for -I)
+   03.   |   -P                        H (for ⊥ E)
    04.   |   |   Q                     H (for → I)
    05.   |   |   -P                    3 RE
-   06.   |   Q →  -P                   4-5 ->I
+   06.   |   Q →  -P                   4-5 → I
    07.   |   |   P                     H (for → I)
-   08.   |   |   --P                   7 DN
+   08.   |   |   --P                   7 R-E Lemma
    09.   |   |   Q → -P                6 RE
    10.   |   |   -Q                    8,9 MT
    11.   |   P -> -Q                   7-11 → I
    12.   |   -(P → -Q)                 2 RE
-   13.   |   ⊥                         11,12 EFQ
-   14.   --P                           3-13 -I
-   15.   P                             14 -E
+   13.   |   ⊥                         11,12 ⊥ I
+   14.   P                             3-13 ⊥ E
    QED
 
    ∧I:   P, Q  ⊢  P ∧ Q
    Proof
    01.   P                             A
    02.   Q                             A
-   03.   |   P → -Q                    H (for -I)
+   03.   |   P → -Q                    H (for ⊥ E)
    04.   |   P                         1 RE
-   05.   |   Q                         2 RE
-   06.   |   -Q                        3,4 → E
-   07.   |   ⊥                         5,6 EFQ
-   08.   -(P → -Q)                     3-7 -I
+   05.   |   -Q                        3,4 → E
+   06.   |   Q                         2 RE
+   07.   |   ⊥                         5,6 ⊥ I
+   08.   -(P → -Q)                     3-7 ⊥ E
    09.   P ∧ Q                         8 Def ∧
    QED
 
@@ -592,45 +599,42 @@ Disjunction Derivations
    02.   P → R                         A
    03.   Q → R                         A
    04.   -P → Q                        1 def ∨
-   05.   |   -R                        H (for -I)
+   05.   |   -R                        H (for ⊥ E)
    06.   |   P → R                     2 RE
    07.   |   Q → R                     3 RE
    08.   |   -P → Q                    4 RE
    09.   |   -P                        5,6 MT
    10.   |   -Q                        5,7 MT
    11.   |   Q                         8,9 → E
-   12.   |   ⊥                         10,11 EFQ
-   13.   R                             5-12 -I
+   12.   |   ⊥                         10,11 ⊥ I
+   13.   R                             5-12 ⊥ E
    QED
 
    ∨I:   P  ⊢  P ∨ Q
    Proof
    01.   P                             A
-   02.   |   -(P ∨ Q)                  H (for -I)
+   02.   |   -(P ∨ Q)                  H (for ⊥ E)
    03.   |   -(-P → Q)                 2 Def ∨
-   04.   |   (-P → Q) → ⊥              3 Def -
-   05.   |   P                         1 RE
-   06.   |   |   -P                    H (for → I)
-   07.   |   |   P                     5 RE
-   08.   |   |   Q                     6,7 EFQ
-   09.   |   -P → Q                    6-8 → I
-   10.   |   ⊥                         2,9 EFQ
-   11.   P ∨ Q                         2-10 -I
+   04.   |   P                         1 RE
+   05.   |   |   -P                    H (for → I)
+   06.   |   |   P                     4 RE
+   07.   |   |   Q                     5,6 EFQ
+   08.   |   -P → Q                    5-7 → I
+   09.   |   ⊥                         3,8 ⊥ I
+   10.   P ∨ Q                         2-9 ⊥ E
    QED
 
    ∨I:   P  ⊢  Q ∨ P
    Proof
    01.   P                             A
-   02.   P ∨ Q                         1 ∨I
-   03.   |   -(Q ∨ P)                  H (for -I)
-   04.   |   -(-Q → P)                 3 Def ∨
-   05.   |   (-Q → P) → ⊥              4 Def -
-   06.   |   P                         1 RE
-   07.   |   |   -Q                    H (for → I)
-   08.   |   |   P                     6 RE
-   09.   |   -Q → P                    7-8 → I
-   10.   |   ⊥                         4,9 EFQ
-   11.   Q ∨ P                         3-10 -I
+   02.   |   -(Q ∨ P)                  H (for ⊥ E)
+   03.   |   -(-Q → P)                 2 Def ∨
+   04.   |   P                         1 RE
+   05.   |   |   -Q                    H (for → I)
+   06.   |   |   P                     4 RE
+   07.   |   -Q → P                    5-6 → I
+   08.   |   ⊥                         3,7 ⊥ I
+   09.   Q ∨ P                         2-8 ⊥ E
    QED
 
 Biconditional Derivations
@@ -654,29 +658,43 @@ Biconditional Derivations
    Proof
    01.   P → Q                         A
    02.   Q → P                         A
-   04.   |   -(P ↔ Q)                  H (for -I)
+   04.   |   -(P ↔ Q)                  H (for ⊥ E)
    05.   |   -((P → Q) ∧ (Q → P))      4 Def ↔
    06.   |   ((P → Q) ∧ (Q → P)) → ⊥   5 Def -
    07.   |   P → Q                     1 RE
    08.   |   Q → P                     2 RE
    09.   |   (P → Q) ∧ (Q → P)         7,8 ∧I
    10.   |   ⊥                         6,9 → E
-   11.   P ↔ Q                         4-10 -I
+   11.   P ↔ Q                         4-10 ⊥ E
    QED
 
-   ↔ I:   P → Q, Q → P  ⊢  Q ↔ P
+Equivalences
+------------
+
+   Double Negation (DN):   ⊢  P ↔ --P
    Proof
-   01.   P → Q                         A
-   02.   Q → P                         A
-   03.   |   -(Q ↔ P)                  H (for -I)
-   04.   |   (Q ↔ P) → ⊥               3 Def -
-   05.   |   ((Q → P) ∧ (P → Q)) → ⊥   4 Def ↔
-   06.   |   Q → P                     2 RE
-   07.   |   P → Q                     1 RE
-   08.   |   (Q → P) ∧ (P → Q)         6,7 ∧I
-   09.   |   ⊥                         5,8 → I
-   10.   Q ↔ P                         3-9 ↔ I
+   01.   P → --P                       R-E Lemma
+   02.   |   --P                       H (for → I)
+   03.   |   P                         2 -E
+   04.   --P → P                       2-3 → I
+   05.   P ↔ --P                       1,4 ↔ I
    QED
+
+   Falsity Equivalence (FE):  ⊢  ⊥ ↔ (P ∧ -P)
+   01.   (P ∧ -P) → ⊥                  → ⊥ Lemma
+   02.   |   ⊥                         H (for → I)
+   03.   |   |   -(P ∧ -P)             H (for → I)
+   04.   |   |   ⊥                     2 RE
+   05.   |   -(P ∧ -P) → ⊥             3-4 → I
+   06.   |   --(P ∧ -P)                5 DEF -
+   07.   |   P ∧ -P                    6 -E
+   08.   ⊥ → (P ∧ -P)                  2-7 → I
+   09.   ⊥ ↔ (P ∧ -P)                  1,8 ↔ I
+   QED
+
+   The remaining derived rules and equivalences are proven just as they are
+   for the complete propositional logic.  Proofs are provided in the L400
+   reference.
 
 
 ===================
@@ -725,6 +743,7 @@ Definitions
 
    The symbols '-<' and '>-<' are called strict conditional and strict
    biconditional respectively.
+
 
 ---------
 Semantics

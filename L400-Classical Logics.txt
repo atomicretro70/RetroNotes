@@ -1235,7 +1235,7 @@ Truth-Trees
 
    These rules can also be expressed in diagrams.
 
-           +---------------------------+---------------------------+         
+           +---------------------------+---------------------------+
            | ========================= | ========================= |
            |             -             |            --             |
            | ========================= | ========================= |
@@ -3441,7 +3441,7 @@ Axiomatic and Natural Deduction
    which consist only of inference rules.  These natural deduction systems
    are more intuitive and more closely parallels how one reasons informally.
    An AXIOMATIC DEDUCTION system, in contrast, consists of a minimal set
-   of inference rules, often just one, and one or more axiom schemata.
+   of inference rules, often just one or two, and one or more axiom schemata.
    All instances of the schemata are axioms of the logic.  Axiomatic
    deduction systems are usually simpler than Natural Deduction in that
    they have fewer parts, but they are also more complicated and cumbersome
@@ -3477,9 +3477,10 @@ Axiomatic and Natural Deduction
        |    (P ∨ Q)     =df  -P → Q                                   |
        |    (P ↔ Q)     =df  ((P → Q) ∧ (Q → P))                      |
        |                                                              |
-       | Inference Rule                                               |
+       | Inference Rules                                              |
        |                                                              |
-       |    Given Φ → Ψ, and Φ infer Ψ.                               |
+       |    - From Φ → Ψ, and Φ infer Ψ.                              |
+       |    - Introduce an axiom at any step of the proof.            |
        |                                                              |
        | Axiom Schemata                                               |
        |                                                              |
@@ -3487,7 +3488,7 @@ Axiomatic and Natural Deduction
        |    AxS2.  (P → (Q → R)) → ((P → Q) → (P → R))                |
        |    AxS3.  (-P → -Q) → ((-P → Q) → P)                         |
        |                                                              |
-       |    Every instance of these schemata is an axiom              |
+       |    Every instance of an axiom schema is an axiom             |
        |    of the calculus.                                          |
        |                                                              |
        +--------------------------------------------------------------+
@@ -4046,7 +4047,7 @@ Derived Inference Rules
    ================================  =========================================
    ⊥ Introduction (⊥ I)              P, -P  ⊢  ⊥
    ⊥ Elimination (⊥ E)               (  P ⊢ ⊥ )  ⊢  -P
-                                     ( -P ⊢ ⊥ )  ⊢   P
+   ⊥ Elimination (⊥ E)               ( -P ⊢ ⊥ )  ⊢   P
    --------------------------------  -----------------------------------------
    Reiterate (RE)                    P  ⊢  P
    Falso Quodlibet (EFQ)             P, -P  ⊢  Q    (Q is any wff whatever)
@@ -4123,6 +4124,7 @@ Important Derived Rules
    QED
 
    ⊥ Elimination (⊥ E):   ( -P ⊢ ⊥ )  ⊢   P
+   Schematic Proof
    i.   |   -P                    H (for → I)
    ...  |   ...                   ...
    j.   |   ⊥
@@ -4150,7 +4152,8 @@ The Remaining Basic Derived Rules
    02.   -P                       A
    03.   |   -Q                   H (for -I)
    04.   |   P ∧ -P               1,2 ∧I
-   05.   Q                        3-4 -I
+   05.   --Q                      3-4 -I
+   05.   Q                        5 -E
    QED
 
    Modus Tollens (MT):   P → Q, -Q  ⊢  -P
