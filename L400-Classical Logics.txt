@@ -141,7 +141,7 @@ Preface
    This book will be updated periodically, and some sections may be removed
    or developed further based upon reader feedback.  Please contribute by
    reporting an error or omission or submitting other comments by contacting
-   the author here: AtomicRetro@outlook.com.
+   the author here.
 
 
 ============
@@ -242,9 +242,9 @@ Definition Schemata
    So the question, what is the probability that Sally slips given that
    it is icy, yields the following definition.
 
-                           P(Slip ∧ Ice)
-         P(Slip|Ice)  =df  -------------
-                              P(Ice)
+                           P(slips ∧ icy)
+         P(slips|icy)  =df  --------------
+                               P(icy)
 
    If a definiens is replaced by its abbreviation it's called PACKING, while
    UNPACKING is replacing an abbreviation with its definiens.
@@ -305,10 +305,10 @@ Set Definition
 
          M = the set of all mammals
            = { x | x is a mammal }
-           = read, "the set of all x such that x is a mammal."
+           = read, "the set of all x such that, x is a mammal."
 
          E = { x | x/2 = int(x/2) }
-           = "The set of all x such that x divided by 2 equals the integer
+           = "The set of all x such that, x divided by 2 equals the integer
              of x divided by 2."
            = "The set of all numbers evenly divisible by two."
 
@@ -321,8 +321,8 @@ Set Definition
    <x,y> is an ORDERED PAIR, a value which requires two numbers to be
    fully expressed, where x,y can be any two real numbers.
 
-         F = { <x,y> | (x in Z) and (y=10x) }
-             The set of all ordered pairs <x,y> such that x is an integer
+         F = { <x,y> | (x is an integer) and (y=10x) }
+             The set of all ordered pairs <x,y> such that x, is an integer
              and y is ten times x.
 
 Set-Member Relations
@@ -1531,13 +1531,12 @@ Primitive Inference Rules
    Hypothesis (H)                    Introduce a hypothesis at any step
                                      provided it begins a new subproof.
 
-   Axiom (Ax)                        Introduce an axiom at any step.
-
    Negation Elimination (-E)         From --Φ, infer Φ.
 
    Negation Introduction (-I)        From a subproof with hypothesis Φ
-                                     ending in (Ψ ∧ -Ψ), close the subproof,
-                                     and infer -Φ.
+      Reductio Ad Absurdum (RAA)     ending in (Ψ ∧ -Ψ), close the subproof,
+      Indirect Proof (IP)            and infer -Φ.
+      Proof by Contradiction (PBC)
 
    Conjunction Elimination (∧E)      From Φ ∧ Ψ, infer Φ, or infer Ψ.
       Simplification (Simp)
@@ -1566,6 +1565,8 @@ Primitive Inference Rules
    Equivalence Substitution (EQ)     From [ Φ ↔ Ψ ], and Θ(Φ), infer Θ(Ψ/Φ);
                                      or from [ Φ ↔ Ψ ] and Θ(Ψ),
                                      infer Θ(Φ/Ψ).
+
+   Axiom (Ax)                        Introduce an axiom at any step.
    ================================  =========================================
 
    These rules are sometimes expressed in diagrams.  Horizontal lines
@@ -1653,9 +1654,8 @@ Other Justifications
 Derived Inference Rules
 =======================
 
-   Use any proved sequent as a new inference rule.  If a sequent is proved
-   valid, then all instances of the sequent are also valid.  The following
-   are important derived rules.
+  Every instance of a valid argument form is valid.  So, use any proved
+  sequent as a new inference rule.  The following are important derived rules.
 
    ================================  =========================================
    Name (Abbreviation)               Sequent
@@ -2186,7 +2186,7 @@ Grammar
    1.  Every atomic formula is a wff;
    2.  if Φ is a wff, then so is -Φ;
    3.  if Φ,Ψ are wffs, then so are (Φ ∧ Ψ), (Φ ∨ Ψ), (Φ → Ψ), (Φ ↔ Ψ);
-   4.  if Φ(α) (α is a constant object in a wff Φ) is a wff,
+   4.  if Φ(α) (α is a constant object symbol in a wff Φ) is a wff,
        then ∀xΦ(x/α) and ∃xΦ(x/α) are wffs (where x is some new
        variable not already in Φ);
    5.  Nothing else is a wff.
@@ -2211,10 +2211,10 @@ Valuation Function
    will now receive values that reflext correspondence to the model.
 
          1)  If Φ consists of a single proposition symbol, then its truth
-             value iw the one specified directly by the model.
+             value is the one specified directly by the model.
          2)  If Φ consists of a predicate symbol followed by a single
              constant object symbol, then Φ is assigned the valud T
-             if the objected designated by the constant symbol is a member
+             if the object designated by the constant symbol is a member
              of the class designated by the predicte symbol; otherwise
              Φ is assigned the value F.
          3)  if Φ consists of a predicate symbol followed by two or more
@@ -2226,7 +2226,7 @@ Valuation Function
              is true in a model M if for every constant object symbol
              α in M Φ(α/β) is true; otherwise ∀βΦ(β) is false.
          5)  An existential quantification ∃βΦ(β) (where β is a variable)
-             is true in a model M if for some constant object symbol
+             is true in a model M if for at least one constant object symbol
              α in M Φ(α/β) is true; otherwise ∃βΦ(β) is false.
 
 Predicates & Constants
@@ -2302,7 +2302,7 @@ Scope
    quantifier-variable binding holds.  In FOL, this substring
    is the complete wff which follows the quantifier; if the expression
    that follows is in parentheses then the scope ranges from the opening
-   to the matching closing parenthesis.
+   to the matching closing parenthesis.  Consider an example,
 
          ∀x(Dx → Mx) ∧ ∃xRx
 
@@ -2316,7 +2316,7 @@ Free Variables
    A FREE VARIABLE is a variable that appears within a wff but is not
    bound by a quantifier.  This formulation of FOL does not allow
    free variables provided the formation rules are applied correctly.
-   However, some implementations do allow free variables.  Be aware that
+   However, some formulations do allow free variables.  Be aware that
    a free variable does not denote anything.  While a variable bound
    by ∀ denotes *any* arbitrary object in the universe.  A variable
    bound by ∃ denotes at least one object in our universe though
@@ -2327,41 +2327,42 @@ Single Quantifiers
 
    A universal quantifier is nearly always paired with the conditional.
 
-         ∀x(Cx → Mx),    For each object x in the universe,
-                           if x is a cat then x is a mammal.
-                         = all cats are mammals.
+         ∀x(Cx → Mx),      For each object x in the universe,
+                             if x is a cat then x is a mammal.
+                           = all cats are mammals.
 
-         ∀x(Cx → -Sx),   For each object x in the universe,
-                           if x is a cat then x doesn't like to swim.
-                         = no cats like to swim.
+         ∀x(Cx → -Fx),     For each object x in the universe,
+                             if x is a cat then x isn't a fish.
+                           = no cats are fish.
 
    An existential quantifier is nearly always paired with conjunction.
 
-         ∃x(Dx ∧ Mx),    There's at least one object x in the universe
-                           such that, x is a dog and x is a mammal.
-                         = Some dogs are mammals.
+         ∃x(Dx ∧ Mx),      There's at least one object x in the universe
+                             such that, x is a dog and x is a mammal.
+                           = Some dogs are mammals.
 
-         ∃x(Dx ∧ -Sx),   There's at least one object x in the universe
-                           such that, x is a dog and x doesn't like to swim.
-                         = Some dogs don't like to swim.
+         ∃x(Dx ∧ -Sx),     There's at least one object x in the universe
+                             such that, x is a dog and x doesn't like to swim.
+                           = Some dogs don't like to swim.
 
-   However, this notion of ∀ with →, and ∃ with ∧, isn't arbitrary.
-   They are complementary forms.  Consider the following form:
+   Observe that ∀ is paired with →, and ∃ is paired with ∧.  This is
+   usually the case; other pairings are rare.  It isn't arbitrary.
+   They are a matched pair of forms.  Consider the following form:
 
-         -∀x(Cx → -Sx)   It's false that no cats like to swim.
+         -∀x(Cx → -Sx)     It's false that no cats like to swim.
 
    Applying some equivalences to this wff results in a new formula
    that means the same thing.
 
-         ∃x-(Cx → -Sx)   -∀ is equivalent to ∃- 
-         ∃x-(-Cx ∨ -Sx)  By material implication
-         ∃x(--Cx ∧ --Sx) DeMorgan's
-         ∃x(Cx ∧ Sx)     Double Negation
-                         = Some cats like to swim.
+         ∃x-(Cx → -Sx)     -∀ is equivalent to ∃- 
+         ∃x-(-Cx ∨ -Sx)    By material implication
+         ∃x(--Cx ∧ --Sx)   DeMorgan's
+         ∃x(Cx ∧ Sx)       Double Negation
+                           = Some cats like to swim.
 
    Notice that we started with ∀ and →, and just by applying equivalences
    ended with ∃ and ∧.  So ∃ with ∧ follows naturally from the occurrence
-   of ∀ with →.  The reverse is also true.  They are complementary forms.
+   of ∀ with →.  The reverse is also true.
 
 Multiple Quantifiers
 ====================
@@ -2370,18 +2371,21 @@ Multiple Quantifiers
    When the same quantifier is repeated, the order of the quantifiers
    doesn't change the meaning of the wff.
 
-         ∀x∀yLxy         Everyone loves everyone (including themselves).
-         ∀y∀xLxy         Everyone loves everyone (including themselves).
+         ∀x∀yLxy           Everyone loves everyone (including themselves)
+         ∀y∀xLxy           Everyone loves everyone (including themselves)
 
-         ∃x∃yLxy         Someone loves someone (perhaps themselves).
-         ∃y∃xLxy         Someone loves someone (perhaps themselves).
+         ∃x∃yLxy           Someone loves someone (perhaps themselves)
+         ∃y∃xLxy           Someone loves someone (perhaps themselves)
 
    In the first form, ∀x has scope over the following formula which
    is ∀yLxy.  It's similarly the case with the remaining forms.  However,
    if the quantifiers are mixed, the meaning changes depending upon order.
 
-         ∃x∀yLxy         Someone loves everyone (including themselves).
-         ∀x∃yLxy         Everyone loves someone (perhaps themselves).
+         ∃x∀yLxy           Someone loves everyone (including themselves)
+         ∀y∃xLxy           Everyone is loved by someone (perhaps themselves)
+
+         ∀x∃yLxy           Everyone loves someone (perhaps themselves)
+         ∃y∀xLxy           Someone is loved by everyone (including themselves)
 
 Translation Hints
 =================
@@ -3876,13 +3880,14 @@ Primitive Inference Rules & Other Justifications
    Negation Elimination (-E)         From --Φ, infer Φ.
 
    Negation Introduction (-I)        From a subproof with hypothesis Φ
-                                     ending in (Ψ ∧ -Ψ), close the subproof,
-                                     and infer -Φ.
+      Reductio Ad Absurdum (RAA)     ending in (Ψ ∧ -Ψ), close the subproof,
+      Indirect Proof (IP)            and infer -Φ.
+      Proof by Contradiction (PBC)
 
    Conjunction Elimination (∧E)      From Φ ∧ Ψ, infer Φ, or infer Ψ.
       Simplification (Simp)
 
-   Conjunction (∧I)                  From Φ and Ψ, infer Φ ∧ Ψ,
+   Conjunction Introduction (∧ I)    From Φ and Ψ, infer Φ ∧ Ψ,
                                      or infer Ψ ∧ Φ.
 
    Disjunction Elimination (∨E)      From Φ ∨ Ψ, Φ → Θ and Ψ → Θ, infer Θ.
@@ -3903,13 +3908,11 @@ Primitive Inference Rules & Other Justifications
 
    Biconditional Introduction (↔ I)  From Φ → Ψ and Ψ → Φ, infer Φ ↔ Ψ
 
+   --------------------------------  -----------------------------------------
+
    Equivalence Substitution (EQ)     From [ Φ ↔ Ψ ], and Θ(Φ), infer Θ(Ψ/Φ);
                                      or from [ Φ ↔ Ψ ] and Θ(Ψ),
                                      infer Θ(Φ/Ψ).
-
-   Axiom (Ax)                        Introduce an axiom at any step.
-
-   --------------------------------  -----------------------------------------
 
    Definition Substitution (DEF)     From [ Φ =df Ψ ], Θ(Φ), infer Θ(Ψ/Φ);
                                      and [ Φ =df Ψ ], Θ(Ψ), infer Θ(Φ/Ψ).
@@ -3940,6 +3943,8 @@ Primitive Inference Rules & Other Justifications
    --------------------------------  -----------------------------------------
 
    Mathematical Induction (MInd)     from P0 and ∀x(Px → Psx), infer ∀xPx
+
+   Axiom (Ax)                        Introduce an axiom at any step.
    ================================  =========================================
 
       +-------------------------------+-------------------------------+
