@@ -24,7 +24,7 @@
 ######                                                                  ######
 ######                     AtomicRetro@outlook.com                      ######
 ######                                                                  ######
-######                     Revision:  20.10.05                          ######
+######                     Revision:                                    ######
 ######                                                                  ######
 ######                                                                  ######
 ######                                                                  ######
@@ -949,15 +949,16 @@ Extension & Intension
 Kripke Semantics
 ================
 
-   Kripke semantics describes a way to understand possible worlds.  Kripke
-   defined a new semantic concept called an ACCESSIBILITY RELATION (AR)
-   between two worlds.
+   Kripke semantics describes a way to understand possible worlds and how
+   access to them is granted.  Kripke defined a new semantic concept called
+   an ACCESSIBILITY RELATION (R) between two worlds.
 
-      The accessibility relation (AR)
+      The accessibility relation (R)
          wxRwy     means world wx can access world wy, 
 
    You can think of the accessibility relation as an arrow pointing from wx to
-   wy indicating its direction.
+   wy indicating its direction.  The relation describes the conditions
+   under which one may drop boxes ( □ ) from the front of a formula.
 
    Reflexivity
       If exists wx then wxRwx.   (Allows □ P to assert P in the current world)
@@ -966,7 +967,7 @@ Kripke Semantics
       If wxRwy then wyRwx.       (Every accessibility arrow is double ended)
 
    Transitivity
-      If wxRwy and wyRwz then wxRwz.   (□ P can traverse a series of ARs)
+      If wxRwy and wyRwz then wxRwz.   (□ P can traverse a series of R's)
 
    System M/T = K + refl                      □ A → A (axiom M/T) = K + M
    System B   = K + refl + symmetry           A → □ ◇ A (axiom B)
@@ -1071,8 +1072,8 @@ Alethic Inferential Systems
 
    Notes
 
-   - System K is weakest possible system (proves the fewest things);
-     S5 is strongest possible system; between are an infinite number of
+   - System K is the weakest possible system (proves the fewest things);
+     S5 is the strongest possible system; between are an infinite number of
      systems.
    - System M is commonly used.
 

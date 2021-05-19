@@ -38,7 +38,7 @@
 To View This Document Properly
 ==============================
 
-   * Best viewed in VIM using with settings
+   * Best viewed in VIM using these settings
          :set columns=80
          :set encoding=utf-8
 
@@ -904,8 +904,8 @@ Truth-Table Study of A Set of WFFs
 
       A pair of wffs is LOGICALLY EQUIVALENT if for every valuation (row)
       of the table, both wffs have the same value under their main
-      operators.  Notice that each of the following pair of formulas
-      is logically equivalent.
+      operators.  Notice the following pair of formulas are logically
+      equivalent.
 
           R S | R → S | - R ∨ S
           ========================
@@ -946,10 +946,10 @@ Truth-Table Study of A Sequent
 
           P Q | P → Q ,  - P  ⊢  - Q
          ============================
-          F F |   T   |  T    |  T F
-          F T |   T   |  T    |  F T  <==
-          T F |   F   |  F    |  T F
-          T T |   T   |  F    |  F T
+          F F |   T   |  T    |  T
+          F T |   T   |  T    |  F    <==
+          T F |   F   |  F    |  T
+          T T |   T   |  F    |  F
                   *      *       *
 
    We have discovered a row on which the premises are all T, but the
@@ -959,10 +959,10 @@ Truth-Table Study of A Sequent
 
           P Q | P , - P ⊢  Q
          ====================
-          F F | F | T F |  F
-          F T | F | T F |  T  <==
-          T F | T | F T |  F
-          T T | T | F T |  T  <==
+          F F | F | T   |  F
+          F T | F | T   |  T  <==
+          T F | T | F   |  F
+          T T | T | F   |  T  <==
                 *   *      *
 
    This argument is valid.  Since there are no rows where the premises

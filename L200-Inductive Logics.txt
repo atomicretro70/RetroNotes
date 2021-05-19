@@ -502,7 +502,6 @@ Important Theorems
       to P(A ∧ B) gives P(A), it must be that P(A ∧ B) <= P(A).  Proof
       of the second conjunct is simiarl except that (j) from the proof
       of PTH07 is used. QED
-      
 
    PTH09.   P(A ∨ B) >= P(A) and P(A ∨ B) >= P(B)
 

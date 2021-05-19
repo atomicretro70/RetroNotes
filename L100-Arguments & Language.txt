@@ -464,10 +464,14 @@ Assessment
    reasoning errors, or missing premises.
 
    A VALID ARGUMENT is a deductive argument which is genuinely deductive in
-   the sense defined above.
+   the sense defined above.  i.e it has no reasoning errors.
 
          Examples of Valid Arguments
 
+         All cats are mammals.
+         All mammals are vertebrets.
+       ∴ All cats are vertebrets.
+       
          Examples of invalid Arguments
 
          Bob went to the store.
@@ -477,6 +481,7 @@ Assessment
    A SOUND ARGUMENT is a valid argument with all true premises.
 
    A WEAK ARGUMENT is an inductive argument with reasoning errors.
+   i.e. it has no reasoning errors.
 
    A STRONG ARGUMENT is an inductive argument which is genuinely inductive
    in the sense defined above.
@@ -539,8 +544,6 @@ Fallacy
          Fallacies of Definitions
 
          Cognitive Biases
-
-         Cognitive Distortions
 
 
 ------------------

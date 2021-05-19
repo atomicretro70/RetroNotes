@@ -174,7 +174,7 @@ The Problem of Evil
       then he isn't all powerful.
    Either God doesn't want to prevent evil,      -W ∨ -A             A
       or he isn't able.
-   /.  Either God isn't all powerful,            -G ∨ -P             CD
+   /.  Either God isn't all powerful,            -P ∨ -G             CD
        or he isn't all good.
          Gensler, Exercise 7.1b problem # 5
 
