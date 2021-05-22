@@ -105,12 +105,32 @@ The argument from morality
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
 
 The teleological argument
-   Things in nature (or nature itself)           ∃x(Nx ∧ Dx)         A
-      are design-like                            |  [c] Nc ∧ Dc      H
-   Design-like properties are not producible     |  Dc               ∧E
-      by natural means.                          |  ∃xDx             ∃I
-   /.  Some things in nature are products        ∃xDx                ∃E
+   Things in nature (or nature itself)
+      are design-like
+   Design-like properties are not producible
+      by natural means.
+   /.  Some things in nature are products
        of intentional design.
+
+   ∃ x(Nx ∧ Dx)           A
+   ∀ x(Dx → -Pxn)         A
+   ∀ x(Pxd ↔ -Pxn)        Implicit Assumption
+   |[c]Nc ∧ Dc            H (for ∃ E)
+   |   Dc → -Pcn          ∀ E
+   |   Dc                 ∧ E
+   |   -Pcn               → E
+   |   Pcd ↔ -Pcn         ∀ E
+   |   -Pcn → Pcd         ↔ E
+   |   Pcd                → E
+   |   Nc                 ∧ E
+   |   Nc ∧ Pcd           ∧ I
+   |   ∃ x(Nx ∧ Pxd)      ∃ I
+   ∃ x(Nx ∧ Pxd)          ∃ E
+
+   Nx,  x is a thing in nature
+   Dx,  x is design-like
+   Pxn, x is produced by natural means
+   Pxd, x is produced by design
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
 
