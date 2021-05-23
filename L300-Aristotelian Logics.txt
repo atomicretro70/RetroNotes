@@ -158,7 +158,7 @@ Lexemes
       Singular terms:      a...z
 
    Logical Symbols
-      copula:              is, is not
+      copula:              are, are not
       Quantifiers
          Universal:        all, no
          Particular:       some
@@ -172,7 +172,7 @@ Grammar
    2.               <singular-term>    <copula> <categorical-term>
    3.               <singular-term>    <copula> <singular-term>
 
-   Restriction:  the 'is not' copula may not occur in a sentence beginning
+   Restriction:  the 'are not' copula may not occur in a sentence beginning
    with 'all' or 'no'.
 
    This grammar results in eight STANDARD FORM PROPOSITIONS.  The four in
@@ -182,26 +182,26 @@ Grammar
          ====  =================      ====  ================
          Name  Categorical Form       Name  Singular Form
          ====  =================      ====  ================
-          A    all S is P              AS   x is P
-                                            x is y
+          A    all S are P             AS   x are P
+                                            x are y
          ----  -----------------      ----  ----------------
-          E    no S is P               ES   x is not P
-                                            x is not y
+          E    no S are P              ES   x are not P
+                                            x are not y
          ----  -----------------      ----  ----------------
-          I    some S is P
+          I    some S are P
 
          ----  -----------------      ----  ----------------
-          O    some S is not P
+          O    some S are not P
 
          ====  =================      ====  ================
 
 Alternative Notation
 ====================
 
-         A    All S is P.         A(S,P)    SaP    SP'=0
-         E    No S is P.          E(S,P)    SeP    SP=0
-         I    Some S is P.        I(S,P)    SiP    SP!=0
-         O    Some S is not P.    O(S,P)    SoP    SP'!=0
+         A    All S are P.         A(S,P)    SaP    SP'=0
+         E    No S are P.          E(S,P)    SeP    SP=0
+         I    Some S are P.        I(S,P)    SiP    SP!=0
+         O    Some S are not P.    O(S,P)    SoP    SP'!=0
 
 
 ---------
@@ -217,36 +217,36 @@ Translation Hints
 
    Noun-less Predicates Terms
       English    No dogs are nocturnal.
-      Standard   No dog is a nocturnal animals.
+      Standard   No dogs are a nocturnal animals.
 
       English    Some cars are fast.
-      Standard   Some car is a fast cars.
+      Standard   Some cars are a fast cars.
 
       English    All athletes are healthy.
-      English    All athletes is healthy people.
+      English    All athletes are healthy people.
 
    Singular Terms
       English    Boo did not catch the ball.
-      Standard   All dogs identical to Boo is dogs who didn't catch the ball.
+      Standard   All dogs identical to Boo are dogs who didn't catch the ball.
 
       English    Tweety bird sang a song.
-      Standard   All birds identical to Tweety bird is birds who sang a song.
+      Standard   All birds identical to Tweety bird are birds who sang a song.
 
       English    I love olives.
-      Standard   All persons identical to myself is persons who love olives.
+      Standard   All persons identical to myself are persons who love olives.
 
    Other Verbs
       English    All puppies love to play.
-      Standard   All puppies is dogs who love to play.
+      Standard   All puppies are dogs who love to play.
 
       English    No cats fly.
-      Standard   No cats is animals that fly.
+      Standard   No cats are animals that fly.
 
       English    Some animals migrate with the seasons.
-      Standard   Some animals is animals that migrate with the seasons.
+      Standard   Some animals are animals that migrate with the seasons.
 
       English    Some churchgoers don't believe in gods.
-      Standard   Some churchgoers is people who don't believe in gods.
+      Standard   Some churchgoers are people who don't believe in gods.
 
    Other Explicit Quantifiers
       English    He glitters when he walks.
@@ -256,107 +256,107 @@ Translation Hints
       Standard   Some birds are animals that don't swim.
 
       English    Sarah sometimes doesn't study.
-      Standard   Sometimes is times Sarah doesn't study.
+      Standard   Sometimes are times Sarah doesn't study.
 
       English    Whoever works hard will succeed.
-      Standard   All who work hard is persons who will succeed.
+      Standard   All who work hard are persons who will succeed.
 
       English    There are places in the universe light can't escape.
-      Standard   Some places in the universe is places light can't escape.
+      Standard   Some places in the universe are places light can't escape.
 
       English    Not one drop of water is ice.
-      Standard   No drops of water is ice.
+      Standard   No drops of water are ice.
 
       English    Judges always wear robes in court.
-      Standard   All times judges go to work is times they wear robes
+      Standard   All times judges go to work are times they wear robes
 
       English    Not many storms include hail.
       Standard   Some storms are not storms that include hail.
 
       English    Any number divisible by two is even.
-      Standard   All numbers divisible by two is even numbers.
+      Standard   All numbers divisible by two are even numbers.
 
       English    All cats can't fly.
-      Standard   No cat is cats who can fly.
+      Standard   No cats are cats who can fly.
 
       English    All teens aren't rebellious.
-      Standard   Some teens is not rebellious people.
+      Standard   Some teens are not rebellious people.
 
    Implicit Quantifiers
       English    Grapes are vine fruits.
-      Standard   All grapes is fruits that grow on vines.
+      Standard   All grapes are fruits that grow on vines.
 
       English    A fisherman fishes.
-      Standard   Some fishermen is people who fish.
+      Standard   Some fishermen are people who fish.
 
       English    An apple tree is deciduous.
-      Standard   All apple trees is deciduous trees.
+      Standard   All apple trees are deciduous trees.
 
       English    There are dust devils on Mars.
       Standard   Some dust devils are dust devils on Mars.
 
       English    Fish are not mammals.
-      Standard   No fish is mammals.
+      Standard   No fish are mammals.
 
       English    Bears we spotted in the next town over.
       Standard   Some bears are animals spotted in the next town over.
 
    Conditional Statements
       English    If it's a cat, then it's a mammal.
-      Standard   All cats is mammals.
+      Standard   All cats are mammals.
 
       English    If it's a fish, then it's not a mammal.
       Standard   No fish are mammals.
 
       English    It's not a cat, provided it's not a mammal.
-      Standard   All cats is mammals.
+      Standard   All cats are mammals.
 
       English    If an animal has feathers, then it's not a cat.
-      Standard   No animal with feathers is a cat.
+      Standard   No animal with feathers are a cat.
 
       English    If it produces milk, then it's not a mammal.
-      Standard   No milk-producing animal is non-mammal. 
+      Standard   No milk-producing animal are non-mammal. 
 
       English    Boat sinkings result in coral reefs.
       Standard   All boat sinkings are things that result in coral reefs.
 
       English    Being caviar is sufficient for it to be expensive.
-      Standard   All foods that's caviar is expensive food.
+      Standard   All foods that's caviar are expensive food.
       
       English    A glass will shatter if it falls to the ground.
       Standard   All glasses that fall to the ground are things that shatter.
 
    'only', 'the only', 'none but', 'none except', 'exclusively'
       English    Only teachers attended the meeting.
-      Standard   All people who attended the meeting is teachers.
+      Standard   All people who attended the meeting are teachers.
 
       English    None but store patrons are allowed to use the parking lot.
-      Standard   All persons allowed to use the parking lot is store patrons.
+      Standard   All persons allowed to use the parking lot are store patrons.
 
       English    No one except computers can calculate that quickly.
-      Standard   All things that calculate that quickly is computers.
+      Standard   All things that calculate that quickly are computers.
 
       English    Those seats are exclusively for VIPs.
-      Standard   All VIPs is people who use those seats.
+      Standard   All VIPs are people who use those seats.
 
       English    Grass is the only thing that will grow here.
-      Standard   All things that will grow here is grass.
+      Standard   All things that will grow here are grass.
 
       English    The only pieces in this museum are paintings.
-      Standard   All pieces in this museum is paintings.
+      Standard   All pieces in this museum are paintings.
 
       English    Termites are the only pests who did all this destruction.
-      Standard   All pests who did all this damage is termites.
+      Standard   All pests who did all this damage are termites.
 
    'all but', 'all except', 'except'
       English    All but the immunocompromised ought receive the vaccine.
       Standard   All non-immunocompromised persons ought to receive the
-                 vaccine and no immunocompromised persons is persons who
+                 vaccine and no immunocompromised persons are persons who
                  ought receive the vaccine.
 
       English    Except for peanut products, she can eat anything.
       Standard   All non-peanut products are things she can eat and,
-                 no peanut products is things that she can eat.
+                 no peanut products are things that she can eat.
 
 Translations from Aristotelian Logic
 ====================================
@@ -364,9 +364,9 @@ Translations from Aristotelian Logic
    Studying translations *from* AL can provide valuable insight.
 
    A Form Propositions
-      The following are all ways to say, "All S is P."
+      The following are all ways to say, "All S are P."
          Every (each, any) S is P.
-         Whoever is S is P.
+         Whoever is S sre P.
          S's are P's.
          Those who are S are P.
          If a person is S, then he or she is P.
@@ -381,7 +381,7 @@ Translations from Aristotelian Logic
          None but P's are S's.
 
    E Form Propositions
-      The following are all ways to say, "No S is P."
+      The following are all ways to say, "No S are P."
          A's aren't B's.
          Every (each, any) A is non-B.
          Whoever is A isn't B.
@@ -394,18 +394,18 @@ Translations from Aristotelian Logic
          It's false that some A is B.
 
    I Form Propositions
-      The following are all ways to say, "Some S is P."
+      The following are all ways to say, "Some S are P."
          S's are sometimes P's.
          One or more S's are P's.
          There are S's that are P's.
          It's false that no S is P.
 
    O Form Propositions
-      The following are all ways to say, "Some S is not P."
+      The following are all ways to say, "Some S are not P."
          One or more S's aren't P's.
          There are S's that aren't P's.
          Not all S's are P's.
-         It's false that all S is P.
+         It's false that all S are P.
 
 
 Quality and Quantity
@@ -437,14 +437,14 @@ Distribution
    Distribution is a property of terms.  If the proposition makes
    an assertion about every member of a term, then it is a DISTRIBUTED TERM.
 
-      A:   All S is P.                S is distributed
-      E:   No S is P.                 S and P are distributed
-      I:   Some S is P.               no terms distributed
-      O:   Some S is not P.           P is distributed
-      AS:  x is P                     no terms distributed
-           x is y                     no terms distributed
-      ES:  x is not P                 P is distributed
-           x is not y                 y is distributed                
+      A:   All S are P.                S is distributed
+      E:   No S are P.                 S and P are distributed
+      I:   Some S are P.               no terms distributed
+      O:   Some S are not P.           P is distributed
+      AS:  x are P                     no terms distributed
+           x are y                     no terms distributed
+      ES:  x are not P                 P is distributed
+           x are not y                 y is distributed                
 
    Memory Aid:  Universals distribute subjects, negatives distribute
    predicates.  Notice that this means that 'No' (being both universal
@@ -475,12 +475,12 @@ INTERPRETATIONS
                      +------------------+-----------------------+
                      | Affirmatives     | Negatives             |
       Q +------------+------------------+-----------------------+
-      u | Universal  | A:  All S* is P. | E:  No S* is P*.      | < ExistImp
+      u | Universal  | A: All S* are P. | E: No S* are P*.      | < ExistImp
       a |            |                  |                       |
-      n | Particular | I:  Some S is P. | O:  Some S is not P*. | < ExistImp
+      n | Particular | I: Some S are P. | O: Some S are not P*. | < ExistImp
       t +------------+------------------+-----------------------+
-      i | Singular   | AS: s is S.      | ES: x is not *S.      | < ExistImp
-      t |            |     s is y.      |     x is not *y.      | < ExistImp
+      i | Singular   | AS:s are S.      | ES:x are not *S.      | < ExistImp
+      t |            |    s are y.      |    x are not *y.      | < ExistImp
       y +------------+------------------+-----------------------+
 
       Example
@@ -496,21 +496,21 @@ INTERPRETATIONS
                      +------------------+-----------------------+
                      | Affirmatives     | Negatives             |
       Q +------------+------------------+-----------------------+
-      u | Universal  | A:  All S* is P. | E:  No S* is P*.      |       
+      u | Universal  | A: All S* are P. | E: No S* are P*.      |       
       a |            |                  |                       |
-      n | Particular | I:  Some S is P. | O:  Some S is not P*. | < ExistImp
+      n | Particular | I: Some S are P. | O: Some S are not P*. | < ExistImp
       t +------------+------------------+-----------------------+
-      i | Singular   | AS: s is S.      | ES: x is not S*.      | < ExistImp
-      t |            |     s is y.      |     x is not y*.      | < ExistImp
+      i | Singular   | AS:s are S.      | ES:x are not S*.      | < ExistImp
+      t |            |    s are y.      |    x are not y*.      | < ExistImp
       y +------------+------------------+-----------------------+
 
       Example:  Under the Modern Interpretation the I form says,
 
-         Some C is M.   Claims some cat exists.
+         Some C are M.   Claims some cat exists.
 
    A forms lack EI, making no claim that any subject term exists.
 
-         All C is M.    Only claims that if cats exist, then they're mammals.
+         All C are M.    Only claims that if cats exist, then they're mammals.
 
    This can lead to some surprising results.  One would expect the following
    argument to be valid, but while it is under the traditional interpretation
@@ -566,7 +566,7 @@ Standard Forms
 
          Modern Interpretation        Traditional Interpretation
 
-            All S is P.
+            All S are P.
 
           +-------+                    +-------+
          S|///////|                   S|///////|
@@ -578,7 +578,7 @@ Standard Forms
 
          -----------------------------------------------------
 
-            No S is P.
+            No S are P.
 
           +-------+                    +-------+
          S|       |                   S|(X)    |
@@ -590,7 +590,7 @@ Standard Forms
 
          -----------------------------------------------------
 
-            Some S is P.
+            Some S are P.
 
           +-------+                    +-------+
          S|       |                   S|       |
@@ -602,7 +602,7 @@ Standard Forms
 
          -----------------------------------------------------
 
-            Some S is not P.
+            Some S are not P.
 
           +-------+                    +-------+
          S| X     |                   S| X     |
@@ -629,7 +629,7 @@ Standard Forms
 
       Modern Interpretation        Traditional Interpretation
 
-            All S is P.
+            All S are P.
 
           +-------+                    +-------+
          S|///////|                   S|///////|
@@ -639,7 +639,7 @@ Standard Forms
               |       |P                   |       |P
               +-------+                    +-------+
 
-            It's false that, all S is P.
+            It's false that, all S are P.
 
           +-------+                    +-------+
          S| X     |                   S| X     |
@@ -651,7 +651,7 @@ Standard Forms
 
          -----------------------------------------------------
 
-            No S is P.
+            No S are P.
 
           +-------+                    +-------+
          S|       |                   S|(X)    |
@@ -661,7 +661,7 @@ Standard Forms
               |       |P                   |       |P
               +-------+                    +-------+
 
-            It's false that, no S is P.
+            It's false that, no S are P.
 
           +-------+                    +-------+
          S|       |                   S|       |
@@ -673,7 +673,7 @@ Standard Forms
 
          -----------------------------------------------------
 
-            Some S is P.
+            Some S are P.
 
           +-------+                    +-------+
          S|       |                   S|       |
@@ -683,7 +683,7 @@ Standard Forms
               |       |P                   |       |P
               +-------+                    +-------+
 
-            It's false that, some S is P.
+            It's false that, some S are P.
 
           +-------+                    +-------+
          S|       |                   S|(X)    |
@@ -695,7 +695,7 @@ Standard Forms
 
          -----------------------------------------------------
 
-            Some S is not P.
+            Some S are not P.
 
           +-------+                    +-------+
          S| X     |                   S| X     |
@@ -705,7 +705,7 @@ Standard Forms
               |       |P                   |       |P
               +-------+                    +-------+
 
-            It's false that, some S is not P.
+            It's false that, some S are not P.
 
           +-------+                    +-------+
          S|///////|                   S|///////|
@@ -724,7 +724,7 @@ Complemented Terms
 
       Modern Interpretation        Traditional Interpretation
 
-            All S is P.
+            All S are P.
 
           +-------+                    +-------+
          S|///////|                   S|///////|
@@ -734,7 +734,7 @@ Complemented Terms
               |       |P                   |       |P
               +-------+                    +-------+
 
-            All S is non-P.
+            All S are non-P.
 
           +-------+                    +-------+
          S|       |                   S|(X)    |
@@ -744,7 +744,7 @@ Complemented Terms
               |       |P                   |       |P
               +-------+                    +-------+
 
-            All non-S is P.
+            All non-S are P.
 
          /+-------+/////              /+-------+/////
          S|       |/////              S|       |/////
@@ -754,7 +754,7 @@ Complemented Terms
          /////|       |P              /////|    (X)|/
          /////+-------+/              /////+-------+/
 
-            All non-S is non-P.
+            All non-S are non-P.
 
           +-------+                    +-------+
          S|       |                   S|       |(X)
@@ -766,7 +766,7 @@ Complemented Terms
 
          -----------------------------------------------------
 
-            No S is P.
+            No S are P.
 
           +-------+                    +-------+
          S|       |                   S|(X)    |
@@ -776,7 +776,7 @@ Complemented Terms
               |       |P                   |       |P
               +-------+                    +-------+
 
-            No S is non-P.
+            No S are non-P.
 
           +-------+                    +-------+
          S|///////|                   S|///////|
@@ -786,7 +786,7 @@ Complemented Terms
               |       |P                   |       |P
               +-------+                    +-------+
 
-            No non-S is P.
+            No non-S are P.
 
           +-------+                    +-------+
          S|       |                   S|       |(X)
@@ -796,7 +796,7 @@ Complemented Terms
               |///////|P                   |///////|P
               +-------+                    +-------+
 
-            No non-S is non-P.
+            No non-S are non-P.
 
          /+-------+/////              /+-------+/////
          S|       |/////              S|       |/////
@@ -808,7 +808,7 @@ Complemented Terms
 
          -----------------------------------------------------
 
-            Some S is P.
+            Some S are P.
 
           +-------+                    +-------+
          S|       |                   S|       |
@@ -818,7 +818,7 @@ Complemented Terms
               |       |P                   |       |P
               +-------+                    +-------+
 
-            Some S is non-P.
+            Some S are non-P.
 
           +-------+                    +-------+
          S| X     |                   S| X     |
@@ -828,7 +828,7 @@ Complemented Terms
               |       |P                   |       |P
               +-------+                    +-------+
 
-            Some non-S is P.
+            Some non-S are P.
 
           +-------+                    +-------+
          S|       |                   S|       |
@@ -838,7 +838,7 @@ Complemented Terms
               |     X |P                   |     X |P
               +-------+                    +-------+
 
-            Some non-S is non-P.
+            Some non-S are non-P.
 
           +-------+                    +-------+
          S|       | X                 S|       | X
@@ -850,7 +850,7 @@ Complemented Terms
 
          -----------------------------------------------------
 
-            Some S is not P.
+            Some S are not P.
 
           +-------+                    +-------+
          S| X     |                   S| X     |
@@ -860,7 +860,7 @@ Complemented Terms
               |       |P                   |       |P
               +-------+                    +-------+
 
-            Some S is not non-P.
+            Some S are not non-P.
 
           +-------+                    +-------+
          S|       |                   S|       |
@@ -870,7 +870,7 @@ Complemented Terms
               |       |P                   |       |P
               +-------+                    +-------+
 
-            Some non-S is not P.
+            Some non-S are not P.
 
           +-------+                    +-------+
          S|       | X                 S|       | X
@@ -880,7 +880,7 @@ Complemented Terms
               |       |P                   |       |P
               +-------+                    +-------+
 
-            Some non-S is not non-P.
+            Some non-S are not non-P.
 
           +-------+                    +-------+
          S|       |                   S|       |
@@ -903,8 +903,8 @@ Single Premise Arguments
 
       Modern Interpretation        Traditional Interpretation
 
-            Some S is not P.
-          ∴ It's false that, all S is P.
+            Some S are not P.
+          ∴ It's false that, all S are P.
 
           +-------+                    +-------+
          S| X     |                   S| X     |
@@ -917,8 +917,8 @@ Single Premise Arguments
 
          -----------------------------------------------------
 
-            It's false that, all S is P.
-          ∴ Some S is not P.
+            It's false that, all S are P.
+          ∴ Some S are not P.
 
           +-------+                    +-------+
          S| X     |                   S| X     |
@@ -931,8 +931,8 @@ Single Premise Arguments
 
          -----------------------------------------------------
 
-            Some S is P.
-          ∴ It's false that some S is not P.
+            Some S are P.
+          ∴ It's false that some S are not P.
 
           +-------+                    +-------+
          S|       |                   S|       |
@@ -945,8 +945,8 @@ Single Premise Arguments
 
          -----------------------------------------------------
 
-            All S is P.
-          ∴ Some S is P.
+            All S are P.
+          ∴ Some S are P.
 
           +-------+                    +-------+
          S|///////|                   S|///////|
@@ -959,8 +959,8 @@ Single Premise Arguments
 
          -----------------------------------------------------
 
-            Some S is P.
-          ∴ It's false that, Some S is not P.
+            Some S are P.
+          ∴ It's false that, Some S are not P.
 
           +-------+                    +-------+
          S|       |                   S|       |
@@ -973,8 +973,8 @@ Single Premise Arguments
 
          -----------------------------------------------------
 
-            No S is P.
-          ∴ It's false that, all S is P.
+            No S are P.
+          ∴ It's false that, all S are P.
 
           +-------+                    +-------+
          S|       |                   S|(X)    |
@@ -1021,7 +1021,7 @@ Two-Premise Arguments
       Example
 
          @@@ not 4AAA
-         All S is M.
+         All S are M.
          All M are P.
        ∴ All S are P.
 
@@ -1060,9 +1060,9 @@ Two-Premise Arguments
          -----------------------------------------------------
 
             @@@ 1OEI I
-            Some M is not P.
-            No S is P.
-          ∴ Some S is P.
+            Some M are not P.
+            No S are P.
+          ∴ Some S are P.
 
          1. Mark the second premise first since it's a universal.
 
@@ -1096,9 +1096,9 @@ Two-Premise Arguments
          -----------------------------------------------------
 
             @@@ 1AEI
-            All M is P.
-            No S is M.
-          ∴ Some S is P.
+            All M are P.
+            No S are M.
+          ∴ Some S are P.
 
          1. Mark both premises on the diagram.
 
@@ -1136,9 +1136,9 @@ Two-Premise Arguments
          -----------------------------------------------------
 
             @@@ 4IAA
-            Some P is M.
-            All M is S.
-          ∴ All S is P.
+            Some P are M.
+            All M are S.
+          ∴ All S are P.
 
                   +-----------+                +-----------+
                   |///////////|M               |///////////|M
@@ -1156,9 +1156,9 @@ Two-Premise Arguments
          -----------------------------------------------------
 
             @@@ 3EAO
-            No M is P
-            All M is S
-          ∴ Some S is not P.
+            No M are P
+            All M are S
+          ∴ Some S are not P.
 
                   +-----------+                +-----------+
                   |///////////|M               |///////////|M
@@ -1176,9 +1176,9 @@ Two-Premise Arguments
          -----------------------------------------------------
 
             @@@ 2AEE
-            All P is M.
-            No S is M.
-          ∴ No S is P.
+            All P are M.
+            No S are M.
+          ∴ No S are P.
 
                   +-----------+                +-----------+
                   |           |M               |           |M
@@ -1196,9 +1196,9 @@ Two-Premise Arguments
          -----------------------------------------------------
 
             @@@ 1AEI
-            All M is P.
-            No S is M.
-          ∴ Some S is P.
+            All M are P.
+            No S are M.
+          ∴ Some S are P.
 
                   +-----------+                +-----------+
                   |///////////|M               |///////////|M
@@ -1216,9 +1216,9 @@ Two-Premise Arguments
          -----------------------------------------------------
 
             @@@ 3EIE I
-            No M is P.
-            Some M is S.
-          ∴ No S is P.
+            No M are P.
+            Some M are S.
+          ∴ No S are P.
 
                   +-----------+                +-----------+
                   |           |M               |           |M
@@ -1236,9 +1236,9 @@ Two-Premise Arguments
          -----------------------------------------------------
 
             @@@ 4EAI
-            No P is M.
-            All M is S.
-          ∴ Some S is P.
+            No P are M.
+            All M are S.
+          ∴ Some S are P.
 
                   +-----------+                +-----------+
                   |///////////|M               |///////////|M
@@ -1256,9 +1256,9 @@ Two-Premise Arguments
          -----------------------------------------------------
 
             @@@ 2AEE
-            All P is M.
-            No S is M.
-          ∴ No S is P.
+            All P are M.
+            No S are M.
+          ∴ No S are P.
 
                   +-----------+                +-----------+
                   |           |M               |           |M
@@ -1276,9 +1276,9 @@ Two-Premise Arguments
          -----------------------------------------------------
 
             @@@ 3OAO B
-            Some M is not P.
-            All M is S.
-          ∴ Some S is not P.
+            Some M are not P.
+            All M are S.
+          ∴ Some S are not P.
 
                   +-----------+                +-----------+
                   |///////////|M               |///////////|M
@@ -1296,9 +1296,9 @@ Two-Premise Arguments
          -----------------------------------------------------
 
             @@@ 4AAI T
-            All P is M.
-            All M is S.
-          ∴ Some S is P.
+            All P are M.
+            All M are S.
+          ∴ Some S are P.
 
                   +-----------+                +-----------+
                   |///////////|M               |///////////|M
@@ -1316,9 +1316,9 @@ Two-Premise Arguments
          -----------------------------------------------------
 
             @@@ 3AAI T
-            All M is P.
-            All S is M.
-          ∴ Some S is P.
+            All M are P.
+            All S are M.
+          ∴ Some S are P.
 
                   +-----------+                +-----------+
                   |///////////|M               |///////////|M
@@ -1336,9 +1336,9 @@ Two-Premise Arguments
          -----------------------------------------------------
 
             @@@ 4AAI T
-            All P is M.
-            All M is S.
-          ∴ Some S is P.
+            All P are M.
+            All M are S.
+          ∴ Some S are P.
 
                   +-----------+                +-----------+
                   |///////////|M               |///////////|M
@@ -1356,9 +1356,9 @@ Two-Premise Arguments
          -----------------------------------------------------
 
             @@@ 2EAE B
-            No P is M.
-            All S is M.
-          ∴ No S is P.
+            No P are M.
+            All S are M.
+          ∴ No S are P.
 
                   +-----------+                +-----------+
                   |           |M               |           |M
@@ -1376,9 +1376,9 @@ Two-Premise Arguments
          -----------------------------------------------------
 
             @@@ 2OEI I
-            Some M is not P.
-            No M is S.
-          ∴ Some S is P.
+            Some M are not P.
+            No M are S.
+          ∴ Some S are P.
 
                   +-----------+                +-----------+
                   |         X |M               |         X |M
@@ -1441,7 +1441,7 @@ The Square of Opposition
 
          Example:  Prove that A and O are contradictories (2 steps).
 
-         1.  From, all S is P, prove it's false that, some S is not P.
+         1.  From, all S are P, prove it's false that, some S are not P.
 
          Modern Interpretation        Traditional Interpretation
 
@@ -1453,7 +1453,7 @@ The Square of Opposition
               |       |P                   |       |P
               +-------+                    +-------+
 
-         2.  From, some S is not P, prove it's false that, all S is P.
+         2.  From, some S are not P, prove it's false that, all S are P.
 
           +-------+                    +-------+
          S| X     |                   S| X     |
@@ -1468,7 +1468,7 @@ The Square of Opposition
 
          Example:  Prove that I and O are subcontraries (2 steps).
 
-         1.  From, it's false that some S is P, prove, some S is not P.
+         1.  From, it's false that some S are P, prove, some S are not P.
 
          Modern Interpretation        Traditional Interpretation
 
@@ -1480,7 +1480,7 @@ The Square of Opposition
               |       |P                   |       |P
               +-------+                    +-------+
 
-         2.  From, it's false that some S is not P, prove, some S is P.
+         2.  From, it's false that some S are not P, prove, some S are P.
 
           +-------+                    +-------+
          S|///////|                   S|///////|
@@ -1522,8 +1522,8 @@ CONVERSION (E, I Forms Only)
 
       E Forms                      I Forms
 
-         No S is P.                   Some s is P.
-       ∴ No P is S.                 ∴ Some P is S.
+         No S are P.                  Some s are P.
+       ∴ No P are S.                ∴ Some P are S.
 
        +-------+                    +-------+
       S|       |                   S|       |
@@ -1547,8 +1547,8 @@ OBVERSION (A, E, I, O Forms)
 
       A Forms                      E Forms
 
-         All S is P.                  No S is P.
-       ∴ No S is non-P.             ∴ All S is non-P.
+         All S are P.                 No S are P.
+       ∴ No S are non-P.            ∴ All S are non-P.
 
        +-------+                    +-------+
       S|///////|                   S|(X)    |
@@ -1561,8 +1561,8 @@ OBVERSION (A, E, I, O Forms)
 
       I Forms                      O Forms
 
-         Some S is P.                 Some S is not P.
-       ∴ Some S is not non-P.       ∴ Some S is non-P.
+         Some S are P.                Some S are not P.
+       ∴ Some S are not non-P.      ∴ Some S are non-P.
 
        +-------+                    +-------+
       S|       |                   S| X     |
@@ -1583,8 +1583,8 @@ CONTRAPOSITION (A, O Forms Only)
       
       A Forms                      O Forms
 
-         All S is P.                  Some S is not P.
-       ∴ All non-P is non-S.        ∴ Some non-P is not non-S.
+         All S are P.                 Some S are not P.
+       ∴ All non-P are non-S.       ∴ Some non-P are not non-S.
 
        +-------+                    +-------+
       S|///////|                   S| X     |
@@ -1666,9 +1666,9 @@ Standard Form Categorical Syllogism
 
          1-AAA           2-OEI                3-EAI            4-AEI
  
-         All M is P.     Some P is not M.     No M is P.       All P is M.
-         All S is M.     No S is M.           All M is S.      No M is S.
-       ∴ All S is P.   ∴ Some S is P.       ∴ Some S is P.   ∴ Some S is P.
+         All M are P.    Some P are not M.    No M are P.      All P are M.
+         All S are M.    No S are M.          All M are S.     No M are S.
+       ∴ All S are P.  ∴ Some S are P.      ∴ Some S are P.  ∴ Some S are P.
 
 Syllogistic Inference By Form
 =============================
@@ -1824,19 +1824,19 @@ Inference: The Distribution Test
      use a 'some' conclusion.
 
    - If at least one conclusion letter is singular:  the conclusion will
-     have a singular term, 'is' or 'is not,' and then the other letter.
+     have a singular term, 'are' or 'are not,' and then the other letter.
 
    - Always derive a negative conclusion if any premise has 'no' or 'not'.
 
    Example (according to the steps above)
 
-         Some C is F.
-         All F is l.
+         Some C are F.
+         All F are l.
 
      1.  Mark distributed terms in the premises.
 
-         Some C is F
-         All F* is l.
+         Some C are F
+         All F* are l.
 
      2.  Identify the conclusion letters.
 
@@ -1845,12 +1845,12 @@ Inference: The Distribution Test
      3.  Identify the conclusion form.
 
          A premise has 'some' so the conclusion has 'some', and we do not
-         have any negative premises, so the copula is 'is'.  So, Both
+         have any negative premises, so the copula is 'are'.  So, Both
          conclusion terms are undistributed.
 
-         Some C is F.
-         All F* is l.
-       ∴ Some ... is ...
+         Some C are F.
+         All F* are l.
+       ∴ Some ... are ...
 
      4.  Add the conclusion.
 
@@ -1858,8 +1858,8 @@ Inference: The Distribution Test
          of the conclusion terms result in a valid arguments (this is not
          typically the case).  So,
 
-         Some C is F.        Some C is F.
-         All F* is l.        All F* is l.
-       ∴ Some C* is l*.    ∴ Some l* is C*.
+         Some C are F.        Some C are F.
+         All F* are l.        All F* are l.
+       ∴ Some C* are l*.    ∴ Some l* are C*.
 
 
