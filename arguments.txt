@@ -70,8 +70,8 @@ Kalam cosmological argument
    Therefore the universe has a cause            Cu                  → E
       - Original Kalam
 
-   No scientific explanation can provide         ∀x(Nx → Ixu)        A
-      a causal account of the origin of          -Icu                A
+   No scientific explanation can provide         ∀x(Nx → Ux)         A
+      a causal account of the origin of          -Uc                 A
       the universe, since such are part          -Nc                 MT
       of the universe.
    Therefore, the cause must be personal         Nc ∨ Pc             A
@@ -82,9 +82,8 @@ Kalam cosmological argument
        Cx,   x has a cause
        Nx,   x is a natural (scientific) cause/explanation
        Px,   x is a personal cause/explanation
-       Ixy,  x is inside of y
+       Ux,   x is inside of the universe
        c,    the cause of the universe
-       u,    the universe
 
        If we can't apply natural scientific laws to account for the origin
        of the universe how can we assert the first premise ∀x(Bx → Cx)?
@@ -175,12 +174,12 @@ Pragmatic argument
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
 
 The Problem of Evil
-   Is God willing to prevent evil, but not able?
-      Then he is not omnipotent.
-   Is he able, but not willing?
+   Is God willing to prevent evil, but not able?       Technically this
+      Then he is not omnipotent.                       isn't in the form
+   Is he able, but not willing?                        of an argument.
       Then he is malevolent.
-   Is he both able and willing?
-      Then whence cometh evil?
+   Is he both able and willing?                        See the next one
+      Then whence cometh evil?                         below.
    Is he neither able nor willing?
       Then why call him God?
        - Epicurus
@@ -205,7 +204,7 @@ The Problem of Evil
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
 
    Euthyphro Dilemma
-   Does God say things because they are good
+   Does God say things because they are good          Not an argument.
    Or are things Good because God says so?
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
@@ -228,8 +227,8 @@ Propositional
    If our will were irresistibly attracted       I → -F              A
       to do right, then we'd have
       no free will.
-   /.  If we have free will, then we have        F → -P              HS,TRANS
-       no absolute proof of God's existence.
+   /.  If we have free will, then we have        P → -F              HS
+       no absolute proof of God's existence.     F → -P              TRANS
         - Kant, Gensler 7.1b, problem # 2
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
