@@ -86,6 +86,7 @@ Kalam cosmological argument
        Px,   x is a personal cause/explanation
        Ux,   x is inside of the universe
        c,    the cause of the universe
+       u,    the universe
 
        If we can't apply natural scientific laws to account for the origin
        of the universe how can we assert the first premise ∀x(Bx → Cx)?
@@ -214,7 +215,7 @@ The Problem of Evil
 
 syllogistic
 
-   The belief that there's a God is unnecessarey to explain our experience.
+   The belief that there's a God is unnecessary to explain our experience.
    All beliefs unnecessary to explain our experience ought to be rejected.
    /. The belief that there's a God ought to be rejeced.
         - Aquinas, Gensler Exercise 2.3a problem # 8
