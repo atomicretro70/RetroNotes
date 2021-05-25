@@ -614,6 +614,21 @@ Substitution Instance
    Instance       R ∧ S | -S ∧ Z  | D ∧ (C → D) | -H → (-H ∧ (-S ∨ M))
    =============  =====   =======   ===========   ====================
 
+Sequents
+========
+
+   A SEQUENT is a metalogical notation expressing that a conclusion C
+   follows from a set of premises, P1,...,Pn.  Where P1,...,Pn,C are
+   all wffs.
+
+         P1,...,Pn  ⊢  C
+
+   '⊢' is a TURNSTILE.  It's part of the metalanguage, not a part of
+   propositional logic.
+
+   An ARGUMENT FORM is another name for a sequent.  Formal logic studies
+   argument forms (reasoning patterns).
+
 Alternative Notation
 ====================
 
@@ -738,8 +753,8 @@ Conversational Implicature
 Valuation Function
 ==================
 
-   A TRUTH-FUNCTION is any of our five operations.  These functions operate
-   upon true/false values.  The semantics of the truth-functions are formally
+   A TRUTH FUNCTION is any of our five operations.  These functions operate
+   upon true/false values.  The semantics of the truth functions are formally
    described by a function v called a VALUATION FUNCTION. v encapsulates all
    there is to say about the meanings of propositional logic's
    truth-functional operators.
@@ -759,19 +774,8 @@ Valuation Function
                     false if either Φ is true and Ψ is false, or
                                     Φ is false and Ψ is true.
 
-Sequents
-========
-
-   A SEQUENT is a metalogical notation expressing that a conclusion C
-   follows from a set of premises, P1,...,Pn.
-
-         P1,...,Pn  ⊢  C
-
-   '⊢' is a TURNSTILE.  It's part of the metalanguage, not a part of
-   propositional logic.
-
-   An ARGUMENT FORM is another name for a sequent.  Formal logic studies
-   argument forms (reasoning patterns).
+   Notice the valuation function is structured so that it can be used
+   recursively so that it can evaluate complex wffs.
 
 TRUTH-TABLES
 ============
@@ -810,10 +814,14 @@ Truth-Table Construction
    operator, so it is convenient to highlight the completed column somehow.
    Here I place an '*' at the bottom of those columns.
 
-Truth-Table Study of The Truth-Functions
-----------------------------------------
+Truth-Table Study of Valuations
+-------------------------------
 
-   The valuations for the primitive truth-functions are illustrated in the
+   The most basic use of a truth-table is for the illustration of a wff's
+   semantics.  Truth-tables provide a visual representation of all the
+   valuations of a formula.
+
+   The valuations for the primitive truth functions are illustrated in the
    following truth-tables.
 
           P   | - P
@@ -830,11 +838,7 @@ Truth-Table Study of The Truth-Functions
           T T |  T T T  |  T T T  |  T T T  |  T T  T
                    *         *         *         *
 
-Truth-Table Study of A Single WFF
----------------------------------
-
-   More typical of a truth-table is its construction for a more complex
-   formula.  Here's an example,
+   Here's a truth-table describing the valuations of a complex truth function.
 
           P Q | -(P ↔ Q) V P
          ======================
@@ -844,8 +848,38 @@ Truth-Table Study of A Single WFF
           T T | F T T T  T T
                          *
 
-   Once the truth-table is completed examining the column below the main
-   operator can reveal important properties of the formula.
+Truth-Functional Completeness
+-----------------------------
+
+   TRUTH-FUNCTIONAL COMPLETENESS describes any set of truth-functional
+   operators from which all other truth-functions can be defined.
+   Propositional logic's set of primitive operators -, ∧, ∨, → and ↔
+   is truth-functionally complete.  But so too is negation with any other
+   single operator.  Some authors have defined new operators that are
+   singularly truth-functionally complete.  An example is the SHEFFER STROKE
+   symbol '(P|Q)', whose valuation function is logically equivalent to the
+   form -(P ∧ Q).  However, any logic constructed upon just one operator
+   is cumbersome to use.
+
+   For example, observe in the two examples that the columns under the
+   main operators (highlighted with '*') under each wff have the same
+   value in the same valuation.
+
+          P Q | (P | Q) | -(P ∧ Q)
+         ==========================
+          F F |  F T F  | T F F F
+          F T |  F T T  | T F F T
+          T F |  T T F  | T T F F
+          T T |  T F T  | F T T T
+                   *      *
+
+Truth-Table Study of A Single WFF
+---------------------------------
+
+   Closer examination of a formula's valuations in the truth-table can
+   lead to a deeper understanding of the formula.  Once the truth-table
+   is completed examining the column below the main operator can reveal
+   important properties of the formula.
 
    INCONSISTENT WFF
 
@@ -922,7 +956,7 @@ Truth-Table Study of A Sequent
    of premises and the conclusion as a set of wffs under study.
 
    Evaluation is just a matter of reading the definition of a valid deductive
-   argument directly off the table.  A deductive argument is an argument
+   argument directly off the table.  A valid deductive argument is an argument
    whose conclusion cannot be F if the premises are all T.  Notice from the
    definition that the conclusion is free to hold any value on a valuation
    (row) where the premises are not all true.
@@ -970,31 +1004,6 @@ Truth-Table Study of A Sequent
 
    A disadvantage of truth-tables is that they grow exponentially.  A set
    of wffs with n proposition symbols will have 2^n rows.
-
-Truth-Functional Completeness
------------------------------
-
-   TRUTH-FUNCTIONAL COMPLETENESS describes any set of truth-functional
-   operators from which all other truth-functions can be defined.
-   Propositional logic's set of primitive operators -, ∧, ∨, → and ↔
-   is truth-functionally complete.  But so too is negation with any other
-   single operator.  Some authors have defined new operators that are
-   singularly truth-functionally complete.  An example is the SHEFFER STROKE
-   symbol '(P|Q)', whose valuation function is logically equivalent to the
-   form -(P ∧ Q).  However, any logic constructed upon just one operator
-   is cumbersome to use.
-
-   For example, observe in the two examples that the columns under the
-   main operators (highlighted with '*') under each wff have the same
-   value in the same valuation.
-
-          P Q | (P | Q) | -(P ∧ Q)
-         ==========================
-          F F |  F T F  | T F F F
-          F T |  F T T  | T F F T
-          T F |  T T F  | T T F F
-          T T |  T F T  | F T T T
-                   *      *
 
 FAST TRUTH-TABLES
 =================

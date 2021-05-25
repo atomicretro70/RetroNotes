@@ -366,7 +366,7 @@ Translations from Aristotelian Logic
    A Form Propositions
       The following are all ways to say, "All S are P."
          Every (each, any) S is P.
-         Whoever is S sre P.
+         Whoever is S is P.
          S's are P's.
          Those who are S are P.
          If a person is S, then he or she is P.
