@@ -166,15 +166,15 @@ Lexemes
 
    Non-Logical Symbols
       Proposition Symbols:      A...Z
+      Association Symbols:      (, )
 
    Logical Symbols
       Truth-Function Symbols:   →, ⊥
-      Association Symbols:      (, )
 
 Grammar
 =======
 
-   An ATOMIC FORMULA is either ⊥ or any proposition symbol.
+   An ATOMIC FORMULA is either ⊥ or any single proposition symbol.
 
    1.  Every atomic formula is a wff;
    2.  if Φ,Ψ  are wffs, then (Φ → Ψ) is a wff;

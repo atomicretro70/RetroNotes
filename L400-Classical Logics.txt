@@ -814,6 +814,8 @@ Truth-Table Construction
    operator, so it is convenient to highlight the completed column somehow.
    Here I place an '*' at the bottom of those columns.
 
+   Not that some authors use 0 and 1 respectively instead of F and T.
+
 Truth-Table Study of Valuations
 -------------------------------
 
@@ -838,7 +840,7 @@ Truth-Table Study of Valuations
           T T |  T T T  |  T T T  |  T T T  |  T T  T
                    *         *         *         *
 
-   Here's a truth-table describing the valuations of a complex truth function.
+   Here's a truth-table listing the valuations of a complex truth function.
 
           P Q | -(P ↔ Q) V P
          ======================
@@ -1504,8 +1506,7 @@ Hypothetical Subordinate Proofs
 
    Note to be able to write QED, not only must the sequent's conclusion be
    successfully derived, but also it must occur within the main proof's
-   sequence, not within a subproof.  That is, all successful subproofs must
-   be closed.
+   sequence, not within a subproof.  That is, all subproofs must be closed.
 
 Regarding Notation
 ==================
