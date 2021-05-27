@@ -141,7 +141,7 @@ Preface
    This book will be updated periodically, and some sections may be removed
    or developed further based upon reader feedback.  Please contribute by
    reporting an error or omission or submitting other comments by contacting
-   the author here.
+   the author.
 
 
 ============
@@ -242,7 +242,7 @@ Definition Schemata
    So the question, what is the probability that Sally slips given that
    it is icy, yields the following definition.
 
-                           P(slips ∧ icy)
+                            P(slips ∧ icy)
          P(slips|icy)  =df  --------------
                                P(icy)
 
@@ -372,6 +372,7 @@ Set Operations
          R ∪ C
          = { x | x is red } ∪ { x | x is a car }
          = { x | (x is red) or (x is a car) }
+         = all red things and all cars
 
    INTERSECTION ( ∩ )
 
@@ -381,10 +382,12 @@ Set Operations
          R ∩ C
          = { x | x is red } ∩ { x | x is a car }
          = { x | (x is red) and (x is a car) }
+         = all red cars
 
    DIFFERENCE ( - )
 
          R - C = { x | (x is red) and (x is not a car) }
+               = all red things except red cars
 
    COMPLEMENT ( ' )
 
@@ -514,11 +517,12 @@ Grammar
 Syntax Trees
 ============
 
-Truth-Function Anatomy
-----------------------
+Analysis of Truth-Functional Operators
+--------------------------------------
 
-   Below are the formal, informal, and metalogical names of the operations
-   and operands.
+   A TRUTH-FUNCTIONAL OPERATOR is any of the five truth function symbols
+   of propositional logic.  Below are the formal, informal, and metalogical
+   names of the operations and their operands.
 
          ======  ========  =============  =======  ====================
          Formal  Informal  Metalogical    Example  Operand Names
@@ -753,13 +757,13 @@ Conversational Implicature
 Valuation Function
 ==================
 
-   A TRUTH FUNCTION is any of our five operations.  These functions operate
-   upon true/false values.  The semantics of the truth functions are formally
-   described by a function v called a VALUATION FUNCTION. v encapsulates all
-   there is to say about the meanings of propositional logic's
-   truth-functional operators.
+   A TRUTH FUNCTION is any wff composed of one or more truth functional
+   operators.
 
-   Here is the valuation function for propositional logic,
+   The semantics of the truth functions are formally described by a function
+   v called a VALUATION FUNCTION. v encapsulates all there is to say about
+   the meanings of propositional logic's truth-functional operators.  Below
+   is the valuation function for propositional logic,
 
          v(-Φ)    = true if Φ is false;
                     false if Φ is true
