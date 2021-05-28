@@ -94,10 +94,10 @@ CONTENTS
 Preface
 =======
 
-   I wrote these books for anyone who needs a reference in logic.
-   The concepts are presented concisely but clearly with all necessary
-   detail.  Nevertheless, the information density is higher than would
-   be found in a textbook.
+   These books are for anyone who needs a reference in logic.  The concepts
+   are presented concisely but clearly with all necessary detail.
+   Nevertheless, the information density is higher than would be found
+   in a textbook.
 
    The introduction begins with some preliminary information about logic:
    Namely a review of some basic though important definitions, a discussion
@@ -208,8 +208,8 @@ Formal Definitions
 ------------------
 
    A FORMAL DEFINITION is a statement that two strings, called the
-   DEFINIENDUM and the DEFINIENS, are interchangeable; that they mean the
-   same thing.  Express definitions formally as follows:
+   DEFINIENDUM and the DEFINIENS mean the same thing as one another and
+   are therefore interchangeable.  Express definitions formally as follows:
 
          *definiendum*   =df  *definiens*
 
@@ -294,7 +294,7 @@ Set Definition
          A = { my phone, empire state building, the number 6,
                the neighborhood dog that's always barking }
 
-   The empty set called NULL has its own symbol.
+   The empty set has its own symbol called 'null'.
 
          ∅ = { } = null/empty set
 
@@ -715,7 +715,7 @@ Translation Hints
    | P just if Q                       | either P or Q (but not both)      |
    | P just in case Q                  | P unless also Q                   |
    | P exactly if/when Q               | P unless Q                        |
-   | P but only if Q                   | either P or Q                     |
+   | P but only if Q                   |                                   |
    | P is a necessary and sufficient   |                                   |
    |    condition for Q                |                                   |
    | P is necessary and sufficient     |                                   |
