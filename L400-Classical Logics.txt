@@ -1487,7 +1487,7 @@ Hypothetical Subordinate Proofs
             Proof
             01.   P → Q         A            Begin by listing the premises
             02.   -Q            A
-            03.   |   P         H (for -I)   Try to prove -P using -I.
+            03.   |   P         H (for -I)   Try to prove -P performing -I.
             04.   |   Q         1,3 → E      Use steps 1 & 3 to perform →E.
             05.   |   Q ∧ -Q    2,4 ∧I       Use steps 2 & 4 to perform ∧I.
             06.   -P            3-5 -I       use steps 3 to 5 to perform -I.
@@ -1540,11 +1540,6 @@ Primitive Inference Rules
    ================================  =========================================
    Name (Abbreviation)               Rule
    ================================  =========================================
-   Assumption (A)                    Introduce a premise at any step.
-
-   Hypothesis (H)                    Introduce a hypothesis at any step
-                                     provided it begins a new subproof.
-
    Negation Elimination (-E)         From --Φ, infer Φ.
 
    Negation Introduction (-I)        From a subproof with hypothesis Φ
@@ -1579,8 +1574,6 @@ Primitive Inference Rules
    Equivalence Substitution (EQ)     From [ Φ ↔ Ψ ], and Θ(Φ), infer Θ(Ψ/Φ);
                                      or from [ Φ ↔ Ψ ] and Θ(Ψ),
                                      infer Θ(Φ/Ψ).
-
-   Axiom (Ax)                        Introduce an axiom at any step.
    ================================  =========================================
 
    These rules are sometimes expressed in diagrams.  Horizontal lines
@@ -1588,13 +1581,6 @@ Primitive Inference Rules
    multiple forms.
 
       +-------------------------------+-------------------------------+
-      | ============================= | ============================= |
-      |  A                            |  H                            |
-      | ============================= | ============================= |
-      |                               |                               |
-      |  ---                          |  -------                      |
-      |   Φ   (Φ is a premise)        |   |   Φ   (Φ is a hypothesis) |
-      |                               |                               |
       | ============================= | ============================= |
       |  -E                           |  -I                           |
       | ============================= | ============================= |
@@ -1638,14 +1624,6 @@ Primitive Inference Rules
       |   Φ → Ψ      Ψ → Φ            |  ---------  ---------         |
       |                               |   Φ ↔ Ψ      Ψ ↔ Φ            |
       |                               |                               |
-      | ============================= | ============================= |
-      |  EQ (Equiv. Substitution)     |  Ax (Axiom)                   |
-      | ============================= | ============================= |
-      |   [ Φ ↔ Ψ ]      [ Φ ↔ Ψ ]    |                               |
-      |   Θ(Φ)           Θ(Ψ)         |  ---                          |
-      |  -------------  ------------- |   Φ   (Φ is an axiom)         |
-      |   Θ(Ψ/Φ)         Θ(Φ/Ψ)       |                               |
-      |                               |                               |
       +-------------------------------+-------------------------------+
 
 Other Justifications
@@ -1657,6 +1635,13 @@ Other Justifications
    ================================  =========================================
    Name (Abbreviation)               Rule
    ================================  =========================================
+   Assumption (A)                    Introduce a premise at any step.
+
+   Hypothesis (H)                    Introduce a hypothesis at any step
+                                     provided it begins a new subproof.
+
+   Axiom (Ax)                        Introduce an axiom at any step.
+
    Definition Substitution (DEF)     From [ Φ =df Ψ ], Θ(Φ), infer Θ(Ψ/Φ);
                                      and from [ Φ =df Ψ ], Θ(Ψ), infer Θ(Φ/Ψ).
    ================================  =========================================
@@ -1664,6 +1649,24 @@ Other Justifications
    Notice that in the rules the definition is in brackets '[' and ']'.
    Brackets indicate that the definition must exist but doesn't need
    to appear in the proof.
+
+      +-------------------------------+-------------------------------+
+      | ============================= | ============================= |
+      |  A                            |  H                            |
+      | ============================= | ============================= |
+      |                               |                               |
+      |  ---                          |  -------                      |
+      |   Φ   (Φ is a premise)        |   |   Φ   (Φ is a hypothesis) |
+      |                               |                               |
+      | ============================= | ============================= |
+      |  EQ (Equiv. Substitution)     |  Ax (Axiom)                   |
+      | ============================= | ============================= |
+      |   [ Φ ↔ Ψ ]      [ Φ ↔ Ψ ]    |                               |
+      |   Θ(Φ)           Θ(Ψ)         |  ---                          |
+      |  -------------  ------------- |   Φ   (Φ is an axiom)         |
+      |   Θ(Ψ/Φ)         Θ(Φ/Ψ)       |                               |
+      |                               |                               |
+      +-------------------------------+-------------------------------+
 
 Derived Inference Rules
 =======================
@@ -1789,7 +1792,8 @@ Consequence and Non-Consequence
 
    The highlighted row is the counterexample (all true premises but
    false conclusion).  On that row P and Q have the same truth-values as
-   determined by the proof of non-consequence.
+   determined by the proof of non-consequence.  A truth-tree will result
+   in the same valuation.
 
 
 Defining ⊥ Into Propositional Logic/Calculus

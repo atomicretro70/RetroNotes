@@ -129,7 +129,7 @@ Inductive Arguments Types
 
    HUMEAN ARGUMENTS require the uniformity supposition.
 
-      Each of the 100 freshment surveyed knew how to spell 'logic'.
+      Each of the 100 freshmen surveyed knew how to spell 'logic'.
       ∴ If we ask another freshman, they will know how to spell 'logic'.
 
 

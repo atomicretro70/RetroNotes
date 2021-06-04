@@ -216,6 +216,7 @@ Translation Hints
 
 
    Noun-less Predicates Terms
+
       English    No dogs are nocturnal.
       Standard   No dogs are a nocturnal animals.
 
@@ -226,6 +227,7 @@ Translation Hints
       English    All athletes are healthy people.
 
    Singular Terms
+
       English    Boo did not catch the ball.
       Standard   All dogs identical to Boo are dogs who didn't catch the ball.
 
@@ -236,6 +238,7 @@ Translation Hints
       Standard   All persons identical to myself are persons who love olives.
 
    Other Verbs
+
       English    All puppies love to play.
       Standard   All puppies are dogs who love to play.
 
@@ -249,6 +252,7 @@ Translation Hints
       Standard   Some churchgoers are people who don't believe in gods.
 
    Other Explicit Quantifiers
+
       English    He glitters when he walks.
       Standard   All times he walks are times when he glitters.
 
@@ -283,6 +287,7 @@ Translation Hints
       Standard   Some teens are not rebellious people.
 
    Implicit Quantifiers
+
       English    Grapes are vine fruits.
       Standard   All grapes are fruits that grow on vines.
 
@@ -302,6 +307,7 @@ Translation Hints
       Standard   Some bears are animals spotted in the next town over.
 
    Conditional Statements
+
       English    If it's a cat, then it's a mammal.
       Standard   All cats are mammals.
 
@@ -327,6 +333,7 @@ Translation Hints
       Standard   All glasses that fall to the ground are things that shatter.
 
    'only', 'the only', 'none but', 'none except', 'exclusively'
+
       English    Only teachers attended the meeting.
       Standard   All people who attended the meeting are teachers.
 
@@ -349,6 +356,7 @@ Translation Hints
       Standard   All pests who did all this damage are termites.
 
    'all but', 'all except', 'except'
+
       English    All but the immunocompromised ought receive the vaccine.
       Standard   All non-immunocompromised persons ought to receive the
                  vaccine and no immunocompromised persons are persons who
@@ -364,6 +372,7 @@ Translations from Aristotelian Logic
    Studying translations *from* AL can provide valuable insight.
 
    A Form Propositions
+
       The following are all ways to say, "All S are P."
          Every (each, any) S is P.
          Whoever is S is P.
@@ -381,6 +390,7 @@ Translations from Aristotelian Logic
          None but P's are S's.
 
    E Form Propositions
+
       The following are all ways to say, "No S are P."
          A's aren't B's.
          Every (each, any) A is non-B.
@@ -394,6 +404,7 @@ Translations from Aristotelian Logic
          It's false that some A is B.
 
    I Form Propositions
+
       The following are all ways to say, "Some S are P."
          S's are sometimes P's.
          One or more S's are P's.
@@ -401,6 +412,7 @@ Translations from Aristotelian Logic
          It's false that no S is P.
 
    O Form Propositions
+
       The following are all ways to say, "Some S are not P."
          One or more S's aren't P's.
          There are S's that aren't P's.
@@ -1649,7 +1661,7 @@ Standard Form Categorical Syllogism
    middle term in the two premises of the standard form categorical syllogism.
 
                         ========    ========    ========    ========
-                        Figure 1    Figure 2    Figure 3    Figure 4
+                        Figure-1    Figure-2    Figure-3    Figure-4
       =============     ========    ========    ========    ========
       Major Premise      M   P       P   M       M   P       P   M
                            \             |       |             /
@@ -1686,7 +1698,6 @@ Syllogistic Inference By Form
 
     The following nine forms are invalid under the modern interpretation
     but conditionally Valid under the traditional interpretation.
-    (Demarcated rows are significant)
 
       ========    ========    ========    ========    ============
       Figure-1    Figure-2    Figure-3    Figure-4    Condition
@@ -1739,6 +1750,24 @@ Reducing Terms
    1.  Eliminate synonyms
 
    2.  Eliminate complements
+
+Counterexamples
+===============
+
+   A counterexample is a device used to prove that an argument's conclusion
+   does not follow from the premises.  If you can't remember any other method
+   to deterine if an argument is valid you should remember counterexample.
+
+   A counterexample is constructed by replacing the terms of a categorical
+   argument with new terms which make the premisese all true but the
+   conclusion false.  If you can find such a case then the argument is
+   invalid.  But is the argument valid if you can't find a counterexample?
+   The danger in assuming it is lies in your creativity.  Your failure to
+   find a counterexample is not proof that one does not exist.
+
+   One common technique lies in using a reserved set of terms such as cat,
+   dog, mammal, vertebret, bird, and flies.  Form a counterexample use
+   these terms in place of the terms in the argument under examination.
 
 
 ---------------------

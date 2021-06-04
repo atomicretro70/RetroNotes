@@ -1,5 +1,5 @@
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
-
+0%
 Pascal's wager
    Either god exists or doesn't exit.            G ∨ -G
    If god exists and you believe he exists,      (G ∧ BG) → Happiness
@@ -13,7 +13,7 @@ Pascal's wager
    Therefore, it's better to assume god exists.  ???
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
-
+100%
 Definitional Ontological Argument
    Px,   x is a perfection
    Hxy,  x has property y
@@ -26,7 +26,7 @@ Definitional Ontological Argument
          SEP, Ontological Argument
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
-
+100%
 Modal Ontological Argument (From SEP, Ontological Argument)
    G,   god exists
 
@@ -41,7 +41,7 @@ Modal Ontological Argument (From SEP, Ontological Argument)
     we to conclude G from □ G)
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
-
+100%
          The following is really just an instance of the above.
 
 Modal Counter-Example (From SEP, Ontological Argument)
@@ -53,7 +53,7 @@ Modal Counter-Example (From SEP, Ontological Argument)
    Therefore god necessarilly doesn't exist      □ - G               DN
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
-
+100%
 Modal Counter-Example (From SEP, Ontological Argument)
    Either 2+2=5 or God exists.          Either 2+2=5 or God doesn't exist.
    Not 2+2=5                            Not 2+2=5
@@ -63,7 +63,7 @@ Modal Counter-Example (From SEP, Ontological Argument)
     pre-arranged to reach the desired conclusion).
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
-
+60%
 Kalam cosmological argument
        (From SEP, Ontological Argument;
         From Just the Arguments)
@@ -97,7 +97,7 @@ Kalam cosmological argument
     close to his intention.)
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
-
+100%
 The argument from morality
    If God does not exist objective moral         -G → -M             A
       values don't exist either.
@@ -105,7 +105,7 @@ The argument from morality
    /.  God exists.                               G                   MT
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
-
+90%
 The teleological argument
    Things in nature (or nature itself)
       are design-like
@@ -116,7 +116,7 @@ The teleological argument
 
    ∃ x(Nx ∧ Dx)           A
    ∀ x(Dx → -Pxn)         A
-   ∀ x(Pxd ↔ -Pxn)        Implicit Assumption
+   ∀ x(Pxd ↔ -Pxn)        A (Implicit)
    |[c]Nc ∧ Dc            H (for ∃ E)
    |   Dc → -Pcn          ∀ E
    |   Dc                 ∧ E
@@ -135,7 +135,7 @@ The teleological argument
    Pxd, x is produced by design
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
-
+100%
    The universe is orderly (like a watch         U                   A
       that follows complex laws).
    Most orderly things we've examined have       M                   A
@@ -156,15 +156,15 @@ The teleological argument
           Gensler, Exercise 7.1b problem #4
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
-
+0%
 Transcendental Argument
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
-
+0%
 Pragmatic argument
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
-
+100%
    The belief in God gives practical             ∀x(Bx → Px)         A
       life benefits.
    All beliefs that give practical life          ∀x(Px → Jx)         A
@@ -175,7 +175,7 @@ Pragmatic argument
      - William James, Gensler Exercise 2.3a problem #9
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
-
+0%
 The Problem of Evil
    Is God willing to prevent evil, but not able?       Technically this
       Then he is not omnipotent.                       isn't in the form
@@ -188,7 +188,7 @@ The Problem of Evil
        - Epicurus
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
-
+100%
 The Problem of Evil
    If God doesn't want to prevent evil,          -W → -G             A
       then he isn't all good.
@@ -201,18 +201,17 @@ The Problem of Evil
          Gensler, Exercise 7.1b problem # 5
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
-
+0%
    Free Will Defense (Alvin Plantinga)
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
-
+0%
    Euthyphro Dilemma
    Does God say things because they are good          Not an argument.
    Or are things Good because God says so?
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
-
-
+0%
 syllogistic
 
    The belief that there's a God is unnecessary to explain our experience.
@@ -221,7 +220,7 @@ syllogistic
         - Aquinas, Gensler Exercise 2.3a problem # 8
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
-
+100%
 Propositional
 
    If we had an absolute proof of God's          P → I               A
@@ -235,7 +234,7 @@ Propositional
         - Kant, Gensler 7.1b, problem # 2
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
-
+100%
    If Genesis gives the literal facts,           L → B               A
       then birds were created before humans
       (Genesis 1:20-26)
@@ -250,7 +249,7 @@ Propositional
           - Textual argument, Gensler 7.1b, problem #6
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
-
+100%
    If the world had a beginning in time and      (B ∧ -P) → C        A
       it didn't just pop into existence
       without any cause, then the world was
@@ -264,7 +263,7 @@ Propositional
            - J. L. Mackie, Gensler 7.1b, problem #8
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
-
+100%
    Closed systems tend toward greater entropy    G                   A
       (a more randomly uniform distribution of
       energy - 2nd law of thermodynamics).
@@ -283,7 +282,7 @@ Propositional
            - William Craig, James Moreland, Gensler 7.1b, problem #9
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
-
+100%
    If time stretches back infinitely,            I → -R              A
       then today wouldn't have beeen reached.
    If today wouldn't have been reached,          -R → -T             A
@@ -295,7 +294,7 @@ Propositional
              Gensler 7.1b, poroblem #10
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
-
+100%
 Fitch's Knowability Paradox
 
    It's known there are unknown things therefore all facts are known.
@@ -320,7 +319,7 @@ Fitch's Knowability Paradox
    is not known (line 7) doesn't mean it's unknowable.
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
-
+70%
    Just the Arguments, The First Way - Argument from Motion
 
 Mxy,   x moves y into some new state f.
