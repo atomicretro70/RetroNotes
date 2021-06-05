@@ -1438,10 +1438,11 @@ Direct Proofs
    A TWO-COLUMN PROOF is a formal proof laid out in a list-like fashion in
    two parallel columns such that the first column contains a line number
    (1, 2, 3, ...) followed by a proposition, the second column holds
-   a justification for writing that proposition.  The justification
-   is the name of an inference rule, preceded by citations.  The citations
-   are a set of any line numbers of the premises to which that rule was
-   applied.  All propositions in the formal proof take the form of wffs.
+   a justification for writing that proposition.  Most commonly the
+   justification is the name of an inference rule, preceded by citations.
+   The citations are a set of any line numbers of the premises to which
+   that rule was applied.  All propositions in the formal proof take the
+   form of wffs.
 
             P → (Q ∧ R), P  ⊢  Q
             Proof
@@ -1465,8 +1466,8 @@ Direct Proofs
 
    Usually, people abbreviate the names of the inference rules within a proof.
    Assumptions are abbreviated as 'A'.  For each truth-functional operator,
-   there are two inference rules: one called an 'introduction' rule, the other
-   called an 'elimination' rule; which are abbreviated 'I' and 'E'
+   there are two inference rules: one called an 'introduction rule', the other
+   called an 'elimination rule'; which are abbreviated 'I' and 'E'
    respectively.  The Conditional Elimination rule used above in step
    3 is abbreviated '→ E'.  Similarly, the Conjunction Elimination rule
    used in step 4 is abbreviated '∧E'.
@@ -1478,10 +1479,10 @@ Hypothetical Subordinate Proofs
 
    A HYPOTHETICAL SUBORDINATE PROOF or SUBPROOF is a proof nested within
    another proof.  It is analogous to nesting blocks of code in a computer
-   program, and similarly, subproofs can be nested to any depth.  Indent
-   subproof from the surrounding proof and draw a vertical line just to the
-   right of the wffs to signal that something is a subproof.  The first wff
-   of a subproof is called the HYPOTHESIS.
+   program, they can be nested to any depth.  Indent a subproof from the
+   surrounding proof and draw a vertical line just to the right of the wffs
+   to signal that something is a subproof.  The first wff of a subproof is
+   called the HYPOTHESIS.
 
             P → Q, -Q  ⊢  -P
             Proof
@@ -1494,7 +1495,7 @@ Hypothetical Subordinate Proofs
             QED
 
    In this example, the A's in the second column of steps 1 and 2 signal
-   that those wffs are assumptions.  Line 3 begins a subproof with the
+   that those wffs are assumptions.  Line 3 begins a subproof with a
    hypothesis (H).  The content of the parentheses communicates to the
    reader that the goal of this hypothetical proof is to reach a point where
    eventually -I (Negation Introduction) can operate on the hypothesis.
@@ -1635,7 +1636,8 @@ Other Justifications
    ================================  =========================================
    Name (Abbreviation)               Rule
    ================================  =========================================
-   Assumption (A)                    Introduce a premise at any step.
+   Assumption (A)                    Introduce a premise at any step of
+                                     the main proof.
 
    Hypothesis (H)                    Introduce a hypothesis at any step
                                      provided it begins a new subproof.
@@ -1659,12 +1661,12 @@ Other Justifications
       |   Φ   (Φ is a premise)        |   |   Φ   (Φ is a hypothesis) |
       |                               |                               |
       | ============================= | ============================= |
-      |  EQ (Equiv. Substitution)     |  Ax (Axiom)                   |
+      |  Ax (Axiom)                   |  EQ (Equiv. Substitution)     |
       | ============================= | ============================= |
-      |   [ Φ ↔ Ψ ]      [ Φ ↔ Ψ ]    |                               |
-      |   Θ(Φ)           Θ(Ψ)         |  ---                          |
-      |  -------------  ------------- |   Φ   (Φ is an axiom)         |
-      |   Θ(Ψ/Φ)         Θ(Φ/Ψ)       |                               |
+      |                               |   [ Φ ↔ Ψ ]      [ Φ ↔ Ψ ]    |
+      |  ---                          |   Θ(Φ)           Θ(Ψ)         |
+      |   Φ   (Φ is an axiom)         |  -------------  ------------- |
+      |                               |   Θ(Ψ/Φ)         Θ(Φ/Ψ)       |
       |                               |                               |
       +-------------------------------+-------------------------------+
 
