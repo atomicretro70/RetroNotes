@@ -3897,6 +3897,13 @@ Primitive Inference Rules & Other Justifications
    Hypothesis (H)                    Introduce a hypothesis at any step
                                      provided it begins a new subproof.
 
+   Axiom (Ax)                        Introduce an axiom at any step.
+
+   Definition Substitution (DEF)     From [ Φ =df Ψ ], Θ(Φ), infer Θ(Ψ/Φ);
+                                     and [ Φ =df Ψ ], Θ(Ψ), infer Θ(Φ/Ψ).
+
+   --------------------------------  -----------------------------------------
+
    Negation Elimination (-E)         From --Φ, infer Φ.
 
    Negation Introduction (-I)        From a subproof with hypothesis Φ
@@ -3930,15 +3937,6 @@ Primitive Inference Rules & Other Justifications
 
    --------------------------------  -----------------------------------------
 
-   Equivalence Substitution (EQ)     From [ Φ ↔ Ψ ], and Θ(Φ), infer Θ(Ψ/Φ);
-                                     or from [ Φ ↔ Ψ ] and Θ(Ψ),
-                                     infer Θ(Φ/Ψ).
-
-   Definition Substitution (DEF)     From [ Φ =df Ψ ], Θ(Φ), infer Θ(Ψ/Φ);
-                                     and [ Φ =df Ψ ], Θ(Ψ), infer Θ(Φ/Ψ).
-
-   --------------------------------  -----------------------------------------
-
    Universal Elimination (∀E)        From ∀xP infer P(α//x);
                                      where α is any constant object.
 
@@ -3962,9 +3960,12 @@ Primitive Inference Rules & Other Justifications
 
    --------------------------------  -----------------------------------------
 
+   Equivalence Substitution (EQ)     From [ Φ ↔ Ψ ], and Θ(Φ), infer Θ(Ψ/Φ);
+                                     or from [ Φ ↔ Ψ ] and Θ(Ψ),
+                                     infer Θ(Φ/Ψ).
+
    Mathematical Induction (MInd)     from P0 and ∀x(Px → Psx), infer ∀xPx
 
-   Axiom (Ax)                        Introduce an axiom at any step.
    ================================  =========================================
 
       +-------------------------------+-------------------------------+
@@ -3975,6 +3976,15 @@ Primitive Inference Rules & Other Justifications
       |  ---                          |  -------                      |
       |   Φ   (Φ is a premise)        |   |   Φ   (Φ is a hypothesis) |
       |                               |                               |
+      | ============================= | ============================= |
+      |  Axiom (Ax)                   |  Definition (DEF)             |
+      | ============================= | ============================= |
+      |                               |  [ Φ =df Ψ ]    [ Φ =df Ψ ]   |
+      |  ---                          |  Θ(Φ)           Θ(Ψ)          |
+      |   Φ   (Φ is an axiom)         | -------------  -------------  |
+      |                               |  Θ(Ψ/Φ)         Θ(Φ/Ψ)        |
+      |                               |                               |
+      +-------------------------------+-------------------------------+
       | ============================= | ============================= |
       |  Negation Elim (-E)           |  Negation Intro (-I)          |
       | ============================= | ============================= |
@@ -4018,15 +4028,7 @@ Primitive Inference Rules & Other Justifications
       |   Φ → Ψ      Ψ → Φ            |  ---------  ---------         |
       |                               |   Φ ↔ Ψ      Ψ ↔ Φ            |
       |                               |                               |
-      | ============================= | ============================= |
-      |  Equivalence Subst (EQ)       |  Definition (DEF)             |
-      | ============================= | ============================= |
-      |   [ Φ ↔ Ψ ]      [ Φ ↔ Ψ ]    |  [ Φ =df Ψ ]    [ Φ =df Ψ ]   |
-      |   Θ(Φ)           Θ(Ψ)         |  Θ(Φ)           Θ(Ψ)          |
-      |  -------------  ------------- | -------------  -------------  |
-      |   Θ(Ψ/Φ)         Θ(Φ/Ψ)       |  Θ(Ψ/Φ)         Θ(Φ/Ψ)        |
-      |                               |                               |
-      |                               |                               |
+      +-------------------------------+-------------------------------+
       | ============================= | ============================= |
       |  Universal Elim (∀E)          |  Universal Intro (∀I)         |
       | ============================= | ============================= |
@@ -4046,6 +4048,7 @@ Primitive Inference Rules & Other Justifications
       |  ---------------              |                               |
       |   Ψ                           |                               |
       |                               |                               |
+      +-------------------------------+-------------------------------+
       | ============================= | ============================= |
       |  Identity Elim (=E)           |  Identity Intro (=I)          |
       | ============================= | ============================= |
@@ -4054,13 +4057,14 @@ Primitive Inference Rules & Other Justifications
       |  --------   --------          |   α=α     α is any constant   |
       |   Φ(β/α)     Φ(β/α)           |                               |
       |                               |                               |
+      +-------------------------------+-------------------------------+
       | ============================= | ============================= |
-      |  Mathematical Induct (MInd)   |  Axiom (Ax)                   |
+      |  Equivalence Subst (EQ)       |  Mathematical Induct (MInd)   |
       | ============================= | ============================= |
-      |   P0                          |                               |
-      |   ∀x(Px → Psx)                |  ---                          |
-      |  ---------------              |   Φ       (Φ is an axiom)     |
-      |   ∀xPx                        |                               |
+      |   [ Ψ ↔ Θ ]  [ Ψ ↔ Θ ]        |   P0                          |
+      |   Φ(Ψ)       Φ(Θ)             |   ∀x(Px → Psx)                |
+      |  ---------- -----------       |  --------------               |
+      |   Φ(Θ/Ψ )    Φ(Ψ/Θ )          |   ∀xPx                        |
       |                               |                               |
       +-------------------------------+-------------------------------+
 
