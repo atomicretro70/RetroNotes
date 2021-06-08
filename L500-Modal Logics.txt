@@ -240,11 +240,6 @@ Primitive Inference Rules
    ================================  =========================================
    Name/Alternate Names              Rule
    ================================  =========================================
-   Assumption (A)                    Introduce a premise at any step.
-
-   Hypothesis (H)                    Introduce a hypothesis at any step
-                                     provided it begins a new subproof.
-
    Conditional Elimination (→ E)     From Φ → Ψ and Φ, infer Ψ; all within
       Modus Ponens (MP)              the same subproof.
 
@@ -260,8 +255,6 @@ Primitive Inference Rules
 
    Equivalence Substitution (EQ)     From [ Φ ↔ Ψ ], and Θ(Φ), infer Θ(Ψ/Φ);
                                      or from [ Φ ↔ Ψ ] and Θ(Ψ), infer Θ(Φ/Ψ).
-
-   Axiom (Ax)                        Introduce an axiom at any step.
    ================================  =========================================
 
    Note: Apart from RE we can only appeal to lines in the current subproof.
@@ -271,13 +264,6 @@ Primitive Inference Rules
    multiple forms.
 
       +-------------------------------+-------------------------------+
-      | ============================= | ============================= |
-      |  A                            |  H                            |
-      | ============================= | ============================= |
-      |                               |                               |
-      |  ---                          |  -------                      |
-      |   Φ   (Φ is a premise)        |   |   Φ   (Φ is a hypothesis) |
-      |                               |                               |
       | ============================= | ============================= |
       |  → E                          |  → I                          |
       | ============================= | ============================= |
@@ -300,11 +286,11 @@ Primitive Inference Rules
       |                               |  subproof)  subproof)         |
       |                               |                               |
       | ============================= | ============================= |
-      |  EQ (Equiv. Substitution)     |  Ax                           |
+      |  EQ (Equiv. Substitution)     |                               |
       | ============================= | ============================= |
       |   [ Φ ↔ Ψ ]    [ Φ ↔ Ψ ]      |                               |
-      |   Θ( Φ )       Θ( Ψ )         |  ---                          |
-      |  -----------  -----------     |   Φ   (Φ is an axiom)         |
+      |   Θ( Φ )       Θ( Ψ )         |                               |
+      |  -----------  -----------     |                               |
       |   Θ(Ψ/Φ)       Θ(Φ/Ψ)         |                               |
       |                               |                               |
       +-------------------------------+-------------------------------+
@@ -322,6 +308,13 @@ Other Justifications
    ================================  =========================================
    Name (Abbreviation)               Rule
    ================================  =========================================
+   Assumption (A)                    Introduce a premise at any step.
+
+   Hypothesis (H)                    Introduce a hypothesis at any step
+                                     provided it begins a new subproof.
+
+   Axiom (Ax)                        Introduce an axiom at any step.
+
    Definition Substitution (DEF)     From [ Φ =df Ψ ], Θ(Φ), infer Θ(Ψ/Φ);
                                      and from [ Φ =df Ψ ], Θ(Ψ), infer Θ(Φ/Ψ).
    ================================  =========================================
@@ -329,6 +322,24 @@ Other Justifications
    Notice that in the rules the definition is in brackets '[' and ']'.
    Brackets indicate that the definition needs to exist but doesn't need
    to appear in the proof to be applied.
+
+      +-------------------------------+-------------------------------+
+      | ============================= | ============================= |
+      |  A                            |  H                            |
+      | ============================= | ============================= |
+      |                               |                               |
+      |  ---                          |  -------                      |
+      |   Φ   (Φ is a premise)        |   |   Φ   (Φ is a hypothesis) |
+      |                               |                               |
+      | ============================= | ============================= |
+      |  Ax                           |  Def                          |
+      | ============================= | ============================= |
+      |                               |  [ Φ =df Ψ ]    [ Φ =df Ψ ]   |
+      |  ---                          |  Θ(Φ)           Θ(Ψ)          |
+      |   Φ   (Φ is an axiom)         | -------------  -------------  |
+      |                               |  Θ(Ψ/Φ)         Θ(Φ/Ψ)        |
+      |                               |                               |
+      +-------------------------------+-------------------------------+
 
 Derived Inference Rules
 =======================
