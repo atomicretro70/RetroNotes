@@ -415,7 +415,7 @@ The Probability Axioms
       Mutually exclusive means that under no conditions can both
       A and B occur.
 
-Important Theorems
+Important Probability Theorems
 
    PTH03.   P(-A) = 1 - P(A)
 
