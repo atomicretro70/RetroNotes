@@ -285,9 +285,9 @@ Primitive Inference Rules
       |                               |  same       nested            |
       |                               |  subproof)  subproof)         |
       |                               |                               |
-      | ============================= | ============================= |
+      | ============================= |                               |
       |  EQ (Equiv. Substitution)     |                               |
-      | ============================= | ============================= |
+      | ============================= |                               |
       |   [ Φ ↔ Ψ ]    [ Φ ↔ Ψ ]      |                               |
       |   Θ( Φ )       Θ( Ψ )         |                               |
       |  -----------  -----------     |                               |
@@ -308,7 +308,8 @@ Other Justifications
    ================================  =========================================
    Name (Abbreviation)               Rule
    ================================  =========================================
-   Assumption (A)                    Introduce a premise at any step.
+   Assumption (A)                    Introduce a premise at any step of
+                                     the main proof.
 
    Hypothesis (H)                    Introduce a hypothesis at any step
                                      provided it begins a new subproof.
@@ -321,7 +322,7 @@ Other Justifications
 
    Notice that in the rules the definition is in brackets '[' and ']'.
    Brackets indicate that the definition needs to exist but doesn't need
-   to appear in the proof to be applied.
+   to appear in the proof.
 
       +-------------------------------+-------------------------------+
       | ============================= | ============================= |
@@ -332,7 +333,7 @@ Other Justifications
       |   Φ   (Φ is a premise)        |   |   Φ   (Φ is a hypothesis) |
       |                               |                               |
       | ============================= | ============================= |
-      |  Ax                           |  Def                          |
+      |  Ax                           |  DEF                          |
       | ============================= | ============================= |
       |                               |  [ Φ =df Ψ ]    [ Φ =df Ψ ]   |
       |  ---                          |  Θ(Φ)           Θ(Ψ)          |
