@@ -81,8 +81,8 @@ History
 
    Logic has a very long history.  The ancient Greek philosopher Aristotle
    (384 - 322 BCE) who lived in Athens, gave us the first formal logical
-   system today called Categorical Logic.  His logic is complete, it proves
-   everything that it can within the bounds of the logic; and it's sound,
+   system today called Categorical Logic.  His logic is COMPLETE, it proves
+   everything that it can within the bounds of the logic; and it's SOUND,
    if used properly it can't be coerced to prove something that doesn't
    logically follow from the evidence provided.  The down side is that
    Aristotle's logic is very limited in what it can say or prove.
@@ -96,8 +96,8 @@ History
 
    Aristotelian logic reigned supreme for over two thousand years.  Over the
    centuries there were many commentaries, organizational and pedagogical
-   modifications, even advances in study of the logic's semantics but it
-   remained the same limited logic.  There were other advances in logic
+   modifications, even advances the in study of the logic's semantics but it
+   always remained the same limited logic.  There were other advances in logic
    outside of Aristotelian logic but they were limited; never producing fully
    developed logical systems.
 
@@ -110,13 +110,13 @@ History
 
    Next came Friedrich Ludwig Gottlob Frege (1848 - 1925).  In 1879
    Frege published his *Begriffsschrift* in which he made the important
-   advancement of a unified theory of logic joining Aristotle's and
+   advancement by creating a unified theory of logic joining Aristotle's and
    Boole's systems.
 
-   Frege's logic was a revolutionary advancement in logic, but it has
+   Frege's logic was an important advancement in logic, but it has
    major issues.  The problem stems from the fact that Frege allowed
    self-reference.  While this gives the logic considerable expressive
-   power, it also makes the logic is unsound.  Bertrand Russell (1872
+   power, it also makes the logic unsound.  Bertrand Russell (1872
    - 1970) exposed the problem within Frege's logic, by expressing
    the problem as a paradox: the set of all sets that do not contain
    themselves.  So, does the set contain itself or not?  The answer
@@ -124,7 +124,7 @@ History
    Aristotle's and Boole's definition of a proposition.
 
    In 1903 Russell, along with Alfred North Whitehead published the first
-   book of his *The Principles of Mathematics*, in which he outlined a
+   volume of his *The Principles of Mathematics*, in which he outlined a
    repaired but more limited variation of Frege's logic.  The primary change
    Russell made was to disallow self-reference.  Russell also replaced
    Frege's notation with something less cumbersome.  Importantly it's
@@ -132,32 +132,34 @@ History
    sound and complete, meaning for any set of data put into the logic one
    can derive all and only valid conclusions.  Today Russell's is the
    logic most commonly studied in introductory logic courses (with a slightly
-   simplified notation), it's often called Classical Logic, and it's the
-   subject of this book.
+   simplified notation).
 
 
 =========
 Arguments
 =========
 
+   An ARGUMENT is a form of discourse intended to convince an audience of
+   some claim they currently don't know or accept.
+
 
 --------------
 Identification
 --------------
 
-LOGIC
+Logic
 =====
 
-   The science that studies and evaluates arguments.
+   LOGIC is the science that studies and evaluates arguments.
 
 
 Proposition
 ===========
 
    Arguments are composed of propositions.  A PROPOSITION is the concept that
-   a true/false statement denotes.  Many different statements can denote the
-   same propositions.  Every proposition is either true or false, but never
-   both or neither.
+   a true/false statement denotes.  So, many different statements can denote
+   the same propositions.  Every proposition is either true or false, but
+   never both nor neither.
 
       Examples
 
@@ -176,11 +178,11 @@ Proposition
       Tiu estas mia patro.                                         Yes
       ===========================================================  ===========
 
-   The final three examples all express the same proposition.
+   Notice that the final three examples all express the same proposition.
 
    In mathematics we assign values as numbers.  There are an infinite number
-   of values or numbers we can use.  In logic we assign values of truth
-   to propositions.  Since we're dealing with deduction we only have two
+   of values or numbers from which to choose.  In logic we assign values of
+   truth to propositions.  Since we're dealing with deduction we only have two
    possible values: true and false, which we call TRUTH-VALUES.
 
 Argument
@@ -201,14 +203,17 @@ Argument
          Alice is A.                    ∴ Bob voted or Cheryl voted.
        ∴ Alice probably isn't B.
 
+         Nobody can help.
+       ∴ You must do it yourself.
+
       Example Non-Arguments
 
          If she goes to the spa then      With what sense do you detect
          she will be able to relax.       the presence of her spirit?
 
-         It may be that all gays are      The balloon expanded because
-         born gay.  But it's not yet      the heated air molecules are
-         known to be a fact.              moving fast.
+         Ouch! That pinched.              The balloon expanded because
+                                          the heated air molecules are
+                                          moving fast.
 
    Inference
 
@@ -288,7 +293,7 @@ Kinds of Discourse
 
          I believe in the first amendment.
 
-         We believe X the greatest TV show ever created.
+         We believe X is the greatest TV show ever created.
 
       Loosely Associated Statements
 
@@ -414,8 +419,8 @@ Representation
          Example
 
          If it rains, then the ground will get wet.        (Informal)
-         It rained
-       ∴ The ground got wet.
+         It's raining
+       ∴ The ground is wet.
 
          If the bike chain is rusty then it needs oil.     (Informal)
          The chain is rusty.
@@ -447,7 +452,7 @@ Inferential Method
 
    Abduction
 
-   Another term of ABDUCTION is reasoning to the best explanation.
+   Another term for ABDUCTION is reasoning to the best explanation.
    Abdunctions aren't true arguments.
 
    Reduction
@@ -464,7 +469,7 @@ Assessment
    reasoning errors, or missing premises.
 
    A VALID ARGUMENT is a deductive argument which is genuinely deductive in
-   the sense defined above.  i.e it has no reasoning errors.
+   the sense defined above, i.e. it has no reasoning errors.
 
          Examples of Valid Arguments
 
@@ -484,7 +489,7 @@ Assessment
    i.e. it has no reasoning errors.
 
    A STRONG ARGUMENT is an inductive argument which is genuinely inductive
-   in the sense defined above.
+   in the sense defined above, i.e. it has no reasoning errors.
 
    A COGENT ARGUMENT is a strong argument with all true premises.
 
@@ -651,20 +656,22 @@ Kinds of Propositions
 
          Mars is the fourth planet from the sun.
 
-   SYNTHETIC
-
-      A statement whose denial is self contradictory.
-
-         Example
-
-         All bachelors are unmarried men.
-
    ANALYTIC
+
+      A statement whose denial is self-contradictory.
 
          Examples
 
-         It's raining.
+         all bachelors are unmarried
 
+
+   SYNTHETIC
+
+      A statement that's neither analytic nor self-contradictory.
+
+         Example
+
+         Jim is a bachelor.
 
 ===========
 Definitions
@@ -830,10 +837,6 @@ Intensional Meaning
       the word's ancestry in both its own language and other languages.
 
          Example
-      A ETYMOLOGICAL DEFINITION assigns a meaning to a word by disclosing
-      the word's ancestry in both its own language and other languages.
-
-         Example
 
          'license' is derived from the Latin verb licere, which means
          to be permitted.
@@ -863,6 +866,9 @@ Intensional Meaning
       called the GENUS or CLASS, while the DIFFERENCE part involves
       expressing how the subject differs from other members of the genus.
 
+         Example
+
+         A bird is a vertebret covered in feathers.
 
 -------------------------
 Assessment of Definitions
@@ -873,7 +879,7 @@ Interchange Test
 
    The simplest assessment one can perform on a definition is to test whether
    or not an occurrence of the definiendum can be swapped out for the
-   definiens, or vice versa.  An ideal definitions is such that each side
+   definiens, or vice versa.  An ideal definition is such that each side
    of the definition is a drop-in replacement for the other.
 
 Requirements (For Acceptability)
