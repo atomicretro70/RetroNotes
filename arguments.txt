@@ -13,6 +13,27 @@ Pascal's wager
    Therefore, it's better to assume god exists.  ???
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+0%
+Transcendental Argument
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+0%
+Pragmatic argument
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
+100%
+syllogistic
+
+   The belief that there's a God is unnecessary to explain our experience.
+   All beliefs unnecessary to explain our experience ought to be rejected.
+   /. The belief that there's a God ought to be rejeced.
+        - Aquinas, Gensler Exercise 2.3a problem # 8
+
+   g are U
+   all U are R
+   /. g are R
+
+....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
 100%
 Definitional Ontological Argument
    Px,   x is a perfection
@@ -156,14 +177,6 @@ The teleological argument
           Gensler, Exercise 7.1b problem #4
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
-0%
-Transcendental Argument
-
-....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
-0%
-Pragmatic argument
-
-....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
 100%
    The belief in God gives practical             ∀x(Bx → Px)         A
       life benefits.
@@ -209,15 +222,6 @@ The Problem of Evil
    Euthyphro Dilemma
    Does God say things because they are good          Not an argument.
    Or are things Good because God says so?
-
-....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
-0%
-syllogistic
-
-   The belief that there's a God is unnecessary to explain our experience.
-   All beliefs unnecessary to explain our experience ought to be rejected.
-   /. The belief that there's a God ought to be rejeced.
-        - Aquinas, Gensler Exercise 2.3a problem # 8
 
 ....|....1....|....2....|....3....|....4....|....5....|....6....|....7....|...
 100%

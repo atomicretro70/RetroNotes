@@ -11,16 +11,15 @@ ITCosts.txt.bk~
 L100-Arguments & Language.txt.bk~
 .L100-Arguments & Language.txt.swp
 .L100-Arguments & Language.txt.un~
-L200-Inductive Logics.txt.bk~
-.L200-Inductive Logics.txt.swp
-.L200-Inductive Logics.txt.un~
-L300-Aristotelian Logics.txt.bk~
-.L300-Aristotelian Logics.txt.swp
-.L300-Aristotelian Logics.txt.un~
-L400-Classical Logics.txt.bk~
-.L400-Classical Logics.txt.swp
-.L400-Classical Logics.txt.un~
-L400-Classical Logics.jutohbak
+L200-Aristotelian Logics.txt.bk~
+.L200-Aristotelian Logics.txt.swp
+.L200-Aristotelian Logics.txt.un~
+L300-Classical Logics.txt.bk~
+.L300-Classical Logics.txt.swp
+.L300-Classical Logics.txt.un~
+L400-Inductive Logics.txt.bk~
+.L400-Inductive Logics.txt.swp
+.L400-Inductive Logics.txt.un~
 L500-Modal Logics.txt.bk~
 .L500-Modal Logics.txt.swp
 .L500-Modal Logics.txt.un~
@@ -36,12 +35,12 @@ L600-Non-Classical Logics.txt.bk~
 L700-Metalogic.txt.bk~
 .L700-Metalogic.txt.swp
 .L700-Metalogic.txt.un~
-L900-Fallacies & Cognitive Biases.txt.bk~
-.L900-Fallacies & Cognitive Biases.txt.swp
-.L900-Fallacies & Cognitive Biases.txt.un~
-L999-Back Material.txt.bk~
-.L999-Back Material.txt.swp
-.L999-Back Material.txt.un~
+L800-Fallacies & Cognitive Biases.txt.bk~
+.L800-Fallacies & Cognitive Biases.txt.swp
+.L800-Fallacies & Cognitive Biases.txt.un~
+L900-Back Material.txt.bk~
+.L900-Back Material.txt.swp
+.L900-Back Material.txt.un~
 LinuxCmdRef.txt.bk~
 .LinuxCmdRef.txt.swp
 .LinuxCmdRef.txt.un~
