@@ -180,7 +180,7 @@ Preliminary Definitions
    VALID ARGUMENT
 
       a deductive argument which is genuinely deductive in the sense
-      defined above.
+      defined above. I.e. the argument has no reasoning errors.
 
    SOUND ARGUMENT
 
@@ -1172,10 +1172,10 @@ Truth-Trees
    Decidability
 
    If there is an algorithm for determining whether an argument form
-   expressible in a propositional logic is valid, then that system is
-   DECIDABLE.  Truth-tables and fast truth-tables both constitute such
-   algorithms.  Therefore, the logic is decidable.  However, those methods
-   can become impractical when the set of proposition symbols starts to grow.
+   expressible in a propositional logic (PL) is valid, then PL is DECIDABLE.
+   Truth-tables and fast truth-tables both constitute such algorithms.
+   Therefore, the logic is decidable.  However, those methods can become
+   impractical when the set of proposition symbols starts to grow.
    Truth-trees provide a more efficient algorithm for performing the same
    tasks.
 
@@ -3586,14 +3586,13 @@ Formal Theories
    a conjecture, and promoted it to an axiom of his theory of relativity.
 
 
-================
+----------------
 Example Theories
-================
+----------------
 
 
----------------------
 Theory of Taller-Than
----------------------
+=====================
 
    Predicates
 
@@ -3606,7 +3605,6 @@ Theory of Taller-Than
          Ax3.  ∀x∀y(Txy → ∃z(Txz ∧ Tzy))         T is Dense
 
 
-=================
 Formal Arithmetic
 =================
 
@@ -3628,7 +3626,7 @@ negative integers).
          A6.   ∀x∀y(x*sy)=((x*y)+x)
 
    Mathematical Induction Axiom
-      MI.   ∀P((P0 ∧ ∀x(Px → Psx)) → ∀xPx)
+         MI.   ∀P((P0 ∧ ∀x(Px → Psx)) → ∀xPx)
 
 
 ================================================

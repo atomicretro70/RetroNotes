@@ -469,7 +469,7 @@ Assessment
    reasoning errors, or missing premises.
 
    A VALID ARGUMENT is a deductive argument which is genuinely deductive in
-   the sense defined above, i.e. it has no reasoning errors.
+   the sense defined above, i.e. the argument has no reasoning errors.
 
          Examples of Valid Arguments
 

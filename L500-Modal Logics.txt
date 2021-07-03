@@ -1121,7 +1121,7 @@ System K
    the necessitation rule follow naturally as theorems.
 
    ================================  =========================================
-   Name/Alternate Names              Rule   
+   Name                              Rule   
    ================================  =========================================
    Hypothesis (H for □ I)            Introduce a hypothesis at any step
                                      provided it begins a new subproof.  The
@@ -1459,7 +1459,7 @@ System K
    Truth-Functional Calculus, must occur entirely within a single world index.
 
    ================================  =========================================
-   Name/Alternate Names              Rule   
+   Name                              Rule   
    ================================  =========================================
    Reiterate (RE)                    Repeat any open formula - no restrictions
 
